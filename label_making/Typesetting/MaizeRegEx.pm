@@ -112,7 +112,7 @@ our @EXPORT = qw($palm_re
 #
 $palm_re = qr/(zeta|eta|theta)/;
 $camera_re = qr/aleph|bet|gimmel|dalet/;
-$ipad_re = qr/anuenue|eheu/;
+$ipad_re = qr/anuenue|eheu|fon/;
 # $image_re = qr/\d{4}/;
 $image_re = qr/\d{1,4}/;
 $abs_leaf_num_re = qr/\d{0,2}|unk/;
@@ -246,24 +246,29 @@ $notes_re = qr/[\w\s\,\;\:\.\/\?\!\-\_]*/;
 
 # inventory
 
+# added capitals to compensate for numbers up-casing
+# the first letter
+#
+# Kazic, 15.5.2018
+
 $file_stem_re  = qr/[\w\_\s]+/;
 $ext_re  = qr/\.\w{3}/;
 $rowplant_re  = qr/\d{6}/;
 $rest_re  = qr/[\"\:\w\s\-\?\,\/]+/;
-$sleeve_re  = qr/v\d{5}/;
-$sleeve_bag_re  = qr/[av]\d{5}/;
-$locatn_re  = qr/[avx]*\d{0,5}/;
-$box_re  = qr/x\d{5}/;
-$pure_packet_re  = qr/p\d{5}/;
-$packet_re  = qr/[pt]\d{5}/;
-$packet_num_re  = qr/p?\d{1,5}/;
-$bag_re  = qr/a\d{5}/;
-$pot_re  = qr/t\d{5}/;
+$sleeve_re  = qr/[vV]\d{5}/;
+$sleeve_bag_re  = qr/[avAV]\d{5}/;
+$locatn_re  = qr/[avxAVX]*\d{0,5}/;
+$box_re  = qr/[xX]\d{5}/;
+$pure_packet_re  = qr/[pP]\d{5}/;
+$packet_re  = qr/[ptPT]\d{5}/;
+$packet_num_re  = qr/[pP]?\d{1,5}/;
+$bag_re  = qr/[aA]\d{5}/;
+$pot_re  = qr/[tT]\d{5}/;
 $sample_re  = qr/[eE]\d{5}/;
 $plain_row_re  = qr/\d+/;
 $min_row_re  = qr/\d{3}/;
 $padded_row_re  = qr/\d{5}/;
-$row_re  = qr/r\d{5}/;
+$row_re  = qr/[rR]\d{5}/;
 $cl_re = qr/\d{0,3}/;
 $word_cl_re = qr/(whole|three_quarter|half|quarter|eighth|sixteenth)/;
 $fuzzy_cl_re = qr/[a-z\_]*/;

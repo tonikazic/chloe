@@ -90,7 +90,7 @@ my $num_cutting = $ARGV[2];
 
 
 # $input_stem = "replacemt_rows";
-my $input_stem = "18r_more_row_stakes.csv";
+my $input_stem = "18r_still_more_stakes.csv";
 my $input_file = $input_dir . $input_stem;
 
 my @labels_needed;
@@ -105,13 +105,11 @@ my $output = $output_dir . $file_stem . $tex_suffix;
 open my $in, '<', $input_file or die "can't open $input_file\n";
 
 
-# this is pretty dangerous --- write a regular expression next time
-#
-# Kazic, 15.5.2018
 
 while (<$in>) {
-        chomp($_);
-        push(@labels_needed,$_);
+        my ($row) = $_ =~ /[rR]?0{0,4}(\d{1,4}),?/;
+#        print "r: $row\n";
+        push(@labels_needed,$row);
         }
 
 
