@@ -1,0 +1,180 @@
+This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=pdflatex 2008.2.17)  27 APR 2008 06:11
+entering extended mode
+ %&-line parsing enabled.
+**counting_pan_inserts
+(./counting_pan_inserts.tex
+LaTeX2e <2005/12/01>
+Babel <v3.8h> and hyphenation patterns for english, usenglishmax, dumylang, noh
+yphenation, basque, german, ngerman, danish, spanish, catalan, galician, finnis
+h, french, greek, monogreek, ancientgreek, croatian, ibycus, italian, latin, du
+tch, norsk, swedish, ukenglish, loaded.
+(/opt/local/texlive/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2005/09/16 v1.4f Standard LaTeX document class
+(/opt/local/texlive/texmf-dist/tex/latex/base/size12.clo
+File: size12.clo 2005/09/16 v1.4f Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@section=\count80
+\c@subsection=\count81
+\c@subsubsection=\count82
+\c@paragraph=\count83
+\c@subparagraph=\count84
+\c@figure=\count85
+\c@table=\count86
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+(/opt/local/texlive/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2006/02/20 v1.0o Standard LaTeX Graphics (DPC,SPQR)
+
+(/opt/local/texlive/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+)
+(/opt/local/texlive/texmf/tex/latex/config/graphics.cfg
+File: graphics.cfg 2007/01/18 v1.5 graphics configuration of teTeX/TeXLive
+)
+Package graphics Info: Driver file: pdftex.def on input line 90.
+
+(/opt/local/texlive/texmf-dist/tex/latex/pdftex-def/pdftex.def
+File: pdftex.def 2007/01/08 v0.04d Graphics/color for pdfTeX
+\Gread@gobject=\count87
+))
+(/opt/local/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/opt/local/texlive/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
+\KV@toks@=\toks14
+)
+\Gin@req@height=\dimen103
+\Gin@req@width=\dimen104
+)
+(/opt/local/texlive/texmf-dist/tex/latex/base/graphpap.sty
+Package: graphpap 1994/08/09 v1.0c Standard LaTeX graphpap package (LL)
+)
+(/opt/local/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2000/07/18 v2.13 AMS math features
+\@mathmargin=\skip43
+
+For additional information on amsmath, use the `?' option.
+(/opt/local/texlive/texmf-dist/tex/latex/amsmath/amstext.sty
+Package: amstext 2000/06/29 v2.01
+
+(/opt/local/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0
+\@emptytoks=\toks15
+\ex@=\dimen105
+))
+(/opt/local/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d
+\pmbraise@=\dimen106
+)
+(/opt/local/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty
+Package: amsopn 1999/12/14 v2.01 operator names
+)
+\inf@bad=\count88
+LaTeX Info: Redefining \frac on input line 211.
+\uproot@=\count89
+\leftroot@=\count90
+LaTeX Info: Redefining \overline on input line 307.
+\classnum@=\count91
+\DOTSCASE@=\count92
+LaTeX Info: Redefining \ldots on input line 379.
+LaTeX Info: Redefining \dots on input line 382.
+LaTeX Info: Redefining \cdots on input line 467.
+\Mathstrutbox@=\box26
+\strutbox@=\box27
+\big@size=\dimen107
+LaTeX Font Info:    Redeclaring font encoding OML on input line 567.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 568.
+\macc@depth=\count93
+\c@MaxMatrixCols=\count94
+\dotsspace@=\muskip10
+\c@parentequation=\count95
+\dspbrk@lvl=\count96
+\tag@help=\toks16
+\row@=\count97
+\column@=\count98
+\maxfields@=\count99
+\andhelp@=\toks17
+\eqnshift@=\dimen108
+\alignsep@=\dimen109
+\tagshift@=\dimen110
+\tagwidth@=\dimen111
+\totwidth@=\dimen112
+\lineht@=\dimen113
+\@envbody=\toks18
+\multlinegap=\skip44
+\multlinetaggap=\skip45
+\mathdisplay@stack=\toks19
+LaTeX Info: Redefining \[ on input line 2666.
+LaTeX Info: Redefining \] on input line 2667.
+)
+(/opt/local/texlive/texmf-dist/tex/latex/multirow/multirow.sty
+\bigstrutjot=\dimen114
+)
+(/opt/local/texlive/texmf-dist/tex/latex/tonis/barcode_margins.sty)
+(./counting_pan_inserts.aux)
+\openout1 = `counting_pan_inserts.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+
+(/opt/local/texlive/texmf-dist/tex/context/base/supp-pdf.tex
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count100
+\scratchdimen=\dimen115
+\scratchbox=\box28
+\nofMPsegments=\count101
+\nofMParguments=\count102
+\MPscratchCnt=\count103
+\MPscratchDim=\dimen116
+\MPnumerator=\count104
+\everyMPtoPDFconversion=\toks20
+)
+Overfull \hbox (17.62177pt too wide) in paragraph at lines 18--19
+[][] 
+ []
+
+
+Overfull \hbox (17.62177pt too wide) in paragraph at lines 30--31
+[][] 
+ []
+
+[1
+
+{/opt/local/texlive/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+Overfull \hbox (17.62177pt too wide) in paragraph at lines 42--43
+[][] 
+ []
+
+[2] [3] (./counting_pan_inserts.aux) ) 
+Here is how much of TeX's memory you used:
+ 1477 strings out of 94763
+ 18160 string characters out of 1176238
+ 80699 words of memory out of 1500000
+ 4723 multiletter control sequences out of 10000+50000
+ 3938 words of font info for 15 fonts, out of 1200000 for 2000
+ 205 hyphenation exceptions out of 8191
+ 27i,9n,24p,240b,138s stack positions out of 5000i,500n,6000p,200000b,5000s
+</opt/local/texlive/texmf-dist/fonts/type
+1/bluesky/cm/cmr12.pfb></opt/local/texlive/texmf-dist/fonts/type1/bluesky/latex
+-fonts/lcircle1.pfb></opt/local/texlive/texmf-dist/fonts/type1/bluesky/latex-fo
+nts/line10.pfb>
+Output written on counting_pan_inserts.pdf (3 pages, 11325 bytes).
+PDF statistics:
+ 24 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 131072)
+ 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+

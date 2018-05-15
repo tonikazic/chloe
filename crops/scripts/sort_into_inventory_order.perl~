@@ -1,0 +1,30 @@
+#!/usr/bin/perl
+
+# this is /athe/c/maize/crops/sort_into_inventory_order.perl
+
+
+# given a file, each line of which begins with a maternal numerical
+# genotype, sort the lines into our usual inventory order:
+#
+#       crop, R > G > N
+#       mutants > S > W > M > B > crop improvement > popcorn
+#
+# idea is to grab each line:
+#
+#       ($ma_num_gtype,$rest);
+#
+# insert into a hash for each crop with key $ma_rowplant and value
+# $ma_num_gtype :: rest;
+#
+# sort the keys of each hash;
+#
+# output the hashes in an order given by a combination of @crop =
+# ('R','G','N') and  @years, the latter obtained from the $ma_num_gtype as
+# they're read;
+#
+# include appropriate separating comments of the form, %\n% crop\n%\n as we
+# do now by hand.
+#
+# Is it ok to overwrite the input file?
+#
+# Kazic, 11.6.2014

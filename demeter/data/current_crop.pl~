@@ -1,0 +1,5 @@
+% this is demeter/data/current_crop.pl
+
+
+
+current_crop('18R').

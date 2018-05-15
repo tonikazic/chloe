@@ -1,0 +1,867 @@
+how to generate pedigrees, plant tags, field book, and harvest plan
+revised <2014-06-02 Mon> :toni:
+again revised <2015-09-25 Fri> :toni:
+
+* preliminaries
+
+.  finish inventory.pl: draw data from harvest.pl facts, sorting by hand in
+emacs.  The sorting heuristic for both seed and data is to first delete any
+failed or discarded ears.  Then order selves first; and then S, W, M, and B
+maternal parents.  Treat other NAM founder maternal parents as if they were
+among the mutant selves, since they are (mostly) planted this way.  Then
+crop improvement; then finally popcorn.
+
+
+
+Noto bene:  all seed was shelled and re-inventoried in early 2014, and
+sorting should match this post-hoc description.
+
+
+
+. be sure that demeter/data/crop.pl includes all crops that have yielded
+offspring.  Usually the most recent crop will be missing.  It must be
+present, or none of its offspring will appear in the pedigrees.
+
+
+* index computation on phasma
+
+These directions assume that phasma can see /athe/c/maize --- if not, the
+volume must be shared first, See [[/athe/b/artistry/lab_systems/hardware/phasma_on_athe/directns.org][directns.org]] for how to do this.
+
+
+.  recalculate indices using genetic_utilities:make_first_index/1 and
+ genetic_utilities:make_rest_of_indices/2!!!!  This must be done in two
+ steps because the incremental update predicate for the indices has not
+ been written.  This is the split version of genetic_utilities:make_indices/3.
+
+   + use the phasma call to compute the new indices, which places files in
+     [[file:/home/toni]]. Follow the most recent directions in
+     [[file:/athe/c/maize/demeter/code/genetic_utilities.pl]]: look for
+     make_indices.  You want to use the two predicates make_first_index/1
+     and make_rest_of_indices/2).  Be sure to kill and restart the prolog
+     process, edit [[file:planting_index.pl]] per the messages, and then
+     compute the other two indices.
+
+   + tar up the old version of the data.  The most recent date of the *.pl
+     files is inserted into the archive name::
+#+BEGIN_SRC 
+$ pwd
+/athe/c/maize/demeter
+$ tar cvf archival/db_data.25.3.2015.tar data/*.pl
+$ ls -lt archival/
+total 1044224
+-rw-r--r--   1 toni  staff  43250176 Mar 26 18:33 db_data.25.3.2015.tar
+....
+#+END_SRC
+
+   + cp -p the new index files to [[file:/athe/c/maize/demeter/data]].
+
+   + on phasma, start prolog and at the prolog prompt, [load_demeter].
+
+   + check compilation of the data.  You shouldn't have any syntax errors.
+     You will have two old errors, both related to Klotho and Moirai, when
+     the code is compiled.
+
+   + make sure you have /home/toni/demeter/results/CROP_planning.
+     If it exists and is unempty, delete all its subdirectories.
+
+   + Again kill and restart the prolog process.
+
+
+
+
+* pedigree computation
+
+. on phasma, [[file:~toni/demeter/results/CROP_planning]].  If
+this directory is not empty when pedigrees:trace_pedigrees/1 is run, the
+predicate will fail.
+
+
+
+.  calculate current pedigress using pedigrees:trace_pedigrees/1.
+
+A number of warnings will appear; these should be copied and pasted into
+[[file:/athe/c/maize/crops/CROP/planning/warnings]] for manual checking.
+
+
+It doesn't matter whether we do this from the unix or emacs command lines,
+on phasma or tritogeneia:
+it always breaks here:
+
+! Existence error in argument 1 of format/3
+! stream '$stream'(37421059) does not exist
+! goal:  format('$stream'(37421059),'~55| ~w: ~w',['12N661:M0035306',[]])
+
+We get the important pedigrees, anyway, but it's disturbing.  Looks like it
+breaks at the NAM founders?
+
+
+It didn't appear until 12n, I believe . . . so there is probably some
+missing data.
+
+
+. move the pedigrees on phasma to
+[[file:/athe/c/maize/CROP/planning/current_pedigrees]].  The pedigrees are grouped
+into subdirectories for faster analysis.
+
+
+.  It is very helpful to compare this crop's pedigrees with the last crop's.
+Of course, the last crop's pedigrees won't have its offspring in the
+pedigree, so these must be ablated.  Follow directions in
+[[file:/athe/c/maize/crops/ablate_crops_offspring.perl]] to do so.
+
+
+. This make take a few iterations of fact-checking, index compilation, and
+pedigree building.  We may gain branches in our pedigrees, but we shouldn't
+lose any previous branches except for an extremely good reason.  The
+pedigree calculation is based on numerical genotypes, not symbolic ones, so
+misassignment of genes and K numbers, etc., shouldn't affect the results
+UNTIL we compute tags and the field book.  Then it will matter a lot.  At
+this stage, the worst that can happen is that a line is in the wrong place
+in the field.
+
+
+.  Once the pedigrees are satisfactory, then on athe, generate the pdf
+files for iAnnotate or Acrobat using
+[[file:/athe/c/maize/crops/make_pdf_pedigrees.perl]].  This can be done in
+emacs if that was started with emacs -nw; otherwise, it must be run in
+terminal, not emacs from the dock icon, so that the path to enscript is
+found.  The script assumes the ascii pedigrees are in
+[[file:/athe/c/maize/crops/CROP/current_pedigrees]] and generates a parallel
+subdirectory [[file:/athe/c/maize/crops/CROP/pdf_pedigrees]].
+
+
+
+
+.  transfer pedigrees to the ipad using dropbox, which preserves the
+directories.  To do this, link the root of the pdf_pedigrees to
+[[file:~/Dropbox/Apps/iannotate/]], then start a Dropbox process
+([[file:/Applications/Dropbox.app/Contents/MacOS/Dropbox]]) to push these to
+the cloud (don't worry about Dropbox complaints, just give it a few moments
+and then kill the Dropbox process).  It's a good idea to log into Dropbox
+and make sure everything is there before starting the download to the ipad.
+Dropbox syncing is nicer than syncing over iTunes because the helpful directory
+structure is preserved.
+
+
+
+
+* crop planning
+
+** making the planning file
+
+. Run [[file:/athe/c/maize/crops/merge_plan_data.perl]] in operation merge to
+fuse the prior year's packing_plan.pl and last year's final plan
+information, stripping out row number and crop identifier.
+
+call is perl ./merge_plan_data.perl merge  CURRENT_CROP PRIOR_CROP
+
+
+. Edit the packing_plan.org file to represent what we really want to do.
+Remove the old crop header and leave just table stubs.  Note that there
+should be NO Crop argument at this point.
+
+   + Insert the packing_plan facts between prolog source code blocks as
+     these can be automatically tangled into source code.
+
+   + Hand-correct cl and ft fields for inbreds, and other lines as needed.
+
+   + Skip one line between sets, multiple lines between mutants.
+
+
+   + If there are spreadsheet data from Gerry, convert them from Gerry's
+     spreadsheet into packing_plan/10 by hand.  BE CAREFUL!  Not every row
+     has a line in his spreadsheet, but does have a card in his field book.
+
+
+
+. Run [[file:count_lines.perl][count_lines.perl]] to compute the summary tables and generate
+[[file:line_counts.org]] in the CROP/planning subdirectory.  Copy those tables
+into [[file:CROP/planning/packing_plan.org][packing_plan.org]], straighten lines, and compute each table twice.
+
+
+
+
+. Generate packing_plan.pl from packing_plan.org using Babel's tangle: ^c
+^v t to generate [[file:CROP/planning/packing_plan.pl][packing_plan.prolog]].  Works great!
+
+
+
+** to number rows:
+
+. input to [[file:/athe/c/maize/crops/merge_plan_data.perl]] to number rows is:
+
+packing_plan(,NumPackets,etAlternativeParents,Plntg,CrossInstructns,SetInstructions,
+                   KNum,Cl,Ft).
+
+nb: no Crop argument, this will be inserted on generating row sequence
+numbers.
+
+
+
+. re-run  [[file:/athe/c/maize/crops/merge_plan_data.perl]] on [[file:CROP/planning/packing_plan.prolog]] in sequence mode to
+insert row numbers and Crop argument.
+
+call is perl ./merge_plan_data.perl sequence CURRENT_CROP
+
+
+nb: Check to be sure all the packing_plan/9 facts have made it through!
+When editing the packing_plan.org file, it's easy to forget a code block
+statement or have a syntax error in a fact that prevents parsing.  A good
+way to check is to 
+
+
+#+BEGIN_SRC 
+grep packing_plan packing_plan.org > pp
+#+END_SRC
+
+edit pp to remove extraneous lines; edit packing_plan.prolog to remove
+blank lines; and then diff and wc the two files against each other.
+
+
+
+* packing and planting
+
+
+** TODO (check code in last bullet below) generate plan and input for packet labels
+
+. on athe, move sequenced.packing_plan.pl to maize/crops/CROP/planning/packing_plan.pl.
+
+. start phasma, load demeter.
+
+.  use pack_corn:pack_corn/1 to generate plan/6, packet labels, and row
+sequence labels.   Include the inbreds so that every packet has the correct
+row number.
+
+
+
+   + input to pack_corn/1:
+
+#+begin_src prolog :tangle no
+
+packing_plan(RowSequenceNum,NumPackets,
+                   SetAlternativeParents,Plntg,CrossInstructns,SetInstructions,
+                   KNum,Crop,Cl,Ft)
+
+#+end_src
+
+
+   + make sure current_crop:current_crop/1 is up to date.
+
+   + make sure current_inbred:current_inbred/5 is up to date:  copy the
+     prior crop's facts, change the crop, and make sure parents are ok.
+
+   + make sure inbreds listed in packing_plan.org are really the current
+     inbreds!  check [[file:/athe/c/maize/demeter/data/genotype.pl][genotype.pl]] to be sure.
+
+. Predicate will fail if harvest facts absent!
+
+
+. Results are dumped into [[file:phasma:/home/toni/demeter/results/CROP_planning/][my phasma demeter directory]].  They must be tarred
+up and scped to athe.
+
+. Hmmm, I don't think plan is generated here . . . double-check code.  I
+might have to revise the predicate to dump the incremental plan to my home
+directory on phasma, then copy into [[file:/athe/c/maize/demeter/data/plan.pl][plan.pl]].
+
+
+** DONE packet labels
+
+
+Ideally, one uses the file generated by prolog.  But it may be necessary to
+generate labels directly from sequenced.packing_plan.pl by hand.
+
+
+
+. Manually order the packet label facts into inventory order.  Trial
+algorithm in crop_management.pl is incorrect.
+
++ inbreds first, sorted by type, and then by row (planting usually will do
+  fine).
+
++ next mutants, sorted by crop, and then by type, and then rowplant within
+  type.
+
++ then new accessions.
+
+
+
+. Ensure [[file:../maize/crops/CROP/{management,tags}]] and 
+[[file:../maize/barcodes/CROP]] exist.
+
+
+. Run label_making/make_seed_packet_labels.perl to generate the stickers, and
+print.
+
+
+
+
+
+
+** packing
+
+. Pack corn, generating packed_packet/7 facts.  Check carefully for any
+missing plan/6 facts. 
+
+#+begin_rmk huh? <2015-05-15 Fri> :toni:
+don't now know what I mean here . . . plan/7 not generated by
+pack_corn:pack_corn/1 as far as I know . . . hmmmm.
+#+end_rmk
+
+
+   + Students can pack inbreds relatively unsupervised --- one
+{person,team}/inbred/bench!  
+
+   + :toni: and experienced students pack mutants, but they can have help fetching and scanning.
+
+   + after packing and conversion of data to Prolog, grep out packet facts
+     into [[file:/athe/c/maize/CROP/management/all_packed_packets.org][an org file]], order the packets by number, and check that each
+     number is 1 more than the previous one.  Run down missing numbers and
+     insert facts manually into [[file:/athe/c/maize/demeter/data/packed_packet.pl][packed_packet.pl]], and check that packets
+     are really present in the seed to be planted.
+
+
+** planting
+
+. Lay out field using four tape measures to get the corners square enough.
+
+. If soybeans, cover those rows with black paper until after Chris has
+sprayed with herbicide, then plant.
+
+. Plant corn, recording and generating planted/8 facts. These must be
+confected for the winter nursery from work order spreadsheet, since they
+don't scan the packets or stakes!
+
+. Use hand jab planters for mutants until modified Earthway is thoroughly
+tested. 
+
+
+
+* post-planting data collection
+
+. Make field map.  Try computing it in org, save table as csv, and color in
+spreadsheet.   Well, colors are not strictly necessary.
+
+. Collect row_status facts for stand counts, confect if necessary for
+winter nursery.
+
+   + It is extremely important to accurately collect these data!
+
+   + Go through the field systematically, looking at every row, each time.
+     When we've just looked at rows that were empty and skipped around, we
+     had a lot of missing data!
+
+   + Two people are better at this job, one to count and call out the
+     result, and the other to record.  WALK DOWN THE ROW --- do not rely on
+     standing at one end of the row and eyeballing!  Even baby plants hide
+     behind each other.  Beats me how they do it, but they know you are
+     looking at them and duck.
+
+
+
+* pre-processing stand count data and generation of new family numbers
+
+
+If corn that was not previously planted is planted in the current crop,
+then it's families will not have been assigned.  Therefore, the
+crop_rowplant/4 and row_members/3 WILL NOT HAVE THE RIGHT FAMILIES!  So run
+crop_management:generate_plant_tags_file/3 to get the family numbers;
+revise; re-compute indices; re-compute tags and field book.
+
+
+. To make the list of priority rows, walk around the field and scan row
+tags for rows that have corn (a) ready to photograph or (b) ready to
+pollinate.  Include in each category a first and second priority list.
+Merge first and second priority lists together; grep these to a separate
+file, sort, and check for missing numbers.  Stick missing numbers in the
+second priority list.  Repeat grep, sort, and check until all rows that
+have at least one plant (check against row_status.pl) are accounted for.
+Insert that list into [[/athe/c/maize/demeter/data/priority_rows.pl]].
+
+
+.  recalculate indices, saving old ones just in case, often.  Recalculate after
+all stand count data are in.
+
+
+
+.  Run crop_management:generate_plant_tags_file/3.  This automatically
+assigns family numbers and fgenotype facts, writing the fgenotype facts to
+a temporary file in [[phasma ../results/crop_planning/fgenotype.pl]].  Check
+fgenotype facts and convert them to genotype facts, inserting them into
+[[/athe/c/maize/demeter/data/genotype.pl]] at the bottom of the file.
+
+
+
+. Then re-run crop_management:generate_plant_tags_file/3 to ensure
+correct genotypes and K numbers will be on tags and field book.  There
+should be no new family numbers assigned, though some warnings may persist.
+
+
+
+
+** DONE revise family number assignment so that gaps are NOT filled in :toni:
+ and family numbers are not re-used
+
+
+No more number re-use, we will just re-arrange the plantIDs when we get
+past 9999!
+
+
+If a new (that is, previously unplanted) family is planted more than once in a crop,
+generate_plant_tags_file/2 will issue multiple family numbers for each
+row.  These must be edited out by hand in genotype.pl, then the tags and
+field book recompiled.
+
+
+
+
+
+* field book production
+
+. Re-run crop_management:generate_plant_tags_file/2.  Make sure all
+genotypes and family numbers are now correct (this was done in the prior section!).
+
+
+.  analyze_crop:identify_mutant_row_plans/2 to generate field book data,
+    now suitable for ipad.  This requires packing_plan/10 facts that have
+    already been converted to plan/6 facts.  Use enscript to generate the
+    output. 
+
+
+
+.  If needed, independently check prolog field book by running
+crops/check_row_assignments.perl.  It gives the planting number, which is
+useful (add to field book someday).  And then someday add automatically
+generated cut-down jpegs of images . . .
+
+
+
+
+* plant tag production
+
+. crop_management:generate_plant_tags_file/2 will generate the perl input
+file of plant tags.
+
+.  generate plant tags using perl script
+[[/athe/c/maize/label_making/make_plant_tags.perl]].  Run this from the
+terminal, not from inside emacs, because otherwise it can't find latex.
+Hit r if latex hangs up.  
+
+Output is in [[/athe/c/maize/CROP/tags/prioritized_tags.ps]].  Save preview's
+pdf conversion ([[/athe/c/maize/CROP/tags/prioritized_tags.pdf]]) and print from that.
+
+Check the tags before printing!!!
+
+
+. MAKE SURE WE HAVE A FRESH TONER CARTRIDGE IN THE PRINTER BEFORE PRINTING
+THE TAGS.  Fan the sheets, make sure they're dry, and feed them nicely.
+
+It's fine to use gnomon's tray 2 on the new design tags PROVIDED the sheets
+are in the right orientation.  One is pinned up on the cork board near the
+printer.  The sheets are loaded in the tray UPSIDE DOWN and so the tear-off
+tags enter the printer first.
+
+Yes, it's possible to re-use the sheets if they were printed incorrectly
+<2015-08-05 Wed>. 
+
+
+* emergency plant tag and field book production
+
+
+#+begin_rmk
+
+
+<2014-06-19 Thu> :toni:
+
+Trito needs to be shut down as the air conditioner is leaking, so we are
+going to confect data for the second and third plantings, and the
+row_status facts, then compute.  I've already fixed the family number
+re-use problem.
+
+
+#+end_rmk
+
+
+** to confect planted/8 and row_status/7
+
+. grepped second and third planting from sequenced.packing_plan.pl, which
+has row numbers and ma and pa
+
+. wrote clean_data:confect_planting_n_stand_count_data/4, which confected
+dummy row_status facts for all planted and unplanted corn, and planted/8
+facts for unplanted corn in the second and third plantings.
+
+
+. sorted data in output file and appended, with appropriate comments, to
+planted.pl and row_status.pl
+
+
+. recomputed indices, plant tags, and field book per usual.  BUT we
+discovered the directions needed a little work!
+
+
+
+* harvest plan
+
+. First clean any uncleaned data files.  Common errors are:
+   + incomplete plant IDs (usually because tags wouldn't scan).  Keep track
+     of these in [[file:/athe/c/maize/crops/CROP/management/tags_needed]] to
+     simplify the task of filling in the first part of the string and
+     generation of extra tags.
+   + incorrectly formatted dates:  should be MM/DD/YYYY HH:MM:SS
+   + missing data, such as image numbers or tissue tags
+
+. Then remove the squiggle files.
+
+#+BEGIN_SRC safe file deletion
+ ls *eta/*/*~
+eta/1.9/cross.csv~              eta/27.8/cross.csv~             zeta/15.8/tissue_collectn.csv~
+eta/13.8/cross.csv~             eta/27.8/cross_prep.csv~        zeta/16.8/plant_fate.csv~
+eta/15.8/cross_prep.csv~        eta/27.8/plant_anatomy.csv~     zeta/17.8/image.csv~
+eta/16.8/cross_prep.csv~        eta/27.8/plant_height.csv~      zeta/20.8/image.csv~
+eta/18.8/cross.csv~             eta/3.9/cross.csv~              zeta/20.8/mutanta.csv~
+eta/18.8/cross_prep.csv~        eta/30.8/cross.csv~             zeta/21.8/mutanta.csv~
+eta/20.8/cross_prep.csv~        eta/30.8/cross_prep.csv~        zeta/23.8/image.csv~
+eta/21.8/cross.csv~             eta/30.8/plant_anatomy.csv~     zeta/23.8/mutanta.csv~
+eta/21.8/cross_prep.csv~        eta/30.8/plant_height.csv~      zeta/25.8/tissue_colectn.csv~
+eta/23.8/cross.csv~             eta/31.8/cross.csv~             zeta/26.8/leaf_alignmt.csv~
+eta/23.8/cross_prep.csv~        eta/31.8/cross_prep.csv~        zeta/26.8/mutanta.csv~
+eta/24.8/cross.csv~             zeta/11.8/image.csv~            zeta/27.8/tissue_collectn.csv~
+eta/24.8/cross_prep.csv~        zeta/11.8/tissue_collectn.csv~  zeta/7.8/plant_fate.csv~
+eta/24.8/tissue_collectn.csv~   zeta/12.8/mutanta.csv~          zeta/8.8/image.csv~
+eta/25.8/cross.csv~             zeta/12.8/plant_fate.csv~       zeta/8.8/plant_fate.csv~
+eta/25.8/cross_prep.csv~        zeta/13.8/image.csv~            zeta/8.8/tissue_collectn.csv~
+eta/26.8/cross.csv~             zeta/15.8/image.csv~
+eta/26.8/cross_prep.csv~        zeta/15.8/plant_fate.csv~
+
+bash-3.2$ ^ls^rm
+rm *eta/*/*~
+
+#+END_SRC
+
+
+.  Now read the data into prolog.
+
+#+BEGIN_SRC 
+$ cd ../../data_conversion/
+$ pwd
+/athe/c/maize/data/data_conversion
+
+$ perl ./convert_data.perl 15r DUMPDAY
+#+END_SRC
+
+for each day on which data were dumped.  These will be the subdirectories
+under *eta.
+
+#+BEGIN_SRC 
+$ ls ../palm/raw_data_from_palms/15r/*eta
+../palm/raw_data_from_palms/15r/eta:
+1.9     12.5    13.8    16.8    17.8    19.8    21.8    24.8    26.8    3.9     31.8
+11.6    12.8    15.8    17.5    18.8    20.8    23.8    25.8    27.8    30.8    9.8
+
+../palm/raw_data_from_palms/15r/zeta:
+11.6    12.8    13.8    16.8    19.5    20.8    23.6    25.8    27.8    7.8
+11.8    13.7    15.8    17.8    20.5    21.8    23.8    26.8    30.3    8.8
+
+# or better,
+
+ls ../palm/raw_data_from_palms/15r/*eta | sort | uniq
+
+1.9 
+11.6
+11.8
+12.5
+12.8
+13.7
+13.8
+15.8
+16.8
+17.5
+17.8
+18.8
+19.5
+19.8
+20.5
+20.8
+21.8
+23.6
+23.8
+24.8
+25.8
+26.8
+27.8
+3.9 
+30.3
+30.8
+31.8
+7.8 
+8.8 
+9.8 
+
+
+#+END_SRC
+
+
+Paste the column into emacs, add a leading space to dates that are too
+short, and sort on the months to produce a nice listing in chronological
+order:
+
+30.3
+12.5
+17.5
+19.5
+20.5
+11.6
+23.6
+13.7
+11.8
+12.8
+13.8
+15.8
+16.8 next
+17.8
+18.8
+19.8
+20.8
+21.8
+23.8
+24.8
+25.8
+
+26.8
+27.8
+30.8
+31.8
+
+
+
+
+ 1.9 
+ 3.9 
+
+Go in order of dumpdays.  To save time, check to be sure files from that
+directory haven't already been added (they will be prefixed with "done.".).
+
+
+#+BEGIN_SRC 
+bash-3.2$ pushd ../palm/raw_data_from_palms/15r/
+/athe/c/maize/data/palm/raw_data_from_palms/15r /athe/c/maize/data/data_conversion
+bash-3.2$ ls */30.3 */*.5
+eta/12.5:
+done.inventory.csv		done.tags_to_replace.csv	tags_to_replace.csv
+
+eta/17.5:
+done.inventory.csv		tags_to_replace.csv
+done.packed_packet.csv		uncorrected.packed_packet.csv
+
+zeta/19.5:
+done.packed_packet.csv		uncorrected.packed_packet.csv
+
+zeta/20.5:
+done.packed_packet.csv		uncorrected.packed_packet.csv
+
+zeta/30.3:
+done.packed_packet.csv
+bash-3.2$ ls */*.6
+eta/11.6:
+done.planted.csv
+
+zeta/11.6:
+done.planted.csv
+
+zeta/23.6:
+done.planted.csv
+bash-3.2$ ls */*.7
+done.row_status.csv
+bash-3.2$ ls */*.8
+eta/12.8:
+12.8_data_collection.zip	cross.csv			cross_prep.csv
+
+eta/13.8:
+13.8_data_collectn.csv		13.8_data_collectn.numbers	cross.csv
+
+eta/15.8:
+cross_prep.csv
+
+eta/16.8:
+16.8_data_collectn.zip	cross.csv		cross_prep.csv
+
+eta/17.8:
+cross.csv
+
+eta/18.8:
+18.8_data_collectn.zip	cross.csv		cross_prep.csv
+
+eta/19.8:
+19.8_data_collectn.zip	cross_prep.csv
+
+eta/20.8:
+20.8_data_collectn.zip	cross.csv		cross_prep.csv
+
+eta/21.8:
+21.8_data_collectn.zip	cross.csv		cross_prep.csv
+
+eta/23.8:
+23.8_data_collectn.zip	cross.csv		cross_prep.csv
+
+eta/24.8:
+24.8_data_collectn.zip	cross.csv		cross_prep.csv		tissue_collectn.csv	tissue_todo.csv
+
+eta/25.8:
+25.8_data_collectn.zip	cross.csv		cross_prep.csv
+
+eta/26.8:
+26.8_data_collectn.zip	cross.csv		cross_prep.csv
+
+eta/27.8:
+27.8_data_collectn.zip	cross.csv		cross_prep.csv		plant_anatomy.csv
+
+eta/30.8:
+30.8_data_collectn.zip	cross.csv		cross_prep.csv		plant_anatomy.csv
+
+eta/31.8:
+31.8_data_collectn.zip	cross.csv		cross_prep.csv
+
+eta/9.8:
+IMG_4779.JPG
+
+zeta/11.8:
+image.csv		tissue_collectn.csv
+
+zeta/12.8:
+mutanta.csv	plant_fate.csv
+
+zeta/13.8:
+image.csv
+
+zeta/15.8:
+image.csv		plant_fate.csv		tissue_collectn.csv
+
+zeta/16.8:
+plant_fate.csv
+
+zeta/17.8:
+image.csv
+
+zeta/20.8:
+image.csv	mutanta.csv
+
+zeta/21.8:
+mutanta.csv
+
+zeta/23.8:
+image.csv	mutanta.csv
+
+zeta/25.8:
+tissue_collectn.csv
+
+zeta/26.8:
+leaf_alignmt.csv	mutanta.csv
+
+zeta/27.8:
+tissue_collectn.csv
+
+zeta/7.8:
+plant_fate.csv
+
+zeta/8.8:
+image.csv		plant_fate.csv		tissue_collectn.csv
+bash-3.2$ 
+
+#+END_SRC
+
+So we start in August.
+
+#+BEGIN_SRC 
+$ perl ./convert_data.perl 15r 11.8
+
+f: ../palm/raw_data_from_palms/15r/zeta/11.8/image.csv
+h: plantID,image no,abs_leaf_num,e0,section,camera,conditions,observer,datetime,image
+m: image
+
+
+f: ../palm/raw_data_from_palms/15r/zeta/11.8/tissue_collectn.csv
+h: plantID,sample num,observer,datetime,tissue_collectn
+m: tissue_collectn
+
+no directory ../palm/raw_data_from_palms/15r/eta/11.8 found
+no directory ../palm/raw_data_from_palms/15r/theta/11.8 found
+no directory ../palm/raw_data_from_palms/15r/dalet/11.8 found
+
+i: ../palm/raw_data_from_palms/15r/zeta/11.8/image.csv o: ../../demeter/data/image.pl s: convert_image_data.perl
+
+i: ../palm/raw_data_from_palms/15r/zeta/11.8/tissue_collectn.csv o: ../../demeter/data/tissue_collectn.pl s: convert_tissue_collectn_data.perl
+
+
+bash-3.2$ mv ../palm/raw_data_from_palms/15r/zeta/11.8/image.csv ../palm/raw_data_from_palms/15r/zeta/11.8/done.image.csv
+bash-3.2$ mv ../palm/raw_data_from_palms/15r/zeta/11.8/tissue_collectn.csv ../palm/raw_data_from_palms/15r/zeta/11.8/done.tissue_collectn.csv
+bash-3.2$ perl ./convert_data.perl 15r 12.8
+
+f: ../palm/raw_data_from_palms/15r/zeta/12.8/mutanta.csv
+h: plantID,wild_type,lesion,cross,photograph,sample,sample,stature,tassel,ear,other_phes,observer,datetime,mutanta
+m: mutanta
+
+
+f: ../palm/raw_data_from_palms/15r/zeta/12.8/plant_fate.csv
+h: plantID,kicked down for light,sacrificed,dead,too slow to cross,observer,datetime,plant_fate
+m: plant_fate
+
+
+f: ../palm/raw_data_from_palms/15r/eta/12.8/cross.csv
+h: ma plantID,pa plantID,ear1,ear2,repeat,bee,pilot,datetime,cross
+m: cross
+
+
+f: ../palm/raw_data_from_palms/15r/eta/12.8/cross_prep.csv
+h: plantID,tassel_bagged,popped_tassel,cut_tassel,ear1_cut,ear2_cut,observer,datetime,cross_prep
+m: cross_prep
+
+no directory ../palm/raw_data_from_palms/15r/theta/12.8 found
+no directory ../palm/raw_data_from_palms/15r/dalet/12.8 found
+
+i: ../palm/raw_data_from_palms/15r/eta/12.8/cross.csv o: ../../demeter/data/cross.pl s: convert_cross_data.perl
+
+i: ../palm/raw_data_from_palms/15r/eta/12.8/cross_prep.csv o: ../../demeter/data/cross_prep.pl s: convert_cross_prep_data.perl
+
+i: ../palm/raw_data_from_palms/15r/zeta/12.8/mutanta.csv o: ../../demeter/data/mutant.pl s: convert_mutant_data.perl
+
+i: ../palm/raw_data_from_palms/15r/zeta/12.8/plant_fate.csv o: ../../demeter/data/plant_fate.pl s: convert_plant_fate_data.perl
+bash-3.2$ mv ../palm/raw_data_from_palms/15r/eta/12.8/cross.csv ../palm/raw_data_from_palms/15r/eta/12.8/done.cross.csv
+bash-3.2$ mv ../palm/raw_data_from_palms/15r/eta/12.8/cross_prep.csv ../palm/raw_data_from_palms/15r/eta/12.8/done.cross_prep.csv
+bash-3.2$ mv ../palm/raw_data_from_palms/15r/zeta/12.8/plant_fate.csv ../palm/raw_data_from_palms/15r/zeta/12.8/done.plant_fate.csv 
+bash-3.2$ 
+
+
+etc
+
+#+END_SRC
+
+
+OK, we didn't score bugs this year, so the mutant facts come out with a
+space in the predicate.  So back to convert_mutant_data.perl, toggle out
+the bug RE, and run again.  Notice that since I've moved the other files to
+done.FILE, they don't get re-processed.
+
+#+BEGIN_SRC 
+bash-3.2$ perl ./convert_data.perl 15r 12.8
+
+skipping ../palm/raw_data_from_palms/15r/zeta/12.8/done.plant_fate.csv, already processed
+
+
+f: ../palm/raw_data_from_palms/15r/zeta/12.8/mutanta.csv
+h: plantID,wild_type,lesion,cross,photograph,sample,sample,stature,tassel,ear,other_phes,observer,datetime,mutanta
+m: mutanta
+
+
+skipping ../palm/raw_data_from_palms/15r/eta/12.8/done.cross.csv, already processed
+
+
+skipping ../palm/raw_data_from_palms/15r/eta/12.8/done.cross_prep.csv, already processed
+
+no directory ../palm/raw_data_from_palms/15r/theta/12.8 found
+no directory ../palm/raw_data_from_palms/15r/dalet/12.8 found
+
+i: ../palm/raw_data_from_palms/15r/zeta/12.8/mutanta.csv o: ../../demeter/data/mutant.pl s: convert_mutant_data.perl
+
+
+#+END_SRC

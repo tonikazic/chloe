@@ -1,0 +1,87 @@
+echo '2009' > peak
+echo '4,8,2009' >> peak
+grep 'date(4,8,2009)' cross.pl | wc  >> peak
+echo '5,8,2009' >> peak
+grep 'date(5,8,2009)' cross.pl | wc >> peak
+echo '6,8,2009' >> peak
+grep 'date(6,8,2009)' cross.pl | wc >> peak
+echo '7,8,2009' >> peak
+grep 'date(7,8,2009)' cross.pl | wc >> peak
+echo '8,8,2009' >> peak
+grep 'date(8,8,2009)' cross.pl | wc >> peak
+echo '9,8,2009' >> peak
+grep 'date(9,8,2009)' cross.pl | wc >> peak
+echo '10,8,2009' >> peak
+grep 'date(10,8,2009)' cross.pl | wc >> peak
+echo '11,8,2009' >> peak
+grep 'date(11,8,2009)' cross.pl | wc >> peak
+echo '12,8,2009' >> peak
+grep 'date(12,8,2009)' cross.pl | wc >> peak
+echo '13,8,2009' >> peak
+grep 'date(13,8,2009)' cross.pl | wc >> peak
+echo '14,8,2009' >> peak
+grep 'date(14,8,2009)' cross.pl | wc >> peak
+echo '15,8,2009' >> peak
+grep 'date(15,8,2009)' cross.pl | wc >> peak
+echo '16,8,2009' >> peak
+grep 'date(16,8,2009)' cross.pl | wc >> peak
+echo '17,8,2009' >> peak
+grep 'date(17,8,2009)' cross.pl | wc >> peak
+echo '2010' >> peak
+echo '4,8,2010' >> peak
+grep 'date(04,08,2010)' cross.pl | wc  >> peak
+echo '5,8,2010' >> peak
+grep 'date(05,08,2010)' cross.pl | wc >> peak
+echo '6,8,2010' >> peak
+grep 'date(06,08,2010)' cross.pl | wc >> peak
+echo '7,8,2010' >> peak
+grep 'date(07,08,2010)' cross.pl | wc >> peak
+echo '8,8,2010' >> peak
+grep 'date(08,08,2010)' cross.pl | wc >> peak
+echo '9,8,2010' >> peak
+grep 'date(09,08,2010)' cross.pl | wc >> peak
+echo '10,8,2010' >> peak
+grep 'date(10,08,2010)' cross.pl | wc >> peak
+echo '11,8,2010' >> peak
+grep 'date(11,08,2010)' cross.pl | wc >> peak
+echo '12,8,2010' >> peak
+grep 'date(12,08,2010)' cross.pl | wc >> peak
+echo '13,8,2010' >> peak
+grep 'date(13,08,2010)' cross.pl | wc >> peak
+echo '14,8,2010' >> peak
+grep 'date(14,08,2010)' cross.pl | wc >> peak
+echo '15,8,2010' >> peak
+grep 'date(15,08,2010)' cross.pl | wc >> peak
+echo '16,8,2010' >> peak
+grep 'date(16,08,2010)' cross.pl | wc >> peak
+echo '17,8,2010' >> peak
+grep 'date(17,08,2010)' cross.pl | wc >> peak
+echo '2011' >> peak
+echo '4,8,2011' >> peak
+grep 'date(4,08,2011)' cross.pl | wc  >> peak
+echo '5,8,2011' >> peak
+grep 'date(5,08,2011)' cross.pl | wc >> peak
+echo '6,8,2011' >> peak
+grep 'date(6,08,2011)' cross.pl | wc >> peak
+echo '7,8,2011' >> peak
+grep 'date(7,08,2011)' cross.pl | wc >> peak
+echo '8,8,2011' >> peak
+grep 'date(8,08,2011)' cross.pl | wc >> peak
+echo '9,8,2011' >> peak
+grep 'date(9,08,2011)' cross.pl | wc >> peak
+echo '10,8,2011' >> peak
+grep 'date(10,08,2011)' cross.pl | wc >> peak
+echo '11,8,2011' >> peak
+grep 'date(11,08,2011)' cross.pl | wc >> peak
+echo '12,8,2011' >> peak
+grep 'date(12,08,2011)' cross.pl | wc >> peak
+echo '13,8,2011' >> peak
+grep 'date(13,08,2011)' cross.pl | wc >> peak
+echo '14,8,2011' >> peak
+grep 'date(14,08,2011)' cross.pl | wc >> peak
+echo '15,8,2011' >> peak
+grep 'date(15,08,2011)' cross.pl | wc >> peak
+echo '16,8,2011' >> peak
+grep 'date(16,08,2011)' cross.pl | wc >> peak
+echo '17,8,2011' >> peak
+grep 'date(17,08,2011)' cross.pl | wc >> peak

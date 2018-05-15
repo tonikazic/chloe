@@ -1,0 +1,61 @@
+this is 17r/planning/line_counts.org
+the count of mutant lines in different categories,
+generated on Mon May 22 14:26:23 CDT 2017 by ../maize/crops/count_lines.perl.
+
+Input file is 17r/planning/packing_plan.org.
+
+
+*** TODO line counts
+
+
++ with more advanced table editing and formulae
+
++ calculate the complete table twice!
+
+
+
+#+NAME:inbreds
+|                                           |       S |     W |       M |      B | total rows by plntg |
+|-------------------------------------------+---------+-------+---------+--------+---------------------|
+| over-planting factors                     |     1.3 |   1.3 |     1.7 |    1.3 |                 0.5 |
+|-------------------------------------------+---------+-------+---------+--------+---------------------|
+| 1st plntg lines                           |4 | 2|4|9 | |
+| 2nd plntg lines                           |2 | 1|3|9 | |
+|-------------------------------------------+---------+-------+---------+--------+---------------------|
+| 1st plntg ears                            |    |   |  | |                     |
+| 2nd plntg ears                            |    |   |  |  |                     |
+|-------------------------------------------+---------+-------+---------+--------+---------------------|
+| 1st plntg rows, inc losses                | | | |  |  |
+| 2nd plntg rows, inc losses                | | | |  |  |
+| true 1st plntg rows + some 2nd plntg rows | | | |  |  |
+| actual 3rd plntg rows                     |2 |2 |2 | 0 |  |
+| rows by inbreds, all plantings            | | | |  |  |
+|-------------------------------------------+---------+-------+---------+--------+---------------------|
+| rounded 1st plntg rows                    |  | |  | |  |
+| rounded 2nd plntg rows                    |  | |  | |  |
+| rounded 3rd plntg rows                    |  | |  | |  |
+| total rounded rows                        |  | |  | |  |
+|                                           |  | |  | |  |
+#+TBLFM: @5$2=@-2*3::@5$3=@-2*3::@5$4=@-2*3::@5$5=@-2*3::@6$2=@-2*3::@6$3=@-2*3::@6$4=@-2*3::@6$5=@-2*3::@7$2=(@-2/20)*@-5::@7$3=(@-2/20)*@-5::@7$4=(@-2/20)*@-5::@7$5=(@-2/20)*@-5::@8$2=(@-2/20)*@-6::@8$3=(@-2/20)*@-6::@8$4=(@-2/20)*@-6::@8$5=(@-2/20)*@-6::@8$6=vsum($2..$5)::@9$2=@-2+(@-1*@2$6)::@9$3=@-2+(@-1*@2$6)::@9$4=@-2+(@-1*@2$6)::@9$5=@-2+(@-1*@2$6)::@9$6=vsum($2..$5)::@10$6=vsum($2..$5)::@11$2=vsum(@8..@10)::@11$3=vsum(@8..@10)::@11$4=vsum(@8..@10)::@11$5=vsum(@8..@10)::@12$2=round(@-3)::@12$3=round(@-3)::@12$4=round(@-3)::@12$5=round(@-3)::@12$6=vsum($2..$5)::@13$6=vsum($2..$5)::@14$6=vsum($2..$5)::@15$6=vsum($2..$5)::@13$2=round(@-5)::@13$3=round(@-5)::@13$4=round(@-5)::@13$5=round(@-5)::@14$2=round(@-4)::@14$3=round(@-4)::@14$4=round(@-4)::@14$5=round(@-4)::@15$2=vsum(@12..@14)::@15$3=vsum(@12..@14)::@15$4=vsum(@12..@14)::@15$5=vsum(@12..@14)
+
+*** TODO physical rows
+
+
++ add in gerry's corn manually
+
++ calculate the complete table twice!
+
+
+
+#+NAME:rows
+|----------------------------------------+-------|
+| full rows mutants                      |   30 |
+| half rows mutants                      |   17 |
+| full rows inbreds                      |  |
+| total stakes                           |  |
+| total physical rows                    |  |
+| gerry's rows                           |  |
+| total rows needed, exclusive of border | |
+|                                        | |
+#+TBLFM: @3$2=remote(inbreds,@15$6)::@4$2=@1 + @2 + @3::@5$2=@1 + @3 + @2/2::@7$2=@5+@6
+

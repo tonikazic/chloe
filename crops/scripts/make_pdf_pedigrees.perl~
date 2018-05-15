@@ -1,0 +1,57 @@
+#!/usr/bin/perl
+
+# this is . . ./maize/crops/make_pdf_pedigrees.perl
+
+# given a crop, go to the right place, traverse the pedigree tree, and for each file,
+# call enscript FILE -o f.ps ; ps2pdf f.ps FILE.pdf ; rm f.ps.
+#
+# I would have preferred to do this on the prolog side, but
+# enscript can't handle the load.  So do it here instead.
+#
+# Kazic, 26.9.2012
+
+# call is perl ./make_pdf_pedigrees.perl CROP
+
+
+
+use File::Find;
+use lib qw(../label_making/);
+use Typesetting::DefaultOrgztn;
+
+$crop = $ARGV[0];
+$pedigree_tree = $crop . $pedigree_root;
+
+
+find(\&generate_pdf,$pedigree_tree);
+      
+
+
+# single quotes handle the problem of embedded semi-colons, but still need to fix the 
+# problem of files whose names begin -_, e.g., not_useful/-_hsf1.  Enscript crashes
+# because it can't find the file.
+#
+# Kazic, 26.9.2012      
+
+sub generate_pdf {
+
+        if ( -f ) {
+
+                $out = $_;
+                $out =~ s/^\-(\_.+)/$1/; 
+                if ( $out !~ /pdf/ ) {
+                        $pdf = $out . ".pdf";
+			
+                        if ( ! -e $pdf ) {
+                                $cmd = "enscript -r '" . $_ . "' -o f.ps; ps2pdf f.ps '" . $pdf . "'; rm f.ps";
+#                                print "cmd is $cmd\n";
+                                system($cmd);
+		                }
+
+		        }
+
+				
+                $out = "";
+                $pdf = "";
+                $cmd = "";
+	        }
+        }

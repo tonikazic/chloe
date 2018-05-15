@@ -1,0 +1,6 @@
+mutanta ok from 17.8 --- 26.8
+cross ok from 19.8 --- 26.8
+image ok from 18.8 -- 26.8 
+
+
+29.8:  all data from 17.8 -- 26.8 processed into prolog; files not yet checked for compilatn

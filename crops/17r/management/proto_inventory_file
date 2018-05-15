@@ -1,0 +1,373 @@
+harvest('17R4561:0006001','17R4561:0006004',succeeded,'three_quarter',josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4561:0006002','17R4561:0006004',succeeded,'three_quarter',josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4561:0006005','17R4561:0006004',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4561:0006007','17R4561:0006004',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4561:0006009','17R4561:0006004',succeeded,'three_quarter',josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4561:0006010','17R4561:0006004',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4561:0006014','17R4561:0006004',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4227:0006301','17R4227:0006317',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4227:0006303','17R4227:0006310',succeeded,'three_quarter',josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4227:0006304','17R4561:0006317',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4227:0006305','17R4227:0006317',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4227:0006315','17R4227:0006317',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4227:0006316','17R4227:0006317',succeeded,'half',josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4228:0006401','17R4228:0006404',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4228:0006404','17R4228:0006404',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4228:0006408','17R4228:0006404',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4228:0006409','17R4228:0006415',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4228:0006410','17R4228:0006415',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4228:0006411','17R4228:0006415',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4228:0006415','17R4228:0006415',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4228:0006416','17R4228:0006415',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4441:0006701','17R4441:0006706',succeeded,'three_quarter',josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4441:0006702','17R4441:0006706',succeeded,'three_quarter',josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4441:0006703','17R4441:0006706',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4441:0006704','17R4441:0006704',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4441:0006709','17R4441:0006706',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R3946:0006905','17R3946:0006904',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R3946:0006906','17R3946:0006904',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R3946:0006908','17R3946:0006904',succeeded,'28 cl',josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4085:0007102','17R4085:0007106',succeeded,'half',josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4085:0007103','17R4085:0007106',succeeded,'three_quarter',josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4085:0007104','17R4085:0007106',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4085:0007108','17R4085:0007109',succeeded,'three_quarter',josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4085:0007111','17R4085:0007109',succeeded,'three_quarter',josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4085:0007113','17R4085:0007106',succeeded,'three_quarter',josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4085:0007114','17R4085:0007109',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4085:0007117','17R4085:0007109',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4559:0007207','17R4559:0007207',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4559:0007210','17R4559:0007207',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4559:0007211','17R4559:0007207',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4559:0007212','17R4559:0007207',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4559:0007215','17R4559:0007207',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R3590:0007402','17R3590:0007412',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R3590:0007406','17R3590:0007412',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R3590:0007410','17R4559:0007412',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R3590:0007411','17R3590:0007412',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4491:0007603','17R4491:0007610',succeeded,'three_quarter',josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4491:0007606','17R4491:0007611',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4491:0007607','17R4491:0007610',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4491:0007608','17R4491:0007610',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4491:0007610','17R4491:0007610',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4491:0007611','17R4491:0007611',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4491:0007612','17R4491:0007611',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4491:0007613','17R4491:0007610',succeeded,'three_quarter',josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4491:0007619','17R4491:0007610',succeeded,'three_quarter',josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4492:0007902','17R4492:0007906',succeeded,'three_quarter',josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4492:0007903','17R4492:0007906',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4492:0007904','17R4492:0007909',failed,'22 cl',josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4492:0007905','17R4492:0007906',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4492:0007907','17R4492:0007906',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4453:0008402','17R4453:0008402',succeeded,'three_quarter',josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4453:0008403','17R4453:0008402',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4453:0008406','17R4453:0008402',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4494:0008601','17R4494:0008601',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4494:0008607','17R4494:0008601',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4494:0008612','17R4494:0008601',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4494:0008615','17R4494:0008601',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4494:0008617','17R4494:0008601',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4494:0008702','17R4494:0008701',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4494:0008712','17R4494:0008601',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4494:0008717','17R4494:0008701',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4092:0008801','17R4092:0008802',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4092:0008802','17R4092:0008802',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4092:0008803','17R4092:0008802',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4092:0008806','17R4092:0008802',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4092:0008809','17R4092:0008802',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4092:0008812','17R4092:0008802',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4092:0008814','17R4092:0008802',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4452:0009001','17R4452:0009007',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4452:0009008','17R4452:0009007',succeeded,'three_quarter',josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4452:0009009','17R4452:0009007',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4452:0009010','17R4452:0009007',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4452:0009011','17R4452:0009007',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4577:0009210','17R4577:0009210',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4577:0009212','17R4577:0009210',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4577:0009213','17R4577:0009210',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4577:0009214','17R4577:0009210',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4577:0009215','17R4577:0009210',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4577:0009301','17R4577:0009308',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4577:0009304','17R4577:0009308',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4577:0009305','17R4577:0009308',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4577:0009306','17R4577:0009308',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4577:0009309','17R4577:0009308',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4577:0009310','17R4577:0009308',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4577:0009312','17R4577:0009308',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4577:0009316','17R4577:0009308',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4577:0009318','17R4577:0009308',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4542:0009503','17R4542:0009415',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4542:0009504','17R4542:0009415',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4542:0009506','17R4542:0009415',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4542:0009509','17R4542:0009409',succeeded,'pulled ear; whole',josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4542:0009511','17R4542:0009409',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4542:0009514','17R4542:0009409',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4541:0009709','17R4541:0009712',succeeded,'pulled ear; whole',josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4541:0009712','17R4541:0009712',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4555:0009801','17R4555:0009801',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4555:0009809','17R4555:0009810',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4555:0009901','17R4555:0009801',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4555:0009902','17R4555:0009801',failed,'23 cl',josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4555:0009911','17R4555:0009801',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4555:0009913','17R4555:0009801',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4554:0010003','17R4554:0010009',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4554:0010004','17R4554:0010009',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4554:0010005','17R4554:0010009',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4554:0010007','17R4554:0010009',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4556:0010302','17R4556:0010305',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4556:0010303','17R4556:0010305',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4556:0010305','17R4556:0010305',succeeded,'ve;svls; whole',josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4556:0010308','17R4556:0010305',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4534:0010401','17R4534:0010403',succeeded,'three_quarter',josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4534:0010406','17R4534:0010403',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4534:0010407','17R4534:0010403',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4534:0010409','17R4534:0010403',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4534:0010410','17R4534:0010403',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4535:0010601','17R4535:0010604',succeeded,'misbagged; discard if possible; smut; three_quarter',josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4535:0010602','17R4535:0010604',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4535:0010604','17R4535:0010604',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4535:0010605','17R4535:0010604',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4535:0010611','17R4535:0010610',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4535:0010615','17R4535:0010610',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4538:0010801','17R4538:0010801',succeeded,'uncut ear; whole',josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4538:0010803','17R4538:0010807',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4538:0010804','17R4538:0010801',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4538:0010809','17R4538:0010807',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4538:0010811','17R4538:0010801',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4538:0010813','17R4538:0010801',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4579:0019804','17R4579:0019804',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4579:0019811','17R4579:0019811',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4579:0019812','17R4579:0019812',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4580:0019906','17R4580:0019906',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4580:0019907','17R4580:0019907',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4580:0019908','17R4580:0019908',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4595:0020011','17R4595:0020011',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4595:0020014','17R4595:0020014',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4595:0020015','17R4595:0020015',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4596:0020105','17R4596:0020105',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4596:0020113','17R4596:0020113',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4596:0020112','17R4596:0020112',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4597:0020205','17R4597:0020205',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4597:0020208','17R4597:0020208',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4597:0020211','17R4597:0020211',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4598:0020301','17R4598:0020301',succeeded,'155; whole',josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4598:0020307','17R4598:0020307',succeeded,'old ear; ear may not exist; sixteenth',josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4598:0020311','17R4598:0020311',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4599:0020401','17R4599:0020401',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4599:0020407','17R4599:0020407',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4599:0020411','17R4599:0020411',succeeded,'misbagged; discard if possible;  whole',josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4600:0020502','17R4600:0020502',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4600:0020509','17R4600:0020509',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4600:0020510','17R4600:0020510',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4601:0020601','17R4601:0020601',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4601:0020602','17R4601:0020602',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4601:0020612','17R4601:0020612',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4602:0020703','17R4602:0020703',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4602:0020711','17R4602:0020711',succeeded,'very low pollen; old ear; whole',josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4602:0020712','17R4602:0020712',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4603:0020803','17R4603:0020803',succeeded,'three_quarter',josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4603:0020804','17R4603:0020804',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4603:0020805','17R4603:0020805',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4604:0020906','17R4604:0020906',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4604:0020907','17R4604:0020907',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4604:0020914','17R4604:0020914',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4605:0021010','17R4605:0021010',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4605:0021011','17R4605:0021011',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4605:0021013','17R4605:0021013',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4606:0021102','17R4606:0021102',succeeded,'half',josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4606:0021104','17R4606:0021104',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4606:0021105','17R4606:0021105',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4607:0021201','17R4607:0021201',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4607:0021202','17R4607:0021202',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4607:0021204','17R4607:0021204',succeeded,'old ear; three_quarter',josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4608:0021301','17R4608:0021301',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4608:0021303','17R4608:0021303',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4608:0021308','17R4608:0021308',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4608:0021309','17R4608:0021309',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4609:0021405','17R4609:0021405',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4609:0021407','17R4609:0021407',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4581:0021502','17R4581:0021502',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4581:0021503','17R4581:0021503',succeeded,'old ear; whole',josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4581:0021506','17R4581:0021506',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4581:0021511','17R4581:0021511',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4582:0021602','17R4582:0021602',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4582:0021603','17R4582:0021603',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4582:0021604','17R4582:0021604',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4583:0021701','17R4583:0021701',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4583:0021703','17R4583:0021703',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4583:0021704','17R4583:0021704',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4584:0021801','17R4584:0021801',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4584:0021802','17R4584:0021802',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4584:0021804','17R4584:0021804',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4585:0021905','17R4585:0021905',succeeded,'three_quarter',josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4585:0021907','17R4585:0021907',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4585:0021913','17R4585:0021913',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4586:0022007','17R4586:0022007',succeeded,'misbagged; discard if possible;  whole',josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4586:0022008','17R4586:0022008',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4586:0022010','17R4586:0022010',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4587:0022111','17R4587:0022111',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4587:0022112','17R4587:0022112',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4587:0022113','17R4587:0022113',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4588:0022201','17R4588:0022201',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4588:0022204','17R4588:0022204',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4588:0022212','17R4588:0022212',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4589:0022302','17R4589:0022302',succeeded,'lost paper clip; discard if possible;  whole',josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4589:0022303','17R4589:0022303',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4589:0022304','17R4589:0022304',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4590:0022403','17R4590:0022403',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4590:0022404','17R4590:0022404',succeeded,'half',josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4590:0022405','17R4590:0022405',succeeded,'three_quarter',josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4591:0022506','17R4591:0022506',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4591:0022509','17R4591:0022509',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4591:0022511','17R4591:0022511',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4592:0022609','17R4592:0022609',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4592:0022611','17R4592:0022611',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4592:0022613','17R4592:0022613',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4615:0022701','17R4615:0022701',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4615:0022706','17R4615:0022706',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4615:0022708','17R4615:0022708',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4593:0022802','17R4593:0022802',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4593:0022803','17R4593:0022803',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4593:0022807','17R4593:0022807',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4593:0022808','17R4593:0022808',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4618:0012502','17R4618:0012502',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4618:0012503','17R4618:0012503',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4618:0012507','17R4618:0012507',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4622:0012602','17R4622:0012602',succeeded,'uncut ear; no paper clip; discard if possible;  whole',josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4622:0012603','17R4622:0012603',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4622:0012610','17R4622:0012610',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4622:0012611','17R4622:0012611',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4619:0012701','17R4619:0012701',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4619:0012702','17R4619:0012702',succeeded,'three_quarter',josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4619:0012703','17R4619:0012703',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4623:0012802','17R4623:0012802',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4623:0012806','17R4623:0012806',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4616:0012904','17R4616:0012904',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4616:0012907','17R4616:0012907',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4624:0013102','17R4624:0013102',succeeded,'old ear; whole',josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4624:0013104','17R4624:0013104',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4624:0013106','17R4624:0013106',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4620:0013002','17R4620:0013002',succeeded,'half',josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4620:0013003','17R4620:0013003',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4620:0013009','17R4620:0013009',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4617:0013208','17R4617:0013208',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4617:0013209','17R4617:0013209',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4617:0013211','17R4617:0013211',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4617:0013213','17R4617:0013213',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4621:0013302','17R4621:0013302',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4621:0013303','17R4621:0013303',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4621:0013307','17R4621:0013307',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4627:0013801','17R4627:0013801',succeeded,'three_quarter',josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4627:0013802','17R4627:0013802',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4627:0013805','17R4627:0013805',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4627:0013809','17R4627:0013809',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4572:0013901','17R4572:0013901',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4572:0013904','17R4572:0013904',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4572:0013906','17R4572:0013906',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4628:0014002','17R4628:0014002',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4628:0014004','17R4628:0014004',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4628:0014005','17R4628:0014005',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4594:0022902','17R4594:0022902',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4594:0022903','17R4594:0022903',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4594:0022909','17R4594:0022909',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4610:0023002','17R4610:0023002',succeeded,'misbagged; discard if possible;  whole',josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4610:0023003','17R4610:0023003',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4610:0023006','17R4610:0023006',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R0688:0023106','17R0688:0023106',succeeded,'very low pollen; whole',josh,date(24,09,2017),time(12,00,00)).
+harvest('17R0688:0023113','17R0688:0023113',succeeded,'very low pollen; whole',josh,date(24,09,2017),time(12,00,00)).
+harvest('17R0689:0023203','17R0689:0023203',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R0689:0023210','17R0689:0023210',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R0689:0023212','17R0689:0023212',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4611:0023402','17R4611:0023402',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4611:0023403','17R4611:0023403',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4611:0023405','17R4611:0023405',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4612:0023502','17R4612:0023502',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4612:0023509','17R4612:0023509',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4613:0023603','17R4613:0023603',succeeded,'old ear; whole',josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4613:0023606','17R4613:0023606',succeeded,'three_quarter',josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4613:0023611','17R4613:0023611',succeeded,'old ear; whole',josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4614:0023802','17R4614:0023802',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4614:0023807','17R4614:0023807',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4614:0023815','17R4614:0023815',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R205:S0001101','17R4539:0017501',succeeded,'half',josh,date(24,09,2017),time(12,00,00)).
+harvest('17R205:S0001102','17R4626:0015704',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R205:S0001103','17R4626:0015704',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R205:S0001104','17R4544:0017802',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R205:S0001106','17R4544:0017812',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R205:S0001107','17R4544:0017812',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R205:S0001110','17R4539:0017501',succeeded,'uncut ear; misbagged; discard if possible; whole',josh,date(24,09,2017),time(12,00,00)).
+harvest('17R205:S0001111','17R4539:0017501',succeeded,'uncut ear; whole',josh,date(24,09,2017),time(12,00,00)).
+harvest('17R205:S0001112','17R4543:0017914',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R205:S0001113','17R4543:0017914',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R205:S0001114','17R4011:0018002',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R205:S0001115','17R4011:0018002',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R205:S0001116','17R4011:0018002',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R205:S0001117','17R4543:0017901',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R205:S0001202','17R4562:0016805',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R205:S0001203','17R4562:0016805',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R205:S0001204','17R4545:0018105',succeeded,'half',josh,date(24,09,2017),time(12,00,00)).
+harvest('17R205:S0001205','17R4562:0016808',succeeded,'half',josh,date(24,09,2017),time(12,00,00)).
+harvest('17R205:S0001206','17R4545:0018105',succeeded,'half',josh,date(24,09,2017),time(12,00,00)).
+harvest('17R205:S0001207','17R4562:0016808',succeeded,'half',josh,date(24,09,2017),time(12,00,00)).
+harvest('17R205:S0001208','17R4545:0018105',succeeded,'half',josh,date(24,09,2017),time(12,00,00)).
+harvest('17R205:S0001209','17R4543:0017901',succeeded,'half',josh,date(24,09,2017),time(12,00,00)).
+harvest('17R205:S0001210','17R4625:0015809',succeeded,'half',josh,date(24,09,2017),time(12,00,00)).
+harvest('17R205:S0001211','17R4625:0015809',succeeded,'half',josh,date(24,09,2017),time(12,00,00)).
+harvest('17R205:S0001212','17R4625:0015804',succeeded,'three_quarter',josh,date(24,09,2017),time(12,00,00)).
+harvest('17R205:S0001214','17R4626:0015704',succeeded,'uncut ear; half',josh,date(24,09,2017),time(12,00,00)).
+harvest('17R205:S0001215','17R4625:0015804',succeeded,'three_quarter',josh,date(24,09,2017),time(12,00,00)).
+harvest('17R205:S0001216','17R4626:0015704',succeeded,'uncut ear; half',josh,date(24,09,2017),time(12,00,00)).
+harvest('17R205:S0001217','17R4477:0016204',succeeded,'half',josh,date(24,09,2017),time(12,00,00)).
+harvest('17R205:S0001218','17R4477:0016204',succeeded,'three_quarter',josh,date(24,09,2017),time(12,00,00)).
+harvest('17R205:S0001219','17R4477:0016203',succeeded,'three_quarter',josh,date(24,09,2017),time(12,00,00)).
+harvest('17R205:S0001307','17R4539:0017501',succeeded,'half',josh,date(24,09,2017),time(12,00,00)).
+harvest('17R205:S0001311','17R4419:0011113',succeeded,'half',josh,date(24,09,2017),time(12,00,00)).
+harvest('17R205:S0001317','17R4477:0016203',succeeded,'half',josh,date(24,09,2017),time(12,00,00)).
+harvest('17R205:S0001401','17R4419:0011112',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R205:S0001410','17R4419:0011113',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R205:S0001418','17R4419:0011112',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R205:S0001501','17R2252:0011014',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R205:S0001502','17R2252:0011020',succeeded,'three_quarter',josh,date(24,09,2017),time(12,00,00)).
+harvest('17R205:S0001504','17R2252:0011014',succeeded,'three_quarter',josh,date(24,09,2017),time(12,00,00)).
+harvest('17R205:S0001508','17R2252:0011014',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R205:S0001509','17R4419:0011112',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R205:S0001510','17R2252:0011014',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R205:S0001511','17R2252:0011020',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R205:S0001512','17R2252:0011020',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R205:S0001513','17R2252:0011020',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R205:S0001514','17R4545:0018107',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R205:S0001516','17R4419:0011113',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R205:S0001517','17R4419:0011112',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R205:S0003301','17R4545:0018107',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R205:S0003302','17R4419:0011134',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R205:S0003303','17R2252:0011001',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R205:S0003306','17R4545:0018107',failed,'24 cl',josh,date(24,09,2017),time(12,00,00)).
+harvest('17R205:S0003308','17R4545:0018107',succeeded,'uncut ear; pulled ear; few silks; whole',josh,date(24,09,2017),time(12,00,00)).
+harvest('17R205:S0003309','17R4419:0011128',succeeded,'uncut ear; pulled ear; three_quarter',josh,date(24,09,2017),time(12,00,00)).
+harvest('17R205:S0003316','17R4419:0011132',succeeded,'long silks; discard if possible;  half',josh,date(24,09,2017),time(12,00,00)).
+harvest('17R205:S0003317','17R4419:0011132',succeeded,'long silks; misbagged; discard if possible;  whole',josh,date(24,09,2017),time(12,00,00)).
+harvest('17R205:S0003405','17R4419:0011134',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R205:S0003407','17R2252:0011001',succeeded,'three_quarter',josh,date(24,09,2017),time(12,00,00)).
+harvest('17R205:S0003408','17R2252:0011001',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R205:S0003410','17R4545:0018107',succeeded,'three_quarter',josh,date(24,09,2017),time(12,00,00)).
+harvest('17R205:S0003411','17R2252:0011019',succeeded,'three_quarter',josh,date(24,09,2017),time(12,00,00)).
+harvest('17R205:S0003412','17R2252:0011019',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R205:S0003414','17R4522:0019419',succeeded,'three_quarter',josh,date(24,09,2017),time(12,00,00)).
+harvest('17R205:S0003415','17R4419:0011132',succeeded,'long silks; prefer this ear; whole',josh,date(24,09,2017),time(12,00,00)).
+harvest('17R205:S0003501','17R4539:0017508',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R205:S0003502','17R4419:0011134',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R205:S0003503','17R4562:0016803',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R205:S0003504','17R4419:0011128',succeeded,'three_quarter',josh,date(24,09,2017),time(12,00,00)).
+harvest('17R205:S0003505','17R4419:0011108',succeeded,'uncut ear; silking; three_quarter',josh,date(24,09,2017),time(12,00,00)).
+harvest('17R205:S0003506','17R4562:0016806',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R205:S0003507','17R4562:0016803',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R205:S0003509','17R4562:0016803',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R205:S0003510','17R2252:0011019',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R205:S0003512','17R4419:0011128',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R205:S0003513','17R4419:0011108',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R205:S0003515','17R4419:0011128',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R205:S0003516','17R4419:0011108',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R205:S0003517','17R4562:0016806',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R405:M0002101','17R4547:0018305',failed,'11 cl',josh,date(26,09,2017),time(12,00,00)).
+harvest('17R4494:0008701','17R4494:0008701',failed,'very low pollen; old ear; 9 cl',josh,date(26,09,2017),time(12,00,00)).
+harvest('17R4227:0006310','17R4227:0006310',failed,'small ear; discard;  whole; fungus',josh,date(26,09,2017),time(12,00,00)).
+harvest('17R4227:0006313','17R4227:0006317',failed,'small ear; discard; whole; fungus',josh,date(26,09,2017),time(12,00,00)).

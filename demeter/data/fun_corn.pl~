@@ -1,0 +1,39 @@
+% this is demeter/data/fun_corn.pl
+
+% a list of family numbers for the popcorn and sweet corn
+%
+% Kazic, 7.5.09
+
+
+% this does not include the popcorn slated for controlled pollinations
+%
+% Kazic, 19.7.2010
+
+
+
+
+fun_corn([
+%
+% popcorn
+%
+          999,
+	  998,
+	  997,
+	  996,
+	  995,
+	  994,
+	  993,
+	  992,
+%
+% sweet corn
+%
+	  991,
+	  990,
+	  899,
+	  898,
+	  897,
+	  896,
+	  895,
+	  894,
+	  893
+          ]).

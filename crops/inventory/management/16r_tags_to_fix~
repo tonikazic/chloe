@@ -1,0 +1,46 @@
+harvest.pl:harvest('16R6970:0015711','16R6970:0015711',failed,'0 cl',josh,date(26,09,2017),time(12,00,00)).
+harvest.pl:harvest('16R6920:0015202','16R6920:0015202',failed,'0 cl',josh,date(26,09,2017),time(12,00,00)).
+harvest.pl:harvest('16R6990:0015910','16R6990:0015910',failed,'15 cl',josh,date(26,09,2017),time(12,00,00)).
+harvest.pl:harvest('16R6900:0015003','16R6900:0015003',failed,'0 cl',josh,date(26,09,2017),time(12,00,00)).
+harvest.pl:harvest('16R6940:0015401','16R6940:0015401',failed,'misbagged; discard;  1 cl',josh,date(26,09,2017),time(12,00,00)).
+harvest.pl:harvest('16R6940:0015406','16R6940:0015406',failed,'very low pollen; old ear; 1 cl',josh,date(26,09,2017),time(12,00,00)).
+harvest.pl:harvest('16R6870:0014708','16R6870:0014708',failed,'low pollen; 7 cl',josh,date(26,09,2017),time(12,00,00)).
+harvest.pl:harvest('16R6880:0014802','16R6880:0014802',failed,'4 cl',josh,date(26,09,2017),time(12,00,00)).
+harvest.pl:harvest('16R6940:0015402','16R6940:0015402',failed,'0 cl',josh,date(26,09,2017),time(12,00,00)).
+harvest.pl:harvest('16R6970:0015710','16R6970:0015710',failed,'0 cl',josh,date(26,09,2017),time(12,00,00)).
+harvest.pl:harvest('16R6980:0015808','16R6980:0015808',succeeded,'very long silks; chimney shootbag; 27 cl',josh,date(26,09,2017),time(12,00,00)).
+harvest.pl:harvest('16R305:W0000711','16R6910:0015106',succeeded,'half',avi,date(23,09,2016),time(12,00,00)).
+harvest.pl:harvest('16R305:W0000703','16R6870:0014701',succeeded,'quarter',avi,date(23,09,2016),time(12,00,00)).
+harvest.pl:harvest('16R205:S0002714','16R6930:0015309',succeeded,'half',avi,date(23,09,2016),time(12,00,00)).
+harvest.pl:harvest('16R205:S0002701','16R6910:0015106',succeeded,'quarter',avi,date(23,09,2016),time(12,00,00)).
+harvest.pl:harvest('16R205:S0002612','16R6930:0015304',succeeded,'quarter',avi,date(23,09,2016),time(12,00,00)).
+harvest.pl:harvest('16R205:S0002608','16R6930:0015303',succeeded,'half',avi,date(23,09,2016),time(12,00,00)).
+harvest.pl:harvest('16R205:S0002607','16R6930:0015303',succeeded,'half',avi,date(23,09,2016),time(12,00,00)).
+harvest.pl:harvest('16R205:S0002606','16R6870:0014708',succeeded,'eighth; fungus',avi,date(23,09,2016),time(12,00,00)).
+harvest.pl:harvest('16R205:S0002604','16R6870:0014708',succeeded,'half',avi,date(23,09,2016),time(12,00,00)).
+harvest.pl:harvest('16R205:S0002603','16R6970:0015711',succeeded,'half',avi,date(23,09,2016),time(12,00,00)).
+harvest.pl:harvest('16R205:S0002602','16R6970:0015711',succeeded,'three_quarter',avi,date(23,09,2016),time(12,00,00)).
+harvest.pl:harvest('16R205:S0001306','16R6970:0015711',succeeded,'half',toni,date(23,09,2016),time(12,00,00)).
+harvest.pl:harvest('16R205:S0001113','16R6980:0015801',succeeded,'half',toni,date(23,09,2016),time(12,00,00)).
+harvest.pl:harvest('16R205:S0001111','16R6980:0015802',succeeded,'half',toni,date(23,09,2016),time(12,00,00)).
+harvest.pl:harvest('16R205:S0001103','16R6970:0015710',succeeded,'half',toni,date(23,09,2016),time(12,00,00)).
+harvest.pl:harvest('16R205:S0000606','16R6870:0014701',succeeded,'half',toni,date(23,09,2016),time(12,00,00)).
+harvest.pl:harvest('16R205:S0000603','16R6910:0015106',succeeded,'half',toni,date(23,09,2016),time(12,00,00)).
+harvest.pl:harvest('16R7020:0016201','16R7020:0016201',succeeded,'old ear; eighth',avi,date(23,09,2016),time(12,00,00)).
+harvest.pl:harvest('16R6990:0015909','16R6990:0015909',succeeded,'quarter; fungus',avi,date(23,09,2016),time(12,00,00)).
+harvest.pl:harvest('16R6990:0015908','16R6990:0015908',succeeded,'half',avi,date(23,09,2016),time(12,00,00)).
+harvest.pl:harvest('16R6980:0015811','16R6980:0015811',succeeded,'half; fungus',avi,date(23,09,2016),time(12,00,00)).
+harvest.pl:harvest('16R6980:0015804','16R6980:0015804',succeeded,'quarter; fungus',avi,date(23,09,2016),time(12,00,00)).
+harvest.pl:harvest('16R6930:0015309','16R6930:0015309',succeeded,'old ear; quarter; fungus',avi,date(23,09,2016),time(12,00,00)).
+harvest.pl:harvest('16R6930:0015306','16R6930:0015306',succeeded,'quarter; fungus',avi,date(23,09,2016),time(12,00,00)).
+harvest.pl:harvest('16R6930:0015304','16R6930:0015304',succeeded,'low pollen; quarter; fungus',avi,date(23,09,2016),time(12,00,00)).
+harvest.pl:harvest('16R6930:0015303','16R6930:0015303',succeeded,'quarter; fungus',avi,date(23,09,2016),time(12,00,00)).
+harvest.pl:harvest('16R6910:0015109','16R6910:0015109',succeeded,'eighth; fungus',avi,date(23,09,2016),time(12,00,00)).
+harvest.pl:harvest('16R6910:0015107','16R6910:0015107',succeeded,'low pollen; quarter; fungus',avi,date(23,09,2016),time(12,00,00)).
+harvest.pl:harvest('16R6890:0014913','16R6890:0014913',succeeded,'low pollen; eighth',avi,date(23,09,2016),time(12,00,00)).
+harvest.pl:harvest('16R6890:0014910','16R6890:0014910',succeeded,'low pollen; quarter',avi,date(23,09,2016),time(12,00,00)).
+harvest.pl:harvest('16R6890:0014903','16R6890:0014903',succeeded,'half',avi,date(23,09,2016),time(12,00,00)).
+harvest.pl:harvest('16R6880:0014805','16R6880:0014805',succeeded,'low pollen; quarter',avi,date(23,09,2016),time(12,00,00)).
+harvest.pl:harvest('16R6880:0014805','16R6880:0014805',succeeded,'low pollen; quarter',avi,date(23,09,2016),time(12,00,00)).
+harvest.pl:harvest('16R6880:0014804','16R6880:0014804',succeeded,'low pollen; eighth',avi,date(23,09,2016),time(12,00,00)).
+harvest.pl:harvest('16R6870:0014701','16R6870:0014701',succeeded,'quarter',avi,date(23,09,2016),time(12,00,00)).

@@ -1,0 +1,15 @@
+next things to do:
+
+1.  construct the regular expression to parse data lines on the fly, using
+the column headers to find the correct regular expressions.  This will make
+data processing much more robust to re-ordering spreadsheet columns to
+accommodate different devices.
+
+
+2.  further modularize the code: nearly all scripts follow the same general
+pattern.  Different types of information require different checks and
+processing:  these should be subroutined based on the type of menu.
+
+
+
+Kazic, 24.4.2018

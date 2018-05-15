@@ -1,0 +1,258 @@
+Notes on the semi-automated inventory procedures. <2015-03-10 Tue> :toni:
+
+
+* Getting the harvest data
+
+We now record harvest data in the seed room, not the field.  This has
+several consequences.
+
++ the date inserted into the spreadsheet is the harvest date of the row,
+  NOT the day the data were recorded.  The harvest dates are pulled from
+  the harvest plan in the crops/CROP/management/ directory.
+
++ All bags with notes written on them are paper-clipped to the packet of
+  shelled corn until :toni: has had a chance to check the transcription!
+  This should reduce nonsensical notes in the data.  In recording the
+  notes, don't put spaces after the semi-colons.
+
++ PlantIDs that are manually entered are copied into a file of needed tags
+  in the directory with the harvest facts AS THE IDs ARE CORRECTED,
+  TOGETHER WITH THE MA TAG.  This way we can easily generate and replace
+  all needed tags.
+
++ Corn that is missing a tag is shelled and placed in a "confusion box" and
+  recorded so that we can figure out what's going on.  Most of the time we
+  can just figure out what's going on from the data.
+
+
++ Sync the data to
+  [[file:data/palm/raw_data_from_palm/CROP/zeta/SHELLING_DAY.SHELLING_MONTH]]. Once
+  shelling is complete, the harvest.csv files can be catted together.
+
+
+* Filing the corn
+
+** Corn is filed in inventory order, based on the maternal plantID's rowplant.
+
++ Mutants (ears with four digit families)
+
++ Mo20W (three digit family between 200--299; S after colon)
+
++ W23 (three digit family between 300--399; W after colon)
+
++ M14 (three digit family between 400--499; M after colon)
+
++ B73 (three digit family between 500--599; B after colon)
+
++ Popcorn (P after colon)
+
++ other fun corn, such as culinary corn
+
+
+** TODO Boxes (finish label section) :toni:
+
++ Each box is divided into thirds lengthwise by two wooden boards, forming
+  the "sleeves".
+
++ Each sleeve has a pink label with the sleeve number's barcode at the
+  top.  This is placed at the back of the sleeve so it is easily read.
+
++ Each box is labelled at the front, on the bottom of the bottom half, so
+  that the label can be read without lifting the box lid.
+
++ Label reads, left to right:
+
+Box BOX_NUM  CROP  KAZIC....
+
+where 
+
+   + BOX_NUM is incremented across all boxes, not just the boxes for that
+     crop
+
+   + CROP is of the form, two-digit year, crop letter:
+      + R = summer
+      + N = winter
+      + G = greenhouse
+
+   + KAZIC is written as such to identify the corn's PI
+
+
++ Look at other boxes to get the size of the various parts of the label.
+
+
++ Boxes are placed on the shelves, lower box number below its successor.
+
+
+** Sleeve data
+
+To complete the inventory we must have the sleeve data.  In spreadsheet "sleeve",
+record:
+
++ sleeve number (scan from pink label)
+
++ ma of first ear in sleeve
+
++ ma of last ear in sleeve
+
+for all sleeves.  Sync this spreadsheet with the others to the directory.
+
+
+
+* Generating harvest.pl
+
++ Check over the harvest.csv files for bloopers (easiest if these are
+  catted together).
+
++ To the bottom of [[file:/athe/c/maize/demeter/data/harvest.pl]], add
+   + a few blank lines;
+   + % CROP
+   + a few more blank lines.
+
+MAKE SURE CROP IS TWO DIGIT YEAR AND LOWER CASE LETTER!  This makes for
+much easier searching through the file later on.
+
++ Run [[file:/athe/c/maize/data/data_conversion/convert_data.perl]] following
+  the directions in that file.  This appends the new harvest data to
+  [[file:/athe/c/maize/demeter/data/harvest.pl]]. 
+
+
++ Move the source harvest.csv to done.harvest.csv manually.
+
++ Check the output for bloopers.
+
+
+* Generating new data and appending them to inventory.pl
+
+
++ Run [[file:/athe/c/maize/crops/make_proto_inventory.perl][make_penult_inventory.perl]] to generate the penult inventory file for
+  hand-sorting into inventory order.  The output file is
+  [[file:/athe/c/maize/crops/CROP/management/penult_inventory]]. 
+
+#+BEGIN_SRC example for 14r crop <2015-03-24 Tue>
+$ perl ./make_penult_inventory.perl 14r
+#+END_SRC
+
++ Make sure penult_inventory is group-writable before proceeding.
+
++ Manually sort the ears into inventory order in emacs by setting regions
+  of columns and over different sections of the file.  Skip a line and add
+  comments to help you keep track of your place.  The sort order is:
+
+   + sort by ma families
+
+   + re-sort mutant ma families by rowplant, across all non-inbred ma families
+
+   + check that inbred families are correctly sorted by rowplant, within
+     each family.  They should be, but be sure.
+
+   + insert sleeve values in emacs, using the positions of the first and
+     last packet in each sleeve from sleeve.csv
+
+   + check for bloopers
+
+
++ Append results to [[file:/athe/c/maize/demeter/data/inventory.pl]] with
+  comments.  The comments are of the form:
+
+"
+
+
+% CROP
+
+% this is from INSERT COMMENTS FROM PENULT INVENTORY FILE, MODIFYING TO
+REFLECT CURRENT STATE.
+
+
+"
+
+For example, penult_inventory comments:
+
+% this is ../crops/14r/management/penult_inventory 
+%
+% generated on Tue Mar 10 05:49:22 CDT 2015 by ../crops/make_penult_inventory.perl
+% from the input file of retained ears or kernels:
+% ../crops/14r/management/proto_inventory_file.
+%
+% Packets from pollinations that failed have been retained if they have a few kernels.
+% However, these are very suspect and should only be used in dire emergency.
+%
+% Data must still be manually sorted into inventory order.
+% 
+%
+% Sleeve numbers must still be manually inserted, and the completed file appended to
+% ../demeter/data/inventory.pl!
+
+
+% inventory(MaPlantID,PaPlantID,NumKernels,Observer,Date,Time,v00).
+
+
+
+Comments at bottom of inventory file, before inserting the final new data:
+
+"
+
+
+% 14r
+
+
+% this is from ../crops/14r/management/penult_inventory 
+%
+% generated on Tue Mar 10 05:49:22 CDT 2015 by ../crops/make_penult_inventory.perl
+% from the input file of retained ears or kernels:
+% ../crops/14r/management/proto_inventory_file.
+%
+% Packets from pollinations that failed have been retained if they have a few kernels.
+% However, these are very suspect and should only be used in dire emergency.
+%
+% Data have been sorted into inventory order and sleeve numbers inserted.
+%
+% YOUR LAST NAME, DATE IN DAY.MONTH.YEAR
+
+
+% inventory(MaPlantID,PaPlantID,NumKernels,Observer,Date,Time,v00).
+
+
+"
+
+
++ check that the file compiles into sicstus
+
+#+BEGIN_SRC compilation check: if your path doesn't include the path to sicstus, source your ~/.bash_profile
+bash-3.2$ printenv
+....
+PATH=/usr/bin:/bin:/usr/sbin:/sbin
+PWD=/athe/c/maize/demeter/data
+
+bash-3.2$ source ~/.bash_profile 
+
+bash-3.2$ !pr
+printenv
+....
+PATH=/usr/local/sicstus4.2.0/bin:/usr/bin:/bin:/usr/sbin:/sbin
+
+bash-3.2$ sicstus
+SICStus 4.2.0 (x86_64-darwin-10.6.0): Mon Mar  7 20:03:36 CET 2011
+Licensed to SP4missouri.edu
+| ?- [inventory].
+% compiling /Volumes/c/maize/demeter/data/inventory.pl...
+% compiled /Volumes/c/maize/demeter/data/inventory.pl in module user, 890 msec 3223856 bytes
+yes
+| ?- halt.
+bash-3.2$ 
+#+END_SRC
+
+
+* Dynamic re-inventorying
+
+As a seed packet is significantly depleted, it should be re-inventoried.
+If it is emptied, it MUST BE REINVENTORIED.
+
++ Use the inventory spreadsheet and record the data for that packet.
+
++ Sync inventory.csv as usual, and check and fix bloopers.
+
++ Run [[file:/athe/c/maize/data/data_conversion/convert_data.perl]], which
+  calls convert_inventory_data.perl in that directory.
+
++ Check output at bottom of [[file:/athe/c/maize/demeter/data/inventory.pl]]
+  for errors.

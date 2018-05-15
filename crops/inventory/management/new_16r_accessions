@@ -1,0 +1,27 @@
+% marty 15r
+
+new_accession(685,'111H','MGCSC','15R').
+new_accession(686,'111F','MGCSC','15R').
+
+
+
+% Candy Gardner doubled haploid lines for 16r
+
+new_accession(687,'15SGEM:BGEM:13397','Candy Gardner','16R').
+new_accession(688,'14SGEM:BGEM:17314','Candy Gardner','16R').
+new_accession(689,'14SGEM:BGEM:12345','Candy Gardner','16R').
+new_accession(690,'14SGEM:BGEM:19336','Candy Gardner','16R').
+new_accession(691,'14SGEM:BGEM:08337','Candy Gardner','16R').
+new_accession(692,'14SGEM:BGEM:04349','Candy Gardner','16R').
+new_accession(693,'14SGEM:BGEM:08361','Candy Gardner','16R').
+new_accession(694,'14SGEM:BGEM:13350','Candy Gardner','16R').
+new_accession(695,'14SGEM:BGEM:25341','Candy Gardner','16R').
+new_accession(696,'14SGEM:BGEM:11338','Candy Gardner','16R').
+new_accession(697,'14SGEM:BGEM:08313','Candy Gardner','16R').
+new_accession(698,'14SGEM:BGEM:15346','Candy Gardner','16R').
+new_accession(699,'15SGEM:BGEM:14378','Candy Gardner','16R').
+new_accession(700,'13SGEM:06-N3:4962','Candy Gardner','16R').
+new_accession(701,'14SGEM:BGEM:06313','Candy Gardner','16R').
+new_accession(702,'14SGEM:BGEM:23344','Candy Gardner','16R').
+
+

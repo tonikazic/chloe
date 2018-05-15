@@ -1,0 +1,68 @@
+\documentclass[12pt]{article}
+\usepackage{graphics,graphicx,graphpap,amsmath,multirow}
+\usepackage{row_stake_margins}
+\pagestyle{empty}
+\thispagestyle{empty}
+\DeclareMathSizes{12}{30}{13}{9}
+\begin{document}
+
+
+
+% /opt/local/bin/barcode -c -E -b barcodee -u in -g 2.25x0.75 -e 128 -o barcode_file
+
+
+
+
+
+\begin{tabular}{p{1.75in}|p{1.75in}|p{1.75in}|p{1.75in}}
+
+\huge{\emph{\textbf{general}}} & & & \\ \hline
+\huge{\textbf{1}} & & & \\ \hline
+true & & & \\ \hline
+\huge{\textbf{0}} & & &  \\ \hline
+false & & & \\ \hline
+%
+\\ \hline
+\huge{\emph{\textbf{images}}} & & & \\ \hline
+%
+\huge{\textbf{0}} & \huge{\textbf{12}}       & \huge{\textbf{1}} & \\ 
+e0                & t0                       & tip               & \\ \hline
+\huge{\textbf{1}} & \huge{\textbf{9}}        & \huge{\textbf{2}} & \\ 
+e1                & t-1                      & middle            & \\ \hline
+\huge{\textbf{2}} & \huge{\textbf{10}}       & \huge{\textbf{3}} & \\ 
+e2                & t-2                      & stem              & \\ \hline
+\huge{\textbf{3}} & \huge{\textbf{11}}       & \huge{\textbf{4}} & \\ 
+e3                & t-3                      & whole             & \\ \hline
+\huge{\textbf{4}} & \huge{\textbf{}}         & \huge{\textbf{5}} & \\ 
+e4                & t-4                      & stem1             & \\ \hline
+\huge{\textbf{}}  & \huge{\textbf{}}         & \huge{\textbf{6}} & \\ 
+e5                & t-5                      & stem2             & \\ \hline 
+\huge{\textbf{}}  & \huge{\textbf{}}         & & \\ 
+e6                & t-6                      & & \\ \hline
+\huge{\textbf{}}  & \huge{\textbf{}}         & & \\ 
+e7                & t-7                      & & \\ \hline
+\huge{\textbf{}}  & \huge{\textbf{}}         & & \\ 
+e8                & t-8                      & & \\ \hline
+\huge{\textbf{5}} & & & \\ 
+e-1               & & & \\ \hline
+\huge{\textbf{6}} & & & \\ 
+e-2               & & & \\ \hline
+\huge{\textbf{7}} & & & \\ 
+e-3               & & & \\ \hline
+%
+\huge{\textbf{8}} & & & \\ 
+e-4               & & & \\ \hline
+\huge{\textbf{}}  & & & \\ 
+e-5               & & & \\ \hline
+\huge{\textbf{}}  & & & \\ 
+e-6               & & & \\ \hline
+%
+\huge{\textbf{}}  & & & \\ 
+e-7               & & & \\ \hline
+\huge{\textbf{}}  & & & \\ 
+e-8               & & & \\ \hline
+
+\end{tabular}
+
+\end{document}
+

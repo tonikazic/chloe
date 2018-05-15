@@ -1,0 +1,133 @@
+\documentclass[12pt]{article}
+\usepackage{graphics,graphicx,graphpap,amsmath,multirow}
+\usepackage{barcode_margins}
+\pagestyle{empty}
+\thispagestyle{empty}
+\DeclareMathSizes{12}{30}{13}{9}
+\begin{document}
+
+\unitlength=1mm
+\begin{picture}(204,250)(0,0)
+\put(1,263){\scalebox{0.65}{\includegraphics{../../../barcodes/inventory/06R0086:0000000.eps}}}
+                   \put(9,258){\scalebox{0.8}{3909D Les*-N2420}}
+                   \put(46,262){\scalebox{1.1}{06R}}
+                   \put(46,271){\huge{86}}
+\put(1,236.5){\scalebox{0.65}{\includegraphics{../../../barcodes/inventory/09R0139:0000000.eps}}}
+                   \put(9,231.5){\scalebox{0.8}{1999-225-1 Les*-N2420}}
+                   \put(46,235.5){\scalebox{1.1}{09R}}
+                   \put(46,244.5){\huge{139}}
+\put(1,210){\scalebox{0.65}{\includegraphics{../../../barcodes/inventory/06R0109:0000000.eps}}}
+                   \put(9,205){\scalebox{0.8}{2005-2622-1 spc1-N1376}}
+                   \put(46,209){\scalebox{1.1}{06R}}
+                   \put(46,218){\huge{109}}
+\put(1,183.5){\scalebox{0.65}{\includegraphics{../../../barcodes/inventory/09R0140:0000000.eps}}}
+                   \put(9,178.5){\scalebox{0.8}{2005-2597-1 spc1-N1376}}
+                   \put(46,182.5){\scalebox{1.1}{09R}}
+                   \put(46,191.5){\huge{140}}
+\put(1,157){\scalebox{0.65}{\includegraphics{../../../barcodes/inventory/09R0137:0000000.eps}}}
+                   \put(9,152){\scalebox{0.8}{6007E les*-PI262474}}
+                   \put(46,156){\scalebox{1.1}{09R}}
+                   \put(46,165){\huge{137}}
+\put(1,130.5){\scalebox{0.65}{\includegraphics{../../../barcodes/inventory/09R0141:0000000.eps}}}
+                   \put(9,125.5){\scalebox{0.8}{Hsf1/-}}
+                   \put(46,129.5){\scalebox{1.1}{09R}}
+                   \put(46,138.5){\huge{141}}
+\put(1,104){\scalebox{0.65}{\includegraphics{../../../barcodes/inventory/09R0142:0000000.eps}}}
+                   \put(9,99){\scalebox{0.8}{D8-N1591}}
+                   \put(46,103){\scalebox{1.1}{09R}}
+                   \put(46,112){\huge{142}}
+\put(1,77.5){\scalebox{0.65}{\includegraphics{../../../barcodes/inventory/09R0143:0000000.eps}}}
+                   \put(9,72.5){\scalebox{0.8}{D8-N1452}}
+                   \put(46,76.5){\scalebox{1.1}{09R}}
+                   \put(46,85.5){\huge{143}}
+\put(1,51){\scalebox{0.65}{\includegraphics{../../../barcodes/inventory/09R0144:0000000.eps}}}
+                   \put(9,46){\scalebox{0.8}{D9}}
+                   \put(46,50){\scalebox{1.1}{09R}}
+                   \put(46,59){\huge{144}}
+\put(1,24.5){\scalebox{0.65}{\includegraphics{../../../barcodes/inventory/09R0145:0000000.eps}}}
+                   \put(9,19.5){\scalebox{0.8}{D10}}
+                   \put(46,23.5){\scalebox{1.1}{09R}}
+                   \put(46,32.5){\huge{145}}
+\put(72,263){\scalebox{0.65}{\includegraphics{../../../barcodes/inventory/09R0146:0000000.eps}}}
+                   \put(80,258){\scalebox{0.8}{Tp1}}
+                   \put(117,262){\scalebox{1.1}{09R}}
+                   \put(117,271){\huge{146}}
+\put(72,236.5){\scalebox{0.65}{\includegraphics{../../../barcodes/inventory/09R0147:0000000.eps}}}
+                   \put(80,231.5){\scalebox{0.8}{Tp2}}
+                   \put(117,235.5){\scalebox{1.1}{09R}}
+                   \put(117,244.5){\huge{147}}
+\put(72,210){\scalebox{0.65}{\includegraphics{../../../barcodes/inventory/06R0086:0000000.eps}}}
+                   \put(80,205){\scalebox{0.8}{3909D Les*-N2420}}
+                   \put(117,209){\scalebox{1.1}{06R}}
+                   \put(117,218){\huge{86}}
+\put(72,183.5){\scalebox{0.65}{\includegraphics{../../../barcodes/inventory/09R0139:0000000.eps}}}
+                   \put(80,178.5){\scalebox{0.8}{1999-225-1 Les*-N2420}}
+                   \put(117,182.5){\scalebox{1.1}{09R}}
+                   \put(117,191.5){\huge{139}}
+\put(72,157){\scalebox{0.65}{\includegraphics{../../../barcodes/inventory/06R0109:0000000.eps}}}
+                   \put(80,152){\scalebox{0.8}{2005-2622-1 spc1-N1376}}
+                   \put(117,156){\scalebox{1.1}{06R}}
+                   \put(117,165){\huge{109}}
+\put(72,130.5){\scalebox{0.65}{\includegraphics{../../../barcodes/inventory/09R0140:0000000.eps}}}
+                   \put(80,125.5){\scalebox{0.8}{2005-2597-1 spc1-N1376}}
+                   \put(117,129.5){\scalebox{1.1}{09R}}
+                   \put(117,138.5){\huge{140}}
+\put(72,104){\scalebox{0.65}{\includegraphics{../../../barcodes/inventory/09R0137:0000000.eps}}}
+                   \put(80,99){\scalebox{0.8}{6007E les*-PI262474}}
+                   \put(117,103){\scalebox{1.1}{09R}}
+                   \put(117,112){\huge{137}}
+\put(72,77.5){\scalebox{0.65}{\includegraphics{../../../barcodes/inventory/09R0141:0000000.eps}}}
+                   \put(80,72.5){\scalebox{0.8}{Hsf1/-}}
+                   \put(117,76.5){\scalebox{1.1}{09R}}
+                   \put(117,85.5){\huge{141}}
+\put(72,51){\scalebox{0.65}{\includegraphics{../../../barcodes/inventory/09R0142:0000000.eps}}}
+                   \put(80,46){\scalebox{0.8}{D8-N1591}}
+                   \put(117,50){\scalebox{1.1}{09R}}
+                   \put(117,59){\huge{142}}
+\put(72,24.5){\scalebox{0.65}{\includegraphics{../../../barcodes/inventory/09R0143:0000000.eps}}}
+                   \put(80,19.5){\scalebox{0.8}{D8-N1452}}
+                   \put(117,23.5){\scalebox{1.1}{09R}}
+                   \put(117,32.5){\huge{143}}
+\put(144,263){\scalebox{0.65}{\includegraphics{../../../barcodes/inventory/09R0144:0000000.eps}}}
+                   \put(152,258){\scalebox{0.8}{D9}}
+                   \put(189,262){\scalebox{1.1}{09R}}
+                   \put(189,271){\huge{144}}
+\put(144,236.5){\scalebox{0.65}{\includegraphics{../../../barcodes/inventory/09R0145:0000000.eps}}}
+                   \put(152,231.5){\scalebox{0.8}{D10}}
+                   \put(189,235.5){\scalebox{1.1}{09R}}
+                   \put(189,244.5){\huge{145}}
+\put(144,210){\scalebox{0.65}{\includegraphics{../../../barcodes/inventory/09R0146:0000000.eps}}}
+                   \put(152,205){\scalebox{0.8}{Tp1}}
+                   \put(189,209){\scalebox{1.1}{09R}}
+                   \put(189,218){\huge{146}}
+\put(144,183.5){\scalebox{0.65}{\includegraphics{../../../barcodes/inventory/09R0147:0000000.eps}}}
+                   \put(152,178.5){\scalebox{0.8}{Tp2}}
+                   \put(189,182.5){\scalebox{1.1}{09R}}
+                   \put(189,191.5){\huge{147}}
+\put(144,157){\scalebox{0.65}{\includegraphics{../../../barcodes/inventory/06R0086:0000000.eps}}}
+                   \put(152,152){\scalebox{0.8}{3909D Les*-N2420}}
+                   \put(189,156){\scalebox{1.1}{06R}}
+                   \put(189,165){\huge{86}}
+\put(144,130.5){\scalebox{0.65}{\includegraphics{../../../barcodes/inventory/09R0139:0000000.eps}}}
+                   \put(152,125.5){\scalebox{0.8}{1999-225-1 Les*-N2420}}
+                   \put(189,129.5){\scalebox{1.1}{09R}}
+                   \put(189,138.5){\huge{139}}
+\put(144,104){\scalebox{0.65}{\includegraphics{../../../barcodes/inventory/06R0109:0000000.eps}}}
+                   \put(152,99){\scalebox{0.8}{2005-2622-1 spc1-N1376}}
+                   \put(189,103){\scalebox{1.1}{06R}}
+                   \put(189,112){\huge{109}}
+\put(144,77.5){\scalebox{0.65}{\includegraphics{../../../barcodes/inventory/07R992:P0mawhyl.eps}}}
+                   \put(152,72.5){\scalebox{0.8}{07R992:P0mawhyl}}
+                   \put(189,76.5){\scalebox{1.1}{09R}}
+                   \put(189,85.5){\huge{992}}
+\put(144,51){\scalebox{0.65}{\includegraphics{../../../barcodes/inventory/07R994:P0modkpi.eps}}}
+                   \put(152,46){\scalebox{0.8}{07R994:P0modkpi}}
+                   \put(189,50){\scalebox{1.1}{09R}}
+                   \put(189,59){\huge{994}}
+\put(144,24.5){\scalebox{0.65}{\includegraphics{../../../barcodes/inventory/07R995:P0moltpi.eps}}}
+                   \put(152,19.5){\scalebox{0.8}{07R995:P0moltpi}}
+                   \put(189,23.5){\scalebox{1.1}{09R}}
+                   \put(189,32.5){\huge{995}}
+\end{picture}
+
+\end{document}

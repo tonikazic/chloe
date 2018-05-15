@@ -1,0 +1,118 @@
+# this is ../c/maize/demeter/data/update.org
+
+#+title: Tracking Demeter Data Updates
+#+date: <2018-04-16 Mon>
+#+author: Toni Kazic
+
+
+a file to keep track of what data have to be cleaned up, forcing ports of
+perl code
+
+
+* table
+
+all 16r data entered <2018-04-24 Tue>
+
+
+
+| file               | to do                                                   | date all done |
+|--------------------+---------------------------------------------------------+---------------|
+| box                | photo boxes, enter data; belay until sleeves re-bounded |               |
+| cross              | insert 16r data; 17r data done  <2018-04-21 Sat>           | <2018-04-26 Thu> |
+| crop_rowplant      | recompute, adding 16r and 17r data                      |               |
+| cross_prep         | add 16r, 17r data                                       | <2018-04-26 Thu> |
+| failed_pollination | convert to harvest facts and add there                  | <2018-05-01 Tue> |
+| faked_planted      | check if present in planted, otherwise insert           | <2018-05-01 Tue> |
+| family_remapping   | bring up to date                                        |               |
+| first_extra_tag    | incorporate data into row_status and retire             |               |
+| gene_type          | bring up to date                                        |               |
+| genotype           | bring up to date                                        |               |
+| harvest            | add 16r, 17r data; find missing 17r data                |               |
+| idea               | incorporate into crop notes org file                    |               |
+| image              | add 16r, 17r data; cross-check with images and tissue   | <2018-04-26 Thu> |
+| inbred_pool        | hunt for M14, more recent B73 records and add           |               |
+| inventory          | add 16r, 17r facts                                      |               |
+| later_plantings    | merge into packing_plan?                                |               |
+| leaf_alignmt       | add 15r, 16r, 17r data if they exist                    |               |
+| mutant             | add 16r, 17r data                                       | <2018-04-26 Thu> |
+| next_crop          | incorporate into crop notes org file                    |               |
+| packed_packet      | add 17r data; ensure all 16r data added                 | <2018-04-26 Thu> |
+| pedigree_tree      | ensure current, add more mutants; fix batch             |               |
+|                    | job problem                                             |               |
+| phenotypic_class   | bring up to date                                        |               |
+| plan               | add 15r, 16r, 17r data                                  |               |
+| plant              | discard                                                 | <2018-04-26 Thu> |
+| plant_anatomy      | last data are 10r; add any new                          | <2018-04-26 Thu> |
+| plant_height       | merge with plant_anatomy; add any new                   | <2018-04-26 Thu> |
+| plant_fate         | add any new                                             | <2018-04-26 Thu> |
+| planted            | add 17r data                                            | <2018-04-20 Fri> |
+| planted_index      | recompute, add 16r and 17r data                         |               |
+| prefix             | replaced by family_prefix, rmed                         | <2018-04-26 Thu> |
+| proposed_next*     | discard?                                                |               |
+| row_members        | recompute, add 16r, 17r                                 |               |
+| row_status         | add 17r                                                 | <2018-04-21 Sat> |
+| sec_in_days        | discard,  merge with num_secs                           | <2018-04-26 Thu> |
+| source             | bring up to date                                        |               |
+| tassel             | insert 11n data                                         | <2018-04-29 Sun> |
+| tissue_collectn    | add 16r, 17r data; cross-check with image               | <2018-04-26 Thu> |
+| tissue_sampling    | merge with tissue_collectn                              | <2018-04-26 Thu> |
+| weather            | bring up to date? or just save flat dumps               |               |
+
+
+* other changes
+
+** correcting 06R inbred numerical genotypes <2018-05-02 Wed>
+
+The ones in inbred rows I1 -- I9 were of the form 0I###, without padding
+the row number to two digits.  I noticed this when revising
+[[file;genetic_utilities.pl][genetic_utilities:remove_padding/2]] to construct rows for constructed
+numerical genotypes.  Inspection of the planted/8 facts indicated this
+incorrect padding had propagated to other files.
+
+
+I inspected the results of
+
+#+BEGIN_SRC 
+grep 06R genotype.pl | grep ':' | grep I | grep -v '%'
+#+END_SRC
+
+and found the following, which I then confirmed in genotype.pl:
+
+#+BEGIN_SRC 
+  604  grep 06R200:S000I104 genotype.pl | grep -v '%'
+  605  grep 06R300:W000I208 genotype.pl | grep -v '%'
+  606  grep 06R300:W000I219 genotype.pl | grep -v '%'
+  607  grep 06R300:W00I0219 genotype.pl | grep -v '%'
+  608  grep 06R400:M000I308 genotype.pl | grep -v '%'
+  609  grep 06R400:M000I309 genotype.pl | grep -v '%'
+  610  grep 06R300:W000I504 genotype.pl | grep -v '%'
+  611  grep 06R300:W000I507 genotype.pl | grep -v '%'
+  612  grep 06R300:W000I518 genotype.pl | grep -v '%'
+  613  grep 06R300:W000I805 genotype.pl | grep -v '%'
+  614  grep 06R300:W000I815 genotype.pl | grep -v '%'
+
+#+END_SRC
+
+(note command 607 is grepping for the correct numerical genotype!).
+
+
+After fixing these by incremental search and replace in genotype.pl, I ran
+these through the following commands, which I put in a script
+(find_changes.sh):
+
+#+BEGIN_SRC 
+#!/bin/bash
+
+grep 06R200:S000I104 *.pl | grep -v '%' | grep -v old  | grep -v crop_rowplant | grep -v row_members | grep -v index ;
+grep 06R300:W000I208 *.pl | grep -v '%' | grep -v old  | grep -v crop_rowplant | grep -v row_members | grep -v index ;
+grep 06R300:W000I219 *.pl | grep -v '%' | grep -v old  | grep -v crop_rowplant | grep -v row_members | grep -v index ;
+grep 06R400:M000I309 *.pl | grep -v '%' | grep -v old  | grep -v crop_rowplant | grep -v row_members | grep -v index ;
+grep 06R300:W000I504 *.pl | grep -v '%' | grep -v old  | grep -v crop_rowplant | grep -v row_members | grep -v index ;
+grep 06R300:W000I507 *.pl | grep -v '%' | grep -v old  | grep -v crop_rowplant | grep -v row_members | grep -v index ;
+grep 06R300:W000I518 *.pl | grep -v '%' | grep -v old  | grep -v crop_rowplant | grep -v row_members | grep -v index ;
+grep 06R300:W000I805 *.pl | grep -v '%' | grep -v old  | grep -v crop_rowplant | grep -v row_members | grep -v index ;
+grep 06R300:W000I815 *.pl | grep -v '%' | grep -v old  | grep -v crop_rowplant | grep -v row_members | grep -v index ;
+
+#+END_SRC
+
+I then amended the results until find_changes.sh produced no more hits.

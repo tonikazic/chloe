@@ -1,0 +1,59 @@
+<2015-05-11 Mon> :toni:
+
+commands to grep by, for establishing various counts in planning the crop
+
+a good idea to check results prior to wc!
+
+
+#+BEGIN_SRC 
+
+  569  grep packing_plan packing_plan.org | grep -v '%' | grep -v inbred  | wc
+
+  567  grep packing_plan packing_plan.org | grep -v '%' | grep -v inbred | grep ",20)." | wc
+  568  grep packing_plan packing_plan.org | grep -v '%' | grep -v inbred | grep ",10)." | wc
+
+
+  572  grep packing_plan packing_plan.org | grep -v '%' | grep -v inbred  | grep "\],1,\[" | wc
+  573  grep packing_plan packing_plan.org | grep -v '%' | grep -v inbred | grep "\],1,\[" | grep self | grep -v selfed
+  574  grep packing_plan packing_plan.org | grep -v '%' | grep -v inbred | grep "\],1,\[" | grep self | grep selfed
+  575  grep packing_plan packing_plan.org | grep -v '%' | grep -v inbred | grep "\],1,\[" | grep self | grep -v selfed | wc
+  576  grep packing_plan packing_plan.org | grep -v '%' | grep -v inbred | grep "\],1,\[" | grep "\[self\]" | wc
+  577  grep packing_plan packing_plan.org | grep -v '%' | grep -v inbred | grep "\],1,\[" | grep selfed 
+  578  grep packing_plan packing_plan.org | grep -v '%' | grep -v inbred | grep "\],1,\[" | grep check
+  579  grep packing_plan packing_plan.org | grep -v '%' | grep -v inbred | grep "\],1,\[" | grep selfed
+  580  grep packing_plan packing_plan.org | grep -v '%' | grep -v inbred | grep "\],1,\[" | grep inc
+  581  grep packing_plan packing_plan.org | grep -v '%' | grep -v inbred | grep "\],1,\[" | grep inc | wc
+  582  grep packing_plan packing_plan.org | grep -v '%' | grep -v inbred | grep "\],1,\[" | grep "'S'"
+  583  grep packing_plan packing_plan.org | grep -v '%' | grep -v inbred | grep "\],1,\[" | grep "'S'" | wc
+  584  grep packing_plan packing_plan.org | grep -v '%' | grep -v inbred | grep "\],1,\[" | grep "'W'" | wc
+  585  grep packing_plan packing_plan.org | grep -v '%' | grep -v inbred | grep "\],1,\[" | grep "'M'" | wc
+  586  grep packing_plan packing_plan.org | grep -v '%' | grep -v inbred | grep "\],1,\[" | grep "'B'" | wc
+  587  grep packing_plan packing_plan.org | grep -v '%' | grep -v inbred | grep "\],1,\[" | grep "'S'" | grep pick
+  588  grep packing_plan packing_plan.org | grep -v '%' | grep -v inbred | grep "\],1,\[" | grep "'S'" | grep pick | wc
+  589  grep packing_plan packing_plan.org | grep -v '%' | grep -v inbred | grep "\],1,\[" | grep "'W'" | grep pick | wc
+  590  grep packing_plan packing_plan.org | grep -v '%' | grep -v inbred | grep "\],1,\[" | grep "'W'" | grep pick 
+  591  grep packing_plan packing_plan.org | grep -v '%' | grep -v inbred | grep "\],1,\[" | grep "'M'" | grep pick | wc
+  592  grep packing_plan packing_plan.org | grep -v '%' | grep -v inbred | grep "\],1,\[" | grep "'M'" | wc
+  593  grep packing_plan packing_plan.org | grep -v '%' | grep -v inbred | grep "\],1,\[" | grep "'M'" | grep pick
+  594  grep packing_plan packing_plan.org | grep -v '%' | grep -v inbred | grep "\],2,\[" 
+  595  grep packing_plan packing_plan.org | grep -v '%' | grep -v inbred | grep "\],2,\[" | wc
+  596  grep packing_plan packing_plan.org | grep -v '%' | grep -v inbred | grep "\],2,\[" | grep "\[self\]"
+  597  grep packing_plan packing_plan.org | grep -v '%' | grep -v inbred | grep "\],2,\[" | grep inc
+  598  grep packing_plan packing_plan.org | grep -v '%' | grep -v inbred | grep "\],2,\[" | grep inc | wc
+  599  grep packing_plan packing_plan.org | grep -v '%' | grep -v inbred | grep "\],2,\[" | grep "'S'" 
+  600  grep packing_plan packing_plan.org | grep -v '%' | grep -v inbred | grep "\],2,\[" | grep "'S'"  | wc
+  601  grep packing_plan packing_plan.org | grep -v '%' | grep -v inbred | grep "\],2,\[" | grep "'S'" | grep pick
+  602  grep packing_plan packing_plan.org | grep -v '%' | grep -v inbred | grep "\],2,\[" | grep "'S'" | grep pick | wc
+  603  grep packing_plan packing_plan.org | grep -v '%' | grep -v inbred | grep "\],2,\[" | grep "'W'" 
+  604  grep packing_plan packing_plan.org | grep -v '%' | grep -v inbred | grep "\],2,\[" | grep "'W'"  | wc
+  605  grep packing_plan packing_plan.org | grep -v '%' | grep -v inbred | grep "\],2,\[" | grep "'W'" | grep pick | wc
+  606  grep packing_plan packing_plan.org | grep -v '%' | grep -v inbred | grep "\],2,\[" | grep "'W'" | grep pick 
+  607  grep packing_plan packing_plan.org | grep -v '%' | grep -v inbred | grep "\],2,\[" | grep "'M'" 
+  608  grep packing_plan packing_plan.org | grep -v '%' | grep -v inbred | grep "\],2,\[" | grep "'M'"  | wc
+  609  grep packing_plan packing_plan.org | grep -v '%' | grep -v inbred | grep "\],2,\[" | grep "'M'" | grep pick |wc
+  610  grep packing_plan packing_plan.org | grep -v '%' | grep -v inbred | grep "\],2,\[" | grep "'M'" | grep pick 
+  611  grep packing_plan packing_plan.org | grep -v '%' | grep -v inbred | grep "\],2,\[" | grep "'B'"
+  612  grep packing_plan packing_plan.org | grep -v '%' | grep -v inbred | grep "\],2,\[" | grep "'B'" | wc
+
+
+#+END_SRC
