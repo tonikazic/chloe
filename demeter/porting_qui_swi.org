@@ -1369,14 +1369,16 @@ This will be a variation on fix_missing_data:check_packets_vs_planted/7.
 
 
 
-#+BEGIN_SRC ok, get the barcodes on lewis!
+*** set up archival directory
 
+#+BEGIN_SRC make the archival directory
 cd /gprs/pithos/c/maize/demeter/archival/
 mkdir 17r_data_reconstructn
-cd ../../barcodes/17r/
-pwd
-ls * | grep -v [SWMB] > ../../demeter/archival/17r_data_reconstructn/17r_barcodes_no_inbreds
 #+END_SRC
+
+
+
+*** take care of the inbreds by hand
 
 
 Hmmmm, inbreds are fastest by hand . . . a predicate to find unplanted
@@ -1449,6 +1451,14 @@ bash-3.2$ grep 2017 packed_packet.pl | grep p00004 | wc
 
 
 #+END_SRC
+
+
+*** write a perl script to generate the possibly_missing facts <2018-05-16 Wed>
+
+This is [[file:../crops/scripts/make_possibly_missing_data.perl][make_possibly_missing_data.perl]], which uses the filenames in the
+barcodes directory of a crop to generate the missing facts after filtering
+out inbreds, landraces, and fun corn.  Output is appended to
+[[file:data/possibly_missing_data.pl][possibly_missing_data.pl.]]
 
 
 * making and using a saved state <2018-04-11 Wed> and ff

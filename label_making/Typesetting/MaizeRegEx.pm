@@ -56,6 +56,7 @@ our @EXPORT = qw($palm_re
              $knum_re
              $marker_re
              $mutant_family_re
+             $nonmutant_particle_re
              $old_num_gtype_re
              $num_gtype_re
              $wierd_gtype_re
@@ -217,6 +218,8 @@ $knum_re = qr/K\d{4,5}/;
 #
 $original_family_re = qr/\d?\d?\d?\d/;
 $mutant_family_re = qr/\d{4}/;
+#
+$nonmutant_particle_re = qr/[SWMBLEP]/;
 #
 # this next is not robust:  it is too greedy
 #

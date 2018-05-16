@@ -750,7 +750,7 @@ check_planted_vs_packets(Crop,MissingPackets) :-
         num_secs(60,Secs),
         LowerBdPkingTS is FirstPltngTimeStamp - Secs,
         UpperBdPkingTS is FirstPltngTimeStamp + (Secs/2),
-        findall(PRow-Packet,planted(PRow,Packet,_,_,Date,_,_,Crop),PlantedRows),
+        findall(PRow-Packet,planted(PRow,Packet,_,_,_Date,_,_,Crop),PlantedRows),
         check_planted_vs_packets(Crop,LowerBdPkingTS,UpperBdPkingTS,PlantedRows,MissingPackets).
 
 
