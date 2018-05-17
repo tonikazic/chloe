@@ -5320,7 +5320,7 @@ genotype(4086,305,'12N305:W0038310',3949,'12N3949:0017706','W23','W23','W23','Le
 % oops! this is the same as family 3590.  Looks like each time a family is replanted, a new
 % family number is issued.  This shouldn''t happen.
 %
-% Don't have time to figure this out now . . . let the duplicated families alone for 13r.
+% Don''t have time to figure this out now . . . let the duplicated families alone for 13r.
 %
 % Kazic, 26.5.2013
 %
@@ -5889,6 +5889,7 @@ genotype(4537,205,'15R205:S0000510',4412,'15R4412:0018104','Mo20W','Mo20W','Mo20
 
 
 
+    
 % 17r lines planted
 
 

@@ -14,7 +14,8 @@
 :-      module(fix_missing_data, [
                 check_planted_vs_packets/2,
 		find_unplanted_rows/3, 
-                fix_missing_data/2
+                fix_missing_data/2,
+                load_planning_file/1
                 ]).
 
 
@@ -88,19 +89,12 @@
 
     
 fix_missing_data(Crop,File) :-
-        downcase_atom(Crop,PathCrop),
-        atomic_list_concat(['../../crops/',PathCrop,'/planning/packing_plan'],PlnngFile),
-        ensure_loaded(PlnngFile),
+        load_planning_file(Crop),    
     
         setof(Target,gather_sheep(Crop,Target),Sheep),
 %        nl, nl, write_list(Sheep), nl, nl,
 
-        crop(Crop,_,_,1,PltngDate,_,_),
-        get_timestamp(PltngDate,time(5,0,0),FirstPltngTimeStamp),
-        num_secs(60,Secs),
-        LowerBdPkingTS is FirstPltngTimeStamp - Secs,
-        UpperBdPkingTS is FirstPltngTimeStamp + (Secs/2),
-
+        bound_planting_dates(Crop,1,LowerBdPkingTS,UpperBdPkingTS),
         check_sheep(Sheep,LowerBdPkingTS,UpperBdPkingTS,LostSheep),
 %        nl, nl, write_list(LostSheep), nl, nl,
 
@@ -114,6 +108,43 @@ fix_missing_data(Crop,File) :-
 
 
 
+
+% get the generated packing_plan data for that crop    
+
+%! load_planning_file(+Crop:atom) is det.    
+
+
+    
+load_planning_file(Crop) :-
+        downcase_atom(Crop,PathCrop),
+        atomic_list_concat(['../../crops/',PathCrop,'/planning/packing_plan'],PlnngFile),
+        ensure_loaded(PlnngFile).
+
+
+
+
+
+
+
+
+
+
+% for a crop and planting, get reasonable upper and lower bounds for packet    
+% packing
+%
+% Kazic, 16.5.2018
+
+    
+%! bound_planting_dates(+Crop:atom,+Planting:int,-LowerBdPkingTS:num,-UpperBdPkingTS:num) is det.
+
+    
+bound_planting_dates(Crop,Planting,LowerBdPkingTS,UpperBdPkingTS) :-    
+        crop(Crop,_,_,Planting,PltngDate,_,_),
+        get_timestamp(PltngDate,time(5,0,0),FirstPltngTimeStamp),
+        num_secs(60,Secs),
+        LowerBdPkingTS is FirstPltngTimeStamp - Secs,
+        UpperBdPkingTS is FirstPltngTimeStamp + (Secs/2).
+    
 
     
 
@@ -819,7 +850,7 @@ check_planted_vs_packets(Crop,LowerBdPkingTS,UpperBdPkingTS,PlantedRows,Missing)
 check_planted_vs_packets(_,_,_,[],A,A).
 check_planted_vs_packets(Crop,LowerBdPkingTS,UpperBdPkingTS,
                           [PRow-Packet|PlantedRows],Acc,Missing) :-
-        ( ( packed_packet(Packet,Ma,Pa,_,_,PkingDate,_),
+        ( ( packed_packet(Packet,_Ma,_Pa,_,_,PkingDate,_),
             check_dates([Packet-PkingDate],LowerBdPkingTS,UpperBdPkingTS,[],OK),
             OK \== [] ) ->
                 NewAcc = Acc
@@ -827,11 +858,11 @@ check_planted_vs_packets(Crop,LowerBdPkingTS,UpperBdPkingTS,
                 remove_padding(PRow,Row),
                 packing_plan(Row,_,PlannedParents,_,_,_,_,Crop,_,_),
                 convert_parental_syntax(PlannedParents,TupleParents),
-                check_tuple_parents(LowerBdPkingTS,UpperBdPkingTS,Parents,GoodCandidates),
-                ( GoodCandidates \== [] ) ->
+                check_tuple_parents(LowerBdPkingTS,UpperBdPkingTS,TupleParents,GoodCandidates),
+                ( GoodCandidates \== [] ->
                         NewAcc = Acc
                 ;
-                        append(Acc,[PRow-Packet-Date],NewAcc)
+                        append(Acc,[PRow-Packet],NewAcc)
                 )
         ),
         check_planted_vs_packets(Crop,LowerBdPkingTS,UpperBdPkingTS,PlantedRows,NewAcc,Missing).
@@ -858,6 +889,130 @@ check_tuple_parents(LowerBdPkingTS,UpperBdPkingTS,[(Ma,Pa)|T],Acc,GoodCandidates
                 NewAcc = Acc
         ),
         check_tuple_parents(LowerBdPkingTS,UpperBdPkingTS,T,NewAcc,GoodCandidates).
+
+
+
+
+
+
+
+
+
+
+% supply missing genotypes that were not computed in the regular way.
+
+supply_missing_genotypes(Crop,Genotypes,File) :-
+        ensure_loaded(demeter_tree('data/missing_genotypes')),
+        missing_genotypes(Crop,Families),
+        load_planning_file(Crop),
+        match_families(Crop,Families,DupedGenotypes,Failures),
+        list_to_set(DupedGenotypes,Genotypes),
+        output_data(File,bar,Genotypes),
+        write_list(Failures).
+
+
+
+
+
+
+
+
+
+
+
+% I mistrust this predicate since it can''t find an existing genotype fact
+% for row 72 in 17R.
+%
+% The problem may be we are proceeding from families, rather than rows or packets.
+%
+% Kazic, 16.5.2018
+
+
+match_families(Crop,Families,Genotypes,Failures) :-
+        match_families(Crop,Families,[],Genotypes,[],Failures).
+
+
+
+% if the same family is planted in multiple rows, then we get duplicate
+% genotype facts.
+
+match_families(_,[],A,A,B,B).
+match_families(Crop,[Family|Families],Acc,Genotypes,FailAcc,Failures) :-
+        ( genotype(Family,_,_,_,_,_,_,_,_,_,_) ->
+                NewAcc = Acc,
+                NewFailAcc = FailAcc
+        ;
+
+                possibly_missing_data(Crop,Family,PaddedRow,_,_),
+                remove_padding(PaddedRow,Row),
+                packing_plan(Row,_,PossibleParents,Plntg,_,_,_K,Crop,_Seed,_Ft),
+                convert_parental_syntax(PossibleParents,TupleParents),
+                bound_planting_dates(Crop,Plntg,LowerBdPkingTS,UpperBdPkingTS),
+                all_possible_parental_packets(Crop,TupleParents,PaddedRow,LowerBdPkingTS,UpperBdPkingTS,LikelyPackets),
+                ( LikelyPackets == [] ->
+                         format('Warning! no good candidates found for row ~w of crop ~w planted with family ~w~n',[PaddedRow,Crop,Family]),
+                         append(FailAcc,[PaddedRow-Family],NewFailAcc),
+                         NewAcc = Acc
+                ;
+                         generate_fgenotypes(Family,LikelyPackets,FGenotypes),
+                         NewFailAcc = FailAcc,
+                         append(Acc,FGenotypes,NewAcc)
+                )
+        ),
+
+        match_families(Crop,Families,NewAcc,Genotypes,NewFailAcc,Failures).
+
+
+
+
+
+
+
+
+
+
+
+
+all_possible_parental_packets(Crop,TupleParents,PaddedRow,LowerBdPkingTS,UpperBdPkingTS,LikelyPackets) :-
+        all_possible_parental_packets_aux(Crop,TupleParents,PaddedRow,LowerBdPkingTS,UpperBdPkingTS,Candidates),
+        flatten(Candidates,LikelyPackets).
+
+
+
+all_possible_parental_packets_aux(_,[],_,_,_,[]).
+all_possible_parental_packets_aux(Crop,[(Ma,Pa)|TupleParents],PaddedRow,
+                             LowerBdPkingTS,UpperBdPkingTS,[Packets|Candidates]) :-
+        findall((Ma,Pa,Date),(packed_packet(_Packet,Ma,Pa,_,_,Date,Time),
+                                get_timestamp(Date,Time,PkingTS),
+                                PkingTS >= LowerBdPkingTS,
+                                PkingTS =< UpperBdPkingTS),Packets),
+%                                planted(PaddedRow,Packet,_,_,_,_,_,Crop)),Packets),
+        all_possible_parental_packets_aux(Crop,TupleParents,PaddedRow,
+                             LowerBdPkingTS,UpperBdPkingTS,Candidates).
+
+
+
+
+
+
+
+
+
+
+generate_fgenotypes(_,[],[]).
+generate_fgenotypes(Family,[(Ma,Pa,_)|LikelyPackets],
+                   [fgenotype(Family,MaFam,Ma,PaFam,Pa,MaGma,MaMut,PaGma,PaMut,[PaMut],K)|FGenotypes]) :-
+        get_family(Ma,MaFam),
+        get_family(Pa,PaFam),
+        genotype(MaFam,_,_,_,_,MaGma,_,_,MaMut,_,_),
+        genotype(PaFam,_,_,_,_,PaGma,_,_,PaMut,_,K),
+        generate_fgenotypes(Family,LikelyPackets,FGenotypes).
+
+
+
+
+
+
 
 
 

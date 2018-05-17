@@ -864,7 +864,7 @@ convert_parental_syntax([Parents|CrossAlternatives],Acc,Alternatives) :-
 
 % the inverse of convert_parental_syntax/2
 
-%! cross_parents(+Ma:atom,+Pa:atom,-Cross:atom) is det.
+%! cross_parents(+Ma:atom,+Pa:atom,-Crossed:atom) is det.
 
 cross_parents(Ma,Pa,Crossed) :-
         atomic_list_concat([Ma,' x ',Pa],Crossed).
@@ -2086,9 +2086,14 @@ output_header_aux(replant,Stream) :-
 
 
 
-% a catch-all case for the rest
+
+
+% catch-all cases for the rest
 
 output_header_aux(foo,Stream) :-
+        format(Stream,'some predicate; file is likely to be temporary.~n~n~n',[]).
+
+output_header_aux(bar,Stream) :-
         format(Stream,'some predicate; file is likely to be temporary.~n~n~n',[]).
 
 
@@ -2105,7 +2110,7 @@ output_header_aux(foo,Stream) :-
 
 
 
-% to accommodate the ipad's smaller screen
+% to accommodate the ipad''s smaller screen
 %
 % Kazic, 23.7.2011
 

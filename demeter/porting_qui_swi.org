@@ -1461,6 +1461,68 @@ out inbreds, landraces, and fun corn.  Output is appended to
 [[file:data/possibly_missing_data.pl][possibly_missing_data.pl.]]
 
 
+*** duh, I never issued the genotype facts!  but predicate didn't feel right <2018-05-16 Wed>
+
+So wrote a [[file:code/fix_missing_data::supply_genotypes][predicate]] to do this, generating fgenotype/11.
+
+
+Ah, but it turns out that 17r had most parents as [Ma,Pa] instead of [Ma x
+Pa], which is what the code expects.  So fixed by hand, and fixed the other
+errors that changed the predicate's arity when I did that.
+
+
+But I was still very suspicious of the results --- duplicated fgenotype
+entries, not finding the family for row 72, etc.  Part of the problem is
+that my second planting facts were lost.
+
+
+*** so fix it by hand instead <2018-05-16 Wed>
+
+So in the end, I'm doing this by hand.  I'm hampered because lewis is down
+and so I can't get to the plant tags file.
+
+I should have made an org file with the family assignments, but it must be
+in management . . . and I don't have it locally and can't get to lewis.
+
+#+BEGIN_SRC pull together available data
+mkdir ../archival/17r_data_reconstructn
+
+# removed elites and inbreds by hand
+grep ',2017),time' packed_packet.pl | grep -v p0000 > ../archival/17r_data_reconstructn/17r_packets
+grep ',2017),time' planted.pl | grep -v p0000 > ../archival/17r_data_reconstructn/17r_planted
+
+
+
+grep 16R ../../crops/17r/planning/packing_plan.pl  | wc
+      88    1135   13778
+
+
+# separated candy gardner's existing families by hand
+grep 16R ../../crops/17r/planning/packing_plan.pl > ../archival/17r_data_reconstructn/17r_new_families
+#+END_SRC
+
+
+
+Procedure:
+   + cp 17r_planted 17r_reconstructed_planted, and insert a dummy fact for
+     each missing row
+
+   + look at the 17r_packets and crops/17r/planning/packing_plan.pl, and
+     match (make the windows small so that only two lines are visible in each):
+
+      + the row and packet for the immediately preceeding row (the bulks
+        were planted in pairs of rows, in the first and second planting)
+
+      + the ma and pa of the packed_packet fact for the packet of the
+        preceeding row
+
+      + the packing_plan fact for both rows, confirming identities of both
+        sets of parents for the known and following unknown rows
+
+      + insert packet and row into the flanted/8 fact (for easier grepping
+        later) 
+
+
 * making and using a saved state <2018-04-11 Wed> and ff
 <<savedst>>
 
