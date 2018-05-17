@@ -1453,6 +1453,13 @@ bash-3.2$ grep 2017 packed_packet.pl | grep p00004 | wc
 #+END_SRC
 
 
+
+*** push to a github repo while lewis down for maintenance <2018-05-15 Tue> -- 
+
+because I'm very uncomfortable now without a cloud!
+
+
+
 *** write a perl script to generate the possibly_missing facts <2018-05-16 Wed>
 
 This is [[file:../crops/scripts/make_possibly_missing_data.perl][make_possibly_missing_data.perl]], which uses the filenames in the
@@ -1483,6 +1490,10 @@ and so I can't get to the plant tags file.
 
 I should have made an org file with the family assignments, but it must be
 in management . . . and I don't have it locally and can't get to lewis.
+
+Think I'll hang on to the repo and shove up everything but images and audio
+recordings!
+
 
 #+BEGIN_SRC pull together available data
 mkdir ../archival/17r_data_reconstructn
