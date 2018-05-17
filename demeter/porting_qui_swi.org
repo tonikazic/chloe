@@ -1496,8 +1496,13 @@ But the good news is the 17r barcodes show that I did look up the earlier
 families and stuck their numbers into the barcode source files.  The last
 family in genotype/11 is 4537, and I have multiple family numbers less than
 that (new families start at rows 108 and 109 if sorting by family numbers).
-So I should have ~88 genotype facts to build, and *DON'T* (whew) have to
+So I should have ~101 genotype facts to build, and *DON'T* (whew) have to
 migrate family numbers -- family numbers run from 4538--4639 inclusive.
+Not all of these were from 16R crosses --- I did do some reach-backs trying
+to get stalled lines going.  That probably explains the discrepancy between
+88 and 101!
+
+
 This may be one of the reasons it took me so long to generate the plant
 tags, and I did make Ghasan very angry about the hurry after the delay.
 
