@@ -56,8 +56,8 @@ my $today = $todayday . "." . $todaymonth . "." . $todayyear;
 
 
 
-my $input_stem = "needs_17r_harvest_tags.csv";
-my $tags_stem = "needs_17r_harvest_tags";
+my $input_stem = "final_tags_for_18r";
+my $tags_stem = "final_tags_for_18r";
 
 # $input_stem = "new_seed_labels.csv";
 # $tags_stem = "new_seed_labels";
