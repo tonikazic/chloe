@@ -3,8 +3,8 @@
 # generated on Thu May 17 20:01:23 CDT 2018
 # by ../c/maize/data/data_conversion/patch_num_gtypes.perl using
 # ../c/maize/data/../palm/raw_data_from_palms/18r/zeta/15.5/raw.harvest.csv as source.
-
-
+#
+ma plant,pa plant,fuzzy_cl,num_cl,fungus,polltn_note,datetime,observer,harvest
 17R4561:0006001,17R4561:0006004,he,,,,09/24/2017 12:00:00,josh,
 17R4561:0006002,17R4561:0006004,he,,,,09/24/2017 12:00:00,josh,
 17R4561:0006005,17R4561:0006004,he,,,,09/24/2017 12:00:00,josh,

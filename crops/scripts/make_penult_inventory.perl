@@ -98,7 +98,7 @@ $harvest_file =~ s/\.\.\///;
 my $grep_crop = uc($crop);
 
 if ( ! -e $proto_inventory_file ) {
-        my $cmd = "grep $grep_crop $harvest_file | grep -v '0 cl' | grep -v 'discarded' > $proto_inventory_file";
+        my $cmd = "grep $grep_crop $harvest_file | grep -v '%' | grep -v '0 cl' | grep -v 'discarded' > $proto_inventory_file";
         print "now executing $cmd\n";
         system($cmd);
         }

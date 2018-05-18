@@ -80,7 +80,7 @@ foreach my $palm ( @palms ) {
                              && ( $file !~ /csv\~$/ ) && ( $file !~ /zip$/ ) && ( $file !~ /org$/ ) 
                              && ( $file !~ /pdf$/ ) 
                              && ( $file !~ /raw\./ ) && ( $file !~ /check\./ ) && ( $file !~ /clean.*\./ ) 
-                             && ( $file !~ /correct.*\./ ) && ( $file !~ /safe\./ ) 
+                             && ( $file !~ /correct.*\./ ) && ( $file !~ /safe\./ ) && ( $file !~ /patched\./ ) 
                              && ( $file !~ /bogus\./ ) && ( $file !~ /^\d+\./ ) ) {
 			        chomp($file);
 #			        my $first_two = `head -2 $file`;

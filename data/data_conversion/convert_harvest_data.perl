@@ -121,7 +121,7 @@ if ( $lines[0] =~ /harvest/ ) {
                       ($fungus) = &convert_num_tfs($fungus);
                       ($fungus) = &convert_fungus($fungus);
  
-#                print "($ma_plant,$pa_plant,$ok,$fuzzy_cl,$num_cl,$fungus,$polltn_note,$observer,$datetime)\n";
+#                     print "($ma_plant,$pa_plant,$ok,$fuzzy_cl,$num_cl,$fungus,$polltn_note,$observer,$datetime)\n";
 
                 
                       if ( $pa_plant =~ /0000:/ ) { ($pa_plant) = &fill_out_daddy($ma_plant,$pa_plant,\%cross); }

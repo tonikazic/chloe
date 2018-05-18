@@ -27,11 +27,11 @@ all 16r data entered <2018-04-24 Tue>
 | first_extra_tag    | incorporate data into row_status and retire             |               |
 | gene_type          | bring up to date                                        |               |
 | genotype           | bring up to date                                        |               |
-| harvest            | add 16r, 17r data; find missing 17r data                |               |
+| harvest            | add 16r, 17r data; find missing 17r data                | <2018-05-18 Fri> |
 | idea               | incorporate into crop notes org file                    |               |
 | image              | add 16r, 17r data; cross-check with images and tissue   | <2018-04-26 Thu> |
 | inbred_pool        | hunt for M14, more recent B73 records and add           |               |
-| inventory          | add 16r, 17r facts                                      |               |
+| inventory          | add 16r, 17r facts                                      | <2018-05-18 Fri> |
 | later_plantings    | merge into packing_plan?                                |               |
 | leaf_alignmt       | add 15r, 16r, 17r data if they exist                    |               |
 | mutant             | add 16r, 17r data                                       | <2018-04-26 Thu> |
@@ -127,3 +127,10 @@ directly from the packets, guessing by feel the amount of kernels and
 counting when the number was very low.  This took two tries, but they got
 it done on <2018-05-15 Tue> and we know what we have now.  Files are in 
 [[file:../data/palm/raw_data_from_palms/18r/zeta/15.5/15.5_data_collectn.zip][15.5_data_collectn.zip]] and its contents.
+
+
+New tags generated for 16r and 17r and ready to go in [[file:../../crops/inventory/tags/final_tags_for_18r.pdf][final_tags_for_18r.pdf]].
+
+** new data checking predicates ~ <2018-05-12 Sat> -- <2018-05-16 Wed>
+
+This let me discover missing facts in packed_packet, planted, and genotype.

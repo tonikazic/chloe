@@ -413,7 +413,14 @@ our @EXPORT = qw($crop
 
 * GNG data cleanup! <2018-04-21 Sat> --
 
-** GNG processing data: most of 17r harvest facts missing <2018-04-29 Sun>
+** GNG handling remaining ancillary data
+
+lots of checking and merging with files that use current workflow: details
+in [[file:data/update.org][update.org]] and [[file:../data/palm/raw_data_from_palms/get_into_demeter.org][get_into_demeter.org]]. 
+
+
+
+** DONE processing data: most of 17r harvest facts missing <2018-04-29 Sun>
 
 ok, dug around and have [[file:data/update.org][everything that needs to be added]] ready to go,
 except for some 16r and 17r image and tissue_collection files with crappy
@@ -444,13 +451,6 @@ in. Using Dropbox to sync across all devices and computers, but will
 manually cp the data from Dropbox to the maize tree.  Feels like a good
 idea to have a layer of insulation between the daily data and their
 permanent record, since deletions are synced across.
-
-
-** GNG handling remaining ancillary data
-
-lots of checking and merging with files that use current workflow: details
-in [[file:data/update.org][update.org]] and [[file:../data/palm/raw_data_from_palms/get_into_demeter.org][get_into_demeter.org]]. 
-
 
 
 ** DONE fixing 06r inbred numerical genotypes <2018-05-02 Wed>
@@ -1358,7 +1358,7 @@ true
 
 
 
-** GNG ha, my second planting 17r data are missing too! <2018-05-13 Sun>
+** DONE ha, my second planting 17r data are missing too! <2018-05-13 Sun>
 
 Need to write a predicate that checks that there's a packed_packet fact for
 every planted fact in a given crop . . . that will catch data collection
