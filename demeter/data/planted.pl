@@ -7471,21 +7471,93 @@ planted(r00238,p00200,10,avi,date(05,06,2017),time(12,00,00),full,'17R').
 
 
 
-% looks like we''re missing my second planting data on date(05,06,2017)
+% reconstructed my second planting data on date(05,06,2017)
 %
-% Kazic, 13.5.2018
+% procedure is in ../porting_qui_swi.org, section 17r-hand-planting
+% flanted/8 changed to planted/8
+%
+% Kazic, 17.5.2018
     
-
-planted(,p00,10,toni,date(05,06,2017),time(12,00,00),full,'17R').
-planted(,p00,10,toni,date(05,06,2017),time(12,00,00),full,'17R').
-planted(,p00,10,toni,date(05,06,2017),time(12,00,00),full,'17R').
-planted(,p00,10,toni,date(05,06,2017),time(12,00,00),full,'17R').
-planted(,p00,10,toni,date(05,06,2017),time(12,00,00),full,'17R').
-planted(,p00,10,toni,date(05,06,2017),time(12,00,00),full,'17R').
-planted(,p00,10,toni,date(05,06,2017),time(12,00,00),full,'17R').
-planted(,p00,10,toni,date(05,06,2017),time(12,00,00),full,'17R').
-planted(,p00,10,toni,date(05,06,2017),time(12,00,00),full,'17R').
-planted(,p00,10,toni,date(05,06,2017),time(12,00,00),full,'17R').
+    
+planted(r00059,p00021,20,toni,date(05,06,2017),time(12,00,00),full,'17R').
+planted(r00061,p00023,20,toni,date(05,06,2017),time(12,00,00),full,'17R').
+planted(r00063,p00025,20,toni,date(05,06,2017),time(12,00,00),full,'17R').
+planted(r00065,p00027,20,toni,date(05,06,2017),time(12,00,00),full,'17R').
+planted(r00067,p00029,20,toni,date(05,06,2017),time(12,00,00),full,'17R').
+planted(r00069,p00031,20,toni,date(05,06,2017),time(12,00,00),full,'17R').
+planted(r00071,p00033,20,toni,date(05,06,2017),time(12,00,00),full,'17R').
+planted(r00073,p00035,20,toni,date(05,06,2017),time(12,00,00),full,'17R').
+planted(r00075,p00037,20,toni,date(05,06,2017),time(12,00,00),full,'17R').
+planted(r00077,p00039,20,toni,date(05,06,2017),time(12,00,00),full,'17R').
+planted(r00079,p00041,20,toni,date(05,06,2017),time(12,00,00),full,'17R').
+planted(r00081,p00043,20,toni,date(05,06,2017),time(12,00,00),full,'17R').
+planted(r00083,p00045,20,toni,date(05,06,2017),time(12,00,00),full,'17R').
+planted(r00085,p00047,20,toni,date(05,06,2017),time(12,00,00),full,'17R').
+planted(r00087,p00049,20,toni,date(05,06,2017),time(12,00,00),full,'17R').
+planted(r00089,p00051,20,toni,date(05,06,2017),time(12,00,00),full,'17R').
+planted(r00091,p00053,20,toni,date(05,06,2017),time(12,00,00),full,'17R').
+planted(r00093,p00055,20,toni,date(05,06,2017),time(12,00,00),full,'17R').
+planted(r00095,p00057,20,toni,date(05,06,2017),time(12,00,00),full,'17R').
+planted(r00097,p00059,20,toni,date(05,06,2017),time(12,00,00),full,'17R').
+planted(r00099,p00061,20,toni,date(05,06,2017),time(12,00,00),full,'17R').
+planted(r00101,p00063,20,toni,date(05,06,2017),time(12,00,00),full,'17R').
+planted(r00103,p00065,20,toni,date(05,06,2017),time(12,00,00),full,'17R').
+planted(r00105,p00067,20,toni,date(05,06,2017),time(12,00,00),full,'17R').
+planted(r00107,p00069,20,toni,date(05,06,2017),time(12,00,00),full,'17R').
+planted(r00109,p00071,20,toni,date(05,06,2017),time(12,00,00),full,'17R').
+planted(r00151,p00113,10,toni,date(05,06,2017),time(12,00,00),full,'17R').
+planted(r00152,p00114,10,toni,date(05,06,2017),time(12,00,00),full,'17R').
+planted(r00153,p00115,10,toni,date(05,06,2017),time(12,00,00),full,'17R').
+planted(r00154,p00116,10,toni,date(05,06,2017),time(12,00,00),full,'17R').
+planted(r00155,p00117,10,toni,date(05,06,2017),time(12,00,00),full,'17R').
+planted(r00156,p00118,10,toni,date(05,06,2017),time(12,00,00),full,'17R').
+planted(r00162,p00124,10,toni,date(05,06,2017),time(12,00,00),full,'17R').
+planted(r00191,p00153,10,toni,date(05,06,2017),time(12,00,00),full,'17R').
+planted(r00192,p00154,10,toni,date(05,06,2017),time(12,00,00),full,'17R').
+planted(r00193,p00155,10,toni,date(05,06,2017),time(12,00,00),full,'17R').
+planted(r00194,p00156,10,toni,date(05,06,2017),time(12,00,00),full,'17R').
+planted(r00195,p00157,10,toni,date(05,06,2017),time(12,00,00),full,'17R').
+planted(r00196,p00158,10,toni,date(05,06,2017),time(12,00,00),full,'17R').
+planted(r00198,p00160,10,toni,date(05,06,2017),time(12,00,00),full,'17R').
+planted(r00199,p00161,10,toni,date(05,06,2017),time(12,00,00),full,'17R').
+planted(r00200,p00162,10,toni,date(05,06,2017),time(12,00,00),full,'17R').
+planted(r00201,p00163,10,toni,date(05,06,2017),time(12,00,00),full,'17R').
+planted(r00202,p00164,10,toni,date(05,06,2017),time(12,00,00),full,'17R').
+planted(r00203,p00165,10,toni,date(05,06,2017),time(12,00,00),full,'17R').
+planted(r00204,p00166,10,toni,date(05,06,2017),time(12,00,00),full,'17R').
+planted(r00205,p00167,10,toni,date(05,06,2017),time(12,00,00),full,'17R').
+planted(r00206,p00168,10,toni,date(05,06,2017),time(12,00,00),full,'17R').
+planted(r00207,p00169,10,toni,date(05,06,2017),time(12,00,00),full,'17R').
+planted(r00208,p00170,10,toni,date(05,06,2017),time(12,00,00),full,'17R').
+planted(r00209,p00171,10,toni,date(05,06,2017),time(12,00,00),full,'17R').
+planted(r00210,p00172,10,toni,date(05,06,2017),time(12,00,00),full,'17R').
+planted(r00211,p00173,10,toni,date(05,06,2017),time(12,00,00),full,'17R').
+planted(r00212,p00174,10,toni,date(05,06,2017),time(12,00,00),full,'17R').
+planted(r00213,p00175,10,toni,date(05,06,2017),time(12,00,00),full,'17R').
+planted(r00214,p00176,10,toni,date(05,06,2017),time(12,00,00),full,'17R').
+planted(r00215,p00177,10,toni,date(05,06,2017),time(12,00,00),full,'17R').
+planted(r00216,p00178,10,toni,date(05,06,2017),time(12,00,00),full,'17R').
+planted(r00217,p00179,10,toni,date(05,06,2017),time(12,00,00),full,'17R').
+planted(r00218,p00180,10,toni,date(05,06,2017),time(12,00,00),full,'17R').
+planted(r00219,p00181,10,toni,date(05,06,2017),time(12,00,00),full,'17R').
+planted(r00220,p00182,10,toni,date(05,06,2017),time(12,00,00),full,'17R').
+planted(r00221,p00183,10,toni,date(05,06,2017),time(12,00,00),full,'17R').
+planted(r00222,p00184,10,toni,date(05,06,2017),time(12,00,00),full,'17R').
+planted(r00223,p00185,10,toni,date(05,06,2017),time(12,00,00),full,'17R').
+planted(r00224,p00186,10,toni,date(05,06,2017),time(12,00,00),full,'17R').
+planted(r00225,p00187,10,toni,date(05,06,2017),time(12,00,00),full,'17R').
+planted(r00226,p00188,10,toni,date(05,06,2017),time(12,00,00),full,'17R').
+planted(r00227,p00189,10,toni,date(05,06,2017),time(12,00,00),full,'17R').
+planted(r00228,p00190,10,toni,date(05,06,2017),time(12,00,00),full,'17R').
+planted(r00229,p00191,10,toni,date(05,06,2017),time(12,00,00),full,'17R').
+planted(r00230,p00192,10,toni,date(05,06,2017),time(12,00,00),full,'17R').
+planted(r00231,p00193,10,toni,date(05,06,2017),time(12,00,00),full,'17R').
+planted(r00232,p00194,10,toni,date(05,06,2017),time(12,00,00),full,'17R').
+planted(r00233,p00195,10,toni,date(05,06,2017),time(12,00,00),full,'17R').
+planted(r00234,p00196,10,toni,date(05,06,2017),time(12,00,00),full,'17R').
+planted(r00235,p00197,10,toni,date(05,06,2017),time(12,00,00),full,'17R').
+planted(r00236,p00198,10,toni,date(05,06,2017),time(12,00,00),full,'17R').
+planted(r00237,p00199,10,toni,date(05,06,2017),time(12,00,00),full,'17R').
 
 
 

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=latex 2016.2.29)  15 MAY 2018 04:57
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=latex 2016.2.29)  15 MAY 2018 16:33
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -127,65 +127,65 @@ LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 7.
 LaTeX Font Info:    ... okay on input line 7.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 7.
 LaTeX Font Info:    ... okay on input line 7.
-File: ../../../barcodes/inventory/r00102.eps Graphic file (type eps)
- <../../../barcodes/inventory/r00102.eps>
-File: ../../../barcodes/inventory/r00104.eps Graphic file (type eps)
+File: ../../../barcodes/inventory/r00160.eps Graphic file (type eps)
+ <../../../barcodes/inventory/r00160.eps>
+File: ../../../barcodes/inventory/r00224.eps Graphic file (type eps)
 
-<../../../barcodes/inventory/r00104.eps>
-File: ../../../barcodes/inventory/r00109.eps Graphic file (type eps)
+<../../../barcodes/inventory/r00224.eps>
+File: ../../../barcodes/inventory/r00225.eps Graphic file (type eps)
 
-<../../../barcodes/inventory/r00109.eps>
-File: ../../../barcodes/inventory/r00113.eps Graphic file (type eps)
+<../../../barcodes/inventory/r00225.eps>
+File: ../../../barcodes/inventory/r00401.eps Graphic file (type eps)
 
-<../../../barcodes/inventory/r00113.eps>
-File: ../../../barcodes/inventory/r00124.eps Graphic file (type eps)
+<../../../barcodes/inventory/r00401.eps>
+File: ../../../barcodes/inventory/r00402.eps Graphic file (type eps)
 
-<../../../barcodes/inventory/r00124.eps>
-File: ../../../barcodes/inventory/r00125.eps Graphic file (type eps)
+<../../../barcodes/inventory/r00402.eps>
+File: ../../../barcodes/inventory/r00403.eps Graphic file (type eps)
 
-<../../../barcodes/inventory/r00125.eps>
-File: ../../../barcodes/inventory/r00127.eps Graphic file (type eps)
+<../../../barcodes/inventory/r00403.eps>
+File: ../../../barcodes/inventory/r00404.eps Graphic file (type eps)
 
-<../../../barcodes/inventory/r00127.eps>
-File: ../../../barcodes/inventory/r00129.eps Graphic file (type eps)
+<../../../barcodes/inventory/r00404.eps>
+File: ../../../barcodes/inventory/r00405.eps Graphic file (type eps)
 
-<../../../barcodes/inventory/r00129.eps>
-File: ../../../barcodes/inventory/r00130.eps Graphic file (type eps)
+<../../../barcodes/inventory/r00405.eps>
+File: ../../../barcodes/inventory/r00406.eps Graphic file (type eps)
 
-<../../../barcodes/inventory/r00130.eps>
-File: ../../../barcodes/inventory/r00131.eps Graphic file (type eps)
+<../../../barcodes/inventory/r00406.eps>
+File: ../../../barcodes/inventory/r00407.eps Graphic file (type eps)
 
-<../../../barcodes/inventory/r00131.eps>
-File: ../../../barcodes/inventory/r00133.eps Graphic file (type eps)
+<../../../barcodes/inventory/r00407.eps>
+File: ../../../barcodes/inventory/r00408.eps Graphic file (type eps)
 
-<../../../barcodes/inventory/r00133.eps>
-File: ../../../barcodes/inventory/r00134.eps Graphic file (type eps)
+<../../../barcodes/inventory/r00408.eps>
+File: ../../../barcodes/inventory/r00409.eps Graphic file (type eps)
 
-<../../../barcodes/inventory/r00134.eps>
-File: ../../../barcodes/inventory/r00135.eps Graphic file (type eps)
+<../../../barcodes/inventory/r00409.eps>
+File: ../../../barcodes/inventory/r00410.eps Graphic file (type eps)
 
-<../../../barcodes/inventory/r00135.eps>
-File: ../../../barcodes/inventory/r00138.eps Graphic file (type eps)
+<../../../barcodes/inventory/r00410.eps>
+File: ../../../barcodes/inventory/r00411.eps Graphic file (type eps)
 
-<../../../barcodes/inventory/r00138.eps>
-File: ../../../barcodes/inventory/r00139.eps Graphic file (type eps)
+<../../../barcodes/inventory/r00411.eps>
+File: ../../../barcodes/inventory/r00412.eps Graphic file (type eps)
 
-<../../../barcodes/inventory/r00139.eps>
-File: ../../../barcodes/inventory/r00140.eps Graphic file (type eps)
+<../../../barcodes/inventory/r00412.eps>
+File: ../../../barcodes/inventory/r00413.eps Graphic file (type eps)
 
-<../../../barcodes/inventory/r00140.eps>
-File: ../../../barcodes/inventory/r00141.eps Graphic file (type eps)
+<../../../barcodes/inventory/r00413.eps>
+File: ../../../barcodes/inventory/r00414.eps Graphic file (type eps)
 
-<../../../barcodes/inventory/r00141.eps>
-File: ../../../barcodes/inventory/r00153.eps Graphic file (type eps)
+<../../../barcodes/inventory/r00414.eps>
+File: ../../../barcodes/inventory/r00415.eps Graphic file (type eps)
 
-<../../../barcodes/inventory/r00153.eps>
-File: ../../../barcodes/inventory/r00154.eps Graphic file (type eps)
+<../../../barcodes/inventory/r00415.eps>
+File: ../../../barcodes/inventory/r00416.eps Graphic file (type eps)
 
-<../../../barcodes/inventory/r00154.eps>
-File: ../../../barcodes/inventory/r00158.eps Graphic file (type eps)
+<../../../barcodes/inventory/r00416.eps>
+File: ../../../barcodes/inventory/r00417.eps Graphic file (type eps)
 
-<../../../barcodes/inventory/r00158.eps>
+<../../../barcodes/inventory/r00417.eps>
 Overfull \hbox (17.62177pt too wide) in paragraph at lines 73--74
 [][] 
  []
@@ -193,373 +193,282 @@ Overfull \hbox (17.62177pt too wide) in paragraph at lines 73--74
 [1
 
 ]
-File: ../../../barcodes/inventory/r00161.eps Graphic file (type eps)
- <../../../barcodes/inventory/r00161.eps>
-File: ../../../barcodes/inventory/r00162.eps Graphic file (type eps)
+File: ../../../barcodes/inventory/r00418.eps Graphic file (type eps)
+ <../../../barcodes/inventory/r00418.eps>
+File: ../../../barcodes/inventory/r00419.eps Graphic file (type eps)
 
-<../../../barcodes/inventory/r00162.eps>
-File: ../../../barcodes/inventory/r00163.eps Graphic file (type eps)
+<../../../barcodes/inventory/r00419.eps>
+File: ../../../barcodes/inventory/r00420.eps Graphic file (type eps)
 
-<../../../barcodes/inventory/r00163.eps>
-File: ../../../barcodes/inventory/r00164.eps Graphic file (type eps)
+<../../../barcodes/inventory/r00420.eps>
+File: ../../../barcodes/inventory/r00421.eps Graphic file (type eps)
 
-<../../../barcodes/inventory/r00164.eps>
-File: ../../../barcodes/inventory/r00165.eps Graphic file (type eps)
+<../../../barcodes/inventory/r00421.eps>
+File: ../../../barcodes/inventory/r00422.eps Graphic file (type eps)
 
-<../../../barcodes/inventory/r00165.eps>
-File: ../../../barcodes/inventory/r00166.eps Graphic file (type eps)
+<../../../barcodes/inventory/r00422.eps>
+File: ../../../barcodes/inventory/r00423.eps Graphic file (type eps)
 
-<../../../barcodes/inventory/r00166.eps>
-File: ../../../barcodes/inventory/r00167.eps Graphic file (type eps)
+<../../../barcodes/inventory/r00423.eps>
+File: ../../../barcodes/inventory/r00424.eps Graphic file (type eps)
 
-<../../../barcodes/inventory/r00167.eps>
-File: ../../../barcodes/inventory/r00168.eps Graphic file (type eps)
+<../../../barcodes/inventory/r00424.eps>
+File: ../../../barcodes/inventory/r00425.eps Graphic file (type eps)
 
-<../../../barcodes/inventory/r00168.eps>
-File: ../../../barcodes/inventory/r00169.eps Graphic file (type eps)
+<../../../barcodes/inventory/r00425.eps>
+File: ../../../barcodes/inventory/r00426.eps Graphic file (type eps)
 
-<../../../barcodes/inventory/r00169.eps>
-File: ../../../barcodes/inventory/r00175.eps Graphic file (type eps)
+<../../../barcodes/inventory/r00426.eps>
+File: ../../../barcodes/inventory/r00427.eps Graphic file (type eps)
 
-<../../../barcodes/inventory/r00175.eps>
-File: ../../../barcodes/inventory/r00177.eps Graphic file (type eps)
+<../../../barcodes/inventory/r00427.eps>
+File: ../../../barcodes/inventory/r00428.eps Graphic file (type eps)
 
-<../../../barcodes/inventory/r00177.eps>
-File: ../../../barcodes/inventory/r00178.eps Graphic file (type eps)
+<../../../barcodes/inventory/r00428.eps>
+File: ../../../barcodes/inventory/r00429.eps Graphic file (type eps)
 
-<../../../barcodes/inventory/r00178.eps>
-File: ../../../barcodes/inventory/r00180.eps Graphic file (type eps)
+<../../../barcodes/inventory/r00429.eps>
+File: ../../../barcodes/inventory/r00430.eps Graphic file (type eps)
 
-<../../../barcodes/inventory/r00180.eps>
-File: ../../../barcodes/inventory/r00191.eps Graphic file (type eps)
+<../../../barcodes/inventory/r00430.eps>
+File: ../../../barcodes/inventory/r00431.eps Graphic file (type eps)
 
-<../../../barcodes/inventory/r00191.eps>
-File: ../../../barcodes/inventory/r00194.eps Graphic file (type eps)
+<../../../barcodes/inventory/r00431.eps>
+File: ../../../barcodes/inventory/r00432.eps Graphic file (type eps)
 
-<../../../barcodes/inventory/r00194.eps>
-File: ../../../barcodes/inventory/r00197.eps Graphic file (type eps)
+<../../../barcodes/inventory/r00432.eps>
+File: ../../../barcodes/inventory/r00433.eps Graphic file (type eps)
 
-<../../../barcodes/inventory/r00197.eps>
-File: ../../../barcodes/inventory/r00202.eps Graphic file (type eps)
+<../../../barcodes/inventory/r00433.eps>
+File: ../../../barcodes/inventory/r00434.eps Graphic file (type eps)
 
-<../../../barcodes/inventory/r00202.eps>
-File: ../../../barcodes/inventory/r00203.eps Graphic file (type eps)
+<../../../barcodes/inventory/r00434.eps>
+File: ../../../barcodes/inventory/r00435.eps Graphic file (type eps)
 
-<../../../barcodes/inventory/r00203.eps>
-File: ../../../barcodes/inventory/r00204.eps Graphic file (type eps)
+<../../../barcodes/inventory/r00435.eps>
+File: ../../../barcodes/inventory/r00436.eps Graphic file (type eps)
 
-<../../../barcodes/inventory/r00204.eps>
-File: ../../../barcodes/inventory/r00205.eps Graphic file (type eps)
+<../../../barcodes/inventory/r00436.eps>
+File: ../../../barcodes/inventory/r00437.eps Graphic file (type eps)
 
-<../../../barcodes/inventory/r00205.eps>
+<../../../barcodes/inventory/r00437.eps>
 Overfull \hbox (17.62177pt too wide) in paragraph at lines 140--141
 [][] 
  []
 
 [2]
-File: ../../../barcodes/inventory/r00206.eps Graphic file (type eps)
- <../../../barcodes/inventory/r00206.eps>
-File: ../../../barcodes/inventory/r00212.eps Graphic file (type eps)
+File: ../../../barcodes/inventory/r00438.eps Graphic file (type eps)
+ <../../../barcodes/inventory/r00438.eps>
+File: ../../../barcodes/inventory/r00439.eps Graphic file (type eps)
 
-<../../../barcodes/inventory/r00212.eps>
-File: ../../../barcodes/inventory/r00213.eps Graphic file (type eps)
+<../../../barcodes/inventory/r00439.eps>
+File: ../../../barcodes/inventory/r00440.eps Graphic file (type eps)
 
-<../../../barcodes/inventory/r00213.eps>
-File: ../../../barcodes/inventory/r00216.eps Graphic file (type eps)
+<../../../barcodes/inventory/r00440.eps>
+File: ../../../barcodes/inventory/r00441.eps Graphic file (type eps)
 
-<../../../barcodes/inventory/r00216.eps>
-File: ../../../barcodes/inventory/r00218.eps Graphic file (type eps)
+<../../../barcodes/inventory/r00441.eps>
+File: ../../../barcodes/inventory/r00442.eps Graphic file (type eps)
 
-<../../../barcodes/inventory/r00218.eps>
-File: ../../../barcodes/inventory/r00220.eps Graphic file (type eps)
+<../../../barcodes/inventory/r00442.eps>
+File: ../../../barcodes/inventory/r00443.eps Graphic file (type eps)
 
-<../../../barcodes/inventory/r00220.eps>
-File: ../../../barcodes/inventory/r00223.eps Graphic file (type eps)
+<../../../barcodes/inventory/r00443.eps>
+File: ../../../barcodes/inventory/r00444.eps Graphic file (type eps)
 
-<../../../barcodes/inventory/r00223.eps>
-File: ../../../barcodes/inventory/r00231.eps Graphic file (type eps)
+<../../../barcodes/inventory/r00444.eps>
+File: ../../../barcodes/inventory/r00445.eps Graphic file (type eps)
 
-<../../../barcodes/inventory/r00231.eps>
-File: ../../../barcodes/inventory/r00233.eps Graphic file (type eps)
+<../../../barcodes/inventory/r00445.eps>
+File: ../../../barcodes/inventory/r00446.eps Graphic file (type eps)
 
-<../../../barcodes/inventory/r00233.eps>
-File: ../../../barcodes/inventory/r00234.eps Graphic file (type eps)
+<../../../barcodes/inventory/r00446.eps>
+File: ../../../barcodes/inventory/r00447.eps Graphic file (type eps)
 
-<../../../barcodes/inventory/r00234.eps>
-File: ../../../barcodes/inventory/r00235.eps Graphic file (type eps)
+<../../../barcodes/inventory/r00447.eps>
+File: ../../../barcodes/inventory/r00448.eps Graphic file (type eps)
 
-<../../../barcodes/inventory/r00235.eps>
-File: ../../../barcodes/inventory/r00236.eps Graphic file (type eps)
+<../../../barcodes/inventory/r00448.eps>
+File: ../../../barcodes/inventory/r00449.eps Graphic file (type eps)
 
-<../../../barcodes/inventory/r00236.eps>
-File: ../../../barcodes/inventory/r00237.eps Graphic file (type eps)
+<../../../barcodes/inventory/r00449.eps>
+File: ../../../barcodes/inventory/r00450.eps Graphic file (type eps)
 
-<../../../barcodes/inventory/r00237.eps>
-File: ../../../barcodes/inventory/r00238.eps Graphic file (type eps)
+<../../../barcodes/inventory/r00450.eps>
+File: ../../../barcodes/inventory/r00451.eps Graphic file (type eps)
 
-<../../../barcodes/inventory/r00238.eps>
-File: ../../../barcodes/inventory/r00239.eps Graphic file (type eps)
+<../../../barcodes/inventory/r00451.eps>
+File: ../../../barcodes/inventory/r00452.eps Graphic file (type eps)
 
-<../../../barcodes/inventory/r00239.eps>
-File: ../../../barcodes/inventory/r00240.eps Graphic file (type eps)
+<../../../barcodes/inventory/r00452.eps>
+File: ../../../barcodes/inventory/r00453.eps Graphic file (type eps)
 
-<../../../barcodes/inventory/r00240.eps>
-File: ../../../barcodes/inventory/r00301.eps Graphic file (type eps)
+<../../../barcodes/inventory/r00453.eps>
+File: ../../../barcodes/inventory/r00454.eps Graphic file (type eps)
 
-<../../../barcodes/inventory/r00301.eps>
-File: ../../../barcodes/inventory/r00502.eps Graphic file (type eps)
+<../../../barcodes/inventory/r00454.eps>
+File: ../../../barcodes/inventory/r00455.eps Graphic file (type eps)
 
-<../../../barcodes/inventory/r00502.eps>
-File: ../../../barcodes/inventory/r00503.eps Graphic file (type eps)
+<../../../barcodes/inventory/r00455.eps>
+File: ../../../barcodes/inventory/r00456.eps Graphic file (type eps)
 
-<../../../barcodes/inventory/r00503.eps>
-File: ../../../barcodes/inventory/r00506.eps Graphic file (type eps)
+<../../../barcodes/inventory/r00456.eps>
+File: ../../../barcodes/inventory/r00457.eps Graphic file (type eps)
 
-<../../../barcodes/inventory/r00506.eps>
+<../../../barcodes/inventory/r00457.eps>
 Overfull \hbox (17.62177pt too wide) in paragraph at lines 207--208
 [][] 
  []
 
 [3]
-File: ../../../barcodes/inventory/r00507.eps Graphic file (type eps)
- <../../../barcodes/inventory/r00507.eps>
-File: ../../../barcodes/inventory/r00508.eps Graphic file (type eps)
+File: ../../../barcodes/inventory/r00458.eps Graphic file (type eps)
+ <../../../barcodes/inventory/r00458.eps>
+File: ../../../barcodes/inventory/r00459.eps Graphic file (type eps)
 
-<../../../barcodes/inventory/r00508.eps>
-File: ../../../barcodes/inventory/r00509.eps Graphic file (type eps)
+<../../../barcodes/inventory/r00459.eps>
+File: ../../../barcodes/inventory/r00460.eps Graphic file (type eps)
 
-<../../../barcodes/inventory/r00509.eps>
-File: ../../../barcodes/inventory/r00510.eps Graphic file (type eps)
+<../../../barcodes/inventory/r00460.eps>
+File: ../../../barcodes/inventory/r00461.eps Graphic file (type eps)
 
-<../../../barcodes/inventory/r00510.eps>
-File: ../../../barcodes/inventory/r00512.eps Graphic file (type eps)
+<../../../barcodes/inventory/r00461.eps>
+File: ../../../barcodes/inventory/r00462.eps Graphic file (type eps)
 
-<../../../barcodes/inventory/r00512.eps>
-File: ../../../barcodes/inventory/r00515.eps Graphic file (type eps)
+<../../../barcodes/inventory/r00462.eps>
+File: ../../../barcodes/inventory/r00463.eps Graphic file (type eps)
 
-<../../../barcodes/inventory/r00515.eps>
-File: ../../../barcodes/inventory/r00516.eps Graphic file (type eps)
+<../../../barcodes/inventory/r00463.eps>
+File: ../../../barcodes/inventory/r00464.eps Graphic file (type eps)
 
-<../../../barcodes/inventory/r00516.eps>
-File: ../../../barcodes/inventory/r00517.eps Graphic file (type eps)
+<../../../barcodes/inventory/r00464.eps>
+File: ../../../barcodes/inventory/r00465.eps Graphic file (type eps)
 
-<../../../barcodes/inventory/r00517.eps>
-File: ../../../barcodes/inventory/r00519.eps Graphic file (type eps)
+<../../../barcodes/inventory/r00465.eps>
+File: ../../../barcodes/inventory/r00466.eps Graphic file (type eps)
 
-<../../../barcodes/inventory/r00519.eps>
-File: ../../../barcodes/inventory/r00520.eps Graphic file (type eps)
+<../../../barcodes/inventory/r00466.eps>
+File: ../../../barcodes/inventory/r00467.eps Graphic file (type eps)
 
-<../../../barcodes/inventory/r00520.eps>
-File: ../../../barcodes/inventory/r00521.eps Graphic file (type eps)
+<../../../barcodes/inventory/r00467.eps>
+File: ../../../barcodes/inventory/r00468.eps Graphic file (type eps)
 
-<../../../barcodes/inventory/r00521.eps>
-File: ../../../barcodes/inventory/r00522.eps Graphic file (type eps)
+<../../../barcodes/inventory/r00468.eps>
+File: ../../../barcodes/inventory/r00469.eps Graphic file (type eps)
 
-<../../../barcodes/inventory/r00522.eps>
-File: ../../../barcodes/inventory/r00524.eps Graphic file (type eps)
+<../../../barcodes/inventory/r00469.eps>
+File: ../../../barcodes/inventory/r00470.eps Graphic file (type eps)
 
-<../../../barcodes/inventory/r00524.eps>
-File: ../../../barcodes/inventory/r00526.eps Graphic file (type eps)
+<../../../barcodes/inventory/r00470.eps>
+File: ../../../barcodes/inventory/r00471.eps Graphic file (type eps)
 
-<../../../barcodes/inventory/r00526.eps>
-File: ../../../barcodes/inventory/r00528.eps Graphic file (type eps)
+<../../../barcodes/inventory/r00471.eps>
+File: ../../../barcodes/inventory/r00472.eps Graphic file (type eps)
 
-<../../../barcodes/inventory/r00528.eps>
-File: ../../../barcodes/inventory/r00529.eps Graphic file (type eps)
+<../../../barcodes/inventory/r00472.eps>
+File: ../../../barcodes/inventory/r00473.eps Graphic file (type eps)
 
-<../../../barcodes/inventory/r00529.eps>
-File: ../../../barcodes/inventory/r00532.eps Graphic file (type eps)
+<../../../barcodes/inventory/r00473.eps>
+File: ../../../barcodes/inventory/r00474.eps Graphic file (type eps)
 
-<../../../barcodes/inventory/r00532.eps>
-File: ../../../barcodes/inventory/r00533.eps Graphic file (type eps)
+<../../../barcodes/inventory/r00474.eps>
+File: ../../../barcodes/inventory/r00475.eps Graphic file (type eps)
 
-<../../../barcodes/inventory/r00533.eps>
-File: ../../../barcodes/inventory/r00534.eps Graphic file (type eps)
+<../../../barcodes/inventory/r00475.eps>
+File: ../../../barcodes/inventory/r00476.eps Graphic file (type eps)
 
-<../../../barcodes/inventory/r00534.eps>
-File: ../../../barcodes/inventory/r00536.eps Graphic file (type eps)
+<../../../barcodes/inventory/r00476.eps>
+File: ../../../barcodes/inventory/r00477.eps Graphic file (type eps)
 
-<../../../barcodes/inventory/r00536.eps>
+<../../../barcodes/inventory/r00477.eps>
 Overfull \hbox (17.62177pt too wide) in paragraph at lines 274--275
 [][] 
  []
 
 [4]
-File: ../../../barcodes/inventory/r00537.eps Graphic file (type eps)
- <../../../barcodes/inventory/r00537.eps>
-File: ../../../barcodes/inventory/r00538.eps Graphic file (type eps)
+File: ../../../barcodes/inventory/r00478.eps Graphic file (type eps)
+ <../../../barcodes/inventory/r00478.eps>
+File: ../../../barcodes/inventory/r00479.eps Graphic file (type eps)
 
-<../../../barcodes/inventory/r00538.eps>
-File: ../../../barcodes/inventory/r00539.eps Graphic file (type eps)
+<../../../barcodes/inventory/r00479.eps>
+File: ../../../barcodes/inventory/r00480.eps Graphic file (type eps)
 
-<../../../barcodes/inventory/r00539.eps>
-File: ../../../barcodes/inventory/r00540.eps Graphic file (type eps)
+<../../../barcodes/inventory/r00480.eps>
+File: ../../../barcodes/inventory/r00481.eps Graphic file (type eps)
 
-<../../../barcodes/inventory/r00540.eps>
-File: ../../../barcodes/inventory/r00541.eps Graphic file (type eps)
+<../../../barcodes/inventory/r00481.eps>
+File: ../../../barcodes/inventory/r00482.eps Graphic file (type eps)
 
-<../../../barcodes/inventory/r00541.eps>
-File: ../../../barcodes/inventory/r00544.eps Graphic file (type eps)
+<../../../barcodes/inventory/r00482.eps>
+File: ../../../barcodes/inventory/r00483.eps Graphic file (type eps)
 
-<../../../barcodes/inventory/r00544.eps>
-File: ../../../barcodes/inventory/r00545.eps Graphic file (type eps)
+<../../../barcodes/inventory/r00483.eps>
+File: ../../../barcodes/inventory/r00484.eps Graphic file (type eps)
 
-<../../../barcodes/inventory/r00545.eps>
-File: ../../../barcodes/inventory/r00546.eps Graphic file (type eps)
+<../../../barcodes/inventory/r00484.eps>
+File: ../../../barcodes/inventory/r00485.eps Graphic file (type eps)
 
-<../../../barcodes/inventory/r00546.eps>
-File: ../../../barcodes/inventory/r00547.eps Graphic file (type eps)
+<../../../barcodes/inventory/r00485.eps>
+File: ../../../barcodes/inventory/r00486.eps Graphic file (type eps)
 
-<../../../barcodes/inventory/r00547.eps>
-File: ../../../barcodes/inventory/r00548.eps Graphic file (type eps)
+<../../../barcodes/inventory/r00486.eps>
+File: ../../../barcodes/inventory/r00487.eps Graphic file (type eps)
 
-<../../../barcodes/inventory/r00548.eps>
-File: ../../../barcodes/inventory/r00549.eps Graphic file (type eps)
+<../../../barcodes/inventory/r00487.eps>
+File: ../../../barcodes/inventory/r00488.eps Graphic file (type eps)
 
-<../../../barcodes/inventory/r00549.eps>
-File: ../../../barcodes/inventory/r00550.eps Graphic file (type eps)
+<../../../barcodes/inventory/r00488.eps>
+File: ../../../barcodes/inventory/r00489.eps Graphic file (type eps)
 
-<../../../barcodes/inventory/r00550.eps>
-File: ../../../barcodes/inventory/r00551.eps Graphic file (type eps)
+<../../../barcodes/inventory/r00489.eps>
+File: ../../../barcodes/inventory/r00490.eps Graphic file (type eps)
 
-<../../../barcodes/inventory/r00551.eps>
-File: ../../../barcodes/inventory/r00552.eps Graphic file (type eps)
+<../../../barcodes/inventory/r00490.eps>
+File: ../../../barcodes/inventory/r00491.eps Graphic file (type eps)
 
-<../../../barcodes/inventory/r00552.eps>
-File: ../../../barcodes/inventory/r00554.eps Graphic file (type eps)
+<../../../barcodes/inventory/r00491.eps>
+File: ../../../barcodes/inventory/r00492.eps Graphic file (type eps)
 
-<../../../barcodes/inventory/r00554.eps>
-File: ../../../barcodes/inventory/r00555.eps Graphic file (type eps)
+<../../../barcodes/inventory/r00492.eps>
+File: ../../../barcodes/inventory/r00493.eps Graphic file (type eps)
 
-<../../../barcodes/inventory/r00555.eps>
-File: ../../../barcodes/inventory/r00556.eps Graphic file (type eps)
+<../../../barcodes/inventory/r00493.eps>
+File: ../../../barcodes/inventory/r00494.eps Graphic file (type eps)
 
-<../../../barcodes/inventory/r00556.eps>
-File: ../../../barcodes/inventory/r00558.eps Graphic file (type eps)
+<../../../barcodes/inventory/r00494.eps>
+File: ../../../barcodes/inventory/r00495.eps Graphic file (type eps)
 
-<../../../barcodes/inventory/r00558.eps>
-File: ../../../barcodes/inventory/r00559.eps Graphic file (type eps)
+<../../../barcodes/inventory/r00495.eps>
+File: ../../../barcodes/inventory/r00496.eps Graphic file (type eps)
 
-<../../../barcodes/inventory/r00559.eps>
-File: ../../../barcodes/inventory/r00560.eps Graphic file (type eps)
+<../../../barcodes/inventory/r00496.eps>
+File: ../../../barcodes/inventory/r00497.eps Graphic file (type eps)
 
-<../../../barcodes/inventory/r00560.eps>
+<../../../barcodes/inventory/r00497.eps>
 Overfull \hbox (17.62177pt too wide) in paragraph at lines 341--342
 [][] 
  []
 
 [5]
-File: ../../../barcodes/inventory/r00561.eps Graphic file (type eps)
- <../../../barcodes/inventory/r00561.eps>
-File: ../../../barcodes/inventory/r00562.eps Graphic file (type eps)
+File: ../../../barcodes/inventory/r00498.eps Graphic file (type eps)
+ <../../../barcodes/inventory/r00498.eps>
+File: ../../../barcodes/inventory/r00499.eps Graphic file (type eps)
 
-<../../../barcodes/inventory/r00562.eps>
-File: ../../../barcodes/inventory/r00564.eps Graphic file (type eps)
-
-<../../../barcodes/inventory/r00564.eps>
-File: ../../../barcodes/inventory/r00566.eps Graphic file (type eps)
-
-<../../../barcodes/inventory/r00566.eps>
-File: ../../../barcodes/inventory/r00571.eps Graphic file (type eps)
-
-<../../../barcodes/inventory/r00571.eps>
-File: ../../../barcodes/inventory/r00572.eps Graphic file (type eps)
-
-<../../../barcodes/inventory/r00572.eps>
-File: ../../../barcodes/inventory/r00575.eps Graphic file (type eps)
-
-<../../../barcodes/inventory/r00575.eps>
-File: ../../../barcodes/inventory/r00576.eps Graphic file (type eps)
-
-<../../../barcodes/inventory/r00576.eps>
-File: ../../../barcodes/inventory/r00577.eps Graphic file (type eps)
-
-<../../../barcodes/inventory/r00577.eps>
-File: ../../../barcodes/inventory/r00579.eps Graphic file (type eps)
-
-<../../../barcodes/inventory/r00579.eps>
-File: ../../../barcodes/inventory/r00580.eps Graphic file (type eps)
-
-<../../../barcodes/inventory/r00580.eps>
-File: ../../../barcodes/inventory/r00581.eps Graphic file (type eps)
-
-<../../../barcodes/inventory/r00581.eps>
-File: ../../../barcodes/inventory/r00582.eps Graphic file (type eps)
-
-<../../../barcodes/inventory/r00582.eps>
-File: ../../../barcodes/inventory/r00583.eps Graphic file (type eps)
-
-<../../../barcodes/inventory/r00583.eps>
-File: ../../../barcodes/inventory/r00584.eps Graphic file (type eps)
-
-<../../../barcodes/inventory/r00584.eps>
-File: ../../../barcodes/inventory/r00585.eps Graphic file (type eps)
-
-<../../../barcodes/inventory/r00585.eps>
-File: ../../../barcodes/inventory/r00586.eps Graphic file (type eps)
-
-<../../../barcodes/inventory/r00586.eps>
-File: ../../../barcodes/inventory/r00587.eps Graphic file (type eps)
-
-<../../../barcodes/inventory/r00587.eps>
-File: ../../../barcodes/inventory/r00588.eps Graphic file (type eps)
-
-<../../../barcodes/inventory/r00588.eps>
-File: ../../../barcodes/inventory/r00589.eps Graphic file (type eps)
-
-<../../../barcodes/inventory/r00589.eps>
-Overfull \hbox (17.62177pt too wide) in paragraph at lines 408--409
-[][] 
- []
-
-[6]
-File: ../../../barcodes/inventory/r00590.eps Graphic file (type eps)
- <../../../barcodes/inventory/r00590.eps>
-File: ../../../barcodes/inventory/r00591.eps Graphic file (type eps)
-
-<../../../barcodes/inventory/r00591.eps>
-File: ../../../barcodes/inventory/r00592.eps Graphic file (type eps)
-
-<../../../barcodes/inventory/r00592.eps>
-File: ../../../barcodes/inventory/r00593.eps Graphic file (type eps)
-
-<../../../barcodes/inventory/r00593.eps>
-File: ../../../barcodes/inventory/r00594.eps Graphic file (type eps)
-
-<../../../barcodes/inventory/r00594.eps>
-File: ../../../barcodes/inventory/r00595.eps Graphic file (type eps)
-
-<../../../barcodes/inventory/r00595.eps>
-File: ../../../barcodes/inventory/r00596.eps Graphic file (type eps)
-
-<../../../barcodes/inventory/r00596.eps>
-File: ../../../barcodes/inventory/r00597.eps Graphic file (type eps)
-
-<../../../barcodes/inventory/r00597.eps>
-File: ../../../barcodes/inventory/r00598.eps Graphic file (type eps)
-
-<../../../barcodes/inventory/r00598.eps>
-File: ../../../barcodes/inventory/r00599.eps Graphic file (type eps)
-
-<../../../barcodes/inventory/r00599.eps>
-File: ../../../barcodes/inventory/r00600.eps Graphic file (type eps)
-
-<../../../barcodes/inventory/r00600.eps>
-Overfull \hbox (17.62177pt too wide) in paragraph at lines 448--449
+<../../../barcodes/inventory/r00499.eps>
+Overfull \hbox (17.62177pt too wide) in paragraph at lines 353--354
 [][] 
  []
 
 ! You can't use `\raise' in vertical mode.
 \put (#1,#2)#3->\@killglue \raise 
                                   #2\unitlength \hb@xt@ \z@ {\kern #1\unitle...
-l.450 ...ox{90}{\scalebox{1.2}{\Huge{\textbf{}}}}}
+l.355 ...90}{\scalebox{1.2}{\Huge{\textbf{500}}}}}
                                                   
 ? r
 OK, entering \nonstopmode...
 ! Missing number, treated as zero.
 <to be read again> 
                    \hbox 
-l.450 ...ox{90}{\scalebox{1.2}{\Huge{\textbf{}}}}}
+l.355 ...90}{\scalebox{1.2}{\Huge{\textbf{500}}}}}
                                                   
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
@@ -568,7 +477,7 @@ look up `weird error' in the index to The TeXbook.)
 ! Illegal unit of measure (pt inserted).
 <to be read again> 
                    \hbox 
-l.450 ...ox{90}{\scalebox{1.2}{\Huge{\textbf{}}}}}
+l.355 ...90}{\scalebox{1.2}{\Huge{\textbf{500}}}}}
                                                   
 Dimensions can be in units of em, ex, in, pt, pc,
 cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
@@ -577,15 +486,15 @@ To recover gracefully from this error, it's best to
 delete the erroneous units; e.g., type `2' to delete
 two letters. (See Chapter 27 of The TeXbook.)
 
-File: ../../../barcodes/inventory/r00000.eps Graphic file (type eps)
-<../../../barcodes/inventory/r00000.eps> [7] (./row_stake_labels.aux) ) 
+File: ../../../barcodes/inventory/r00500.eps Graphic file (type eps)
+<../../../barcodes/inventory/r00500.eps> [6] (./row_stake_labels.aux) ) 
 Here is how much of TeX's memory you used:
- 1427 strings out of 493657
- 20491 string characters out of 6152364
- 77798 words of memory out of 5000000
- 4825 multiletter control sequences out of 15000+600000
+ 1369 strings out of 493657
+ 19099 string characters out of 6152364
+ 77296 words of memory out of 5000000
+ 4796 multiletter control sequences out of 15000+600000
  4544 words of font info for 17 fonts, out of 8000000 for 9000
  783 hyphenation exceptions out of 8191
  27i,5n,22p,238b,214s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on row_stake_labels.dvi (7 pages, 103072 bytes).
+Output written on row_stake_labels.dvi (6 pages, 80520 bytes).

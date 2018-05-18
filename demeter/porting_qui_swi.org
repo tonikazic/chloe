@@ -1483,7 +1483,8 @@ entries, not finding the family for row 72, etc.  Part of the problem is
 that my second planting facts were lost.
 
 
-*** so fix it by hand instead <2018-05-16 Wed>
+*** so fix it by hand instead <2018-05-16 Wed> --- <2018-05-17 Thu>
+<<17r-hand-planting>>
 
 So in the end, I'm doing this by hand.  I'm hampered because lewis is down
 and so I can't get to the plant tags file.
@@ -1548,6 +1549,23 @@ Procedure:
 
       + insert packet and row into the flanted/8 fact (for easier grepping
         later) 
+
+
+
+#+BEGIN_SRC and then grep out the flanted to prepare for insertion into planted.pl
+grep flanted ../archival/17r_data_reconstructn/17r_reconstructed_planted > ../archival/17r_data_reconstructn/17r_flanted
+#+END_SRC
+
+
+*** and now make the genotype facts
+
+
+
+*** an interlude for automatically patching numerical genotypes for tags that didn't scan <2018-05-17 Thu>
+
+so mason can manufacture and place the harvest tags.
+
+
 
 
 * making and using a saved state <2018-04-11 Wed> and ff

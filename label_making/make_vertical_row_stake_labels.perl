@@ -118,8 +118,6 @@ while (<$in>) {
 
 
 
-
-
 # this part is the same, no matter if the label is vertical or horizontal,
 # as we are just generating the record for label layout.
 #

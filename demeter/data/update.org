@@ -116,3 +116,14 @@ grep 06R300:W000I815 *.pl | grep -v '%' | grep -v old  | grep -v crop_rowplant |
 #+END_SRC
 
 I then amended the results until find_changes.sh produced no more hits.
+
+
+** making new harvest tags for seed storage packets <2018-05-17 Thu>
+
+We needed some new tags for 16r and 17r data.  But it turned out the boys
+lost most of their 17r harvest data; and parts of 16r and 17r were
+mis-filed.  So they re-collected 16r inventory and 17r harvest data
+directly from the packets, guessing by feel the amount of kernels and
+counting when the number was very low.  This took two tries, but they got
+it done on <2018-05-15 Tue> and we know what we have now.  Files are in 
+[[file:../data/palm/raw_data_from_palms/18r/zeta/15.5/15.5_data_collectn.zip][15.5_data_collectn.zip]] and its contents.
