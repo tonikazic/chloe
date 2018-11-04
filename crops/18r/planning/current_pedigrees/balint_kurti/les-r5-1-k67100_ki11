@@ -1,0 +1,18 @@
+% this is ../../crops/18r/planning/current_pedigrees/balint_kurti/les-r5-1-k67100_ki11
+% generated Friday, June 01, 2018 at 22:06:08 UTC (=1527890768.520225) by compute_pedigrees/1.
+
+% Horizontal pedigrees, generations at same indentation.  S: Mo20W; W: W23; M: M14.
+% !!! => cross was not by Toni; references to image locations on right.
+
+% Ki11/les*-R5-1-K67100
+
+ 15R0671:0000000 x 15R0671:0000000
+      15R205:S0002404 x 15R0671:0021502            15R0671:0021502: [15r/bet/13.8-[2689],15r/bet/15.8-[2717],15r/bet/17.8-[2800],15r/bet/20.8-[2831],15r/bet/23.8-[2862]]
+           17R4604:0020906 x 17R4604:0020906
+           17R4604:0020907 x 17R4604:0020907
+           17R4604:0020914 x 17R4604:0020914
+      15R405:M0003403 x 15R0671:0021502            15R0671:0021502: [15r/bet/13.8-[2689],15r/bet/15.8-[2717],15r/bet/17.8-[2800],15r/bet/20.8-[2831],15r/bet/23.8-[2862]]
+           17R4605:0021010 x 17R4605:0021010
+           17R4605:0021011 x 17R4605:0021011
+           17R4605:0021013 x 17R4605:0021013
+      15R405:M0003404 x 15R0671:0021502            15R0671:0021502: [15r/bet/13.8-[2689],15r/bet/15.8-[2717],15r/bet/17.8-[2800],15r/bet/20.8-[2831],15r/bet/23.8-[2862]]

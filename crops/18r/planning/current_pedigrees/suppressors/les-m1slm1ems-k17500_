@@ -1,0 +1,17 @@
+% this is ../../crops/18r/planning/current_pedigrees/suppressors/les-m1slm1ems-k17500_
+% generated Friday, June 01, 2018 at 22:06:08 UTC (=1527890768.475811) by compute_pedigrees/1.
+
+% Horizontal pedigrees, generations at same indentation.  S: Mo20W; W: W23; M: M14.
+% !!! => cross was not by Toni; references to image locations on right.
+
+% ?/Les-M1 Slm1 EMS-K17500
+
+ 10R0175:0000000 x 10R0175:0000000
+      11R205:S0043415 x 11R0175:0033408            11R0175:0033408: [11r/aleph/19.8-[1186]]
+      11R205:S0047803 x 11R0175:0033409            11R0175:0033409: [11r/aleph/19.8-[1184]]
+      11R205:S0048704 x 11R0175:0033412            11R0175:0033412: [11r/aleph/19.8-[1183]]
+      11R305:W0043514 x 11R0175:0033412            11R0175:0033412: [11r/aleph/19.8-[1183]]
+      11R305:W0044410 x 11R0175:0033408            11R0175:0033408: [11r/aleph/19.8-[1186]]
+      11R405:M0043617 x 11R0175:0033409            11R0175:0033409: [11r/aleph/19.8-[1184]]
+      11R405:M0043914 x 11R0175:0033408            11R0175:0033408: [11r/aleph/19.8-[1186]]
+      11R405:M0048308 x 11R0175:0033412            11R0175:0033412: [11r/aleph/19.8-[1183]]

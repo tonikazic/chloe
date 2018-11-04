@@ -1,0 +1,20 @@
+% this is ../../crops/18r/planning/current_pedigrees/gardner/001-(2n)-002-001-b-k69100_cristalinoamarar21004
+% generated Friday, June 01, 2018 at 22:06:08 UTC (=1527890768.534291) by compute_pedigrees/1.
+
+% Horizontal pedigrees, generations at same indentation.  S: Mo20W; W: W23; M: M14.
+% !!! => cross was not by Toni; references to image locations on right.
+
+% CRISTALINO AMAR AR21004/#001-(2n)-002-001-B-K69100
+
+ 16R0691:0000000 x 16R0691:0000000
+      16R0691:0015106 x 16R0691:0015106            16R0691:0015106: [16r/gimmel/28.7-[208]]     16R0691:0015106: [16r/gimmel/28.7-[208]]
+      16R0691:0015107 x 16R0691:0015107
+      16R0691:0015109 x 16R0691:0015109            16R0691:0015109: [16r/gimmel/28.7-[209]]     16R0691:0015109: [16r/gimmel/28.7-[209]]
+      16R205:S0000603 x 16R0691:0015106            16R0691:0015106: [16r/gimmel/28.7-[208]]
+           17R4611:0023402 x 17R4611:0023402
+           17R4611:0023403 x 17R4611:0023403
+           17R4611:0023405 x 17R4611:0023405
+      16R205:S0002701 x 16R0691:0015106            16R0691:0015106: [16r/gimmel/28.7-[208]]
+      16R305:W0000711 x 16R0691:0015106            16R0691:0015106: [16r/gimmel/28.7-[208]]
+           17R4612:0023502 x 17R4612:0023502
+           17R4612:0023509 x 17R4612:0023509

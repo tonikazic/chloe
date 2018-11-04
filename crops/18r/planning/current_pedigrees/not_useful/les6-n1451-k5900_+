@@ -1,0 +1,15 @@
+% this is ../../crops/18r/planning/current_pedigrees/not_useful/les6-n1451-k5900_+
+% generated Friday, June 01, 2018 at 22:06:08 UTC (=1527890768.359583) by compute_pedigrees/1.
+
+% Horizontal pedigrees, generations at same indentation.  S: Mo20W; W: W23; M: M14.
+% !!! => cross was not by Toni; references to image locations on right.
+
+% +/Les6-N1451-K5900
+
+ 06R0059:0000000 x 06R0059:0000000
+      06R0059:0005903 x 06R0059:0005914
+      06R300:W00I3512 x 06R0059:0005909
+      06R300:W00I3514 x 06R0059:0005909
+      06R300:W105.313 x 06R0059:0005908
+      06R300:W112.104 x 06R0059:0005908
+      06R400:M105.313 x 06R0059:0005908

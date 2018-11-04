@@ -1,0 +1,12 @@
+% this is ../../crops/18r/planning/current_pedigrees/not_useful/les-n2420-k8600_m14
+% generated Friday, June 01, 2018 at 22:06:08 UTC (=1527890768.414852) by compute_pedigrees/1.
+
+% Horizontal pedigrees, generations at same indentation.  S: Mo20W; W: W23; M: M14.
+% !!! => cross was not by Toni; references to image locations on right.
+
+% M14/Les*-N2420-K8600
+
+ 06R0086:0000000 x 06R0086:0000000
+      09R201:S0041416 x 09R0086:0030306            09R0086:0030306: [09r/gimmel/13.9-[190]]
+      09R301:W0041602 x 09R0086:0030306            09R0086:0030306: [09r/gimmel/13.9-[190]]
+      09R401:M0044401 x 09R0086:0030306            09R0086:0030306: [09r/gimmel/13.9-[190]]

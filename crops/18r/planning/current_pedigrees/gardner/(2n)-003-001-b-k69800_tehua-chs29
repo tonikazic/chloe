@@ -1,0 +1,17 @@
+% this is ../../crops/18r/planning/current_pedigrees/gardner/(2n)-003-001-b-k69800_tehua-chs29
+% generated Friday, June 01, 2018 at 22:06:08 UTC (=1527890768.537073) by compute_pedigrees/1.
+
+% Horizontal pedigrees, generations at same indentation.  S: Mo20W; W: W23; M: M14.
+% !!! => cross was not by Toni; references to image locations on right.
+
+% Tehua - CHS29/(2n)-003-001-B-K69800
+
+ 16R0698:0000000 x 16R0698:0000000
+      16R0698:0015804 x 16R0698:0015804            16R0698:0015804: [16r/gimmel/28.7-[239]]     16R0698:0015804: [16r/gimmel/28.7-[239]]
+      16R0698:0015808 x 16R0698:0015808            16R0698:0015808: [16r/gimmel/28.7-[250]]     16R0698:0015808: [16r/gimmel/28.7-[250]]
+      16R0698:0015811 x 16R0698:0015811            16R0698:0015811: [16r/gimmel/30.7-[280]]     16R0698:0015811: [16r/gimmel/30.7-[280]]
+      16R205:S0001111 x 16R0698:0015802            16R0698:0015802: [16r/gimmel/28.7-[259]]
+           17R4614:0023802 x 17R4614:0023802
+           17R4614:0023807 x 17R4614:0023807
+           17R4614:0023815 x 17R4614:0023815
+      16R205:S0001113 x 16R0698:0015801            16R0698:0015801: [16r/gimmel/28.7-[261,262],16r/gimmel/30.7-[280]]

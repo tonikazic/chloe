@@ -1,0 +1,23 @@
+% this is ../../crops/18r/planning/current_pedigrees/not_useful/spc3-n553c-k11000_+
+% generated Friday, June 01, 2018 at 22:06:08 UTC (=1527890768.434361) by compute_pedigrees/1.
+
+% Horizontal pedigrees, generations at same indentation.  S: Mo20W; W: W23; M: M14.
+% !!! => cross was not by Toni; references to image locations on right.
+
+% +/spc3-N553C-K11000
+
+ 06R0110:0000000 x 06R0110:0000000
+      06R0110:0011003 x 06R0110:0011007
+      06R0110:0011005 x 06R0110:0011003
+           09R1974:0011504 x 09R1974:0011504
+           09R1974:0011505 x 09R1974:0011505
+           09R1974:0011507 x 09R1974:0011507
+           09R1974:0011508 x 09R1974:0011508
+           09R1974:0011512 x 09R1974:0011512
+      06R400:M00I1812 x 06R0110:0011003
+      06R400:M00I1813 x 06R0110:0011002
+      09R0110:0011402 x 09R0110:0011402
+      09R0110:0011403 x 09R0110:0011403
+      09R0110:0011405 x 09R0110:0011405
+      09R0110:0011406 x 09R0110:0011406
+      09R0110:0011407 x 09R0110:0011407

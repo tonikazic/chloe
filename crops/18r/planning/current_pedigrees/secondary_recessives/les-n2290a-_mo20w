@@ -1,0 +1,21 @@
+% this is ../../crops/18r/planning/current_pedigrees/secondary_recessives/les-n2290a-_mo20w
+% generated Friday, June 01, 2018 at 22:06:08 UTC (=1527890768.40423) by compute_pedigrees/1.
+
+% Horizontal pedigrees, generations at same indentation.  S: Mo20W; W: W23; M: M14.
+% !!! => cross was not by Toni; references to image locations on right.
+
+% Mo20W/les*-N2290A-
+
+ 06R0080:0000000 x 06R0080:0000000
+      09R201:S0042303 x 09R0080:0004802            09R0080:0004802: [09r/bet/1.9-[132],09r/bet/23.8-[20],09r/bet/25.8-[500]]
+           11R3101:0006001 x 11R3101:0006001
+           11R3101:0006002 x 11R3101:0006002
+      09R201:S0042315 x 09R0080:0004805            09R0080:0004805: [09r/bet/1.9-[143],09r/bet/23.8-[22]]
+      09R301:W0056306 x 09R0080:0004802            09R0080:0004802: [09r/bet/1.9-[132],09r/bet/23.8-[20],09r/bet/25.8-[500]]
+           11R3102:0006101 x 11R3102:0006101
+           11R3102:0006104 x 11R3102:0006104
+           11R3102:0006105 x 11R3102:0006105
+      09R401:M0043205 x 09R0080:0004802            09R0080:0004802: [09r/bet/1.9-[132],09r/bet/23.8-[20],09r/bet/25.8-[500]]
+           11R3103:0006201 x 11R3103:0006201
+           11R3103:0006204 x 11R3103:0006204
+           11R3103:0006205 x 11R3103:0006205

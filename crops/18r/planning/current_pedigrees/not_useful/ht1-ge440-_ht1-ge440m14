@@ -1,0 +1,22 @@
+% this is ../../crops/18r/planning/current_pedigrees/not_useful/ht1-ge440-_ht1-ge440m14
+% generated Friday, June 01, 2018 at 22:06:08 UTC (=1527890768.424719) by compute_pedigrees/1.
+
+% Horizontal pedigrees, generations at same indentation.  S: Mo20W; W: W23; M: M14.
+% !!! => cross was not by Toni; references to image locations on right.
+
+% Ht1-GE440 ^M14/Ht1-GE440-
+
+ 06R0097:0000000 x 06R0097:0000000
+      06R200:S00I1017 x 06R0097:0009706
+      06R200:S00I1105 x 06R0097:0009707
+      06R200:S0I10008 x 06R0097:0009709
+      06R200:S0I10015 x 06R0097:0009708
+      06R300:W00I0219 x 06R0097:0009706
+      06R300:W00I0518 x 06R0097:0009707
+      06R300:W00I3811 x 06R0097:0009709
+      06R300:W00I4902 x 06R0097:0009708
+      06R400:M000I308 x 06R0097:0009706
+      06R400:M00I0309 x 06R0097:0009707
+      06R400:M00I3910 x 06R0097:0009711
+      06R400:M00I3914 x 06R0097:0009709
+      06R400:M00I3915 x 06R0097:0009708

@@ -1,0 +1,18 @@
+% this is ../../crops/18r/planning/current_pedigrees/secondary_recessives/nec2-8147-k15300_+
+% generated Friday, June 01, 2018 at 22:06:08 UTC (=1527890768.463676) by compute_pedigrees/1.
+
+% Horizontal pedigrees, generations at same indentation.  S: Mo20W; W: W23; M: M14.
+% !!! => cross was not by Toni; references to image locations on right.
+
+% +/nec2-8147-K15300
+
+ 09R0153:0000000 x 09R0153:0000000
+      11R205:S0049002 x 11R0153:0041805            11R0153:0041805: [11r/aleph/19.8-[1178]]
+      11R305:W0047417 x 11R0153:0041805            11R0153:0041805: [11r/aleph/19.8-[1178]]
+           12R3544:0017102 x 12R3544:0017102
+           12R3544:0017104 x 12R3544:0017104
+           12R3544:0017110 x 12R3544:0017110
+      11R405:M0044204 x 11R0153:0041805            11R0153:0041805: [11r/aleph/19.8-[1178]]
+           12R3545:0017202 x 12R3545:0017202
+           12R3545:0017206 x 12R3545:0017206
+           12R3545:0017208 x 12R3545:0017208

@@ -1,0 +1,22 @@
+% this is ../../crops/18r/planning/current_pedigrees/secondary_recessives/les-tilling1-_
+% generated Friday, June 01, 2018 at 22:06:08 UTC (=1527890768.475107) by compute_pedigrees/1.
+
+% Horizontal pedigrees, generations at same indentation.  S: Mo20W; W: W23; M: M14.
+% !!! => cross was not by Toni; references to image locations on right.
+
+% ?/les*-tilling1-
+
+ 10R0174:0000000 x 10R0174:0000000
+      10R205:S0010018 x 10R0174:0038903            10R0174:0038903: [10r/gimmel/7.8-[609,611]]
+      10R205:S0010211 x 10R0174:0038906            10R0174:0038906: [10r/gimmel/7.8-[618,619]]
+      10R205:S0010213 x 10R0174:0038905            10R0174:0038905: [10r/gimmel/7.8-[615,616]]
+      10R305:W0011109 x 10R0174:0038904            10R0174:0038904: [10r/gimmel/7.8-[612,614]]
+           11R3096:0007107 x 11R3096:0007107
+           11R3096:0007108 x 11R3096:0007108
+           11R3096:0007110 x 11R3096:0007110
+      10R405:M0007508 x 10R0174:0038903            10R0174:0038903: [10r/gimmel/7.8-[609,611]]
+      10R405:M0007510 x 10R0174:0038904            10R0174:0038904: [10r/gimmel/7.8-[612,614]]
+           11R3097:0007205 x 11R3097:0007205
+           11R3097:0007206 x 11R3097:0007206
+           11R3097:0007212 x 11R3097:0007212
+                12R205:S0010902 x 12R3831:0054104

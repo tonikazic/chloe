@@ -1,0 +1,19 @@
+% this is ../../crops/18r/planning/current_pedigrees/not_useful/les5-gj-k16000_mo20w
+% generated Friday, June 01, 2018 at 22:06:08 UTC (=1527890768.465396) by compute_pedigrees/1.
+
+% Horizontal pedigrees, generations at same indentation.  S: Mo20W; W: W23; M: M14.
+% !!! => cross was not by Toni; references to image locations on right.
+
+% Mo20W/Les5-GJ-K16000
+
+ 10R0160:0000000 x 10R0160:0000000
+      11R205:S0044020 x 11R0160:0013409            11R0160:0013409: [11r/aleph/18.8-[1066]]
+           11N205:S0034210 x 11N3430:0012501
+           11N205:S0038212 x 11N3430:0012504
+           11N205:S0038708 x 11N3430:0012504
+           11N305:W0039802 x 11N3430:0012504
+           11N305:W0039803 x 11N3430:0012504
+           11N305:W0041304 x 11N3430:0012501
+           11N405:M0037607 x 11N3430:0012501
+      11R305:W0050911 x 11R0160:0013409            11R0160:0013409: [11r/aleph/18.8-[1066]]
+      11R405:M0050705 x 11R0160:0013409            11R0160:0013409: [11r/aleph/18.8-[1066]]
