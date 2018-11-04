@@ -1,8 +1,14 @@
 #!/opt/perl5/perls/perl-5.26.1/bin/perl
 
-# this is ..c/maize/data/data_conversion/convert_harvest_data.perl
+# this is ../c/maize/data/data_conversion/convert_harvest_data.perl
 
-# a quick script to convert the harvest menu's data to harvest/7
+# need to add datatime from row_harvested.pl to the
+# the harvest menu's data (shouldn't be there any more)
+# to generate harvest/7
+#
+# Kazic, 1.11.2018
+
+
 
 
 # for now I have stuffed all the subroutines in the Typesetting subdirectory.  The 

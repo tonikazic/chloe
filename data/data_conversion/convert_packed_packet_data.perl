@@ -40,9 +40,14 @@ my $flag = $ARGV[2];
 
 my $file = $demeter_dir . "packed_packet.pl";
 my @lines;
+my $out;
 
 
+# fix header for output file!
+#
+# Kazic, 21.7.2018
 
+print "fix output file header: ../../data$input_file\n";
 
 
 
@@ -50,7 +55,7 @@ my @lines;
 # read the file into an array so it's easy to check the first line's self-identification
 
 open my $in, '<', $input_file or die "sorry, can't open input file $input_file\n";
-(@lines) = <$in>;
+(@lines) = grep { $_ !~ /^,/ } <$in>;
 
 
 
@@ -62,36 +67,33 @@ if ( $lines[0] =~ /packed_packet/ ) {
 
 
 	if ( $flag eq 'go' ) {    
-                open my $out, '>>', $out_file or die "can't open $out_file\n";
+                open $out, '>>', $out_file or die "can't open $out_file\n";
 		print $out "\n\n\n\n% data added from ../../data$input_file on $now\n% by data/data_conversion/convert_packed_packet_data.perl\n% called from data/data_conversion/convert_data.perl\n\n";
 	        }
 
 
         for ( my $i = 1; $i <= $#lines; $i++ ) {
 
-	        if ( $_ !~ /^,/ ) {
-
 
 # revised to reflect order of fields on iphone
 #
 # Kazic, 2.6.2017	
 		
-                        my ($packet,$ma_plant,$pa_plant,$num_cl,$datetime,$observer) = $lines[$i] =~ /\"?(${packet_re})\"?,\"?(${num_gtype_re})\"?,\"?(${num_gtype_re})\"?,\"?(${cl_re})\"?,\"?(${datetime_re})\"?,\"?(${observer_re})\"?,*/;
+                my ($packet,$ma_plant,$pa_plant,$num_cl,$datetime,$observer) = $lines[$i] =~ /\"?(${packet_re})\"?,\"?(${num_gtype_re})\"?,\"?(${num_gtype_re})\"?,\"?(${cl_re})\"?,\"?(${datetime_re})\"?,\"?(${observer_re})\"?,*/;
 			
-#               #        print "($packet,$ma_plant,$pa_plant,$num_cl,$datetime,$observer)\n";
+#               print "($packet,$ma_plant,$pa_plant,$num_cl,$datetime,$observer)\n";
 			
                         
 			
 			
-                        my ($date,$time) = &convert_datetime($datetime);
+                my ($date,$time) = &convert_datetime($datetime);
 			
-#		#	print "$datetime::$date::$time\n";
+#		print "$datetime::$date::$time\n";
 			
-                        if ( $flag eq 'test' ) { print "packed_packet($packet,'$ma_plant','$pa_plant',$num_cl,$observer,$date,$time).\n"; }
-                        elsif ( $flag eq 'q' ) { }  # do nothing
-                        elsif ( $flag eq 'go' ) { print $out "packed_packet($packet,'$ma_plant','$pa_plant',$num_cl,$observer,$date,$time).\n"; }
+                if ( $flag eq 'test' ) { print "packed_packet($packet,'$ma_plant','$pa_plant',$num_cl,$observer,$date,$time).\n"; }
+                elsif ( $flag eq 'q' ) { }  # do nothing
+                elsif ( $flag eq 'go' ) { print $out "packed_packet($packet,'$ma_plant','$pa_plant',$num_cl,$observer,$date,$time).\n"; }
 			
-                        }
 	        }
 
 	

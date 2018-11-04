@@ -43,6 +43,8 @@ my $out;
 my @lines;
 
 
+
+
 # read the file into an array so it's easy to check the first line's self-identification
 
 open my $in, '<', $input_file or die "sorry, can't open input file $input_file\n";
@@ -79,7 +81,7 @@ if ( ( $lines[0] =~ /cross/ ) && ( $lines[0] !~ /cross\_prep/ ) ) {
                         my $ear;
 			
 			
-#               #        print "$ma,$pa,$ear1,$ear2,$repeat,$bee,$pilot,$datetime\n";
+#                       print "$ma,$pa,$ear1,$ear2,$repeat,$bee,$pilot,$datetime\n";
 			
 			
                         ($ear1) = &check_false($ear1);

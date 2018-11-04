@@ -33,6 +33,11 @@
 
 
 
+# directory management fine here already
+#
+# Kazic, 14.7.2018
+
+
 use strict;
 use warnings;
 
@@ -81,7 +86,7 @@ foreach my $palm ( @palms ) {
                              && ( $file !~ /pdf$/ ) 
                              && ( $file !~ /raw\./ ) && ( $file !~ /check\./ ) && ( $file !~ /clean.*\./ ) 
                              && ( $file !~ /correct.*\./ ) && ( $file !~ /safe\./ ) && ( $file !~ /patched\./ ) 
-                             && ( $file !~ /bogus\./ ) && ( $file !~ /^\d+\./ ) ) {
+                             && ( $file !~ /bogus\./ ) && ( $file !~ /duped?\./ ) && ( $file !~ /^\d+\./ ) ) {
 			        chomp($file);
 #			        my $first_two = `head -2 $file`;
                                 my $head = `head -1 $file`;
@@ -141,10 +146,13 @@ for my $input_file ( sort keys %target ) {
 # Kazic, 20.4.2018			
 			
                         my $exit_code = $? >> 8;
+
 			if ( $? == -1 ) { print "$script failed on input $input_file\n"; }
+
                         elsif ( ( $exit_code == 42 ) 
                                 && ( ( $flag eq 'q' ) 
                                      || ( $flag eq 'test' ) ) ) { print "nothing moved yet\n"; }
+
 			elsif ( $flag eq 'go' )  {
 			        my($stem, $path, $suffix) = fileparse($input_file);
 			        my $new_file = $path . "done." . $stem . "$suffix";
@@ -155,5 +163,6 @@ for my $input_file ( sort keys %target ) {
 
                 else { die "can't write output file $out_file, check permissions\n"; }
 	        }
+
         else { die "can't read input file $input_file, check permissions\n"; }
         }

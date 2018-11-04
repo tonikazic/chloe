@@ -41,8 +41,14 @@ my $flag = $ARGV[2];
 
 my $file = $demeter_dir . "planted.pl";
 my @lines;
+my $out;
 
 
+# fix header for output file!
+#
+# Kazic, 21.7.2018
+
+print "fix output file header: ../../data$input_file\n";
 
 
 
@@ -50,7 +56,7 @@ my @lines;
 # read the file into an array so it's easy to check the first line's self-identification
 
 open my $in, '<', $input_file or die "sorry, can't open input file $input_file\n";
-(@lines) = <$in>;
+(@lines) = grep { $_ !~ /^,/ } <$in>;
 
 
 
@@ -62,25 +68,25 @@ if ( $lines[0] =~ /planted/ ) {
 
 
 	if ( $flag eq 'go' ) {
-                open my $out, '>>', $out_file or die "can't open $out_file\n";
+                open $out, '>>', $out_file or die "can't open $out_file\n";
 		print $out "\n\n\n\n% data added from ../../data$input_file on $now\n% by data/data_conversion/convert_planted_data.perl\n% called from data/data_conversion/convert_data.perl\n\n";
 	        }
 
 
         for ( my $i = 1; $i <= $#lines; $i++ ) {
 
-	        if ( $_ !~ /^,/ ) {
-                        my ($packet,$row,$datetime,$ft,$observer) = $lines[$i] =~ /\"?(${packet_re})\"?,\"?(${row_re})\"?,\"?(${datetime_re})\"?,\"?(${ft_re})\"?,\"?(${observer_re})\"?,*/;
-			
-#               #        print "($packet,$row,$ft,$observer,$datetime)\n";
-			
-                        
-			
-			
-                        my ($date,$time) = &convert_datetime($datetime);
-			
-			
-                        my ($crop) = &grab_crop_from_file($input_file);
+
+                my ($packet,$row,$datetime,$ft,$observer) = $lines[$i] =~ /\"?(${packet_re})\"?,\"?(${row_re})\"?,\"?(${datetime_re})\"?,\"?(${ft_re})\"?,\"?(${observer_re})\"?,*/;
+		
+#                print "($packet,$row,$ft,$observer,$datetime)\n";
+		
+                
+		
+		
+                my ($date,$time) = &convert_datetime($datetime);
+		
+		
+                my ($crop) = &grab_crop_from_file($input_file);
 			
 			
 # for now, assume all soil levels are `full', 
@@ -88,11 +94,11 @@ if ( $lines[0] =~ /planted/ ) {
 #
 # Kazic, 13.5.2011
 			
-                        if ( $flag eq 'test' ) { print "planted($row,$packet,$ft,$observer,$date,$time,full,'$crop').\n"; }
-                        elsif ( $flag eq 'q' ) { }  # do nothing
-                        elsif ( $flag eq 'go' ) { print $out "planted($row,$packet,$ft,$observer,$date,$time,full,'$crop').\n"; }
-                        }
-	         }
+                if ( $flag eq 'test' ) { print "planted($row,$packet,$ft,$observer,$date,$time,full,'$crop').\n"; }
+                elsif ( $flag eq 'q' ) { }  # do nothing
+                elsif ( $flag eq 'go' ) { print $out "planted($row,$packet,$ft,$observer,$date,$time,full,'$crop').\n"; }
+
+	        }
 
 
 # thanks, Gabor!

@@ -1,2 +1,0 @@
-everything moved down a node in the directory tree, so relative dirs will
-need an extra ../ prefixed.
