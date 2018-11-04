@@ -1,5 +1,6 @@
 # maize
 #
-# our maize research, spare backup of key data and scripts during lewis outages
+# code for our crop management system for our maize research, preparing for public release
 #
-# Kazic, 15.5.2018
+# Kazic, 4.11.2018
+
