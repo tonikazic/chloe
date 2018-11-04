@@ -20,18 +20,28 @@
 use strict;
 use warnings;
 
+use Cwd 'getcwd';
+
+
 
 use lib '../../label_making/Typesetting/';
-
 use DefaultOrgztn;
 use OrganizeData;
 use MaizeRegEx;
 
 
 
-my $crop = $ARGV[0];
-my $barcodes = $dir_step . $barcodes;
+my $local_dir = getcwd;
+my ($dir) = &adjust_paths($crop,$local_dir);
+
+
 my $output_file = $demeter_dir . "possibly_missing_data.pl";
+
+# $barcodes is defined in DefaultOrgztn
+# print "b: $barcodes\no: $output_file\n";
+
+
+
 
 
 
@@ -77,7 +87,7 @@ foreach my $barcode (@barcodes) {
 
         $family =~ s/^0//g;
 	
-#        print "$barcode $pcrop $num_gtype_stem $plant $family $padded_row"; 
+#        print "$barcode $pcrop $num_gtype_stem $plant $family $padded_row\n"; 
 
 
         if ( exists $rows{$padded_row} ) {
@@ -98,9 +108,6 @@ foreach my $barcode (@barcodes) {
 # then switch to the row and plant we just parsed from the directory entry
 	
 	
-#        elsif ( $cur_plant >= 0 )  {
-
-
         else {
 
 	        $rows{$padded_row} = [$pcrop, $family, $barcode, $num_gtype_stem, $plant];
@@ -131,6 +138,8 @@ open $out, '>>', $output_file or die "can't open $output_file\n";
 my $today = `date`;
 chomp($today);
 my $dc_crop = lc($crop);
+
+
 print $out "\n\n\n\n\n% $dc_crop\n\n
 % data added by ../c/maize/crops/scripts/make_possibly_missing_data.perl
 % using barcode filenames from $barcodes as input on $today.\n\n\n";

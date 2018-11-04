@@ -1,67 +1,103 @@
-#!/usr/bin/perl
+#!/opt/perl5/perls/perl-5.26.1/bin/perl
 
-# this is /athe/c/maize/crops/count_lines.perl
+
+
+# this is ../c/maize/crops/scripts/count_lines.perl
 #
 # a script to compute the lines in the different categories and output the results to
 # computable tables in an org file
 #
 # the org file generated should be substituted back into packing_plan.org, under strategy; 
-# the tables prettified; gerry's rows inserted; and the new values calculated.
+# the tables prettified; others' rows inserted; and the new values calculated.
 #
 # note the over-planting factors and third planting inbreds are hard-wired 
 # and may need to change with different inbreds!
 #
+# Data::Dumper is included to easily print the final %dest for debugging purposes
+#
 # help with multidimensional hashes from Gabor Szabo: http://perlmaven.com/multi-dimensional-hashes
 #
 #
-# call is: perl count_lines.perl CROP
+# call is: ./count_lines.perl CROP
 #
-# Kazic, 14.5.2015
+#
+# Kazic, 5.6.2018
 
 
 
-use lib qw(../label_making/);
-use Typesetting::MaizeRegEx;
-use Typesetting::DefaultOrgztn;
+use strict;
+use warnings;
+
+use Cwd 'getcwd';
 use Lingua::EN::Words2Nums;
+# use Data::Dumper 'Dumper';
+
+
+use lib '../../label_making/Typesetting/';
+use DefaultOrgztn;
+use MaizeRegEx;
+
+
+
+# our $crop = $ARGV[0]; in DefaultOrgztn
+
+
+my $local_dir = getcwd;
+my ($dir) = &adjust_paths($crop,$local_dir);
 
 
 
 
-$input = "packing_plan.org";
-$file = $crop . $planning_root . $input;
-$out = $crop . $planning_root . "line_counts.org";
 
-$today = `date`;
+my $file = $dir . $planning_root . "packing_plan.org";
+my $out = $dir . $planning_root . "line_counts.org";
+
+
+
+
+
+my $today = `date`;
 chomp($today);
 
 
 
-$lines = 0;
-$first = 0;
-$second = 0;
-$third = 0;
-$full = 0;
-$half = 0;
-%dest = undef;
-%pick = undef;
-$k = 0;
-$n = 0;
-$picks = 0;
+my $lines = 0;
+my $first = 0;
+my $second = 0;
+my $third = 0;
+my $full = 0;
+my $half = 0;
+my $k = 0;
+my $n = 0;
+my $picks = 0;
+my %dest;
+my %pick;
+my $flag = "off";
 
 
 
-open(IN,"$file") or die "can't open input file $file\n";
 
-while (<IN>) {
 
-        if ( $_ =~ /begin_src prolog \:tangle yes/ ) { $flag = "on"; }
+open my $in, '<', $file or die "can't open $file\n";
+my $i = 0;
+
+while (<$in>) {
+
+        if ( $_ =~ /begin_src prolog\s+\:tangle yes/ ) { $flag = "on"; }
         elsif ($_ =~ /end_src/ ) { $flag = "off"; }
 
-#        if ( ( $flag eq "on" ) && ( $_ =~ /^packing_plan/ ) && ( $_ !~ /\[inbred\]/ ) ) { print $_; }
 
-        if ( ( $flag eq "on" ) && ( $_ =~ /^packing_plan/ ) && ( $_ !~ /\[inbred\]/ ) ) {
-                ($ma,$planting,$destinatn,$instructns,$ft) = $_ =~ /\[\'([\w\:]+)\s.+,(\d),(\[[\w\'\,\s\-]+\]),\'(.+)\',\'K\d+\',\d{1,2},(\d+)\)\./;
+	$i++;
+	
+        my $planting;
+
+        if ( ( $flag eq "on" ) && ( $_ =~ /^packing_plan/ ) && ( $_ !~ /\[inbred\]/ ) 
+                               && ( $_ !~ /\[elite\]/ ) ) {
+
+	    
+	        my ($ma,$planting,$destinatn,$instructns,$ft) = $_ =~ /\[\'?(${num_gtype_re})\'?,\'?${num_gtype_re}\'?\],(\d),\[(.+)\],\'(${instructns_re})\',\'${knum_re}\',${ft_re},(${ft_re})/;
+
+#  	        print "($ma,$planting,$destinatn,$instructns,$ft)\n";
 
 
                 $lines++;
@@ -72,45 +108,62 @@ while (<IN>) {
                 if ( $ft eq "20" ) { $full++; }
                 elsif ( $ft eq "10" ) { $half++; }
 
+#               print "($ma,$planting,$destinatn,$instructns,$ft) $lines  $first  $second $third $full $half\n";		
+#  	        print "first: $first sec: $second third: $third full: $full half: $half\n";
 
 
-# there may be multiple destinations; so test for each one individually
-# and increment as found.
-#
-# use a hash of hashes to maintain the tallies.
+
+# now increment the tally of lines for each destination, for each line 
+# of the file.
+#		
+# Since there may be multiple destinations, test for each individually
+# and increment its entry in the hash of hashes that maintains the tallies.
 #
 # tallies will be incremented for each destination of the current line;
 # adjustments due to picking will occur in &picks below.
 #
-# verified by manually tracing about half of the 15r picks.
-# 
-# $destination passed only for debugging purposes.
+# $destinatn passed only for debugging purposes.
 #
 # Kazic, 14.5.2015
 
-                if ( $destinatn =~ /\[self\]/ ) { $type = "self"; &count_mutants($type,$planting,$destinatn,$instructns); }
-                if ( $destinatn =~ /inc/ )      { $type = "inc";  &count_mutants($type,$planting,$destinatn,$instructns); }
-                if ( $destinatn =~ /\'B\'/ )    { $type = "b";    &count_mutants($type,$planting,$destinatn,$instructns); }
-                if ( $destinatn =~ /\'S\'/ )    { $type = "s";    &count_mutants($type,$planting,$destinatn,$instructns); }
-                if ( $destinatn =~ /\'W\'/ )    { $type = "w";    &count_mutants($type,$planting,$destinatn,$instructns); }
-                if ( $destinatn =~ /\'M\'/ )    { $type = "m";    &count_mutants($type,$planting,$destinatn,$instructns); }
-                if ( $destinatn =~ /out-cros/ ) { $type = "ox";   &count_mutants($type,$planting,$destinatn,$instructns); }
+
+		
+                if ( $destinatn =~ /\[self\]/ ) { &count_mutants("self",$planting,$destinatn,$instructns); }
+                if ( $destinatn =~ /inc/ )      { &count_mutants("inc",$planting,$destinatn,$instructns); }
+                if ( $destinatn =~ /\'B\'/ )    { &count_mutants("b",$planting,$destinatn,$instructns); }
+                if ( $destinatn =~ /\'S\'/ )    { &count_mutants("s",$planting,$destinatn,$instructns); }
+                if ( $destinatn =~ /\'W\'/ )    { &count_mutants("w",$planting,$destinatn,$instructns); }
+                if ( $destinatn =~ /\'M\'/ )    { &count_mutants("m",$planting,$destinatn,$instructns); }
+                if ( $destinatn =~ /out-cros/ ) { &count_mutants("ox",$planting,$destinatn,$instructns); }
 	        }
         }
 
 
-close(IN);
 
 
 
-open(OUT,">$out") or die "can't open output file $out\n";
-print OUT "this is $out\nthe count of mutant lines in different categories,\ngenerated on $today by ../maize/crops/count_lines.perl.\n\nInput file is $file.\n\n\n";
 
 
 
-print OUT "*** TODO line counts\n
+# print Dumper \%dest;
 
-+ with more advanced table editing and formulae
+
+
+open my $outfh, '>', $out or die "can't open output file $out\n";
+
+
+print $outfh "# this is $out\n# the count of mutant lines in different categories,\n# generated on $today by ../c/maize/crops/scripts/count_lines.perl.\n#\n# Input file is $file.\n\n\n";
+
+
+
+print $outfh "*** TODO line counts\n
+
++ if no lines in a planting need an inbred, there is no entry: 
+  include any zeroes needed for calculations
+
++ revise table and formulae as needed to reflect your intentions!
+
++ this has more advanced table editing and formulae
 
 + calculate the complete table twice!
 
@@ -119,7 +172,7 @@ print OUT "*** TODO line counts\n
 #+NAME:inbreds
 |                                           |       S |     W |       M |      B | total rows by plntg |
 |-------------------------------------------+---------+-------+---------+--------+---------------------|
-| over-planting factors                     |     1.3 |   1.3 |     1.7 |    1.3 |                 0.5 |
+| over-planting factors                     |     1.5 |   1.5 |       2 |    1.5 |                 0.5 |
 |-------------------------------------------+---------+-------+---------+--------+---------------------|
 | 1st plntg lines                           |" . $dest{"1"}{"s"} . " | " . $dest{"1"}{"w"} . "|" .  $dest{"1"}{"m"} . "|" .  $dest{"1"}{"b"} . " | |
 | 2nd plntg lines                           |" . $dest{"2"}{"s"} . " | " . $dest{"2"}{"w"} . "|" .  $dest{"2"}{"m"} . "|" .  $dest{"2"}{"b"} . " | |
@@ -143,9 +196,9 @@ print OUT "*** TODO line counts\n
 
 
 
-print OUT "*** TODO physical rows\n
+print $outfh "*** TODO physical rows\n
 
-+ add in gerry's corn manually
++ add in others' corn manually
 
 + calculate the complete table twice!
 
@@ -165,7 +218,7 @@ print OUT "*** TODO physical rows\n
 
 
 
-close(OUT);
+
 
 
 
@@ -174,16 +227,24 @@ close(OUT);
 
 
 sub count_mutants {
-        ($type,$planting,$destinatn,$instructns) = @_;
-
-        $value = $dest{$planting}{$type}; 
-        $value++; 
-        if ( $instructns =~ /pick/ ) { &picks($instructns,$type,$planting,$value); }
-        else { $dest{$planting}{$type} = $value; }
+        my ($type,$planting,$destinatn,$instructns) = @_;
 
 
-#        print "($ma,$planting,$destinatn,$instructns,$ft) $lines  $first  $second $third $full $half\n";
-#        foreach $pln ( sort keys %dest) {
+        if ( ( exists($dest{$planting}) ) && ( exists($dest{$planting}{$type}) ) ) {
+	
+                my $value = $dest{$planting}{$type}; 
+                $value++; 
+                if ( $instructns =~ /pick/ ) { &picks($instructns,$type,$planting,$value); }
+                else { $dest{$planting}{$type} = $value; }
+	        }
+
+
+	 else { $dest{$planting}{$type} = 0; }
+
+
+	
+
+#        foreach my $pln ( sort keys %dest) {
 #                foreach $type ( keys %{ $dest{$pln} } ) { print "planting: $pln $type: $dest{$pln}{$type}\n"; }
 #	        }
         }
@@ -206,20 +267,20 @@ sub count_mutants {
 
 sub picks {
 
-        ($instructns,$type,$planting,$value) = @_;
+        my ($instructns,$type,$planting,$value) = @_;
 
 #        print "\n\npassed v: $value\n";
 
-        ($kword,$nword) = $instructns =~ /pick (\w+) of (\w+)/;
-        $k = words2nums($kword);
-        $n = words2nums($nword);
+        my ($kword,$nword) = $instructns =~ /pick (\w+) of (\w+)/;
+        my $k = words2nums($kword);
+        my $n = words2nums($nword);
         $picks++;
 
         if ( $picks < $n ) { $dest{$planting}{$type} = $value; }
 
         elsif ( $picks eq $n ) { 
 
-                $new_value = $value - $n + $k;
+                my $new_value = $value - $n + $k;
                 $dest{$planting}{$type} = $new_value;
  #               print "hit limit picks at $picks, nv is $new_value, resetting\n";
                 $picks = 0;
