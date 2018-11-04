@@ -2,164 +2,176 @@ how to generate pedigrees, plant tags, field book, and harvest plan
 revised <2014-06-02 Mon> :toni:
 again revised <2015-09-25 Fri> :toni:
 
-* preliminaries
-
-.  finish inventory.pl: draw data from harvest.pl facts, sorting by hand in
-emacs.  The sorting heuristic for both seed and data is to first delete any
-failed or discarded ears.  Then order selves first; and then S, W, M, and B
-maternal parents.  Treat other NAM founder maternal parents as if they were
-among the mutant selves, since they are (mostly) planted this way.  Then
-crop improvement; then finally popcorn.
+More revisions needed! <2018-07-21 Sat>
 
 
-
-Noto bene:  all seed was shelled and re-inventoried in early 2014, and
-sorting should match this post-hoc description.
+* TODO write code to reassign sleeves after compression!
 
 
+* TODO write pedigree integrity checks
 
-. be sure that demeter/data/crop.pl includes all crops that have yielded
+  One is to compute
+    the pedigrees by crop and rowplant, rather than by unifying on the
+    entire numerical genotype, and compare the two versions.  The other is
+    to check for changes in gene and K number assignments along the
+    pedigree. 
+
+
+* DONE preliminaries
+
+
+1. be sure that [[file:../../demeter/data/crop.pl][crop.pl]] includes all crops that have yielded
 offspring.  Usually the most recent crop will be missing.  It must be
 present, or none of its offspring will appear in the pedigrees.
 
 
-* index computation on phasma
+2.  Be sure corn is filed in inventory order:
+   + mutants first, by rowplant (includes crop improvement, selves, etc.);
+   + inbreds next, by family and then rowplant;
+   + fun corn last.
 
-These directions assume that phasma can see /athe/c/maize --- if not, the
-volume must be shared first, See [[/athe/b/artistry/lab_systems/hardware/phasma_on_athe/directns.org][directns.org]] for how to do this.
+
+3.  *Be sure to physically discard all corn* marked "discarded" or
+    "ambiguous" in [[file:../../demeter/data/harvest.pl][harvest.pl]]! 
 
 
-.  recalculate indices using genetic_utilities:make_first_index/1 and
- genetic_utilities:make_rest_of_indices/2!!!!  This must be done in two
- steps because the incremental update predicate for the indices has not
- been written.  This is the split version of genetic_utilities:make_indices/3.
+4.  Ensure [[file:../../demeter/data/inventory.pl][inventory.pl]] is current, running [[file:../../data/data_conversion/update_inventory.perl][update_inventory.perl]] with the
+    last crop if needed.  Corn is now sorted automatically into inventory
+    order and sleeve numbers inserted from [[file:../../demeter/data/sleeve_bdry.pl][sleeve_bdry.pl]].
 
-   + use the phasma call to compute the new indices, which places files in
-     [[file:/home/toni]]. Follow the most recent directions in
-     [[file:/athe/c/maize/demeter/code/genetic_utilities.pl]]: look for
-     make_indices.  You want to use the two predicates make_first_index/1
-     and make_rest_of_indices/2).  Be sure to kill and restart the prolog
-     process, edit [[file:planting_index.pl]] per the messages, and then
-     compute the other two indices.
 
-   + tar up the old version of the data.  The most recent date of the *.pl
-     files is inserted into the archive name::
-#+BEGIN_SRC 
+5.  If corn has been compressed, reassign sleeves.
+
+
+
+
+
+
+* DONE index computation on machines
+<<indexing>>
+
+1.  Tar up the old version of the data.  Today's date is inserted into the
+    archive name:
+
+#+BEGIN_SRC sample tar command
 $ pwd
-/athe/c/maize/demeter
-$ tar cvf archival/db_data.25.3.2015.tar data/*.pl
+../c/maize/demeter
+$ tar cvf archival/db_data.31.7.2018.tar data/*.pl data/*.org
 $ ls -lt archival/
-total 1044224
--rw-r--r--   1 toni  staff  43250176 Mar 26 18:33 db_data.25.3.2015.tar
-....
+total 88496
+-rw-r--r--   1 toni  staff  45307904 Jul 31 13:54 db_data.31.7.2018.tar
+drwxr-xr-x  11 toni  staff       374 Jul 22 08:05 obsolete_code
+drwxr-xr-x  11 toni  staff       374 Jul 22 05:29 obsolete_data
+drwxr-xr-x  17 toni  staff       578 May 18 18:57 16r_data_reconstructn
+drwxr-xr-x  12 toni  staff       408 May 18 18:56 17r_data_reconstructn
+
 #+END_SRC
 
-   + cp -p the new index files to [[file:/athe/c/maize/demeter/data]].
-
-   + on phasma, start prolog and at the prolog prompt, [load_demeter].
-
-   + check compilation of the data.  You shouldn't have any syntax errors.
-     You will have two old errors, both related to Klotho and Moirai, when
-     the code is compiled.
-
-   + make sure you have /home/toni/demeter/results/CROP_planning.
-     If it exists and is unempty, delete all its subdirectories.
-
-   + Again kill and restart the prolog process.
 
 
+2.  Recalculate indices using [[file:../../demeter/code/genetic_utilities][make_indices/5]].  Errors and crashes are
+    likely to be from incomplete data, not bugs in the code.  The most
+    likely culprits are missing [[file:../../demeter/data/packed_packet.pl][packed_packet/7]], [[file:../../demeter/data/planted.pl][planted/8]], [[file:../../demeter/data/genotype.pl][genotype/11]],
+    and [[file:../../demeter/data/harvest.pl][harvest/7]] facts.  Rows that were planted twice are now commented
+    out in [[file:../../demeter/data/planted.pl][planted/8]], so no editing of [[file:../../demeter/data/planting_index.pl][planting_index/4]] facts or computing
+    indices in two steps are needed.
 
 
-* pedigree computation
+3.  Check compilation of the data and make a save state.  You shouldn't
+    have any syntax errors.  To make the save state,
 
-. on phasma, [[file:~toni/demeter/results/CROP_planning]].  If
-this directory is not empty when pedigrees:trace_pedigrees/1 is run, the
-predicate will fail.
+#+BEGIN_SRC 
+$ pwd
+../c/maize/demeter/code
 
+$ swipl
+.... messages ....
 
-
-.  calculate current pedigress using pedigrees:trace_pedigrees/1.
-
-A number of warnings will appear; these should be copied and pasted into
-[[file:/athe/c/maize/crops/CROP/planning/warnings]] for manual checking.
-
-
-It doesn't matter whether we do this from the unix or emacs command lines,
-on phasma or tritogeneia:
-it always breaks here:
-
-! Existence error in argument 1 of format/3
-! stream '$stream'(37421059) does not exist
-! goal:  format('$stream'(37421059),'~55| ~w: ~w',['12N661:M0035306',[]])
-
-We get the important pedigrees, anyway, but it's disturbing.  Looks like it
-breaks at the NAM founders?
+?- ['../data/load_data',set_demeter_directory],qsave_program('../data/saved_data').
+.... messages ....
+#+END_SRC
 
 
-It didn't appear until 12n, I believe . . . so there is probably some
-missing data.
 
+Then halt and restart the prolog process:
 
-. move the pedigrees on phasma to
-[[file:/athe/c/maize/CROP/planning/current_pedigrees]].  The pedigrees are grouped
-into subdirectories for faster analysis.
-
-
-.  It is very helpful to compare this crop's pedigrees with the last crop's.
-Of course, the last crop's pedigrees won't have its offspring in the
-pedigree, so these must be ablated.  Follow directions in
-[[file:/athe/c/maize/crops/ablate_crops_offspring.perl]] to do so.
-
-
-. This make take a few iterations of fact-checking, index compilation, and
-pedigree building.  We may gain branches in our pedigrees, but we shouldn't
-lose any previous branches except for an extremely good reason.  The
-pedigree calculation is based on numerical genotypes, not symbolic ones, so
-misassignment of genes and K numbers, etc., shouldn't affect the results
-UNTIL we compute tags and the field book.  Then it will matter a lot.  At
-this stage, the worst that can happen is that a line is in the wrong place
-in the field.
-
-
-.  Once the pedigrees are satisfactory, then on athe, generate the pdf
-files for iAnnotate or Acrobat using
-[[file:/athe/c/maize/crops/make_pdf_pedigrees.perl]].  This can be done in
-emacs if that was started with emacs -nw; otherwise, it must be run in
-terminal, not emacs from the dock icon, so that the path to enscript is
-found.  The script assumes the ascii pedigrees are in
-[[file:/athe/c/maize/crops/CROP/current_pedigrees]] and generates a parallel
-subdirectory [[file:/athe/c/maize/crops/CROP/pdf_pedigrees]].
+#+BEGIN_SRC 
+$ ../data/saved_data
+#+END_SRC
 
 
 
 
-.  transfer pedigrees to the ipad using dropbox, which preserves the
-directories.  To do this, link the root of the pdf_pedigrees to
-[[file:~/Dropbox/Apps/iannotate/]], then start a Dropbox process
-([[file:/Applications/Dropbox.app/Contents/MacOS/Dropbox]]) to push these to
-the cloud (don't worry about Dropbox complaints, just give it a few moments
-and then kill the Dropbox process).  It's a good idea to log into Dropbox
-and make sure everything is there before starting the download to the ipad.
-Dropbox syncing is nicer than syncing over iTunes because the helpful directory
-structure is preserved.
+* DONE pedigree computation
+
+1.  calculate current pedigress using [[file:../../demeter/code/pedigrees.pl][pedigrees:compute_pedigrees/1]]:
+
+ascii output to ../c/maize/crops/CROP/planning/current_pedigrees 
+pdf   output to ../c/maize/crops/CROP/planning/pdf_pedigrees     
+
+The PDF versions are automatically generated and copied to the [[file:~/Dropbox/corn/CROP/pdf_pedigrees][dropbox
+pdf_pedigrees directory]] for manual analysis and transfer among platforms.
 
 
 
-
-* crop planning
-
-** making the planning file
-
-. Run [[file:/athe/c/maize/crops/merge_plan_data.perl]] in operation merge to
-fuse the prior year's packing_plan.pl and last year's final plan
-information, stripping out row number and crop identifier.
-
-call is perl ./merge_plan_data.perl merge  CURRENT_CROP PRIOR_CROP
+If warnings appear, these should be copied and pasted into
+[[file:../CROP/planning/warnings][warnings]] for manual checking.
 
 
-. Edit the packing_plan.org file to represent what we really want to do.
-Remove the old crop header and leave just table stubs.  Note that there
-should be NO Crop argument at this point.
+
+2.  In the past, it was very helpful to compare this crop's pedigrees with
+    the last crop's.  Of course, the last crop's pedigrees won't have its
+    offspring in the pedigree, so these must be ablated.  Follow directions
+    in [[file:../scripts/ablate_crops_offspring.perl][ablate_crops_offspring.perl]] to do so. With changes in file names,
+    this probably won't work anymore.
+
+
+3.  Run the pedigree integrity checks.  One is to compute
+    the pedigrees by crop and rowplant, rather than by unifying on the
+    entire numerical genotype, and compare the two versions.  The other is
+    to check for changes in gene and K number assignments along the
+    pedigree. 
+
+
+4.  This may take a few iterations of fact-checking, index compilation,
+    and pedigree building.  We may gain branches in our pedigrees, but we
+    shouldn't lose any previous branches except for an extremely good
+    reason.  The pedigree calculation is based on numerical genotypes, not
+    symbolic ones, so misassignment of genes and K numbers, etc., shouldn't
+    affect the results UNTIL we compute tags and the field book.  Then it
+    will matter a lot.  At this stage, the worst that can happen is that a
+    line is in the wrong place in the field.
+
+
+
+* DONE crop planning
+
+** planning the crop
+
+1.  With the pedigrees analyzed, write the [[file:../CROP/planning/packing_plan.org][packing_plan.org]] file.  This can
+    be done /de novo/; generated from the prior crop's packing_plan.org
+    file using [[file:../scripts/merge_plan_data.perl][merge_plan_data.perl]] and edited; or copying an earlier
+    packing_plan.org file and editing that.
+
+
+However this is done, the key elements are:
+   + the experimental and management goals for that crop;
+   + the tables for computing numbers of lines, inbreds, and stakes;
+   + the packing_plan/9 facts, one for each row and half-row, embedded in
+     org code blocks, e.g.,
+
+#+BEGIN_EXAMPLE
+
+#+begin_src prolog :tangle yes
+packing_plan(,1,['09R201:S0xxxxxx','09R201:S0xxxxxx'],1,[inbred],'','',20,20).
+#+end_src
+
+#+END_EXAMPLE
+
+
+2.  Edit the [[file:../CROP/planning/packing_plan.org][packing_plan.org]] file to represent what we really want to
+    do. Remove the old crop header and leave just table stubs.  Note that
+    there should be NO Crop argument in the packing_plan/9 facts at this point.
 
    + Insert the packing_plan facts between prolog source code blocks as
      these can be automatically tangled into source code.
@@ -168,28 +180,30 @@ should be NO Crop argument at this point.
 
    + Skip one line between sets, multiple lines between mutants.
 
-
    + If there are spreadsheet data from Gerry, convert them from Gerry's
      spreadsheet into packing_plan/10 by hand.  BE CAREFUL!  Not every row
      has a line in his spreadsheet, but does have a card in his field book.
 
+   + Different types of lines can be counted by hand, by grepping and wc,
+     or by using [[file:../scripts/count_lines.perl][count_lines.perl]] to compute the summary tables and
+     generate [[file:../CROP/planning/line_counts.org][line_counts.org]] in the CROP/planning subdirectory.  Copy
+     those tables into [[file:../CROP/planning/packing_plan.org][packing_plan.org]], straighten lines, and compute each
+     table twice.
 
 
-. Run [[file:count_lines.perl][count_lines.perl]] to compute the summary tables and generate
-[[file:line_counts.org]] in the CROP/planning subdirectory.  Copy those tables
-into [[file:CROP/planning/packing_plan.org][packing_plan.org]], straighten lines, and compute each table twice.
 
 
+Once the packing_plan.org file is complete, export it to
+[[file:../CROP/planning/packing_plan.prolog][packing_plan.prolog]] using C-c C-v t (see the [[https://orgmode.org/manual/Extracting-source-code.html#Extracting-source-code][orgmode export man page]]).
+This file will be used in the subsequent steps.
 
 
-. Generate packing_plan.pl from packing_plan.org using Babel's tangle: ^c
-^v t to generate [[file:CROP/planning/packing_plan.pl][packing_plan.prolog]].  Works great!
 
 
 
 ** to number rows:
 
-. input to [[file:/athe/c/maize/crops/merge_plan_data.perl]] to number rows is:
+1. The input to [[file:/athe/c/maize/crops/merge_plan_data.perl]] to number rows is:
 
 packing_plan(,NumPackets,etAlternativeParents,Plntg,CrossInstructns,SetInstructions,
                    KNum,Cl,Ft).
@@ -199,7 +213,7 @@ numbers.
 
 
 
-. re-run  [[file:/athe/c/maize/crops/merge_plan_data.perl]] on [[file:CROP/planning/packing_plan.prolog]] in sequence mode to
+2. run  [[file:../c/maize/crops/merge_plan_data.perl][merge_plan_data.perl]] on [[file:../CROP/planning/packing_plan.prolog][packing_plan.prolog]] /in sequence mode/ to
 insert row numbers and Crop argument.
 
 call is perl ./merge_plan_data.perl sequence CURRENT_CROP
@@ -220,16 +234,71 @@ blank lines; and then diff and wc the two files against each other.
 
 
 
-* packing and planting
+* GNG revise packing and planting
 
 
-** TODO (check code in last bullet below) generate plan and input for packet labels
+** packet labels (and plan, if prolog)
 
-. on athe, move sequenced.packing_plan.pl to maize/crops/CROP/planning/packing_plan.pl.
 
-. start phasma, load demeter.
+Ideally, one uses the file generated by prolog.  But it may be necessary to
+generate labels directly from sequenced.packing_plan.pl using perl.
 
-.  use pack_corn:pack_corn/1 to generate plan/6, packet labels, and row
+
+*** new perl-based procedure for just the packet labels
+
+1.  Use [[file:../scripts/make_seed_packet_file.perl][make_seed_packet_file.perl]] to generate the packet data for
+    packing seed from the [[file:../CROP/planning/sequenced.packing_plan.pl][sequenced.packing_plan.pl]] file.  This latter
+    file was generated by [[file:../scripts/merge_plan_data.perl][merge_plan_data.perl]] using operation sequence.
+    The output is the [[file:../CROP/planning/seed_packet_labels][seed_packet_labels]] file, which is input to
+    [[file:../../label_making/make_seed_packet_labels.perl][make_seed_packet_labels.perl]]. 
+
+
+2.  The script assumes a single parental line is already correctly chosen
+    for packing.  Changes to this plan can occur in the seed room due to
+    incorrect inventory counts, poor kernel state, or apparent defective
+    kernels.  For this reason, the actual packed_packet data are the final
+    authority. 
+
+
+3.  The script [[file:../scripts/make_seed_packet_file.perl][make_seed_packet_file.perl]] must be revised to include the
+    current inventory sleeve for each packet.
+
+
+
+4.  Until that is done, the packets must be re-ordered into inventory order
+    manually before generating the actual labels.  The trial algorithm in
+    crop_management.pl is incorrect, but new algorithm in
+    [[file:../../data/data_conversion/update_inventory.perl][update_inventory.perl]] is correct (multidimensional hash of hashes!).
+
+
+      + mutants, sorted by crop, and then by type, and then rowplant within type.
+
+      + inbreds, sorted by type, and then by row (planting usually will do fine).
+
+      + then new accessions, which are filed in box0.
+
+
+
+5. Ensure [[file:../CROP/{management,tags}][{management,tags}]] and [[file:../../barcodes/CROP][barcodes/CROP]] subdirectories exist.
+
+
+6. Run [[file:../../label_making/make_seed_packet_labels.perl][make_seed_packet_labels.perl]] to generate the stickers and print on
+   the Avery 1 x 2 5/8 inch 30-up labels (Avery 5160).
+
+
+
+
+
+
+
+
+*** GNG old prolog-based procedure to generate packets and plan
+
+
+1. move [[file:../CROP/planning/sequenced.packing_plan.pl][sequenced.packing_plan.pl]] to [[file:../CROP/planning/packing_plan.pl][packing_plan.pl]].
+
+
+2.  use pack_corn:pack_corn/1 to generate plan/6, packet labels, and row
 sequence labels.   Include the inbreds so that every packet has the correct
 row number.
 
@@ -254,44 +323,16 @@ packing_plan(RowSequenceNum,NumPackets,
    + make sure inbreds listed in packing_plan.org are really the current
      inbreds!  check [[file:/athe/c/maize/demeter/data/genotype.pl][genotype.pl]] to be sure.
 
-. Predicate will fail if harvest facts absent!
+
+3. Predicate will fail if harvest facts absent!
 
 
-. Results are dumped into [[file:phasma:/home/toni/demeter/results/CROP_planning/][my phasma demeter directory]].  They must be tarred
+4. Results are dumped into [[file:phasma:/home/toni/demeter/results/CROP_planning/][my phasma demeter directory]].  They must be tarred
 up and scped to athe.
 
-. Hmmm, I don't think plan is generated here . . . double-check code.  I
+5. Hmmm, I don't think plan is generated here . . . double-check code.  I
 might have to revise the predicate to dump the incremental plan to my home
 directory on phasma, then copy into [[file:/athe/c/maize/demeter/data/plan.pl][plan.pl]].
-
-
-** DONE packet labels
-
-
-Ideally, one uses the file generated by prolog.  But it may be necessary to
-generate labels directly from sequenced.packing_plan.pl by hand.
-
-
-
-. Manually order the packet label facts into inventory order.  Trial
-algorithm in crop_management.pl is incorrect.
-
-+ inbreds first, sorted by type, and then by row (planting usually will do
-  fine).
-
-+ next mutants, sorted by crop, and then by type, and then rowplant within
-  type.
-
-+ then new accessions.
-
-
-
-. Ensure [[file:../maize/crops/CROP/{management,tags}]] and 
-[[file:../maize/barcodes/CROP]] exist.
-
-
-. Run label_making/make_seed_packet_labels.perl to generate the stickers, and
-print.
 
 
 
@@ -300,19 +341,18 @@ print.
 
 ** packing
 
-. Pack corn, generating packed_packet/7 facts.  Check carefully for any
-missing plan/6 facts. 
-
-#+begin_rmk huh? <2015-05-15 Fri> :toni:
-don't now know what I mean here . . . plan/7 not generated by
-pack_corn:pack_corn/1 as far as I know . . . hmmmm.
-#+end_rmk
+1. Pack corn, generating packed_packet/7 facts from packed_packet.csv using
+   [[file:../../data/data_conversion/convert_data.perl][convert_data.perl]].  Check carefully for any missing packing_plan facts
+   as these will cause the packet to be missed.
 
 
-   + Students can pack inbreds relatively unsupervised --- one
-{person,team}/inbred/bench!  
 
-   + :toni: and experienced students pack mutants, but they can have help fetching and scanning.
+
+2.  Pack the corn.  Students can pack inbreds relatively unsupervised ---
+    one {person,team}/inbred/bench!  
+
+   + :toni: and experienced students pack mutants, but they can have help
+     fetching and scanning. 
 
    + after packing and conversion of data to Prolog, grep out packet facts
      into [[file:/athe/c/maize/CROP/management/all_packed_packets.org][an org file]], order the packets by number, and check that each
@@ -323,26 +363,35 @@ pack_corn:pack_corn/1 as far as I know . . . hmmmm.
 
 ** planting
 
-. Lay out field using four tape measures to get the corners square enough.
+1. Lay out field using four tape measures to get the corners square enough.
 
-. If soybeans, cover those rows with black paper until after Chris has
-sprayed with herbicide, then plant.
+2. If soybeans, cover those rows with black paper until after Chris has
+   sprayed with herbicide, then plant.
 
-. Plant corn, recording and generating planted/8 facts. These must be
-confected for the winter nursery from work order spreadsheet, since they
-don't scan the packets or stakes!
+3. Plant corn, recording and generating planted/8 facts. These must be
+   confected for the winter nursery from work order spreadsheet, since they
+   don't scan the packets or stakes!
 
-. Use hand jab planters for mutants until modified Earthway is thoroughly
-tested. 
+4. Use hand jab planters for experimental corn until the Earthway is
+   thoroughly tested. 
+
+5. When using the Earthway, measure directly the depth of the furrow made
+   by the drill (don't trust its gauge); push the Earthway, and especially
+   its back wheel, /downwards into/ the soil to firm the soil over the
+   seed.  When this is done, there is no need to firm the soil by foot
+   pressure, as we do with the jab planter.  As with the jab planter, a
+   deeper depth mitigates bird damage.  As of <2018-07-01 Sun>, the
+   Earthway can be used for border and fun corn.
+
+6. Wait to place the twinkle tape until after Chris has sprayed with
+   herbicide.  Leave it up until the seedlings have several leaves.
 
 
 
-* post-planting data collection
 
-. Make field map.  Try computing it in org, save table as csv, and color in
-spreadsheet.   Well, colors are not strictly necessary.
+* DONE post-planting data collection
 
-. Collect row_status facts for stand counts, confect if necessary for
+Collect row_status facts for stand counts, confecting if necessary for
 winter nursery.
 
    + It is extremely important to accurately collect these data!
@@ -359,110 +408,170 @@ winter nursery.
 
 
 
-* pre-processing stand count data and generation of new family numbers
+* DONE generation of new family numbers, genotypes, and plant tags
 
 
-If corn that was not previously planted is planted in the current crop,
-then it's families will not have been assigned.  Therefore, the
-crop_rowplant/4 and row_members/3 WILL NOT HAVE THE RIGHT FAMILIES!  So run
-crop_management:generate_plant_tags_file/3 to get the family numbers;
-revise; re-compute indices; re-compute tags and field book.
+If lines that were not previously planted are planted in the current crop,
+then their families and genotypes will not have been assigned.  So run
+[[file:../../demeter/code/crop_management.pl][crop_management:generate_plant_tags_file/3]] to get the new family numbers
+and tentative fgenotype/11 facts; manually revise the fgenotype/11 facts
+into genotype/11 facts; make a new save state of the data; and re-compute
+the tags.  The fgenotype/11 facts are appended to the end of [[file:../../demeter/data/genotype.pl][genotype.pl]]:
+revisions occur in that file.
 
 
-. To make the list of priority rows, walk around the field and scan row
-tags for rows that have corn (a) ready to photograph or (b) ready to
-pollinate.  Include in each category a first and second priority list.
-Merge first and second priority lists together; grep these to a separate
-file, sort, and check for missing numbers.  Stick missing numbers in the
-second priority list.  Repeat grep, sort, and check until all rows that
-have at least one plant (check against row_status.pl) are accounted for.
-Insert that list into [[/athe/c/maize/demeter/data/priority_rows.pl]].
+Several iterations may be needed to ensure all new lines have genotypes.
+At the end, there should be no new family numbers assigned, though some
+warnings may persist (but shouldn't).
 
 
-.  recalculate indices, saving old ones just in case, often.  Recalculate after
-all stand count data are in.
+Mutant family numbers are issued consecutively, beginning with the last
+mutant line added.  No gaps in numbers due to retirement of the fact are
+filled in,  no numbers are reused, and a line receives only one family
+number, no matter how many rows of it are planted in the same crop.
 
 
-
-.  Run crop_management:generate_plant_tags_file/3.  This automatically
-assigns family numbers and fgenotype facts, writing the fgenotype facts to
-a temporary file in [[phasma ../results/crop_planning/fgenotype.pl]].  Check
-fgenotype facts and convert them to genotype facts, inserting them into
-[[/athe/c/maize/demeter/data/genotype.pl]] at the bottom of the file.
-
-
-
-. Then re-run crop_management:generate_plant_tags_file/3 to ensure
-correct genotypes and K numbers will be on tags and field book.  There
-should be no new family numbers assigned, though some warnings may persist.
-
-
-
-
-** DONE revise family number assignment so that gaps are NOT filled in :toni:
- and family numbers are not re-used
-
-
-No more number re-use, we will just re-arrange the plantIDs when we get
-past 9999!
-
-
-If a new (that is, previously unplanted) family is planted more than once in a crop,
-generate_plant_tags_file/2 will issue multiple family numbers for each
-row.  These must be edited out by hand in genotype.pl, then the tags and
-field book recompiled.
+[[file:../../demeter/code/crop_management.pl][crop_management:generate_plant_tags_file/3]] assumes a list of rows in order
+of priority for some action requiring tags ([[file:../../demeter/code/priority_rows.pl][priority_rows/2]]).  For us,
+these actions are photography and pollinations.  This list is compiled by
+walking around the field and assessing the plants.  The rows are grouped
+first by priority category, and then ordered by row number for easier
+tagging.  There can be gaps in the row numbers, but all rows that should
+eventually be tagged should be represented, since the tags file is printed
+and sawn only once.
 
 
 
 
 
-* field book production
-
-. Re-run crop_management:generate_plant_tags_file/2.  Make sure all
-genotypes and family numbers are now correct (this was done in the prior section!).
-
-
-.  analyze_crop:identify_mutant_row_plans/2 to generate field book data,
-    now suitable for ipad.  This requires packing_plan/10 facts that have
-    already been converted to plan/6 facts.  Use enscript to generate the
-    output. 
-
+[[file:../../demeter/code/crop_management.pl][crop_management:generate_plant_tags_file/3]] generates [[file:../CROP/management/plant_list.csv][the plant_list.csv]] in
+the appropriate CROP/management directory.  This file is then processed with
+[[file:../scripts/make_plant_tags.perl][make_plant_tags.perl]] to produce the tags file for printing.  I have
+separated the two steps, rather than calling the perl script from the
+prolog, so it is easier to fix problems.  The output file
+[[file:../CROP/tags/prioritized_tags.ps][prioritized_tags.ps]] file appears in the CROP/tags directory.  This file
+should be opened in Preview or other postscript reader, checked for obvious
+errors, and then /printed in landscape mode to US legal size (8.5 x 14") as
+a pdf/. 
 
 
-.  If needed, independently check prolog field book by running
-crops/check_row_assignments.perl.  It gives the planting number, which is
-useful (add to field book someday).  And then someday add automatically
-generated cut-down jpegs of images . . .
+The pdf file is then taken to Fedex for printing on 100 lb 11 x 17" matte
+cardstock.  The sheets are cut to legal size and the tear-off tags
+perforated after printing.  The resulting block of tags is then taken to
+the machinist for drilling and sawing.  It usually takes Fedex several days
+to print, cut, and perforate the tags: allow a week, as they may not have
+sufficient cardstock and have to order more (a slow and error-prone
+process).  Perforation is the slow step, since each sheet must be
+individually done.
 
-
-
-
-* plant tag production
-
-. crop_management:generate_plant_tags_file/2 will generate the perl input
-file of plant tags.
-
-.  generate plant tags using perl script
-[[/athe/c/maize/label_making/make_plant_tags.perl]].  Run this from the
-terminal, not from inside emacs, because otherwise it can't find latex.
-Hit r if latex hangs up.  
-
-Output is in [[/athe/c/maize/CROP/tags/prioritized_tags.ps]].  Save preview's
-pdf conversion ([[/athe/c/maize/CROP/tags/prioritized_tags.pdf]]) and print from that.
-
-Check the tags before printing!!!
-
-
-. MAKE SURE WE HAVE A FRESH TONER CARTRIDGE IN THE PRINTER BEFORE PRINTING
-THE TAGS.  Fan the sheets, make sure they're dry, and feed them nicely.
-
-It's fine to use gnomon's tray 2 on the new design tags PROVIDED the sheets
-are in the right orientation.  One is pinned up on the cork board near the
-printer.  The sheets are loaded in the tray UPSIDE DOWN and so the tear-off
-tags enter the printer first.
 
 Yes, it's possible to re-use the sheets if they were printed incorrectly
 <2015-08-05 Wed>. 
+
+
+When looking at the block with the printing down, the right-most column of
+tags is numbers 1 (upper) and 2 (lower); the next is 3 and 4, etc.  Usually
+the block must be divided in half to fit in the fixture for sawing, with a
+pink sheet inserted at the division.  Holes for the pins are drilled first
+at the top edge.  Then the blocks are sawn and racked on the pins,
+rubber-banded, slipped into numbered tassel bags, rubber-banded again, and
+put in the tag box.  Thus, the machinist receives:
+   + the tag block;
+   + 32 or more thick rubber bands;
+   + 16 pins;
+   + 16 numbered blocks to stop the pins;
+   + 16 numbered tassel bags;
+   + all in the tag box.
+
+
+Allow at least a week for the machinist to drill and saw the tags.
+
+
+
+* GNG making the plan/6 facts
+
+
+
+*** TODO merging previous plans
+
+. Run [[file:../scripts/merge_plan_data.perl][merge_plan_data.perl]] in operation merge to
+fuse the prior year's packing_plan.pl and last year's final plan
+information, stripping out row number and crop identifier.
+
+call is perl ./merge_plan_data.perl merge  CURRENT_CROP PRIOR_CROP
+
+
+. 
+
+
+
+
+*** GNG /de novo/ plan/6 generation
+
+1.  Recompute the indices after planting is finished (see [[indexing]] above).
+    [[file:../../demeter/data/planting_index.pl][planting_index/4]] gives what was actually planted in each row,
+    simplifying flagging any revisions needed to the anticipated plans.
+
+    It can happen that family numbers are changed, or different seed packed
+    than what was planned, or there are scanning errors during packing,
+    between the time the packing_plan.org file is written and the corn is
+    planted.  By showing what was actually planted in the most
+    contemporaneous packet packed, [[file:../../demeter/data/planting_index.pl][planting_index/4]] helps pin down these
+    discrepancies for resolution.  The [[file:../../demeter/data/genotype.pl][genotype/11]] facts rule: usually the
+    packed_packet facts will be ok, but the two packing_plan files may need
+    editing to get everything to jibe.
+
+
+
+2.  Export [[file:../c/maize/crops/CROP/planning/packing_plan.org][packing_plan.org]] to prolog and run 
+
+
+
+
+
+* DONE field book production
+
+1.  Recompute the indices after planting is finished (see [[indexing]] above).
+    [[file:../../demeter/data/planting_index.pl][planting_index/4]] gives what was actually planted in each row,
+    simplifying flagging any revisions needed to the anticipated plans.
+
+    It can happen that family numbers are changed, or different seed packed
+    than what was planned, or there are scanning errors during packing,
+    between the time the packing_plan.org file is written and the corn is
+    planted.  By showing what was actually planted in the most
+    contemporaneous packet packed, [[file:../../demeter/data/planting_index.pl][planting_index/4]] helps pin down these
+    discrepancies for resolution.  The [[file:../../demeter/data/genotype.pl][genotype/11]] facts rule: usually the
+    packed_packet facts will be ok, but the two packing_plan files may need
+    editing to get everything to jibe.
+
+
+
+
+2.  Run [[file:../../demeter/code/analyze_crop.pl][make_field_book/2]] on all remedied data, reindexed and stored in a
+    new save state.  This makes a nice file, now suitable for ipad and
+    iphone6.  This requires either packing_plan/10 facts or the plan/6
+    facts.  
+
+    The plan/6 facts may have incorrect markers or K numbers compared to
+    the packing_plan file.  This happens through mis-identification of the
+    marker in the genotype/11 facts.  Correct, make a new save state, and
+    check again.
+
+    [[file:../../demeter/code/analyze_crop.pl][make_field_book/2]] should be run each time there are new observations or
+    plans to be incorporated into the plan/6 facts.
+
+    Someday add automatically generated cut-down jpegs of images . . .
+
+
+
+
+3.  If needed, independently check prolog field book by running
+    crops/check_row_assignments.perl.  It gives the planting number, which
+    is useful. (obsolete?)
+
+
+
+
 
 
 * emergency plant tag and field book production
