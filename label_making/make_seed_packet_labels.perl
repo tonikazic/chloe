@@ -1,5 +1,6 @@
 #!/opt/perl5/perls/perl-5.26.1/bin/perl
 
+
 # this is ../c/maize/label_making/make_seed_packet_labels.perl
 
 # generate labels to go on the seed packets; this is the template for moving
@@ -37,8 +38,8 @@
 
 
 
-use strict;
-use warnings;
+# use strict;
+# use warnings;
 
 
 use lib './Typesetting/';
@@ -53,20 +54,23 @@ use GenerateOutput;
 
 
 
-my $input_file = "mutants_to_pack.csv";
+my $input_file = "../crops/18r/management/seed_packet_labels";
 
 # $input_file = "resorted_guys_packet_label_list.csv";
 # $input_file = "second_packet_label_list.csv";
 # $input_file = "popcorn_packet_label_list.csv";
 # $input_file = "sweet_corn_packet_label_list.csv";
 
-my $file_stem = "mutants_to_pack_labels";
+my $file_stem = "../crops/18r/tags/packet_labels";
 # $file_stem = "second_seed_packet_labels";
 
 
 my $input = $input_dir . $input_file;
-my $output = $output_dir . $file_stem . $tex_suffix;
+#my $output = $output_dir . $file_stem . $tex_suffix;
+$output = "../crops/18r/tags/packet_labels.tex";
+my $barcodes = "../barcodes/18r/";
 
+print "i: $input\no: $output\nb: $barcodes\n";
 
 my $num_gtype_re = qr/[\w\:\.\-\s\;\?]*/;
 my $in_btwn_re = qr/[\w\*\-\+\.\/\s\{\}\|\;\(\)\?\^\,]*/;

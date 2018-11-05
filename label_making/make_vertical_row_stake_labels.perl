@@ -89,8 +89,7 @@ my $num_cutting = $ARGV[2];
 
 
 
-# $input_stem = "replacemt_rows";
-my $input_stem = "18r_still_more_stakes.csv";
+my $input_stem = "replacemt_rows";
 my $input_file = $input_dir . $input_stem;
 
 my @labels_needed;

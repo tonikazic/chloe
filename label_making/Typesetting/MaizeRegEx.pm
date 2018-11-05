@@ -31,6 +31,7 @@ our @EXPORT = qw($palm_re
              $conditions_re
              $bug_re
              $note_re
+             $instructns_re
              $num_tf_re
              $num_tfxtra_re
              $tf_re
@@ -45,10 +46,12 @@ our @EXPORT = qw($palm_re
              $month_re
              $day_re
              $year_re
+             $prolog_date_innards_re
              $time_re
              $hour_re
              $pm_re 
              $prolog_date_re
+             $prolog_time_innards_re
              $crop_re
              $planting_re
              $family_re
@@ -56,9 +59,11 @@ our @EXPORT = qw($palm_re
              $knum_re
              $marker_re
              $mutant_family_re
+             $nonfun_particle_re
              $nonmutant_particle_re
              $old_num_gtype_re
              $num_gtype_re
+             $barcode_elts_re
              $wierd_gtype_re
              $gtype_re
              $full_gtype_re
@@ -66,6 +71,7 @@ our @EXPORT = qw($palm_re
              $inbred_prefix_re
              $file_stem_re
              $ext_re
+             $old_rowplant_re
              $rowplant_re
              $rest_re
              $sleeve_re
@@ -123,10 +129,12 @@ $conditions_re = qr/[\w\s,\-]+/;
 $bug_re = qr/\s*|0|1|2/;
 # $note_re = qr/.*/;
 $note_re = qr/[\w\_\s\;\.]*/;
+# $instructns_re = qr/[\w\s\d\;\_\.\!\-\:\,\?]+/;
+$instructns_re = qr/.+/;
 $tf_re = qr/[tT]rue|[fF]alse/;
 $num_tf_re = qr/1|0/;
 $num_tfxtra_re = qr/1|0|4/;
-$observer_re = qr/toni|shukai|josh|mason|avi|linh|derek|wade|amy|hawaiian_research|bill/;
+$observer_re = qr/toni|shukai|josh|mason|avi|linh|derek|wade|amy|hawaiian_research|bill|dylan|matt|clay/;
 $blank_re = qr/\s*/;
 
 
@@ -178,6 +186,8 @@ $month_re = qr/\d{1,2}/;
 # $day_re = qr/\d{2}/;
 $day_re = qr/\d{1,2}/;
 $year_re = qr/\d{2,4}/;
+$prolog_date_innards_re = qr/\d{1,2},\d{1,2},\d{4}/;
+
 
 # $time_re = qr/\d{2}\:\d{2}:\d{2}/;
 # $time_re = qr/\d{1,2}\:\d{1,2}:\d{1,2}/;
@@ -187,6 +197,7 @@ $hour_re = qr/\d{1,2}/;
 $pm_re = qr/PM/;
 
 $prolog_date_re = qr/date[\d,\(\)]+/;
+$prolog_time_innards_re = qr/\d{1,2},\d{1,2},\d{1,2}/;
 
 
 
@@ -220,6 +231,7 @@ $original_family_re = qr/\d?\d?\d?\d/;
 $mutant_family_re = qr/\d{4}/;
 #
 $nonmutant_particle_re = qr/[SWMBLEP]/;
+$nonfun_particle_re = qr/[LEPX]/;
 #
 # this next is not robust:  it is too greedy
 #
@@ -228,6 +240,7 @@ $in_btwn_re = qr/[\,\"\w\*\-\+\.\/\s\{\}\|\;\(\)\?\^]+/;
 # $num_gtype_re = qr/\d{2}\w\d{3,4}\:\w?[\w\.]+/;
 # $num_gtype_re = qr/\d{2}\w\d{3,4}\:\w?[\w\.]*/;
 $num_gtype_re = qr/\d{2}[RNG]\d{3,4}\:[SWMBEPLI]?[\w\.]*/;
+$barcode_elts_re = qr/\d{2}[RNG]\d{3,4}\:[SWMBEPLI]?/;
 $old_num_gtype_re = qr/\d{2}[\w\.]{8}/;
 $inbred_prefix_re = qr/[SWMB]/;
 $wierd_gtype_re = qr/[\w\-\:\?\*\+\.\/\s\'\;]*/;
@@ -256,7 +269,13 @@ $notes_re = qr/[\w\s\,\;\:\.\/\?\!\-\_]*/;
 
 $file_stem_re  = qr/[\w\_\s]+/;
 $ext_re  = qr/\.\w{3}/;
-$rowplant_re  = qr/\d{6}/;
+#
+# nb: haven't extensively tested this next on 06R numerical gtypes yet
+#
+# Kazic, 15.7.2018
+#
+$old_rowplant_re = qr/\d*I?[\d\.]{4,7}/;
+$rowplant_re  = qr/\d{7}$/;
 $rest_re  = qr/[\"\:\w\s\-\?\,\/]+/;
 $sleeve_re  = qr/[vV]\d{5}/;
 $sleeve_bag_re  = qr/[avAV]\d{5}/;

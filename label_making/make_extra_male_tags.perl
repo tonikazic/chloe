@@ -1,115 +1,102 @@
-#!/usr/bin/perl
+#!/opt/perl5/perls/perl-5.26.1/bin/perl
 
-# this is maize/label_making/make_extra_male_tags.perl
+# this is ../c/maize/label_making/make_extra_male_tags.perl
 
-# generate the equivalent of tear-off tags for those that we don't expect
-# to have on pollination bags because that plant was used more than thrice.
+# generate the equivalent of tear-off tags for the field for those plants
+# that we don't expect to have enough tags for, either because they are
+# crossed or photographed before the plant tags have been produced, or
+# because that plant was crossed more than thrice and we know that on other
+# grounds.
 #
 # input file is full plantIds, one per line, sorted by rowplant for convenience
 #
 # over 30-up labels
 #
 # Kazic and Ngo, 15.10.2014
-
-# call is ./make_extra_male_tags.perl CROP
-
-
-
-use Typesetting::DefaultOrgztn;
-use Typesetting::OrganizeData;
-use Typesetting::TypesetGenetics;
-use Typesetting::TypesettingMisc;
-use Typesetting::GenerateOutput;
-use autovivification;
+#
+# revised and simplified: just make the tags and don't bother to count how
+# many extras we might need
+#
+# Kazic, 30.7.2018
 
 
-no autovivification;
+# call is ./make_extra_male_tags.perl CROP NUM_EXTRA_TAGS FLAG
+
+
+
+use strict;
+use warnings;
+
+
+use Cwd 'getcwd';
+
+
+use lib './Typesetting/';
+use DefaultOrgztn;
+use MaizeRegEx;
+use OrganizeData;
+use TypesetGenetics;
+use TypesettingMisc;
+use GenerateOutput;
+
+
+my $num_extras = $ARGV[1];
+my $flag = $ARGV[2];
+my $local_dir = getcwd;
+my ($dir,$input_dir,$barcodes,$tags_dir) = &adjust_paths($crop,$local_dir);
+
+
+
  
 
 
 
-$input_file = "all_males_crossed";
-$file_stem = "extra_tags";
+my $input_stem = "lls_tags";
+my $tags_stem = "extra_tags";
+
+
+my $input_file = $input_dir . $input_stem;
+my $output_file  = $tags_dir . $tags_stem . $tex_suffix;
+
+# print "b: $barcodes\nif: $input_file\nof: $output_file\n";
+
+
+my @labels;
 
 
 
-$input = $input_dir . $input_file;
-$output = $output_dir . $file_stem . $tex_suffix;
-
-
-$num_gtype_re = qr/[\w\:\.\-\s\;\?]{15}/;
-$in_btwn_re = qr/[\w\*\-\+\.\/\s\{\}\|\;\(\)\?\^\,]*/;
-
-$crop =~ tr/[a-z]/[A-Z]/;
-
-undef %plants;
 
 
 
-open(IN,"<$input") || die "can't open input $input\n";
 
 
 
-# this works correctly, but right now I am too stupid to understand the counting
-#
-# Kazic, 15.10.2014
-
-while (<IN>) {
-
-        chomp($_);
-        $_ =~ s/\"//g;	        
-        $_ =~ s/,,/,/g;
+open my $in, '<', $input_file  or die "can't open $input_file\n";
+my (@lines) = grep { $_ !~ /%/ && $_ !~ /^\n/ && $_ !~ /\#/ } <$in>;
 
 
-        if ( ( $_ =~ /$crop/ ) && ( $_ !~ /\%/ ) ) { 
-                my $plant = $_;
 
 
-# 4th and later hits put us here . . . but why the 4th?
-#
-# Kazic, 15.10.2014
+# multiplicative operator trick and syntax from
+# https://www.perlmonks.org/?node_id=110603
 
-                if ( ( exists $plants{$plant} ) && ( $plants{$plant} > 2 ) ) {
+for ( my $i = 0; $i <= $#lines; $i++ ) {
 
-                        my $value = $plants{$plant};
-			my $barcode_out = &make_barcodes($barcodes,$plant,$esuffix);
-			my $record = $barcode_out  . "::" . $plant . "::" . $value;
+	my ($plant) = $lines[$i] =~ /^\'?(${num_gtype_re})\'?,?/;
+#        print "$plant\n";
 
-#                        print "$record\n";
-			push(@labels,$record);
-
-                        $value++;
-                        $plants{$plant} = $value;
-#                        print "cnd3\n";
-		        }
-
-
-# here is the puzzle; hitting a plantID the third time still puts us in
-# this condition.  Why?
-#
-# Kazic, 15.10.2014
-
-
-                elsif ( ( exists $plants{$plant} ) && ( $plants{$plant} <= 2 ) ) {
-                        my $value = $plants{$plant};
-                        $value++;
-                        $plants{$plant} = $value;
-#                        print "cnd2\n";
-                        }
-
-                elsif ( !exists $plants{$plant} ) { $plants{$plant} = 1; } # print "cnd0\n"; }
-
-                else { print "ha\n!"; }
-
-#		print "$plant $plants{$plant}\n";
-
-	        }
+        my $barcode_out = &make_barcodes($barcodes,$plant,$esuffix);
+	my $record = $barcode_out  . "::" . $plant;
+        push @labels, ( $record ) x $num_extras;
         }
 
-close(IN);
+
+# foreach my $label (@labels) { print "$label\n"; }
 
 
-# for ( $i = 0 ; $i <= $#labels; $i++ ) { print "$labels[$i]\n"; }
+
+
+
 
 
 
@@ -117,25 +104,30 @@ close(IN);
 
 # now have to make the latex files for the labels, moving over @labels
 
-# print "out is $output\n\n **************************** \n\n";
-
-open(TAG,">$output");
+open my $tag, '>', $output_file or die "can't open $output_file\n";
 
 
 
-# discard any trailing arguments
 
-&begin_latex_file(\*TAG);
 
-for ( $i = 0; $i <= $#labels; $i++ ) {
-        ($barcode_out,$needed_num_gtype) = split(/::/,$labels[$i]);
-        &print_tear_off_tag(\*TAG,$barcode_out,$needed_num_gtype,$i,$#labels);
+&begin_latex_file($tag);
+
+for ( my $i = 0; $i <= $#labels; $i++ ) {
+        my ($barcode_out,$needed_num_gtype) = split(/::/,$labels[$i]);
+        &print_tear_off_tag($tag,$barcode_out,$needed_num_gtype,$i,$#labels);
         }
 
-&end_latex_file(\*TAG);
-
-close(TAG);
+&end_latex_file($tag);
 
 
-&generate_pdf($output_dir,$file_stem,$ps_suffix,$pdf_suffix);
+
+
+
+
+
+
+if ( ( $flag eq 'q' ) || ( $flag eq 'test' ) ) { }
+elsif ( $flag eq 'go' ) { &generate_pdf($tags_dir,$tags_stem,$ps_suffix,$pdf_suffix); }
+
+
 

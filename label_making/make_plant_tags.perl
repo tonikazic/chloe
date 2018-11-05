@@ -3,35 +3,55 @@
 # this is ../c/maize/label_making/make_plant_tags.perl
 
 
-# This script is revised from safe.make_plant_tags.perl to lay out each row's
-# tags in columns over the sheets, rather than in rows across a sheet.
+# This script is revised from safe.make_plant_tags.perl to lay out each
+# row's tags in columns over the sheets, rather than in rows across a
+# sheet.
 #
-# The basic approach is to generate the array as before; remove from it plants
-# that have been kicked down or sacrificed; split the array into eight arrays, 
-# one for each column; and then compose the printing array from the eight columnar
-# arrays.  The right-most column is cut first (column seven).  Large holes will be drilled
-# out on a drill press and the columns cut by a Dremel, threading the tags onto #9 galvanized
+#
+# The basic approach is to generate the array; remove from it plants that
+# have been kicked down for light or sacrificed; split the array into eight
+# arrays, one for each column; and then compose the printing array from the
+# eight columnar arrays.  The right-most column (column seven) will be cut
+# first by the machinist.  Large holes will be drilled out on a drill press
+# and the columns cut by a band saw, threading the tags onto #9 galvanized
 # wire stopped with wooden blocks.
 #
-# Switches in the original have been eliminated, since the prolog predicate now relies
-# on a manually organized fact of rows in order of priority (priority_rows/2).  Enough usable
-# barcodes have been incorporated into the (slightly rearranged) new tag layout to obviate the
-# need for additional tags for the mutants.
 #
-# The remaining comments are the same as safe.make_plant_tags.perl unless otherwise 
-# indicated.
+# The prolog predicate relies on an organized fact of rows in order of
+# priority (priority_rows/2).  Enough usable barcodes have been
+# incorporated into the tag layout to obviate the need for many additional
+# tags for the mutants.
 #
-# Kazic, 20.7.2010
+#
+# The last few seasons, the tags have been printed at Fedex on their
+# cardboard stock, which they perforate using a knife with approximately
+# 1mm spacing between the teeth for the tear-off tags after printing.  The
+# paper is CC4 matte cardstock (100 lb), 11 x 17 inches, and then cut to
+# legal size so that all edges of each tag are visible.  Printing, cutting,
+# and perforating take about three days.  Each perforation must be manually
+# cut, which is the slow step.
+#
+# DO NOT LET FEDEX USE MICRO-PERFORATIONS!  These separate far too easily in any
+# sort of wind.  The spacing between perforations should be about 1 mm.
+#
+# This is much cheaper, simpler, and more robust than finding the right
+# stock, having Printing Services perforate it, and then printing in the
+# lab on the pre-perforated stock, fixing endless paper jams, and jittering
+# the scale to maximize registration with the perforations and minimize
+# loss of material at the edges.
+#
+#
+# Kazic, 24.7.2018
 
 
-# call is ./make_plant_tags CROP 
-#
-# where CROP's suffix is lower case, e.g., 11r
 
-
-# port to 5.26 untested
+# call is ./make_plant_tags CROP FLAG
 #
-# Kazic, 17.4.2018
+# where CROP's suffix is lower case, e.g., 11r, and
+# FLAG is one of {go,q,test}.
+#
+# Kazic, 24.7.2018
+
 
 
 
@@ -39,8 +59,10 @@ use strict;
 use warnings;
 
 
-use lib './Typesetting/';
+use Cwd 'getcwd';
 
+
+use lib './Typesetting/';
 use DefaultOrgztn;
 use MaizeRegEx;
 use AuxiliaryFiles;
@@ -51,23 +73,28 @@ use GenerateOutput;
 
 
 
+# our $crop = $ARGV[0]; in DefaultOrgztn
 
+
+my $flag = $ARGV[1];
+my $local_dir = getcwd;
+my ($dir,$input_dir,$barcodes,$tags_dir) = &adjust_paths($crop,$local_dir);
+
+
+
+
+$demeter_dir =~ s/^\.\.\///;
 
 
 my $input_stem = "plant_list";
-# $input_stem = "short_plant_list";
-# $input_stem = "test_list";
-# $input_stem = "kristen";
-# $input_stem = "tmp";
 my $tags_stem = "prioritized_tags";
-# $tags_stem = "test_tags";
-# $tags_stem = "kristen_tags";
 my $input_file = $input_dir . $input_stem . $csv_suffix;
-my $output_file = $output_dir . $tags_stem . $tex_suffix;
-my $demeter_dir =~ s/^..\///;
+my $output_file = $tags_dir . $tags_stem . $tex_suffix;
 my $plant_fate_file = $demeter_dir . "plant_fate.pl";
-my $crop = $ARGV[0];
-$crop =~ tr/gnr/GNR/;
+
+
+# print "b: $barcodes\nif: $input_file\nof: $output_file\npf: $plant_fate_file\n";
+
 
 my @tags;
 my @pruned;
@@ -75,83 +102,24 @@ my %gone;
 my @columnar;
 
 
+my $uc_crop = uc($crop);
+
 
 open my $in, '<', $input_file  or die "can't open $input_file\n";
+my (@lines) = grep { $_ !~ /%/ && $_ !~ /^\n/ && $_ !~ /\#/ } <$in>;
 
 
-while (<$in>) {
+for ( my $i = 0; $i <= $#lines; $i++ ) {
 
-# probably obsolete given the progressive refinement of the regular expressions
-#
-# Kazic, 8.11.2007
+        my ($barcode_elts,$row,$max_plants,$family,$ma_family,$ma_num_gtype,$pa_family,$pa_num_gtype,$ma_gma_gtype,$marker,$quasi_allele) = $lines[$i] =~ /^\'?(${barcode_elts_re})\'?,(${plain_row_re}),(${ft_re}),(${family_re}),(${family_re}),\'?(${num_gtype_re})\'?,(${family_re}),\'?(${num_gtype_re})\'?,\'?(${gtype_re})\'?,\[\'?(${marker_re})\'?\],\'?([K\d]*)\'?,*/;
 
-        clean_line($_);
+#        print "($barcode_elts,$row,$max_plants,$family,$ma_family,$ma_num_gtype,$pa_family,$pa_num_gtype,$ma_gma_gtype,$marker,$quasi_allele)\n";
 
+	
+        my $prow = pad_row($row,5);
+        my ($prefix) = &get_family_prefix($family);
 
-# the original 06r families will not match $family_re for the male parent, only
-# $original_family_re.  Toggle this condition as needed.
-#
-# Kazic, 19.7.2007
-
-
-        if ( $_ !~ /^\#/ ) {
-
-
-
-
-
-# for 09R and subsequently, based on the data in demeter, including stand counts ($max_plants = stand count + 1
-#
-# $barcode_elts are of the form:  Crop . Family . : . Prefix
-#
-
-# kristen!
-# $barcode_elts == the prefix for your barcode
-# $prow == the row
-# $max_plants == the stand count for the row
-# $family == the line number
-# $ma_family, $pa_family are the families of the parent of the corn in the planted row
-# $ma_num_gtype, and $pa_num_gtype are the numerical genotypes of the parents
-# $marker == gene of interest
-# $quasi_allele == could be allele for you
-#
-# make a comma-delimited file of this information, however you like it, try to keep it
-# in this order
-
-
-
-                my ($barcode_elts,$prow,$max_plants,$family,$ma_family,$ma_num_gtype,$pa_family,$pa_num_gtype,$ma_gma_gtype,$marker,$quasi_allele) = $_ =~ /^(${num_gtype_re}),(${plain_row_re}),(${ft_re}),(${family_re}),(${family_re}),(${num_gtype_re}),(${family_re}),(${num_gtype_re}),(${gtype_re}),(${marker_re}),(${quasi_re}),*/;
-#
-# gerry's fractional families; modify regular expression and tag layout to handle his genetic information
-#
-# Kazic, 3.1.2011
-#
-#                ($barcode_elts,$prow,$max_plants,$family,$ma_family,$ma_num_gtype,$pa_family,$pa_num_gtype,$ma_gma_gtype,$marker,$quasi_allele) = $_ =~ /^(${num_gtype_re}),(${wierd_gtype_re}),(${ft_re}),(${family_re}),(${family_re}),(${num_gtype_re}),(${family_re}),(${num_gtype_re}),(${gtype_re}),(${marker_re}),(${quasi_re}),*/;
-
- 
-# kristen's
-#
-#                ($barcode_elts,$prow,$max_plants,$family,$marker) = $_ =~ /^(\w+),(\w+),(${ft_re}),(\w+),([\w\d\*\/]*)/;
-
-
-
-
-#               print "$barcode_elts,$prow,$max_plants,$family,$ma_family,$ma_num_gtype,$pa_family,$pa_num_gtype,$ma_gma_gtype,$marker,$quasi_allele\n";
-
-
-		
-
-# in case the row was not padded in the spreadsheet or the Prolog is used
-
-                $prow =~ s/r//;
-
-# for kristen, who doesn''t want padded rows
-#
-                ($prow) = &pad_row($prow,5);
-
-		
-                my ($prefix) = &get_family_prefix($family);
-
+	
 
 # this makes an easily read row number for the tag; we just want
 # the nonzero suffix, not the fully padded row number, with the inbred
@@ -159,14 +127,14 @@ while (<$in>) {
 #
 # Kazic, 27.3.08
 
-                my ($pre_row) = &easy_row($prow,$prefix);
+        my ($pre_row) = &easy_row($row,$prefix);
 
-#		print "prerow: " . $pre_row . " prow: " . $prow . " prefix: " . $prefix . "\n";
+#	print "prerow: " . $pre_row . " prow: " . $row . " prefix: " . $prefix . "\n";
 
 
 # overload $pplant with the pot number if we're in the greenhouse (G)
 #
-# Kazic, 27.3.08
+# Kazic, 27.3.2008
 #
 #                if ( $pot =~ /\d+/ ) { $pplant = "t" . $pot; }
 
@@ -176,75 +144,24 @@ while (<$in>) {
 #
 #		$max_plants = $pot;
 
-                for ( my $plant = 1 ; $plant <= $max_plants ; $plant++ ) {
-                        my ($pplant) = &pad_plant($plant);
-#                        print "pplant: $pplant\n";
-
-
-# 09R and subsequently
-
-# kristen's
-#
-#			$pplant = "-" . $pplant;
-#                        print "$pplant \n";
+        for ( my $plant = 1 ; $plant <= $max_plants ; $plant++ ) {
+                my ($pplant) = &pad_plant($plant);
+#               print "pplant: $pplant\n";
 
 
 
+                my ($new_barcode_elts) = &make_plant_id($barcode_elts,$prow,$pplant);
+                my ($barcode_out) = &make_barcodes($barcodes,$new_barcode_elts,$esuffix); 
 
-                        my ($new_barcode_elts) = &make_plant_id($barcode_elts,$prow,$pplant);
+#               print "$barcode_out,$barcode_elts,$prow,$pplant,$marker\n";
 
-# kristen
-#
-#                        ($new_barcode_elts) = &make_kristen_plant_id($barcode_elts,$prow,$pplant,$marker);
-
-
-                         my ($barcode_out) = &make_barcodes($barcodes,$new_barcode_elts,$esuffix); 
-
-#                          print "$barcode_out,$barcode_elts,$prow,$pplant,$marker\n";
+                my $record = $new_barcode_elts . "::" . $barcode_out . "::" . $pre_row . "::" . $pplant . "::" . $crop . "::" . $family  . "::" .  $ma_num_gtype . "::" . $pa_family . "::" . $pa_num_gtype . "::" . $ma_gma_gtype . "::" . $marker . "::" . $quasi_allele;
 
 
-# 10R and subsequently
-#
-                       my $record = $new_barcode_elts . "::" . $barcode_out . "::" . $pre_row . "::" . $pplant . "::" . $crop . "::" . $family  . "::" .  $ma_num_gtype . "::" . $pa_family . "::" . $pa_num_gtype . "::" . $ma_gma_gtype . "::" . $marker . "::" . $quasi_allele;
+#               print "main: $record\n";
 
-
-
-# kristen
-#
-#                       $record = $new_barcode_elts . "::" . $barcode_out . "::" . $prow . "::" . $pplant . "::" . $marker;
-
-
-
-#                       print "main: $record\n";
-
-                       push(@tags,$record); 
-                       }
-
-
-# clear the variables!
-
-		$barcode_elt = "";
-		$barcode_elts = "";
-		$barcode_out = "";
-		$family = "";
-		$flag = "";
-		$ma_family = "";
-		$ma_num_gtype = "";
-		$ma_gma_gtype = "";
-		$marker = "";
-		$max_plants = "";
-		$new_barcode_elts = "";
-		$pa_family = "";
-		$pa_num_gtype = "";
-		$plant = "";
-		$pplant = "";
-		$prow = "";
-		$pre_row = "";
-		$prefix = "";
-		$prow = "";
-		$quasi_allele = "";
-		$record = "";
-	        }
+                push(@tags,$record); 
+		}
         }
 
 
@@ -253,54 +170,76 @@ while (<$in>) {
 
 
 
-# remove records for absent plants: parse demeter/data/plant_fate.pl into a hash
-# and write values not in the hash into the new array @pruned.
+
+
+
+
+# grab records for culled plants so their tags can be removed, since
+# the corresponding datum is already entered in demeter.  Otherwise
+# the tag is retained, and then removed when the plant is culled and entered
+# into demeter then.
 #
-# works
-#
-# Kazic, 20.7.2010
+# Kazic, 25.7.2018
 
 open my $fate, '<', $plant_fate_file or die "can't open $plant_fate_file\n";
+my (@fates) = grep { $_ =~ /$uc_crop/ && $_ !~ /^[\n\t\r]/ && $_ !~ /\#/ } <$fate>;
 
-
-
-
-
-while (<$fate>) {
-        if ( my ($goner) = $_ =~ /plant\_fate\(\'($crop.+)\',/ ) { 
-                $gone{$goner} = 1; 
-                $goner = "";
+if ( scalar @fates > 0 ) {
+        for ( my $i = 0; $i <= $#fates; $i++ ) {
+	        my ($goner) = $fates[$i] =~ /plant\_fate\(\'($uc_crop.+)\',/;
+                $gone{$goner} = 1;
+#		print "goner: $goner\n";
                 }
         }
 
 
 
 
+
+
+
+
+
+
+
+
+# hmmm, think the warning is due to an error of autovivification in if?????
+#
+# Use of uninitialized value in pattern match (m//) at ./make_plant_tags.perl line 203, <$fate> line 1378.
+# Use of uninitialized value $plant in exists at ./make_plant_tags.perl line 204, <$fate> line 1378.
+#
+# there seems to be disagreement on whether autovivification happens in
+# testing the first layer in the HoH
+#
+# otherwise works fine
+#
+# stopped here, must return and figure this out
+#
+# Kazic, 25.7.2018
+
 for ( my $i = 0; $i <= $#tags + 1; $i++ ) {
+    #        print "$tags[$i]\n";
+
         my ($plant,$rest) = $tags[$i] =~ /(${num_gtype_re})::(.+)$/;
-        if ( $gone{$plant} ) { true; }
+        if ( exists $gone{$plant} ) { }
         else { push(@pruned,$rest); }
-#
-# kristen
-#
-#        push(@pruned,$tags[$i]);
-}
+        }
+
+
+# foreach my $prune (@pruned) { print "$prune\n"; }
 
 
 
 
 
-
-
-
-
+my $sheets;
 
 # now determine the number of sheets that will be needed:  this determines the
 # size of the eight chunks into which @pruned will be cut
 
 { 
 	use integer;
-        my $sheets = (($#pruned + 1) / 8);
+        $sheets = (($#pruned + 1) / 8);
 }
 
 
@@ -351,7 +290,7 @@ my @zeroth = @pruned[$first_end + 1..$#pruned + 1];
 
 # and now assemble the output array that is passed for laying out sheets
 
-for ( $l = 0; $l <= $#seventh; $l++ ) {  
+for ( my $l = 0; $l <= $#seventh; $l++ ) {  
         push(@columnar,$zeroth[$l]);	  
         push(@columnar,$first[$l]);  
         push(@columnar,$second[$l]); 
@@ -381,10 +320,15 @@ for ( $l = 0; $l <= $#seventh; $l++ ) {
 # haven't yet deduced how to combine $# with an array reference ***after passing***.
 # Up here, it's simply $#{\@columnar}.
 #
-# Kazic, 8.11.07
+# Kazic, 8.11.2007
 
-&make_plant_tags($output_file,$#columnar,\@columnar);
-&generate_plant_tags($output_dir,$tags_stem);
+
+if ( $flag eq 'q' ) { }
+elsif ( ( $flag eq 'test' ) || ( $flag eq 'go' ) ) { &make_plant_tags($output_file,$#columnar,\@columnar); }
+
+
+if ( ( $flag eq 'q' ) || ( $flag eq 'test' ) { }
+elsif ( $flag eq 'go' ) { &generate_plant_tags($tags_dir,$tags_stem); }
 
 
 
@@ -393,4 +337,6 @@ for ( $l = 0; $l <= $#seventh; $l++ ) {
 # Kazic, 31.12.2010
 
 
-# &generate_pdfl($output_dir,$tags_stem);
+# &generate_pdfl($tags_dir,$tags_stem);
+
+

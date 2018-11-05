@@ -27,7 +27,9 @@ use MaizeRegEx;
 use Exporter;
 
 our @ISA = qw(Exporter);
-our @EXPORT = qw($crop
+our @EXPORT = qw(
+             adjust_paths
+             $crop
              $dir_step
              $demeter_dir
              $dir 
@@ -36,8 +38,11 @@ our @EXPORT = qw($crop
              $raw_data_dir
              $jumpdir
              $catted_dir
+             $planning_root
+             $dropbox_root
              $pedigree_root
-             $pdf_pedigree_root
+             $current_pedigrees
+             $pdf_pedigrees
              $tmp
              $barcodes 
              $barcode_rel_dir 
@@ -68,22 +73,126 @@ our @EXPORT = qw($crop
 
 
 
+
+
+
+# use of our:
+# https://stackoverflow.com/questions/16472187/perl-global-variables-available-in-all-included-scripts-and-modules
+
+
+our $crop = $ARGV[0];
+our ($dir,$input_dir,$barcodes);
+
+
+
+
+
 # standard directory tree structure
+#
+#
+# have the following directories with input or output data:
+#
+# barcodes/$crop
+# crops/$crop
+# data/palm/raw_data_from_palm/$crop
+# demeter
+#
+#
+# called from:
+#
+# crops/scripts
+# data/data_conversion
+# label_making
 
-$crop = $ARGV[0];
 
-if ( $crop =~ /${crop_re}/ ) {
-        $dir = "../crops/$crop";
-        $input_dir = "$dir/management/";
-        $barcodes = "../barcodes/$crop/";
+sub adjust_paths { 
+        ($crop,$local_dir) = @_;
+
+#        print "ap: $crop,$local_dir\n";
+
+	my $rel_step;
+        if ( $local_dir =~ /label_making/ ) { $rel_step = "../"; }
+	elsif ($local_dir =~ /scripts/ ) { $rel_step = "../../"; }
+	
+        if ( $crop =~ /${crop_re}/ ) {
+                $dir = "$rel_step" . "crops/$crop";
+                $input_dir = "$dir/management/";
+                $tags_dir = "$dir/tags/";
+                $barcodes = "$rel_step" . "barcodes/$crop/";
+                }
+
+
+        elsif ( $crop =~ /i/ ) {
+                $dir = "$rel_step" . "crops/inventory";
+                $input_dir = "$dir/crops/inventory/management/";
+                $tags_dir = "$dir/crops/inventory/tags/";
+                $barcodes = "$rel_step" . "barcodes/inventory/";
+                }
+
+
+
+	
+	return ($dir,$input_dir,$barcodes,$tags_dir);
         }
 
 
-elsif ( $crop =~ /i/ ) {
-        $dir = "../crops/inventory";
-        $input_dir = "../crops/inventory/management/";
-        $barcodes = "../barcodes/inventory/";
-        }
+
+
+
+
+
+
+
+
+# new, after rooting crops' scripts in their own subdirectory
+#
+# Kazic, 13.6.2018
+#
+#
+# the following incorporated into &adjust_paths
+#
+# Kazic, 2.7.2018
+#
+# if ( $crop =~ /${crop_re}/ ) {
+#         $dir = "../../crops/$crop";
+#         $input_dir = "$dir/management/";
+#         $barcodes = "../../barcodes/$crop/";
+#         }
+#
+#
+# elsif ( $crop =~ /i/ ) {
+#         $dir = "../../crops/inventory";
+#         $input_dir = "../../crops/inventory/management/";
+#         $barcodes = "../../barcodes/inventory/";
+#         }
+#
+#
+#
+#
+#
+# old, before rooting all scripts in crops in their own subdirectory
+#
+# Kazic, 13.6.2018
+#
+# if ( $crop =~ /${crop_re}/ ) {
+#         $dir = "../crops/$crop";
+#         $input_dir = "$dir/management/";
+#         $barcodes = "../barcodes/$crop/";
+#         }
+#
+#
+# elsif ( $crop =~ /i/ ) {
+#         $dir = "../crops/inventory";
+#         $input_dir = "../crops/inventory/management/";
+#         $barcodes = "../barcodes/inventory/";
+#         }
+
+
+
+
+
+
+
 
 
 # same for both, once the parent branches are determined
@@ -95,9 +204,15 @@ $raw_data_dir = "../palm/raw_data_from_palms";
 $demeter_dir = "../../demeter/data/";
 $jumpdir = "/Volumes/SILVER";
 $catted_dir = "catted_files";
+$planning_root = "/planning/";
+$dropbox_root = "~/Dropbox/corn/";
 $pedigree_root = "/planning/current_pedigrees/";
-$pdf_pedigree_root = "../pdf_pedigrees/";
+$current_pedigrees = "current_pedigrees/";
+$pdf_pedigrees = "pdf_pedigrees/";
 $tmp = "tmp";
+
+
+
 
 
 
@@ -117,7 +232,7 @@ $unduped_suffix = "_dupes_rmed";
 
 $surname = "KAZIC";
 $investigator = "T.\\,Kazic";
-$dept = "Computer Science";
+$dept = "Electrcl Eng and Comp Sci";
 $university = "University of Missouri";
 
 
@@ -138,7 +253,8 @@ $max_row_length = 5;
 
 
 # @palms = ("alpha","beta","gamma","delta","epsilon","zeta");
-@palms = ("zeta","eta","theta","dalet");
+# @palms = ("zeta","eta","theta","dalet");
+@palms = ("zeta","eta");
 
 @cameras = ("aleph","bet","gimmel","dalet");
 
@@ -165,33 +281,49 @@ $max_row_length = 5;
 
 
 # onion bag :: mesh bag colors for types of ears
+
+# next year, use yellow mesh bags for S and red mesh bags for W,
+# permute onion bag colors accordingly
 #
-# "D" is for corn in one of David Braun's fields
+# Kazic, 22.9.2018
 
 %bags = (
-        'S' => 'purple::yellow',
-        'W' => 'green::yellow',
-        'M' => 'red::yellow',
-        'B' => 'white::red',
-        'U' => 'purple::red',
-        'D' => 'red::green',
-        '@' => 'green::red',
-        'P' => 'purple::green');
+        'S' => 'purple::red::Mo20W females',
+        'W' => 'green::yellow::W23 females',
+        'M' => 'red::red::M14 females',
+        'B' => 'orange::red::B73 females',
+        'U' => 'purple::yellow::mutant bulking',
+        '@' => 'green::red::back-crossed selves',
+        'D' => 'red::yellow::double mutants',
+        'P' => 'green::green::fun, test, and open pollinated corn');
 
 
 
 
 
-@ear_order = ("S","W","M","B","U","D","@","P");
+@ear_order = ("@","U","S","W","M","B","D","P");
 
 
 
+
+
+########################## obsolete #####################################
+
+
+
+# now obsolete due to revision of Prolog inventory code
+#
+# Kazic, 1.7.2018
+
+
+$proto_inventory_file = "$crop/management/proto_inventory";
+$penult_inventory_file = "$crop/management/penult_inventory";
 
 
 
 # no longer correct; and anyway all menus now self-identify
 #
-# Kazic, 7.9.09
+# Kazic, 7.9.2009
 
 %menus = (
         "S01" => "plant_anatomy",
@@ -218,12 +350,6 @@ $max_row_length = 5;
 
 #        "S" => "",
 
-
-
-
-
-$proto_inventory_file = "$crop/management/proto_inventory";
-$penult_inventory_file = "$crop/management/penult_inventory";
 
 
 
