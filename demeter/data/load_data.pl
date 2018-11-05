@@ -20,23 +20,26 @@
 
     
 :-      module(load_data, [
+                barcode_index/7,
                 box/5,
                 contaminant/5,
                 crop/7,
-                crop_rowplant/4,
+                crop_rowplant_index/4,
                 cross/8,
                 cross_prep/5,
                 current_crop/1,
                 current_inbred/5,
                 ear/5,
                 family_prefix/2,
+                frpc_index/4,
                 fun_corn/1,
                 gene_type/4,
                 genotype/11,
                 harvest/7,
                 image/9,
                 inbred_pool/2,
-                inventory/7,
+		inventory/7,
+		leaf_alignmt/6,   
                 mutant/8,
                 num_secs/2,
                 packed_packet/7,
@@ -49,26 +52,33 @@
                 planted/8,
                 planting_index/4,
                 pot/2,
-%                priority_rows/2,
-                row_members/3,
+                priority_rows/2,
+                row_members_index/3,
+                row_harvested/5,
                 row_status/7,
+                sample/7,
+                sleeve_bdry/6,
                 source/7,
          	tassel/5
+           
+
                 ]).
 
 
 
 :-
+	ensure_loaded(barcode_index),
 	ensure_loaded(box),
 	ensure_loaded(contaminant),
 	ensure_loaded(crop),
-	ensure_loaded(crop_rowplant),
+	ensure_loaded(crop_rowplant_index),
 	ensure_loaded(cross),
 	ensure_loaded(cross_prep),
 	ensure_loaded(current_crop),
 	ensure_loaded(current_inbred),
 	ensure_loaded(ear),
 	ensure_loaded(family_prefix),
+	ensure_loaded(frpc_index),
 	ensure_loaded(fun_corn),
 	ensure_loaded(gene_type),
 	ensure_loaded(genotype),
@@ -76,6 +86,7 @@
 	ensure_loaded(image),
 	ensure_loaded(inbred_pool),
 	ensure_loaded(inventory),
+	ensure_loaded(leaf_alignmt),
 	ensure_loaded(mutant),
 	ensure_loaded(num_secs),
 	ensure_loaded(packed_packet),
@@ -88,11 +99,14 @@
 	ensure_loaded(planted),
 	ensure_loaded(planting_index),
 	ensure_loaded(pot),
-%	ensure_loaded(priority_rows),
-	ensure_loaded(row_members),
+	ensure_loaded(priority_rows),
+	ensure_loaded(row_members_index),
+	ensure_loaded(row_harvested),
 	ensure_loaded(row_status),
+	ensure_loaded(sleeve_bdry),
 	ensure_loaded(source),
-	ensure_loaded(tassel).
+	ensure_loaded(tassel),
+	ensure_loaded(tissue_collectn).
 
 
 

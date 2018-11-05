@@ -7,6 +7,7 @@
 :-      module(genetic_utilities, [
                 add_padding/3,
                 all_crops/1,
+                all_mutants/1,
 		all_preps_except_shootbagging/2,
 		bag/1,   
                 bagged_tassel/3,
@@ -30,11 +31,13 @@
                 closest_contemporaneous_packet/6,
                 closest_contemporaneous_packet_w_cl/7,
                 closest_contemporaneous_packet_by_crop/6,
+                construct_crop_relative_dirs/4,
                 construct_plantIDs/4,
                 contemporaneous_packet/6,
                 convert_crop/2,
                 convert_parental_syntax/2,
                 crop_ancestor/3,
+                crop_improvement/2,
                 crop_from_date/2,
                 crop_timestamp/2,
                 crop_window/2,
@@ -54,6 +57,7 @@
                 find_all_mutants/1,
                 find_closest_crop_after_packing/3,
                 find_current_stand_count/3,
+                find_descendants_of_lines_wo_genotypes/1,
 		find_multiply_planted_rows/2,
                 find_plan/2,
                 founder/9,
@@ -84,12 +88,10 @@
                 inferred_stand_count/6,
                 issue_warning/2,
                 make_barcode_elts/3,		       
-                make_crop_row_plant/1,
-                make_indices/3,
-                make_first_index/1,
+                make_indices/5,
+                make_frpc_index/1,
                 make_rest_of_indices/2,
                 make_planting_index/1,
-                make_row_members/1,
                 make_rowplant/3,
                 most_recent_crop/1,
                 most_recent_datum/2,
@@ -104,9 +106,9 @@
                 packet/1,
                 packets_in_row/4,
                 pad/3,
-                prefixed_row_to_rownum/2,
                 plan_includes/3,
                 pot/1,
+		remove_family/2,
 		remove_row_prefix/2,
 		remove_padding/2,
 		remove_padding_aux/2,
@@ -127,6 +129,7 @@
                 split_crops/2,
                 tassel_bagged/2,
                 timestamped_packet/5,
+                timestamped_packet/6,
                 track_transplants/3,
                 track_transplants_from_parents/4,
                 track_transplants_to_row/3,
@@ -142,9 +145,10 @@
 
 
 
-:-      use_module(demeter_tree('data/load_data')).
 
-:-      use_module(demeter_tree('code/demeter_utilities')).
+    
+:-      use_module(demeter_tree('data/load_data')),
+        use_module(demeter_tree('code/demeter_utilities')).
 
     
 
@@ -154,15 +158,14 @@
 
 
 
-% these predicates now exploit swipl sub_atom/2, but I tend to test types to make
-% sure we have what we think we have.  Many related calls have been simplified.
+% these predicates now ported to swipl 7.6.4.  Many have been simplified ;-).
 %
 % Code calling these predicates may fail, as I haven''t yet resolved all related
 % calls in all the external code.
 %
 % There may be some logical redundancy among predicates, though I did prune some.
 %
-% Kazic, 30.3.2018 -- 15.4.2018
+% Kazic, 30.3.2018 -- 23.5.2018
 
 
     
@@ -173,77 +176,240 @@
 
 
 
-%%%%%%%%%%%% index construction predicates --- not yet tested in swipl port %%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%% index construction predicates %%%%%%%%%%%%%%%%%%%%%%%%%%
 %
-% Kazic, 15.4.2018
+% Kazic, 22.5.2018
 
 
 
-% use often to keep the indices current!  ---- go to the split call further down!
+% use often to keep the indices current!  ---- split call no longer needed.
 %
-% Kazic, 29.7.2009
 %
-% call: [load_demeter],make_indices('../data/planting_index.pl','../data/crop_rowplant.pl','../data/row_members.pl'). 
+% doubly_assigned rows now permanently fixed in the planted/8 facts.
+% So check for them, but carry on.  Maybe someday I''ll write the incremental update
+% code to save computational time.  That''s been on the horizon since 9.12.2010 ;-).
 %
-% then edit plant_index.pl per warning message about doubly-planted rows, reload demeter, and run
+% Kazic, 22.5.2018
 %
-% [load_demeter],abolish(load_data:[crop_rowplant/4,planting_index/4,row_members/3]),make_crop_row_plant('../data/crop_rowplant.pl'),load_data:['../data/planting_index.pl','../data/crop_rowplant.pl'],make_row_members('../data/row_members.pl').
-
-
-% ok, some day soon I should make an incremental version, as it is starting to take too long
-% to recompute everything (and the window for contemporaneous_packet/6 is getting a little silly)
 %
-% Kazic, 9.12.2010
-
-
-
-
-% have split the original make_indices/3 into two steps until incremental update code written.  So now there
-% are two calls:
 %
-% make_first_index('../data/planting_index.pl'). 
+% added an index of frpc: family, rowplant, crop, numerical genotype 
+% formed from every fact that has a numerical genotype
+% to facilitate finding missing genotypes.
 %
-% and
+% Kazic, 25.5.2018
 %
-% make_rest_of_indices('../data/crop_rowplant.pl','../data/row_members.pl').
 %
-% Kazic, 21.4.2013
+% call is: make_indices('../data/barcode_index.pl','../data/frpc_index.pl','../data/planting_index.pl','../data/crop_rowplant_index.pl','../data/row_members_index.pl'). 
+%    
+% Kazic, 29.5.2018
 
 
 
-make_indices(PltngFile,RPFile,RMFile) :-
-        make_first_index(PltngFile),
+
+
+
+
+
+
+%! make_indices(+BarcodeFile:atom,+FRPCFile:atom,+PltngFile:atom,+RPFile:atom,+RMFile:atom) is semidet.
+    
+make_indices(BarcodeFile,FRPCFile,PltngFile,RPFile,RMFile) :-
+        abolish(barcode_index/7),
+        abolish(frpc_index/4),
+        abolish(planting_index/4),
+        abolish(crop_rowplant_index/4),
+        abolish(row_members_index/3),
+        make_barcode_index(BarcodeFile),
+        make_frpc_index(FRPCFile),
+        make_planting_index(PltngFile),
         make_rest_of_indices(RPFile,RMFile).
 
 
-make_first_index(PltngFile) :-
-        abolish(crop_rowplant/4),
-        abolish(planting_index/4),
-        abolish(row_members/3),
-        make_planting_index(PltngFile),
+
+
+
+
+    
+
+
+
+
+
+    
+% expand_file_name/2 will get just the plant tags'' barcodes, saving
+% a lot of time and choice points.  But in the end, it was faster and easier
+% to just call a perl script!  Note the script assumes the DefaultOrgztn found
+% in ../../label_making/Typesetting/DefaultOrgztn.pm.
+%
+%
+% Note these barcodes will fail the perl script:
+%
+% 06R200:SI105.106
+% 06R300:W0I71.111
+% 06R300:W0I71.114
+% 06R300:WI105.201
+%
+% There were some truncated barcodes in 08R of the form
+%
+% 08R201:S00001
+%
+% that will also fail.
+%
+%
+% Finally, there are a number of 16-character barcodes 
+% in 08G mutants, 11N inbreds, and 13R inbreds --- somehow an
+% extra 0 was stuffed into the rowplant field.  This extra zero was
+% removed during the perl script.  
+%
+% I checked for any 16-character barcodes in the demeter data using
+% any_recorded_numerical_genotype/1 and setting the atom_length to 16.  
+% This found a few in the 11n cross_prep data for the crop improvement
+% lines, which I fixed.
+%
+% Kazic, 30.5.2018
+
+    
+%! make_barcode_index(+BarcodeFile:atom) is det.
+
+    
+% https://unix.stackexchange.com/questions/45583/argument-list-too-long-how-do-i-deal-with-it-without-changing-my-command
+%
+% 
+% bash-3.2$ 'echo [01]*/*:*.eps | xargs ls | grep  [PLE] > bcs_popcorn'
+% 
+% and inspection.
+%
+%
+% Kazic, 29.5.2018
+
+
+
+    
+make_barcode_index(BarcodeFile) :-
+        format('making barcode_index~n',[]),     
+        atom_concat('../../crops/scripts/make_barcode_index.perl ',BarcodeFile,Cmd),
+        shell(Cmd).
+
+    
+
+
+%! make_frpc_index(+FRPCFile:atom) is semidet.
+
+make_frpc_index(FRPCFile) :-
+        format('making frpc_index~n',[]),     
+        setof(NumG,any_recorded_numerical_genotype(NumG),NumGs),
+        make_frpc_facts(NumGs,ProtoFacts),
+        sort(ProtoFacts,Facts),
+        output_data(FRPCFile,frpc,Facts).
+
+
+
+
+any_recorded_numerical_genotype(NumG) :-
+        (
+           cross(NumG,_,_,_,_,_,_,_)
+        ; 
+           cross(_,NumG,_,_,_,_,_,_)
+        ;
+           cross_prep(NumG,_,_,_,_)
+        ;
+           ear(NumG,_,_,_,_)
+        ;
+           genotype(_,_,NumG,_,_,_,_,_,_,_,_)
+        ;
+           genotype(_,_,_,_,NumG,_,_,_,_,_,_)
+        ;
+           harvest(NumG,_,_,_,_,_,_)
+        ;
+           harvest(_,NumG,_,_,_,_,_)
+        ;
+           image(NumG,_,_,_,_,_,_,_,_)
+        ;
+           inventory(NumG,_,_,_,_,_,_)
+        ;
+           inventory(_,NumG,_,_,_,_,_)
+        ;
+           leaf_alignmt(NumG,_,_,_,_,_)
+        ;
+           mutant(NumG,_,_,_,_,_,_,_)
+        ;
+           packed_packet(_,NumG,_,_,_,_,_)
+        ;    
+           packed_packet(_,_,NumG,_,_,_,_)
+        ;
+           plant_anatomy(NumG,_,_,_,_,_,_,_)
+        ;
+           plant_fate(NumG,_,_,_,_)
+        ;
+           tassel(NumG,_,_,_,_)
+        ;
+           sample(NumG,_,_,_,_,_,_)
+        ),
+        atom_length(NumG,15).
+
+
+
+
+
+
+
+
+    
+
+make_frpc_facts([],[]).
+make_frpc_facts([NumG|NumGs],[frpc_index(RowPlant,Crop,Family,NumG)|Facts]) :-
+        ( ( get_crop(NumG,Crop),
+            get_rowplant(NumG,RowPlant),
+            get_family(NumG,Family) ) ->
+                true
+        ;
+                ( atom_length(NumG,16) ->
+                        format('Warning! 16-character numerical genotype ~w found in make_frpc_facts/2~n',[NumG])
+
+                ;
+                        format('Warning! make_frpc_facts/2 fails on ~w~n',[NumG])
+                )
+        ),
+        make_frpc_facts(NumGs,Facts).
+
+
+
+
+    
+
+
+
+    
+
+
+%! make_planting_index(+PltngFile:atom) is semidet.
+    
+make_planting_index(PltngFile) :-
+        format('making planting_index~n',[]),     
+        make_planting_index_aux(PltngFile),
         [load_data:PltngFile],
         check_doubly_assigned_rows(Doubles),
         write_list(Doubles).
+%
 %        check_doubly_assigned_rows_for_different_parents(Doubles,MultiParents),
 %        format('Warning! comment out any early plantings of multiply planted rows in planted/8 facts~n~n',[]),
 %        write_list(MultiParents).
 
+
+
+
+
     
 
-make_rest_of_indices(RPFile,RMFile) :-
-        format('Warning!  Ensure first planting of all multiply-planted rows are commented out in planted/8 facts before proceeding!~n~n',[]),
-        abolish(crop_rowplant/4),
-        abolish(row_members/3),
-        make_crop_row_plant(RPFile),
-        [load_data:RPFile],
-        make_row_members(RMFile).
+
+
+    
 
 
 
 
-
-
-make_planting_index(File) :-
+make_planting_index_aux(File) :-
 %        setof(planting_index(Ma,Pa,Crop,Row),F^PNum^Cl^Ft^planting(Crop,Row,F,Ma,Pa,PNum,Cl,Ft),Data),
 %
 % oops, now need the contemporaneous packet!
@@ -257,6 +423,13 @@ make_planting_index(File) :-
 
 
 
+
+
+
+    
+%! all_crops(-Crops:list) is semidet.
+    
+
 all_crops(Crops) :-
         setof(Crop,
               Locatn^Fld^Plntg^PltgDate^HarvestStartDate^HarvestStopDate^crop(Crop,Locatn,Fld,Plntg,PltgDate,HarvestStartDate,HarvestStopDate),
@@ -265,21 +438,39 @@ all_crops(Crops) :-
 
 
 
+
+
+
+
+%! all_mutants(Mutants:keylist) is det.    
+
+
+all_mutants(Mutants) :-
+        findall(M-K-(Ma,Pa),(genotype(_,_,Ma,_,Pa,_,_,_,_,[M],K),mutant(Pa),M \== '?'),Mutants).
+    
+
+
+
 gather_planting_data(Crops,Data) :-
-        gather_planting_data(Crops,[],List),
+        setof(Packet,MaF^PaF^F^Crop^current_inbred(Crop,MaF,PaF,F,Packet),InbredPackets),
+        gather_planting_data(InbredPackets,Crops,[],List),
         sort(List,Int),
         pairs_keys_values(Int,_,Data).
 
 
-gather_planting_data([],A,A).
-gather_planting_data([Crop|Crops],Acc,Data) :-
-        crop_inbred_packets(Crop,InbredPackets),
+gather_planting_data(_,[],A,A).
+gather_planting_data(InbredPackets,[Crop|Crops],Acc,Data) :-
+
         ( setof(Crop-Row-planting_index(Ma,Pa,Crop,Row),for_planting_index(InbredPackets,Ma,Pa,Crop,Row),List) ->
                 append(Acc,List,NewAcc)
 	;
                 NewAcc = Acc
         ),
-        gather_planting_data(Crops,NewAcc,Data).
+        gather_planting_data(InbredPackets,Crops,NewAcc,Data).
+
+
+
+
 
 
 
@@ -290,9 +481,6 @@ gather_planting_data([Crop|Crops],Acc,Data) :-
 %
 % Kazic, 9.12.2010
 %
-% amended to use constructed list of inbred packets for that crop
-%
-% Kazic, 25.4.2012
 %
 % amended to track transplants, which for 12R are just Gerry''s babies
 % or late acquisitions from Marty in 09R.
@@ -310,30 +498,44 @@ gather_planting_data([Crop|Crops],Acc,Data) :-
 % update of the indices!
 %
 % Kazic, 2.5.2012
+%
+%
+% amended to use list of inbred packets for all crops
+%
+% Kazic, 22.5.2018
 
+
+
+% not physical_row/2 here as that relies on having row_status/7, which we 
+% didn''t have until 09R.   
+%
+% Kazic, 22.5.2018 
+
+
+% if a genotype/11 fact is missing, we will miss a legit row!
+%
+% Kazic, 25.5.2018
+   
 for_planting_index(InbredPackets,Ma,Pa,Crop,Row) :-
         planted(PaddedRow,Packet,_Ft,_Planter,Date,Time,_SoilLevel,Crop),
-        ( ( row(PaddedRow),
-            packet(Packet) ) ->
+        sub_atom(PaddedRow,0,1,_,r),
+        ( packet(Packet) ->
                 ( memberchk(Packet,InbredPackets) ->
                         current_inbred(Crop,_,_,F,Packet),
                         genotype(F,_,Ma,_,Pa,_,_,_,_,_,_)
 	        ;
                         closest_contemporaneous_packet(Crop,Packet,Date,Time,Ma,Pa)
 		),
-                prefixed_row_to_rownum(PaddedRow,Row)
+                remove_row_prefix(PaddedRow,Row)
 	 ;
-                ( ( pot(PaddedRow),
-                    packet(Packet) ) ->
-                        closest_contemporaneous_packet(Crop,Packet,Date,Time,Ma,Pa),
-                        track_transplants_to_row(Crop,PaddedRow,Date,PrefixedRow),
-                        prefixed_row_to_rownum(PrefixedRow,Row)
-%                        format('row: ~w trans: ~w packet: ~w~n',[Row,PaddedRow,Packet])
-		;
-                        pot(PaddedRow),
-                        pot(Packet),
-                        false
-                )
+
+
+% hey, we don''t do stand counts on pots
+
+                closest_contemporaneous_packet(Crop,Packet,Date,Time,Ma,Pa),
+                track_transplants_to_row(Crop,PaddedRow,Date,PrefixedRow),
+                remove_row_prefix(PrefixedRow,Row)
+%                format('row: ~w trans: ~w packet: ~w~n',[Row,PaddedRow,Packet])
         ).
 
 
@@ -382,20 +584,25 @@ for_planting_index(InbredPackets,Ma,Pa,Crop,Row) :-
 % Kazic, 14.4.2018
 
 
+
 %! closest_contemporaneous_packet(+Crop:atom,+Packet:atom,+PltngDate:term,
 %!              +PltngTime:term,-Ma:atom,-Pa:atom) is nondet.
 
 
 closest_contemporaneous_packet(Crop,Packet,PltngDate,PltngTime,Ma,Pa) :-
+        nonvar(Packet),
         var(Ma),
         var(Pa),
-        nonvar(Packet),
         bagof(PacketTimeStamp-(PMa,PPa),Cl^timestamped_packet(Packet,PMa,PPa,PacketTimeStamp,Cl),Packets),
 
         get_timestamp(PltngDate,PltngTime,PltngTimeStamp),
         find_closest_prior_datum(Packets,PltngTimeStamp,_-(Ma,Pa)),
 
-        crop_ancestor(Crop,Ma,Pa).
+        ( crop_ancestor(Crop,Ma,Pa) ->
+                true
+        ;
+                format('Warning! crop_ancestor/3 called from closest_contemporaneous_packet/6 fails for ~w, ~w, ~w x ~w planted on ~w, ~w~n',[Crop,Packet,Ma,Pa,PltngDate,PltngTime])
+        ).
 
 
 
@@ -416,7 +623,12 @@ closest_contemporaneous_packet(Crop,Packet,PltngDate,PltngTime,Ma,Pa) :-
         get_timestamp(PltngDate,PltngTime,PltngTimeStamp),
         bagof(PacketTimeStamp-(Packet,Ma,Pa),Cl^timestamped_packet(Packet,Ma,Pa,PacketTimeStamp,Cl),Packets),
         find_closest_prior_datum(Packets,PltngTimeStamp,_-(Packet,Ma,Pa)),
-        crop_ancestor(Crop,Ma,Pa).
+        ( crop_ancestor(Crop,Ma,Pa) ->
+                true
+        ;
+                format('Warning! crop_ancestor/3 called from closest_contemporaneous_packet/6 fails for ~w, ~w, ~w x ~w planted on ~w, ~w~n',[Crop,Packet,Ma,Pa,PltngDate,PltngTime])
+        ).
+
 
 
 
@@ -441,7 +653,12 @@ closest_contemporaneous_packet_by_crop(Crop,Ma,Pa,FirstPltngTimeStamp,Packet,Pac
                 true
         ),
         find_closest_prior_datum(Packets,FirstPltngTimeStamp,PackingTimeStamp-(Packet,Ma,Pa)),
-        crop_ancestor(Crop,Ma,Pa).
+        ( crop_ancestor(Crop,Ma,Pa) ->
+                true
+        ;
+                format('Warning! crop_ancestor/3 called from closest_contemporaneous_packet_by_crop/6 fails for ~w, ~w packed on ~w, ~w x ~w planted on ~w~n',[Crop,Packet,PackingTimeStamp,Ma,Pa,FirstPltngTimeStamp])
+        ).
+
 
 
 
@@ -459,7 +676,11 @@ closest_contemporaneous_packet_w_cl(Crop,Packet,PltngDate,PltngTime,Cl,Ma,Pa) :-
         get_timestamp(PltngDate,PltngTime,PltngTimeStamp),
         bagof(PacketTimeStamp-(PMa,PPa,PCl),timestamped_packet(Packet,PMa,PPa,PacketTimeStamp,PCl),Packets),
         find_closest_prior_datum(Packets,PltngTimeStamp,_-(Ma,Pa,Cl)),
-        crop_ancestor(Crop,Ma,Pa).
+        ( crop_ancestor(Crop,Ma,Pa) ->
+                true
+        ;
+                format('Warning! crop_ancestor/3 called from closest_contemporaneous_packet_w_cl/7 fails for ~w, ~w with ~w cl, ~w x ~w planted on ~w, ~w~n',[Crop,Packet,Cl,Ma,Pa,PltngDate,PltngTime])
+        ).
 
 
 
@@ -478,7 +699,13 @@ closest_contemporaneous_packet_w_cl(Crop,Packet,PltngDate,PltngTime,NumCl,Ma,Pa)
 
         get_timestamp(PltngDate,PltngTime,PltngTimeStamp),
         find_closest_prior_datum(Packets,PltngTimeStamp,_-(Packet,NumCl)),
-        crop_ancestor(Crop,Ma,Pa).
+        ( crop_ancestor(Crop,Ma,Pa) ->
+                true
+        ;
+                format('Warning! crop_ancestor/3 called from closest_contemporaneous_packet_w_cl/7 fails for ~w, ~w with ~w cl, ~w x ~w planted on ~w, ~w~n',[Crop,Packet,NumCl,Ma,Pa,PltngDate,PltngTime])
+        ).
+
+
 
 
 
@@ -501,6 +728,29 @@ closest_contemporaneous_packet_w_cl(Crop,Packet,PltngDate,PltngTime,NumCl,Ma,Pa)
 timestamped_packet(Packet,Ma,Pa,PacketTimeStamp,Cl) :-
         packed_packet(Packet,Ma,Pa,Cl,_,PackingDate,PackingTime),
         get_timestamp(PackingDate,PackingTime,PacketTimeStamp).
+        
+
+
+
+
+
+% to enable transplant tracking
+%
+% Kazic, 21.5.2018
+
+timestamped_packet(Crop,Packet,Ma,Pa,PacketTimeStamp,Cl) :-
+        ( packed_packet(Packet,Ma,Pa,Cl,_,PackingDate,PackingTime) ->
+                get_timestamp(PackingDate,PackingTime,PacketTimeStamp)
+        ;
+                ( track_transplants(Crop,Packet,ActualPacket) ->
+                        packed_packet(ActualPacket,Ma,Pa,Cl,_,PackingDate,PackingTime),
+                        get_timestamp(PackingDate,PackingTime,PacketTimeStamp)         
+                ;
+                        format('Warning!  track_transplants/3 fails for packet ~w of crop ~w~n',[Packet,Crop]),
+                        false
+                )
+        ).
+        
 
 
 
@@ -575,20 +825,27 @@ index_by_ears(Ma,Crop,Family,RowPlant) :-
 %! crop_ancestor(+Crop:atom,+Ma:atom,+Pa:atom) is nondet.
 
 crop_ancestor(Crop,Ma,Pa) :-
-        get_crop(Ma,MaCrop),
-        get_crop(Pa,PaCrop),
-        MaCrop == PaCrop,
-        ( MaCrop @=< Crop ->
-                true
-	;
-                ( winter_nursery(Crop,MaCrop) ->
+        ( ( nonvar(Crop),
+            nonvar(Ma),
+            nonvar(Pa) ) ->
+                get_crop(Ma,MaCrop),
+                get_crop(Pa,PaCrop),
+                MaCrop == PaCrop,
+                ( MaCrop @=< Crop ->
                         true
-
-	        ;
-                        format('Warning! genetic_utilities:crop_ancestor/3 fails for ~w, ~w x ~w~n',[Crop,Ma,Pa]),
-                        false
+		;
+                        ( winter_nursery(Crop,MaCrop) ->
+                                true
+		
+		        ;
+                                format('Warning! genetic_utilities:crop_ancestor/3 fails for ~w, ~w x ~w~n',[Crop,Ma,Pa]),
+                                false
+                        )
                 )
-        ).
+         ;
+                format('Warning! uninstantiated variables passed to genetic_utilities:crop_ancestor/3: crop ~w, ~w x ~w~n',[Crop,Ma,Pa]),
+                false
+         ).    
 
 
 
@@ -686,7 +943,7 @@ contemporaneous_packet(Window,Date,Time,PDate,PTime) :-
 %
 % 132568 May  5 18:35 crop_rowplant.pl --- so stuff was missing!
 %
-% Kazic, 5.5.09
+% Kazic, 5.5.2009
 %
 % rewrote further to use the planted/8 facts and dispense with the setof over get_numerical_genotype/1.
 % Stand count data are ``manufactured'' for the crops before 09R, which had no stand counts per se.
@@ -699,27 +956,128 @@ contemporaneous_packet(Window,Date,Time,PDate,PTime) :-
 % Kazic, 21.5.2010
 
 
-% fix to remove screwballs (../data/test)
-%
-% Kazic, 9.12.2010
 
 % If nothing ever happens in a row because the stand counts are 0 or uninstantiated, or
 % the row was not planted (planted/8 has a row length of 0) --- 
-% then there will be no row_members computed for a row.  A warning message will be issued
-% by pedigrees:get_row_members/3.
+% then there will be no row_members_index computed for a row.  A warning message will be issued
+% by pedigrees:get_row_members_index/3.
 %
 % Kazic, 2.5.2012
 
 
-make_crop_row_plant(File) :-
-        setof(NumericalGenotype,get_numerical_genotype(NumericalGenotype),NGs),
-        setof(Row-Crop,early_row(Crop,Row),OldRows),
-        make_num_gtypes(OldRows,OldNGs),
-        manufacture_num_gtypes_from_stand_counts(MoreNGs),
-        ord_union([NGs,MoreNGs,OldNGs],NGsWithDupes),
-        list_to_ord_set(NGsWithDupes,AllNGs),
-        build_crop_rowplant_facts(AllNGs,Data),
-        output_data(File,crp,Data).
+
+% old version really rococo . . . in swipl, it looks like the make_num_gytpes/2
+% runs out of stack space in the append/3.
+%
+% We now have the supporting data for all crops, so just start from there,
+% and make it more efficient.
+% 
+% Kazic, 22.5.2018
+
+
+%! make_rest_of_indices(+RPFile:atom,+RMFile:atom) is det.
+
+
+make_rest_of_indices(RPFile,RMFile) :-
+        ensure_loaded(load_data:demeter_tree('data/planting_index')),
+        make_rest_of_indices_aux(RPFile,RMFile).
+
+
+
+
+
+
+make_rest_of_indices_aux(RPFile,RMFile) :-
+        open(RPFile,write,RPStream),
+        output_header(crp,RPFile,RPStream),
+        open(RMFile,write,RMStream),
+        output_header(rowm,RMFile,RMStream),
+        format('starting crop_rowplant_index and row_members_index~n',[]),     
+        make_row_members_facts(RPStream,RMStream),
+        close(RPStream),
+        close(RMStream).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+% print out on the fly to the two streams
+%
+% Kazic, 22.5.2018
+
+%! make_row_members_facts(+RPStream:atom,+RMStream:atom) is semidet.
+
+
+make_row_members_facts(RPStream,RMStream) :-
+        setof(Row-(Crop,Family),
+              MF^PF^MGma^MGPa^PGma^PGpa^M^K^Ma^Pa^(planting_index(Ma,Pa,Crop,Row),
+                      genotype(Family,MF,Ma,PF,Pa,MGma,MGPa,PGma,PGpa,M,K)),RowsFams),
+        build_crop_rowplant_facts(RPStream,RMStream,RowsFams).
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+build_crop_rowplant_facts(_,_,[]).
+build_crop_rowplant_facts(RPStream,RMStream,[Row-(Crop,Family)|RowsFams]) :-
+%         format('bcrf/3: row ~w, crop ~w, family ~w~n',[Row,Crop,Family]),
+         construct_plant_prefix(Crop,Row,Family,PlantPrefix),
+         pad(Row,5,PaddedRow),
+         find_current_stand_count(PaddedRow,Crop,NumPlants),
+         make_num_gtypes_aux(PlantPrefix,NumPlants,RowNumGtypes),
+         write_crop_rowplant_facts(RPStream,Crop,PaddedRow,RowNumGtypes),
+         format(RMStream,'row_members_index(~q,~q,~q).~n',[Crop,Row,RowNumGtypes]),
+         build_crop_rowplant_facts(RPStream,RMStream,RowsFams).
+
+
+
+
+
+write_crop_rowplant_facts(_,_,_,[]).
+write_crop_rowplant_facts(RPStream,Crop,PaddedRow,[NumGtype|NumGtypes]) :-
+        get_plant(NumGtype,Plant),
+        format(RPStream,'crop_rowplant_index(~q,~q,~q,~q).~n',[NumGtype,Crop,PaddedRow,Plant]),
+        write_crop_rowplant_facts(RPStream,Crop,PaddedRow,NumGtypes).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -735,87 +1093,6 @@ early_row(Crop,Row) :-
 
 
 
-
-build_crop_rowplant_facts(AllNGs,Data) :-
-        build_crop_rowplant_facts(AllNGs,[],Data).
-
-build_crop_rowplant_facts([],A,A).
-build_crop_rowplant_facts([PlantID|T],Acc,Data) :-
-         get_rowplant(PlantID,RowPlant),
-         ( ( RowPlant \== '000000',
-             get_row(PlantID,Row),
-             get_crop(PlantID,Crop),
-             get_plant(PlantID,Plant) ) ->
-                 append(Acc,[crop_rowplant(PlantID,Crop,Row,Plant)],NewAcc)
-         ;
-                 ( RowPlant == '000000' ->
-                         true
-                 ;
-
-
-% for example, when PlantIDs are incomplete because I haven''t figured out the popcorn
-% families in 11R ;-), e.g.,
-% 
-% crop_rowplant/4 fact not built for 11R:0054414
-% crop_rowplant/4 fact not built for 11R:P0001105
-%
-% Kazic, 28.4.2012
-
-                         format('crop_rowplant/4 fact not built for ~w~n',[PlantID])
-                 ),
-                 NewAcc = Acc
-         ),
-         build_crop_rowplant_facts(T,NewAcc,Data).
-
-
- 
-
-
-
-
-
-
-
-
-
-
-% now need to know which numerical genotypes correspond to that crop and row; these
-% are row_members/3.
-%
-% Warning!  this will be incomplete if a crop_rowplant/4 fact is not found!
-%
-% Kazic, 5.5.09
-
-make_row_members(File) :-
-        setof(Crop-Row,R^P^crop_rowplant(R,Crop,Row,P),CropRows),
-        find_row_members(CropRows,Data),
-        output_data(File,rowm,Data).
-
-
-
-% PlantID (M), Crop, Row, and NumPlants (P) are all atoms, so they must
-% be converted to numbers to count.  However, some crop_rowplant/4 facts
-% (for 07R popcorn and sweet corn) have letters for rows and plants.  These should fail
-% any rational enumeration.  So shifted this to an accumulator pattern.
-%
-% Kazic, 28.4.2012
-
-
-find_row_members(CropRows,Data) :-
-        find_row_members(CropRows,[],Data).
-
-
-
-
-find_row_members([],A,A).
-find_row_members([Crop-PRow|CropRows],Acc,Data) :- 
-        setof(M,P^crop_rowplant(M,Crop,PRow,P),Members),
-        ( extract_row(PRow,Row) ->
-                append(Acc,[row_members(Crop,Row,Members)],NewAcc)
-	;
-                NewAcc = Acc
-        ),
-        find_row_members(CropRows,NewAcc,Data).
 
 
 
@@ -928,34 +1205,25 @@ make_num_gtypes(AllRows,MoreNGs) :-
 
 make_num_gtypes([],A,A).
 make_num_gtypes([Row-Crop|T],Acc,NGs) :-
-        ( identify_row(Crop,Row,_-(_,Family,Ma,Pa,_MaGma,_MaGpa,_PaGma,_PaMutant,_,_)) ->
-                ( find_current_stand_count(Row,Crop,NumPlants) ->
-                       true
-                ;
-                       inferred_stand_count(Row,Crop,Family,Ma,Pa,NumPlants)
-                ),
+        format('row ~w, crop ~w~n',[Row,Crop]),
+        ( identify_row(Crop,Row,_-(_,Family,_Ma,_Pa,_MaGma,_MaGpa,_PaGma,_PaMutant,_,_)) ->
+                find_current_stand_count(Row,Crop,NumPlants),
  
                 ( make_num_gtypes(Crop,Row,NumPlants,Family,RowNumGtypes) ->
-                        true
+                        append(Acc,RowNumGtypes,NewAcc)
                 ;
-                        format('make_num_gtypes/5 fails for row ~w of ~w plants in family ~w~n',[Row,NumPlants,Family])
-                ),
-                append(Acc,RowNumGtypes,NewAcc)
-
+                        format('Warning! make_num_gtypes/5 called from make_num_types/3 fails for row ~w of ~w plants in family ~w~n',[Row,NumPlants,Family]),
+                        NewAcc = Acc
+                )
         ;
-                crop_inbred_families(Crop,Families),
-                ( memberchk(Family,Families) -> 
-                        true
-                ;
-                        format('Warning! identify_row/3 fails for row ~w of crop ~w in family ~w when called by make_num_gtypes/3.~n',[Row,Crop,Family])
-                ),
-
-                format('Warning! crop_inbred_families/3 fails to find a family for row ~w of crop ~w in family ~w when called by make_num_gtypes/3.~n',[Row,Crop,Family]), 
+                format('Warning! identify_row/3 called from make_num_types/3 fails for crop ~w, row ~w~n',[Crop,Row]),
                 NewAcc = Acc
-
         ),
         make_num_gtypes(T,NewAcc,NGs).
 	        
+
+
+
 
 
 
@@ -979,10 +1247,6 @@ make_num_gtypes([Row-Crop|T],Acc,NGs) :-
 
 
 inferred_stand_count(Row,Crop,Family,Ma,Pa,NumPlants) :-
-%        ( first_extra_tag(Row,FirstExtraTag,Crop,_,_,_,_),
-%          NumPlants is FirstExtraTag - 1
-%        ;
-
         ( planted(Row,Packet,_,_,Date,Time,_,Crop) ->
           closest_contemporaneous_packet_w_cl(Crop,Packet,Date,Time,NumPlants,Ma,Pa)
         ;
@@ -990,12 +1254,21 @@ inferred_stand_count(Row,Crop,Family,Ma,Pa,NumPlants) :-
 
 % just assume the summer crop canonical plantings for the early crops or missing data
 %
-% Kazic, 1.12.09
+% Kazic, 1.12.2009
 %
 % well, 06N had 13 cl/row for all rows
 %
 % Kazic, 9.12.2010
+%
+%
+% we now have packed_packet/7 and planted/8 facts for all crops, 
+% but pre-09R crops had no row_status facts.  Optionally, throw a warning message
+% if we get here.
+%
+% Kazic, 22.5.2018
 
+
+%          format('Warning! guessing stand counts for row ~w of crop ~w using inferred_stand_count/6~n',[Row,Crop]),
           ( Crop == '06N' ->
                   NumPlants = 13
           ;
@@ -1024,7 +1297,7 @@ inferred_stand_count(Row,Crop,Family,Ma,Pa,NumPlants) :-
 
 % modified to accomodate the atomic inbred rows of 06r
 %
-% Kazic, 1.12.09
+% Kazic, 1.12.2009
 
 % added a clause for the case where there are no plants, rather than leaving
 % that condition in make_num_gtypes/3.
@@ -1033,6 +1306,9 @@ inferred_stand_count(Row,Crop,Family,Ma,Pa,NumPlants) :-
 % example for sweet corn (see make_num_gtypes/3).
 %
 % Kazic, 27.4.2012
+
+
+
 
 make_num_gtypes(_,_,0,_,[]).
 make_num_gtypes(Crop,Row,NumPlants,Family,RowNumGtypes) :-
@@ -1111,7 +1387,7 @@ get_numerical_genotype(NumericalGenotype) :-
 
 
 
-% inappropriately named; originally used for generating crop_rowplants
+% inappropriately named; originally used for generating crop_rowplant_indexs
 %
 % Kazic, 30.7.2009
 
@@ -1122,7 +1398,7 @@ deconstruct_plantIDs(NGs,Data) :-
 deconstruct_plantIDs([],A,A).
 deconstruct_plantIDs([G|Gs],Acc,Data) :-
         ( deconstruct_plantID(G,Crop,_,Row,Plant) ->
-                append(Acc,[crop_rowplant(G,Crop,Row,Plant)],NewAcc)
+                append(Acc,[crop_rowplant_index(G,Crop,Row,Plant)],NewAcc)
 	;
                 format('Warning!  deconstruct_plantID/5 failed for ~q!~n',[G]),
                 NewAcc = Acc
@@ -1196,6 +1472,11 @@ get_prefix(PlantID,Prefix) :-
 
 
 % test for and remove the leading 'r', returning an integer
+%
+% if it''s an 06r inbred row, just return the atom
+
+%! remove_row_prefix(+RRow:atom,-Row:intORatom) is semidet.
+
 
 remove_row_prefix(RRow,Row) :-
         ( integer(RRow) ->
@@ -1203,7 +1484,12 @@ remove_row_prefix(RRow,Row) :-
         ;
                 ( sub_atom(RRow,0,1,_,'r') ->
                         sub_atom(RRow,1,5,_,RowAtom),
-                        atom_number(RowAtom,Row)
+                        ( atom_number(RowAtom,Row) ->
+                                true
+                        ;
+                                sub_atom(RRow,_,1,_,'I'),
+                                sub_atom(RRow,1,_,0,Row)
+                        )
                 ;
                         atom_number(RRow,Row)
                 )
@@ -1346,14 +1632,94 @@ get_family(PlantID,Family) :-
 
 
 
+
+
+
+
+
+% cope with the crazy 06r plantIDs
+%
+% Kazic, 30.5.2018
+
+%! get_row(+PlantID:atom,-Row:atom) is semidet.
+
+
 get_row(PlantID,Row) :-
-        sub_atom(PlantID,8,7,0,RowPlant),
-        sub_atom(RowPlant,_,5,2,Row).
+        ( regularize_rowplant(PlantID,UnPrefixedRowPlant) ->
+                sub_atom(UnPrefixedRowPlant,RowLen,2,0,_),
+                sub_atom(UnPrefixedRowPlant,0,RowLen,2,Row)
+        ;
+                Row = '00000',
+                format('Warning! unconsidered case for plant ~w in get_row/2~n',[PlantID])
+        ).
 
 
+
+
+
+
+
+
+
+
+
+%! get_plant(+PlantID:atom,-Plant:atom) is semidet.
 
 get_plant(PlantID,Plant) :-
-       sub_atom(PlantID,13,2,_,Plant).
+        ( regularize_rowplant(PlantID,UnPrefixedRowPlant) ->
+                sub_atom(UnPrefixedRowPlant,_,2,0,Plant)
+        ;
+                Plant = '00',
+                format('Warning! unconsidered case for plant ~w in get_plant/2~n',[PlantID])
+        ).
+
+
+
+
+
+
+
+
+
+
+
+
+
+% this does not remove the 06r Is, by design.
+%
+% Kazic, 30.5.2018
+
+
+%! regularize_rowplant(+PlantID:atom,-UnPrefixedRowPlant:atom) is semidet.
+
+
+regularize_rowplant(PlantID,UnPrefixedRowPlant) :-
+        sub_atom(PlantID,ColonPos,1,_,':'),
+        NextChar is ColonPos + 1,
+        sub_atom(PlantID,NextChar,_,0,PreRowPlant),
+        sub_atom(PreRowPlant,0,1,_,Prefix),
+        ( memberchk(Prefix,['S','W','M','B','P','E','L','X']) ->
+                sub_atom(PreRowPlant,1,_,0,UnPrefixedRowPlant)
+        ;
+                UnPrefixedRowPlant = PreRowPlant
+        ).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1390,6 +1756,9 @@ get_year_from_particle(Crop,YearSuffix,Year) :-
 
 % a founder is a line donated by someone:  Gerry, USDA Peoria, MGCSC, Guri, Damon, Karen, etc.  
 %
+%
+% Identifying founders relies on allocating blocks of family numbers below 1000.
+%
 % Family numbers for founders are manually assigned and are always less than 1000.  Numbers 
 % between 200 and 499 are reserved for my inbred lines:  2** is Mo20W, 3** is W23, and 4** is M14;
 % and 5** is B73;
@@ -1400,6 +1769,7 @@ get_year_from_particle(Crop,YearSuffix,Year) :-
 % sources, are now numbered from 99 backwards.  So with the Weil B73 David Braun had in 12r, this is 
 % 599.
 %
+%
 % Numerical genotypes of the founders are quite irregular, since they originate in other labs,
 % and so will fail genetic_utilites:deconstruct_plantID_aux/5.  If a numerical genotype was not
 % supplied I construct one:  CropOfFirstPlanting * 0 * AccessionedFamilyNumber * : * 0000000.
@@ -1409,53 +1779,17 @@ get_year_from_particle(Crop,YearSuffix,Year) :-
 % Kazic, 21.2.2009
 
 
-% amended family number boundaries to exclude sweet corn, popcorn, Jason''s corn, and NAM founders for now
-% special case for the Barkan corn
+% modified to use mutant_by_family/1, so the record of who is a mutant is
+% kept just there.
 %
-% Kazic, 1.5.2012
+% Kazic, 23.5.2018
 
-% now that the pedigrees are nicely sorted into subdirectories, there''s no need to exclude
-% the NAM founders.  That now covers the Barkan/Koch corn as well.  Still want to exclude Jason 
-% Green''s corn, though.  This does get the crop improvement lines of 12R (families 631 -- 641).
-%
-% Kazic, 16.10.2012
-%
-% gets all of them correctly; note there is no longer any family 630.
-%
-% Kazic, 23.10.2012
 
 founder(F,MN,PN,MG1,MG2,PG1,PG2,Gs,K) :-
         genotype(F,_,MN,_,PN,MG1,MG2,PG1,PG2,Gs,K),
-
-% exclude Gerry''s 11n lines
-
-        not_gerrys_lines(F),
-
-
-% the original mutants from Gerry and others
-
-        ( F < 200
-        ;
-
-
-% later mutants, for example, NAM lines, Barkan''s, Birchler''s
-% Braun''s, etc.
-
-%          F > 627,
-          F > 599,
-          F < 623
-        ;
-
-
-% 623 -- 627 are the Johal lines planted for Jason Green
-%
-% crop improvement founders are 631 -- 664, except 642 -- 654 (Braun mutants).
-% 
-% popcorn and sweet corn run from 892 -- 999.
-
-          F > 627,
-          F < 892
-        ).
+        F =< 1000,
+        mutant_by_family(F).
+   
 
 
 
@@ -1558,12 +1892,8 @@ fun_corn(Family,FunCornPrefix) :-
 
 
 
-
-
-
-
 genotype(NumGType,GType) :-
-        crop_rowplant(NumGType,Crop,Row,_),
+        crop_rowplant_index(NumGType,Crop,Row,_),
         planting(Crop,Row,Family,MN,_,_,_,_),
         ( inbred(Family,GType) ->
                 true
@@ -1589,21 +1919,38 @@ genotype(NumGType,GType) :-
 % in a simple lookup table for the ASCII conversion.
 %
 % Kazic, 30.3.2018
+% 
+% slightly reorganized to test what''s passed in and whether it needs conversion,
+% rather than relying on argument order.
+%
+% Kazic, 31.5.2018
+
+
+%! convert_crop(?UpperCaseCrop:atom,?LowerCaseCrop:atom) is semidet.
+
 
 convert_crop(UpperCaseCrop,LowerCaseCrop) :-
         ( ( nonvar(UpperCaseCrop),
             var(LowerCaseCrop) ) ->
-                sub_atom(UpperCaseCrop,0,2,_,Year),
                 sub_atom(UpperCaseCrop,2,1,_,Season),
-                letter(LSeason,Season),
-                atomic_list_concat([Year,LSeason],LowerCaseCrop)
+                ( letter(LSeason,Season) ->
+                        sub_atom(UpperCaseCrop,0,2,_,Year),
+                        atomic_list_concat([Year,LSeason],LowerCaseCrop)
+                ;        
+                        letter(Season,_),
+                        LowerCaseCrop = UpperCaseCrop
+                )
         ;
                 var(UpperCaseCrop),
                 nonvar(LowerCaseCrop),
-                sub_atom(LowerCaseCrop,0,2,_,Year),
                 sub_atom(LowerCaseCrop,2,1,_,Season),
-                letter(Season,USeason),
-                atomic_list_concat([Year,USeason],UpperCaseCrop)
+                ( letter(Season,USeason) ->
+                        sub_atom(LowerCaseCrop,0,2,_,Year),
+                        atomic_list_concat([Year,USeason],UpperCaseCrop)
+                ;
+                        letter(_,Season),
+                        UpperCaseCrop = LowerCaseCrop
+                )
         ).
 
 
@@ -1915,19 +2262,33 @@ output_data(File,Switch,L) :-
 
 
 output_header(Switch,File,Stream) :-
-        format(Stream,'% this is ../c/maize/demeter/~w~n~n',[File]),
+        ( sub_atom(File,0,3,_,'../') ->
+                sub_atom(File,3,_,0,SansDots)
+        ;
+                SansDots = File
+        ),
+        format(Stream,'% this is ../c/maize/demeter/~w~n~n',[SansDots]),
         utc_timestamp_n_date(UTCTimeStamp,Date),
-        format(Stream,'% generated on ~w (= ~w) by ',[Date,UTCTimeStamp]),
+        format(Stream,'% generated on ~w (= ~w) by~n',[Date,UTCTimeStamp]),
         output_header_aux(Switch,Stream). 
 
 
+
+
+output_header_aux(brcd,Stream) :-
+        format(Stream,'% genetic_utilities:make_barcode_index/7.~n~n~n',[]),
+        format(Stream,'% barcode_index(RowNum,Crop,Plant,RowPlant,Family,PostColon,Barcode).~n~n~n',[]).
+
+
+
 output_header_aux(crp,Stream) :-
-        format(Stream,'genetic_utilites:make_crop_row_plant/1.~n~n~n',[]),
-        format(Stream,'% crop_rowplant(NumericalGenotype,Crop,Row,Plant).~n~n~n',[]).
+        format(Stream,'% genetic_utilities:make_crop_row_plant/1.~n~n~n',[]),
+        format(Stream,'% crop_rowplant_index(NumericalGenotype,Crop,Row,Plant).~n~n~n',[]).
+
 
 
 output_header_aux(fake,Stream) :-
-        format(Stream,'clean_data:confect_planting_n_stand_count_data/4.~n~n~n',[]),
+        format(Stream,'% clean_data:confect_planting_n_stand_count_data/4.~n~n~n',[]),
         format(Stream,'% Two types of FAKE data generated for computing plant tags and field book.~n',[]),
         format(Stream,'% Plntr, Dates, Times, NumEmerged, Phenotypes, and Observer all faked.~n~n~n',[]),
         format(Stream,'% planted(Row,Packet,Plntr,Date,Time,Soil,Crop).~n~n~n',[]),
@@ -1936,35 +2297,41 @@ output_header_aux(fake,Stream) :-
 
 
 output_header_aux(plin,Stream) :-
-        format(Stream,'genetic_utilites:make_planting_index/1.~n~n~n',[]),
+        format(Stream,'% genetic_utilities:make_planting_index/1.~n~n~n',[]),
         format(Stream,'% planting_index(MaNumGType,PaNumGType,Crop,Row).~n~n~n',[]).
 
 
 output_header_aux(rowm,Stream) :-
-        format(Stream,'genetic_utilites:make_row_members/1.~n~n~n',[]),
-        format(Stream,'% row_members(Crop,Row,ListRowMembers).~n~n~n',[]).
+        format(Stream,'% genetic_utilities:make_row_members_index/1.~n~n~n',[]),
+        format(Stream,'% row_members_index(Crop,Row,ListRowMembers).~n~n~n',[]).
+
+
+output_header_aux(frpc,Stream) :-
+        format(Stream,'% genetic_utilities:make_rpc_index/1.~n~n~n',[]),
+        format(Stream,'% frpc_index(RowPlant,Crop,Family,NumericalGenotype).~n~n~n',[]).
+
 
 
 output_header_aux(plan,Stream) :-
-        format(Stream,'genetic_utilites:find_plan/2.~n~n~n',[]),
+        format(Stream,'% genetic_utilities:find_plan/2.~n~n~n',[]),
         format(Stream,'% plan(MaNumGtype,PaNumGtype,Planting,PlanList,Notes,Crop).~n~n~n',[]).
 
  
 
 output_header_aux(pkt,Stream) :-
-        format(Stream,'analyze_crop:repack_packets/3.~n~n~n',[]),
+        format(Stream,'% analyze_crop:repack_packets/3.~n~n~n',[]),
         format(Stream,'% Sleeve-(MaNumGtype,PaNumGtype,Row).~n~n~n',[]).
 
 
 output_header_aux(mutls,Stream) :-
-        format(Stream,'analyze_crop:identify_mutant_row_plans/2.~n~n~n',[]),
+        format(Stream,'% analyze_crop:identify_mutant_row_plans/2.~n~n~n',[]),
         format(Stream,'% Row  Planting KNum   Family             Ma  x  Pa~n%       Genotype~n%       Plan~n%       Notes~n~n~n',[]).
 
 
 
 
 output_header_aux(muts,Stream) :-
-        format(Stream,'genetic_utilites:find_all_mutants/1.~n~n~n',[]),
+        format(Stream,'% genetic_utilities:find_all_mutants/1.~n~n~n',[]),
         format(Stream,'% Sorted list of all markers of interest in genotype/11~n~n~n',[]).
 
 
@@ -1972,28 +2339,28 @@ output_header_aux(muts,Stream) :-
 
 
 output_header_aux(plntags,Stream) :-
-        format(Stream,'crop_management/generate_plant_tags_file/3.~n~n~n',[]),
+        format(Stream,'% crop_management/generate_plant_tags_file/3.~n~n~n',[]),
         format(Stream,'% Data for label_making/make_plant_tags.perl, using priority_rows/2.~n~n~n',[]).
 
 
 
 output_header_aux(self,Stream) :-
-        format(Stream,'crop_management:all_mutant_rows_for_selfing/2 called in daily_status_report/3.~n~n~n',[]),
+        format(Stream,'% crop_management:all_mutant_rows_for_selfing/2 called in daily_status_report/3.~n~n~n',[]),
         format(Stream,'% Row-SelfingStatus.~n~n~n',[]).
 
 
 output_header_aux(tslw,Stream) :-
-        format(Stream,'crop_management:tassel_watch/2 called in daily_status_report/3.~n~n~n',[]),
+        format(Stream,'% crop_management:tassel_watch/2 called in daily_status_report/3.~n~n~n',[]),
         format(Stream,'% RowPlant-(TasselStatus,StatusDay,Plan,ToDo).~n~n~n',[]).
 
 
 output_header_aux(dads,Stream) :-
-        format(Stream,'crop_management:find_daddies/2 called in daily_status_report/3.~n~n~n',[]),
+        format(Stream,'% crop_management:find_daddies/2 called in daily_status_report/3.~n~n~n',[]),
         format(Stream,'% RowPlant-(PlantID,PreviousFemales,Plan,ToDo).~n~n~n',[]).
 
 
 output_header_aux(scor,Stream) :-
-        format(Stream,'crop_management:find_rows_to_score/3 called in daily_status_report/3.~n~n~n',[]),
+        format(Stream,'% crop_management:find_rows_to_score/3 called in daily_status_report/3.~n~n~n',[]),
         format(Stream,'% RowToScore.~n~n~n',[]).
 
 
@@ -2001,61 +2368,61 @@ output_header_aux(scor,Stream) :-
 
 
 output_header_aux(silk,Stream) :-
-        format(Stream,'crop_management:find_silking_ears/2 called in daily_status_report/3.~n~n~n',[]),
+        format(Stream,'% crop_management:find_silking_ears/2 called in daily_status_report/3.~n~n~n',[]),
         format(Stream,'% Ear-OrderedListSilkingDates.~n~n~n',[]).
 
 
 output_header_aux(orph,Stream) :-
-        format(Stream,'crop_management:find_orphan_tassels/3 called in daily_status_report/3.~n~n~n',[]),
+        format(Stream,'% crop_management:find_orphan_tassels/3 called in daily_status_report/3.~n~n~n',[]),
         format(Stream,'% double-check output against the field and against all possible selfs!~n~n~n',[]),
         format(Stream,'% RowPlant-(PlantID,Day,Mon,Time).~n~n~n',[]).
 
 
 output_header_aux(tocr,Stream) :-
-        format(Stream,'crop_management:find_rows_to_cross/3 called in daily_status_report/3.~n~n~n',[]),
+        format(Stream,'% crop_management:find_rows_to_cross/3 called in daily_status_report/3.~n~n~n',[]),
         format(Stream,'% Row-SoFar.~n~n~n',[]).
 
 
 output_header_aux(phto,Stream) :-
-        format(Stream,'crop_management:find_crossed_plants_to_photo/2.~n~n% **** Be sure to check plant for ALL blue twist-ties! ****~n~n~n',[]),
+        format(Stream,'% crop_management:find_crossed_plants_to_photo/2.~n~n% **** Be sure to check plant for ALL blue twist-ties! ****~n~n~n',[]),
         format(Stream,'% PlantToPhotograph.~n~n~n',[]).
 
 
 
 output_header_aux(uphto,Stream) :-
-        format(Stream,'crop_management:find_uncrossed_plants_to_photo/1.~n~n% **** Be sure to check plant for ALL blue twist-ties! ****~n~n~n',[]),
+        format(Stream,'% crop_management:find_uncrossed_plants_to_photo/1.~n~n% **** Be sure to check plant for ALL blue twist-ties! ****~n~n~n',[]),
         format(Stream,'% PlantToPhotograph.~n~n~n',[]).
 
 
 
 output_header_aux(harv,Stream) :-
-        format(Stream,'crop_management:order_harvest/2.~n~n% **** Be sure to check row for ALL ears! ****~n~n~n',[]),
+        format(Stream,'% crop_management:order_harvest/2.~n~n% **** Be sure to check row for ALL ears! ****~n~n~n',[]),
         format(Stream,'% EarToHarvest.~n~n~n',[]).
 
 
 
 
 output_header_aux(harvi,Stream) :-
-        format(Stream,'crop_management:harvest_inbred_selfs/2.~n~n% **** Be sure to check row for ALL ears! ****~n~n~n',[]),
+        format(Stream,'% crop_management:harvest_inbred_selfs/2.~n~n% **** Be sure to check row for ALL ears! ****~n~n~n',[]),
         format(Stream,'% EarToHarvest.~n~n~n',[]).
 
 
 
 output_header_aux(harvg,Stream) :-
-        format(Stream,'crop_management:find_goofs/2.~n~n% **** Spoil bags --- DO NOT HARVEST! ****~n~n~n',[]),
+        format(Stream,'% crop_management:find_goofs/2.~n~n% **** Spoil bags --- DO NOT HARVEST! ****~n~n~n',[]),
         format(Stream,'% BagToSpoil.~n~n~n',[]).
 
 
 
 output_header_aux(harve,Stream) :-
-        format(Stream,'crop_management:harvested_early/2.~n~n~n',[]),
+        format(Stream,'% crop_management:harvested_early/2.~n~n~n',[]),
         format(Stream,'% (Ma,Pa,DifferenceInDays).~n~n~n',[]).
 
 
 
 
 output_header_aux(harvu,Stream) :-
-        format(Stream,'crop_management:find_unrecorded_pollinations/2.~n~n~n',[]),
+        format(Stream,'% crop_management:find_unrecorded_pollinations/2.~n~n~n',[]),
         format(Stream,'% Ma,Pa.~n~n~n',[]).
 
 
@@ -2080,7 +2447,7 @@ output_header_aux(plntg,Stream) :-
 
 
 output_header_aux(replant,Stream) :-
-        format(Stream,'crop_management:find_rows_to_replant/2.~n~n~n',[]),
+        format(Stream,'% crop_management:find_rows_to_replant/2.~n~n~n',[]),
         format(Stream,'% Row-(Packet,Seq,Ma,Pa,ClNeeded)   packets sorted into packing order!~n~n~n',[]).
 
 
@@ -2091,10 +2458,10 @@ output_header_aux(replant,Stream) :-
 % catch-all cases for the rest
 
 output_header_aux(foo,Stream) :-
-        format(Stream,'some predicate; file is likely to be temporary.~n~n~n',[]).
+        format(Stream,'% some predicate; file is likely to be temporary.~n~n~n',[]).
 
 output_header_aux(bar,Stream) :-
-        format(Stream,'some predicate; file is likely to be temporary.~n~n~n',[]).
+        format(Stream,'% some predicate; file is likely to be temporary.~n~n~n',[]).
 
 
 
@@ -2121,9 +2488,9 @@ output_header_aux(bar,Stream) :-
 % Kazic, 30.12.2012
 
 
-% hmmm, need to revise for the iphone 5!
+% works fine for iphone 6S
 %
-% Kazic, 3.4.2018
+% Kazic, 1.8.2018
 
 write_plans_for_ipad(Stream,[Row-Marker-(Family,Ma,Pa,MGma,MGpa,PGma,PGpa,K,Plan,Notes,Plntg)|Rows]) :-
         write_plans_for_ipad(Stream,_,[Row-Marker-(Family,Ma,Pa,MGma,MGpa,PGma,PGpa,K,Plan,Notes,Plntg)|Rows]).
@@ -2136,10 +2503,10 @@ write_plans_for_ipad(Stream,PriorMarker,[Row-Marker-(Family,Ma,Pa,MGma,MGpa,PGma
           ;
             var(Marker) ) ->
                 NewMarker = PriorMarker,
-                format(Stream,'~d ~8|~w  ~16|~w  ~24|~w  ~30|~w x ~w~n~8|(~w,~w,~w,~w)~n~8|~w~n~8|~w~n~n',[Row,Plntg,K,Family,Ma,Pa,MGma,MGpa,PGma,PGpa,Plan,Notes])
+                format(Stream,'~d ~8|~w  ~16|~w  ~24|~w  ~30|~w x ~w~n~8|(~w,~w,~w,~w)~n~8|~w~n~8|~w~n~n~n',[Row,Plntg,K,Family,Ma,Pa,MGma,MGpa,PGma,PGpa,Plan,Notes])
         ;
                 NewMarker = Marker,
-                format(Stream,'~n~n%%%%% ~w %%%%%~n~n~d ~8|~w  ~16|~w  ~24|~w  ~30|~w x ~w~n~8|(~w,~w,~w,~w)~n~8|~w~n~8|~w~n~n',[Marker,Row,Plntg,K,Family,Ma,Pa,MGma,MGpa,PGma,PGpa,Plan,Notes])
+                format(Stream,'~n~n%%%%% ~w %%%%%~n~n~d ~8|~w  ~16|~w  ~24|~w  ~30|~w x ~w~n~8|(~w,~w,~w,~w)~n~8|~w~n~8|~w~n~n~n',[Marker,Row,Plntg,K,Family,Ma,Pa,MGma,MGpa,PGma,PGpa,Plan,Notes])
         ),
         write_plans_for_ipad(Stream,NewMarker,Rows).
 
@@ -2322,14 +2689,21 @@ write_undecorated_list(Stream,[H|T]) :-
 % given a string or atom and the number of padding characters needed,
 % pad out the input
 
+%! pad(+StringOrAtom:atom,+TotalLengthNeeded:int,-PaddedString:atom) is semidet.
+
+
 pad(StringOrAtom,TotalLengthNeeded,PaddedString) :-
         atom_length(StringOrAtom,Len),
         NumCharsNeeded is TotalLengthNeeded - Len,
-        ( add_padding(NumCharsNeeded,StringOrAtom,PaddedString) ->
-                true
-        ;
-                format('Warning! StringOrAtom ~w is too large to pad to ~w in genetic_utiliies:pad/3~n',[StringOrAtom,TotalLengthNeeded]),
+        ( NumCharsNeeded =:= 0 ->
                 PaddedString = StringOrAtom
+        ;
+                ( add_padding(NumCharsNeeded,StringOrAtom,PaddedString) ->
+                        true
+                ;
+                        format('Warning! StringOrAtom ~w is too large to pad to ~w in genetic_utiliies:pad/3~n',[StringOrAtom,TotalLengthNeeded]),
+                        PaddedString = StringOrAtom
+                )
         ).
 
 
@@ -2645,7 +3019,7 @@ find_all_mutants(File) :-
 
 % for converting old genotype and source facts to the new ones
 %
-% Kazic, 1.8.09
+% Kazic, 1.8.2009
 
 build_numerical_genotype(F,Crop,DummyNumGType) :-
         F < 1000,
@@ -2677,9 +3051,30 @@ construct_plantIDs(Crop,Row,Family,Plants) :-
 
 
 
+
+% accomodate the crop improvement families, which end up with suitable particles
+% in every generation.  This means that construct_plant_prefix/4
+% must test for 4-digit crop improvement families and pad rows to 4 digits
+% only.
+%
+% Kazic, 1.6.2018
+
+
+%! construct_plant_prefix(+Crop:atom,+Row:int,+Family:int,-PlantIDPrefix:atom) is semidet.
+
+
 construct_plant_prefix(Crop,Row,Family,PlantIDPrefix) :-
         make_barcode_elts(Crop,Family,BarcodeElts),
-        pad(Row,5,PaddedRow),
+        ( crop_improvement(Family,_) ->
+                ( atom_length(Family,3) ->
+                        pad(Row,5,PaddedRow)
+                ;
+                        atom_length(Family,4),
+                        pad(Row,4,PaddedRow)
+                )
+        ;
+                pad(Row,5,PaddedRow)
+        ),
         atomic_list_concat([BarcodeElts,PaddedRow],PlantIDPrefix).
 
 
@@ -2702,7 +3097,7 @@ find_current_stand_count(Row,Crop,NumPlants) :-
                 most_recent_num(Status,NumPlants)
         ;
 
-                format('Warning!  no stand count data for row ~w of crop ~w, trying inferred_stand_count/6 instead!~n',[Row,Crop]),
+%                format('Warning!  no stand count data for row ~w of crop ~w, trying inferred_stand_count/6 instead!~n',[Row,Crop]),
 		inferred_stand_count(Row,Crop,_,_,_,NumPlants)
 
         ).
@@ -2742,8 +3137,8 @@ build_row_members(_,End,NumPlants,P,P) :-
         End is NumPlants + 1.
 
 build_row_members(PlantIDPrefix,CurrNum,NumPlants,Acc,Plants) :-
-        atom_number(Atom,CurrNum),
-        atomic_list_concat([PlantIDPrefix,Atom],Plant),
+        pad(CurrNum,2,PlantNumAtom),
+        atomic_list_concat([PlantIDPrefix,PlantNumAtom],Plant),
         ( still_alive(Plant) ->
                 append(Acc,[Plant],NewAcc)
         ;
@@ -2780,7 +3175,7 @@ make_rowplant(Row,Plant,RowPlant) :-
 
 
 get_rowplants([],[]).
-get_rowplants([PlantID|PlantIDs],[crop_rowplant(PlantID,Crop,Row,Plant)|RowPlants]) :-
+get_rowplants([PlantID|PlantIDs],[crop_rowplant_index(PlantID,Crop,Row,Plant)|RowPlants]) :-
         get_crop(PlantID,Crop),
         get_row(PlantID,Row),
         get_plant(PlantID,Plant),
@@ -2797,69 +3192,68 @@ get_rowplant(PlantID,RowPlant) :-
 
 
 
-% given a date, return either the crop for that date (the current_crop/1),
-% or construct a crop designator (Crop) and issue a warning to update the 
-% current_crop/1 (and maybe crop/7) facts.
+
+
+
+
+
+
+% given a date, return the crop for that date
 %
-% fixed to distinguish winter nursery from greenhouse crop; have never planted in
-% April in Missouri, and don''t have a greenhouse crop in the summer.
+% use only in the context of dates from packed_packet, otherwise logic
+% is not guaranteed to be correct.
 %
-% tested and correct
+% correctness verified by inspection of results of
 %
-% Kazic, 29.3.2018
+% setof(Crop-Date,P^M^Pa^C^O^T^(packed_packet(P,M,Pa,C,O,Date,T),crop_from_date(Date,Crop)),L),write_list(L).
+%
+% Kazic, 29.5.2018
 
 
+% crop_from_date(+PackingDate:term,-Crop:atom).
 
-% crop_from_date(++Date,--Crop).
-
-crop_from_date(date(Day,Mo,Yr),Crop) :-
-
-        current_crop(CurCrop),
-
-
-% check if this date has a contemporaneous current_crop/1 fact
-
-        our_date(date(Day,Mo,Yr)),
+crop_from_date(PackingDate,Crop) :-
+        ( our_date(PackingDate) ->
+                arg(2,PackingDate,Mon),
+                arg(3,PackingDate,Yr)
+        ;
+                swi_to_our_date(PackingDate,date(_,Mon,Yr))
+        ),
         sub_atom(Yr,2,2,_,TruncatedYr),
 
-        ( ( Mo > 4,
-            Mo =< 10 ) ->
-               Particles = ['R']
-        ; 
-               Particles = ['N','G']
-        ),
-
-        findall(C,(member(P,Particles),atom_concat(TruncatedYr,P,C)),PossibleCrops),
-        ( memberchk(CurCrop,PossibleCrops) ->
-                Crop = CurCrop
-
+        ( ( Mon >= 3,
+            Mon =< 6 ) ->
+                atom_concat(TruncatedYr,'R',Crop)
         ;
-
-
-% otherwise, build the crop descriptor and issue a warning to update current_crop/1
-
-                crop(Crop,Locatn,_,_,PlantingDate,_,_),
-                ( once(arg(3,PlantingDate,Yr)) ->
-
-                        ( ( Locatn == molokaii,
-                          ( Mo >= 11 ; Mo =< 4 ) ) ->
-                                Particle = 'N'
-                        ;              
-                                Locatn == missouri,
-                                ( ( Mo > 4,
-                                    Mo =< 10) ->
-       	                               Particle = 'R'
-                                ;
-                                       Particle = 'G'
-                                )
-                        ),
-                        atom_concat(TruncatedYr,Particle,Crop),
-                        format('~nWarning! need a current ../data/current_crop/1 fact for ~w.~n~n',[Crop])
-                 ;
-
-                        format('~nWarning! need current ../data/current_crop/1 and ~n~t../data/crop/7 facts for ~w.~n~n',[Crop])
-                 )
+                ( ( Mon >= 10,
+                    Mon =< 11,
+                    atom_concat(TruncatedYr,'N',Crop),
+                    crop(Crop,molokaii,_,_,_,_,_) ) ->
+                        true
+                ;
+                        ( ( atom_concat(TruncatedYr,'G',Crop),
+                            crop(Crop,_,Field,_,_,_,_) ) ->
+                                sub_atom(Field,0,5,_,sears)
+                        ;
+                                PriorYr is Yr - 1,
+                                sub_atom(PriorYr,2,2,_,TruncatedPriorYr),
+                                atom_concat(TruncatedPriorYr,'G',Crop),
+                                crop(Crop,_,Field,_,_,_,_),
+                                sub_atom(Field,0,5,_,sears)
+                        )
+                )
         ).
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -2991,7 +3385,7 @@ selfed_plants([Parent|Parents],Acc,Selfed) :-
 
 selfing_candidate(PlantID,Crop) :-
         \+ inbred(PlantID,_,_),
-        crop_rowplant(PlantID,Crop,RowNum,_),
+        crop_rowplant_index(PlantID,Crop,RowNum,_),
         identify_row(Crop,RowNum,_-(_,_,Ma,Pa,_,_,_,_,_,_)),
         plan(Ma,Pa,_,Plan,_,Crop),
         plan_includes(self,Plan,_).
@@ -3285,7 +3679,7 @@ mutant_rows(Crop,[Row-(_,Family,_,_,_,_,_,_,_,_)|T],Acc,MutantRows) :-
         ( ( mutant_by_family(Family),
             physical_row(Row,Crop),
             nonzero_stand_count(Row,Crop) ) ->
-                prefixed_row_to_rownum(Row,IntegerRow),
+                remove_row_prefix(Row,IntegerRow),
                 append(Acc,[IntegerRow],NewAcc)
         ;
                 NewAcc = Acc
@@ -3310,29 +3704,34 @@ mutant(PlantID) :-
 
 
 
-% this includes Gerry''s 11n lines!
+% revised to include new donated mutants but exclude:
+%        Jason Green''s 11R corn (623--627)
+%        crop improvement lines (630--664 and 4116, 4117)
+%        gerry''s 11n families (3332--3340, 3361--3393)
+%        elite lines (890--891)
+%        sweet corn (892--899, 990--991)
+%        popcorn (992--999, 902--989)
 %
-% Kazic, 20.5.2014
-%
-% revised first test from Family >= 1000 to include
-% new donated mutants but exclude crop improvement lines, gerry''s 11n
-% families,  and fun corn
-%
-% Kazic, 8.4.2018
+% Kazic, 1.6.2018
+
 
 mutant_by_family(Family) :-
         integer(Family),
         ( Family < 200
         ;
           Family >= 1000,
-          \+ gerry_families(Family)
+          \+ gerry_families(Family),
+          \+ crop_improvement(Family,_)
         ;
           Family >= 642,
-          Family < 892
+          Family < 890
         ;
-          Family < 630,
-          Family >= 600 
+          Family >= 599,
+          Family =< 622
+        ;
+          memberchk(Family,[599,628,629])
         ).
+
 
 
 
@@ -3347,6 +3746,50 @@ gerry_families(Family) :-
         Family =< 3393.
 
 
+
+
+
+% corn I planted for other people who are not Gerry Neuffer, such as Jason Green
+%
+% Kazic, 1.6.2018
+
+
+%! other_peoples_corn(+Family:int) is det.
+
+
+other_peoples_corn(Family) :-
+        Family >= 623,
+        Family =< 627.
+
+
+
+
+% the crop improvement families, which end up with suitable particles
+% in every generation.  This means that construct_plant_prefix/4
+% must test for 4-digit crop improvement families and pad rows to 4 digits
+% only.
+%
+% Kazic, 1.6.2018
+
+
+%! crop_improvement(+Family:int,-Prefix:atom) is det.
+
+
+crop_improvement(Family,Prefix) :-
+        ( memberchk(Family,[631,632,633,634,655,656,4118,4119]),
+          Prefix = 'S' )
+        ;
+        ( memberchk(Family,[635,636,637,638,639,657,658]),
+          Prefix = 'W' )
+        ;
+
+        ( memberchk(Family,[640,641,659,660,661,662]),
+          Prefix = 'M' )
+        ;
+
+        ( memberchk(Family,[663,664,4116,4117]),
+          Prefix = 'B' ).
+        
 
 
 
@@ -3435,10 +3878,6 @@ scored_row(Crop,Row) :-
 
 
 
-
-
-prefixed_row_to_rownum(Prefixed,Row) :-
-        remove_row_prefix(Prefixed,Row).
 
 
 
@@ -3774,24 +4213,29 @@ field_planted(Row,Crop) :-
 
 make_barcode_elts(Crop,Family,BarcodeElts) :-
 
-        ( fun_corn(Family,Prefix)  ->
-                true
-        ;
-                ( inbred(Family,Prefix) ->
-                        true
-                ;
-                        Prefix = ''
-                )
-        ),
-
-        atom_length(Family,FamLen),
-        ( FamLen < 4 ->
-                pad(Family,4,PaddedFamily)
-        ;
+        ( ( inbred(Family,Prefix) 
+          ; fun_corn(Family,Prefix)) ->
                 PaddedFamily = Family
-        ),
-        atomic_list_concat([Crop,PaddedFamily,':',Prefix],BarcodeElts).
+        ;
+                mutant_by_family(Family),
+                Prefix = '',
+                pad(Family,4,PaddedFamily)
 
+        ;
+                gerry_families(Family),
+                Prefix = '',
+                PaddedFamily = Family
+        ;
+                crop_improvement(Family,Prefix),
+                PaddedFamily = Family
+        ;
+                other_peoples_corn(Family),
+                Prefix = '',
+                pad(Family,4,PaddedFamily)
+
+        ),
+
+        atomic_list_concat([Crop,PaddedFamily,':',Prefix],BarcodeElts).
 
 
 
@@ -3901,6 +4345,12 @@ identify_rows(Crop,Row,EndRow,Acc,Lines) :-
 % of the same row caused by crop problems.
 %
 % Kazic, 15.4.2018
+%
+%
+% inserted 'false's so that predicate fails if the row can''t be identified
+%
+% Kazic, 21.5.2018
+
 
 
 %! identify_row(+Crop:atom,+Row:atom,-RowInfo:term) is nondet.
@@ -3910,18 +4360,18 @@ identify_row(Crop,Row,Row-(PRow,F,Ma,Pa,MGma,MGpa,PGma,PGpa,Marker,K)) :-
         build_row(Row,PRow),
         packets_in_row(PRow,Crop,Conflicts,_),
 
-        ( ( Conflicts == [], 
-            planted(PRow,Packet,_,_,PDate,PTime,_,Crop) ) ->
-                ( closest_contemporaneous_packet(Crop,Packet,PDate,PTime,Ma,Pa) ->
-                        track_transplants(Crop,Packet,ActualPacket),
-
-                        ( genotype(PutF,MFam,Ma,PFam,Pa,MGma,MGpa,PGma,PGpa,Marker,K) ->
-                                ( current_inbred(Crop,MFam,PFam,F,ActualPacket) ->
-                                        true
-			        ;
-                                        F = PutF
-                                )
-                        ;
+        ( planted(PRow,Packet,_,_,PDate,PTime,_,Crop) ->
+                ( Conflicts == [] ->
+                        ( closest_contemporaneous_packet(Crop,Packet,PDate,PTime,Ma,Pa) ->
+                                track_transplants(Crop,Packet,ActualPacket),
+		
+                                ( genotype(PutF,MFam,Ma,PFam,Pa,MGma,MGpa,PGma,PGpa,Marker,K) ->
+                                        ( current_inbred(Crop,MFam,PFam,F,ActualPacket) ->
+                                                true
+				        ;
+                                                F = PutF
+                                        )
+                                ;
 
 
 % lines from others or selfs:  deconstruct_plantID fails for 
@@ -3929,31 +4379,29 @@ identify_row(Crop,Row,Row-(PRow,F,Ma,Pa,MGma,MGpa,PGma,PGpa,Marker,K)) :-
 %
 % Kazic, 18.7.2010
 
-                                ( Ma == Pa ->
-                                        ( deconstruct_plantID(Ma,_,F,_,_) ->
-                                                ( ( genotype(F,F,_,F,_,MGma,MGpa,PGma,PGpa,Marker,K), 
-                                                    ( F < 200
-                                                    ;
-
-
-% upper bound was previously 1000, but with the NAM founders, new lines, crop improvement,
-% and the interesting popcorn, it''s better to just exclude the true inbreds.
-%
-% Kazic, 9.6.2012
-                                                      F >= 600 ) ) ->
-                                                        true
+                                        ( Ma == Pa ->
+                                                ( deconstruct_plantID(Ma,_,F,_,_) ->
+	                                                ( ( genotype(F,F,_,F,_,MGma,MGpa,PGma,PGpa,Marker,K), 
+                                                            \+ inbred(F,_) ) ->
+                                                                true
+                                                        ;
+                                                                format('Warning! no genotype/11 fact found for crop ~w, row ~w, ~w x ~w by identify_row/3!~n',[Crop,Row,Ma,Pa]),
+                                                                false
+                                                        )
                                                 ;
-                                                        format('Warning! genotype/11 fact is needed for row ~w, ~w x ~w.~n',[Row,Ma,Pa])
+
+
+
+                                                        format('Warning!  deconstruct_plantID/5 fails in identify_row/3 for crop ~w, row ~w, ~w x ~w.~n',[Crop,Row,Ma,Pa]),
+                                                        false
                                                 )
                                         ;
-                                                format('Warning!  unconsidered case --- perhaps a missing genotype/11 fact --- in identify_row/3, deconstruct_plantID/5 for row ~w, ~w x ~w.~n',[Row,Ma,Pa])
-                                        )
-                                ;
-                                        format('Warning!  unconsidered case --- perhaps a missing genotype/11 fact --- in identify_row/3 for row ~w, ~w x ~w.~n',[Row,Ma,Pa])
-                                )
-                       )
 
-                ;
+                                                 format('Warning! no genotype/11 fact found for crop ~w, row ~w, ~w x ~w by identify_row/3!~n',[Crop,Row,Ma,Pa]),
+                                                 false
+                                        )
+                                )
+                        ;
 
 
 % had inserted a stub for the long-packed inbreds in case closest_contemporaneous_packet/6 did
@@ -3962,10 +4410,16 @@ identify_row(Crop,Row,Row-(PRow,F,Ma,Pa,MGma,MGpa,PGma,PGpa,Marker,K)) :-
 %
 % Kazic, 9.12.2010
 
-                         format('Warning! closest_contemporanous_packet/6 called from identify_row/3 failed~n',[])
+                                format('Warning! closest_contemporanous_packet/6 failed when called by identify_row/3 for crop ~w, row ~w, ~w x ~w.~n',[Crop,Row,Ma,Pa]),
+                                false
+                        )
+                ;
+                       format('Warning! conflicts exist for crop ~w, row ~w in identify_row/3!~n',[Crop,Row]),
+                       false
                 )
         ;
-                format('Warning! there are conflicts or there is no planted/8 record for row ~w of crop ~w!~n',[Row,Crop])
+                format('Warning! no planted/8 fact for crop ~w, row ~w in identify_row/3!~n',[Crop,Row]),
+                false
         ).
 
 
@@ -4087,7 +4541,7 @@ check_for_packet_conflicts([],Acc,Acc,SumCl) :-
 
 
 check_for_packet_conflicts([_-(Packet,Ma,Pa,Cl)|T],Acc,Conflicts,SumCl) :-
-        ( Packet == p0000 ->
+        ( Packet == p00000 ->
                 NewAcc = Acc
         ;
                 ( selectchk(_-(PriorPacket,Ma,Pa,PriorCl),Acc,Rem) ->
@@ -4354,4 +4808,272 @@ next_crop_aux(PackingTimestamp,[Timestamp-Candidate|T],Crop) :-
                 Crop = Candidate
         ).
 
+
+
+
+
+
+
+
+
+
+
+% for pedigree matching
+
+%! remove_family(+PlantID:atom,-PlantIDSansFam:atom) is det.
+
+remove_family(PlantID,PlantIDSansFam) :-
+        sub_atom(PlantID,0,3,_,Crop),
+        sub_atom(PlantID,FrontLen,1,BackLen,':'),
+        IncColon is BackLen + 1,
+        sub_atom(PlantID,FrontLen,IncColon,_,Back),
+        atom_concat(Crop,Back,PlantIDSansFam).
+
+
+
+
+
+
+
+
+
+
+
+% hmmm --- more dark matter hunting.
+%
+% Did we plant something for which no genotype fact was issued?
+%
+% In the end, decided not to compute the trees since I prefer to double-check
+% everything by hand.
+%
+% Kazic, 31.5.2018
+
+find_descendants_of_lines_wo_genotypes(NeedsGenotypes) :-
+        missing_lines(RowsPlantedMissing),
+        find_descendants(RowsPlantedMissing,NeedsGenotypes).
+
+
+
+
+
+
+
+missing_lines(RowsPlantedMissing) :-
+        setof((Ma,Pa),lines_wo_genotypes(Ma,Pa),Oops),
+        all_rows_planted_missing(Oops,RowsPlantedMissing).
+
+
+
+lines_wo_genotypes(Ma,Pa) :-
+        packed_packet(_,Ma,Pa,_,_,_,_),
+        get_family(Ma,Fam),
+        Fam =\= 0,
+        \+ genotype(_,_,Ma,_,Pa,_,_,_,_,_,_).
+
+
+
+
+
+
+
+% hmmm, don''t want to inherit the pkingdate on the output list
+
+all_rows_planted_missing([],[]).
+all_rows_planted_missing([(Ma,Pa)|Missing],[(Ma,Pa)-MaPaList|Lists]) :-
+        findall((Crop,Row,Packet,PkingDate),all_plantings_of_a_line(Ma,Pa,Crop,Row,Packet,PkingDate),List),
+        sort(List,MaPaList),
+        all_rows_planted_missing(Missing,Lists).
+
+
+
+
+
+
+
+
+
+
+%! all_plantings_of_a_line(+Ma:atom,+Pa:atom,-Crop:atom,-Row:atom,-Packet:atom) is semidet.
+
+
+all_plantings_of_a_line(Ma,Pa,Crop,Row,Packet,PkingDate) :-
+        packed_packet(Packet,Ma,Pa,_,_,PkingDate,_),
+        crop_from_date(PkingDate,Crop),
+        ( planted(Row,Packet,_,_,_,_,_,Crop) ->
+
+
+%        ( contemporaneous_planting(Packet,PkingDate,Row,Crop) ->
+%                true
+%        ;
+%                later_planting(Ma,Pa,Crop,Row,Packet)
+%        ),
+
+
+                ( row_status(Row,num_emerged(Num),_,_,_,_,Crop) ->
+                        ( Num > 0 ->
+                                true
+                        ;
+                                format('Warning! zero stand count for row ~w in crop ~w~n',[Row,Crop]),
+                                false
+                        )
+                ;
+                        format('Warning! no row_status/7 fact for row ~w in crop ~w~n',[Row,Crop]),
+                        false
+                )
+        ;
+
+
+% shut off the chatter once we know the problems with the lines missing
+% genotypes
+
+%                setof((Packet,Date),C^O^T^packed_packet(Packet,Ma,Pa,C,O,Date,T),L),
+%                format('~w with ~w x ~w was not planted in crop ~w;~n',[Packet,Ma,Pa,Crop]),
+%                format('all packets packed with these parents are:~n',[]),
+%                write_list(L),
+%                format('~n~n',[]),
+                false
+        ).
+
+
+
+
+
+% is the packet planted in the same crop it was packed in?
+
+
+%! contemporaneous_planting(+Packet:atom,+Date:term,-Row:atom,-Crop:atom) is det.
+
+
+contemporaneous_planting(Packet,Date,Row,Crop) :-
+        crop_from_date(Date,Crop),
+        planted(Row,Packet,_,_,_,_,_,Crop).
+
+
+
+
+
+
+
+
+
+
+
+% or is it planted in a later crop?
+
+
+%! later_planting(+Ma:atom,+Pa:atom,-Crop:atom,-Row:atom,-Packet:atom) is semidet.
+
+% 11r > 11n,g > 12r > 12n,g
+
+later_planting(Ma,Pa,Crop,Row,Packet) :-
+        packed_packet(Packet,Ma,Pa,_,_,PkingDate,_),
+        crop_from_date(PkingDate,PkingCrop),
+        get_crop_components(PkingCrop,PkingYear,PkingNursery),
+
+        planted(Row,Packet,_,_,_,_,_,Crop),
+        get_crop_components(Crop,Year,Nursery),
+
+        ( ( PkingNursery == 'R',
+            memberchk(Nursery,['G','N']) ) ->
+                PkingYear @=< Year
+        ;
+                PkingYear @< Year
+        ).
+
+
+
+
+
+
+
+
+
+
+
+
+find_descendants(RowsPlantedMissing,NeedsGenotypes):-
+        find_descendants(RowsPlantedMissing,[],NeedsGenotypes).
+
+
+
+find_descendants([],A,A).
+find_descendants([(ForeMa,ForePa)-LaterPlantings|T],GAcc,NeedsGenotypes) :-
+        ( LaterPlantings == [] ->
+                NewGAcc = GAcc
+        ;
+                find_descendants_aux(LaterPlantings,ThoseGenotypes),
+                append([GAcc,[(ForeMa,ForePa)],ThoseGenotypes],NewGAcc)
+        ),
+        find_descendants(T,NewGAcc,NeedsGenotypes).
+
+
+
+
+
+
+
+find_descendants_aux(LaterPlantings,ThoseGenotypes) :-
+        find_descendants_aux(LaterPlantings,[],ThoseGenotypes).
+
+
+
+
+
+
+% Warning! This assumes that mutants are only used as males!  
+% Your experiment may be different!
+%
+% could also look in harvest, inventory, and genotype facts for these guys,
+% but by crop and rowplant.
+%
+% Kazic, 29.5.2018
+
+
+find_descendants_aux([],A,A).
+find_descendants_aux([(Crop,Row,Packet,PkingDate)|T],GAcc,ThoseGenotypes) :-
+        format('checking ~w ~w ~w ~w~n',[Crop,Row,Packet,PkingDate]),
+        remove_row_prefix(Row,RowAtom),
+        barcode_index(RowAtom,Crop,_RowPlant,_Plant,AssignedFamily,_PostColon,_Barcode),
+        ( packed_packet(Packet,PkMa,PkPa,_,_,PkingDate,_) ->
+                true
+        ;
+                PkMa = unk,
+                PkPa = unk
+        ),
+
+        ( genotype(AssignedFamily,_,F1Ma,_,F1Pa,_,_,_,_,_,_) ->
+                true
+        ;
+                F1Ma = unk,
+                F1Pa = unk
+        ),
+
+        append(GAcc,[foo(Crop,Row,Packet,PkingDate,p(PkMa,PkPa),g(F1Ma,F1Pa))],NewGAcc),
+        find_descendants_aux(T,NewGAcc,ThoseGenotypes).
+
+
+
+
+
+
+
+
+
+
+
+
+% build the relative paths to a crop''s directories
+
+%! construct_crop_relative_dirs(+Crop:atom,+PlngDir:atom,+MgmtDir:atom,+TagsDir:atom) is det.
+
+
+construct_crop_relative_dirs(Crop,PlngDir,MgmtDir,TagsDir) :-
+        downcase_atom(Crop,CropParticle),
+        pedigree_root_directory(Root),
+        planning_directory(Plng),
+        management_directory(Mgmt),
+        tags_directory(Tags),
+        atomic_list_concat([Root,CropParticle,Plng],PlngDir),
+        atomic_list_concat([Root,CropParticle,Mgmt],MgmtDir),
+        atomic_list_concat([Root,CropParticle,Tags],TagsDir).
 

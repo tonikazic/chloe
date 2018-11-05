@@ -977,7 +977,7 @@ sample('12N3226:0021401',e00902,any_leaf,tissue,toni,date(24,01,2013),time(09,00
 % by data/data_conversion/convert_tissue_sample_data.perl
 % called from data/data_conversion/convert_data.perl
 
-sample('',,any_leaf,tissue,,date(,,),time(,,)).
+
 sample('14R1012:0007713',e02395,any_leaf,tissue,linh,date(17,08,2014),time(21,44,35)).
 sample('14R4079:0008309',e02394,any_leaf,tissue,linh,date(17,08,2014),time(21,44,35)).
 sample('14R1012:0007616',e02393,any_leaf,tissue,linh,date(17,08,2014),time(21,43,20)).
@@ -1111,8 +1111,6 @@ sample('14R4082:0009102',e02396,any_leaf,tissue,avi,date(18,08,2014),time(17,18,
 % by data/data_conversion/convert_tissue_sample_data.perl
 % called from data/data_conversion/convert_data.perl
 
-sample('',,any_leaf,tissue,,date(,,),time(,,)).
-sample('',,any_leaf,tissue,,date(,,),time(,,)).
 sample('14R4263:0012810',e01466,any_leaf,tissue,linh,date(20,08,2014),time(19,47,46)).
 sample('14R3647:0014316',e01465,any_leaf,tissue,linh,date(20,08,2014),time(19,45,43)).
 sample('14R4090:0011711',e01464,any_leaf,tissue,linh,date(20,08,2014),time(19,42,37)).
@@ -1147,7 +1145,7 @@ sample('14R4023:0014009',e01441,any_leaf,tissue,linh,date(20,08,2014),time(18,51
 % by data/data_conversion/convert_tissue_sample_data.perl
 % called from data/data_conversion/convert_data.perl
 
-sample('',,any_leaf,tissue,,date(,,),time(,,)).
+
 sample('14R4253:0019013',e02454,any_leaf,tissue,linh,date(22,08,2014),time(21,59,21)).
 sample('14R4249:0018609',e02453,any_leaf,tissue,linh,date(22,08,2014),time(21,57,43)).
 sample('14R4251:0018809',e02452,any_leaf,tissue,linh,date(22,08,2014),time(21,56,11)).
@@ -1217,7 +1215,7 @@ sample('14R4240:0017605',e01467,any_leaf,tissue,linh,date(22,08,2014),time(20,10
 % by data/data_conversion/convert_tissue_sample_data.perl
 % called from data/data_conversion/convert_data.perl
 
-sample('',,any_leaf,tissue,,date(,,),time(,,)).
+
 sample('14R4310:0026411',e02569,any_leaf,tissue,linh,date(23,08,2014),time(15,04,24)).
 sample('14R4166:0023707',e02568,any_leaf,tissue,linh,date(23,08,2014),time(15,02,52)).
 sample('14R4292:0022802',e02567,any_leaf,tissue,linh,date(23,08,2014),time(15,01,44)).
@@ -1341,7 +1339,7 @@ sample('14R4287:0022011',e02455,any_leaf,tissue,linh,date(23,08,2014),time(11,15
 % by data/data_conversion/convert_tissue_sample_data.perl
 % called from data/data_conversion/convert_data.perl
 
-sample('',,any_leaf,tissue,,date(,,),time(,,)).
+
 sample('14R4268:0014905',e02594,any_leaf,tissue,linh,date(24,08,2014),time(12,22,08)).
 sample('14R4166:0023709',e02593,any_leaf,tissue,linh,date(24,08,2014),time(12,20,35)).
 sample('14R4137:0004202',e02592,any_leaf,tissue,linh,date(24,08,2014),time(12,18,35)).
@@ -2116,7 +2114,18 @@ sample('16R4477:0005305',e03303,any_leaf,tissue,avi,date(30,07,2016),time(14,23,
 sample('16R4477:0005309',e03300,any_leaf,tissue,avi,date(30,07,2016),time(14,23,20)).
 sample('16R4477:0005311',e03301,any_leaf,tissue,avi,date(30,07,2016),time(14,23,20)).
 sample('16R4478:0005404',e03304,any_leaf,tissue,avi,date(30,07,2016),time(14,23,20)).
-sample('16R4483:0005906',e03314,any_leaf,tissue,avi,date(30,07,2016),time(15,30,44)).
+
+
+% migrated per results of genetic_utilities:find_descendants_of_lines_wo_genotypes/2
+%
+% Kazic, 31.5.2018
+%
+% sample('16R4483:0005906',e03314,any_leaf,tissue,avi,date(30,07,2016),time(15,30,44)).
+
+
+sample('16R4648:0005906',e03314,any_leaf,tissue,avi,date(30,07,2016),time(15,30,44)).
+
+
 sample('16R4491:0008006',e03310,any_leaf,tissue,avi,date(30,07,2016),time(15,30,44)).
 sample('16R4496:0009201',e03312,any_leaf,tissue,avi,date(30,07,2016),time(15,30,44)).
 sample('16R4498:0009503',e03302,any_leaf,tissue,avi,date(30,07,2016),time(14,23,20)).
@@ -2203,7 +2212,17 @@ sample('16R4479:0005503',e03152,any_leaf,tissue,avi,date(26,07,2016),time(14,32,
 sample('16R4479:0005504',e03130,any_leaf,tissue,avi,date(26,07,2016),time(13,31,34)).
 sample('16R4479:0005506',e03153,any_leaf,tissue,avi,date(26,07,2016),time(14,32,30)).
 sample('16R4481:0005709',e03142,any_leaf,tissue,avi,date(26,07,2016),time(13,31,34)).
-sample('16R4483:0005910',e03140,any_leaf,tissue,avi,date(26,07,2016),time(13,31,34)).
+
+
+% migrated per results of genetic_utilities:find_descendants_of_lines_wo_genotypes/2
+%
+% Kazic, 31.5.2018
+%
+% sample('16R4483:0005910',e03140,any_leaf,tissue,avi,date(26,07,2016),time(13,31,34)).
+
+sample('16R4648:0005910',e03140,any_leaf,tissue,avi,date(26,07,2016),time(13,31,34)).
+
+
 sample('16R4491:0008008',e03166,any_leaf,tissue,avi,date(26,07,2016),time(16,58,01)).
 sample('16R4498:0009514',e03155,any_leaf,tissue,avi,date(26,07,2016),time(16,58,01)).
 
@@ -2213,6 +2232,26 @@ sample('16R4498:0009514',e03155,any_leaf,tissue,avi,date(26,07,2016),time(16,58,
 
 
 % 17r
+    
+	
+% corrected per notes in ../../crops/17r/management/duped_new_genotypes.org:
+%
+% 4538:00163 -> 4640:00163 
+% 4552:00134 -> 4641:00134
+% 4553:00135 -> 4642:00135
+% 4554:00136 -> 4643:00136
+% 4555:00137 -> 4644:00137
+% 4615:00227 -> 4645:00227
+%
+% these two families did not need fixing; genotype facts entered anyway
+%
+% 4616:00231 -> 4646:00231
+% 4617:00232 -> 4647:00232
+%
+% Kazic, 20.5.2018
+
+
+
     
 
 % data added from ../../../palm/raw_data_from_palms/17r/zeta/1.8/tissue_collectn.csv on Tue Apr 24 17:35:38 CDT 2018
@@ -2313,36 +2352,36 @@ sample('17R4509:0017701',e03427,any_leaf,tissue,avi,date(02,08,2017),time(16,32,
 sample('17R4625:0015804',e03426,any_leaf,tissue,avi,date(02,08,2017),time(15,53,00)).
 sample('17R4497:0016405',e03425,any_leaf,tissue,avi,date(02,08,2017),time(15,53,00)).
 sample('17R4625:0015808',e03424,any_leaf,tissue,avi,date(02,08,2017),time(15,53,00)).
-sample('17R4555:0013708',e03423,any_leaf,tissue,avi,date(02,08,2017),time(15,53,00)).
+sample('17R4644:0013708',e03423,any_leaf,tissue,avi,date(02,08,2017),time(15,53,00)).
 sample('17R4477:0016203',e03422,any_leaf,tissue,avi,date(02,08,2017),time(15,53,00)).
 sample('17R4474:0016104',e03421,any_leaf,tissue,avi,date(02,08,2017),time(15,53,00)).
 sample('17R4557:0016502',e03420,any_leaf,tissue,avi,date(02,08,2017),time(15,53,00)).
-sample('17R4553:0013510',e03419,any_leaf,tissue,avi,date(02,08,2017),time(15,53,00)).
+sample('17R4642:0013510',e03419,any_leaf,tissue,avi,date(02,08,2017),time(15,53,00)).
 sample('17R4497:0016409',e03418,any_leaf,tissue,avi,date(02,08,2017),time(15,53,00)).
 sample('17R4474:0016101',e03417,any_leaf,tissue,avi,date(02,08,2017),time(15,53,00)).
-sample('17R4554:0013608',e03416,any_leaf,tissue,avi,date(02,08,2017),time(15,53,00)).
+sample('17R4643:0013608',e03416,any_leaf,tissue,avi,date(02,08,2017),time(15,53,00)).
 sample('17R4636:0014605',e03415,any_leaf,tissue,avi,date(02,08,2017),time(15,30,00)).
 sample('17R4474:0016106',e03414,any_leaf,tissue,avi,date(02,08,2017),time(15,30,00)).
 sample('17R4625:0015809',e03413,any_leaf,tissue,avi,date(02,08,2017),time(15,30,00)).
-sample('17R4552:0013404',e03412,any_leaf,tissue,avi,date(02,08,2017),time(15,30,00)).
-sample('17R4553:0013502',e03411,any_leaf,tissue,avi,date(02,08,2017),time(15,30,00)).
-sample('17R4554:0013609',e03410,any_leaf,tissue,avi,date(02,08,2017),time(15,30,00)).
-sample('17R4538:0016311',e03409,any_leaf,tissue,avi,date(02,08,2017),time(15,03,00)).
+sample('17R4641:0013404',e03412,any_leaf,tissue,avi,date(02,08,2017),time(15,30,00)).
+sample('17R4642:0013502',e03411,any_leaf,tissue,avi,date(02,08,2017),time(15,30,00)).
+sample('17R4643:0013609',e03410,any_leaf,tissue,avi,date(02,08,2017),time(15,30,00)).
+sample('17R4640:0016311',e03409,any_leaf,tissue,avi,date(02,08,2017),time(15,03,00)).
 sample('17R4477:0016204',e03408,any_leaf,tissue,avi,date(02,08,2017),time(15,03,00)).
-sample('17R4553:0013505',e03407,any_leaf,tissue,avi,date(02,08,2017),time(15,03,00)).
-sample('17R4538:0016302',e03406,any_leaf,tissue,avi,date(02,08,2017),time(15,03,00)).
+sample('17R4642:0013505',e03407,any_leaf,tissue,avi,date(02,08,2017),time(15,03,00)).
+sample('17R4640:0016302',e03406,any_leaf,tissue,avi,date(02,08,2017),time(15,03,00)).
 sample('17R4477:0016208',e03405,any_leaf,tissue,avi,date(02,08,2017),time(15,03,00)).
-sample('17R4538:0016311',e03404,any_leaf,tissue,avi,date(02,08,2017),time(15,03,00)).
+sample('17R4640:0016311',e03404,any_leaf,tissue,avi,date(02,08,2017),time(15,03,00)).
 sample('17R4497:0016411',e03403,any_leaf,tissue,avi,date(02,08,2017),time(15,03,00)).
-sample('17R4538:0016306',e03402,any_leaf,tissue,avi,date(02,08,2017),time(15,03,00)).
+sample('17R4640:0016306',e03402,any_leaf,tissue,avi,date(02,08,2017),time(15,03,00)).
 sample('17R4626:0015704',e03401,any_leaf,tissue,avi,date(02,08,2017),time(15,03,00)).
-sample('17R4552:0013411',e03400,any_leaf,tissue,avi,date(02,08,2017),time(15,03,00)).
+sample('17R4641:0013411',e03400,any_leaf,tissue,avi,date(02,08,2017),time(15,03,00)).
 sample('17R4626:0015706',e03399,any_leaf,tissue,avi,date(02,08,2017),time(15,03,00)).
 sample('17R4477:0016203',e03398,any_leaf,tissue,avi,date(02,08,2017),time(15,03,00)).
 sample('17R4625:0015804',e03397,any_leaf,tissue,avi,date(02,08,2017),time(15,03,00)).
 sample('17R4638:0014702',e03396,any_leaf,tissue,avi,date(02,08,2017),time(15,03,00)).
 sample('17R4636:0014607',e03395,any_leaf,tissue,avi,date(02,08,2017),time(15,03,00)).
-sample('17R4554:0013611',e03394,any_leaf,tissue,avi,date(02,08,2017),time(15,03,00)).
+sample('17R4643:0013611',e03394,any_leaf,tissue,avi,date(02,08,2017),time(15,03,00)).
 sample('17R3270:0011221',e03393,any_leaf,tissue,avi,date(02,08,2017),time(13,39,00)).
 sample('17R4419:0011134',e03392,any_leaf,tissue,avi,date(02,08,2017),time(13,39,00)).
 sample('17R4553:0012404',e03391,any_leaf,tissue,avi,date(02,08,2017),time(13,39,00)).
@@ -2425,9 +2464,9 @@ sample('17R4477:0016203',e03543,any_leaf,tissue,toni,date(05,08,2017),time(13,19
 sample('17R4625:0015808',e03542,any_leaf,tissue,toni,date(05,08,2017),time(13,17,36)).
 sample('17R4625:0015804',e03541,any_leaf,tissue,toni,date(05,08,2017),time(13,15,50)).
 sample('17R4638:0014702',e03540,any_leaf,tissue,toni,date(05,08,2017),time(13,13,13)).
-sample('17R4554:0013611',e03539,any_leaf,tissue,toni,date(05,08,2017),time(13,09,13)).
-sample('17R4554:0013609',e03538,any_leaf,tissue,toni,date(05,08,2017),time(13,08,57)).
-sample('17R4554:0013608',e03537,any_leaf,tissue,toni,date(05,08,2017),time(13,06,49)).
+sample('17R4643:0013611',e03539,any_leaf,tissue,toni,date(05,08,2017),time(13,09,13)).
+sample('17R4643:0013609',e03538,any_leaf,tissue,toni,date(05,08,2017),time(13,08,57)).
+sample('17R4643:0013608',e03537,any_leaf,tissue,toni,date(05,08,2017),time(13,06,49)).
 sample('17R4552:0012208',e03536,any_leaf,tissue,toni,date(05,08,2017),time(13,04,13)).
 sample('17R4552:0012206',e03535,any_leaf,tissue,toni,date(05,08,2017),time(13,02,50)).
 sample('17R4552:0012209',e03534,any_leaf,tissue,toni,date(05,08,2017),time(13,01,52)).
@@ -2486,3 +2525,244 @@ sample('17R4227:0006204',e03487,any_leaf,tissue,toni,date(05,08,2017),time(11,57
 
     
 
+
+
+
+
+% data added from ../../../palm/raw_data_from_palms/18r/zeta/6.8/tissue_collectn.csv on Wed Aug  8 08:35:07 CDT 2018
+% by data/data_conversion/convert_tissue_collectn_data.perl
+% called from data/data_conversion/convert_data.perl
+
+sample('18R4215:0018121',e03564,any_leaf,tissue,mason,date(06,08,2018),time(13,25,57)).
+sample('18R4736:0019108',e03565,any_leaf,tissue,mason,date(06,08,2018),time(13,27,57)).
+sample('18R4735:0018909',e03566,any_leaf,tissue,mason,date(06,08,2018),time(13,30,25)).
+sample('18R4737:0019719',e03567,any_leaf,tissue,mason,date(06,08,2018),time(13,32,58)).
+sample('18R4684:0017713',e03568,any_leaf,tissue,mason,date(06,08,2018),time(13,34,49)).
+sample('18R4684:0017908',e03569,any_leaf,tissue,mason,date(06,08,2018),time(13,36,25)).
+sample('18R4736:0019119',e03570,any_leaf,tissue,mason,date(06,08,2018),time(13,38,44)).
+sample('18R4215:0018101',e03571,any_leaf,tissue,mason,date(06,08,2018),time(13,40,35)).
+sample('18R4215:0018103',e03572,any_leaf,tissue,mason,date(06,08,2018),time(13,42,49)).
+sample('18R4734:0018311',e03573,any_leaf,tissue,mason,date(06,08,2018),time(13,46,08)).
+sample('18R4683:0017513',e03574,any_leaf,tissue,mason,date(06,08,2018),time(13,48,20)).
+sample('18R4736:0019123',e03575,any_leaf,tissue,mason,date(06,08,2018),time(13,50,49)).
+sample('18R4735:0018917',e03576,any_leaf,tissue,mason,date(06,08,2018),time(13,52,51)).
+sample('18R4735:0018912',e03577,any_leaf,tissue,mason,date(06,08,2018),time(13,54,12)).
+sample('18R4328:0018518',e03578,any_leaf,tissue,mason,date(06,08,2018),time(13,55,37)).
+sample('18R4328:0018519',e03579,any_leaf,tissue,mason,date(06,08,2018),time(13,57,03)).
+sample('18R4683:0017519',e03580,any_leaf,tissue,mason,date(06,08,2018),time(14,02,30)).
+sample('18R4736:0019109',e03581,any_leaf,tissue,mason,date(06,08,2018),time(14,03,18)).
+sample('18R4737:0019707',e03582,any_leaf,tissue,mason,date(06,08,2018),time(14,05,10)).
+sample('18R4737:0019714',e03583,any_leaf,tissue,mason,date(06,08,2018),time(14,07,55)).
+
+
+
+
+% data added from ../../../palm/raw_data_from_palms/18r/eta/16.8/tissue_collectn.csv on Fri Aug 17 07:50:38 CDT 2018
+% by data/data_conversion/convert_tissue_collectn_data.perl
+% called from data/data_conversion/convert_data.perl
+
+sample('18R4260:0008908',e03584,any_leaf,tissue,bill,date(16,08,2018),time(11,33,01)).
+sample('18R4106:0009018',e03585,any_leaf,tissue,bill,date(16,08,2018),time(11,39,24)).
+sample('18R4455:0010002',e03586,any_leaf,tissue,bill,date(16,08,2018),time(11,43,30)).
+sample('18R4654:0009713',e03587,any_leaf,tissue,bill,date(16,08,2018),time(11,46,49)).
+sample('18R4651:0009209',e03588,any_leaf,tissue,bill,date(16,08,2018),time(11,50,12)).
+sample('18R4649:0008612',e03589,any_leaf,tissue,bill,date(16,08,2018),time(11,55,18)).
+sample('18R4492:0008816',e03590,any_leaf,tissue,bill,date(16,08,2018),time(11,57,44)).
+sample('18R4440:0008113',e03591,any_leaf,tissue,bill,date(16,08,2018),time(11,59,34)).
+sample('18R4655:0009812',e03592,any_leaf,tissue,bill,date(16,08,2018),time(12,03,19)).
+sample('18R4440:0008104',e03593,any_leaf,tissue,bill,date(16,08,2018),time(12,07,56)).
+sample('18R4654:0009710',e03594,any_leaf,tissue,bill,date(16,08,2018),time(12,08,44)).
+sample('18R4651:0009204',e03595,any_leaf,tissue,bill,date(16,08,2018),time(12,12,05)).
+sample('18R4492:0008812',e03596,any_leaf,tissue,bill,date(16,08,2018),time(12,16,22)).
+sample('18R4441:0008717',e03597,any_leaf,tissue,bill,date(16,08,2018),time(12,18,50)).
+sample('18R4658:0010214',e03598,any_leaf,tissue,bill,date(16,08,2018),time(12,22,43)).
+sample('18R4258:0008410',e03599,any_leaf,tissue,bill,date(16,08,2018),time(12,24,55)).
+sample('18R4106:0009017',e03600,any_leaf,tissue,bill,date(16,08,2018),time(12,27,32)).
+sample('18R4226:0008308',e03602,any_leaf,tissue,bill,date(16,08,2018),time(12,33,05)).
+sample('18R4657:0010109',e03603,any_leaf,tissue,bill,date(16,08,2018),time(12,38,51)).
+sample('18R4574:0009604',e03604,any_leaf,tissue,bill,date(16,08,2018),time(12,40,20)).
+sample('18R4260:0008917',e03605,any_leaf,tissue,bill,date(16,08,2018),time(12,41,44)).
+sample('18R4656:0009907',e03606,any_leaf,tissue,bill,date(16,08,2018),time(12,44,40)).
+sample('18R4651:0009203',e03607,any_leaf,tissue,bill,date(16,08,2018),time(12,47,39)).
+sample('18R4650:0009107',e03608,any_leaf,tissue,bill,date(16,08,2018),time(12,50,08)).
+sample('18R4650:0009109',e03609,any_leaf,tissue,bill,date(16,08,2018),time(12,52,58)).
+sample('18R4652:0009310',e03610,any_leaf,tissue,bill,date(16,08,2018),time(12,56,10)).
+sample('18R4662:0011011',e03611,any_leaf,tissue,bill,date(16,08,2018),time(15,16,27)).
+sample('18R4665:0011620',e03612,any_leaf,tissue,bill,date(16,08,2018),time(15,19,45)).
+sample('18R4541:0011103',e03613,any_leaf,tissue,bill,date(16,08,2018),time(15,22,36)).
+sample('18R4666:0011705',e03614,any_leaf,tissue,bill,date(16,08,2018),time(15,26,10)).
+sample('18R4666:0011707',e03615,any_leaf,tissue,bill,date(16,08,2018),time(15,30,53)).
+sample('18R4443:0010910',e03616,any_leaf,tissue,bill,date(16,08,2018),time(15,32,57)).
+sample('18R4662:0011008',e03617,any_leaf,tissue,bill,date(16,08,2018),time(15,37,24)).
+sample('18R4659:0010406',e03618,any_leaf,tissue,bill,date(16,08,2018),time(15,40,49)).
+sample('18R4659:0010407',e03619,any_leaf,tissue,bill,date(16,08,2018),time(15,44,26)).
+sample('18R4263:0010719',e03620,any_leaf,tissue,bill,date(16,08,2018),time(15,48,01)).
+sample('18R4263:0010709',e03621,any_leaf,tissue,bill,date(16,08,2018),time(15,50,19)).
+sample('18R4664:0011309',e03622,any_leaf,tissue,bill,date(16,08,2018),time(17,00,00)).
+sample('18R3995:0010304',e03623,any_leaf,tissue,bill,date(16,08,2018),time(17,00,00)).
+sample('18R4663:0011205',e03624,any_leaf,tissue,bill,date(16,08,2018),time(17,00,00)).
+sample('18R4265:0011509',e03625,any_leaf,tissue,bill,date(16,08,2018),time(17,00,00)).
+sample('18R4661:0010813',e03626,any_leaf,tissue,bill,date(16,08,2018),time(17,00,00)).
+sample('18R4660:0010606',e03627,any_leaf,tissue,bill,date(16,08,2018),time(17,00,00)).
+sample('18R4444:0010506',e03628,any_leaf,tissue,bill,date(16,08,2018),time(17,00,00)).
+sample('18R4096:0011401',e03629,any_leaf,tissue,bill,date(16,08,2018),time(17,00,00)).
+sample('18R4555:0011912',e03630,any_leaf,tissue,bill,date(16,08,2018),time(17,00,00)).
+sample('18R4661:0010804',e03631,any_leaf,tissue,bill,date(16,08,2018),time(17,00,00)).
+sample('18R4660:0010605',e03632,any_leaf,tissue,bill,date(16,08,2018),time(17,00,00)).
+sample('18R4555:0011902',e03633,any_leaf,tissue,bill,date(16,08,2018),time(17,00,00)).
+
+
+
+
+% data added from ../../../palm/raw_data_from_palms/18r/eta/17.8/tissue_collectn.csv on Sat Aug 18 06:13:28 CDT 2018
+% by data/data_conversion/convert_tissue_collectn_data.perl
+% called from data/data_conversion/convert_data.perl
+
+sample('18R4672:0013811',e03634,any_leaf,tissue,bill,date(17,08,2018),time(11,54,45)).
+sample('18R4671:0013703',e03635,any_leaf,tissue,bill,date(17,08,2018),time(12,01,33)).
+sample('18R4670:0013512',e03636,any_leaf,tissue,bill,date(17,08,2018),time(12,04,46)).
+sample('18R4436:0013910',e03637,any_leaf,tissue,bill,date(17,08,2018),time(12,08,07)).
+sample('18R4038:0013006',e03638,any_leaf,tissue,bill,date(17,08,2018),time(12,11,57)).
+sample('18R4668:0013109',e03639,any_leaf,tissue,bill,date(17,08,2018),time(12,22,08)).
+sample('18R4438:0012401',e03640,any_leaf,tissue,bill,date(17,08,2018),time(12,26,57)).
+sample('18R3647:0012508',e03641,any_leaf,tissue,bill,date(17,08,2018),time(12,32,38)).
+sample('18R4100:0012107',e03642,any_leaf,tissue,bill,date(17,08,2018),time(12,38,06)).
+sample('18R4267:0012909',e03643,any_leaf,tissue,bill,date(17,08,2018),time(12,41,36)).
+sample('18R4442:0012804',e03644,any_leaf,tissue,bill,date(17,08,2018),time(12,44,47)).
+sample('18R4449:0012218',e03645,any_leaf,tissue,bill,date(17,08,2018),time(12,47,52)).
+sample('18R4673:0014111',e03646,any_leaf,tissue,bill,date(17,08,2018),time(12,51,10)).
+sample('18R4100:0012118',e03647,any_leaf,tissue,bill,date(17,08,2018),time(12,55,09)).
+sample('18R4449:0012218',e03648,any_leaf,tissue,bill,date(17,08,2018),time(12,57,56)).
+sample('18R4538:0013612',e03649,any_leaf,tissue,bill,date(17,08,2018),time(13,01,49)).
+sample('18R4456:0014004',e03650,any_leaf,tissue,bill,date(17,08,2018),time(13,04,23)).
+sample('18R4667:0012709',e03651,any_leaf,tissue,bill,date(17,08,2018),time(13,08,18)).
+sample('18R4672:0013809',e03652,any_leaf,tissue,bill,date(17,08,2018),time(13,11,44)).
+sample('18R4439:0013310',e03653,any_leaf,tissue,bill,date(17,08,2018),time(13,14,59)).
+sample('18R4680:0016708',e03654,any_leaf,tissue,bill,date(17,08,2018),time(15,24,57)).
+sample('18R4679:0016514',e03655,any_leaf,tissue,bill,date(17,08,2018),time(15,28,00)).
+sample('18R4678:0015902',e03656,any_leaf,tissue,bill,date(17,08,2018),time(15,32,56)).
+sample('18R4675:0015317',e03657,any_leaf,tissue,bill,date(17,08,2018),time(15,35,58)).
+sample('18R4678:0015901',e03658,any_leaf,tissue,bill,date(17,08,2018),time(15,38,59)).
+sample('18R4679:0016505',e03659,any_leaf,tissue,bill,date(17,08,2018),time(15,43,36)).
+sample('18R4679:0016511',e03660,any_leaf,tissue,bill,date(17,08,2018),time(15,46,44)).
+sample('18R4679:0016504',e03661,any_leaf,tissue,bill,date(17,08,2018),time(15,50,23)).
+sample('18R4674:0015121',e03662,any_leaf,tissue,bill,date(17,08,2018),time(15,53,49)).
+sample('18R4679:0016502',e03663,any_leaf,tissue,bill,date(17,08,2018),time(15,57,36)).
+sample('18R4675:0015308',e03664,any_leaf,tissue,bill,date(17,08,2018),time(16,01,49)).
+sample('18R4678:0015903',e03665,any_leaf,tissue,bill,date(17,08,2018),time(16,05,08)).
+sample('18R4678:0015903',e03666,any_leaf,tissue,bill,date(17,08,2018),time(16,08,18)).
+sample('18R4676:0015508',e03667,any_leaf,tissue,bill,date(17,08,2018),time(16,13,44)).
+
+
+
+
+% data added from ../../../palm/raw_data_from_palms/18r/eta/18.8/tissue_collectn.csv on Sun Aug 19 06:11:11 CDT 2018
+% by data/data_conversion/convert_tissue_collectn_data.perl
+% called from data/data_conversion/convert_data.perl
+
+sample('18R4698:0022208',e03668,any_leaf,tissue,bill,date(18,08,2018),time(09,59,05)).
+sample('18R4697:0022104',e03669,any_leaf,tissue,bill,date(18,08,2018),time(10,00,50)).
+sample('18R4695:0021913',e03670,any_leaf,tissue,bill,date(18,08,2018),time(10,03,25)).
+sample('18R4697:0022109',e03671,any_leaf,tissue,bill,date(18,08,2018),time(10,05,12)).
+sample('18R4695:0021904',e03672,any_leaf,tissue,bill,date(18,08,2018),time(10,08,57)).
+sample('18R4692:0021503',e03673,any_leaf,tissue,bill,date(18,08,2018),time(10,11,50)).
+sample('18R4690:0021307',e03674,any_leaf,tissue,bill,date(18,08,2018),time(10,14,38)).
+sample('18R4691:0021404',e03675,any_leaf,tissue,bill,date(18,08,2018),time(10,18,05)).
+sample('18R4685:0020704',e03676,any_leaf,tissue,bill,date(18,08,2018),time(10,21,14)).
+sample('18R4692:0021502',e03677,any_leaf,tissue,bill,date(18,08,2018),time(10,25,18)).
+sample('18R4691:0021406',e03678,any_leaf,tissue,bill,date(18,08,2018),time(10,28,36)).
+sample('18R4693:0021604',e03679,any_leaf,tissue,bill,date(18,08,2018),time(10,31,51)).
+sample('18R4694:0021701',e03680,any_leaf,tissue,bill,date(18,08,2018),time(10,34,56)).
+sample('18R4692:0021505',e03681,any_leaf,tissue,bill,date(18,08,2018),time(10,37,49)).
+sample('18R4694:0021705',e03682,any_leaf,tissue,bill,date(18,08,2018),time(10,40,50)).
+sample('18R4694:0021703',e03683,any_leaf,tissue,bill,date(18,08,2018),time(10,44,55)).
+sample('18R4691:0021404',e03684,any_leaf,tissue,bill,date(18,08,2018),time(10,47,25)).
+sample('18R4692:0021501',e03685,any_leaf,tissue,bill,date(18,08,2018),time(10,50,03)).
+sample('18R4695:0021912',e03686,any_leaf,tissue,bill,date(18,08,2018),time(10,54,06)).
+sample('18R4690:0021305',e03687,any_leaf,tissue,bill,date(18,08,2018),time(10,55,59)).
+sample('18R4690:0021310',e03688,any_leaf,tissue,bill,date(18,08,2018),time(10,58,38)).
+sample('18R3998:0025409',e03689,any_leaf,tissue,bill,date(18,08,2018),time(13,55,40)).
+sample('18R4709:0023801',e03690,any_leaf,tissue,bill,date(18,08,2018),time(13,59,04)).
+sample('18R4710:0023907',e03691,any_leaf,tissue,bill,date(18,08,2018),time(14,03,52)).
+sample('18R4706:0023206',e03692,any_leaf,tissue,bill,date(18,08,2018),time(14,08,12)).
+sample('18R4709:0023802',e03693,any_leaf,tissue,bill,date(18,08,2018),time(14,12,14)).
+sample('18R4709:0023810',e03694,any_leaf,tissue,bill,date(18,08,2018),time(14,15,35)).
+sample('18R4705:0023108',e03695,any_leaf,tissue,bill,date(18,08,2018),time(14,21,39)).
+sample('18R4739:0026008',e03696,any_leaf,tissue,bill,date(18,08,2018),time(14,25,06)).
+sample('18R2468:0024401',e03697,any_leaf,tissue,bill,date(18,08,2018),time(14,28,49)).
+sample('18R2437:0024301',e03698,any_leaf,tissue,bill,date(18,08,2018),time(14,30,32)).
+sample('18R4738:0024503',e03699,any_leaf,tissue,bill,date(18,08,2018),time(14,33,38)).
+sample('18R2437:0024304',e03700,any_leaf,tissue,bill,date(18,08,2018),time(14,37,25)).
+sample('18R2433:0024102',e03701,any_leaf,tissue,bill,date(18,08,2018),time(14,39,20)).
+sample('18R2325:0023407',e03702,any_leaf,tissue,bill,date(18,08,2018),time(14,42,08)).
+sample('18R2442:0024204',e03703,any_leaf,tissue,bill,date(18,08,2018),time(14,45,30)).
+sample('18R2325:0023411',e03704,any_leaf,tissue,bill,date(18,08,2018),time(14,48,15)).
+sample('18R2490:0025008',e03705,any_leaf,tissue,bill,date(18,08,2018),time(14,51,48)).
+sample('18R3255:0024003',e03706,any_leaf,tissue,bill,date(18,08,2018),time(14,54,19)).
+sample('18R2030:0025208',e03707,any_leaf,tissue,bill,date(18,08,2018),time(14,58,07)).
+sample('18R4716:0026210',e03708,any_leaf,tissue,bill,date(18,08,2018),time(15,00,59)).
+sample('18R3998:0025405',e03709,any_leaf,tissue,bill,date(18,08,2018),time(15,03,30)).
+sample('18R3998:0025407',e03710,any_leaf,tissue,bill,date(18,08,2018),time(15,05,55)).
+sample('18R2468:0024406',e03711,any_leaf,tissue,bill,date(18,08,2018),time(15,08,22)).
+sample('18R4408:0026810',e03712,any_leaf,tissue,bill,date(18,08,2018),time(15,10,16)).
+sample('18R4716:0026206',e03713,any_leaf,tissue,bill,date(18,08,2018),time(15,13,07)).
+sample('18R4706:0023203',e03714,any_leaf,tissue,bill,date(18,08,2018),time(15,16,37)).
+sample('18R4714:0025801',e03715,any_leaf,tissue,bill,date(18,08,2018),time(15,18,18)).
+sample('18R4505:0025312',e03716,any_leaf,tissue,bill,date(18,08,2018),time(15,21,08)).
+sample('18R2442:0024209',e03717,any_leaf,tissue,bill,date(18,08,2018),time(15,23,32)).
+sample('18R4505:0025311',e03718,any_leaf,tissue,bill,date(18,08,2018),time(15,26,10)).
+sample('18R2442:0024201',e03719,any_leaf,tissue,bill,date(18,08,2018),time(15,28,03)).
+sample('18R2473:0024605',e03720,any_leaf,tissue,bill,date(18,08,2018),time(15,30,08)).
+sample('18R2473:0024601',e03721,any_leaf,tissue,bill,date(18,08,2018),time(15,32,07)).
+sample('18R4706:0023205',e03722,any_leaf,tissue,bill,date(18,08,2018),time(15,34,51)).
+sample('18R1563:0024807',e03723,any_leaf,tissue,bill,date(18,08,2018),time(15,38,17)).
+sample('18R4740:0026108',e03724,any_leaf,tissue,bill,date(18,08,2018),time(15,40,56)).
+sample('18R2491:0025108',e03725,any_leaf,tissue,bill,date(18,08,2018),time(15,44,48)).
+sample('18R1563:0024812',e03726,any_leaf,tissue,bill,date(18,08,2018),time(15,46,42)).
+sample('18R2473:0024612',e03727,any_leaf,tissue,bill,date(18,08,2018),time(15,49,14)).
+sample('18R4720:0026903',e03728,any_leaf,tissue,bill,date(18,08,2018),time(15,51,10)).
+sample('18R4739:0026005',e03729,any_leaf,tissue,bill,date(18,08,2018),time(15,54,19)).
+sample('18R2478:0024705',e03730,any_leaf,tissue,bill,date(18,08,2018),time(16,00,27)).
+sample('18R4708:0023710',e03731,any_leaf,tissue,bill,date(18,08,2018),time(16,02,51)).
+sample('18R2325:0023404',e03732,any_leaf,tissue,bill,date(18,08,2018),time(16,04,45)).
+sample('18R2433:0024103',e03733,any_leaf,tissue,bill,date(18,08,2018),time(16,07,58)).
+sample('18R2490:0025003',e03734,any_leaf,tissue,bill,date(18,08,2018),time(16,09,09)).
+sample('18R1612:0024903',e03735,any_leaf,tissue,bill,date(18,08,2018),time(16,12,38)).
+sample('18R4731:0030011',e03736,any_leaf,tissue,bill,date(18,08,2018),time(18,52,44)).
+sample('18R4698:0029009',e03737,any_leaf,tissue,bill,date(18,08,2018),time(18,59,43)).
+sample('18R4698:0029007',e03738,any_leaf,tissue,bill,date(18,08,2018),time(19,01,20)).
+sample('18R4697:0028908',e03739,any_leaf,tissue,bill,date(18,08,2018),time(19,03,36)).
+sample('18R4474:0029403',e03740,any_leaf,tissue,bill,date(18,08,2018),time(19,06,54)).
+sample('18R4474:0029408',e03741,any_leaf,tissue,bill,date(18,08,2018),time(19,09,40)).
+sample('18R4733:0030205',e03742,any_leaf,tissue,bill,date(18,08,2018),time(19,12,42)).
+sample('18R4697:0028901',e03743,any_leaf,tissue,bill,date(18,08,2018),time(19,14,29)).
+sample('18R4727:0029611',e03744,any_leaf,tissue,bill,date(18,08,2018),time(19,16,53)).
+sample('18R4726:0029503',e03745,any_leaf,tissue,bill,date(18,08,2018),time(19,19,35)).
+sample('18R4732:0030106',e03746,any_leaf,tissue,bill,date(18,08,2018),time(19,22,00)).
+sample('18R4730:0029907',e03747,any_leaf,tissue,bill,date(18,08,2018),time(19,24,26)).
+sample('18R4625:0029213',e03748,any_leaf,tissue,bill,date(18,08,2018),time(19,27,09)).
+sample('18R4626:0029111',e03749,any_leaf,tissue,bill,date(18,08,2018),time(19,29,20)).
+sample('18R4733:0030202',e03750,any_leaf,tissue,bill,date(18,08,2018),time(19,32,20)).
+sample('18R4469:0029309',e03751,any_leaf,tissue,bill,date(18,08,2018),time(19,35,11)).
+sample('18R4722:0027105',e03752,any_leaf,tissue,bill,date(18,08,2018),time(19,37,26)).
+sample('18R4724:0027306',e03753,any_leaf,tissue,bill,date(18,08,2018),time(19,39,37)).
+sample('18R4725:0027408',e03754,any_leaf,tissue,bill,date(18,08,2018),time(19,42,32)).
+sample('18R4745:0027901',e03755,any_leaf,tissue,bill,date(18,08,2018),time(19,45,22)).
+sample('18R4745:0027907',e03756,any_leaf,tissue,bill,date(18,08,2018),time(19,47,44)).
+sample('18R4751:0028504',e03757,any_leaf,tissue,bill,date(18,08,2018),time(19,50,22)).
+sample('18R4625:0029202',e03758,any_leaf,tissue,bill,date(18,08,2018),time(19,53,40)).
+sample('18R0703:0028604',e03759,any_leaf,tissue,bill,date(18,08,2018),time(19,54,25)).
+sample('18R4722:0027102',e03760,any_leaf,tissue,bill,date(18,08,2018),time(19,57,35)).
+sample('18R4745:0027903',e03761,any_leaf,tissue,bill,date(18,08,2018),time(19,59,24)).
+sample('18R4727:0029614',e03762,any_leaf,tissue,bill,date(18,08,2018),time(20,03,15)).
+sample('18R4730:0029901',e03763,any_leaf,tissue,bill,date(18,08,2018),time(20,05,17)).
+sample('18R4728:0029703',e03764,any_leaf,tissue,bill,date(18,08,2018),time(20,07,20)).
+sample('18R4727:0029609',e03765,any_leaf,tissue,bill,date(18,08,2018),time(20,10,07)).
+sample('18R4724:0027305',e03766,any_leaf,tissue,bill,date(18,08,2018),time(20,14,20)).
+sample('18R4695:0028704',e03767,any_leaf,tissue,bill,date(18,08,2018),time(20,16,53)).
+sample('18R4626:0029101',e03768,any_leaf,tissue,bill,date(18,08,2018),time(20,18,55)).
+sample('18R4728:0029704',e03769,any_leaf,tissue,bill,date(18,08,2018),time(20,21,03)).
+sample('18R0703:0028611',e03770,any_leaf,tissue,bill,date(18,08,2018),time(20,23,02)).
+sample('18R4626:0029107',e03771,any_leaf,tissue,bill,date(18,08,2018),time(20,24,59)).
+sample('18R4751:0028502',e03772,any_leaf,tissue,bill,date(18,08,2018),time(20,28,34)).
+sample('18R4626:0029105',e03773,any_leaf,tissue,bill,date(18,08,2018),time(20,29,25)).

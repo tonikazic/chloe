@@ -181,6 +181,10 @@ possibly_missing_data('16R',702,r00162,'16R0702:0016201','16R0702:0016203').
 % using barcode filenames from ../../barcodes/17r/ as input on Wed May 16 07:52:48 CDT 2018.
 
 
+% fixed row 134 by hand
+%
+% Kazic, 20.5.2018
+    
 possibly_missing_data('17R',2252,r00110,'17R2252:0011001','17R2252:0011021').
 possibly_missing_data('17R',2254,r00118,'17R2254:0011801','17R2254:0011821').
 possibly_missing_data('17R',3192,r00170,'17R3192:0017001','17R3192:0017007').
@@ -251,7 +255,7 @@ possibly_missing_data('17R',4549,r00116,'17R4549:0011601','17R4549:0011636').
 possibly_missing_data('17R',4550,r00120,'17R4550:0012001','17R4550:0012030').
 possibly_missing_data('17R',4551,r00121,'17R4551:0012101','17R4551:0012132').
 possibly_missing_data('17R',4552,r00122,'17R4552:0012201','17R4552:0012225').
-possibly_missing_data('17R',4552,r00134,'17R4552:0013401','17R4552:0013414').
+possibly_missing_data('17R',4641,r00134,'17R4641:0013401','17R4641:0013414').
 possibly_missing_data('17R',4553,r00124,'17R4553:0012401','17R4553:0012424').
 possibly_missing_data('17R',4553,r00135,'17R4553:0013501','17R4553:0013511').
 possibly_missing_data('17R',4554,r00100,'17R4554:0010001','17R4554:0010009').

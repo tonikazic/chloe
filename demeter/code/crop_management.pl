@@ -64,7 +64,7 @@
 
 
 
-:-      ensure_loaded(library(lists)).
+
 
 /*
 
@@ -82,6 +82,281 @@
 
 
 
+
+
+% given a crop and list of rows in order or priority,
+% take the most recent row_status fact for the rows in each planting, 
+% and generate the input file for ../../label_making/make_plant_tags.perl.  
+% The output is in order of the rows to get the plants tagged in order of need.
+%
+% Kazic, 30.7.2011
+%
+% ported to swipl
+%
+% Kazic, 24.7.2018
+
+
+%! generate_plant_tags_file(+Crop:atom,+GTypeFileStem:atom,+TagFileStem:atom) is semidet.
+
+    
+% call: generate_plant_tags_file('18R','fgenotype.pl','plant_list.csv').
+
+generate_plant_tags_file(Crop,GTypeFileStem,TagFileStem) :-
+        construct_crop_relative_dirs(Crop,_,MgmtDir,_),
+        atom_concat('../data/',GTypeFileStem,GTypeFile),
+        atom_concat(MgmtDir,TagFileStem,TagFile),
+        generate_plant_tags_file_aux(Crop,GTypeFile,TagData),
+        output_data(TagFile,plntags,TagData).
+
+
+
+
+
+
+
+
+
+
+
+% No more re-use or filling in gaps of family numbers!
+%
+% Kazic, 19.6.2014
+%
+% tentative genotype facts appended to ../data/genotype.pl with
+% distinctive header and functor (fgenotype).
+%
+% Kazic, 24.7.2018
+    
+
+generate_plant_tags_file_aux(Crop,GTypeFile,TagData) :-
+        ensure_loaded(load_data:demeter_tree('data/priority_rows')),
+        priority_rows(Crop,Rows),
+        setof(N,M^P^MN^PN^G1^G2^G3^G4^ML^K^(genotype(N,M,MN,P,PN,G1,G2,G3,G4,ML,K), N > 999, N < 9999),Nums),
+        last(Nums,LastFamilyNum),
+        get_tag_data(Crop,Rows,LastFamilyNum,GtypeData,TagData),
+        output_tentative_genotype(Crop,GTypeFile,GtypeData).
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+% must assign families if these do not already exist and accession ears into the genotype.pl file
+% max_plants is stand count + 1
+%
+% $barcode_elts are of the form:  Crop . Family . : . Prefix?
+%
+%
+% for the newly revised Perl script (../../label_making/make_plant_tags.perl)
+% and its called modules, the input data are:
+%
+%  ($barcode_elts,$row,$max_plants,$family,$ma_family,$ma_num_gtype,$pa_family,$pa_num_gtype,$ma_gma_gtype,$marker,$quasi_allele)
+
+
+
+%! get_tag_data(+Crop:atom,+Rows:list,+LastFamilyNum:int,-GtypeData:list,-TagData:list) is semidet.
+
+    
+get_tag_data(Crop,Rows,LastFamilyNum,GtypeData,TagData) :-
+        get_tag_data(Crop,Rows,LastFamilyNum,[],GtypeData,[],TagData).
+
+
+
+
+%! get_tag_data(+Crop:atom,+Rows:list,+LastFamilyNum:int,+GtypeAcc:list,
+%!                         -GtypeData:list,+TagAcc:list,-TagData:list) is semidet.
+
+    
+get_tag_data(_,[],_,A,A,B,B).
+get_tag_data(Crop,[Row|Rows],LastFamilyNum,GtypeAcc,GtypeData,TagAcc,TagData) :-
+
+       ( identify_row(Crop,Row,Row-(PRow,Family,Ma,Pa,MaGma,_MaGpa,_PaGma,_PaMutant,Marker,Quasi)) ->
+               get_family(Ma,MaFam),
+               get_family(Pa,PaFam),
+               NextFamilyNum = LastFamilyNum,
+               NewFamily = Family,
+               NewGtypeAcc = GtypeAcc
+       ;
+               packets_in_row(Row,Crop,Conflicts,_),
+               ( planted(Row,Packet,_,_,PDate,PTime,_,Crop) ->
+                       ( Conflicts == [] ->
+                               ( closest_contemporaneous_packet(Crop,Packet,PDate,PTime,Ma,Pa) ->
+                                       track_transplants(Crop,Packet,ActualPacket),
+
+
+% kludgey here:  what to do if ActualPacket differs from Packet?
+
+                                       Packet == ActualPacket,
+
+                                       deconstruct_plantID(Ma,_,MaFam,_,_),
+                                       genotype(MaFam,_,_,_,_,PmaMaGma,PmaMaGpa,PmaPaGma,PmaPaMutant,_,_),
+                                       deconstruct_plantID(Pa,_,PaFam,_,_),
+                                       genotype(PaFam,_,_,_,_,PpaMaGma,PpaMaGpa,PpaPaGma,PpaPaMutant,Marker,Quasi),
+
+
+				 
+% if an fgenotype/11 fact has been generated for that line,				 
+% don''t do it again
+
+                                       ( memberchk(fgenotype(NewFamily,MaFam,Ma,PaFam,Pa,_MaGma,_MaGpa,_PaGma,_PaMutant,Marker,Quasi),GtypeAcc) ->
+
+                                               NextFamilyNum = LastFamilyNum,
+                                               NewGtypeAcc = GtypeAcc
+                                       ;
+
+                                               compute_genotype(PmaMaGma,PmaMaGpa,PmaPaGma,PmaPaMutant,PpaMaGma,PpaMaGpa,PpaPaGma,PpaPaMutant,MaGma,MaGpa,PaGma,PaMutant),
+                                               NextFamilyNum is LastFamilyNum + 1,
+                                               NewFamily = NextFamilyNum,
+                                               format('Warning!  assigned family ~d and genotype for row ~q, ~w x ~w~n~n',[NextFamilyNum,Row,Ma,Pa]),
+
+                                               append(GtypeAcc,[fgenotype(NewFamily,MaFam,Ma,PaFam,Pa,MaGma,MaGpa,PaGma,PaMutant,Marker,Quasi)],NewGtypeAcc)
+                                       )
+
+                               ;
+                                       format('Warning! closest_contemporaneous_packet/6 fails in get_tag_data/3~n',[]),
+                                       NextFamilyNum = LastFamilyNum,
+                                       NewFamily = NextFamilyNum,
+                                       NewGtypeAcc = GtypeAcc
+                               )
+
+                       ;
+                               format('Warning! conflicts for row ~w in get_tag_data/3~n',[PRow]),
+                               NextFamilyNum = LastFamilyNum,
+                               NewFamily = NextFamilyNum,
+                               NewGtypeAcc = GtypeAcc
+                       )
+	       ;
+                       format('Warning! no planted/8 for row ~w in get_tag_data/3~n',[PRow]),
+                       NextFamilyNum = LastFamilyNum,
+                       NewFamily = NextFamilyNum,
+                       NewGtypeAcc = GtypeAcc
+               )
+       ),        
+	
+       ( ( find_current_stand_count(Row,Crop,NumPlants),
+           NumPlants \== 0 ) ->
+
+               ( integer(Row) ->
+                       OutputRow = Row
+               ;
+                       remove_row_prefix(Row,OutputRow)
+               ),
+
+               make_barcode_elts(Crop,NewFamily,BarcodeElts),
+               append(TagAcc,[PRow-(BarcodeElts,OutputRow,NumPlants,
+                          NewFamily,MaFam,Ma,PaFam,Pa,MaGma,Marker,Quasi)],NewTagAcc)
+       ;
+               NewTagAcc = TagAcc
+       ),
+       get_tag_data(Crop,Rows,NextFamilyNum,NewGtypeAcc,GtypeData,NewTagAcc,TagData).
+
+
+
+
+
+
+
+
+
+
+% note this appends the computed genotypes to the ../data/genotype.pl file
+
+
+%! output_tentative_genotype(+Crop:atom,+GTypeFile:atom,+GtypeData:list) is det.
+
+
+output_tentative_genotype(Crop,GTypeFile,GtypeData) :-
+        open(GTypeFile,append,GStream),
+        format(GStream,'~n~n~n~n%%%%%%%%% automatically added families for ~w crop; check calculated genotype data! %%%%%%%%%%%%%%~n~n',[Crop]),
+        output_tentative_genotype_aux(GStream,GtypeData),
+        close(GStream).
+
+
+
+
+
+
+
+%! output_tentative_genotype_aux(+GTypeStream:atom,+GtypeData:list) is det.
+
+
+output_tentative_genotype_aux(_,[]).
+output_tentative_genotype_aux(GStream,[H|T]) :-
+        format(GStream,'~q.~n',[H]),
+        output_tentative_genotype_aux(GStream,T).
+
+
+
+
+
+
+
+% nb:  these genotypes are approximate for recessives and for back-crossed lines
+% of very mixed parentage.  All computed genotypes should be manually checked!
+%
+% Kazic, 24.7.2018
+
+%! compute_genotype(+PmaMaGma:atom,+PmaMaGpa:atom,+PmaPaGma:atom,+PmaPaMutant:atom,
+%!                  +PpaMaGma:atom,+PpaMaGpa:atom,+PpaPaGma:atom,+PpaPaMutant:atom,
+%!                  -MaGma:atom,-MaGpa:atom,-PaGma:atom,-PaMutant:atom) is det.
+
+
+compute_genotype(PmaMaGma,PmaMaGpa,PmaPaGma,PmaPaMutant,
+                 PpaMaGma,PpaMaGpa,PpaPaGma,PpaPaMutant,
+                                   MaGma,MaGpa,PaGma,PaMutant) :-
+        compute_genotype(PmaMaGma,PmaMaGpa,MaGma),
+        compute_genotype(PmaPaGma,PmaPaMutant,MaGpa),
+        compute_genotype(PpaMaGma,PpaMaGpa,PaGma),
+        compute_genotype(PpaPaGma,PpaPaMutant,PaMutant).
+
+
+
+
+%! compute_genotype(+ParentA:atom,+ParentB:atom,-Offspring:atom) is semidet.
+
+compute_genotype(ParentA,ParentB,Offspring) :-
+        ( ParentA == ParentB ->
+                Offspring = ParentA
+        ;
+                atomic_list_concat([ParentA,'/',ParentB],Offspring)
+        ).
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%% unexamined from here down %%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Kazic, 24.7.2018
+
+
+
+
+
+
+
+
+
+
+
+
+    
 
     
 % call: daily_status_report('09R',date(31,8,2009),'../results/').
@@ -778,7 +1053,7 @@ emergence_ok(Row,Crop,Packet,Cl,CrossInstructns,ExtraCl) :-
         ;
  
 
-% don't have any emergence data on skipped rows!
+% don''t have any emergence data on skipped rows!
 
                 ExtraCl = 0
         ).
@@ -1438,289 +1713,6 @@ check_mommies([Elt|T],Mas,Acc,ToDo) :-
 
 
 
-% given a crop and list of rows in order or priority,
-% take the most recent row_status fact for the rows in each planting, 
-% and generate the input file for ../../label_making/make_plant_tags.perl.  
-% The output is in order of the rows to get the plants tagged in order of need.
-%
-% removed argument for list of plantings since it's much better to use the
-% hand-and-brain-generated priority_rows/2 fact.
-%
-% Kazic, 30.7.2011
-
-
-
-% call: generate_plant_tags_file('15R','/home/toni/demeter/results/15r_planning/fgenotype.pl','/home/toni/demeter/results/15r_planning/plant_list.csv').
-
-
-
-
-generate_plant_tags_file(Crop,GTypeFile,TagFile) :-
-        generate_plant_tags_file_aux(Crop,GTypeFile,TagData),
-        keys_and_values(TagData,Rows,_),
-        check_for_missing_rows(Rows),
-        output_data(TagFile,plntags,TagData).
-
-
-
-
-
-
-% Now shutting off re-use of old family numbers so that genotype/11 facts can be corrected.
-% We have now filled in all the previous gaps due to manual assignment, and we need to retire
-% genotype facts that were created in error, as revealed by the re-inventory of the winter, 2014.
-%
-% shut off generation of intercalated family numbers!
-%
-% Kazic, 22.5.2014
-%
-%
-% Done.  Also fixed logic error so that header is formatted in any case.
-%
-% Kazic, 19.6.2014
-
-
-
-
-% hey, phasma can''t write to athe!  so open a temporary genotype file in results
-%
-% Kazic, 4.8.2015
-
-generate_plant_tags_file_aux(Crop,GTypeFile,TagData) :-
-        priority_rows(Crop,Rows),
-        once(find_available_mutant_family_numbers(IntercalatedNums,LastFamilyNum)),
-
-        open(GTypeFile,write,GStream),
-
-
-% want to generate header no matter what!  So just deleted the IntercalatedNums == [] conditional.
-%
-% Kazic, 19.6.2014
-
-        format(GStream,'~n~n~n~n%%%%%%%%% automatically added families for ~w crop; check calculated genotype data! %%%%%%%%%%%%%%~n~n',[Crop]),
-
-        get_tag_data(GStream,Crop,Rows,IntercalatedNums,LastFamilyNum,TagData),
-        close(GStream).
-
-
-
-
-
-
-
-
- 
-
-
-
-
-get_planted_rows(Crop,Dates,Rows) :-
-        get_planted_rows_aux(Crop,Dates,[],ListRows),
-        sort(ListRows,Rows).
-
-
-get_planted_rows_aux(_,[],A,A).
-get_planted_rows_aux(Crop,[Date|Dates],Acc,ListRows) :-
-        setof(Row,Pkt^Ft^Pltr^Time^Soil^planted(Row,Pkt,Ft,Pltr,Date,Time,Soil,Crop),Rows),
-        append(Acc,Rows,NewAcc),
-        get_planted_rows_aux(Crop,Dates,NewAcc,ListRows).
-
-        
-
-
-
-% must assign families if these do not already exist and accession ears into the genotype.pl file
-% max_plants is stand count + 1
-%
-% $barcode_elts are of the form:  Crop . Family . : . Prefix
-%
-%
-% for the newly revised Perl script and modules, the input data are:
-%
-%  ($barcode_elts,$prow,$max_plant,$family,$ma_family,$ma_num_gtype,$pa_family,$pa_num_gtype,$ma_gma_gtype,$ma_gpa_gtype,$pa_gma_gtype,$pa_mutant,$quasi_allele) 
-
-
-% oops!  this does not work for the inbreds because so many different lines are constructed from
-% the same parents!  So our inbred tags had the wrong families for 09r.  Have fixed this for now by hand
-% but the predicate must be revised for next year.
-%
-% Kazic, 13.7.09
-%
-% well, evidently fixed as inbred families now correct
-%
-% Kazic, 27.7.2011
-
-
-
-get_tag_data(GStream,Crop,Rows,IntercalatedNums,LastFamilyNum,TagData) :-
-        get_tag_data(GStream,Crop,Rows,IntercalatedNums,LastFamilyNum,[],TagData).
-
-
-get_tag_data(_,_,[],_,_,A,A).
-get_tag_data(GStream,Crop,[Row|Rows],IntercalatedNums,LastFamilyNum,Acc,TagData) :-
-
-        ( integer(Row) ->
-                OutputRow = Row
-        ;
-                remove_row_prefix(Row,OutputRow)
-        ),
-
-        ( identify_row(Crop,Row,Row-(PRow,Family,Ma,Pa,MaGma,MaGpa,PaGma,PaMutant,Marker,Quasi)) ->
-
-
-% a new line, such as the selfs, will return with an 
-% instantiated Family and numerical genotypes but uninstantiated genetic markers;
-% searching for the genotype fact based on just 
-% THAT family will return a fact, but for the parents, not the offspring.
-%
-% Searching by both family and parental numerical genotypes will return no fact; so first clause is ok
-% so the logic in second clause is flawed
-%
-% Kazic, 19.7.2010
-%
-% all fixed and tests out correctly, so far as I know
-%
-% Kazic, 19.7.2010
-%
-% no, still something wrong; the original genotype for family 622 fails compute_genotype/12, but I can''t figure out why.
-% Everything enters that predicate instantiated, but right now I just can''t see why that should be so. 
-% Just kludged the genotype fact for now.
-%
-% Kazic, 9.6.2012
-
-                ( ( nonvar(Family),
-                    genotype(Family,MaFam,Ma,PaFam,Pa,MaGma,MaGpa,PaGma,PaMutant,Marker,Quasi) ) ->
-                        RestIntNums = IntercalatedNums,
-                        NextFamilyNum = LastFamilyNum,
-                        NewFamily = Family
-		;
-	
-%
-% oops! still need to assign a family here!  For example, to the selfs of the prior year!
-%
-	
-                        \+ genotype(Family,MaFam,Ma,PaFam,Pa,MaGma,MaGpa,PaGma,PaMutant,_,Quasi),
-                        deconstruct_plantID(Ma,_,MaFam,_,_),
-                        genotype(MaFam,_,_,_,_,PmaMaGma,PmaMaGpa,PmaPaGma,PmaPaMutant,_,_),
-                        deconstruct_plantID(Pa,_,PaFam,_,_),
-                        genotype(PaFam,_,_,_,_,PpaMaGma,PpaMaGpa,PpaPaGma,PpaPaMutant,Marker,Quasi),
-                        ( ( nonvar(Family),
-                            Family == MaFam,
-                            Family == PaFam ) ->
-                                ( ( nonvar(MaGma),
-                                    nonvar(MaGpa),
-                                    nonvar(PaGma),
-                                    nonvar(PaMutant),
-                                    nonvar(Marker),
-                                    nonvar(Quasi) ) ->
-                                        compute_genotype(PmaMaGma,PmaMaGpa,PmaPaGma,PmaPaMutant,PpaMaGma,PpaMaGpa,PpaPaGma,PpaPaMutant,MaGma,MaGpa,PaGma,PaMutant),
-                                        assign_family(IntercalatedNums,LastFamilyNum,RestIntNums,NextFamilyNum,NewFamily),
-                                        format('Warning!  assigned family ~d and genotype for row ~q, ~w x ~w~n~n',[NewFamily,Row,Ma,Pa]),
-                                        output_tentative_genotype(GStream,NewFamily,MaFam,Ma,PaFam,Pa,PmaMaGma,PmaMaGpa,PmaPaGma,PmaPaMutant,PpaMaGma,PpaMaGpa,PpaPaGma,PpaPaMutant,MaGma,MaGpa,PaGma,PaMutant,Marker,Quasi)
-	
-	
-	
-                                ;
-                                        compute_genotype(PmaMaGma,PmaMaGpa,PmaPaGma,PmaPaMutant,PpaMaGma,PpaMaGpa,PpaPaGma,PpaPaMutant,MaGma,MaGpa,PaGma,PaMutant),
-                                        assign_family(IntercalatedNums,LastFamilyNum,RestIntNums,NextFamilyNum,NewFamily),
-                                        format('Warning!  assigned family ~d and genotype for row ~q, ~w x ~w~n',[NewFamily,Row,Ma,Pa]),
-                                        output_tentative_genotype(GStream,NewFamily,MaFam,Ma,PaFam,Pa,PmaMaGma,PmaMaGpa,PmaPaGma,PmaPaMutant,PpaMaGma,PpaMaGpa,PpaPaGma,PpaPaMutant,MaGma,MaGpa,PaGma,PaMutant,Marker,Quasi)
-	
-                                )
-                       ;
-	
-                                compute_genotype(PmaMaGma,PmaMaGpa,PmaPaGma,PmaPaMutant,PpaMaGma,PpaMaGpa,PpaPaGma,PpaPaMutant,MaGma,MaGpa,PaGma,PaMutant),
-                                assign_family(IntercalatedNums,LastFamilyNum,RestIntNums,NextFamilyNum,NewFamily),
-                                format('Warning!  assigned family ~d and genotype for row ~q, ~w x ~w~n',[NewFamily,Row,Ma,Pa]),
-                                output_tentative_genotype(GStream,NewFamily,MaFam,Ma,PaFam,Pa,PmaMaGma,PmaMaGpa,PmaPaGma,PmaPaMutant,PpaMaGma,PpaMaGpa,PpaPaGma,PpaPaMutant,MaGma,MaGpa,PaGma,PaMutant,Marker,Quasi)
-                                
-                        )
-                ),
-	
-                ( ( find_current_stand_count(Row,Crop,NumPlants),
-                            NumPlants \== 0 ) ->
-                        make_barcode_elts(Crop,NewFamily,BarcodeElts),
-                        append(Acc,[PRow-(BarcodeElts,OutputRow,NumPlants,
-                                          NewFamily,MaFam,Ma,PaFam,Pa,MaGma,Marker,Quasi)],NewAcc)
-                ;
-                        NewAcc = Acc
-                )
-        ;
-%
-%
-% ah ha! we just hit this condition for the first time in 15r at row 98:  the planted fact wasn''t recorded
-% and it couldn''t be reconstructed, since we changed the field so many times due to the weather.  So we
-% created a bogus line to be planted in that row (that was fine, it just needs to come from a prior crop),
-% but the last two variables had not been instantiated.  This is now fixed.
-%
-% Vatsa and Kazic, 4.8.2015
-%
-%
-                format('Warning! Row ~d cannot be identified!  Check planting and row_status facts.~n',[OutputRow]),
-                NewAcc = Acc,
-                RestIntNums = IntercalatedNums,
-                NextFamilyNum = LastFamilyNum
-        ),
-
-        get_tag_data(GStream,Crop,Rows,RestIntNums,NextFamilyNum,NewAcc,TagData).
-
-
-
-
-
-
-
-assign_family([H|T],N,T,N,H).
-assign_family([],Last,[],Next,Next) :-
-        Next is Last + 1.
-
-assign_family([],Last,Lost,Next,Next) :-
-        var(Lost),
-        Next is Last + 1.
-
-
-
-
-
-
-
-
-output_tentative_genotype(GStream,Family,MaFam,Ma,PaFam,Pa,PmaMaGma,PmaMaGpa,PmaPaGma,PmaPaMutant,PpaMaGma,PpaMaGpa,PpaPaGma,PpaPaMutant,
-                                                                                                  MaGma,MaGpa,PaGma,PaMutant,Marker,Quasi) :-
-        compute_genotype(PmaMaGma,PmaMaGpa,PmaPaGma,PmaPaMutant,PpaMaGma,PpaMaGpa,PpaPaGma,PpaPaMutant,MaGma,MaGpa,PaGma,PaMutant),
-        format(GStream,'fgenotype(~d,~d,~q,~d,~q,~q,~q,~q,~q,~q,~q).~n',[Family,MaFam,Ma,PaFam,Pa,MaGma,MaGpa,PaGma,PaMutant,Marker,Quasi]).
-
-
-
-
-compute_genotype(PmaMaGma,PmaMaGpa,PmaPaGma,PmaPaMutant,PpaMaGma,PpaMaGpa,PpaPaGma,PpaPaMutant,MaGma,MaGpa,PaGma,PaMutant) :-
-        compute_genotype(PmaMaGma,PmaMaGpa,MaGma),
-        compute_genotype(PmaPaGma,PmaPaMutant,MaGpa),
-        compute_genotype(PpaMaGma,PpaMaGpa,PaGma),
-        compute_genotype(PpaPaGma,PpaPaMutant,PaMutant).
-
-
-
-
-compute_genotype(ParentA,ParentB,Offspring) :-
-        ( ParentA == ParentB ->
-                Offspring = ParentA
-        ;
-                atomic_list_concat([ParentA,'/',ParentB],Offspring)
-        ).
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 check_for_missing_rows(Rows) :-
@@ -1757,6 +1749,25 @@ check_for_missing_rows(Prior,[H|T]) :-
 
 
 
+
+
+
+
+
+
+
+get_planted_rows(Crop,Dates,Rows) :-
+        get_planted_rows_aux(Crop,Dates,[],ListRows),
+        sort(ListRows,Rows).
+
+
+get_planted_rows_aux(_,[],A,A).
+get_planted_rows_aux(Crop,[Date|Dates],Acc,ListRows) :-
+        setof(Row,Pkt^Ft^Pltr^Time^Soil^planted(Row,Pkt,Ft,Pltr,Date,Time,Soil,Crop),Rows),
+        append(Acc,Rows,NewAcc),
+        get_planted_rows_aux(Crop,Dates,NewAcc,ListRows).
+
+        
 
 
 
@@ -2443,7 +2454,7 @@ unrecorded_pollination(Crop,Row,Ma,Pa) :-
 
 
 
-% like find_unrecorded_pollinations/2, but use the timestamps to get just that crop's data
+% like find_unrecorded_pollinations/2, but use the timestamps to get just that crop''s data
 %
 % Kazic, 21.9.2010
 
@@ -2458,7 +2469,7 @@ find_unharvested_crosses(Crop,File) :-
 
 
 
-% don't bother with ears that should be discarded!
+% don''t bother with ears that should be discarded!
 
 unharvested_cross(TimeStamp,Row,Ma,Pa) :-
         cross(Ma,Pa,_,false,_,_,CDate,_),

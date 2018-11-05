@@ -1410,7 +1410,7 @@ image('10R3016:0023811',0204,'t-5','stem 1',gimmel,'ambient reflected, field',to
 image('10R3016:0023803',0202,'t-5','stem 1',gimmel,'ambient reflected, field',toni,date(10,08,2010),time(12,56,39)).
 image('10R3016:0023801',0200,'t-5','stem 1',gimmel,'ambient reflected, field',toni,date(10,08,2010),time(12,54,27)).
 image('10R1038:0022609',0198,'e-2','middle',gimmel,'ambient reflected, field',toni,date(10,08,2010),time(12,51,56)).
-image('10R0000:0022411',0196,'e-1','middle',gimmel,'ambient reflected, field',toni,date(10,08,2010),time(12,49,00)).
+image('10R2795:0022411',0196,'e-1','middle',gimmel,'ambient reflected, field',toni,date(10,08,2010),time(12,49,00)).
 image('10R1348:0022103',0195,'e-2','middle',gimmel,'ambient reflected, field',toni,date(10,08,2010),time(12,03,15)).
 image('10R2241:0022011',0194,'e-2','middle',gimmel,'ambient reflected, field',toni,date(10,08,2010),time(11,58,44)).
 image('10R2241:0022010',0193,'e-2','middle',gimmel,'ambient reflected, field',toni,date(10,08,2010),time(11,55,37)).
@@ -2236,55 +2236,58 @@ image('12R3570:0020002',2303,'e-4','tip',aleph,'shed, new photo jig',toni,date(1
 % Since the pollinations failed, there was no need to assign family numbers.
 %
 % Kazic, 26.10.2012
-
-
-
+%
+% All rows have now been assigned to family 9999, the unknown family from outer space.
+%
+% Kazic, 25.5.2018
 
 
 % plantid missing
 %
-image('12R0000:0134709',0010,e1,'middle',bet,'ambient reflected, field',derek,date(02,08,2012),time(13,56,46)).
+% image('12R0000:0134709',0010,e1,'middle',bet,'ambient reflected, field',derek,date(02,08,2012),time(13,56,46)).
+
+image('12R9999:0134709',0010,e1,'middle',bet,'ambient reflected, field',derek,date(02,08,2012),time(13,56,46)).
 
 
 
 % plantid incomplete, row correct, leaf wrong
 %
 % image('12R0000:0134708',0011,e2,'middle',bet,'ambient reflected, field',derek,date(02,08,2012),time(14,09,45)).
-image('12R0000:0134708',0011,e3,'middle',bet,'ambient reflected, field',derek,date(02,08,2012),time(14,09,45)).
+image('12R9999:0134708',0011,e3,'middle',bet,'ambient reflected, field',derek,date(02,08,2012),time(14,09,45)).
 
 
+% image('12R0654:0134713',0013,e2,'middle',bet,'ambient reflected, field',derek,date(02,08,2012),time(14,24,18)).
 image('12R0654:0134713',0013,e2,'middle',bet,'ambient reflected, field',derek,date(02,08,2012),time(14,24,18)).
-
 
 
 % leaf number missing
 %
 % image('12R0000:0134415',0014,'t-3','middle',bet,'ambient reflected, field',derek,date(02,08,2012),time(14,30,03)).
-image('12R0000:0134415',0014,unk,'middle',bet,'ambient reflected, field',derek,date(02,08,2012),time(14,30,03)).
+image('12R9999:0134415',0014,unk,'middle',bet,'ambient reflected, field',derek,date(02,08,2012),time(14,30,03)).
 
 
 
 
 % image missing
 %
-image('12R0000:0133710',0015,e2,'middle',bet,'ambient reflected, field',derek,date(02,08,2012),time(14,39,10)).
+image('12R9999:0133710',0015,e2,'middle',bet,'ambient reflected, field',derek,date(02,08,2012),time(14,39,10)).
 
 % image missing
 %
-image('12R0000:0133613',0016,e0,'middle',bet,'ambient reflected, field',derek,date(02,08,2012),time(14,42,15)).
+image('12R9999:0133613',0016,e0,'middle',bet,'ambient reflected, field',derek,date(02,08,2012),time(14,42,15)).
 
 
 % plantid missing
 %
-image('12R0000:0133610',0017,'t-3','middle',bet,'ambient reflected, field',derek,date(02,08,2012),time(14,45,47)).
+image('12R9999:0133610',0017,'t-3','middle',bet,'ambient reflected, field',derek,date(02,08,2012),time(14,45,47)).
 
 
 
 % plantid and leaf incorrect
 %
-% image('12R0000:0133514',0018,e1,'middle',bet,'ambient reflected, field',derek,date(02,08,2012),time(14,51,21)).
+% image('12R9999:0133514',0018,e1,'middle',bet,'ambient reflected, field',derek,date(02,08,2012),time(14,51,21)).
 
-image('12R0000:0133613',0018,e0,'middle',bet,'ambient reflected, field',derek,date(02,08,2012),time(14,51,21)).
+image('12R9999:0133613',0018,e0,'middle',bet,'ambient reflected, field',derek,date(02,08,2012),time(14,51,21)).
 
 
 %
@@ -2292,31 +2295,34 @@ image('12R0000:0133613',0018,e0,'middle',bet,'ambient reflected, field',derek,da
 %
 % image('12R0653:0133513',0019,e1,'middle',bet,'ambient reflected, field',derek,date(02,08,2012),time(14,55,18)).
 
-image('12R0000:0133610',0019,unk,'middle',bet,'ambient reflected, field',derek,date(02,08,2012),time(14,55,18)).
+image('12R9999:0133610',0019,unk,'middle',bet,'ambient reflected, field',derek,date(02,08,2012),time(14,55,18)).
 
 
 % leaf incorrect
 %
 % image('12R0652:0133511',0020,'e-1','middle',bet,'ambient reflected, field',derek,date(02,08,2012),time(14,57,09)).
+% 
+% image('12R0652:0133511',0020,'e1','middle',bet,'ambient reflected, field',derek,date(02,08,2012),time(14,57,09)).
 
 image('12R0652:0133511',0020,'e1','middle',bet,'ambient reflected, field',derek,date(02,08,2012),time(14,57,09)).
 
 
-%
 % plantid incorrect, leaf missing
 %
 % image('12R0651:0133509',0021,e0,'middle',bet,'ambient reflected, field',derek,date(02,08,2012),time(15,00,13)).
-
+% image('12R0653:0133513',0021,e0,'middle',bet,'ambient reflected, field',derek,date(02,08,2012),time(15,00,13)).
 image('12R0653:0133513',0021,e0,'middle',bet,'ambient reflected, field',derek,date(02,08,2012),time(15,00,13)).
+    
 
 % plantid, leaf number missing
 %
+% image('12R0650:0133416',0022,e3,'middle',bet,'ambient reflected, field',derek,date(02,08,2012),time(15,07,12)).
 image('12R0650:0133416',0022,e3,'middle',bet,'ambient reflected, field',derek,date(02,08,2012),time(15,07,12)).
-
+    
 
 % plantid, leaf number missing
 %
-image('12R0000:0133415',0023,e1,'middle',bet,'ambient reflected, field',derek,date(02,08,2012),time(15,12,15)).
+image('12R0665:0133415',0023,e1,'middle',bet,'ambient reflected, field',derek,date(02,08,2012),time(15,12,15)).
 
 
 % plantid, leaf number incorrect
@@ -2328,14 +2334,14 @@ image('12R0650:0133416',0024,e3,'middle',bet,'ambient reflected, field',derek,da
 
 % image missing
 %
-image('12R0000:0133409',0025,e1,'middle',bet,'ambient reflected, field',derek,date(02,08,2012),time(15,21,36)).
+image('12R9999:0133409',0025,e1,'middle',bet,'ambient reflected, field',derek,date(02,08,2012),time(15,21,36)).
 
 
 % plantid incorrect, leaf number missing
 %
 % image('12R0648:0133407',0026,e2,'middle',bet,'ambient reflected, field',derek,date(02,08,2012),time(15,22,09)).
 
-image('12R0000:0133415',0026,unk,'middle',bet,'ambient reflected, field',derek,date(02,08,2012),time(15,22,09)).
+image('12R0665:0133415',0026,unk,'middle',bet,'ambient reflected, field',derek,date(02,08,2012),time(15,22,09)).
 
 % image missing
 %
@@ -2343,21 +2349,21 @@ image('12R0647:0133203',0027,'t-3','middle',bet,'ambient reflected, field',derek
 
 % plantid, leaf number incorrect
 %
-% image('12R0000:0132717',0028,e1,'middle',bet,'ambient reflected, field',derek,date(02,08,2012),time(15,28,08)).
+% image('12R9999:0132717',0028,e1,'middle',bet,'ambient reflected, field',derek,date(02,08,2012),time(15,28,08)).
 
 image('12R0649:0133414',0028,e6,'middle',bet,'ambient reflected, field',derek,date(02,08,2012),time(15,28,08)).
 
 % plantid incorrect, leaf number missing
 %
-% image('12R0000:0132514',0029,'t-3','middle',bet,'ambient reflected, field',derek,date(02,08,2012),time(15,30,25)).
+% image('12R9999:0132514',0029,'t-3','middle',bet,'ambient reflected, field',derek,date(02,08,2012),time(15,30,25)).
 
-image('12R0000:0133409',0029,unk,'middle',bet,'ambient reflected, field',derek,date(02,08,2012),time(15,30,25)).
+image('12R9999:0133409',0029,unk,'middle',bet,'ambient reflected, field',derek,date(02,08,2012),time(15,30,25)).
 
 
 % plantid, leaf number missing
 %
+% image('12R0646:0132313',0030,e3,'middle',bet,'ambient reflected, field',derek,date(02,08,2012),time(15,42,34)).
 image('12R0646:0132313',0030,e3,'middle',bet,'ambient reflected, field',derek,date(02,08,2012),time(15,42,34)).
-
 
 % plantid, leaf number missing
 %
@@ -2366,9 +2372,9 @@ image('12R0645:0132309',0031,e1,'middle',bet,'ambient reflected, field',derek,da
 
 % plantid incorrect, image number missing
 %
-% image('12R0000:0132303',0032,e3,'middle',bet,'ambient reflected, field',derek,date(02,08,2012),time(15,46,03)).
+% image('12R9999:0132303',0032,e3,'middle',bet,'ambient reflected, field',derek,date(02,08,2012),time(15,46,03)).
 
-image('12R0000:0132717',0032,unk,'middle',bet,'ambient reflected, field',derek,date(02,08,2012),time(15,46,03)).
+image('12R9999:0132717',0032,unk,'middle',bet,'ambient reflected, field',derek,date(02,08,2012),time(15,46,03)).
 
 
 
@@ -2376,7 +2382,7 @@ image('12R0000:0132717',0032,unk,'middle',bet,'ambient reflected, field',derek,d
 % where is this image???? way out of sequence and not in the directory.  It is in bet/3.8, but 
 % that is clearly not from David''s field.
 %
-% image('12R0643:0132211',0061,e3,'stem',bet,'ambient reflected, field',derek,date(02,08,2012),time(08,48,40)).
+% image('12R9999:0132211',0061,e3,'stem',bet,'ambient reflected, field',derek,date(02,08,2012),time(08,48,40)).
 
 
 
@@ -2385,9 +2391,9 @@ image('12R0000:0132717',0032,unk,'middle',bet,'ambient reflected, field',derek,d
 
 % plantid incorrect, leaf number missing
 %
-% image('12R0000:0132112',0033,'t-3','tip',bet,'ambient reflected, field',derek,date(02,08,2012),time(15,48,57)).
+% image('12R9999:0132112',0033,'t-3','tip',bet,'ambient reflected, field',derek,date(02,08,2012),time(15,48,57)).
 
-image('12R0000:0132514',0033,'unk','tip',bet,'ambient reflected, field',derek,date(02,08,2012),time(15,48,57)).
+image('12R9999:0132514',0033,'unk','tip',bet,'ambient reflected, field',derek,date(02,08,2012),time(15,48,57)).
 
 
 % plantid, leaf number missing
@@ -2397,13 +2403,13 @@ image('12R0642:0132014',0034,e2,'middle',bet,'ambient reflected, field',derek,da
 
 % plantid, leaf number missing; last two digits of plantid are 09
 %
-image('12R0000:0132010',0035,e3,'middle',bet,'ambient reflected, field',derek,date(02,08,2012),time(15,57,20)).
+image('12R9999:0132009',0035,e3,'middle',bet,'ambient reflected, field',derek,date(02,08,2012),time(15,57,20)).
 
 
 % images 0036--0039 not recorded.  The two that have plantids are below.
 
-image('12R0000:0132112',0037,unk,'tip',bet,'ambient reflected, field',derek,date(02,08,2012),time(15,57,20)).
-image('12R0000:0132010',0039,e3,'middle',bet,'ambient reflected, field',derek,date(02,08,2012),time(15,57,20)).
+image('12R9999:0132112',0037,unk,'tip',bet,'ambient reflected, field',derek,date(02,08,2012),time(15,57,20)).
+image('12R9999:0132010',0039,e3,'middle',bet,'ambient reflected, field',derek,date(02,08,2012),time(15,57,20)).
 
 
 
@@ -5513,7 +5519,16 @@ image('16R4477:0005305',0268,e3,'middle',gimmel,'ex situ ambient reflected, fiel
 image('16R4477:0005309',0265,e3,'stem',gimmel,'ex situ ambient reflected, field',avi,date(30,07,2016),time(14,27,35)).
 image('16R4477:0005311',0266,e4,'middle',gimmel,'ex situ ambient reflected, field',avi,date(30,07,2016),time(14,27,35)).
 image('16R4478:0005404',0269,'t-11','tip',gimmel,'ex situ ambient reflected, field',avi,date(30,07,2016),time(14,27,35)).
-image('16R4483:0005906',0279,'e-4','middle',gimmel,'ex situ ambient reflected, field',avi,date(30,07,2016),time(15,30,44)).
+
+% migrated per results of genetic_utilities:find_descendants_of_lines_wo_genotypes/2
+%
+% Kazic, 31.5.2018
+%
+% image('16R4483:0005906',0279,'e-4','middle',gimmel,'ex situ ambient reflected, field',avi,date(30,07,2016),time(15,30,44)).
+
+image('16R4648:0005906',0279,'e-4','middle',gimmel,'ex situ ambient reflected, field',avi,date(30,07,2016),time(15,30,44)).
+
+
 image('16R4491:0008006',0275,e0,'middle',gimmel,'ex situ ambient reflected, field',avi,date(30,07,2016),time(15,30,44)).
 image('16R4496:0009201',0277,'e-2','middle',gimmel,'ex situ ambient reflected, field',avi,date(30,07,2016),time(15,30,44)).
 image('16R4498:0009503',0267,'e-2','middle',gimmel,'ex situ ambient reflected, field',avi,date(30,07,2016),time(14,27,35)).
@@ -5596,7 +5611,18 @@ image('16R4479:0005503',0115,'e-4','middle',gimmel,'ex situ ambient reflected, f
 image('16R4479:0005504',0093,'e-5','middle',gimmel,'ex situ ambient reflected, field',avi,date(26,07,2016),time(13,30,56)).
 image('16R4479:0005506',0116,'t-13','middle',gimmel,'ex situ ambient reflected, field',avi,date(26,07,2016),time(14,32,49)).
 image('16R4481:0005709',0105,'e-3','middle',gimmel,'ex situ ambient reflected, field',avi,date(26,07,2016),time(13,30,56)).
-image('16R4483:0005910',0103,'e-3','middle',gimmel,'ex situ ambient reflected, field',avi,date(26,07,2016),time(13,30,56)).
+
+
+
+% migrated per results of genetic_utilities:find_descendants_of_lines_wo_genotypes/2
+%
+% Kazic, 31.5.2018
+%
+% image('16R4483:0005910',0103,'e-3','middle',gimmel,'ex situ ambient reflected, field',avi,date(26,07,2016),time(13,30,56)).
+
+image('16R4648:0005910',0103,'e-3','middle',gimmel,'ex situ ambient reflected, field',avi,date(26,07,2016),time(13,30,56)).
+
+
 image('16R4491:0008008',0129,e0,'middle',gimmel,'ex situ ambient reflected, field',avi,date(26,07,2016),time(16,57,25)).
 image('16R4498:0009514',0118,'e-2','middle',gimmel,'ex situ ambient reflected, field',avi,date(26,07,2016),time(16,57,25)).
 
@@ -5609,6 +5635,27 @@ image('16R4498:0009514',0118,'e-2','middle',gimmel,'ex situ ambient reflected, f
 
 
 % 17r
+
+
+
+% corrected per notes in ../../crops/17r/management/duped_new_genotypes.org:
+%
+% 4538:00163 -> 4640:00163 
+% 4552:00134 -> 4641:00134
+% 4553:00135 -> 4642:00135
+% 4554:00136 -> 4643:00136
+% 4555:00137 -> 4644:00137
+% 4615:00227 -> 4645:00227
+%
+% these two families did not need fixing; genotype facts entered anyway
+%
+% 4616:00231 -> 4646:00231
+% 4617:00232 -> 4647:00232
+%
+% Kazic, 20.5.2018
+
+	
+
 
 
 % data added from ../../../palm/raw_data_from_palms/17r/zeta/1.8/image.csv on Tue Apr 24 18:00:18 CDT 2018
@@ -5706,36 +5753,36 @@ image('17R4509:0017701',0392,'t-2','middle',gimmel,'ex situ ambient reflected, f
 image('17R4625:0015804',0391,'t-1','middle',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(09,51,00)).
 image('17R4497:0016405',0390,'e-4','middle',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(09,51,00)).
 image('17R4625:0015808',0389,e3,'middle',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(09,51,00)).
-image('17R4555:0013708',0388,e5,'middle',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(09,51,00)).
+image('17R4644:0013708',0388,e5,'middle',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(09,51,00)).
 image('17R4477:0016203',0387,e3,'middle',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(09,51,00)).
 image('17R4474:0016104',0386,'t-1','middle',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(09,51,00)).
 image('17R4557:0016502',0385,'e-2','tip',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(09,51,00)).
-image('17R4553:0013510',0384,e3,'middle',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(09,51,00)).
+image('17R4642:0013510',0384,e3,'middle',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(09,51,00)).
 image('17R4497:0016409',0383,'e-2','middle',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(09,51,00)).
 image('17R4474:0016101',0382,'t-1','middle',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(09,51,00)).
-image('17R4554:0013608',0381,e4,'middle',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(09,51,00)).
+image('17R4643:0013608',0381,e4,'middle',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(09,51,00)).
 image('17R4636:0014605',0380,t0,'whole',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(09,51,00)).
 image('17R4474:0016106',0379,'t-1','middle',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(09,51,00)).
 image('17R4625:0015809',0378,'t-1','whole',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(09,51,00)).
-image('17R4552:0013404',0377,e3,'middle',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(09,51,00)).
-image('17R4553:0013502',0376,e3,'middle',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(09,51,00)).
-image('17R4554:0013609',0375,e5,'middle',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(09,51,00)).
-image('17R4538:0016311',0374,'e-2','middle',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(09,51,00)).
+image('17R4641:0013404',0377,e3,'middle',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(09,51,00)).
+image('17R4642:0013502',0376,e3,'middle',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(09,51,00)).
+image('17R4643:0013609',0375,e5,'middle',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(09,51,00)).
+image('17R4640:0016311',0374,'e-2','middle',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(09,51,00)).
 image('17R4477:0016204',0373,e2,'middle',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(09,51,00)).
-image('17R4553:0013505',0372,e3,'middle',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(09,51,00)).
-image('17R4538:0016302',0371,'e-4','middle',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(09,51,00)).
+image('17R4642:0013505',0372,e3,'middle',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(09,51,00)).
+image('17R4640:0016302',0371,'e-4','middle',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(09,51,00)).
 image('17R4477:0016208',0370,e2,'middle',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(09,51,00)).
-image('17R4538:0016311',0369,'e-1','tip',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(09,51,00)).
+image('17R4640:0016311',0369,'e-1','tip',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(09,51,00)).
 image('17R4497:0016411',0368,'e-2','tip',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(09,51,00)).
-image('17R4538:0016306',0367,'e-5','middle',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(09,51,00)).
+image('17R4640:0016306',0367,'e-5','middle',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(09,51,00)).
 image('17R4626:0015704',0366,e2,'tip',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(09,51,00)).
-image('17R4552:0013411',0365,e3,'middle',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(09,51,00)).
+image('17R4641:0013411',0365,e3,'middle',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(09,51,00)).
 image('17R4626:0015706',0364,e2,'middle',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(09,51,00)).
 image('17R4477:0016203',0363,e4,'middle',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(09,51,00)).
 image('17R4625:0015804',0362,'t-2','middle',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(09,51,00)).
 image('17R4638:0014702',0361,t0,'middle',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(09,51,00)).
 image('17R4636:0014607',0360,'t-1','middle',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(09,51,00)).
-image('17R4554:0013611',0359,e4,'middle',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(09,51,00)).
+image('17R4643:0013611',0359,e4,'middle',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(09,51,00)).
 image('17R3270:0011221',0358,'t-2','middle',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(09,51,00)).
 image('17R4419:0011134',0357,'t-2','middle',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(09,51,00)).
 image('17R4553:0012404',0356,'t-2','whole',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(09,51,00)).
@@ -5799,3 +5846,249 @@ image('17R2252:0011012',0303,'t-2','middle',gimmel,'ex situ ambient reflected, f
 % 18r
 
     
+
+
+
+
+% data added from ../../../palm/raw_data_from_palms/18r/zeta/6.8/image.csv on Wed Aug  8 08:35:07 CDT 2018
+% by data/data_conversion/convert_image_data.perl
+% called from data/data_conversion/convert_data.perl
+
+image('18R4215:0018121',0937,'t-3','middle',gimmel,'ex situ ambient reflected, field',josh,date(06,08,2018),time(13,23,36)).
+image('18R4736:0019108',0938,'t-1','whole',gimmel,'ex situ ambient reflected, field',josh,date(06,08,2018),time(13,26,33)).
+image('18R4735:0018909',0939,'t-2','middle',gimmel,'ex situ ambient reflected, field',josh,date(06,08,2018),time(13,29,11)).
+image('18R4737:0019719',0940,'t-3','middle',gimmel,'ex situ ambient reflected, field',josh,date(06,08,2018),time(13,32,32)).
+image('18R4684:0017713',0941,'t-5','middle',gimmel,'ex situ ambient reflected, field',josh,date(06,08,2018),time(13,33,28)).
+image('18R4684:0017908',0942,'t-1','whole',gimmel,'ex situ ambient reflected, field',josh,date(06,08,2018),time(13,34,37)).
+image('18R4736:0019119',0943,'t-3','whole',gimmel,'ex situ ambient reflected, field',josh,date(06,08,2018),time(13,37,19)).
+image('18R4215:0018101',0944,'t-1','middle',gimmel,'ex situ ambient reflected, field',josh,date(06,08,2018),time(13,39,10)).
+image('18R4215:0018103',0945,'t-1','middle',gimmel,'ex situ ambient reflected, field',josh,date(06,08,2018),time(13,40,30)).
+image('18R4734:0018311',0946,'t-3','middle',gimmel,'ex situ ambient reflected, field',josh,date(06,08,2018),time(13,44,38)).
+image('18R4683:0017513',0947,'t-2','middle',gimmel,'ex situ ambient reflected, field',josh,date(06,08,2018),time(13,45,56)).
+image('18R4736:0019123',0948,'t-2','middle',gimmel,'ex situ ambient reflected, field',josh,date(06,08,2018),time(13,49,22)).
+image('18R4735:0018917',0949,'t-2','middle',gimmel,'ex situ ambient reflected, field',josh,date(06,08,2018),time(13,51,24)).
+image('18R4735:0018912',0950,'t-2','whole',gimmel,'ex situ ambient reflected, field',josh,date(06,08,2018),time(13,51,46)).
+image('18R4328:0018518',0951,'t-1','middle',gimmel,'ex situ ambient reflected, field',josh,date(06,08,2018),time(13,54,16)).
+image('18R4328:0018519',0952,'t-1','middle',gimmel,'ex situ ambient reflected, field',josh,date(06,08,2018),time(13,56,02)).
+image('18R4683:0017519',0953,'t-1','whole',gimmel,'ex situ ambient reflected, field',josh,date(06,08,2018),time(14,00,07)).
+image('18R4736:0019109',0954,'t-3','middle',gimmel,'ex situ ambient reflected, field',josh,date(06,08,2018),time(14,01,01)).
+image('18R4737:0019707',0955,'t-2','whole',gimmel,'ex situ ambient reflected, field',josh,date(06,08,2018),time(14,03,29)).
+image('18R4737:0019714',0956,'t-3','middle',gimmel,'ex situ ambient reflected, field',josh,date(06,08,2018),time(14,04,31)).
+
+
+
+
+% data added from ../../../palm/raw_data_from_palms/18r/eta/16.8/image.csv on Fri Aug 17 07:50:38 CDT 2018
+% by data/data_conversion/convert_image_data.perl
+% called from data/data_conversion/convert_data.perl
+
+image('18R4260:0008908',1024,'t-1','middle',gimmel,'ex situ ambient reflected, field',toni,date(16,08,2018),time(11,30,32)).
+image('18R4106:0009018',1025,e3,'middle',gimmel,'ex situ ambient reflected, field',toni,date(16,08,2018),time(11,36,36)).
+image('18R4455:0010002',1027,e3,'stem',gimmel,'ex situ ambient reflected, field',toni,date(16,08,2018),time(11,42,17)).
+image('18R4654:0009713',1028,e1,'middle',gimmel,'ex situ ambient reflected, field',toni,date(16,08,2018),time(11,45,33)).
+image('18R4651:0009209',1029,'t-3','stem',gimmel,'ex situ ambient reflected, field',toni,date(16,08,2018),time(11,48,47)).
+image('18R4649:0008612',1030,e1,'middle',gimmel,'ex situ ambient reflected, field',toni,date(16,08,2018),time(11,51,53)).
+image('18R4492:0008816',1031,e1,'middle',gimmel,'ex situ ambient reflected, field',toni,date(16,08,2018),time(11,54,58)).
+image('18R4440:0008113',1032,'e-2','middle',gimmel,'ex situ ambient reflected, field',toni,date(16,08,2018),time(11,58,33)).
+image('18R4655:0009812',1033,'t-1','middle',gimmel,'ex situ ambient reflected, field',toni,date(16,08,2018),time(12,01,21)).
+image('18R4440:0008104',1034,'e-2','middle',gimmel,'ex situ ambient reflected, field',toni,date(16,08,2018),time(12,05,06)).
+image('18R4654:0009710',1035,e1,'middle',gimmel,'ex situ ambient reflected, field',toni,date(16,08,2018),time(12,07,45)).
+image('18R4651:0009204',1036,'t-3','middle',gimmel,'ex situ ambient reflected, field',toni,date(16,08,2018),time(12,11,22)).
+image('18R4492:0008812',1037,e5,'middle',gimmel,'ex situ ambient reflected, field',toni,date(16,08,2018),time(12,16,50)).
+image('18R4441:0008717',1038,e1,'middle',gimmel,'ex situ ambient reflected, field',toni,date(16,08,2018),time(12,17,48)).
+image('18R4658:0010214',1039,e1,'middle',gimmel,'ex situ ambient reflected, field',toni,date(16,08,2018),time(12,21,12)).
+image('18R4258:0008410',1040,e1,'middle',gimmel,'ex situ ambient reflected, field',toni,date(16,08,2018),time(12,23,58)).
+image('18R4106:0009017',1041,e3,'middle',gimmel,'ex situ ambient reflected, field',toni,date(16,08,2018),time(12,26,23)).
+image('18R4226:0008308',1042,'e-2','middle',gimmel,'ex situ ambient reflected, field',toni,date(16,08,2018),time(12,29,36)).
+image('18R4657:0010109',1043,e4,'middle',gimmel,'ex situ ambient reflected, field',toni,date(16,08,2018),time(12,34,44)).
+image('18R4574:0009604',1044,'e-1','middle',gimmel,'ex situ ambient reflected, field',toni,date(16,08,2018),time(12,37,37)).
+image('18R4260:0008917',1045,'t-1','middle',gimmel,'ex situ ambient reflected, field',toni,date(16,08,2018),time(12,40,55)).
+image('18R4656:0009907',1046,'t-1','middle',gimmel,'ex situ ambient reflected, field',toni,date(16,08,2018),time(12,43,34)).
+image('18R4651:0009203',1047,'t-2','middle',gimmel,'ex situ ambient reflected, field',toni,date(16,08,2018),time(12,45,51)).
+image('18R4650:0009107',1048,'t-1','middle',gimmel,'ex situ ambient reflected, field',toni,date(16,08,2018),time(12,48,34)).
+image('18R4650:0009109',1049,'t-1','middle',gimmel,'ex situ ambient reflected, field',toni,date(16,08,2018),time(12,51,32)).
+image('18R4652:0009310',1050,'t-1','middle',gimmel,'ex situ ambient reflected, field',toni,date(16,08,2018),time(12,54,32)).
+image('18R4662:0011011',1051,e1,'middle',gimmel,'ex situ ambient reflected, field',toni,date(16,08,2018),time(15,13,47)).
+image('18R4665:0011620',1052,e3,'middle',gimmel,'ex situ ambient reflected, field',toni,date(16,08,2018),time(15,15,59)).
+image('18R4541:0011103',1053,'e-2','middle',gimmel,'ex situ ambient reflected, field',toni,date(16,08,2018),time(15,21,33)).
+image('18R4666:0011705',1054,e3,'middle',gimmel,'ex situ ambient reflected, field',toni,date(16,08,2018),time(15,24,50)).
+image('18R4666:0011707',1055,e3,'middle',gimmel,'ex situ ambient reflected, field',toni,date(16,08,2018),time(15,28,17)).
+image('18R4443:0010910',1056,e0,'middle',gimmel,'ex situ ambient reflected, field',toni,date(16,08,2018),time(15,31,07)).
+image('18R4662:0011008',1057,e1,'middle',gimmel,'ex situ ambient reflected, field',toni,date(16,08,2018),time(15,33,53)).
+image('18R4659:0010406',1059,e4,'middle',gimmel,'ex situ ambient reflected, field',toni,date(16,08,2018),time(15,37,56)).
+image('18R4659:0010407',1061,e4,'middle',gimmel,'ex situ ambient reflected, field',toni,date(16,08,2018),time(15,41,40)).
+image('18R4263:0010719',1062,'t-1','middle',gimmel,'ex situ ambient reflected, field',toni,date(16,08,2018),time(15,44,58)).
+image('18R4263:0010709',1064,'t-1','middle',gimmel,'ex situ ambient reflected, field',toni,date(16,08,2018),time(15,48,06)).
+image('18R4664:0011309',1065,'t-1','middle',gimmel,'ex situ ambient reflected, field',toni,date(16,08,2018),time(15,50,00)).
+image('18R3995:0010304',1066,e4,'middle',gimmel,'ex situ ambient reflected, field',toni,date(16,08,2018),time(15,59,41)).
+image('18R4663:0011205',1067,'t-3','middle',gimmel,'ex situ ambient reflected, field',toni,date(16,08,2018),time(16,04,10)).
+image('18R4265:0011509',1069,'t-2','middle',gimmel,'ex situ ambient reflected, field',toni,date(16,08,2018),time(16,06,41)).
+image('18R4661:0010813',1070,t0,'middle',gimmel,'ex situ ambient reflected, field',toni,date(16,08,2018),time(16,09,33)).
+image('18R4660:0010606',1071,t0,'middle',gimmel,'ex situ ambient reflected, field',toni,date(16,08,2018),time(16,12,03)).
+image('18R4444:0010506',1078,t0,'middle',gimmel,'ex situ ambient reflected, field',toni,date(16,08,2018),time(16,21,27)).
+image('18R4096:0011401',1079,'t-1','middle',gimmel,'ex situ ambient reflected, field',toni,date(16,08,2018),time(16,24,07)).
+image('18R4555:0011912',1080,'t-1','middle',gimmel,'ex situ ambient reflected, field',toni,date(16,08,2018),time(16,26,59)).
+image('18R4661:0010804',1081,t0,'middle',gimmel,'ex situ ambient reflected, field',toni,date(16,08,2018),time(16,30,26)).
+image('18R4660:0010605',1089,'t-1','middle',gimmel,'ex situ ambient reflected, field',toni,date(16,08,2018),time(16,34,45)).
+image('18R4555:0011902',1090,t0,'middle',gimmel,'ex situ ambient reflected, field',toni,date(16,08,2018),time(16,37,26)).
+
+
+
+
+% data added from ../../../palm/raw_data_from_palms/18r/eta/17.8/image.csv on Sat Aug 18 06:13:28 CDT 2018
+% by data/data_conversion/convert_image_data.perl
+% called from data/data_conversion/convert_data.perl
+
+image('18R4672:0013811',1091,e3,'middle',gimmel,'ex situ ambient reflected, field',toni,date(17,08,2018),time(11,52,33)).
+image('18R4671:0013703',1112,e3,'middle',gimmel,'ex situ ambient reflected, field',toni,date(17,08,2018),time(12,00,07)).
+image('18R4670:0013512',1114,e1,'middle',gimmel,'ex situ ambient reflected, field',toni,date(17,08,2018),time(12,03,38)).
+image('18R4436:0013910',1116,e1,'middle',gimmel,'ex situ ambient reflected, field',toni,date(17,08,2018),time(12,06,27)).
+image('18R4038:0013006',1118,e3,'middle',gimmel,'ex situ ambient reflected, field',toni,date(17,08,2018),time(12,10,50)).
+image('18R4668:0013109',1121,e2,'middle',gimmel,'ex situ ambient reflected, field',toni,date(17,08,2018),time(12,20,56)).
+image('18R4438:0012401',1123,'e-1','middle',gimmel,'ex situ ambient reflected, field',toni,date(17,08,2018),time(12,25,13)).
+image('18R3647:0012508',1127,e3,'middle',gimmel,'ex situ ambient reflected, field',toni,date(17,08,2018),time(12,31,00)).
+image('18R4100:0012107',1128,'e-2','middle',gimmel,'ex situ ambient reflected, field',toni,date(17,08,2018),time(12,37,07)).
+image('18R4267:0012909',1129,e2,'middle',gimmel,'ex situ ambient reflected, field',toni,date(17,08,2018),time(12,40,10)).
+image('18R4442:0012804',1130,e2,'middle',gimmel,'ex situ ambient reflected, field',toni,date(17,08,2018),time(12,43,41)).
+image('18R4449:0012218',1131,e2,'middle',gimmel,'ex situ ambient reflected, field',toni,date(17,08,2018),time(12,46,17)).
+image('18R4673:0014111',1132,e3,'whole',gimmel,'ex situ ambient reflected, field',toni,date(17,08,2018),time(12,49,37)).
+image('18R4100:0012118',1133,'e-2','middle',gimmel,'ex situ ambient reflected, field',toni,date(17,08,2018),time(12,53,38)).
+image('18R4449:0012218',1134,e3,'middle',gimmel,'ex situ ambient reflected, field',toni,date(17,08,2018),time(12,56,36)).
+image('18R4538:0013612',1135,'t-1','whole',gimmel,'ex situ ambient reflected, field',toni,date(17,08,2018),time(13,00,03)).
+image('18R4456:0014004',1136,'t-2','stem',gimmel,'ex situ ambient reflected, field',toni,date(17,08,2018),time(13,03,14)).
+image('18R4667:0012709',1138,e2,'middle',gimmel,'ex situ ambient reflected, field',toni,date(17,08,2018),time(13,06,56)).
+image('18R4672:0013809',1139,e3,'middle',gimmel,'ex situ ambient reflected, field',toni,date(17,08,2018),time(13,09,50)).
+image('18R4439:0013310',1140,'e-1','middle',gimmel,'ex situ ambient reflected, field',toni,date(17,08,2018),time(13,13,07)).
+image('18R4680:0016708',1142,'t-2','whole',gimmel,'ex situ ambient reflected, field',toni,date(17,08,2018),time(15,23,25)).
+image('18R4679:0016514',1144,e1,'stem',gimmel,'ex situ ambient reflected, field',toni,date(17,08,2018),time(15,26,50)).
+image('18R4678:0015902',1145,'t-3','whole',gimmel,'ex situ ambient reflected, field',toni,date(17,08,2018),time(15,31,21)).
+image('18R4675:0015317',1148,'t-3','whole',gimmel,'ex situ ambient reflected, field',toni,date(17,08,2018),time(15,34,30)).
+image('18R4678:0015901',1149,'t-3','whole',gimmel,'ex situ ambient reflected, field',toni,date(17,08,2018),time(15,37,41)).
+image('18R4679:0016505',1152,e1,'stem',gimmel,'ex situ ambient reflected, field',toni,date(17,08,2018),time(15,41,16)).
+image('18R4679:0016511',1154,e1,'middle',gimmel,'ex situ ambient reflected, field',toni,date(17,08,2018),time(15,45,21)).
+image('18R4679:0016504',1155,e1,'middle',gimmel,'ex situ ambient reflected, field',toni,date(17,08,2018),time(15,49,12)).
+image('18R4674:0015121',1157,e1,'middle',gimmel,'ex situ ambient reflected, field',toni,date(17,08,2018),time(15,52,30)).
+image('18R4679:0016502',1159,e1,'middle',gimmel,'ex situ ambient reflected, field',toni,date(17,08,2018),time(15,55,51)).
+image('18R4675:0015308',1162,'t-3','whole',gimmel,'ex situ ambient reflected, field',toni,date(17,08,2018),time(15,59,48)).
+image('18R4678:0015903',1163,'t-3','whole',gimmel,'ex situ ambient reflected, field',toni,date(17,08,2018),time(16,03,35)).
+image('18R4678:0015903',1165,'e-4','whole',gimmel,'ex situ ambient reflected, field',toni,date(17,08,2018),time(16,06,45)).
+image('18R4676:0015508',1167,'t-3','whole',gimmel,'ex situ ambient reflected, field',toni,date(17,08,2018),time(16,11,26)).
+
+
+
+
+% data added from ../../../palm/raw_data_from_palms/18r/eta/18.8/image.csv on Sun Aug 19 06:11:11 CDT 2018
+% by data/data_conversion/convert_image_data.perl
+% called from data/data_conversion/convert_data.perl
+
+image('18R4698:0022208',1168,'t-1','stem',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(09,54,56)).
+image('18R4697:0022104',1169,t0,'stem',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(09,57,55)).
+image('18R4695:0021913',1170,e4,'stem',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(10,01,19)).
+image('18R4697:0022109',1171,'t-1','stem',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(10,03,49)).
+image('18R4695:0021904',1172,e3,'middle',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(10,06,53)).
+image('18R4692:0021503',1173,e5,'middle',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(10,10,38)).
+image('18R4690:0021307',1174,e5,'middle',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(10,13,39)).
+image('18R4691:0021404',1175,e5,'middle',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(10,16,36)).
+image('18R4685:0020704',1176,e2,'middle',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(10,20,12)).
+image('18R4692:0021502',1177,e5,'middle',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(10,23,51)).
+image('18R4691:0021406',1178,e5,'middle',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(10,27,03)).
+image('18R4693:0021604',1179,e2,'middle',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(10,30,36)).
+image('18R4694:0021701',1180,e4,'middle',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(10,33,49)).
+image('18R4692:0021505',1181,e5,'middle',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(10,36,42)).
+image('18R4694:0021705',1182,e4,'middle',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(10,39,34)).
+image('18R4694:0021703',1183,e3,'middle',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(10,42,54)).
+image('18R4691:0021404',1184,e4,'middle',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(10,46,05)).
+image('18R4692:0021501',1185,'t-1','stem',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(10,48,52)).
+image('18R4695:0021912',1186,e4,'middle',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(10,52,10)).
+image('18R4690:0021305',1187,e5,'middle',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(10,54,54)).
+image('18R4690:0021310',1188,e5,'middle',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(10,57,40)).
+image('18R3998:0025409',1189,'t-2','stem',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(13,54,03)).
+image('18R4709:0023801',1190,e1,'tip',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(13,57,42)).
+image('18R4710:0023907',1191,'t-3','whole',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(14,02,13)).
+image('18R4706:0023206',1192,e1,'middle',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(14,05,52)).
+image('18R4709:0023802',1193,e1,'tip',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(14,10,27)).
+image('18R4709:0023810',1194,e1,'tip',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(14,13,37)).
+image('18R4705:0023108',1195,e0,'middle',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(14,18,54)).
+image('18R4739:0026008',1197,e5,'tip',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(14,22,22)).
+image('18R2468:0024401',1198,e4,'middle',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(14,25,54)).
+image('18R2437:0024301',1199,e5,'tip',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(14,29,24)).
+image('18R4738:0024503',1200,e2,'middle',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(14,32,24)).
+image('18R2437:0024304',1201,'t-1','middle',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(14,35,37)).
+image('18R2433:0024102',1202,e1,'middle',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(14,38,05)).
+image('18R2325:0023407',1203,e1,'middle',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(14,40,43)).
+image('18R2442:0024204',1204,e3,'middle',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(14,44,08)).
+image('18R2325:0023411',1205,e1,'middle',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(14,46,43)).
+image('18R2490:0025008',1206,e1,'tip',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(14,50,26)).
+image('18R3255:0024003',1207,'t-1','whole',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(14,53,10)).
+image('18R2030:0025208',1209,e3,'stem',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(14,56,21)).
+image('18R4716:0026210',1210,e5,'whole',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(14,59,23)).
+image('18R3998:0025405',1211,'t-2','whole',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(15,01,31)).
+image('18R3998:0025407',1212,'t-2','whole',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(15,03,40)).
+image('18R2468:0024406',1213,e1,'middle',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(15,07,02)).
+image('18R4408:0026810',1214,t0,'whole',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(15,09,20)).
+image('18R4716:0026206',1215,e4,'middle',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(15,11,33)).
+image('18R4706:0023203',1216,e1,'middle',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(15,14,55)).
+image('18R4714:0025801',1217,e4,'middle',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(15,17,19)).
+image('18R4505:0025312',1218,e2,'middle',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(15,19,54)).
+image('18R2442:0024209',1219,e4,'middle',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(15,22,05)).
+image('18R4505:0025311',1220,e2,'middle',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(15,24,28)).
+image('18R2442:0024201',1221,e4,'middle',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(15,26,34)).
+image('18R2473:0024605',1222,e5,'middle',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(15,28,39)).
+image('18R2473:0024601',1223,e5,'middle',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(15,30,59)).
+image('18R4706:0023205',1224,e1,'middle',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(15,33,17)).
+image('18R1563:0024807',1225,e2,'middle',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(15,37,01)).
+image('18R4740:0026108',1226,e2,'middle',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(15,39,45)).
+image('18R2491:0025108',1227,e3,'middle',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(15,42,28)).
+image('18R1563:0024812',1228,e2,'middle',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(15,45,10)).
+image('18R2473:0024612',1229,e5,'middle',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(15,48,14)).
+image('18R4720:0026903',1230,'e-5','middle',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(15,50,24)).
+image('18R4739:0026005',1231,e5,'middle',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(15,53,34)).
+image('18R2478:0024705',1233,'e-4','middle',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(15,57,10)).
+image('18R4708:0023710',1234,e1,'middle',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(15,59,07)).
+image('18R2325:0023404',1235,e1,'middle',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(16,01,25)).
+image('18R2433:0024103',1236,e1,'middle',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(16,04,15)).
+image('18R2490:0025003',1237,e1,'middle',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(16,06,52)).
+image('18R1612:0024903',1238,e4,'middle',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(16,11,38)).
+image('18R4731:0030011',1239,'t-2','stem',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(18,51,11)).
+image('18R4698:0029009',1240,'t-1','whole',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(18,55,59)).
+image('18R4698:0029007',1241,'t-1','stem',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(18,58,17)).
+image('18R4697:0028908',1242,'t-1','stem',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(19,00,29)).
+image('18R4474:0029403',1243,e4,'stem',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(19,03,46)).
+image('18R4474:0029408',1244,e4,'stem',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(19,06,23)).
+image('18R4733:0030205',1245,e5,'stem',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(19,09,13)).
+image('18R4697:0028901',1246,'t-1','middle',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(19,12,39)).
+image('18R4727:0029611',1247,e3,'stem',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(19,15,21)).
+image('18R4726:0029503',1248,e2,'middle',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(19,17,23)).
+image('18R4732:0030106',1249,e2,'middle',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(19,20,01)).
+image('18R4730:0029907',1250,e4,'stem',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(19,22,23)).
+image('18R4625:0029213',1251,e2,'middle',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(19,24,49)).
+image('18R4626:0029111',1252,e4,'middle',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(19,27,14)).
+image('18R4733:0030202',1254,e5,'stem',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(19,30,32)).
+image('18R4469:0029309',1255,'e-2','middle',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(19,33,02)).
+image('18R4722:0027105',1256,'e-3','middle',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(19,35,12)).
+image('18R4724:0027306',1257,e0,'middle',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(19,37,54)).
+%
+% leaf in this next not written on tag, so checked on plant
+%
+% Kazic, 22.8.2018
+%
+image('18R4725:0027408',1258,'e-1','middle',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(19,40,42)).
+image('18R4745:0027901',1259,e0,'middle',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(19,42,49)).
+image('18R4745:0027907',1260,e0,'middle',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(19,45,00)).
+image('18R4751:0028504',1261,e0,'tip',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(19,48,19)).
+image('18R4625:0029202',1262,e2,'middle',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(19,50,29)).
+image('18R0703:0028604',1263,e2,'middle',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(19,52,26)).
+image('18R4722:0027102',1264,'e-3','stem',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(19,54,54)).
+image('18R4745:0027903',1265,e0,'middle',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(19,56,51)).
+image('18R4727:0029614',1266,e5,'tip',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(19,59,53)).
+image('18R4730:0029901',1267,e4,'middle',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(20,02,23)).
+image('18R4728:0029703',1268,e5,'whole',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(20,05,34)).
+image('18R4727:0029609',1270,e3,'stem',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(20,08,00)).
+image('18R4724:0027305',1271,e0,'tip',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(20,10,31)).
+image('18R4695:0028704',1272,e4,'middle',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(20,13,42)).
+image('18R4626:0029101',1273,e4,'middle',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(20,16,16)).
+image('18R4728:0029704',1274,e5,'middle',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(20,18,05)).
+image('18R0703:0028611',1275,e2,'stem',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(20,19,57)).
+image('18R4626:0029107',1276,e3,'stem',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(20,21,57)).
+image('18R4751:0028502',1278,e0,'tip',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(20,24,17)).
+image('18R4626:0029105',1279,'e-1','middle',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(20,26,43)).

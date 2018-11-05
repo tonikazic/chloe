@@ -20,7 +20,13 @@
 
 % 06r
 
-planted(r00001,p00004,10,toni,date(8,5,2006),time(12,0,0),full,'06R').
+% fixed to prevent collisions with B73
+%    
+% Kazic, 22.5.2018
+
+    
+planted(r00001,p10004,10,toni,date(8,5,2006),time(12,0,0),full,'06R').
+
 planted(r00002,p00025,10,toni,date(8,5,2006),time(12,0,0),full,'06R').
 planted(r00003,p00036,10,toni,date(8,5,2006),time(12,0,0),full,'06R').
 planted(r00004,p00047,10,toni,date(8,5,2006),time(12,0,0),full,'06R').
@@ -2336,7 +2342,14 @@ planted(r00282,p00170,10,dylan,date(01,06,2009),time(14,34,29),full,'09R').
 planted(r00286,p00005,10,toni,date(09,6,2009),time(13,50,56),full,'09R').
 planted(r00287,p00007,10,toni,date(09,6,2009),time(13,51,08),full,'09R').
 planted(r00288,p00025,10,toni,date(09,6,2009),time(13,50,37),full,'09R').
-planted(r00289,p00004,10,toni,date(09,6,2009),time(13,50,46),full,'09R').
+
+
+% fixed to prevent collisions with B73
+%    
+% Kazic, 22.5.2018
+
+    
+planted(r00289,p10004,10,toni,date(09,6,2009),time(13,50,46),full,'09R').
 planted(r00290,p00029,10,toni,date(09,6,2009),time(13,38,06),full,'09R').
 planted(r00291,p00136,10,toni,date(09,6,2009),time(13,50,27),full,'09R').
 planted(r00292,p00999,20,toni,date(20,5,2009),time(19,41,11),full,'09R').
@@ -2873,6 +2886,21 @@ planted(r00561,t00167,10,dylan,date(01,07,2009),time(09,39,41),full,'09R').
 % rows 123, 124, 150, 195 WERE NOT PLANTED -- no corn
 % rows 119, 216 were planted but no planting record recorded.
 
+% added these dummy facts to satisfy make_indices.    
+%
+% Kazic, 20.5.2018
+
+planted(r00119,p00000,20,toni,date(29,05,2010),time(17,00,45),full,'10R').
+planted(r00123,p00000,20,toni,date(29,05,2010),time(17,00,45),full,'10R').
+planted(r00124,p00000,20,toni,date(29,05,2010),time(17,00,45),full,'10R').
+planted(r00150,p00000,20,toni,date(29,05,2010),time(17,00,45),full,'10R').
+planted(r00195,p00000,20,toni,date(29,05,2010),time(17,00,45),full,'10R').
+planted(r00216,p00000,20,toni,date(29,05,2010),time(17,00,45),full,'10R').
+
+
+
+
+    
 
 % data added from ../../data/palm/raw_data_from_palms/10r/delta/30.5/S30_data.txt on Sat Jun  5 06:17:57 CDT 2010
 % by data/data_conversion/convert_planted_data.perl
@@ -2974,7 +3002,15 @@ planted(r00156,p00014,15,toni,date(30,05,2010),time(15,27,24),full,'10R').
 planted(r00157,p00097,15,toni,date(30,05,2010),time(15,27,33),full,'10R').
 planted(r00158,p00056,15,toni,date(30,05,2010),time(15,27,15),full,'10R').
 planted(r00160,p00012,15,toni,date(30,05,2010),time(15,26,57),full,'10R').
-planted(r00165,p00004,15,toni,date(30,05,2010),time(15,26,46),full,'10R').
+
+
+% fixed to prevent collisions with B73
+%    
+% Kazic, 22.5.2018
+
+
+
+planted(r00165,p10004,15,toni,date(30,05,2010),time(15,26,46),full,'10R').
 planted(r00166,p00005,15,toni,date(30,05,2010),time(15,26,34),full,'10R').
 planted(r00167,p00006,15,toni,date(30,05,2010),time(15,26,25),full,'10R').
 planted(r00168,p00035,15,toni,date(30,05,2010),time(16,04,42),full,'10R').
@@ -3404,6 +3440,10 @@ planted(r00951,p00951,20,davidbraun,date(7,6,2010),time(16,0,0),full,'10R').
 
  
 
+
+% I have made some 
+
+    
 
    
 % first planting
@@ -4566,6 +4606,9 @@ planted(r00190,p00204,10,hawaiianresearch,date(23,11,2011),time(12,0,0),'6 row A
 % for the benefit of crop_management:generate_plant_tags/2, pretend that p00121 is really p00004
 %
 % Kazic, 15.12.2011
+
+
+
 
 planted(r00191,p00004,10,hawaiianresearch,date(23,11,2011),time(12,0,0),'6 row Alamco cone planter','11N').
 
@@ -6992,6 +7035,8 @@ planted(r00056,p00200,20,avi,date(23,06,2015),time(15,54,10),full,'15R').
 planted(r00057,p00155,20,avi,date(23,06,2015),time(15,54,10),full,'15R').
 planted(r00058,p00156,20,avi,date(23,06,2015),time(15,54,10),full,'15R').
 planted(r00059,p00198,20,avi,date(23,06,2015),time(15,54,10),full,'15R').
+planted(r00060,p00000,20,avi,date(23,06,2015),time(15,54,10),full,'15R').
+planted(r00090,p00000,20,avi,date(23,06,2015),time(15,54,10),full,'15R').
 planted(r00091,p00010,10,avi,date(23,06,2015),time(16,53,08),full,'15R').
 planted(r00092,p00201,10,avi,date(23,06,2015),time(16,53,08),full,'15R').
 planted(r00093,p00202,10,avi,date(23,06,2015),time(16,24,41),full,'15R').
@@ -7310,16 +7355,21 @@ planted(r00162,p02015,10,faked,date(3,6,2016),time(0,0,0),full,'16R').
 % by data/data_conversion/convert_planted_data.perl
 % called from data/data_conversion/convert_data.perl
 
-planted(r00001,p00999,20,toni,date(30,05,2017),time(16,52,01),full,'17R').
-planted(r00002,p00999,20,toni,date(30,05,2017),time(16,52,01),full,'17R').
-planted(r00003,p00999,20,toni,date(30,05,2017),time(16,52,01),full,'17R').
-planted(r00004,p00999,20,toni,date(30,05,2017),time(16,52,01),full,'17R').
-planted(r00005,p00999,20,toni,date(30,05,2017),time(16,52,01),full,'17R').
+% fixed p00999 to p00891
+%
+% Kazic, 1.6.2018
+    
+planted(r00001,p00891,20,toni,date(30,05,2017),time(16,52,01),full,'17R').
+planted(r00002,p00891,20,toni,date(30,05,2017),time(16,52,01),full,'17R').
+planted(r00003,p00891,20,toni,date(30,05,2017),time(16,52,01),full,'17R').
+planted(r00004,p00891,20,toni,date(30,05,2017),time(16,52,01),full,'17R').
+planted(r00005,p00891,20,toni,date(30,05,2017),time(16,52,01),full,'17R').
 planted(r00006,p00998,20,toni,date(30,05,2017),time(16,52,01),full,'17R').
 planted(r00007,p00998,20,toni,date(30,05,2017),time(16,52,01),full,'17R').
 planted(r00008,p00998,20,toni,date(30,05,2017),time(16,52,01),full,'17R').
 planted(r00009,p00998,20,toni,date(30,05,2017),time(16,52,01),full,'17R').
 planted(r00010,p00998,20,toni,date(30,05,2017),time(16,52,01),full,'17R').
+
 planted(r00011,p00001,20,toni,date(30,05,2017),time(14,48,04),full,'17R').
 planted(r00012,p00001,20,toni,date(30,05,2017),time(14,50,17),full,'17R').
 planted(r00013,p00001,20,toni,date(30,05,2017),time(14,53,19),full,'17R').
@@ -7381,74 +7431,74 @@ planted(r00148,p00110,10,toni,date(30,05,2017),time(15,51,16),full,'17R').
 % by data/data_conversion/convert_planted_data.perl
 % called from data/data_conversion/convert_data.perl
 
-planted(r00119,p00081,20,avi,date(30,05,2017),time(14,58,01),full,'17R').
+planted(r00017,p00002,20,avi,date(30,05,2017),time(14,58,01),full,'17R').
+planted(r00018,p00002,20,avi,date(30,05,2017),time(14,58,01),full,'17R').
+planted(r00019,p00002,20,avi,date(30,05,2017),time(14,58,01),full,'17R').
+planted(r00020,p00002,20,avi,date(30,05,2017),time(14,58,01),full,'17R').
+planted(r00021,p00003,20,avi,date(30,05,2017),time(14,58,01),full,'17R').
+planted(r00022,p00003,20,avi,date(30,05,2017),time(14,58,01),full,'17R').
+planted(r00023,p00003,20,avi,date(30,05,2017),time(14,58,01),full,'17R').
+planted(r00024,p00003,20,avi,date(30,05,2017),time(14,58,01),full,'17R').
+planted(r00025,p00003,20,avi,date(30,05,2017),time(14,58,01),full,'17R').
+planted(r00026,p00003,20,avi,date(30,05,2017),time(14,58,01),full,'17R').
+planted(r00027,p00003,20,avi,date(30,05,2017),time(14,58,01),full,'17R').
+planted(r00028,p00004,20,avi,date(30,05,2017),time(14,58,01),full,'17R').
+planted(r00029,p00004,20,avi,date(30,05,2017),time(14,58,01),full,'17R').
+planted(r00030,p00004,20,avi,date(30,05,2017),time(14,58,01),full,'17R').
+planted(r00031,p00004,20,avi,date(30,05,2017),time(14,58,01),full,'17R').
+planted(r00032,p00004,20,avi,date(30,05,2017),time(14,58,01),full,'17R').
+planted(r00098,p00060,20,avi,date(30,05,2017),time(14,58,01),full,'17R').
+planted(r00100,p00062,20,avi,date(30,05,2017),time(14,58,01),full,'17R').
+planted(r00102,p00064,20,avi,date(30,05,2017),time(14,58,01),full,'17R').
+planted(r00104,p00066,20,avi,date(30,05,2017),time(14,58,01),full,'17R').
+planted(r00106,p00068,20,avi,date(30,05,2017),time(14,58,01),full,'17R').
+planted(r00108,p00070,20,avi,date(30,05,2017),time(14,58,01),full,'17R').
+planted(r00110,p00072,20,avi,date(30,05,2017),time(14,58,01),full,'17R').
+planted(r00111,p00073,20,avi,date(30,05,2017),time(14,58,01),full,'17R').
+planted(r00112,p00074,20,avi,date(30,05,2017),time(14,58,01),full,'17R').
+planted(r00113,p00075,20,avi,date(30,05,2017),time(14,58,01),full,'17R').
+planted(r00114,p00076,20,avi,date(30,05,2017),time(14,58,01),full,'17R').
+planted(r00115,p00077,20,avi,date(30,05,2017),time(14,58,01),full,'17R').
+planted(r00116,p00078,20,avi,date(30,05,2017),time(14,58,01),full,'17R').
+planted(r00117,p00079,20,avi,date(30,05,2017),time(14,58,01),full,'17R').
 planted(r00118,p00080,20,avi,date(30,05,2017),time(14,58,01),full,'17R').
-planted(r00190,p00152,10,avi,date(30,05,2017),time(14,58,01),full,'17R').
-planted(r00189,p00151,10,avi,date(30,05,2017),time(14,58,01),full,'17R').
-planted(r00197,p00159,10,avi,date(30,05,2017),time(14,58,01),full,'17R').
-planted(r00150,p00112,10,avi,date(30,05,2017),time(14,58,01),full,'17R').
+planted(r00119,p00081,20,avi,date(30,05,2017),time(14,58,01),full,'17R').
 planted(r00149,p00111,10,avi,date(30,05,2017),time(14,58,01),full,'17R').
-planted(r00158,p00120,10,avi,date(30,05,2017),time(14,58,01),full,'17R').
+planted(r00150,p00112,10,avi,date(30,05,2017),time(14,58,01),full,'17R').
 planted(r00157,p00119,10,avi,date(30,05,2017),time(14,58,01),full,'17R').
-planted(r00160,p00122,10,avi,date(30,05,2017),time(14,58,01),full,'17R').
+planted(r00158,p00120,10,avi,date(30,05,2017),time(14,58,01),full,'17R').
 planted(r00159,p00121,10,avi,date(30,05,2017),time(14,58,01),full,'17R').
+planted(r00160,p00122,10,avi,date(30,05,2017),time(14,58,01),full,'17R').
 planted(r00161,p00123,10,avi,date(30,05,2017),time(14,58,01),full,'17R').
-planted(r00164,p00126,10,avi,date(30,05,2017),time(14,58,01),full,'17R').
 planted(r00163,p00125,10,avi,date(30,05,2017),time(14,58,01),full,'17R').
-planted(r00166,p00128,10,avi,date(30,05,2017),time(14,58,01),full,'17R').
+planted(r00164,p00126,10,avi,date(30,05,2017),time(14,58,01),full,'17R').
 planted(r00165,p00127,10,avi,date(30,05,2017),time(14,58,01),full,'17R').
-planted(r00168,p00130,10,avi,date(30,05,2017),time(14,58,01),full,'17R').
+planted(r00166,p00128,10,avi,date(30,05,2017),time(14,58,01),full,'17R').
 planted(r00167,p00129,10,avi,date(30,05,2017),time(14,58,01),full,'17R').
-planted(r00170,p00132,10,avi,date(30,05,2017),time(14,58,01),full,'17R').
+planted(r00168,p00130,10,avi,date(30,05,2017),time(14,58,01),full,'17R').
 planted(r00169,p00131,10,avi,date(30,05,2017),time(14,58,01),full,'17R').
-planted(r00172,p00134,10,avi,date(30,05,2017),time(14,58,01),full,'17R').
+planted(r00170,p00132,10,avi,date(30,05,2017),time(14,58,01),full,'17R').
 planted(r00171,p00133,10,avi,date(30,05,2017),time(14,58,01),full,'17R').
-planted(r00174,p00136,10,avi,date(30,05,2017),time(14,58,01),full,'17R').
+planted(r00172,p00134,10,avi,date(30,05,2017),time(14,58,01),full,'17R').
 planted(r00173,p00135,10,avi,date(30,05,2017),time(14,58,01),full,'17R').
-planted(r00176,p00138,10,avi,date(30,05,2017),time(14,58,01),full,'17R').
+planted(r00174,p00136,10,avi,date(30,05,2017),time(14,58,01),full,'17R').
 planted(r00175,p00137,10,avi,date(30,05,2017),time(14,58,01),full,'17R').
-planted(r00178,p00140,10,avi,date(30,05,2017),time(14,58,01),full,'17R').
+planted(r00176,p00138,10,avi,date(30,05,2017),time(14,58,01),full,'17R').
 planted(r00177,p00139,10,avi,date(30,05,2017),time(14,58,01),full,'17R').
-planted(r00180,p00142,10,avi,date(30,05,2017),time(14,58,01),full,'17R').
+planted(r00178,p00140,10,avi,date(30,05,2017),time(14,58,01),full,'17R').
 planted(r00179,p00141,10,avi,date(30,05,2017),time(14,58,01),full,'17R').
-planted(r00182,p00144,10,avi,date(30,05,2017),time(14,58,01),full,'17R').
+planted(r00180,p00142,10,avi,date(30,05,2017),time(14,58,01),full,'17R').
 planted(r00181,p00143,10,avi,date(30,05,2017),time(14,58,01),full,'17R').
+planted(r00182,p00144,10,avi,date(30,05,2017),time(14,58,01),full,'17R').
 planted(r00183,p00145,10,avi,date(30,05,2017),time(14,58,01),full,'17R').
 planted(r00184,p00146,10,avi,date(30,05,2017),time(14,58,01),full,'17R').
-planted(r00186,p00148,10,avi,date(30,05,2017),time(14,58,01),full,'17R').
 planted(r00185,p00147,10,avi,date(30,05,2017),time(14,58,01),full,'17R').
-planted(r00188,p00150,10,avi,date(30,05,2017),time(14,58,01),full,'17R').
+planted(r00186,p00148,10,avi,date(30,05,2017),time(14,58,01),full,'17R').
 planted(r00187,p00149,10,avi,date(30,05,2017),time(14,58,01),full,'17R').
-planted(r00117,p00079,20,avi,date(30,05,2017),time(14,58,01),full,'17R').
-planted(r00116,p00078,20,avi,date(30,05,2017),time(14,58,01),full,'17R').
-planted(r00115,p00077,20,avi,date(30,05,2017),time(14,58,01),full,'17R').
-planted(r00114,p00076,20,avi,date(30,05,2017),time(14,58,01),full,'17R').
-planted(r00113,p00075,20,avi,date(30,05,2017),time(14,58,01),full,'17R').
-planted(r00112,p00074,20,avi,date(30,05,2017),time(14,58,01),full,'17R').
-planted(r00111,p00073,20,avi,date(30,05,2017),time(14,58,01),full,'17R').
-planted(r00110,p00072,20,avi,date(30,05,2017),time(14,58,01),full,'17R').
-planted(r00108,p00070,20,avi,date(30,05,2017),time(14,58,01),full,'17R').
-planted(r00106,p00068,20,avi,date(30,05,2017),time(14,58,01),full,'17R').
-planted(r00104,p00066,20,avi,date(30,05,2017),time(14,58,01),full,'17R').
-planted(r00102,p00064,20,avi,date(30,05,2017),time(14,58,01),full,'17R').
-planted(r00100,p00062,20,avi,date(30,05,2017),time(14,58,01),full,'17R').
-planted(r00098,p00060,20,avi,date(30,05,2017),time(14,58,01),full,'17R').
-planted(r00032,p00004,20,avi,date(30,05,2017),time(14,58,01),full,'17R').
-planted(r00031,p00004,20,avi,date(30,05,2017),time(14,58,01),full,'17R').
-planted(r00030,p00004,20,avi,date(30,05,2017),time(14,58,01),full,'17R').
-planted(r00029,p00004,20,avi,date(30,05,2017),time(14,58,01),full,'17R').
-planted(r00028,p00004,20,avi,date(30,05,2017),time(14,58,01),full,'17R').
-planted(r00027,p00003,20,avi,date(30,05,2017),time(14,58,01),full,'17R').
-planted(r00026,p00003,20,avi,date(30,05,2017),time(14,58,01),full,'17R').
-planted(r00025,p00003,20,avi,date(30,05,2017),time(14,58,01),full,'17R').
-planted(r00024,p00003,20,avi,date(30,05,2017),time(14,58,01),full,'17R').
-planted(r00023,p00003,20,avi,date(30,05,2017),time(14,58,01),full,'17R').
-planted(r00022,p00003,20,avi,date(30,05,2017),time(14,58,01),full,'17R').
-planted(r00021,p00003,20,avi,date(30,05,2017),time(14,58,01),full,'17R').
-planted(r00020,p00002,20,avi,date(30,05,2017),time(14,58,01),full,'17R').
-planted(r00019,p00002,20,avi,date(30,05,2017),time(14,58,01),full,'17R').
-planted(r00018,p00002,20,avi,date(30,05,2017),time(14,58,01),full,'17R').
-planted(r00017,p00002,20,avi,date(30,05,2017),time(14,58,01),full,'17R').
+planted(r00188,p00150,10,avi,date(30,05,2017),time(14,58,01),full,'17R').
+planted(r00189,p00151,10,avi,date(30,05,2017),time(14,58,01),full,'17R').
+planted(r00190,p00152,10,avi,date(30,05,2017),time(14,58,01),full,'17R').
+planted(r00197,p00159,10,avi,date(30,05,2017),time(14,58,01),full,'17R').
 
 
 
@@ -7621,10 +7671,348 @@ planted(r00048,p00003,20,toni,date(5,6,2017),time(12,0,0),full,'17R').
 planted(r00049,p00003,20,toni,date(5,6,2017),time(12,0,0),full,'17R').
 planted(r00050,p00004,20,toni,date(5,6,2017),time(12,0,0),full,'17R').
 planted(r00051,p00004,20,toni,date(5,6,2017),time(12,0,0),full,'17R').
-    
-    
 
+
+
+
+% these two rows were discovered missing and reconstructed    
+%
+% Kazic, 19.5.2018    
+
+
+planted(r00145,p00107,20,toni,date(5,6,2017),time(12,0,0),full,'17R').
+planted(r00146,p00108,20,toni,date(5,6,2017),time(12,0,0),full,'17R').
+
+
+
+
+
+    
 
 % 18r
 
+
     
+% data added from ../../data/palm/raw_data_from_palms/18r/eta/6.6/planted.csv on Sat Jul 21 05:53:11 CDT 2018
+% by data/data_conversion/convert_planted_data.perl
+% called from data/data_conversion/convert_data.perl
+
+planted(r00001,p00001,20,mason,date(06,06,2018),time(15,58,12),full,'18R').
+planted(r00002,p00001,20,mason,date(06,06,2018),time(15,59,07),full,'18R').
+planted(r00003,p00001,20,mason,date(06,06,2018),time(16,01,40),full,'18R').
+planted(r00004,p00001,20,mason,date(06,06,2018),time(16,00,58),full,'18R').
+planted(r00005,p00001,20,mason,date(06,06,2018),time(16,03,53),full,'18R').
+planted(r00006,p00001,20,mason,date(06,06,2018),time(16,06,03),full,'18R').
+planted(r00007,p00001,20,mason,date(06,06,2018),time(16,07,50),full,'18R').
+planted(r00008,p00001,20,mason,date(06,06,2018),time(16,09,05),full,'18R').
+planted(r00009,p00001,20,mason,date(06,06,2018),time(16,09,15),full,'18R').
+planted(r00010,p00001,20,mason,date(06,06,2018),time(16,10,43),full,'18R').
+planted(r00011,p00001,20,mason,date(06,06,2018),time(16,12,03),full,'18R').
+planted(r00012,p00001,20,mason,date(06,06,2018),time(16,13,10),full,'18R').
+planted(r00013,p00001,20,mason,date(06,06,2018),time(16,14,10),full,'18R').
+planted(r00014,p00001,20,mason,date(06,06,2018),time(16,15,03),full,'18R').
+planted(r00015,p00001,20,mason,date(06,06,2018),time(16,15,45),full,'18R').
+planted(r00016,p00001,20,mason,date(06,06,2018),time(16,16,18),full,'18R').
+planted(r00017,p00001,20,mason,date(06,06,2018),time(16,17,09),full,'18R').
+planted(r00018,p00002,20,mason,date(06,06,2018),time(16,17,36),full,'18R').
+planted(r00019,p00002,20,mason,date(06,06,2018),time(16,18,49),full,'18R').
+planted(r00020,p00002,20,mason,date(06,06,2018),time(16,19,03),full,'18R').
+planted(r00021,p00002,20,mason,date(06,06,2018),time(16,20,05),full,'18R').
+planted(r00022,p00002,20,mason,date(06,06,2018),time(16,20,19),full,'18R').
+planted(r00023,p00002,20,mason,date(06,06,2018),time(16,21,33),full,'18R').
+planted(r00024,p00002,20,mason,date(06,06,2018),time(16,21,52),full,'18R').
+planted(r00025,p00002,20,mason,date(06,06,2018),time(16,22,17),full,'18R').
+planted(r00026,p00002,20,mason,date(06,06,2018),time(16,23,20),full,'18R').
+planted(r00027,p00002,20,mason,date(06,06,2018),time(16,23,39),full,'18R').
+planted(r00028,p00002,20,mason,date(06,06,2018),time(16,24,51),full,'18R').
+planted(r00029,p00002,20,mason,date(06,06,2018),time(16,25,13),full,'18R').
+planted(r00030,p00002,20,mason,date(06,06,2018),time(16,26,35),full,'18R').
+planted(r00031,p00002,20,mason,date(06,06,2018),time(16,27,31),full,'18R').
+planted(r00032,p00002,20,mason,date(06,06,2018),time(16,28,05),full,'18R').
+planted(r00033,p00002,20,mason,date(06,06,2018),time(16,28,18),full,'18R').
+planted(r00034,p00003,20,mason,date(06,06,2018),time(16,30,06),full,'18R').
+planted(r00035,p00003,20,mason,date(06,06,2018),time(16,31,03),full,'18R').
+planted(r00036,p00003,20,mason,date(06,06,2018),time(16,32,19),full,'18R').
+planted(r00037,p00003,20,mason,date(06,06,2018),time(16,33,03),full,'18R').
+planted(r00038,p00003,20,mason,date(06,06,2018),time(16,33,32),full,'18R').
+planted(r00039,p00003,20,mason,date(06,06,2018),time(16,33,47),full,'18R').
+planted(r00040,p00003,20,mason,date(06,06,2018),time(16,34,57),full,'18R').
+planted(r00041,p00003,20,mason,date(06,06,2018),time(16,35,12),full,'18R').
+planted(r00042,p00003,20,mason,date(06,06,2018),time(16,36,21),full,'18R').
+planted(r00043,p00003,20,mason,date(06,06,2018),time(16,36,33),full,'18R').
+planted(r00044,p00003,20,mason,date(06,06,2018),time(16,37,52),full,'18R').
+planted(r00045,p00003,20,mason,date(06,06,2018),time(16,38,07),full,'18R').
+planted(r00046,p00003,20,mason,date(06,06,2018),time(16,38,51),full,'18R').
+planted(r00047,p00003,20,mason,date(06,06,2018),time(16,39,19),full,'18R').
+planted(r00048,p00003,20,mason,date(06,06,2018),time(16,40,37),full,'18R').
+planted(r00049,p00003,20,mason,date(06,06,2018),time(16,40,53),full,'18R').
+planted(r00050,p00003,20,mason,date(06,06,2018),time(16,41,46),full,'18R').
+planted(r00051,p00003,20,mason,date(06,06,2018),time(16,42,18),full,'18R').
+planted(r00052,p00003,20,mason,date(06,06,2018),time(16,42,58),full,'18R').
+planted(r00053,p00003,20,mason,date(06,06,2018),time(16,44,13),full,'18R').
+planted(r00054,p00003,20,mason,date(06,06,2018),time(16,44,36),full,'18R').
+planted(r00055,p00003,20,mason,date(06,06,2018),time(16,46,20),full,'18R').
+planted(r00056,p00004,20,mason,date(06,06,2018),time(16,46,04),full,'18R').
+planted(r00057,p00004,20,mason,date(06,06,2018),time(16,47,27),full,'18R').
+planted(r00058,p00004,20,mason,date(06,06,2018),time(16,47,53),full,'18R').
+planted(r00059,p00004,20,mason,date(06,06,2018),time(16,48,46),full,'18R').
+planted(r00060,p00004,20,mason,date(06,06,2018),time(16,49,05),full,'18R').
+planted(r00061,p00004,20,mason,date(06,06,2018),time(16,49,58),full,'18R').
+planted(r00062,p00004,20,mason,date(06,06,2018),time(16,50,11),full,'18R').
+planted(r00063,p00004,20,mason,date(06,06,2018),time(16,51,13),full,'18R').
+planted(r00064,p00004,20,mason,date(06,06,2018),time(16,51,25),full,'18R').
+planted(r00065,p00004,20,mason,date(06,06,2018),time(16,52,39),full,'18R').
+planted(r00066,p00004,20,mason,date(06,06,2018),time(16,52,57),full,'18R').
+planted(r00067,p00004,20,mason,date(06,06,2018),time(16,54,02),full,'18R').
+planted(r00081,p00113,20,mason,date(06,06,2018),time(16,56,15),full,'18R').
+planted(r00082,p00092,20,mason,date(06,06,2018),time(16,56,47),full,'18R').
+planted(r00083,p00093,20,mason,date(06,06,2018),time(16,57,08),full,'18R').
+planted(r00084,p00088,20,mason,date(06,06,2018),time(16,58,22),full,'18R').
+planted(r00085,p00120,20,mason,date(06,06,2018),time(16,58,43),full,'18R').
+planted(r00086,p00205,20,mason,date(06,06,2018),time(16,58,04),full,'18R').
+planted(r00087,p00114,20,mason,date(06,06,2018),time(16,59,54),full,'18R').
+planted(r00088,p00148,20,mason,date(06,06,2018),time(17,00,35),full,'18R').
+planted(r00089,p00057,20,mason,date(06,06,2018),time(17,01,14),full,'18R').
+planted(r00090,p00079,20,mason,date(06,06,2018),time(17,02,00),full,'18R').
+planted(r00091,p00150,20,mason,date(06,06,2018),time(17,02,34),full,'18R').
+planted(r00092,p00149,20,mason,date(06,06,2018),time(17,03,27),full,'18R').
+planted(r00093,p00151,20,mason,date(06,06,2018),time(17,03,40),full,'18R').
+planted(r00094,p00145,20,mason,date(06,06,2018),time(17,04,17),full,'18R').
+planted(r00095,p00147,20,mason,date(06,06,2018),time(17,04,53),full,'18R').
+planted(r00096,p00137,20,mason,date(06,06,2018),time(17,05,43),full,'18R').
+planted(r00097,p00138,20,mason,date(06,06,2018),time(17,06,43),full,'18R').
+planted(r00098,p00142,20,mason,date(06,06,2018),time(17,06,52),full,'18R').
+planted(r00099,p00143,20,mason,date(06,06,2018),time(17,07,22),full,'18R').
+planted(r00100,p00126,20,mason,date(06,06,2018),time(17,08,19),full,'18R').
+planted(r00101,p00127,20,mason,date(06,06,2018),time(17,08,49),full,'18R').
+planted(r00102,p00110,20,mason,date(06,06,2018),time(17,09,31),full,'18R').
+planted(r00103,p00084,20,mason,date(06,06,2018),time(17,10,12),full,'18R').
+planted(r00104,p00211,20,mason,date(06,06,2018),time(17,11,23),full,'18R').
+planted(r00105,p00118,20,mason,date(06,06,2018),time(17,12,33),full,'18R').
+planted(r00106,p00115,20,mason,date(06,06,2018),time(17,13,24),full,'18R').
+planted(r00107,p00091,20,mason,date(06,06,2018),time(17,13,44),full,'18R').
+planted(r00108,p00182,20,mason,date(06,06,2018),time(17,14,24),full,'18R').
+planted(r00109,p00117,20,mason,date(06,06,2018),time(17,15,02),full,'18R').
+planted(r00110,p00083,20,mason,date(06,06,2018),time(17,15,35),full,'18R').
+planted(r00111,p00166,20,mason,date(06,06,2018),time(17,16,26),full,'18R').
+planted(r00112,p00176,20,mason,date(06,06,2018),time(17,16,57),full,'18R').
+planted(r00113,p00177,20,mason,date(06,06,2018),time(17,17,56),full,'18R').
+planted(r00114,p00073,20,mason,date(06,06,2018),time(17,18,19),full,'18R').
+planted(r00115,p00089,20,mason,date(06,06,2018),time(17,19,52),full,'18R').
+planted(r00116,p00201,20,mason,date(06,06,2018),time(17,20,14),full,'18R').
+planted(r00117,p00202,20,mason,date(06,06,2018),time(17,21,50),full,'18R').
+planted(r00118,p00133,20,mason,date(06,06,2018),time(17,22,39),full,'18R').
+planted(r00119,p00167,20,mason,date(06,06,2018),time(17,23,24),full,'18R').
+planted(r00120,p00163,20,mason,date(06,06,2018),time(17,24,54),full,'18R').
+planted(r00121,p00071,20,mason,date(06,06,2018),time(17,25,29),full,'18R').
+planted(r00122,p00121,20,mason,date(06,06,2018),time(17,25,41),full,'18R').
+planted(r00123,p00165,20,mason,date(06,06,2018),time(17,26,34),full,'18R').
+planted(r00124,p00111,20,mason,date(06,06,2018),time(17,27,37),full,'18R').
+planted(r00125,p00067,20,mason,date(06,06,2018),time(17,28,32),full,'18R').
+planted(r00126,p00125,20,mason,date(06,06,2018),time(17,28,50),full,'18R').
+planted(r00127,p00074,20,mason,date(06,06,2018),time(17,29,03),full,'18R').
+planted(r00128,p00116,20,mason,date(06,06,2018),time(17,30,06),full,'18R').
+planted(r00129,p00090,20,mason,date(06,06,2018),time(17,30,52),full,'18R').
+planted(r00130,p00085,20,mason,date(06,06,2018),time(17,31,20),full,'18R').
+planted(r00131,p00215,20,mason,date(06,06,2018),time(17,33,07),full,'18R').
+planted(r00132,p00217,20,mason,date(06,06,2018),time(17,33,18),full,'18R').
+planted(r00133,p00112,20,mason,date(06,06,2018),time(17,33,45),full,'18R').
+planted(r00134,p00095,20,mason,date(06,06,2018),time(17,34,12),full,'18R').
+planted(r00135,p00219,20,mason,date(06,06,2018),time(17,34,45),full,'18R').
+planted(r00136,p00161,20,mason,date(06,06,2018),time(17,37,14),full,'18R').
+planted(r00137,p00122,20,mason,date(06,06,2018),time(17,38,02),full,'18R').
+planted(r00138,p00129,20,mason,date(06,06,2018),time(17,38,24),full,'18R').
+planted(r00139,p00109,20,mason,date(06,06,2018),time(17,38,46),full,'18R').
+planted(r00140,p00131,20,mason,date(06,06,2018),time(17,39,18),full,'18R').
+planted(r00141,p00154,20,mason,date(06,06,2018),time(17,41,00),full,'18R').
+planted(r00142,p00010,20,mason,date(06,06,2018),time(17,42,25),full,'18R').
+planted(r00143,p00011,20,mason,date(06,06,2018),time(17,43,25),full,'18R').
+planted(r00144,p00012,20,mason,date(06,06,2018),time(17,46,05),full,'18R').
+planted(r00145,p00013,20,mason,date(06,06,2018),time(17,46,58),full,'18R').
+planted(r00146,p00014,20,mason,date(06,06,2018),time(17,48,46),full,'18R').
+planted(r00147,p00015,20,mason,date(06,06,2018),time(17,50,23),full,'18R').
+planted(r00148,p00016,20,mason,date(06,06,2018),time(17,52,15),full,'18R').
+planted(r00149,p00017,20,mason,date(06,06,2018),time(17,52,33),full,'18R').
+planted(r00150,p00018,20,mason,date(06,06,2018),time(17,54,09),full,'18R').
+planted(r00151,p00189,20,mason,date(06,06,2018),time(17,54,33),full,'18R').
+planted(r00152,p00019,20,mason,date(06,06,2018),time(17,55,44),full,'18R').
+planted(r00153,p00184,20,mason,date(06,06,2018),time(17,56,02),full,'18R').
+planted(r00154,p00020,20,mason,date(06,06,2018),time(17,57,11),full,'18R').
+planted(r00155,p00185,20,mason,date(06,06,2018),time(17,57,46),full,'18R').
+planted(r00156,p00021,20,mason,date(06,06,2018),time(17,58,44),full,'18R').
+planted(r00157,p00186,20,mason,date(06,06,2018),time(17,59,24),full,'18R').
+planted(r00158,p00022,20,mason,date(06,06,2018),time(18,01,03),full,'18R').
+planted(r00159,p00187,20,mason,date(06,06,2018),time(18,01,27),full,'18R').
+planted(r00160,p00023,20,mason,date(06,06,2018),time(18,02,26),full,'18R').
+planted(r00161,p00080,20,mason,date(06,06,2018),time(18,03,02),full,'18R').
+planted(r00162,p00024,20,mason,date(06,06,2018),time(18,03,25),full,'18R').
+planted(r00163,p00081,20,mason,date(06,06,2018),time(18,04,38),full,'18R').
+planted(r00164,p00025,20,mason,date(06,06,2018),time(18,05,00),full,'18R').
+planted(r00165,p00214,20,mason,date(06,06,2018),time(18,05,55),full,'18R').
+planted(r00166,p00026,20,mason,date(06,06,2018),time(18,06,53),full,'18R').
+planted(r00167,p00216,20,mason,date(06,06,2018),time(18,07,15),full,'18R').
+planted(r00168,p00027,20,mason,date(06,06,2018),time(18,08,53),full,'18R').
+planted(r00169,p00218,20,mason,date(06,06,2018),time(18,09,09),full,'18R').
+planted(r00170,p00028,20,mason,date(06,06,2018),time(18,10,46),full,'18R').
+planted(r00171,p00096,20,mason,date(06,06,2018),time(18,11,33),full,'18R').
+planted(r00172,p00029,20,mason,date(06,06,2018),time(18,12,02),full,'18R').
+planted(r00173,p00168,20,mason,date(06,06,2018),time(18,12,59),full,'18R').
+planted(r00174,p00030,20,mason,date(06,06,2018),time(18,13,09),full,'18R').
+planted(r00175,p00156,20,mason,date(06,06,2018),time(18,14,11),full,'18R').
+planted(r00176,p00031,20,mason,date(06,06,2018),time(18,14,45),full,'18R').
+planted(r00177,p00157,20,mason,date(06,06,2018),time(18,15,38),full,'18R').
+planted(r00178,p00032,20,mason,date(06,06,2018),time(18,16,43),full,'18R').
+planted(r00180,p00033,20,mason,date(06,06,2018),time(18,17,59),full,'18R').
+planted(r00182,p00034,20,mason,date(06,06,2018),time(18,18,13),full,'18R').
+planted(r00184,p00035,20,mason,date(06,06,2018),time(18,19,19),full,'18R').
+planted(r00186,p00036,20,mason,date(06,06,2018),time(18,19,43),full,'18R').
+planted(r00188,p00037,20,mason,date(06,06,2018),time(18,21,09),full,'18R').
+planted(r00190,p00038,20,mason,date(06,06,2018),time(18,22,15),full,'18R').
+planted(r00192,p00039,20,mason,date(06,06,2018),time(18,22,50),full,'18R').
+planted(r00194,p00040,20,mason,date(06,06,2018),time(18,23,42),full,'18R').
+planted(r00196,p00041,20,mason,date(06,06,2018),time(18,24,05),full,'18R').
+planted(r00198,p00042,20,mason,date(06,06,2018),time(18,24,56),full,'18R').
+planted(r00199,p00043,20,mason,date(06,06,2018),time(18,25,13),full,'18R').
+planted(r00200,p00044,20,mason,date(06,06,2018),time(18,26,33),full,'18R').
+planted(r00201,p00045,20,mason,date(06,06,2018),time(18,26,59),full,'18R').
+planted(r00202,p00046,20,mason,date(06,06,2018),time(18,27,29),full,'18R').
+planted(r00203,p00047,20,mason,date(06,06,2018),time(18,28,44),full,'18R').
+planted(r00204,p00048,20,mason,date(06,06,2018),time(18,29,15),full,'18R').
+planted(r00205,p00049,20,mason,date(06,06,2018),time(18,32,05),full,'18R').
+planted(r00206,p00050,20,mason,date(06,06,2018),time(18,32,20),full,'18R').
+planted(r00207,p00174,10,mason,date(06,06,2018),time(18,34,25),full,'18R').
+planted(r00208,p00180,10,mason,date(06,06,2018),time(18,35,26),full,'18R').
+planted(r00209,p00188,10,mason,date(06,06,2018),time(18,35,09),full,'18R').
+planted(r00210,p00179,10,mason,date(06,06,2018),time(18,36,01),full,'18R').
+planted(r00211,p00119,10,mason,date(06,06,2018),time(18,37,27),full,'18R').
+planted(r00212,p00210,10,mason,date(06,06,2018),time(18,37,45),full,'18R').
+planted(r00213,p00183,10,mason,date(06,06,2018),time(18,38,23),full,'18R').
+planted(r00214,p00198,10,mason,date(06,06,2018),time(18,38,41),full,'18R').
+planted(r00215,p00181,10,mason,date(06,06,2018),time(18,39,00),full,'18R').
+planted(r00216,p00200,10,mason,date(06,06,2018),time(18,40,14),full,'18R').
+planted(r00217,p00196,10,mason,date(06,06,2018),time(18,40,42),full,'18R').
+planted(r00218,p00175,10,mason,date(06,06,2018),time(18,40,58),full,'18R').
+planted(r00219,p00192,10,mason,date(06,06,2018),time(18,42,00),full,'18R').
+planted(r00220,p00190,10,mason,date(06,06,2018),time(18,43,04),full,'18R').
+planted(r00221,p00206,10,mason,date(06,06,2018),time(18,43,25),full,'18R').
+planted(r00222,p00212,10,mason,date(06,06,2018),time(18,43,52),full,'18R').
+planted(r00223,p00152,10,mason,date(06,06,2018),time(18,44,09),full,'18R').
+planted(r00224,p00155,10,mason,date(06,06,2018),time(18,44,30),full,'18R').
+planted(r00225,p00141,10,mason,date(06,06,2018),time(18,45,04),full,'18R').
+planted(r00226,p00140,10,mason,date(06,06,2018),time(18,45,18),full,'18R').
+planted(r00227,p00078,10,mason,date(06,06,2018),time(18,46,09),full,'18R').
+planted(r00228,p00072,10,mason,date(06,06,2018),time(18,46,31),full,'18R').
+planted(r00229,p00082,10,mason,date(06,06,2018),time(18,47,07),full,'18R').
+planted(r00230,p00087,10,mason,date(06,06,2018),time(18,47,46),full,'18R').
+planted(r00231,p00066,10,mason,date(06,06,2018),time(18,48,14),full,'18R').
+planted(r00232,p00124,10,mason,date(06,06,2018),time(18,48,00),full,'18R').
+planted(r00233,p00070,10,mason,date(06,06,2018),time(18,49,21),full,'18R').
+planted(r00235,p00065,10,mason,date(06,06,2018),time(18,49,59),full,'18R').
+planted(r00236,p00068,10,mason,date(06,06,2018),time(18,50,23),full,'18R').
+planted(r00237,p00195,10,mason,date(06,06,2018),time(18,50,55),full,'18R').
+planted(r00238,p00199,10,mason,date(06,06,2018),time(18,51,23),full,'18R').
+planted(r00239,p00094,10,mason,date(06,06,2018),time(18,51,40),full,'18R').
+planted(r00240,p00075,10,mason,date(06,06,2018),time(18,52,13),full,'18R').
+planted(r00252,p00064,10,mason,date(06,06,2018),time(18,52,55),full,'18R').
+planted(r00253,p00136,10,mason,date(06,06,2018),time(18,53,26),full,'18R').
+planted(r00254,p00086,10,mason,date(06,06,2018),time(18,53,37),full,'18R').
+planted(r00255,p00208,10,mason,date(06,06,2018),time(18,54,05),full,'18R').
+planted(r00256,p00204,10,mason,date(06,06,2018),time(18,54,32),full,'18R').
+planted(r00257,p00178,10,mason,date(06,06,2018),time(18,55,08),full,'18R').
+planted(r00258,p00194,10,mason,date(06,06,2018),time(18,55,20),full,'18R').
+planted(r00259,p00128,10,mason,date(06,06,2018),time(18,56,22),full,'18R').
+planted(r00262,p00164,10,mason,date(06,06,2018),time(18,56,42),full,'18R').
+planted(r00263,p00153,10,mason,date(06,06,2018),time(18,57,28),full,'18R').
+planted(r00264,p00139,10,mason,date(06,06,2018),time(18,57,56),full,'18R').
+planted(r00265,p00146,10,mason,date(06,06,2018),time(18,58,10),full,'18R').
+planted(r00266,p00197,10,mason,date(06,06,2018),time(18,58,34),full,'18R').
+planted(r00267,p00203,10,mason,date(06,06,2018),time(18,59,04),full,'18R').
+planted(r00268,p00132,10,mason,date(06,06,2018),time(18,59,43),full,'18R').
+planted(r00269,p00228,10,mason,date(06,06,2018),time(19,00,08),full,'18R').
+planted(r00270,p00229,10,mason,date(06,06,2018),time(19,00,30),full,'18R').
+planted(r00271,p00230,10,mason,date(06,06,2018),time(19,00,49),full,'18R').
+planted(r00272,p00231,10,mason,date(06,06,2018),time(19,01,35),full,'18R').
+planted(r00273,p00232,10,mason,date(06,06,2018),time(19,02,10),full,'18R').
+planted(r00274,p00233,10,mason,date(06,06,2018),time(19,02,28),full,'18R').
+planted(r00291,p00172,10,mason,date(06,06,2018),time(19,05,52),full,'18R').
+planted(r00292,p00173,10,mason,date(06,06,2018),time(19,06,13),full,'18R').
+planted(r00293,p00159,10,mason,date(06,06,2018),time(19,06,44),full,'18R').
+planted(r00294,p00160,10,mason,date(06,06,2018),time(19,07,06),full,'18R').
+planted(r00295,p00221,10,mason,date(06,06,2018),time(19,08,19),full,'18R').
+planted(r00296,p00222,10,mason,date(06,06,2018),time(19,08,49),full,'18R').
+planted(r00297,p00220,10,mason,date(06,06,2018),time(19,10,03),full,'18R').
+planted(r00298,p00223,10,mason,date(06,06,2018),time(19,10,30),full,'18R').
+planted(r00299,p00224,10,mason,date(06,06,2018),time(19,11,40),full,'18R').
+planted(r00300,p00225,10,mason,date(06,06,2018),time(19,12,11),full,'18R').
+planted(r00301,p00226,10,mason,date(06,06,2018),time(19,12,41),full,'18R').
+planted(r00302,p00227,10,mason,date(06,06,2018),time(19,12,53),full,'18R').
+
+
+
+
+% data added from ../../data/palm/raw_data_from_palms/18r/eta/11.6/planted.csv on Sat Jul 21 05:53:43 CDT 2018
+% by data/data_conversion/convert_planted_data.perl
+% called from data/data_conversion/convert_data.perl
+
+planted(r00179,p00097,20,mason,date(11,06,2018),time(08,40,14),full,'18R').
+planted(r00181,p00076,20,mason,date(11,06,2018),time(08,42,08),full,'18R').
+planted(r00183,p00077,20,mason,date(11,06,2018),time(08,44,21),full,'18R').
+planted(r00185,p00134,20,mason,date(11,06,2018),time(08,45,19),full,'18R').
+planted(r00187,p00135,20,mason,date(11,06,2018),time(08,46,40),full,'18R').
+planted(r00189,p00169,20,mason,date(11,06,2018),time(08,48,16),full,'18R').
+planted(r00191,p00170,20,mason,date(11,06,2018),time(08,50,21),full,'18R').
+planted(r00193,p00171,20,mason,date(11,06,2018),time(08,51,44),full,'18R').
+planted(r00197,p00158,20,mason,date(11,06,2018),time(08,53,53),full,'18R').
+planted(r00234,p00058,10,mason,date(11,06,2018),time(08,55,38),full,'18R').
+planted(r00241,p00056,10,mason,date(11,06,2018),time(08,56,57),full,'18R').
+planted(r00242,p00059,10,mason,date(11,06,2018),time(08,58,10),full,'18R').
+planted(r00243,p00063,10,mason,date(11,06,2018),time(08,59,06),full,'18R').
+planted(r00244,p00055,10,mason,date(11,06,2018),time(09,00,01),full,'18R').
+planted(r00245,p00061,10,mason,date(11,06,2018),time(09,01,58),full,'18R').
+planted(r00246,p00062,10,mason,date(11,06,2018),time(09,02,40),full,'18R').
+planted(r00247,p00054,10,mason,date(11,06,2018),time(09,03,48),full,'18R').
+planted(r00248,p00051,10,mason,date(11,06,2018),time(09,04,45),full,'18R').
+planted(r00249,p00052,10,mason,date(11,06,2018),time(09,05,56),full,'18R').
+planted(r00250,p00053,10,mason,date(11,06,2018),time(09,07,02),full,'18R').
+planted(r00251,p00060,10,mason,date(11,06,2018),time(09,08,08),full,'18R').
+planted(r00260,p00209,10,mason,date(11,06,2018),time(09,10,01),full,'18R').
+planted(r00261,p00069,10,mason,date(11,06,2018),time(09,10,45),full,'18R').
+planted(r00275,p00098,10,mason,date(11,06,2018),time(09,12,05),full,'18R').
+planted(r00276,p00099,10,mason,date(11,06,2018),time(09,13,19),full,'18R').
+planted(r00277,p00100,10,mason,date(11,06,2018),time(09,14,19),full,'18R').
+planted(r00278,p00101,10,mason,date(11,06,2018),time(09,15,31),full,'18R').
+planted(r00279,p00102,10,mason,date(11,06,2018),time(09,16,37),full,'18R').
+planted(r00280,p00103,10,mason,date(11,06,2018),time(09,17,47),full,'18R').
+planted(r00281,p00104,10,mason,date(11,06,2018),time(09,18,48),full,'18R').
+planted(r00282,p00105,10,mason,date(11,06,2018),time(09,20,14),full,'18R').
+planted(r00283,p00106,10,mason,date(11,06,2018),time(09,21,21),full,'18R').
+planted(r00284,p00107,10,mason,date(11,06,2018),time(09,22,26),full,'18R').
+planted(r00285,p00108,10,mason,date(11,06,2018),time(09,23,12),full,'18R').
+planted(r00286,p00144,10,mason,date(11,06,2018),time(09,24,27),full,'18R').
+planted(r00287,p00193,10,mason,date(11,06,2018),time(09,25,54),full,'18R').
+planted(r00288,p00191,10,mason,date(11,06,2018),time(09,27,03),full,'18R').
+planted(r00289,p00207,10,mason,date(11,06,2018),time(09,29,05),full,'18R').
+planted(r00290,p00213,10,mason,date(11,06,2018),time(09,29,57),full,'18R').
+
+
+
+
+% data added from ../../data/palm/raw_data_from_palms/18r/zeta/19.6/planted.csv on Sat Jul 21 05:54:11 CDT 2018
+% by data/data_conversion/convert_planted_data.perl
+% called from data/data_conversion/convert_data.perl
+
+planted(r00001,p00001,20,mason,date(19,06,2018),time(11,19,15),full,'18R').
+planted(r00068,p00001,20,mason,date(19,06,2018),time(11,20,16),full,'18R').
+planted(r00069,p00001,20,mason,date(19,06,2018),time(11,21,30),full,'18R').
+planted(r00070,p00001,20,mason,date(19,06,2018),time(11,22,42),full,'18R').
+planted(r00071,p00002,20,mason,date(19,06,2018),time(11,24,52),full,'18R').
+planted(r00072,p00002,20,mason,date(19,06,2018),time(11,26,13),full,'18R').
+planted(r00073,p00002,20,mason,date(19,06,2018),time(11,27,45),full,'18R').
+planted(r00074,p00003,20,mason,date(19,06,2018),time(11,29,17),full,'18R').
+planted(r00075,p00003,20,mason,date(19,06,2018),time(11,31,28),full,'18R').
+planted(r00076,p00003,20,mason,date(19,06,2018),time(11,32,54),full,'18R').
+planted(r00077,p00003,20,mason,date(19,06,2018),time(11,34,28),full,'18R').
+planted(r00078,p00003,20,mason,date(19,06,2018),time(11,35,43),full,'18R').
+planted(r00079,p00003,20,mason,date(19,06,2018),time(11,37,29),full,'18R').
+planted(r00080,p00003,20,mason,date(19,06,2018),time(11,39,03),full,'18R').
+planted(r00195,p01000,20,mason,date(19,06,2018),time(11,40,45),full,'18R').

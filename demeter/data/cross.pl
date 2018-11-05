@@ -212,7 +212,7 @@ cross('07R201:S0028206','07R0115:0086503',ear(1),false,james,kat,date(03,8,2007)
 cross('07R201:S0028209','07R0115:0086504',ear(1),false,james,kat,date(03,8,2007),time(12,11,02)).
 cross('07R401:M0029102','07R0115:0086504',ear(1),false,james,kat,date(03,8,2007),time(12,13,24)).
 cross('07R301:W0119811','07R0115:0086509',ear(1),false,toni,matt,date(03,8,2007),time(11,39,12)).
-cross('07R201:S0006701','07R2277:k008680',ear(1),false,paul,sudhama,date(01,8,2007),time(12,38,31)).
+cross('07R201:S0006701','07R2277:0008680',ear(1),false,paul,sudhama,date(01,8,2007),time(12,38,31)).
 cross('07R201:S0119408','07R0113:0086903',ear(1),false,james,paul,date(04,8,2007),time(09,13,07)).
 cross('07R401:M0119002','07R0113:0086903',ear(1),false,toni,toni,date(05,8,2007),time(11,01,18)).
 cross('07R301:W0120108','07R0113:0086903',ear(1),false,toni,toni,date(05,8,2007),time(11,03,50)).
@@ -2927,7 +2927,11 @@ cross('10R305:W0004213','10R2242:0028307',ear(1),false,toni,toni,date(23,07,2010
 cross('10R305:W0004214','10R1034:0020808',ear(1),false,toni,toni,date(23,07,2010),time(11,00,00)).
 cross('10R305:W0004211','10R2258:0033209',ear(1),false,toni,toni,date(23,07,2010),time(11,00,00)).
 cross('10R305:W0007105','10R1034:0020801',ear(1),false,toni,toni,date(23,07,2010),time(11,00,00)).
+
+
 cross('10R1025:0012712','10R1025:0012712',ear(1),false,toni,toni,date(23,07,2010),time(17,28,24)).
+
+	
 cross('10R1021:0012613','10R1021:0012613',ear(1),false,toni,toni,date(23,07,2010),time(17,28,21)).
 cross('10R1021:0012612','10R1021:0012612',ear(1),false,toni,toni,date(23,07,2010),time(17,27,46)).
 cross('10R1008:0011707','10R1008:0011707',ear(1),false,toni,toni,date(23,07,2010),time(17,26,41)).
@@ -2949,8 +2953,16 @@ cross('10R205:S0003107','10R1428:0015607',ear(1),false,toni,toni,date(25,07,2010
 cross('10R305:W0004513','10R1335:0034905',ear(1),false,toni,toni,date(25,07,2010),time(11,28,50)).
 cross('10R305:W0004508','10R1313:0028603',ear(1),false,toni,toni,date(25,07,2010),time(11,26,42)).
 cross('10R305:W0004503','10R1034:0020806',ear(1),false,toni,toni,date(25,07,2010),time(11,25,02)).
+
+
 cross('10R1025:0012708','10R1025:0012708',ear(1),false,toni,toni,date(25,07,2010),time(11,58,27)).
+
+
+
 cross('10R1025:0012704','10R1025:0012704',ear(1),false,toni,toni,date(25,07,2010),time(11,57,29)).
+
+
+
 cross('10R1021:0012604','10R1021:0012604',ear(1),false,toni,toni,date(25,07,2010),time(11,53,19)).
 cross('10R1020:0012508','10R1020:0012508',ear(1),false,toni,toni,date(25,07,2010),time(11,51,44)).
 cross('10R1020:0012501','10R1020:0012501',ear(1),false,toni,toni,date(25,07,2010),time(11,50,26)).
@@ -3140,7 +3152,11 @@ cross('10R305:W0001502','10R1035:0021906',ear(1),false,toni,toni,date(29,07,2010
 cross('10R305:W0001511','10R1035:0021903',ear(1),false,toni,toni,date(29,07,2010),time(10,23,11)).
 cross('10R205:S0007903','10R1033:0020002',ear(1),false,toni,toni,date(29,07,2010),time(09,30,44)).
 cross('10R1025:0012713','10R1025:0012713',ear(1),false,toni,toni,date(29,07,2010),time(11,22,21)).
+
+
 cross('10R1025:0012703','10R1025:0012703',ear(1),false,toni,toni,date(29,07,2010),time(11,24,24)).
+
+
 cross('10R1020:0012511','10R1020:0012511',ear(1),false,toni,toni,date(29,07,2010),time(09,09,12)).
 cross('10R1017:0012113','10R1017:0012113',ear(1),false,toni,toni,date(29,07,2010),time(09,08,13)).
 cross('10R1016:0012001','10R1016:0012001',ear(1),false,toni,toni,date(29,07,2010),time(09,08,11)).
@@ -5954,12 +5970,12 @@ cross('12R3584:0022804','12R3584:0022804',ear(1),false,toni,wade,date(27,07,2012
 cross('12R599:B0131227','12R0642:0132014',ear(1),false,toni,toni,date(29,07,2012),time(12,00,00)).
 cross('12R599:B0131127','12R0648:0133407',ear(1),false,toni,toni,date(29,07,2012),time(12,00,00)).
 cross('12R599:B0131126','12R0649:0133414',ear(1),false,toni,toni,date(29,07,2012),time(12,00,00)).
-cross('12R599:B0131125','12R0000:0133415',ear(1),false,toni,toni,date(29,07,2012),time(12,00,00)).
+cross('12R599:B0131125','12R0665:0133415',ear(1),false,toni,toni,date(29,07,2012),time(12,00,00)).
 cross('12R599:B0131119','12R0650:0133416',ear(1),false,toni,toni,date(29,07,2012),time(12,00,00)).
 cross('12R599:B0131102','12R0653:0133513',ear(1),false,toni,toni,date(29,07,2012),time(12,00,00)).
 
-cross('12R599:B0131114','12R0643:0132203',ear(1),false,toni,toni,date(30,07,2012),time(10,00,00)).
-cross('12R599:B0131118','12R0000:0133415',ear(1),false,toni,toni,date(30,07,2012),time(10,04,00)).
+cross('12R599:B0131114','12R9999:0132203',ear(1),false,toni,toni,date(30,07,2012),time(10,00,00)).
+cross('12R599:B0131118','12R0665:0133415',ear(1),false,toni,toni,date(30,07,2012),time(10,04,00)).
 cross('12R599:B0131025','12R0653:0133513',ear(1),false,toni,toni,date(29,07,2012),time(9,13,00)).
 
 cross('12R599:B0131201','12R599:B0131201',ear(1),false,toni,toni,date(31,07,2012),time(10,25,00)).
@@ -5969,18 +5985,18 @@ cross('12R599:B0131024','12R599:B0131024',ear(1),false,toni,toni,date(31,07,2012
 cross('12R599:B0131022','12R599:B0131022',ear(1),false,toni,toni,date(31,07,2012),time(10,26,00)).
 cross('12R599:B0131021','12R599:B0131021',ear(1),false,toni,toni,date(31,07,2012),time(10,26,00)).
 cross('12R599:B0131001','12R0654:0134713',ear(1),false,toni,toni,date(31,07,2012),time(10,29,00)).
-cross('12R599:B0131002','12R0000:0133711',ear(1),false,toni,toni,date(31,07,2012),time(10,29,00)).
+cross('12R599:B0131002','12R9999:0133711',ear(1),false,toni,toni,date(31,07,2012),time(10,29,00)).
 cross('12R599:B0131003','12R0644:0132303',ear(1),false,toni,toni,date(31,07,2012),time(10,30,00)).
 cross('12R599:B0131005','12R0643:0132211',ear(1),false,toni,toni,date(31,07,2012),time(10,30,00)).
-cross('12R599:B0131006','12R0642:0132010',ear(1),false,toni,toni,date(31,07,2012),time(10,30,00)).
-cross('12R599:B0131017','12R0000:0132717',ear(1),false,toni,toni,date(31,07,2012),time(10,30,00)).
+cross('12R599:B0131006','12R9999:0132010',ear(1),false,toni,toni,date(31,07,2012),time(10,30,00)).
+cross('12R599:B0131017','12R9999:0132717',ear(1),false,toni,toni,date(31,07,2012),time(10,30,00)).
 
 cross('12R599:B0131018','12R599:B0131007',ear(1),false,toni,toni,date(1,08,2012),time(10,47,00)).
 cross('12R599:B0131015','12R0644:0132303',ear(1),false,toni,toni,date(1,08,2012),time(10,48,00)).
 cross('12R599:B0131014','12R0645:0132309',ear(1),false,toni,toni,date(1,08,2012),time(10,48,00)).
 cross('12R599:B0131009','12R0646:0132313',ear(1),false,toni,toni,date(1,08,2012),time(10,48,00)).
-cross('12R599:B0131008','12R0643:0132214',ear(1),false,toni,toni,date(1,08,2012),time(10,48,00)).
-cross('12R599:B0131007','12R0000:0134708',ear(1),false,toni,toni,date(1,08,2012),time(10,49,00)).
+cross('12R599:B0131008','12R9999:0132214',ear(1),false,toni,toni,date(1,08,2012),time(10,48,00)).
+cross('12R599:B0131007','12R9999:0134708',ear(1),false,toni,toni,date(1,08,2012),time(10,49,00)).
 
 cross('12R0653:0133513','12R0653:0133513',ear(1),false,toni,toni,date(2,08,2012),time(10,57,00)).
 cross('12R0652:0133511','12R0652:0133511',ear(1),false,toni,toni,date(2,08,2012),time(10,58,00)).
@@ -5988,9 +6004,9 @@ cross('12R0651:0133509','12R0651:0133509',ear(1),false,toni,toni,date(2,08,2012)
 cross('12R599:B0131010','12R0642:0132014',ear(1),false,toni,toni,date(2,08,2012),time(11,03,00)).
 cross('12R599:B0131012','12R0652:0133511',ear(1),false,toni,toni,date(2,08,2012),time(11,04,00)).
 cross('12R599:B0131016','12R0652:0133511',ear(1),false,toni,toni,date(2,08,2012),time(11,05,00)).
-cross('12R599:B0131019','12R0000:0134709',ear(1),false,toni,toni,date(2,08,2012),time(11,07,00)).
+cross('12R599:B0131019','12R9999:0134709',ear(1),false,toni,toni,date(2,08,2012),time(11,07,00)).
 cross('12R599:B0131020','12R0651:0133509',ear(1),false,toni,toni,date(2,08,2012),time(11,07,00)).
-cross('12R599:B0131023','12R0000:0133710',ear(1),false,toni,toni,date(2,08,2012),time(11,07,00)).
+cross('12R599:B0131023','12R9999:0133710',ear(1),false,toni,toni,date(2,08,2012),time(11,07,00)).
 cross('12R599:B0131202','12R599:B0131202',ear(1),false,toni,toni,date(2,08,2012),time(11,08,00)).
 cross('12R599:B0131203','12R599:B0131203',ear(1),false,toni,toni,date(2,08,2012),time(11,09,00)).
 cross('12R599:B0131204','12R599:B0131204',ear(1),false,toni,toni,date(2,08,2012),time(11,09,00)).
@@ -6001,19 +6017,19 @@ cross('12R599:B0131107','12R0116:0051508',ear(1),false,toni,toni,date(3,08,2012)
 cross('12R599:B0131106','12R0116:0051505',ear(1),false,toni,toni,date(3,08,2012),time(10,32,00)).
 cross('12R599:B0131104','12R0116:0051501',ear(1),false,toni,toni,date(3,08,2012),time(10,33,00)).
 cross('12R599:B0131112','12R0647:0133203',ear(1),false,toni,toni,date(3,08,2012),time(10,42,00)).
-cross('12R599:B0131101','12R0642:0132010',ear(1),false,toni,toni,date(3,08,2012),time(10,42,00)).
+cross('12R599:B0131101','12R9999:0132010',ear(1),false,toni,toni,date(3,08,2012),time(10,42,00)).
 %
 % amended to reflect later assignment of families
 %
 % Kazic, 28.5.2014
-% cross('12R599:B0131013','12R0000:0133204',ear(1),false,toni,toni,date(3,08,2012),time(10,44,00)).
-% cross('12R599:B0131216','12R0000:0133711',ear(1),false,toni,toni,date(3,08,2012),time(10,46,00)).
+% cross('12R599:B0131013','12R0666:0133204',ear(1),false,toni,toni,date(3,08,2012),time(10,44,00)).
+% cross('12R599:B0131216','12R9999:0133711',ear(1),false,toni,toni,date(3,08,2012),time(10,46,00)).
 %
 %
 %  stopped here fixing baker/braun
 %
-cross('12R599:B0131013','12R0000:0133204',ear(1),false,toni,toni,date(3,08,2012),time(10,44,00)).
-cross('12R599:B0131216','12R0000:0133711',ear(1),false,toni,toni,date(3,08,2012),time(10,46,00)).
+cross('12R599:B0131013','12R0666:0133204',ear(1),false,toni,toni,date(3,08,2012),time(10,44,00)).
+cross('12R599:B0131216','12R9999:0133711',ear(1),false,toni,toni,date(3,08,2012),time(10,46,00)).
 
 cross('12R599:B0131210','12R0652:0133511',ear(1),false,toni,toni,date(3,08,2012),time(10,47,00)).
 
@@ -6025,9 +6041,9 @@ cross('12R599:B0131108','12R0116:0051505',ear(1),false,toni,toni,date(4,08,2012)
 cross('12R599:B0131105','12R0116:0051508',ear(1),false,toni,toni,date(4,08,2012),time(10,27,00)).
 cross('12R599:B0131103','12R0116:0051501',ear(1),false,toni,toni,date(4,08,2012),time(10,28,00)).
 cross('12R599:B0131110','12R0116:0051501',ear(1),false,toni,toni,date(4,08,2012),time(10,31,00)).
-cross('12R0000:0133710','12R0000:0133710',ear(1),false,toni,toni,date(4,08,2012),time(10,34,00)).
+cross('12R9999:0133710','12R9999:0133710',ear(1),false,toni,toni,date(4,08,2012),time(10,34,00)).
 cross('12R0642:0132014','12R0642:0132014',ear(1),false,toni,toni,date(4,08,2012),time(10,37,00)).
-cross('12R0642:0132010','12R0642:0132010',ear(1),false,toni,toni,date(4,08,2012),time(10,37,00)).
+cross('12R9999:0132010','12R9999:0132010',ear(1),false,toni,toni,date(4,08,2012),time(10,37,00)).
 
 
 
@@ -8740,9 +8756,23 @@ cross('16R405:M0002213','16R4496:0009201',ear(1),false,toni,toni,date(24,07,2016
 cross('16R405:M0002212','16R4496:0009201',ear(1),false,toni,toni,date(24,07,2016),time(11,42,07)).
 cross('16R4086:0007610','16R4086:0007610',ear(1),false,toni,toni,date(24,07,2016),time(11,36,54)).
 cross('16R4227:0006601','16R4227:0006601',ear(1),false,toni,toni,date(24,07,2016),time(11,34,36)).
-cross('16R405:M0002107','16R4483:0005910',ear(1),false,toni,toni,date(24,07,2016),time(11,12,13)).
-cross('16R405:M0002107','16R4483:0005910',ear(1),false,toni,toni,date(24,07,2016),time(11,11,06)).
-cross('16R405:M0002106','16R4483:0005910',ear(1),false,toni,toni,date(24,07,2016),time(11,10,45)).
+
+
+% migrated per results of genetic_utilities:find_descendants_of_lines_wo_genotypes/2
+%
+% Kazic, 31.5.2018
+%	
+% cross('16R405:M0002107','16R4483:0005910',ear(1),false,toni,toni,date(24,07,2016),time(11,12,13)).
+% cross('16R405:M0002107','16R4483:0005910',ear(1),false,toni,toni,date(24,07,2016),time(11,11,06)).
+% cross('16R405:M0002106','16R4483:0005910',ear(1),false,toni,toni,date(24,07,2016),time(11,10,45)).
+
+cross('16R405:M0002107','16R4648:0005910',ear(1),false,toni,toni,date(24,07,2016),time(11,12,13)).
+cross('16R405:M0002107','16R4648:0005910',ear(1),false,toni,toni,date(24,07,2016),time(11,11,06)).
+cross('16R405:M0002106','16R4648:0005910',ear(1),false,toni,toni,date(24,07,2016),time(11,10,45)).
+	
+
+
+
 cross('16R305:W0002916','16R4481:0005709',ear(1),false,toni,toni,date(24,07,2016),time(10,22,38)).
 cross('16R205:S0001118','16R4479:0005504',ear(1),false,toni,toni,date(24,07,2016),time(11,29,12)).
 cross('16R205:S0001212','16R4479:0005503',ear(1),false,toni,toni,date(24,07,2016),time(11,28,58)).
@@ -8810,8 +8840,20 @@ cross('16R405:M0003112','16R4222:0009405',ear(1),false,toni,toni,date(26,07,2016
 cross('16R405:M0003110','16R4496:0009209',ear(1),false,toni,toni,date(26,07,2016),time(11,44,53)).
 cross('16R405:M0003109','16R4496:0009209',ear(1),false,toni,toni,date(26,07,2016),time(11,45,06)).
 cross('16R405:M0003114','16R4496:0009201',ear(1),false,toni,toni,date(26,07,2016),time(11,44,14)).
-cross('16R405:M0003105','16R4483:0005906',ear(1),false,toni,toni,date(26,07,2016),time(11,45,30)).
-cross('16R405:M0003104','16R4483:0005906',ear(1),false,toni,toni,date(26,07,2016),time(11,45,47)).
+
+
+% migrated per results of genetic_utilities:find_descendants_of_lines_wo_genotypes/2
+%
+% Kazic, 31.5.2018
+%
+% cross('16R405:M0003105','16R4483:0005906',ear(1),false,toni,toni,date(26,07,2016),time(11,45,30)).
+% cross('16R405:M0003104','16R4483:0005906',ear(1),false,toni,toni,date(26,07,2016),time(11,45,47)).
+
+
+cross('16R405:M0003105','16R4648:0005906',ear(1),false,toni,toni,date(26,07,2016),time(11,45,30)).
+cross('16R405:M0003104','16R4648:0005906',ear(1),false,toni,toni,date(26,07,2016),time(11,45,47)).
+
+
 cross('16R305:W0002910','16R4481:0005709',ear(1),false,toni,toni,date(26,07,2016),time(11,27,31)).
 cross('16R205:S0001107','16R4479:0005506',ear(1),false,toni,toni,date(26,07,2016),time(11,58,27)).
 cross('16R205:S0001108','16R4479:0005504',ear(1),false,toni,toni,date(26,07,2016),time(11,58,02)).
@@ -8992,6 +9034,24 @@ cross('16R205:S0000612','16R4445:0009809',ear(1),false,toni,toni,date(30,07,2016
 
 % 17r
 
+% corrected per notes in ../../crops/17r/management/duped_new_genotypes.org:
+%
+% 4538:00163 -> 4640:00163 
+% 4552:00134 -> 4641:00134
+% 4553:00135 -> 4642:00135
+% 4554:00136 -> 4643:00136
+% 4555:00137 -> 4644:00137
+% 4615:00227 -> 4645:00227
+%
+% these two families did not need fixing; genotype facts entered anyway
+%
+% 4616:00231 -> 4646:00231
+% 4617:00232 -> 4647:00232
+%
+% Kazic, 20.5.2018
+	
+
+	
 
 % data added from ../../data/palm/raw_data_from_palms/17r/eta/30.7/cross.csv on Fri Apr 20 16:00:27 CDT 2018
 % by data/data_conversion/convert_cross_data.perl
@@ -9042,13 +9102,13 @@ cross('17R205:S0001210','17R4625:0015809',ear(1),false,toni,josh,date(30,07,2017
 cross('17R205:S0001209','17R4543:0017901',ear(1),false,toni,josh,date(30,07,2017),time(12,24,53)).
 cross('17R205:S0001208','17R4545:0018105',ear(1),false,toni,josh,date(30,07,2017),time(12,24,34)).
 cross('17R205:S0001206','17R4545:0018105',ear(1),false,toni,josh,date(30,07,2017),time(12,24,21)).
-cross('17R405:M0002310','17R4538:0016302',ear(1),false,toni,josh,date(30,07,2017),time(12,15,32)).
+cross('17R405:M0002310','17R4640:0016302',ear(1),false,toni,josh,date(30,07,2017),time(12,15,32)).
 cross('17R405:M0002309','17R4578:0017406',ear(1),false,toni,josh,date(30,07,2017),time(12,15,00)).
 cross('17R405:M0002307','17R4578:0017406',ear(1),false,toni,josh,date(30,07,2017),time(12,14,44)).
 cross('17R405:M0002306','17R4578:0017406',ear(1),false,toni,josh,date(30,07,2017),time(12,14,33)).
-cross('17R405:M0002304','17R4538:0016311',ear(1),false,toni,josh,date(30,07,2017),time(12,12,35)).
-cross('17R405:M0002302','17R4538:0016311',ear(1),false,toni,josh,date(30,07,2017),time(12,12,24)).
-cross('17R405:M0002202','17R4538:0016306',ear(1),false,toni,josh,date(30,07,2017),time(12,11,09)).
+cross('17R405:M0002304','17R4640:0016311',ear(1),false,toni,josh,date(30,07,2017),time(12,12,35)).
+cross('17R405:M0002302','17R4640:0016311',ear(1),false,toni,josh,date(30,07,2017),time(12,12,24)).
+cross('17R405:M0002202','17R4640:0016306',ear(1),false,toni,josh,date(30,07,2017),time(12,11,09)).
 cross('17R405:M0002203','17R4540:0017604',ear(1),false,toni,josh,date(30,07,2017),time(12,09,51)).
 cross('17R405:M0002206','17R4546:0018201',ear(1),false,toni,josh,date(30,07,2017),time(12,09,30)).
 cross('17R405:M0002207','17R4546:0018201',ear(1),false,toni,josh,date(30,07,2017),time(12,09,25)).
@@ -9205,9 +9265,9 @@ cross('17R4594:0022903','17R4594:0022903',ear(1),false,toni,toni,date(02,08,2017
 cross('17R4594:0022902','17R4594:0022902',ear(1),false,toni,toni,date(02,08,2017),time(11,00,00)).
 cross('17R4593:0022803','17R4593:0022803',ear(1),false,toni,toni,date(02,08,2017),time(10,46,23)).
 cross('17R4593:0022802','17R4593:0022802',ear(1),false,toni,toni,date(02,08,2017),time(10,46,20)).
-cross('17R4615:0022708','17R4615:0022708',ear(1),false,toni,toni,date(02,08,2017),time(10,48,33)).
-cross('17R4615:0022706','17R4615:0022706',ear(1),false,toni,toni,date(02,08,2017),time(10,48,27)).
-cross('17R4615:0022701','17R4615:0022701',ear(1),false,toni,toni,date(02,08,2017),time(10,48,21)).
+cross('17R4645:0022708','17R4645:0022708',ear(1),false,toni,toni,date(02,08,2017),time(10,48,33)).
+cross('17R4645:0022706','17R4645:0022706',ear(1),false,toni,toni,date(02,08,2017),time(10,48,27)).
+cross('17R4645:0022701','17R4645:0022701',ear(1),false,toni,toni,date(02,08,2017),time(10,48,21)).
 cross('17R4592:0022613','17R4592:0022613',ear(1),false,toni,toni,date(02,08,2017),time(10,44,13)).
 cross('17R4592:0022611','17R4592:0022611',ear(1),false,toni,toni,date(02,08,2017),time(10,44,10)).
 cross('17R4592:0022609','17R4592:0022609',ear(1),false,toni,toni,date(02,08,2017),time(10,44,06)).
@@ -9588,11 +9648,11 @@ cross('17R305:W0003815','17R4497:0016409',ear(1),false,toni,josh,date(30,07,2017
 cross('17R305:W0001815','17R4497:0016409',ear(1),false,toni,josh,date(26,07,2017),time(09,57,00)).
 cross('17R305:W0001814','17R4497:0016409',ear(1),false,toni,josh,date(26,07,2017),time(09,57,00)).
 cross('17R305:W0001901','17R4497:0016407',ear(1),false,toni,josh,date(28,07,2017),time(10,53,00)).
-cross('17R405:M0002209','17R4538:0016311',ear(1),false,toni,josh,date(29,07,2017),time(11,33,00)).
-cross('17R405:M0002106','17R4538:0016311',ear(1),false,toni,josh,date(28,07,2017),time(11,05,00)).
-cross('17R405:M0002211','17R4538:0016306',ear(1),false,toni,josh,date(29,07,2017),time(11,22,00)).
-cross('17R405:M0002107','17R4538:0016306',ear(1),false,toni,josh,date(28,07,2017),time(11,06,00)).
-cross('17R405:M0002108','17R4538:0016302',ear(1),false,toni,josh,date(28,07,2017),time(11,07,00)).
+cross('17R405:M0002209','17R4640:0016311',ear(1),false,toni,josh,date(29,07,2017),time(11,33,00)).
+cross('17R405:M0002106','17R4640:0016311',ear(1),false,toni,josh,date(28,07,2017),time(11,05,00)).
+cross('17R405:M0002211','17R4640:0016306',ear(1),false,toni,josh,date(29,07,2017),time(11,22,00)).
+cross('17R405:M0002107','17R4640:0016306',ear(1),false,toni,josh,date(28,07,2017),time(11,06,00)).
+cross('17R405:M0002108','17R4640:0016302',ear(1),false,toni,josh,date(28,07,2017),time(11,07,00)).
 cross('17R305:W0003921','17R4477:0016208',ear(1),false,toni,josh,date(29,07,2017),time(11,06,00)).
 cross('17R305:W0003807','17R4477:0016208',ear(1),false,toni,josh,date(29,07,2017),time(11,04,00)).
 cross('17R305:W0003910','17R4477:0016204',ear(1),false,toni,josh,date(30,07,2017),time(12,35,00)).
@@ -9620,19 +9680,19 @@ cross('17R4627:0013805','17R4627:0013805',ear(1),false,toni,josh,date(29,07,2017
 cross('17R4627:0013804','17R4627:0013804',ear(1),false,toni,josh,date(28,07,2017),time(10,24,00)).
 cross('17R4627:0013802','17R4627:0013802',ear(1),false,toni,josh,date(29,07,2017),time(13,09,00)).
 cross('17R4627:0013801','17R4627:0013801',ear(1),false,toni,josh,date(29,07,2017),time(13,09,00)).
-cross('17R405:M0002509','17R4555:0013708',ear(1),false,toni,josh,date(26,07,2017),time(10,49,00)).
-cross('17R405:M0002510','17R4555:0013703',ear(1),false,toni,josh,date(26,07,2017),time(10,49,00)).
-cross('17R405:M0002502','17R4555:0013701',ear(1),false,toni,josh,date(26,07,2017),time(10,51,00)).
-cross('17R405:M0002201','17R4554:0013613',ear(1),false,toni,josh,date(26,07,2017),time(10,07,00)).
-cross('17R405:M0002210','17R4554:0013611',ear(1),false,toni,josh,date(26,07,2017),time(10,08,00)).
-cross('17R405:M0002213','17R4554:0013609',ear(1),false,toni,josh,date(26,07,2017),time(10,09,00)).
-cross('17R405:M0002215','17R4554:0013608',ear(1),false,toni,josh,date(26,07,2017),time(10,10,00)).
-cross('17R305:W0001708','17R4553:0013510',ear(1),false,toni,josh,date(26,07,2017),time(09,47,00)).
-cross('17R305:W0001702','17R4553:0013505',ear(1),false,toni,josh,date(26,07,2017),time(09,46,00)).
-cross('17R305:W0001709','17R4553:0013502',ear(1),false,toni,josh,date(26,07,2017),time(09,49,00)).
-cross('17R305:W0001813','17R4552:0013415',ear(1),false,toni,josh,date(26,07,2017),time(09,57,00)).
-cross('17R305:W0001808','17R4552:0013415',ear(1),false,toni,josh,date(26,07,2017),time(09,58,00)).
-cross('17R305:W0001804','17R4552:0013415',ear(1),false,toni,josh,date(26,07,2017),time(09,58,00)).
+cross('17R405:M0002509','17R4644:0013708',ear(1),false,toni,josh,date(26,07,2017),time(10,49,00)).
+cross('17R405:M0002510','17R4644:0013703',ear(1),false,toni,josh,date(26,07,2017),time(10,49,00)).
+cross('17R405:M0002502','17R4644:0013701',ear(1),false,toni,josh,date(26,07,2017),time(10,51,00)).
+cross('17R405:M0002201','17R4643:0013613',ear(1),false,toni,josh,date(26,07,2017),time(10,07,00)).
+cross('17R405:M0002210','17R4643:0013611',ear(1),false,toni,josh,date(26,07,2017),time(10,08,00)).
+cross('17R405:M0002213','17R4643:0013609',ear(1),false,toni,josh,date(26,07,2017),time(10,09,00)).
+cross('17R405:M0002215','17R4643:0013608',ear(1),false,toni,josh,date(26,07,2017),time(10,10,00)).
+cross('17R305:W0001708','17R4642:0013510',ear(1),false,toni,josh,date(26,07,2017),time(09,47,00)).
+cross('17R305:W0001702','17R4642:0013505',ear(1),false,toni,josh,date(26,07,2017),time(09,46,00)).
+cross('17R305:W0001709','17R4642:0013502',ear(1),false,toni,josh,date(26,07,2017),time(09,49,00)).
+cross('17R305:W0001813','17R4641:0013415',ear(1),false,toni,josh,date(26,07,2017),time(09,57,00)).
+cross('17R305:W0001808','17R4641:0013415',ear(1),false,toni,josh,date(26,07,2017),time(09,58,00)).
+cross('17R305:W0001804','17R4641:0013415',ear(1),false,toni,josh,date(26,07,2017),time(09,58,00)).
 cross('17R4621:0013307','17R4621:0013307',ear(1),false,toni,josh,date(28,07,2017),time(10,22,00)).
 cross('17R4621:0013303','17R4621:0013303',ear(1),false,toni,josh,date(28,07,2017),time(10,21,00)).
 cross('17R4621:0013302','17R4621:0013302',ear(1),false,toni,josh,date(26,07,2017),time(10,20,00)).
@@ -9732,9 +9792,543 @@ cross('17R505:B0002801','17R4561:0006004',ear(1),false,toni,josh,date(29,07,2017
 
 
 
+
+
+
+
 	
 % 18r
 
 
 
-	
+% data added from ../../data../palm/raw_data_from_palms/18r/zeta/3.8/cross.csv on Sun Aug  5 05:09:27 CDT 2018
+% by data/data_conversion/convert_cross_data.perl
+% called from data/data_conversion/convert_data.perl
+
+cross('18R4263:0010703','18R4263:0010709',ear(1),true,toni,mason,date(03,08,2018),time(10,26,18)).
+cross('18R4263:0010705','18R4263:0010709',ear(1),false,toni,mason,date(03,08,2018),time(10,28,29)).
+cross('18R4263:0010711','18R4263:0010709',ear(1),false,toni,mason,date(03,08,2018),time(10,29,51)).
+cross('18R4263:0010712','18R4263:0010719',ear(1),false,toni,mason,date(03,08,2018),time(10,35,03)).
+cross('18R4263:0010717','18R4263:0010719',ear(1),false,toni,mason,date(03,08,2018),time(10,34,23)).
+cross('18R4263:0010718','18R4263:0010719',ear(1),true,toni,mason,date(03,08,2018),time(10,32,20)).
+cross('18R305:W0001815','18R4691:0021404',ear(1),false,toni,mason,date(03,08,2018),time(10,53,16)).
+cross('18R305:W0001901','18R4691:0021404',ear(1),false,toni,mason,date(03,08,2018),time(10,55,24)).
+cross('18R405:M0004301','18R4691:0021404',ear(1),true,toni,mason,date(03,08,2018),time(10,41,13)).
+cross('18R305:W0001911','18R4691:0021406',ear(1),true,toni,mason,date(03,08,2018),time(10,56,34)).
+cross('18R305:W0001912','18R4691:0021406',ear(1),false,toni,mason,date(03,08,2018),time(10,59,26)).
+cross('18R305:W0001913','18R4691:0021406',ear(1),false,toni,mason,date(03,08,2018),time(11,00,14)).
+cross('18R4696:0022001','18R4696:0022001',ear(1),false,toni,mason,date(03,08,2018),time(11,18,02)).
+cross('18R4696:0022002','18R4696:0022002',ear(1),false,toni,mason,date(03,08,2018),time(11,18,42)).
+cross('18R4696:0022012','18R4696:0022012',ear(1),false,toni,mason,date(03,08,2018),time(11,19,51)).
+cross('18R305:W0002009','18R2442:0024209',ear(1),false,toni,mason,date(03,08,2018),time(11,02,00)).
+cross('18R305:W0002219','18R2442:0024209',ear(1),false,toni,mason,date(03,08,2018),time(11,04,36)).
+cross('18R305:W0002316','18R2442:0024209',ear(1),false,toni,mason,date(03,08,2018),time(11,06,36)).
+cross('18R305:W0002414','18R4722:0027102',ear(1),true,toni,mason,date(03,08,2018),time(11,08,54)).
+cross('18R305:W0002501','18R4722:0027105',ear(1),true,toni,mason,date(03,08,2018),time(11,09,59)).
+cross('18R305:W0002503','18R4722:0027105',ear(1),false,toni,mason,date(03,08,2018),time(11,11,21)).
+cross('18R305:W0002509','18R4730:0029901',ear(1),true,toni,mason,date(03,08,2018),time(11,13,19)).
+cross('18R305:W0002519','18R4730:0029901',ear(1),false,toni,mason,date(03,08,2018),time(11,15,17)).
+
+
+
+
+% data added from ../../data../palm/raw_data_from_palms/18r/eta/4.8/cross.csv on Sun Aug  5 05:09:50 CDT 2018
+% by data/data_conversion/convert_cross_data.perl
+% called from data/data_conversion/convert_data.perl
+
+cross('18R4106:0009002','18R4106:0009017',ear(1),true,toni,toni,date(04,08,2018),time(10,58,41)).
+cross('18R4106:0009003','18R4106:0009017',ear(1),false,toni,toni,date(04,08,2018),time(10,58,42)).
+cross('18R4106:0009004','18R4106:0009017',ear(1),false,toni,toni,date(04,08,2018),time(10,58,44)).
+%
+% added manually, not recorded but bag present, date a guess
+%
+% Kazic, 10.8.2018
+%
+cross('18R4106:0009017','18R4106:0009017',ear(1),false,toni,toni,date(04,08,2018),time(10,58,44)).
+%	
+cross('18R4106:0009009','18R4106:0009018',ear(1),true,toni,toni,date(04,08,2018),time(11,03,22)).
+cross('18R4106:0009011','18R4106:0009018',ear(1),false,toni,toni,date(04,08,2018),time(11,03,23)).
+cross('18R4106:0009014','18R4106:0009018',ear(1),false,toni,toni,date(04,08,2018),time(11,03,24)).
+cross('18R4655:0009816','18R4655:0009812',ear(1),false,toni,toni,date(04,08,2018),time(11,08,42)).
+cross('18R4655:0009817','18R4655:0009812',ear(1),false,toni,toni,date(04,08,2018),time(11,08,43)).
+cross('18R3995:0010313','18R3995:0010304',ear(1),false,toni,toni,date(04,08,2018),time(11,11,40)).
+cross('18R4662:0011003','18R4662:0011008',ear(1),false,toni,toni,date(04,08,2018),time(11,18,09)).
+cross('18R4662:0011004','18R4662:0011008',ear(1),false,toni,toni,date(04,08,2018),time(11,18,11)).
+cross('18R4662:0011007','18R4662:0011011',ear(1),false,toni,toni,date(04,08,2018),time(11,21,43)).
+cross('18R4662:0011012','18R4662:0011011',ear(1),false,toni,toni,date(04,08,2018),time(11,21,40)).
+cross('18R4665:0011619','18R4665:0011620',ear(1),true,toni,toni,date(04,08,2018),time(11,26,28)).
+cross('18R4665:0011617','18R4665:0011620',ear(1),false,toni,toni,date(04,08,2018),time(11,26,29)).
+cross('18R4665:0011609','18R4665:0011620',ear(1),false,toni,toni,date(04,08,2018),time(11,26,31)).
+cross('18R305:W0001817','18R4691:0021404',ear(1),false,toni,toni,date(04,08,2018),time(11,38,02)).
+cross('18R305:W0001816','18R4691:0021404',ear(1),false,toni,toni,date(04,08,2018),time(11,38,03)).
+cross('18R405:M0005003','18R4691:0021404',ear(1),false,toni,toni,date(04,08,2018),time(11,40,32)).
+cross('18R405:M0005006','18R4691:0021404',ear(1),false,toni,toni,date(04,08,2018),time(11,40,34)).
+cross('18R405:M0004605','18R4691:0021406',ear(1),false,toni,toni,date(04,08,2018),time(11,45,29)).
+cross('18R405:M0004704','18R4691:0021406',ear(1),false,toni,toni,date(04,08,2018),time(11,43,54)).
+cross('18R405:M0004003','18R4691:0021406',ear(1),false,toni,toni,date(04,08,2018),time(11,46,49)).
+cross('18R4702:0022609','18R4702:0022609',ear(1),false,toni,toni,date(04,08,2018),time(11,30,18)).
+cross('18R305:W0001814','18R4730:0029901',ear(1),false,toni,toni,date(04,08,2018),time(11,48,32)).
+cross('18R305:W0001805','18R4730:0029907',ear(1),false,toni,toni,date(04,08,2018),time(11,52,13)).
+cross('18R305:W0001807','18R4730:0029907',ear(1),false,toni,toni,date(04,08,2018),time(11,52,14)).
+cross('18R305:W0001806','18R4730:0029907',ear(1),false,toni,toni,date(04,08,2018),time(11,52,16)).
+
+
+
+
+% data added from ../../data../palm/raw_data_from_palms/18r/zeta/6.8/cross.csv on Wed Aug  8 08:35:07 CDT 2018
+% by data/data_conversion/convert_cross_data.perl
+% called from data/data_conversion/convert_data.perl
+
+cross('18R305:W0001801','18R4709:0023802',ear(1),false,toni,mason,date(05,08,2018),time(11,15,00)).
+cross('18R305:W0001803','18R4709:0023810',ear(1),false,toni,mason,date(05,08,2018),time(11,15,00)).
+cross('18R305:W0001804','18R4709:0023801',ear(1),false,toni,mason,date(05,08,2018),time(11,15,00)).
+cross('18R305:W0001809','18R4695:0028704',ear(1),false,toni,mason,date(05,08,2018),time(11,15,00)).
+cross('18R305:W0001810','18R4695:0028704',ear(1),false,toni,mason,date(05,08,2018),time(11,15,00)).
+cross('18R305:W0001811','18R4695:0028704',ear(1),false,toni,mason,date(05,08,2018),time(11,15,00)).
+cross('18R305:W0001812','18R4722:0027102',ear(1),false,toni,mason,date(05,08,2018),time(11,15,00)).
+cross('18R305:W0001902','18R4722:0027102',ear(1),false,toni,mason,date(05,08,2018),time(11,15,00)).
+cross('18R305:W0001903','18R4722:0027105',ear(1),false,toni,mason,date(05,08,2018),time(11,15,00)).
+cross('18R305:W0001905','18R4740:0026108',ear(1),true,toni,mason,date(05,08,2018),time(11,15,00)).
+cross('18R305:W0001907','18R4740:0026108',ear(1),false,toni,mason,date(05,08,2018),time(11,15,00)).
+cross('18R305:W0001908','18R4740:0026108',ear(1),false,toni,mason,date(05,08,2018),time(11,15,00)).
+cross('18R305:W0001911','18R4691:0021406',ear(1),false,toni,mason,date(05,08,2018),time(11,15,00)).
+cross('18R305:W0001917','18R4714:0025801',ear(1),false,toni,mason,date(05,08,2018),time(11,15,00)).
+cross('18R305:W0001918','18R4714:0025801',ear(1),false,toni,mason,date(05,08,2018),time(11,15,00)).
+cross('18R305:W0002003','18R4714:0025801',ear(1),false,toni,mason,date(05,08,2018),time(11,15,00)).
+cross('18R305:W0002004','18R1563:0024812',ear(1),false,toni,mason,date(05,08,2018),time(11,15,00)).
+cross('18R305:W0002005','18R1563:0024812',ear(1),true,toni,mason,date(05,08,2018),time(11,15,00)).
+cross('18R305:W0002007','18R1563:0024807',ear(1),false,toni,mason,date(05,08,2018),time(11,15,00)).
+cross('18R305:W0002008','18R1563:0024807',ear(1),false,toni,mason,date(05,08,2018),time(11,15,00)).
+cross('18R305:W0002010','18R2442:0024204',ear(1),false,toni,mason,date(05,08,2018),time(11,15,00)).
+cross('18R305:W0002012','18R2442:0024201',ear(1),false,toni,mason,date(05,08,2018),time(11,15,00)).
+cross('18R305:W0002013','18R2442:0024201',ear(1),false,toni,mason,date(05,08,2018),time(11,15,00)).
+cross('18R305:W0002014','18R2325:0023411',ear(1),false,toni,mason,date(05,08,2018),time(11,15,00)).
+cross('18R305:W0002017','18R2325:0023411',ear(1),false,toni,mason,date(05,08,2018),time(11,15,00)).
+cross('18R305:W0002018','18R2325:0023404',ear(1),false,toni,mason,date(05,08,2018),time(11,15,00)).
+cross('18R305:W0002101','18R2325:0023404',ear(1),false,toni,mason,date(05,08,2018),time(11,15,00)).
+cross('18R305:W0002104','18R4706:0023206',ear(1),false,toni,mason,date(05,08,2018),time(11,15,00)).
+cross('18R305:W0002106','18R4706:0023205',ear(1),false,toni,mason,date(05,08,2018),time(11,15,00)).
+cross('18R305:W0002109','18R4706:0023203',ear(1),false,toni,mason,date(05,08,2018),time(11,15,00)).
+cross('18R305:W0002110','18R4695:0021913',ear(1),false,toni,mason,date(05,08,2018),time(11,15,00)).
+cross('18R305:W0002112','18R4695:0021912',ear(1),false,toni,mason,date(05,08,2018),time(11,15,00)).
+cross('18R305:W0002117','18R4695:0021904',ear(1),false,toni,mason,date(05,08,2018),time(11,15,00)).
+cross('18R305:W0002214','18R4694:0021701',ear(1),false,toni,mason,date(05,08,2018),time(11,15,00)).
+cross('18R305:W0002215','18R4694:0021705',ear(1),false,toni,mason,date(05,08,2018),time(11,15,00)).
+cross('18R305:W0002216','18R4694:0021703',ear(1),false,toni,mason,date(05,08,2018),time(11,15,00)).
+cross('18R405:M0003707','18R3998:0025409',ear(1),false,toni,mason,date(05,08,2018),time(12,00,00)).
+cross('18R405:M0003902','18R3998:0025409',ear(1),false,toni,mason,date(05,08,2018),time(12,00,00)).
+cross('18R405:M0004007','18R3998:0025409',ear(1),false,toni,mason,date(05,08,2018),time(12,00,00)).
+cross('18R405:M0004008','18R3998:0025405',ear(1),false,toni,mason,date(05,08,2018),time(12,00,00)).
+cross('18R405:M0004011','18R3998:0025405',ear(1),true,toni,mason,date(05,08,2018),time(12,00,00)).
+cross('18R405:M0004202','18R2437:0024304',ear(1),false,toni,mason,date(05,08,2018),time(12,00,00)).
+cross('18R405:M0004203','18R2437:0024304',ear(1),false,toni,mason,date(05,08,2018),time(12,00,00)).
+cross('18R405:M0004204','18R2437:0024301',ear(1),false,toni,mason,date(05,08,2018),time(12,00,00)).
+cross('18R405:M0004304','18R2437:0024301',ear(1),false,toni,mason,date(05,08,2018),time(12,00,00)).
+cross('18R405:M0004307','18R4698:0022208',ear(1),false,toni,mason,date(05,08,2018),time(12,00,00)).
+cross('18R405:M0004310','18R4698:0022208',ear(1),false,toni,mason,date(05,08,2018),time(12,00,00)).
+cross('18R405:M0004311','18R4698:0022208',ear(1),false,toni,mason,date(05,08,2018),time(12,00,00)).
+cross('18R405:M0004403','18R4697:0022104',ear(1),true,toni,mason,date(05,08,2018),time(12,00,00)).
+cross('18R405:M0004501','18R4218:0017908',ear(1),false,toni,mason,date(05,08,2018),time(12,00,00)).
+cross('18R405:M0004505','18R4697:0022104',ear(1),false,toni,mason,date(05,08,2018),time(12,00,00)).
+cross('18R405:M0004509','18R4697:0022104',ear(1),false,toni,mason,date(05,08,2018),time(12,00,00)).
+cross('18R405:M0004510','18R4679:0016514',ear(1),false,toni,mason,date(05,08,2018),time(12,00,00)).
+cross('18R405:M0004511','18R4679:0016511',ear(1),false,toni,mason,date(05,08,2018),time(12,00,00)).
+cross('18R405:M0004513','18R4679:0016504',ear(1),false,toni,mason,date(05,08,2018),time(12,00,00)).
+cross('18R405:M0004602','18R4679:0016502',ear(1),false,toni,mason,date(05,08,2018),time(12,00,00)).
+cross('18R405:M0004611','18R4739:0026008',ear(1),true,toni,mason,date(05,08,2018),time(12,00,00)).
+cross('18R405:M0004702','18R4739:0026008',ear(1),false,toni,mason,date(05,08,2018),time(12,00,00)).
+cross('18R405:M0004808','18R4739:0026005',ear(1),false,toni,mason,date(05,08,2018),time(12,00,00)).
+cross('18R405:M0004811','18R4739:0026005',ear(1),false,toni,mason,date(05,08,2018),time(12,00,00)).
+cross('18R405:M0005105','18R4694:0021701',ear(1),false,toni,mason,date(05,08,2018),time(12,00,00)).
+cross('18R405:M0005409','18R4694:0021705',ear(1),false,toni,mason,date(05,08,2018),time(12,00,00)).
+cross('18R505:B0006001','18R4106:0009017',ear(1),false,toni,mason,date(05,08,2018),time(12,45,00)).
+cross('18R505:B0006101','18R4106:0009018',ear(1),false,toni,mason,date(05,08,2018),time(12,45,00)).
+cross('18R505:B0006102','18R4106:0009018',ear(1),false,toni,mason,date(05,08,2018),time(12,45,00)).
+cross('18R4650:0009102','18R4650:0009109',ear(1),false,toni,mason,date(05,08,2018),time(12,45,00)).
+cross('18R4650:0009105','18R4650:0009109',ear(1),true,toni,mason,date(05,08,2018),time(12,45,00)).
+cross('18R4656:0009903','18R4656:0009907',ear(1),false,toni,mason,date(05,08,2018),time(12,45,00)).
+cross('18R4656:0009904','18R4656:0009907',ear(1),false,toni,mason,date(05,08,2018),time(12,45,00)).
+cross('18R4656:0009905','18R4656:0009907',ear(1),true,toni,mason,date(05,08,2018),time(12,45,00)).
+cross('18R4659:0010403','18R4659:0010406',ear(1),false,toni,mason,date(05,08,2018),time(12,45,00)).
+cross('18R4659:0010411','18R4659:0010406',ear(1),false,toni,mason,date(05,08,2018),time(12,45,00)).
+cross('18R4659:0010413','18R4659:0010406',ear(1),false,toni,mason,date(05,08,2018),time(12,45,00)).
+cross('18R4665:0011609','18R4665:0011620',ear(1),true,toni,mason,date(05,08,2018),time(12,45,00)).
+cross('18R4665:0011612','18R4665:0011620',ear(1),false,toni,mason,date(05,08,2018),time(12,45,00)).
+cross('18R4665:0011613','18R4665:0011620',ear(1),false,toni,mason,date(05,08,2018),time(12,45,00)).
+cross('18R4665:0011615','18R4665:0011620',ear(1),false,toni,mason,date(05,08,2018),time(12,45,00)).
+cross('18R4666:0011704','18R4666:0011705',ear(1),false,toni,mason,date(05,08,2018),time(12,45,00)).
+cross('18R4666:0011705','18R4666:0011705',ear(1),false,toni,mason,date(05,08,2018),time(12,45,00)).
+cross('18R4666:0011709','18R4666:0011705',ear(1),false,toni,mason,date(05,08,2018),time(12,45,00)).
+cross('18R4666:0011715','18R4666:0011707',ear(1),true,toni,mason,date(05,08,2018),time(12,45,00)).
+cross('18R4666:0011716','18R4666:0011707',ear(1),false,toni,mason,date(05,08,2018),time(12,45,00)).
+cross('18R4666:0011718','18R4666:0011707',ear(1),false,toni,mason,date(05,08,2018),time(12,45,00)).
+cross('18R3647:0012505','18R3647:0012508',ear(1),false,toni,mason,date(05,08,2018),time(12,45,00)).
+cross('18R3647:0012508','18R3647:0012508',ear(1),false,toni,mason,date(05,08,2018),time(12,45,00)).
+cross('18R3647:0012512','18R3647:0012508',ear(1),false,toni,mason,date(05,08,2018),time(12,45,00)).
+cross('18R3647:0012513','18R3647:0012508',ear(1),false,toni,mason,date(05,08,2018),time(12,45,00)).
+cross('18R4038:0013005','18R4038:0013006',ear(1),true,toni,mason,date(05,08,2018),time(12,45,00)).
+cross('18R4038:0013007','18R4038:0013006',ear(1),false,toni,mason,date(05,08,2018),time(12,45,00)).
+cross('18R4038:0013009','18R4038:0013006',ear(1),false,toni,mason,date(05,08,2018),time(12,45,00)).
+cross('18R4038:0013012','18R4038:0013006',ear(1),false,toni,mason,date(05,08,2018),time(12,45,00)).
+cross('18R4456:0014001','18R4456:0014004',ear(1),false,toni,mason,date(05,08,2018),time(12,45,00)).
+cross('18R4688:0021001','18R4688:0021001',ear(1),false,toni,mason,date(05,08,2018),time(11,00,00)).
+cross('18R4688:0021002','18R4688:0021002',ear(1),false,toni,mason,date(05,08,2018),time(11,00,00)).
+cross('18R4688:0021003','18R4688:0021003',ear(1),false,toni,mason,date(05,08,2018),time(11,00,00)).
+cross('18R4688:0021004','18R4688:0021004',ear(1),false,toni,mason,date(05,08,2018),time(11,00,00)).
+cross('18R4699:0022305','18R4699:0022305',ear(1),false,toni,mason,date(05,08,2018),time(11,00,00)).
+cross('18R4699:0022310','18R4699:0022310',ear(1),false,toni,mason,date(05,08,2018),time(11,00,00)).
+cross('18R4700:0022402','18R4700:0022402',ear(1),false,toni,mason,date(05,08,2018),time(11,00,00)).
+cross('18R4701:0022506','18R4701:0022506',ear(1),false,toni,mason,date(05,08,2018),time(11,00,00)).
+cross('18R4702:0022603','18R4702:0022603',ear(1),false,toni,mason,date(05,08,2018),time(11,00,00)).
+cross('18R4687:0020901','18R4687:0020901',ear(1),false,toni,mason,date(06,08,2018),time(10,20,28)).
+cross('18R4687:0020904','18R4687:0020904',ear(1),false,toni,mason,date(06,08,2018),time(10,20,55)).
+cross('18R4687:0020909','18R4687:0020909',ear(1),false,toni,mason,date(06,08,2018),time(10,21,06)).
+cross('18R4700:0022403','18R4700:0022403',ear(1),false,toni,mason,date(06,08,2018),time(10,22,28)).
+cross('18R4702:0022610','18R4702:0022610',ear(1),false,toni,mason,date(06,08,2018),time(10,22,40)).
+cross('18R205:S0001208','18R4685:0020704',ear(1),false,toni,mason,date(06,08,2018),time(10,48,27)).
+cross('18R205:S0001211','18R4685:0020704',ear(1),false,toni,mason,date(06,08,2018),time(10,49,07)).
+cross('18R205:S0001212','18R4685:0020704',ear(1),false,toni,mason,date(06,08,2018),time(10,49,45)).
+cross('18R205:S0001117','18R4690:0021305',ear(1),false,toni,mason,date(06,08,2018),time(10,44,00)).
+cross('18R205:S0001112','18R4690:0021305',ear(1),true,toni,mason,date(06,08,2018),time(10,44,28)).
+cross('18R205:S0001008','18R4690:0021307',ear(1),false,toni,mason,date(06,08,2018),time(10,41,25)).
+cross('18R205:S0000917','18R4690:0021310',ear(1),false,toni,mason,date(06,08,2018),time(10,36,40)).
+cross('18R205:S0000905','18R4690:0021310',ear(1),false,toni,mason,date(06,08,2018),time(10,40,51)).
+cross('18R205:S0000918','18R4690:0021310',ear(1),false,toni,mason,date(06,08,2018),time(10,38,36)).
+cross('18R205:S0000910','18R4692:0021501',ear(1),false,toni,mason,date(06,08,2018),time(10,34,56)).
+cross('18R205:S0000913','18R4692:0021502',ear(1),false,toni,mason,date(06,08,2018),time(10,36,08)).
+cross('18R205:S0000904','18R4692:0021503',ear(1),false,toni,mason,date(06,08,2018),time(10,33,50)).
+cross('18R205:S0000304','18R4692:0021505',ear(1),true,toni,mason,date(06,08,2018),time(10,32,46)).
+cross('18R205:S0000310','18R2468:0024401',ear(1),false,toni,mason,date(06,08,2018),time(10,32,05)).
+cross('18R205:S0000215','18R2468:0024404',ear(1),false,toni,mason,date(06,08,2018),time(10,31,18)).
+cross('18R205:S0000210','18R2468:0024406',ear(1),false,toni,mason,date(06,08,2018),time(10,30,29)).
+cross('18R205:S0001113','18R2473:0024601',ear(1),false,toni,mason,date(06,08,2018),time(10,45,14)).
+cross('18R205:S0001106','18R2473:0024605',ear(1),false,toni,mason,date(06,08,2018),time(10,46,08)).
+cross('18R205:S0001101','18R2473:0024612',ear(1),false,toni,mason,date(06,08,2018),time(10,47,14)).
+cross('18R505:B0006013','18R4106:0009018',ear(1),false,toni,mason,date(06,08,2018),time(10,56,19)).
+cross('18R505:B0006011','18R4106:0009017',ear(1),false,toni,mason,date(06,08,2018),time(10,58,14)).
+cross('18R4659:0010406','18R4659:0010406',ear(1),false,toni,mason,date(06,08,2018),time(11,01,04)).
+cross('18R4659:0010401','18R4659:0010406',ear(1),false,toni,mason,date(06,08,2018),time(11,01,56)).
+cross('18R4659:0010402','18R4659:0010406',ear(1),false,toni,mason,date(06,08,2018),time(11,02,50)).
+cross('18R505:B0006002','18R4659:0010406',ear(1),false,toni,mason,date(06,08,2018),time(11,07,26)).
+cross('18R505:B0005605','18R4659:0010406',ear(1),false,toni,mason,date(06,08,2018),time(11,10,05)).
+cross('18R505:B0005604','18R4656:0009907',ear(1),false,toni,mason,date(06,08,2018),time(11,10,14)).
+cross('18R505:B0005601','18R4656:0009907',ear(1),false,toni,mason,date(06,08,2018),time(11,10,41)).
+cross('18R405:M0004706','18R4684:0017713',ear(1),true,toni,mason,date(06,08,2018),time(11,12,21)).
+cross('18R4650:0009106','18R4650:0009109',ear(1),false,toni,mason,date(06,08,2018),time(11,16,34)).
+cross('18R4650:0009112','18R4650:0009109',ear(1),false,toni,mason,date(06,08,2018),time(11,17,20)).
+
+
+
+
+% data added from ../../data../palm/raw_data_from_palms/18r/zeta/9.8/cross.csv on Fri Aug 10 04:58:14 CDT 2018
+% by data/data_conversion/convert_cross_data.perl
+% called from data/data_conversion/convert_data.perl
+
+cross('18R4226:0008308','18R4226:0008308',ear(1),true,toni,mason,date(09,08,2018),time(09,56,06)).
+cross('18R4226:0008307','18R4226:0008308',ear(1),false,toni,mason,date(09,08,2018),time(09,56,08)).
+cross('18R4226:0008312','18R4226:0008308',ear(1),false,toni,mason,date(09,08,2018),time(09,56,09)).
+cross('18R505:B0005613','18R4226:0008308',ear(1),false,toni,mason,date(09,08,2018),time(10,06,02)).
+cross('18R4441:0008717','18R4441:0008717',ear(1),true,toni,mason,date(09,08,2018),time(09,57,39)).
+cross('18R4441:0008718','18R4441:0008717',ear(1),false,toni,mason,date(09,08,2018),time(09,59,45)).
+cross('18R4441:0008719','18R4441:0008717',ear(1),false,toni,mason,date(09,08,2018),time(10,02,40)).
+cross('18R505:B0005608','18R4441:0008717',ear(1),false,toni,mason,date(09,08,2018),time(10,02,51)).
+cross('18R505:B0005611','18R4441:0008717',ear(1),false,toni,mason,date(09,08,2018),time(10,05,54)).
+cross('18R4492:0008812','18R4492:0008812',ear(1),true,toni,mason,date(09,08,2018),time(10,07,49)).
+cross('18R4492:0008810','18R4492:0008812',ear(1),false,toni,mason,date(09,08,2018),time(10,09,55)).
+cross('18R505:B0005616','18R4492:0008812',ear(1),false,toni,mason,date(09,08,2018),time(10,37,09)).
+cross('18R505:B0005617','18R4492:0008812',ear(1),false,toni,mason,date(09,08,2018),time(10,37,12)).
+cross('18R4492:0008816','18R4492:0008816',ear(1),true,toni,mason,date(09,08,2018),time(10,11,03)).
+cross('18R4492:0008808','18R4492:0008816',ear(1),false,toni,mason,date(09,08,2018),time(10,13,32)).
+cross('18R4492:0008807','18R4492:0008816',ear(1),false,toni,mason,date(09,08,2018),time(10,13,34)).
+cross('18R505:B0005705','18R4492:0008816',ear(1),false,toni,mason,date(09,08,2018),time(10,38,53)).
+%
+% plants and bags mislabelled: record corrected
+%
+% Kazic, 14.8.2018
+%
+% cross('18R505:B0005707','18R4492:0008816',ear(1),false,toni,mason,date(09,08,2018),time(10,39,14)).
+%
+cross('18R505:B0005708','18R4492:0008816',ear(1),false,toni,mason,date(09,08,2018),time(10,39,14)).
+%
+cross('18R4260:0008902','18R4260:0008908',ear(1),true,toni,mason,date(09,08,2018),time(10,15,20)).
+cross('18R4260:0008903','18R4260:0008908',ear(1),false,toni,mason,date(09,08,2018),time(10,16,36)).
+cross('18R505:B0005714','18R4260:0008908',ear(1),false,toni,mason,date(09,08,2018),time(10,45,51)).
+cross('18R4260:0008904','18R4260:0008917',ear(1),false,toni,mason,date(09,08,2018),time(10,23,19)).
+cross('18R4260:0008905','18R4260:0008917',ear(1),false,toni,mason,date(09,08,2018),time(10,23,53)).
+cross('18R505:B0005709','18R4260:0008917',ear(1),false,toni,mason,date(09,08,2018),time(10,40,06)).
+cross('18R505:B0005710','18R4260:0008917',ear(1),false,toni,mason,date(09,08,2018),time(10,40,08)).
+cross('18R4651:0009201','18R4651:0009203',ear(1),true,toni,mason,date(09,08,2018),time(10,26,29)).
+cross('18R4651:0009202','18R4651:0009203',ear(1),false,toni,mason,date(09,08,2018),time(10,26,31)).
+cross('18R505:B0005711','18R4651:0009203',ear(1),false,toni,mason,date(09,08,2018),time(10,41,48)).
+cross('18R4654:0009701','18R4654:0009710',ear(1),true,toni,mason,date(09,08,2018),time(10,35,51)).
+cross('18R4654:0009702','18R4654:0009710',ear(1),false,toni,mason,date(09,08,2018),time(10,35,55)).
+cross('18R4654:0009703','18R4654:0009710',ear(1),false,toni,mason,date(09,08,2018),time(10,35,56)).
+cross('18R505:B0005715','18R4654:0009710',ear(1),false,toni,mason,date(09,08,2018),time(10,46,14)).
+cross('18R505:B0005716','18R4654:0009710',ear(1),false,toni,mason,date(09,08,2018),time(10,46,16)).
+cross('18R4654:0009706','18R4654:0009713',ear(1),false,toni,mason,date(09,08,2018),time(10,35,57)).
+cross('18R4654:0009712','18R4654:0009713',ear(1),false,toni,mason,date(09,08,2018),time(10,35,58)).
+cross('18R4654:0009715','18R4654:0009713',ear(1),true,toni,mason,date(09,08,2018),time(10,37,19)).
+cross('18R505:B0005712','18R4654:0009713',ear(1),false,toni,mason,date(09,08,2018),time(10,44,47)).
+cross('18R505:B0005713','18R4654:0009713',ear(1),false,toni,mason,date(09,08,2018),time(10,44,49)).
+cross('18R505:B0005810','18R4656:0009907',ear(1),true,toni,mason,date(09,08,2018),time(11,07,31)).
+%
+% plants and bags mislabelled: record corrected
+%
+% Kazic, 14.8.2018
+%
+% cross('18R4455:0010009','18R4455:0010014',ear(1),true,toni,mason,date(09,08,2018),time(10,53,36)).
+% cross('18R4455:0010010','18R4455:0010014',ear(1),false,toni,mason,date(09,08,2018),time(10,53,38)).
+% cross('18R505:B0005805','18R4455:0010014',ear(1),true,toni,mason,date(09,08,2018),time(11,07,15)).
+% cross('18R505:B0005809','18R4455:0010014',ear(1),true,toni,mason,date(09,08,2018),time(11,07,16)).
+%
+cross('18R4658:0010209','18R4658:0010214',ear(1),true,toni,mason,date(09,08,2018),time(10,53,36)).
+cross('18R4658:0010210','18R4658:0010214',ear(1),false,toni,mason,date(09,08,2018),time(10,53,38)).
+cross('18R505:B0005805','18R4658:0010214',ear(1),true,toni,mason,date(09,08,2018),time(11,07,15)).
+cross('18R505:B0005809','18R4658:0010214',ear(1),true,toni,mason,date(09,08,2018),time(11,07,16)).
+%
+%
+cross('18R4661:0010820','18R4661:0010804',ear(1),true,toni,mason,date(09,08,2018),time(10,58,40)).
+cross('18R505:B0005717','18R4661:0010804',ear(1),false,toni,mason,date(09,08,2018),time(11,01,18)).
+cross('18R505:B0005803','18R4661:0010804',ear(1),false,toni,mason,date(09,08,2018),time(11,02,24)).
+cross('18R4661:0010817','18R4661:0010813',ear(1),true,toni,mason,date(09,08,2018),time(10,58,38)).
+cross('18R505:B0005804','18R4661:0010813',ear(1),false,toni,mason,date(09,08,2018),time(11,03,30)).
+cross('18R4665:0011620','18R4665:0011620',ear(1),true,toni,mason,date(09,08,2018),time(10,59,31)).
+
+
+
+
+% data added from ../../data../palm/raw_data_from_palms/18r/zeta/10.8/cross.csv on Fri Aug 10 16:09:36 CDT 2018
+% by data/data_conversion/convert_cross_data.perl
+% called from data/data_conversion/convert_data.perl
+
+cross('18R4440:0008101','18R4440:0008104',ear(1),false,toni,mason,date(10,08,2018),time(10,09,47)).
+cross('18R4440:0008102','18R4440:0008104',ear(1),false,toni,mason,date(10,08,2018),time(10,11,39)).
+cross('18R4440:0008104','18R4440:0008104',ear(1),false,toni,mason,date(10,08,2018),time(10,08,21)).
+cross('18R505:B0005903','18R4440:0008104',ear(1),false,toni,mason,date(10,08,2018),time(10,46,20)).
+cross('18R505:B0005906','18R4440:0008104',ear(1),false,toni,mason,date(10,08,2018),time(10,45,22)).
+cross('18R4440:0008103','18R4440:0008113',ear(1),false,toni,mason,date(10,08,2018),time(10,13,45)).
+cross('18R4440:0008113','18R4440:0008113',ear(1),false,toni,mason,date(10,08,2018),time(10,11,42)).
+cross('18R505:B0005908','18R4440:0008113',ear(1),false,toni,mason,date(10,08,2018),time(10,43,59)).
+cross('18R505:B0005911','18R4440:0008113',ear(1),false,toni,mason,date(10,08,2018),time(10,43,17)).
+cross('18R4226:0008301','18R4226:0008308',ear(1),false,toni,mason,date(10,08,2018),time(10,16,24)).
+cross('18R4226:0008302','18R4226:0008308',ear(1),false,toni,mason,date(10,08,2018),time(10,19,22)).
+cross('18R505:B0005913','18R4226:0008308',ear(1),false,toni,mason,date(10,08,2018),time(10,41,48)).
+cross('18R4649:0008611','18R4649:0008612',ear(1),false,toni,mason,date(10,08,2018),time(10,25,44)).
+cross('18R4649:0008612','18R4649:0008612',ear(1),false,toni,mason,date(10,08,2018),time(10,24,27)).
+cross('18R4649:0008615','18R4649:0008612',ear(1),false,toni,mason,date(10,08,2018),time(10,24,28)).
+cross('18R505:B0005916','18R4649:0008612',ear(1),false,toni,mason,date(10,08,2018),time(10,40,21)).
+cross('18R4441:0008714','18R4441:0008717',ear(1),false,toni,mason,date(10,08,2018),time(10,29,36)).
+cross('18R4441:0008716','18R4441:0008717',ear(1),false,toni,mason,date(10,08,2018),time(10,27,56)).
+cross('18R4492:0008802','18R4492:0008812',ear(1),false,toni,mason,date(10,08,2018),time(10,33,56)).
+cross('18R4492:0008803','18R4492:0008812',ear(1),false,toni,mason,date(10,08,2018),time(10,32,44)).
+cross('18R505:B0005811','18R4492:0008812',ear(1),false,toni,mason,date(10,08,2018),time(10,34,53)).
+cross('18R505:B0005815','18R4492:0008816',ear(1),false,toni,mason,date(10,08,2018),time(10,39,19)).
+cross('18R505:B0005917','18R4492:0008816',ear(1),false,toni,mason,date(10,08,2018),time(10,39,54)).
+cross('18R4260:0008909','18R4260:0008908',ear(1),false,toni,mason,date(10,08,2018),time(10,50,33)).
+cross('18R4260:0008912','18R4260:0008908',ear(1),false,toni,mason,date(10,08,2018),time(10,51,37)).
+cross('18R505:B0006014','18R4260:0008908',ear(1),false,toni,mason,date(10,08,2018),time(11,12,11)).
+cross('18R505:B0006016','18R4260:0008917',ear(1),false,toni,mason,date(10,08,2018),time(11,13,04)).
+cross('18R505:B0006017','18R4260:0008917',ear(1),false,toni,mason,date(10,08,2018),time(11,14,37)).
+cross('18R4651:0009208','18R4651:0009203',ear(1),false,toni,mason,date(10,08,2018),time(10,54,40)).
+cross('18R4651:0009210','18R4651:0009203',ear(1),false,toni,mason,date(10,08,2018),time(10,56,28)).
+cross('18R505:B0006009','18R4651:0009203',ear(1),false,toni,mason,date(10,08,2018),time(11,10,07)).
+cross('18R505:B0006010','18R4651:0009209',ear(1),false,toni,mason,date(10,08,2018),time(11,10,56)).
+cross('18R4574:0009604','18R4574:0009604',ear(1),false,toni,mason,date(10,08,2018),time(10,05,31)).
+cross('18R4654:0009705','18R4654:0009710',ear(1),false,toni,mason,date(10,08,2018),time(11,04,07)).
+cross('18R4654:0009716','18R4654:0009710',ear(1),false,toni,mason,date(10,08,2018),time(11,03,11)).
+cross('18R505:B0005902','18R4654:0009710',ear(1),false,toni,mason,date(10,08,2018),time(11,05,57)).
+cross('18R505:B0006004','18R4654:0009710',ear(1),false,toni,mason,date(10,08,2018),time(11,07,38)).
+cross('18R505:B0006006','18R4654:0009710',ear(1),false,toni,mason,date(10,08,2018),time(11,08,17)).
+cross('18R4654:0009713','18R4654:0009713',ear(1),false,toni,mason,date(10,08,2018),time(10,59,53)).
+cross('18R4654:0009718','18R4654:0009713',ear(1),false,toni,mason,date(10,08,2018),time(11,01,04)).
+cross('18R505:B0006007','18R4654:0009713',ear(1),false,toni,mason,date(10,08,2018),time(11,09,26)).
+
+
+
+
+% data added from ../../data../palm/raw_data_from_palms/18r/zeta/10.8/cross_pm.csv on Sat Aug 11 05:57:32 CDT 2018
+% by data/data_conversion/convert_cross_data.perl
+% called from data/data_conversion/convert_data.perl
+
+cross('18R4440:0008105','18R4440:0008104',ear(1),false,toni,mason,date(10,08,2018),time(17,15,25)).
+cross('18R4440:0008107','18R4440:0008104',ear(1),false,toni,mason,date(10,08,2018),time(17,16,10)).
+cross('18R4440:0008106','18R4440:0008113',ear(1),false,toni,mason,date(10,08,2018),time(17,19,36)).
+cross('18R4226:0008311','18R4226:0008308',ear(1),false,toni,mason,date(10,08,2018),time(17,20,31)).
+cross('18R4441:0008713','18R4441:0008717',ear(1),false,toni,mason,date(10,08,2018),time(17,23,11)).
+cross('18R4441:0008707','18R4441:0008717',ear(1),false,toni,mason,date(10,08,2018),time(17,23,56)).
+cross('18R4654:0009710','18R4654:0009710',ear(1),false,toni,mason,date(10,08,2018),time(17,27,58)).
+cross('18R4656:0009901','18R4656:0009907',ear(1),false,toni,mason,date(10,08,2018),time(17,29,40)).
+cross('18R505:B0005607','18R4436:0013910',ear(1),false,toni,mason,date(10,08,2018),time(17,45,03)).
+cross('18R505:B0005612','18R4436:0013910',ear(1),false,toni,mason,date(10,08,2018),time(17,45,38)).
+cross('18R505:B0005707','18R4439:0013310',ear(1),false,toni,mason,date(10,08,2018),time(17,46,42)).
+cross('18R505:B0005807','18R4442:0012804',ear(1),false,toni,mason,date(10,08,2018),time(17,49,21)).
+cross('18R505:B0006115','18R4442:0012804',ear(1),false,toni,mason,date(10,08,2018),time(17,50,31)).
+cross('18R505:B0006114','18R4438:0012401',ear(1),false,toni,mason,date(10,08,2018),time(17,52,11)).
+cross('18R505:B0006113','18R4438:0012401',ear(1),false,toni,mason,date(10,08,2018),time(17,52,56)).
+cross('18R505:B0006112','18R4100:0012118',ear(1),false,toni,mason,date(10,08,2018),time(17,55,05)).
+cross('18R505:B0006110','18R4100:0012118',ear(1),false,toni,mason,date(10,08,2018),time(17,56,04)).
+cross('18R505:B0006202','18R4100:0012107',ear(1),false,toni,mason,date(10,08,2018),time(17,58,43)).
+cross('18R505:B0006204','18R4555:0011902',ear(1),false,toni,mason,date(10,08,2018),time(18,00,32)).
+cross('18R505:B0006207','18R4555:0011902',ear(1),false,toni,mason,date(10,08,2018),time(18,01,21)).
+cross('18R505:B0006208','18R4443:0010910',ear(1),false,toni,mason,date(10,08,2018),time(18,04,11)).
+cross('18R505:B0006211','18R4443:0010910',ear(1),false,toni,mason,date(10,08,2018),time(18,04,25)).
+cross('18R505:B0006210','18R4661:0010804',ear(1),false,toni,mason,date(10,08,2018),time(18,05,14)).
+cross('18R505:B0006212','18R4660:0010606',ear(1),false,toni,mason,date(10,08,2018),time(18,06,43)).
+cross('18R505:B0006216','18R4659:0010406',ear(1),false,toni,mason,date(10,08,2018),time(18,08,20)).
+cross('18R505:B0006314','18R4658:0010214',ear(1),false,toni,mason,date(10,08,2018),time(18,11,16)).
+cross('18R505:B0006313','18R4658:0010214',ear(1),false,toni,mason,date(10,08,2018),time(18,11,34)).
+cross('18R505:B0006312','18R4657:0010109',ear(1),false,toni,mason,date(10,08,2018),time(18,12,48)).
+cross('18R505:B0006309','18R4492:0008812',ear(1),false,toni,mason,date(10,08,2018),time(18,15,36)).
+cross('18R505:B0006308','18R4492:0008812',ear(1),false,toni,mason,date(10,08,2018),time(18,15,45)).
+cross('18R505:B0006306','18R4649:0008612',ear(1),false,toni,mason,date(10,08,2018),time(18,16,59)).
+cross('18R405:M0003604','18R4698:0029009',ear(1),false,toni,mason,date(10,08,2018),time(18,31,57)).
+cross('18R405:M0003607','18R4698:0029009',ear(1),false,toni,mason,date(10,08,2018),time(18,31,57)).
+cross('18R405:M0003614','18R4725:0027408',ear(1),false,toni,mason,date(10,08,2018),time(18,33,38)).
+cross('18R405:M0003611','18R4408:0026810',ear(1),false,toni,mason,date(10,08,2018),time(18,34,32)).
+cross('18R205:S0001711','18R4675:0015308',ear(1),false,toni,mason,date(10,08,2018),time(18,44,06)).
+cross('18R205:S0001710','18R4676:0015508',ear(1),false,toni,mason,date(10,08,2018),time(18,44,48)).
+cross('18R205:S0001617','18R4678:0015902',ear(1),false,toni,mason,date(10,08,2018),time(18,48,56)).
+cross('18R205:S0001609','18R4678:0015902',ear(1),false,toni,mason,date(10,08,2018),time(18,49,03)).
+cross('18R205:S0001608','18R4678:0015901',ear(1),false,toni,mason,date(10,08,2018),time(18,59,42)).
+cross('18R205:S0001602','18R4678:0015901',ear(1),false,toni,mason,date(10,08,2018),time(18,53,01)).
+cross('18R205:S0001601','18R4678:0015901',ear(1),false,toni,mason,date(10,08,2018),time(18,53,05)).
+cross('18R205:S0001517','18R4469:0029309',ear(1),false,toni,mason,date(10,08,2018),time(19,00,42)).
+cross('18R205:S0001514','18R4469:0029309',ear(1),false,toni,mason,date(10,08,2018),time(19,02,44)).
+cross('18R205:S0001512','18R4469:0029309',ear(1),false,toni,mason,date(10,08,2018),time(19,03,21)).
+cross('18R205:S0001511','18R2490:0025003',ear(1),false,toni,mason,date(10,08,2018),time(19,04,51)).
+cross('18R205:S0001508','18R2490:0025003',ear(1),false,toni,mason,date(10,08,2018),time(19,05,43)).
+cross('18R205:S0001505','18R2433:0024103',ear(1),false,toni,mason,date(10,08,2018),time(19,06,32)).
+cross('18R205:S0001504','18R2433:0024102',ear(1),false,toni,mason,date(10,08,2018),time(19,07,57)).
+cross('18R205:S0001402','18R2433:0024102',ear(1),false,toni,mason,date(10,08,2018),time(19,10,31)).
+cross('18R205:S0001406','18R4745:0027903',ear(1),false,toni,mason,date(10,08,2018),time(19,21,33)).
+cross('18R205:S0001405','18R0703:0028604',ear(1),false,toni,mason,date(10,08,2018),time(19,23,18)).
+cross('18R205:S0001404','18R4625:0029202',ear(1),false,toni,mason,date(10,08,2018),time(19,24,46)).
+cross('18R405:M0004101','18R4626:0029107',ear(1),false,toni,mason,date(10,08,2018),time(19,27,17)).
+cross('18R405:M0004103','18R4745:0027903',ear(1),false,toni,mason,date(10,08,2018),time(19,28,02)).
+cross('18R405:M0004105','18R4745:0027901',ear(1),false,toni,mason,date(10,08,2018),time(19,28,54)).
+cross('18R405:M0004106','18R0703:0028604',ear(1),false,toni,mason,date(10,08,2018),time(19,30,47)).
+cross('18R405:M0004015','18R0703:0028604',ear(1),false,toni,mason,date(10,08,2018),time(19,32,38)).
+cross('18R405:M0004013','18R4625:0029202',ear(1),false,toni,mason,date(10,08,2018),time(19,33,01)).
+cross('18R4699:0022302','18R4699:0022302',ear(1),false,toni,mason,date(10,08,2018),time(19,35,38)).
+cross('18R4689:0021203','18R4689:0021203',ear(1),false,toni,mason,date(10,08,2018),time(19,35,48)).
+cross('18R4689:0021208','18R4689:0021208',ear(1),false,toni,mason,date(10,08,2018),time(19,37,06)).
+cross('18R4689:0021211','18R4689:0021211',ear(1),false,toni,mason,date(10,08,2018),time(19,37,48)).
+cross('18R4686:0020801','18R4686:0020801',ear(1),false,toni,mason,date(10,08,2018),time(19,38,42)).
+cross('18R4686:0020803','18R4686:0020803',ear(1),false,toni,mason,date(10,08,2018),time(19,40,37)).
+
+
+
+
+% data added from ../../data../palm/raw_data_from_palms/18r/eta/12.8/cross.csv on Mon Aug 13 07:09:56 CDT 2018
+% by data/data_conversion/convert_cross_data.perl
+% called from data/data_conversion/convert_data.perl
+
+cross('18R205:S0001202','18R4469:0029309',ear(1),false,toni,toni,date(12,08,2018),time(18,41,04)).
+cross('18R205:S0001203','18R4678:0015901',ear(1),false,toni,toni,date(12,08,2018),time(18,41,35)).
+cross('18R205:S0001205','18R4675:0015308',ear(1),false,toni,toni,date(12,08,2018),time(18,42,09)).
+cross('18R205:S0001210','18R4675:0015308',ear(1),false,toni,toni,date(12,08,2018),time(18,42,39)).
+cross('18R205:S0001307','18R4505:0025312',ear(1),false,toni,toni,date(12,08,2018),time(18,53,22)).
+cross('18R205:S0001308','18R4678:0015903',ear(1),false,toni,toni,date(12,08,2018),time(18,53,56)).
+cross('18R205:S0001309','18R4720:0026903',ear(1),false,toni,toni,date(12,08,2018),time(18,54,39)).
+cross('18R205:S0001310','18R4720:0026903',ear(1),false,toni,toni,date(12,08,2018),time(18,54,56)).
+cross('18R205:S0001312','18R4505:0025312',ear(1),false,toni,toni,date(12,08,2018),time(18,55,18)).
+cross('18R205:S0001313','18R4678:0015903',ear(1),false,toni,toni,date(12,08,2018),time(18,55,38)).
+cross('18R205:S0001314','18R4678:0015903',ear(1),false,toni,toni,date(12,08,2018),time(18,55,54)).
+cross('18R205:S0001316','18R4469:0029309',ear(1),false,toni,toni,date(12,08,2018),time(18,56,26)).
+cross('18R405:M0004902','18R4727:0029614',ear(1),false,toni,toni,date(12,08,2018),time(19,30,26)).
+cross('18R405:M0004903','18R4728:0029703',ear(1),false,toni,toni,date(12,08,2018),time(19,30,39)).
+cross('18R405:M0004907','18R4728:0029703',ear(1),false,toni,toni,date(12,08,2018),time(19,31,05)).
+cross('18R405:M0004908','18R4733:0030205',ear(1),false,toni,toni,date(12,08,2018),time(19,31,37)).
+cross('18R405:M0004912','18R4727:0029609',ear(1),false,toni,toni,date(12,08,2018),time(19,32,25)).
+cross('18R405:M0004913','18R4727:0029609',ear(1),false,toni,toni,date(12,08,2018),time(19,32,48)).
+cross('18R405:M0004914','18R4727:0029611',ear(1),false,toni,toni,date(12,08,2018),time(19,32,58)).
+cross('18R405:M0004804','18R4698:0029009',ear(1),false,toni,toni,date(12,08,2018),time(19,38,10)).
+cross('18R405:M0004807','18R4474:0029403',ear(1),false,toni,toni,date(12,08,2018),time(19,38,27)).
+cross('18R405:M0004809','18R4728:0029704',ear(1),false,toni,toni,date(12,08,2018),time(19,38,47)).
+cross('18R405:M0004812','18R4728:0029704',ear(1),false,toni,toni,date(12,08,2018),time(19,39,05)).
+cross('18R405:M0004701','18R4725:0027408',ear(1),false,toni,toni,date(12,08,2018),time(19,41,41)).
+cross('18R405:M0004705','18R4697:0028901',ear(1),false,toni,toni,date(12,08,2018),time(19,41,54)).
+cross('18R405:M0004709','18R4697:0028908',ear(1),false,toni,toni,date(12,08,2018),time(19,42,23)).
+cross('18R405:M0004608','18R4716:0026210',ear(1),false,toni,toni,date(12,08,2018),time(19,45,53)).
+cross('18R405:M0004610','18R4408:0026810',ear(1),false,toni,toni,date(12,08,2018),time(19,46,09)).
+cross('18R405:M0004502','18R2030:0025205',ear(1),false,toni,toni,date(12,08,2018),time(19,50,42)).
+cross('18R405:M0004503','18R1612:0024903',ear(1),false,toni,toni,date(12,08,2018),time(19,51,06)).
+cross('18R405:M0004507','18R2030:0025208',ear(1),false,toni,toni,date(12,08,2018),time(19,51,25)).
+cross('18R405:M0004508','18R4716:0026210',ear(1),false,toni,toni,date(12,08,2018),time(19,51,49)).
+cross('18R405:M0004407','18R2030:0025205',ear(1),false,toni,toni,date(12,08,2018),time(19,56,38)).
+cross('18R405:M0004408','18R4680:0016708',ear(1),false,toni,toni,date(12,08,2018),time(19,56,55)).
+cross('18R405:M0004417','18R2030:0025205',ear(1),false,toni,toni,date(12,08,2018),time(19,57,19)).
+
+
+
+
+% data added from ../../data../palm/raw_data_from_palms/18r/eta/13.8/cross.csv on Tue Aug 14 06:00:28 CDT 2018
+% by data/data_conversion/convert_cross_data.perl
+% called from data/data_conversion/convert_data.perl
+
+cross('18R205:S0001108','18R4676:0015508',ear(1),false,toni,toni,date(13,08,2018),time(10,20,07)).
+cross('18R205:S0001115','18R4675:0015317',ear(1),false,toni,toni,date(13,08,2018),time(10,20,32)).
+cross('18R205:S0001014','18R4675:0015317',ear(1),false,toni,toni,date(13,08,2018),time(10,21,07)).
+cross('18R405:M0004206','18R4731:0030011',ear(1),false,toni,toni,date(13,08,2018),time(10,29,18)).
+cross('18R405:M0004312','18R4680:0016708',ear(1),true,toni,toni,date(13,08,2018),time(10,30,11)).
+cross('18R405:M0004313','18R4698:0029007',ear(1),false,toni,toni,date(13,08,2018),time(10,30,40)).
+cross('18R405:M0004210','18R4733:0030202',ear(1),false,toni,toni,date(13,08,2018),time(10,42,56)).
+cross('18R405:M0004212','18R4733:0030205',ear(1),false,toni,toni,date(13,08,2018),time(10,43,33)).
+cross('18R405:M0004104','18R4716:0026206',ear(1),false,toni,toni,date(13,08,2018),time(10,50,35)).
+cross('18R405:M0004111','18R4716:0026206',ear(1),false,toni,toni,date(13,08,2018),time(10,50,46)).
+cross('18R405:M0004112','18R4725:0027408',ear(1),false,toni,toni,date(13,08,2018),time(10,51,28)).
+cross('18R405:M0004113','18R4733:0030202',ear(1),false,toni,toni,date(13,08,2018),time(10,52,16)).
+cross('18R405:M0004114','18R4733:0030202',ear(1),false,toni,toni,date(13,08,2018),time(10,52,46)).
+cross('18R205:S0001603','18R2433:0024103',ear(1),false,toni,toni,date(13,08,2018),time(11,08,37)).
+cross('18R205:S0001607','18R4745:0027907',ear(1),false,toni,toni,date(13,08,2018),time(11,09,20)).
+cross('18R205:S0001612','18R4745:0027903',ear(1),false,toni,toni,date(13,08,2018),time(11,09,57)).
+%
+% scan error: per bag
+%
+% Kazic, 16.8.2018
+%
+% cross('18R205:20001613','18R4745:0027901',ear(1),false,toni,toni,date(13,08,2018),time(11,10,47)).
+cross('18R205:S0001613','18R4745:0027901',ear(1),false,toni,toni,date(13,08,2018),time(11,10,47)).
+%
+cross('18R205:S0001619','18R0703:0028604',ear(1),false,toni,toni,date(13,08,2018),time(11,11,07)).
+cross('18R205:S0001213','18R2433:0024102',ear(1),false,toni,toni,date(13,08,2018),time(11,14,58)).
+cross('18R205:S0001209','18R4505:0025311',ear(1),false,toni,toni,date(13,08,2018),time(11,15,15)).
+cross('18R205:S0001206','18R4505:0025311',ear(1),false,toni,toni,date(13,08,2018),time(11,15,41)).
+cross('18R205:S0001519','18R4625:0029213',ear(1),false,toni,toni,date(13,08,2018),time(11,27,03)).
+%
+% plants and bags mislabelled: record corrected
+%
+% Kazic, 14.8.2018
+%
+% cross('18R205:S0001101','18R4626:0029107',ear(1),false,toni,toni,date(13,08,2018),time(11,31,01)).
+%
+cross('18R205:S0001102','18R4626:0029107',ear(1),false,toni,toni,date(13,08,2018),time(11,31,01)).
+cross('18R205:S0001107','18R4626:0029101',ear(1),false,toni,toni,date(13,08,2018),time(11,31,37)).
+cross('18R405:M0004109','18R4727:0029611',ear(1),false,toni,toni,date(13,08,2018),time(11,34,57)).
+cross('18R405:M0004110','18R4626:0029107',ear(1),false,toni,toni,date(13,08,2018),time(11,35,15)).
+cross('18R405:M0004006','18R4727:0029614',ear(1),false,toni,toni,date(13,08,2018),time(11,38,08)).
+cross('18R405:M0004014','18R4727:0029614',ear(1),false,toni,toni,date(13,08,2018),time(11,38,28)).
+cross('18R405:M0003905','18R4751:0028502',ear(1),false,toni,toni,date(13,08,2018),time(11,43,23)).
+cross('18R405:M0003906','18R4751:0028502',ear(1),false,toni,toni,date(13,08,2018),time(11,43,39)).
+cross('18R405:M0003907','18R4751:0028502',ear(1),false,toni,toni,date(13,08,2018),time(11,44,10)).
+cross('18R405:M0003918','18R4626:0029101',ear(1),false,toni,toni,date(13,08,2018),time(11,44,41)).
+cross('18R405:M0003806','18R4474:0029403',ear(1),false,toni,toni,date(13,08,2018),time(11,46,19)).
+cross('18R4667:0012709','18R4667:0012709',ear(1),false,toni,toni,date(13,08,2018),time(11,48,47)).
+cross('18R4442:0012804','18R4442:0012804',ear(1),false,toni,toni,date(13,08,2018),time(11,49,49)).
+cross('18R4668:0013109','18R4668:0013109',ear(1),false,toni,toni,date(13,08,2018),time(11,53,38)).
+cross('18R4668:0013111','18R4668:0013109',ear(1),false,toni,toni,date(13,08,2018),time(11,53,45)).
+cross('18R4538:0013602','18R4538:0013612',ear(1),false,toni,toni,date(13,08,2018),time(11,58,53)).
+cross('18R4538:0013607','18R4538:0013612',ear(1),false,toni,toni,date(13,08,2018),time(11,59,21)).
+cross('18R4538:0013611','18R4538:0013612',ear(1),false,toni,toni,date(13,08,2018),time(11,59,37)).
+cross('18R4436:0013910','18R4436:0013910',ear(1),false,toni,toni,date(13,08,2018),time(12,05,16)).
+cross('18R4436:0013906','18R4436:0013910',ear(1),false,toni,toni,date(13,08,2018),time(12,05,47)).
+cross('18R4436:0013902','18R4436:0013910',ear(1),false,toni,toni,date(13,08,2018),time(12,06,21)).
+
+
+
+
+% data added from ../../data../palm/raw_data_from_palms/18r/eta/16.8/cross.csv on Fri Aug 17 07:50:38 CDT 2018
+% by data/data_conversion/convert_cross_data.perl
+% called from data/data_conversion/convert_data.perl
+
+cross('18R205:S0000410','18R4675:0015317',ear(1),false,toni,toni,date(16,08,2018),time(11,10,33)).

@@ -6,7 +6,22 @@
 
 
 a file to keep track of what data have to be cleaned up, forcing ports of
-perl code
+prolog and perl code
+
+* counting noses
+
+#+BEGIN_SRC a mere curiosity: how many facts?
+
+bash-3.2$ date
+Sat May 26 06:28:23 CDT 2018
+
+bash-3.2$ grep -v '%' *.pl | grep -v index | grep -v old | grep -v safe | grep -v backlog | wc
+  178435  234096 25546095
+
+bash-3.2$ grep -v '%' *.pl | grep -v old | grep -v safe | grep -v backlog | wc
+  334415  390275 39232630
+
+#+END_SRC
 
 
 * table
@@ -19,14 +34,14 @@ all 16r data entered <2018-04-24 Tue>
 |--------------------+---------------------------------------------------------+---------------|
 | box                | photo boxes, enter data; belay until sleeves re-bounded |               |
 | cross              | insert 16r data; 17r data done  <2018-04-21 Sat>           | <2018-04-26 Thu> |
-| crop_rowplant      | recompute, adding 16r and 17r data                      |               |
+| crop_rowplant      | recompute, adding 16r and 17r data                      | <2018-05-22 Tue> |
 | cross_prep         | add 16r, 17r data                                       | <2018-04-26 Thu> |
 | failed_pollination | convert to harvest facts and add there                  | <2018-05-01 Tue> |
 | faked_planted      | check if present in planted, otherwise insert           | <2018-05-01 Tue> |
 | family_remapping   | bring up to date                                        |               |
 | first_extra_tag    | incorporate data into row_status and retire             |               |
 | gene_type          | bring up to date                                        |               |
-| genotype           | bring up to date                                        |               |
+| genotype           | bring up to date                                        | <2018-05-20 Sun> |
 | harvest            | add 16r, 17r data; find missing 17r data                | <2018-05-18 Fri> |
 | idea               | incorporate into crop notes org file                    |               |
 | image              | add 16r, 17r data; cross-check with images and tissue   | <2018-04-26 Thu> |
@@ -46,10 +61,10 @@ all 16r data entered <2018-04-24 Tue>
 | plant_height       | merge with plant_anatomy; add any new                   | <2018-04-26 Thu> |
 | plant_fate         | add any new                                             | <2018-04-26 Thu> |
 | planted            | add 17r data                                            | <2018-04-20 Fri> |
-| planted_index      | recompute, add 16r and 17r data                         |               |
+| planting_index     | recompute, add 16r and 17r data                         | <2018-05-22 Tue> |
 | prefix             | replaced by family_prefix, rmed                         | <2018-04-26 Thu> |
 | proposed_next*     | discard?                                                |               |
-| row_members        | recompute, add 16r, 17r                                 |               |
+| row_members        | recompute, add 16r, 17r                                 | <2018-05-22 Tue> |
 | row_status         | add 17r                                                 | <2018-04-21 Sat> |
 | sec_in_days        | discard,  merge with num_secs                           | <2018-04-26 Thu> |
 | source             | bring up to date                                        |               |
@@ -131,6 +146,1275 @@ it done on <2018-05-15 Tue> and we know what we have now.  Files are in
 
 New tags generated for 16r and 17r and ready to go in [[file:../../crops/inventory/tags/final_tags_for_18r.pdf][final_tags_for_18r.pdf]].
 
+
 ** new data checking predicates ~ <2018-05-12 Sat> -- <2018-05-16 Wed>
 
 This let me discover missing facts in packed_packet, planted, and genotype.
+
+
+** fixing genotype/11 facts <2018-05-20 Sun>
+
+see [[file:../../crops/17r/management/new_genotypes.org][new_genotypes.org]] for the gory details.
+
+
+** more missing genotype fact? <2018-05-25 Fri>
+
+Pedigrees breaking off after 06N/07R, why?  well, not everything jibes yet
+. . .
+
+
+*** ain't got all the genotypes in yet <2018-05-25 Fri>
+
+#+BEGIN_SRC prolog
+?- setof((Ma,Pa),Pk^C^O^D^T^F^MF^PF^Gma^GPa^Pma^Ppa^L^K^(packed_packet(Pk,Ma,Pa,C,O,D,T),\+ genotype(F,MF,Ma,PF,Pa,Gma,GPa,Pma,Ppa,L,K)),Oops),write_list(Oops).
+Correct to: "demeter_utilities:write_list(Oops)"? 
+
+% sorted by male family
+
+09R0000:0000000,09R0000:0000000 
+10R0000:0000000,10R0000:0000000 
+14R0000:0000000,14R0000:0000000 
+09R201:S0051605,09R0078:0003504         % no genotype fact at all 
+09R301:W0051803,09R0078:0003504         % no genotype fact at all  
+09R401:M0056707,09R0078:0003504         % no genotype fact at all  
+06N201:S0009210,06N1025:0001207         % family migrated to 1243 from 1025 --- fixed, see below
+06N301:W0008105,06N1025:0001207         % family migrated to 1243 from 1025 --- fixed, see below 
+09R401:M0033011,09R1368:0007703         % no genotype fact at all  
+09R301:W0047607,09R1851:0018702         % no genotype fact at all 
+09R401:M0052001,09R2183:0003806         % no genotype fact at all  
+12R405:M0002413,12R3179:0040711         % no genotype fact at all   
+12R405:M0009314,12R3469:0032007         % no genotype fact at all    
+13R3556:0003802,13R3556:0003805         % no genotype fact at all    
+13R3584:0005703,13R3584:0005713         % no genotype fact at all    
+14R3616:0012316,14R3616:0012311         % no genotype fact at all    
+12R405:M0009912,12R3629:0028406         % no genotype fact at all    
+14R3647:0014302,14R3647:0014316         % no genotype fact at all    
+14R3656:0014813,14R3656:0014806         % no genotype fact at all    
+14R3701:0015203,14R3701:0015209         % no genotype fact at all    
+14R3908:0010817,14R3908:0010815         % no genotype fact at all    
+14R3962:0011203,14R3962:0011206         % no genotype fact at all    
+14R3975:0011905,14R3975:0011906         % no genotype fact at all    
+12N3980:0022803,12N3980:0022801         % no genotype fact at all, one for a sib    
+12N3983:0023202,12N3983:0023202         % no genotype fact at all, one for a sib     
+14R4002:0013002,14R4002:0013012         % no genotype fact at all     
+14R4036:0014401,14R4036:0014408         % no genotype fact at all 
+13R4089:0007204,13R4089:0007201         % no genotype fact at all 
+14R4090:0011701,14R4090:0011711         % no genotype fact at all 
+13R4091:0007405,13R4091:0007403         % no genotype fact at all 
+13R4094:0008101,13R4094:0008107         % no genotype fact at all 
+14R4095:0013106,14R4095:0013111         % no genotype fact at all 
+13R4096:0008806,13R4096:0008805         % no genotype fact at all 
+14R4097:0013708,14R4097:0013705         % no genotype fact at all 
+13R4098:0009010,13R4098:0009002         % no genotype fact at all 
+13R4099:0009105,13R4099:0009112         % no genotype fact at all 
+13R4102:0010102,13R4102:0010107         % no genotype fact at all 
+14R4227:0009208,14R4227:0009211         % no genotype fact at all 
+14R4228:0009419,14R4228:0009404         % no genotype fact at all 
+14R4263:0012811,14R4263:0012810         % no genotype fact at all 
+14R4269:0015001,14R4269:0015007         % no genotype fact at all 
+15R4377:0008003,15R4377:0008003         % no genotype fact at all  
+
+
+?- 
+#+END_SRC
+
+
+
+#+BEGIN_SRC grep results
+bash-3.2$ grep '078:' genotype.pl | grep -v 06R
+genotype(3169,3078,'10R3078:0041002',3078,'10R3078:0041002','W23/B73','W23/{camo|+}','W23/B73','W23/{camo|+}',['camo'],'K13009').
+genotype(3170,3078,'10R3078:0041006',3078,'10R3078:0041006','W23/B73','W23/{camo|+}','W23/B73','W23/{camo|+}',['camo'],'K13009').
+genotype(3171,3078,'10R3078:0041009',3078,'10R3078:0041009','W23/B73','W23/{camo|+}','W23/B73','W23/{camo|+}',['camo'],'K13009').
+genotype(3480,305,'11R305:W0047412',2078,'11R2078:0029804','W23','W23','M14','((C-13/AG32)/?))/Les-EC91',['Les-EC91'],'K11703').
+genotype(3481,405,'11R405:M0049911',2078,'11R2078:0029804','M14','M14','M14','((C-13/AG32)/?))/Les-EC91',['Les-EC91'],'K11703').
+bash-3.2$ grep '1851:' genotype.pl 
+genotype(3234,301,'09R301:W0042501',1851,'09R1851:0018706','W23','W23','W23/M14','Les6',['Les6'],'K2210').
+bash-3.2$ grep ':0018702' genotype.pl  | grep 09R
+bash-3.2$ grep :0007703 genotype.pl | grep 09R
+% genotype(1008,201,'09R201:S0033106',1368,'09R1368:0007703','Mo20W','Mo20W','W23/+/W23/{+|les23}','W23/+/W23/{+|les23}',[les23],'K3514').
+genotype(1008,201,'09R201:S0033106',1368,'09R1368:0007703','Mo20W','Mo20W','W23/les23','W23/les23',[les23],'K3514').
+% genotype(1009,301,'09R301:W0033208',1368,'09R1368:0007703','W23','W23','W23/+/W23/{+|les23}','W23/+/W23/{+|les23}',[les23],'K3514').
+genotype(1009,301,'09R301:W0033208',1368,'09R1368:0007703','W23','W23','W23/les23','W23/les23',[les23],'K3514').
+bash-3.2$ grep :0003806 genotype.pl | grep 09R
+bash-3.2$ grep :0040711 genotype.pl | grep 12R
+bash-3.2$ grep :0032007 genotype.pl | grep 12R
+bash-3.2$ grep :0003805 genotype.pl | grep 12R
+bash-3.2$ grep :0003805 genotype.pl | grep 13R
+bash-3.2$ grep :0005713 genotype.pl | grep 13R
+bash-3.2$ grep :0012311 genotype.pl | grep 14R
+bash-3.2$ grep :0028406 genotype.pl | grep 12R
+bash-3.2$ grep :0014316 genotype.pl | grep 14R
+bash-3.2$ grep :0014806 genotype.pl | grep 14R
+bash-3.2$ grep :0015209  genotype.pl | grep 14R
+bash-3.2$ grep :0010815 genotype.pl | grep 14R
+bash-3.2$ grep :0011206 genotype.pl | grep 14R
+bash-3.2$ grep :0011906 genotype.pl | grep 14R
+bash-3.2$ grep :0022801 genotype.pl | grep 12N
+genotype(4103,3980,'12N3980:0022805',3980,'12N3980:0022801','Mo20W','Mo20W/Les8','Mo20W','Mo20W/Les8',['Les8'],'K0604').
+bash-3.2$ grep :0023202 genotype.pl | grep 12N
+genotype(4107,3983,'12N3983:0023201',3983,'12N3983:0023202','W23','W23/Les8','W23','W23/Les8',['Les8'],'K0604').
+bash-3.2$ grep :0013012 genotype.pl | grep 14R
+bash-3.2$ grep :0014408 genotype.pl | grep 14R
+bash-3.2$ grep :0007201 genotype.pl | grep 13R
+bash-3.2$ grep :0011711 genotype.pl | grep 13R
+bash-3.2$ grep :0011711 genotype.pl | grep 14R
+bash-3.2$ grep :0007403 genotype.pl | grep 14R
+bash-3.2$ grep :0007403 genotype.pl | grep 13R
+bash-3.2$ grep :0008107 genotype.pl | grep 13R
+bash-3.2$ grep :0013111 genotype.pl | grep 14R
+bash-3.2$ grep :0008805 genotype.pl | grep 13R
+bash-3.2$ grep :0013705 genotype.pl | grep 14R
+bash-3.2$ grep :0009002 genotype.pl | grep 13R
+bash-3.2$ grep :0009112 genotype.pl | grep 13R
+bash-3.2$ grep :0010107 genotype.pl | grep 13R
+bash-3.2$ grep :0009211 genotype.pl | grep 14R
+bash-3.2$ grep :0009404 genotype.pl | grep 14R
+bash-3.2$ grep :0012810 genotype.pl | grep 14R
+bash-3.2$ grep :0015007 genotype.pl | grep 14R
+bash-3.2$ grep :0008003 genotype.pl | grep 15R
+
+#+END_SRC
+
+
+#+BEGIN_SRC fixing 1025 to 1243 in packed_packet, ignore plan.pl
+bash-3.2$ grep 06N1025:0001207 *.pl | grep -v backlog | grep -v old
+genotype.pl:% genotype(2510,201,'06N201:S0009210',1025,'06N1025:0001207','Mo20W','Mo20W','Mo20W/+','Les11',['Les11'],'K0901').
+genotype.pl:% genotype(2511,301,'06N301:W0008105',1025,'06N1025:0001207','W23','W23','Mo20W/+','Les11',['Les11'],'K0901').
+genotype.pl:% genotype(2512,401,'06N401:M0009101',1025,'06N1025:0001207','M14','M14','Mo20W/+','Les11',['Les11'],'K0901').
+packed_packet.pl:packed_packet(p00614,'06N301:W0008105','06N1025:0001207',20,toni,date(11,06,2012),time(09,28,34)).
+packed_packet.pl:packed_packet(p00613,'06N201:S0009210','06N1025:0001207',20,toni,date(11,06,2012),time(09,26,57)).
+plan.pl:plan('06N201:S0009210','06N1025:0001207',2,['S'],'','09R').
+plan.pl:plan('06N301:W0008105','06N1025:0001207',2,['W'],'','09R').
+plan.pl:plan('06N401:M0009101','06N1025:0001207',2,['M'],'','09R').
+
+# others in packed packet:
+
+10R1243:0012708,10R1243:0012708
+10R1243:0012704,10R1243:0012704
+10R1243:0012703,10R1243:0012703
+#+END_SRC
+
+
+
+well, I don't know if this is enough to break the pedigrees, but they can't help!
+
+Since the planting_index is now computed from the genotype facts, instead
+of gathering all numerical genotypes as before, relying on the
+planting_index to trace the pedigrees will end prematurely if there is no
+genotype fact for those parents.
+
+
+*** who needs a genotype?
+
+#+BEGIN_SRC prolog were the lines missing genotype facts planted?  where? when?
+
+% exclude p00000 and family 0000, and make sure plantings occur after line made
+
+
+?- missing_lines(R),write_list(R).
+Correct to: "genetic_utilities:missing_lines(R)"? 
+Correct to: "demeter_utilities:write_list(R)"? 
+(09R201:S0051605,09R0078:0003504)-[(11N,r00295,p00052),(11R,r00089,p00052),(12R,r00544,p00052),(13R,r00287,p00052),(14R,r00077,p00052),(15R,r00205,p00052),(17R,r00090,p00052)] 
+(09R301:W0047607,09R1851:0018702)-[(11N,r00189,p00075),(11R,r00389,p00075),(12R,r00421,p00075),(13R,r00241,p00075),(14R,r00072,p00075),(15R,r00196,p00075),(17R,r00113,p00075)] 
+(09R301:W0051803,09R0078:0003504)-[(11N,r00072,p00077),(11R,r00392,p00077),(12R,r00574,p00077),(13R,r00268,p00077),(14R,r00107,p00077),(15R,r00210,p00077),(17R,r00115,p00077)] 
+(09R401:M0033011,09R1368:0007703)-[(11N,r00097,p00071),(11R,r00410,p00071),(12R,r00407,p00071),(13R,r00221,p00071),(14R,r00231,p00071),(15R,r00194,p00071),(17R,r00109,p00071)] 
+(09R401:M0052001,09R2183:0003806)-[(11N,r00163,p00099),(11R,r00341,p00099),(12N,r00033,p00099),(12R,r00250,p00099),(13R,r00051,p00099),(14R,r00232,p00099),(16R,r00079,p00099),(17R,r00137,p00099)] 
+(09R401:M0056707,09R0078:0003504)-[(11N,r00149,p00100),(11R,r00342,p00100),(12N,r00034,p00100),(12R,r00265,p00100),(13R,r00102,p00100),(14R,r00233,p00100),(15R,r00111,p00100),(17R,r00138,p00100)] 
+(10R1243:0012703,10R1243:0012703)-[(11N,r00140,p00082),(11R,r00078,p00082),(12R,r00579,p00082),(13R,r00259,p00082),(14R,r00148,p00082),(17R,r00120,p00082)] 
+(10R1243:0012704,10R1243:0012704)-[(11N,r00141,p00083),(11R,r00203,p00083),(12R,r00580,p00083),(13R,r00093,p00083),(14R,r00080,p00083),(17R,r00121,p00083)] 
+(10R1243:0012708,10R1243:0012708)-[(11N,r00067,p00084),(11R,r00241,p00084),(12R,r00581,p00084),(13R,r00247,p00084),(14R,r00081,p00084),(17R,r00122,p00084)] 
+(12N3980:0022803,12N3980:0022801)-[] 
+(12N3983:0023202,12N3983:0023202)-[] 
+(12R405:M0002413,12R3179:0040711)-[(12N,r00227,p00178),(14R,r00114,p00178),(17R,r00216,p00178)] 
+(12R405:M0009314,12R3469:0032007)-[(12N,r00216,p00189),(14R,r00093,p00189),(17R,r00227,p00189)] 
+(12R405:M0009912,12R3629:0028406)-[(12N,r00118,p00187),(14R,r00074,p00187),(15R,r00148,p00187),(17R,r00225,p00187)] 
+(13R3556:0003802,13R3556:0003805)-[(14R,r00902,p00902),(14R,r00903,p00903)] 
+(13R3584:0005703,13R3584:0005713)-[(14R,r00909,p00910),(14R,r00911,p00911)] 
+(13R4089:0007204,13R4089:0007201)-[(14R,r00912,p00912),(14R,r00913,p00913)] 
+(13R4091:0007405,13R4091:0007403)-[] 
+(13R4094:0008101,13R4094:0008107)-[] 
+(13R4096:0008806,13R4096:0008805)-[] 
+(13R4098:0009010,13R4098:0009002)-[] 
+(13R4099:0009105,13R4099:0009112)-[] 
+(13R4102:0010102,13R4102:0010107)-[] 
+(14R3616:0012316,14R3616:0012311)-[] 
+(14R3647:0014302,14R3647:0014316)-[] 
+(14R3656:0014813,14R3656:0014806)-[] 
+(14R3701:0015203,14R3701:0015209)-[] 
+(14R3908:0010817,14R3908:0010815)-[] 
+(14R3962:0011203,14R3962:0011206)-[(17R,r00169,p00131),(17R,r00170,p00132)] 
+(14R3975:0011905,14R3975:0011906)-[] 
+(14R4002:0013002,14R4002:0013012)-[] 
+(14R4036:0014401,14R4036:0014408)-[] 
+(14R4090:0011701,14R4090:0011711)-[] 
+(14R4095:0013106,14R4095:0013111)-[] 
+(14R4097:0013708,14R4097:0013705)-[] 
+(14R4227:0009208,14R4227:0009211)-[] 
+(14R4228:0009419,14R4228:0009404)-[] 
+(14R4263:0012811,14R4263:0012810)-[] 
+(14R4269:0015001,14R4269:0015007)-[] 
+(15R4377:0008003,15R4377:0008003)-[(16R,r00059,p01069)] 
+
+
+#+END_SRC
+
+
+*** a new reverse index, the frpc_index
+
+So in preparation for computing descendants differently, I computed a new
+index, the frpc_index:
+
+#+BEGIN_EXAMPLE hmmm, got more funky families than I thought
+% frpc_index(Family,RowPlant,Crop,NumericalGenotype).
+
+
+frpc_index(0,'0000000','09R','09R0000:0000000').
+frpc_index(0,'0000000','10R','10R0000:0000000').
+frpc_index(0,'0000000','11R','11R0000:0000000').
+...
+#+END_EXAMPLE
+
+and found we have facts with un-familied numerical genotypes, too.  And I
+can use this index to find rowplants in the same crop with different
+families . . . 
+
+
+*** fixing the funky 0000 families <2018-05-26 Sat>
+
+
+#+BEGIN_EXAMPLE funky 0 zero families <2018-05-25 Fri>
+
+frpc_index(0,'0000000','09R','09R0000:0000000').  % changed all to 06R0000:0000000
+frpc_index(0,'0000000','10R','10R0000:0000000').
+frpc_index(0,'0000000','11R','11R0000:0000000').   
+frpc_index(0,'0000000','14R','14R0000:0000000').
+
+
+frpc_index(0,'0022411','10R','10R0000:0022411').  % corrected image based on genotype, planted, packed_packet
+
+% well, we never had that many rows after about 09r!
+% last row in 12r was 600.  what are these?
+% plants from David Braun's field that we photographed!
+%
+% assigned un-genotyped ones to family 9999, the great unknown of the EC
+
+frpc_index(0,'0132010','12R','12R0000:0132010').
+frpc_index(0,'0132112','12R','12R0000:0132112').
+
+frpc_index(0,'0132514','12R','12R0000:0132514').
+
+frpc_index(0,'0132717','12R','12R0000:0132717').
+
+frpc_index(0,'0133204','12R','12R0000:0133204').
+
+frpc_index(0,'0133409','12R','12R0000:0133409').
+frpc_index(0,'0133415','12R','12R0000:0133415').
+
+frpc_index(0,'0133610','12R','12R0000:0133610').
+frpc_index(0,'0133613','12R','12R0000:0133613').
+
+frpc_index(0,'0133710','12R','12R0000:0133710').
+frpc_index(0,'0133711','12R','12R0000:0133711').
+
+frpc_index(0,'0134415','12R','12R0000:0134415').
+
+frpc_index(0,'0134708','12R','12R0000:0134708').
+frpc_index(0,'0134709','12R','12R0000:0134709').
+
+#+END_EXAMPLE
+
+
+
+OK, all funky 0 families fixed <2018-05-26 Sat> in all data (and fixed back if they had
+a genotype fact).
+
+#+BEGIN_SRC final results for the Braun 0000s <2018-05-26 Sat>
+bash-3.2$ grep :013 *.pl | grep -v index | grep -v old | grep -v safe | grep -v '%' | grep -v backlog | grep -v source | grep -v inventory | grep -v genotype | sort
+cross.pl:cross('12R0642:0132014','12R0642:0132014',ear(1),false,toni,toni,date(4,08,2012),time(10,37,00)).
+cross.pl:cross('12R0651:0133509','12R0651:0133509',ear(1),false,toni,toni,date(2,08,2012),time(11,00,00)).
+cross.pl:cross('12R0652:0133511','12R0652:0133511',ear(1),false,toni,toni,date(2,08,2012),time(10,58,00)).
+cross.pl:cross('12R0653:0133513','12R0653:0133513',ear(1),false,toni,toni,date(2,08,2012),time(10,57,00)).
+cross.pl:cross('12R599:B0131001','12R0654:0134713',ear(1),false,toni,toni,date(31,07,2012),time(10,29,00)).
+cross.pl:cross('12R599:B0131002','12R9999:0133711',ear(1),false,toni,toni,date(31,07,2012),time(10,29,00)).
+cross.pl:cross('12R599:B0131003','12R0644:0132303',ear(1),false,toni,toni,date(31,07,2012),time(10,30,00)).
+cross.pl:cross('12R599:B0131005','12R0643:0132211',ear(1),false,toni,toni,date(31,07,2012),time(10,30,00)).
+cross.pl:cross('12R599:B0131006','12R9999:0132010',ear(1),false,toni,toni,date(31,07,2012),time(10,30,00)).
+cross.pl:cross('12R599:B0131007','12R9999:0134708',ear(1),false,toni,toni,date(1,08,2012),time(10,49,00)).
+cross.pl:cross('12R599:B0131008','12R9999:0132214',ear(1),false,toni,toni,date(1,08,2012),time(10,48,00)).
+cross.pl:cross('12R599:B0131009','12R0646:0132313',ear(1),false,toni,toni,date(1,08,2012),time(10,48,00)).
+cross.pl:cross('12R599:B0131010','12R0642:0132014',ear(1),false,toni,toni,date(2,08,2012),time(11,03,00)).
+cross.pl:cross('12R599:B0131012','12R0652:0133511',ear(1),false,toni,toni,date(2,08,2012),time(11,04,00)).
+cross.pl:cross('12R599:B0131013','12R0666:0133204',ear(1),false,toni,toni,date(3,08,2012),time(10,44,00)).
+cross.pl:cross('12R599:B0131014','12R0645:0132309',ear(1),false,toni,toni,date(1,08,2012),time(10,48,00)).
+cross.pl:cross('12R599:B0131015','12R0644:0132303',ear(1),false,toni,toni,date(1,08,2012),time(10,48,00)).
+cross.pl:cross('12R599:B0131016','12R0652:0133511',ear(1),false,toni,toni,date(2,08,2012),time(11,05,00)).
+cross.pl:cross('12R599:B0131017','12R9999:0132717',ear(1),false,toni,toni,date(31,07,2012),time(10,30,00)).
+cross.pl:cross('12R599:B0131019','12R9999:0134709',ear(1),false,toni,toni,date(2,08,2012),time(11,07,00)).
+cross.pl:cross('12R599:B0131020','12R0651:0133509',ear(1),false,toni,toni,date(2,08,2012),time(11,07,00)).
+cross.pl:cross('12R599:B0131023','12R9999:0133710',ear(1),false,toni,toni,date(2,08,2012),time(11,07,00)).
+cross.pl:cross('12R599:B0131025','12R0653:0133513',ear(1),false,toni,toni,date(29,07,2012),time(9,13,00)).
+cross.pl:cross('12R599:B0131101','12R9999:0132010',ear(1),false,toni,toni,date(3,08,2012),time(10,42,00)).
+cross.pl:cross('12R599:B0131102','12R0653:0133513',ear(1),false,toni,toni,date(29,07,2012),time(12,00,00)).
+cross.pl:cross('12R599:B0131112','12R0647:0133203',ear(1),false,toni,toni,date(3,08,2012),time(10,42,00)).
+cross.pl:cross('12R599:B0131114','12R9999:0132203',ear(1),false,toni,toni,date(30,07,2012),time(10,00,00)).
+cross.pl:cross('12R599:B0131118','12R0665:0133415',ear(1),false,toni,toni,date(30,07,2012),time(10,04,00)).
+cross.pl:cross('12R599:B0131119','12R0650:0133416',ear(1),false,toni,toni,date(29,07,2012),time(12,00,00)).
+cross.pl:cross('12R599:B0131125','12R0665:0133415',ear(1),false,toni,toni,date(29,07,2012),time(12,00,00)).
+cross.pl:cross('12R599:B0131126','12R0649:0133414',ear(1),false,toni,toni,date(29,07,2012),time(12,00,00)).
+cross.pl:cross('12R599:B0131127','12R0648:0133407',ear(1),false,toni,toni,date(29,07,2012),time(12,00,00)).
+cross.pl:cross('12R599:B0131210','12R0652:0133511',ear(1),false,toni,toni,date(3,08,2012),time(10,47,00)).
+cross.pl:cross('12R599:B0131216','12R9999:0133711',ear(1),false,toni,toni,date(3,08,2012),time(10,46,00)).
+cross.pl:cross('12R599:B0131227','12R0642:0132014',ear(1),false,toni,toni,date(29,07,2012),time(12,00,00)).
+cross.pl:cross('12R9999:0132010','12R9999:0132010',ear(1),false,toni,toni,date(4,08,2012),time(10,37,00)).
+cross.pl:cross('12R9999:0133710','12R9999:0133710',ear(1),false,toni,toni,date(4,08,2012),time(10,34,00)).
+harvest.pl:harvest('12R0642:0132014','12R0642:0132014',failed,'low pollen; vss; 0 cl',toni,date(16,09,2012),time(14,00,00)).
+harvest.pl:harvest('12R0651:0133509','12R0651:0133509',failed,'0 cl',toni,date(16,09,2012),time(14,00,00)).
+harvest.pl:harvest('12R0652:0133511','12R0652:0133511',succeeded,'needs tag; eighth',toni,date(16,09,2012),time(14,00,00)).
+harvest.pl:harvest('12R0653:0133513','12R0653:0133513',failed,'low pollen; 1 earworm; needs tag; 23 cl',toni,date(16,09,2012),time(14,00,00)).
+harvest.pl:harvest('12R0653:0133513','12R0653:0133513',succeeded,'needs tag; sixteenth; fungus',toni,date(16,09,2012),time(14,00,00)).
+harvest.pl:harvest('12R599:B0131001','12R0654:0134713',succeeded,'needs tag; 3 earworms; eighth; fungus',toni,date(16,09,2012),time(14,00,00)).
+harvest.pl:harvest('12R599:B0131002','12R9999:0133711',succeeded,'discarded; quarter; fungus',toni,date(16,09,2012),time(14,00,00)).
+harvest.pl:harvest('12R599:B0131003','12R0644:0132303',succeeded,'discarded; three_quarter; fungus',toni,date(16,09,2012),time(14,00,00)).
+harvest.pl:harvest('12R599:B0131005','12R0643:0132211',succeeded,'needs tag; 1 earworm; half; fungus',toni,date(16,09,2012),time(14,00,00)).
+harvest.pl:harvest('12R599:B0131006','12R9999:0132010',failed,'1 earworm; 3 cl; fungus',toni,date(16,09,2012),time(14,00,00)).
+harvest.pl:harvest('12R599:B0131007','12R9999:0134708',failed,'1 earworm; 16 cl; fungus',toni,date(16,09,2012),time(14,00,00)).
+harvest.pl:harvest('12R599:B0131008','12R9999:0132214',succeeded,'1 earworm; discarded; eighth; fungus',toni,date(16,09,2012),time(14,00,00)).
+harvest.pl:harvest('12R599:B0131009','12R0646:0132313',succeeded,'needs tag; whole',toni,date(16,09,2012),time(14,00,00)).
+harvest.pl:harvest('12R599:B0131010','12R0642:0132014',failed,'pulled ear; low pollen; 3 cl; fungus',toni,date(16,09,2012),time(14,00,00)).
+harvest.pl:harvest('12R599:B0131012','12R0652:0133511',succeeded,'needs tag; quarter; fungus',toni,date(16,09,2012),time(14,00,00)).
+harvest.pl:harvest('12R599:B0131013','12R0666:0133204',failed,'needs tag; 16 cl',toni,date(16,09,2012),time(14,00,00)).
+harvest.pl:harvest('12R599:B0131014','12R0645:0132309',succeeded,'needs tag; quarter; fungus',toni,date(16,09,2012),time(14,00,00)).
+harvest.pl:harvest('12R599:B0131015','12R0644:0132303',succeeded,'needs tag; 1 earworm; quarter; fungus',toni,date(16,09,2012),time(14,00,00)).
+harvest.pl:harvest('12R599:B0131016','12R0652:0133511',succeeded,'discarded; quarter; fungus',toni,date(16,09,2012),time(14,00,00)).
+harvest.pl:harvest('12R599:B0131017','12R9999:0132717',failed,'discarded; 7 cl; fungus',toni,date(16,09,2012),time(14,00,00)).
+harvest.pl:harvest('12R599:B0131019','12R9999:0134709',failed,'0 cl',toni,date(16,09,2012),time(14,00,00)).
+harvest.pl:harvest('12R599:B0131020','12R0651:0133509',succeeded,'low pollen; needs tag; eighth; fungus',toni,date(16,09,2012),time(14,00,00)).
+harvest.pl:harvest('12R599:B0131023','12R9999:0133710',succeeded,'1 earworm; discarded; eighth; fungus',toni,date(16,09,2012),time(14,00,00)).
+harvest.pl:harvest('12R599:B0131025','12R0653:0133513',succeeded,'needs tag; 2 earworms; three_quarter; fungus',toni,date(16,09,2012),time(14,00,00)).
+harvest.pl:harvest('12R599:B0131101','12R9999:0132010',failed,'2 earworms; needs tag; 0 cl',toni,date(16,09,2012),time(14,00,00)).
+harvest.pl:harvest('12R599:B0131102','12R0653:0133513',succeeded,'needs tag; half; fungus',toni,date(16,09,2012),time(14,00,00)).
+harvest.pl:harvest('12R599:B0131112','12R0647:0133203',succeeded,'needs tag; 2 earworms; quarter; fungus',toni,date(16,09,2012),time(14,00,00)).
+harvest.pl:harvest('12R599:B0131114','12R9999:0132203',failed,'2 earworms; discarded; 19 cl; fungus',toni,date(16,09,2012),time(14,00,00)).
+harvest.pl:harvest('12R599:B0131118','12R0665:0133415',failed,'needs tag;2 earworms; 6 cl; fungus',toni,date(16,09,2012),time(14,00,00)).
+harvest.pl:harvest('12R599:B0131119','12R0650:0133416',succeeded,'needs tag; 1 earworm; three_quarter; fungus',toni,date(16,09,2012),time(14,00,00)).
+harvest.pl:harvest('12R599:B0131125','12R0665:0133415',failed,'needs tag; 1 earworm; low pollen; 16 cl',toni,date(16,09,2012),time(14,00,00)).
+harvest.pl:harvest('12R599:B0131126','12R0649:0133414',succeeded,'needs tag; 1 earworm; quarter; fungus',toni,date(16,09,2012),time(14,00,00)).
+harvest.pl:harvest('12R599:B0131127','12R0648:0133407',succeeded,'needs tag; quarter; fungus',toni,date(16,09,2012),time(14,00,00)).
+harvest.pl:harvest('12R599:B0131210','12R0652:0133511',succeeded,'0 earworms; half; fungus',toni,date(09,09,2012),time(16,00,00)).
+harvest.pl:harvest('12R599:B0131216','12R9999:0133711',failed,'0 earworms; discarded; 11 cl; fungus',toni,date(09,09,2012),time(16,00,00)).
+harvest.pl:harvest('12R599:B0131227','12R0642:0132014',succeeded,'0 earworms; whole; fungus',toni,date(09,09,2012),time(16,00,00)).
+harvest.pl:harvest('12R9999:0132010','12R9999:0132010',failed,'no ear; 0 cl',toni,date(16,09,2012),time(14,00,00)).
+harvest.pl:harvest('12R9999:0133710','12R9999:0133710',failed,'ear gone; no ear; 0 cl',toni,date(16,09,2012),time(14,00,00)).
+image.pl:image('12R0642:0132014',0034,e2,'middle',bet,'ambient reflected, field',derek,date(02,08,2012),time(15,56,31)).
+image.pl:image('12R0645:0132309',0031,e1,'middle',bet,'ambient reflected, field',derek,date(01,12,2012),time(15,45,09)).
+image.pl:image('12R0646:0132313',0030,e3,'middle',bet,'ambient reflected, field',derek,date(02,08,2012),time(15,42,34)).
+image.pl:image('12R0647:0133203',0027,'t-3','middle',bet,'ambient reflected, field',derek,date(02,08,2012),time(15,24,06)).
+image.pl:image('12R0649:0133414',0028,e6,'middle',bet,'ambient reflected, field',derek,date(02,08,2012),time(15,28,08)).
+image.pl:image('12R0650:0133416',0022,e3,'middle',bet,'ambient reflected, field',derek,date(02,08,2012),time(15,07,12)).
+image.pl:image('12R0650:0133416',0024,e3,'middle',bet,'ambient reflected, field',derek,date(02,08,2012),time(15,17,29)).
+image.pl:image('12R0652:0133511',0020,'e1','middle',bet,'ambient reflected, field',derek,date(02,08,2012),time(14,57,09)).
+image.pl:image('12R0653:0133513',0021,e0,'middle',bet,'ambient reflected, field',derek,date(02,08,2012),time(15,00,13)).
+image.pl:image('12R0654:0134713',0013,e2,'middle',bet,'ambient reflected, field',derek,date(02,08,2012),time(14,24,18)).
+image.pl:image('12R0665:0133415',0023,e1,'middle',bet,'ambient reflected, field',derek,date(02,08,2012),time(15,12,15)).
+image.pl:image('12R0665:0133415',0026,unk,'middle',bet,'ambient reflected, field',derek,date(02,08,2012),time(15,22,09)).
+image.pl:image('12R9999:0132009',0035,e3,'middle',bet,'ambient reflected, field',derek,date(02,08,2012),time(15,57,20)).
+image.pl:image('12R9999:0132010',0039,e3,'middle',bet,'ambient reflected, field',derek,date(02,08,2012),time(15,57,20)).
+image.pl:image('12R9999:0132112',0037,unk,'tip',bet,'ambient reflected, field',derek,date(02,08,2012),time(15,57,20)).
+image.pl:image('12R9999:0132514',0033,'unk','tip',bet,'ambient reflected, field',derek,date(02,08,2012),time(15,48,57)).
+image.pl:image('12R9999:0132717',0032,unk,'middle',bet,'ambient reflected, field',derek,date(02,08,2012),time(15,46,03)).
+image.pl:image('12R9999:0133409',0025,e1,'middle',bet,'ambient reflected, field',derek,date(02,08,2012),time(15,21,36)).
+image.pl:image('12R9999:0133409',0029,unk,'middle',bet,'ambient reflected, field',derek,date(02,08,2012),time(15,30,25)).
+image.pl:image('12R9999:0133610',0017,'t-3','middle',bet,'ambient reflected, field',derek,date(02,08,2012),time(14,45,47)).
+image.pl:image('12R9999:0133610',0019,unk,'middle',bet,'ambient reflected, field',derek,date(02,08,2012),time(14,55,18)).
+image.pl:image('12R9999:0133613',0016,e0,'middle',bet,'ambient reflected, field',derek,date(02,08,2012),time(14,42,15)).
+image.pl:image('12R9999:0133613',0018,e0,'middle',bet,'ambient reflected, field',derek,date(02,08,2012),time(14,51,21)).
+image.pl:image('12R9999:0133710',0015,e2,'middle',bet,'ambient reflected, field',derek,date(02,08,2012),time(14,39,10)).
+image.pl:image('12R9999:0134415',0014,unk,'middle',bet,'ambient reflected, field',derek,date(02,08,2012),time(14,30,03)).
+image.pl:image('12R9999:0134708',0011,e3,'middle',bet,'ambient reflected, field',derek,date(02,08,2012),time(14,09,45)).
+image.pl:image('12R9999:0134709',0010,e1,'middle',bet,'ambient reflected, field',derek,date(02,08,2012),time(13,56,46)).
+
+#+END_SRC
+
+
+
+*** went crazy writing crop_from_date/2 <2018-05-29 Tue>
+
+But need to make sure we consider only plantings after a line has been
+made.  Went crazy (with pauses) for several days writing [[file:../code/genetic_utilities.pl][crop_from_date/2]]
+until I got it.
+
+
+Results verified correct:
+
+#+BEGIN_SRC prolog inserted lines to make output easier to read
+
+?- setof(Crop-Date,P^M^Pa^C^O^T^(packed_packet(P,M,Pa,C,O,Date,T),crop_from_date(Date,Crop)),L),write_list(L).
+...
+
+06N-date(2,11,2006) 
+06N-date(26,10,2006) 
+
+06R-date(8,4,2006) 
+06R-date(15,4,2006) 
+
+07G-date(14,10,2007) 
+07G-date(15,12,2007) 
+
+07R-date(1,5,2007) 
+07R-date(2,5,2007) 
+07R-date(21,4,2007) 
+07R-date(29,4,2007) 
+
+08G-date(1,1,2009) 
+08G-date(14,1,2009) 
+08G-date(31,12,2008) 
+08R-date(15,5,2008) 
+
+09R-date(1,6,2009) 
+09R-date(4,6,2009) 
+09R-date(8,6,2009) 
+09R-date(10,6,2009) 
+09R-date(17,5,2009) 
+09R-date(18,5,2009) 
+09R-date(19,5,2009) 
+09R-date(20,5,2009) 
+
+10R-date(3,6,2010) 
+10R-date(5,6,2010) 
+10R-date(7,6,2010) 
+10R-date(28,5,2010) 
+10R-date(29,5,2010) 
+
+11N-date(4,11,2011) 
+11N-date(8,11,2011) 
+11N-date(9,11,2011) 
+
+11R-date(1,6,2011) 
+11R-date(3,6,2011) 
+11R-date(4,5,2011) 
+11R-date(4,6,2011) 
+11R-date(5,5,2011) 
+11R-date(6,5,2011) 
+11R-date(7,6,2011) 
+11R-date(8,5,2011) 
+11R-date(8,6,2011) 
+11R-date(18,5,2011) 
+11R-date(22,5,2011) 
+11R-date(28,4,2011) 
+
+12N-date(6,11,2012) 
+12N-date(8,11,2012) 
+
+12R-date(8,5,2012) 
+12R-date(9,5,2012) 
+12R-date(10,5,2012) 
+12R-date(10,6,2012) 
+12R-date(11,5,2012) 
+12R-date(11,6,2012) 
+12R-date(20,5,2012) 
+12R-date(30,4,2012) 
+
+13R-date(11,5,2013) 
+13R-date(12,5,2013) 
+13R-date(18,5,2013) 
+
+14R-date(6,6,2014) 
+14R-date(14,6,2014) 
+14R-date(21,6,2014) 
+
+15R-date(17,5,2015) 
+15R-date(19,5,2015) 
+15R-date(20,5,2015) 
+15R-date(30,3,2015) 
+
+16R-date(3,6,2016) 
+16R-date(20,5,2016) 
+16R-date(24,5,2016) 
+16R-date(25,5,2016) 
+16R-date(28,5,2016) 
+16R-date(29,5,2016) 
+
+17R-date(23,5,2017) 
+17R-date(30,5,2017) 
+
+
+#+END_SRC
+
+
+*** there are some funky numerical genotypes! <2018-05-30 Wed>
+
++ 16 characters
++ 06r inbreds that are too big and can't be padded
++ truncated 
+
+eventually, I figured this out, wrote
+genetic_utilities.pl:regularize_rowplant/2, and used it in modified
+versions of get_row/2 and get_plant/2.  This is probably why I had so many
+problems trying to write make_barcode_index/1 in prolog and finally
+resorted to a perl script (which was faster anyway!).
+
+
+
+
+*** now put in the missing genotype facts <2018-05-30 Wed>
+
+
+First, recompute the missing (but there were many intermediate pratfalls!):
+
+#+BEGIN_SRC prolog <2018-05-30 Wed>
+
+?- missing_lines(R),write_list(R).
+...
+
+p00052 with 09R201:S0051605 x 09R0078:0003504 was not planted in crop 10R;
+all packets packed with these parents are:
+p00052,date(29,5,2010) 
+
+
+p00075 with 09R301:W0047607 x 09R1851:0018702 was not planted in crop 10R;
+all packets packed with these parents are:
+p00075,date(29,5,2010) 
+
+
+p00077 with 09R301:W0051803 x 09R0078:0003504 was not planted in crop 10R;
+all packets packed with these parents are:
+p00077,date(29,5,2010) 
+
+
+p00071 with 09R401:M0033011 x 09R1368:0007703 was not planted in crop 10R;
+all packets packed with these parents are:
+p00071,date(29,5,2010) 
+
+
+p00099 with 09R401:M0052001 x 09R2183:0003806 was not planted in crop 10R;
+all packets packed with these parents are:
+p00099,date(29,5,2010) 
+
+
+p00100 with 09R401:M0056707 x 09R0078:0003504 was not planted in crop 10R;
+all packets packed with these parents are:
+p00100,date(29,5,2010) 
+
+
+p00924 with 12N3980:0022803 x 12N3980:0022801 was not planted in crop 15R;
+all packets packed with these parents are:
+p00924,date(30,3,2015) 
+
+
+p00925 with 12N3980:0022803 x 12N3980:0022801 was not planted in crop 15R;
+all packets packed with these parents are:
+p00925,date(30,3,2015) 
+
+
+p00926 with 12N3983:0023202 x 12N3983:0023202 was not planted in crop 15R;
+all packets packed with these parents are:
+p00926,date(30,3,2015) 
+
+
+p00927 with 12N3983:0023202 x 12N3983:0023202 was not planted in crop 15R;
+all packets packed with these parents are:
+p00927,date(30,3,2015) 
+
+
+p00178 with 12R405:M0002413 x 12R3179:0040711 was not planted in crop 13R;
+all packets packed with these parents are:
+p00178,date(11,5,2013) 
+
+
+p00189 with 12R405:M0009314 x 12R3469:0032007 was not planted in crop 13R;
+all packets packed with these parents are:
+p00189,date(11,5,2013) 
+
+
+p00187 with 12R405:M0009912 x 12R3629:0028406 was not planted in crop 13R;
+all packets packed with these parents are:
+p00187,date(11,5,2013) 
+
+
+p00902 with 13R3556:0003802 x 13R3556:0003805 was not planted in crop 15R;
+all packets packed with these parents are:
+p00902,date(30,3,2015) 
+
+
+p00903 with 13R3556:0003802 x 13R3556:0003805 was not planted in crop 15R;
+all packets packed with these parents are:
+p00903,date(30,3,2015) 
+
+
+p00910 with 13R3584:0005703 x 13R3584:0005713 was not planted in crop 15R;
+all packets packed with these parents are:
+p00910,date(30,3,2015) 
+
+
+p00911 with 13R3584:0005703 x 13R3584:0005713 was not planted in crop 15R;
+all packets packed with these parents are:
+p00911,date(30,3,2015) 
+
+
+p00912 with 13R4089:0007204 x 13R4089:0007201 was not planted in crop 15R;
+all packets packed with these parents are:
+p00912,date(30,3,2015) 
+
+
+p00913 with 13R4089:0007204 x 13R4089:0007201 was not planted in crop 15R;
+all packets packed with these parents are:
+p00913,date(30,3,2015) 
+
+
+p00918 with 13R4091:0007405 x 13R4091:0007403 was not planted in crop 15R;
+all packets packed with these parents are:
+p00918,date(30,3,2015) 
+
+
+p00919 with 13R4091:0007405 x 13R4091:0007403 was not planted in crop 15R;
+all packets packed with these parents are:
+p00919,date(30,3,2015) 
+
+
+p00934 with 13R4094:0008101 x 13R4094:0008107 was not planted in crop 15R;
+all packets packed with these parents are:
+p00934,date(30,3,2015) 
+
+
+p00935 with 13R4094:0008101 x 13R4094:0008107 was not planted in crop 15R;
+all packets packed with these parents are:
+p00935,date(30,3,2015) 
+
+
+p00950 with 13R4096:0008806 x 13R4096:0008805 was not planted in crop 15R;
+all packets packed with these parents are:
+p00950,date(30,3,2015) 
+
+
+p00951 with 13R4096:0008806 x 13R4096:0008805 was not planted in crop 15R;
+all packets packed with these parents are:
+p00951,date(30,3,2015) 
+
+
+p00956 with 13R4098:0009010 x 13R4098:0009002 was not planted in crop 15R;
+all packets packed with these parents are:
+p00956,date(30,3,2015) 
+
+
+p00957 with 13R4098:0009010 x 13R4098:0009002 was not planted in crop 15R;
+all packets packed with these parents are:
+p00957,date(30,3,2015) 
+
+
+p00958 with 13R4099:0009105 x 13R4099:0009112 was not planted in crop 15R;
+all packets packed with these parents are:
+p00958,date(30,3,2015) 
+
+
+p00959 with 13R4099:0009105 x 13R4099:0009112 was not planted in crop 15R;
+all packets packed with these parents are:
+p00959,date(30,3,2015) 
+
+
+p00988 with 13R4102:0010102 x 13R4102:0010107 was not planted in crop 15R;
+all packets packed with these parents are:
+p00988,date(30,3,2015) 
+
+
+p00989 with 13R4102:0010102 x 13R4102:0010107 was not planted in crop 15R;
+all packets packed with these parents are:
+p00989,date(30,3,2015) 
+
+
+p00930 with 14R3616:0012316 x 14R3616:0012311 was not planted in crop 15R;
+all packets packed with these parents are:
+p00930,date(30,3,2015) 
+
+
+p00931 with 14R3616:0012316 x 14R3616:0012311 was not planted in crop 15R;
+all packets packed with these parents are:
+p00931,date(30,3,2015) 
+
+
+p00964 with 14R3647:0014302 x 14R3647:0014316 was not planted in crop 15R;
+all packets packed with these parents are:
+p00964,date(30,3,2015) 
+
+
+p00965 with 14R3647:0014302 x 14R3647:0014316 was not planted in crop 15R;
+all packets packed with these parents are:
+p00965,date(30,3,2015) 
+
+
+p00976 with 14R3656:0014813 x 14R3656:0014806 was not planted in crop 15R;
+all packets packed with these parents are:
+p00976,date(30,3,2015) 
+
+
+p00977 with 14R3656:0014813 x 14R3656:0014806 was not planted in crop 15R;
+all packets packed with these parents are:
+p00977,date(30,3,2015) 
+
+
+p00986 with 14R3701:0015203 x 14R3701:0015209 was not planted in crop 15R;
+all packets packed with these parents are:
+p00986,date(30,3,2015) 
+
+
+p00987 with 14R3701:0015203 x 14R3701:0015209 was not planted in crop 15R;
+all packets packed with these parents are:
+p00987,date(30,3,2015) 
+
+
+p00904 with 14R3908:0010817 x 14R3908:0010815 was not planted in crop 15R;
+all packets packed with these parents are:
+p00904,date(30,3,2015) 
+
+
+p00905 with 14R3908:0010817 x 14R3908:0010815 was not planted in crop 15R;
+all packets packed with these parents are:
+p00905,date(30,3,2015) 
+
+
+p00132 with 14R3962:0011203 x 14R3962:0011206 was not planted in crop 15R;
+all packets packed with these parents are:
+p00132,date(19,5,2015) 
+
+
+p00131 with 14R3962:0011203 x 14R3962:0011206 was not planted in crop 15R;
+all packets packed with these parents are:
+p00131,date(19,5,2015) 
+
+
+p00922 with 14R3975:0011905 x 14R3975:0011906 was not planted in crop 15R;
+all packets packed with these parents are:
+p00922,date(30,3,2015) 
+
+
+p00923 with 14R3975:0011905 x 14R3975:0011906 was not planted in crop 15R;
+all packets packed with these parents are:
+p00923,date(30,3,2015) 
+
+
+p00942 with 14R4002:0013002 x 14R4002:0013012 was not planted in crop 15R;
+all packets packed with these parents are:
+p00942,date(30,3,2015) 
+
+
+p00943 with 14R4002:0013002 x 14R4002:0013012 was not planted in crop 15R;
+all packets packed with these parents are:
+p00943,date(30,3,2015) 
+
+
+p00970 with 14R4036:0014401 x 14R4036:0014408 was not planted in crop 15R;
+all packets packed with these parents are:
+p00970,date(30,3,2015) 
+
+
+p00971 with 14R4036:0014401 x 14R4036:0014408 was not planted in crop 15R;
+all packets packed with these parents are:
+p00971,date(30,3,2015) 
+
+
+p00914 with 14R4090:0011701 x 14R4090:0011711 was not planted in crop 15R;
+all packets packed with these parents are:
+p00914,date(30,3,2015) 
+
+
+p00915 with 14R4090:0011701 x 14R4090:0011711 was not planted in crop 15R;
+all packets packed with these parents are:
+p00915,date(30,3,2015) 
+
+
+p00946 with 14R4095:0013106 x 14R4095:0013111 was not planted in crop 15R;
+all packets packed with these parents are:
+p00946,date(30,3,2015) 
+
+
+p00947 with 14R4095:0013106 x 14R4095:0013111 was not planted in crop 15R;
+all packets packed with these parents are:
+p00947,date(30,3,2015) 
+
+
+p00954 with 14R4097:0013708 x 14R4097:0013705 was not planted in crop 15R;
+all packets packed with these parents are:
+p00954,date(30,3,2015) 
+
+
+p00955 with 14R4097:0013708 x 14R4097:0013705 was not planted in crop 15R;
+all packets packed with these parents are:
+p00955,date(30,3,2015) 
+
+
+p00906 with 14R4227:0009208 x 14R4227:0009211 was not planted in crop 15R;
+all packets packed with these parents are:
+p00906,date(30,3,2015) 
+
+
+p00907 with 14R4227:0009208 x 14R4227:0009211 was not planted in crop 15R;
+all packets packed with these parents are:
+p00907,date(30,3,2015) 
+
+
+p00908 with 14R4228:0009419 x 14R4228:0009404 was not planted in crop 15R;
+all packets packed with these parents are:
+p00908,date(30,3,2015) 
+
+
+p00909 with 14R4228:0009419 x 14R4228:0009404 was not planted in crop 15R;
+all packets packed with these parents are:
+p00909,date(30,3,2015) 
+
+
+p00938 with 14R4263:0012811 x 14R4263:0012810 was not planted in crop 15R;
+all packets packed with these parents are:
+p00938,date(30,3,2015) 
+
+
+p00939 with 14R4263:0012811 x 14R4263:0012810 was not planted in crop 15R;
+all packets packed with these parents are:
+p00939,date(30,3,2015) 
+
+
+p00982 with 14R4269:0015001 x 14R4269:0015007 was not planted in crop 15R;
+all packets packed with these parents are:
+p00982,date(30,3,2015) 
+
+
+p00983 with 14R4269:0015001 x 14R4269:0015007 was not planted in crop 15R;
+all packets packed with these parents are:
+p00983,date(30,3,2015) 
+
+
+(09R201:S0051605,09R0078:0003504)-[] 
+(09R301:W0047607,09R1851:0018702)-[] 
+(09R301:W0051803,09R0078:0003504)-[] 
+(09R401:M0033011,09R1368:0007703)-[] 
+(09R401:M0052001,09R2183:0003806)-[] 
+(09R401:M0056707,09R0078:0003504)-[] 
+(10R1243:0012703,10R1243:0012703)-[(12R,r00579,p00082,date(8,5,2012))] 
+(10R1243:0012704,10R1243:0012704)-[(12R,r00580,p00083,date(8,5,2012))] 
+(10R1243:0012708,10R1243:0012708)-[(12R,r00581,p00084,date(8,5,2012))] 
+(12N3980:0022803,12N3980:0022801)-[] 
+(12N3983:0023202,12N3983:0023202)-[] 
+(12R405:M0002413,12R3179:0040711)-[] 
+(12R405:M0009314,12R3469:0032007)-[] 
+(12R405:M0009912,12R3629:0028406)-[] 
+(13R3556:0003802,13R3556:0003805)-[] 
+(13R3584:0005703,13R3584:0005713)-[] 
+(13R4089:0007204,13R4089:0007201)-[] 
+(13R4091:0007405,13R4091:0007403)-[] 
+(13R4094:0008101,13R4094:0008107)-[] 
+(13R4096:0008806,13R4096:0008805)-[] 
+(13R4098:0009010,13R4098:0009002)-[] 
+(13R4099:0009105,13R4099:0009112)-[] 
+(13R4102:0010102,13R4102:0010107)-[] 
+(14R3616:0012316,14R3616:0012311)-[] 
+(14R3647:0014302,14R3647:0014316)-[] 
+(14R3656:0014813,14R3656:0014806)-[] 
+(14R3701:0015203,14R3701:0015209)-[] 
+(14R3908:0010817,14R3908:0010815)-[] 
+(14R3962:0011203,14R3962:0011206)-[] 
+(14R3975:0011905,14R3975:0011906)-[] 
+(14R4002:0013002,14R4002:0013012)-[] 
+(14R4036:0014401,14R4036:0014408)-[] 
+(14R4090:0011701,14R4090:0011711)-[] 
+(14R4095:0013106,14R4095:0013111)-[] 
+(14R4097:0013708,14R4097:0013705)-[] 
+(14R4227:0009208,14R4227:0009211)-[] 
+(14R4228:0009419,14R4228:0009404)-[] 
+(14R4263:0012811,14R4263:0012810)-[] 
+(14R4269:0015001,14R4269:0015007)-[] 
+(15R4377:0008003,15R4377:0008003)-[(16R,r00059,p01069,date(24,5,2016))] 
+
+
+#+END_SRC
+
+
+
+Who needs a genotype fact?
+
+#+BEGIN_example lines that need genotypes
+
+?- find_descendants_of_lines_wo_genotypes(G,T),write_list(G).
+...
+
+% different families were assigned already!
+%
+genotype(3865,1025,'10R1025:0012703',1025,'10R1025:0012703','M14','?/csp1','M14','?/csp1',[csp1],'K11503').
+genotype(3866,1025,'10R1025:0012704',1025,'10R1025:0012704','M14','?/csp1','M14','?/csp1',[csp1],'K11503').
+genotype(3867,1025,'10R1025:0012708',1025,'10R1025:0012708','M14','?/csp1','M14','?/csp1',[csp1],'K11503').
+
+
+% families in data are 1025 and 1243
+%
+10R1243:0012703,10R1243:0012703 
+foo(12R,r00579,p00082,date(8,5,2012),p(10R1243:0012703,10R1243:0012703),g(10R1025:0012703,10R1025:0012703)) 
+
+10R1243:0012704,10R1243:0012704 
+foo(12R,r00580,p00083,date(8,5,2012),p(10R1243:0012704,10R1243:0012704),g(10R1025:0012704,10R1025:0012704)) 
+
+10R1243:0012708,10R1243:0012708 
+foo(12R,r00581,p00084,date(8,5,2012),p(10R1243:0012708,10R1243:0012708),g(10R1025:0012708,10R1025:0012708)) 
+
+
+% need a genotype fact for 15R4377:0008003 x 15R4377:0008003 (have one for 8008)
+
+15R4377:0008003,15R4377:0008003 
+foo(16R,r00059,p01069,date(24,5,2016),p(15R4377:0008003,15R4377:0008003),g(15R4377:0008008,15R4377:0008008)) 
+
+
+#+END_example
+
+
+
+
+**** 16R plants from 15R4377:0008003 x 15R4377:0008003: move from family 4377 to family 4648
+
+
+
+make genotype fact for family 4648 15R4377:0008003 x 15R4377:0008003 and
+change 16r data 16R4483:00059 to 16R4648:00059
+
+No offspring planted in 17r.
+
+
+#+BEGIN_EXAMPLE for 15R4377:0008003 x 15R4377:0008003 planted in 16r, need genotype fact:
+
+% going up the tree
+
+genotype(119,119,'07R0119:0000000',119,'07R0119:0000000','+',+,'?','?/Les3-GJ',['Les3-GJ'],'K11900').
+genotype(2216,119,'07G0119:0001406',119,'07G0119:0001406','+','Les3-GJ','+','Les3-GJ',['Les3-GJ'],'K11906').
+genotype(4130,405,'12N405:M0037801',2216,'12N2216:0014913','M14','M14','+/Les3-GJ','+/Les3-GJ',['Les3-GJ'],'K11906').
+genotype(4256,4130,'13R4130:0016303',4130,'13R4130:0016303','M14','{+|Les3-GJ}','M14','{+|Les3-GJ}',['Les3-GJ'],'K11906').
+
+% 15r
+
+genotype(4377,405,'14R405:M0001205',4256,'14R4256:0019413','M14','M14','M14/Les3-GJ','M14/Les3-GJ',['Les3-GJ'],'K11906').
+packed_packet(p01069,'15R4377:0008003','15R4377:0008003',15,toni,date(24,05,2016),time(18,13,22)).
+planted(r00059,p01069,10,toni,date(29,05,2016),time(18,16,14),full,'16R').
+
+% 16r:  8008, not 8003!
+genotype(4483,4377,'15R4377:0008008',4377,'15R4377:0008008','M14','Les3-GJ','M14','Les3-GJ',['Les3-GJ'],'K11906').
+
+
+% this needs to migrate to new family
+
+grep :00059 *.pl | grep 16R | grep -v old | grep -v safe | grep -v index | grep -v plan.pl | grep -v backlog | grep -v '%'
+cross.pl:cross('16R405:M0002107','16R4483:0005910',ear(1),false,toni,toni,date(24,07,2016),time(11,12,13)).
+cross.pl:cross('16R405:M0002107','16R4483:0005910',ear(1),false,toni,toni,date(24,07,2016),time(11,11,06)).
+cross.pl:cross('16R405:M0002106','16R4483:0005910',ear(1),false,toni,toni,date(24,07,2016),time(11,10,45)).
+cross.pl:cross('16R405:M0003105','16R4483:0005906',ear(1),false,toni,toni,date(26,07,2016),time(11,45,30)).
+cross.pl:cross('16R405:M0003104','16R4483:0005906',ear(1),false,toni,toni,date(26,07,2016),time(11,45,47)).
+cross_prep.pl:cross_prep('16R4483:0005910',[bag(tassel)],toni,date(23,07,2016),time(20,32,00)).
+cross_prep.pl:cross_prep('16R4483:0005906',[bag(tassel)],toni,date(24,07,2016),time(00,00,00)).
+harvest.pl:harvest('16R405:M0002106','16R4483:0005910',succeeded,'sixteenth',avi,date(23,09,2016),time(12,00,00)).
+harvest.pl:harvest('16R405:M0002107','16R4483:0005910',succeeded,'discard if possible; confusion due to duplicate packet; half',avi,date(23,09,2016),time(12,00,00)).
+harvest.pl:harvest('16R405:M0003104','16R4483:0005906',succeeded,'half',avi,date(23,09,2016),time(12,00,00)).
+harvest.pl:harvest('16R405:M0003105','16R4483:0005906',succeeded,'half; fungus',avi,date(23,09,2016),time(12,00,00)).
+image.pl:image('16R4483:0005906',0279,'e-4','middle',gimmel,'ex situ ambient reflected, field',avi,date(30,07,2016),time(15,30,44)).
+image.pl:image('16R4483:0005910',0103,'e-3','middle',gimmel,'ex situ ambient reflected, field',avi,date(26,07,2016),time(13,30,56)).
+inventory.pl:inventory('16R405:M0002106','16R4483:0005910',num_kernels(quarter),josh,date(14,05,2018),time(10,10,10),v00265).
+inventory.pl:inventory('16R405:M0002107','16R4483:0005910',num_kernels(half),josh,date(14,05,2018),time(10,10,19),v00265).
+inventory.pl:inventory('16R405:M0003104','16R4483:0005906',num_kernels(half),josh,date(14,05,2018),time(10,16,16),v00266).
+inventory.pl:inventory('16R405:M0003105','16R4483:0005906',num_kernels(half),josh,date(14,05,2018),time(10,16,26),v00266).
+mutant.pl:mutant('16R4483:0005901',[phenotype(wild_type),bug(0)],false,false,[],toni,date(17,07,2016),time(12,00,00)).
+mutant.pl:mutant('16R4483:0005902',[phenotype(wild_type),bug(0)],false,false,[],toni,date(17,07,2016),time(12,00,00)).
+mutant.pl:mutant('16R4483:0005903',[phenotype(wild_type),bug(0)],false,false,[],toni,date(17,07,2016),time(12,00,00)).
+mutant.pl:mutant('16R4483:0005904',[phenotype(wild_type),bug(0)],false,false,[],toni,date(17,07,2016),time(12,00,00)).
+mutant.pl:mutant('16R4483:0005905',[phenotype(wild_type),bug(0)],false,false,[],toni,date(17,07,2016),time(12,00,00)).
+mutant.pl:mutant('16R4483:0005906',[phenotype(les),bug(0)],cross,photo,[sample],toni,date(17,07,2016),time(12,00,00)).
+mutant.pl:mutant('16R4483:0005907',[phenotype(les),phenotype(shorter_by_3_ft),phenotype(small_ear),bug(0)],false,false,[],toni,date(17,07,2016),time(12,00,00)).
+mutant.pl:mutant('16R4483:0005908',[phenotype(wild_type),bug(0)],false,false,[],toni,date(17,07,2016),time(12,00,00)).
+mutant.pl:mutant('16R4483:0005909',[phenotype(wild_type),phenotype(rudimentary_tassel),bug(0)],false,false,[],toni,date(17,07,2016),time(12,00,00)).
+mutant.pl:mutant('16R4483:0005910',[phenotype(les),bug(0)],cross,photo,[sample],toni,date(17,07,2016),time(12,00,00)).
+mutant.pl:mutant('16R4483:0005911',[phenotype(wild_type),bug(0)],false,false,[],toni,date(17,07,2016),time(12,00,00)).
+possibly_missing_data.pl:possibly_missing_data('16R',4483,r00059,'16R4483:0005901','16R4483:0005911').
+tissue_collectn.pl:sample('16R4483:0005906',e03314,any_leaf,tissue,avi,date(30,07,2016),time(15,30,44)).
+tissue_collectn.pl:sample('16R4483:0005910',e03140,any_leaf,tissue,avi,date(26,07,2016),time(13,31,34)).
+
+#+END_EXAMPLE
+
+#+BEGIN_EXAMPLE old data for 16R4483:00059
+
+$ grep 16R4483:00059 *.pl | grep -v old | grep -v safe | grep -v index | grep -v plan.pl | grep -v backlog | grep -v '%'
+
+cross.pl:cross('16R405:M0002107','16R4483:0005910',ear(1),false,toni,toni,date(24,07,2016),time(11,12,13)).
+cross.pl:cross('16R405:M0002107','16R4483:0005910',ear(1),false,toni,toni,date(24,07,2016),time(11,11,06)).
+cross.pl:cross('16R405:M0002106','16R4483:0005910',ear(1),false,toni,toni,date(24,07,2016),time(11,10,45)).
+cross.pl:cross('16R405:M0003105','16R4483:0005906',ear(1),false,toni,toni,date(26,07,2016),time(11,45,30)).
+cross.pl:cross('16R405:M0003104','16R4483:0005906',ear(1),false,toni,toni,date(26,07,2016),time(11,45,47)).
+cross_prep.pl:cross_prep('16R4483:0005910',[bag(tassel)],toni,date(23,07,2016),time(20,32,00)).
+cross_prep.pl:cross_prep('16R4483:0005906',[bag(tassel)],toni,date(24,07,2016),time(00,00,00)).
+harvest.pl:harvest('16R405:M0002106','16R4483:0005910',succeeded,'sixteenth',avi,date(23,09,2016),time(12,00,00)).
+harvest.pl:harvest('16R405:M0002107','16R4483:0005910',succeeded,'discard if possible; confusion due to duplicate packet; half',avi,date(23,09,2016),time(12,00,00)).
+harvest.pl:harvest('16R405:M0003104','16R4483:0005906',succeeded,'half',avi,date(23,09,2016),time(12,00,00)).
+harvest.pl:harvest('16R405:M0003105','16R4483:0005906',succeeded,'half; fungus',avi,date(23,09,2016),time(12,00,00)).
+image.pl:image('16R4483:0005906',0279,'e-4','middle',gimmel,'ex situ ambient reflected, field',avi,date(30,07,2016),time(15,30,44)).
+image.pl:image('16R4483:0005910',0103,'e-3','middle',gimmel,'ex situ ambient reflected, field',avi,date(26,07,2016),time(13,30,56)).
+inventory.pl:inventory('16R405:M0002106','16R4483:0005910',num_kernels(quarter),josh,date(14,05,2018),time(10,10,10),v00265).
+inventory.pl:inventory('16R405:M0002107','16R4483:0005910',num_kernels(half),josh,date(14,05,2018),time(10,10,19),v00265).
+inventory.pl:inventory('16R405:M0003104','16R4483:0005906',num_kernels(half),josh,date(14,05,2018),time(10,16,16),v00266).
+inventory.pl:inventory('16R405:M0003105','16R4483:0005906',num_kernels(half),josh,date(14,05,2018),time(10,16,26),v00266).
+mutant.pl:mutant('16R4483:0005901',[phenotype(wild_type),bug(0)],false,false,[],toni,date(17,07,2016),time(12,00,00)).
+mutant.pl:mutant('16R4483:0005902',[phenotype(wild_type),bug(0)],false,false,[],toni,date(17,07,2016),time(12,00,00)).
+mutant.pl:mutant('16R4483:0005903',[phenotype(wild_type),bug(0)],false,false,[],toni,date(17,07,2016),time(12,00,00)).
+mutant.pl:mutant('16R4483:0005904',[phenotype(wild_type),bug(0)],false,false,[],toni,date(17,07,2016),time(12,00,00)).
+mutant.pl:mutant('16R4483:0005905',[phenotype(wild_type),bug(0)],false,false,[],toni,date(17,07,2016),time(12,00,00)).
+mutant.pl:mutant('16R4483:0005906',[phenotype(les),bug(0)],cross,photo,[sample],toni,date(17,07,2016),time(12,00,00)).
+mutant.pl:mutant('16R4483:0005907',[phenotype(les),phenotype(shorter_by_3_ft),phenotype(small_ear),bug(0)],false,false,[],toni,date(17,07,2016),time(12,00,00)).
+mutant.pl:mutant('16R4483:0005908',[phenotype(wild_type),bug(0)],false,false,[],toni,date(17,07,2016),time(12,00,00)).
+mutant.pl:mutant('16R4483:0005909',[phenotype(wild_type),phenotype(rudimentary_tassel),bug(0)],false,false,[],toni,date(17,07,2016),time(12,00,00)).
+mutant.pl:mutant('16R4483:0005910',[phenotype(les),bug(0)],cross,photo,[sample],toni,date(17,07,2016),time(12,00,00)).
+mutant.pl:mutant('16R4483:0005911',[phenotype(wild_type),bug(0)],false,false,[],toni,date(17,07,2016),time(12,00,00)).
+possibly_missing_data.pl:possibly_missing_data('16R',4483,r00059,'16R4483:0005901','16R4483:0005911').
+tissue_collectn.pl:sample('16R4483:0005906',e03314,any_leaf,tissue,avi,date(30,07,2016),time(15,30,44)).
+tissue_collectn.pl:sample('16R4483:0005910',e03140,any_leaf,tissue,avi,date(26,07,2016),time(13,31,34)).
+
+#+END_EXAMPLE
+
+#+BEGIN_EXAMPLE new grep results
+bash-3.2$ grep 16R4483:00059 *.pl | grep -v old | grep -v safe | grep -v index | grep -v plan.pl | grep -v backlog | grep -v '%'
+possibly_missing_data.pl:possibly_missing_data('16R',4483,r00059,'16R4483:0005901','16R4483:0005911').
+bash-3.2$ grep 16R4648:00059 *.pl | grep -v old | grep -v safe | grep -v index | grep -v plan.pl | grep -v backlog | grep -v '%'
+cross.pl:cross('16R405:M0002107','16R4648:0005910',ear(1),false,toni,toni,date(24,07,2016),time(11,12,13)).
+cross.pl:cross('16R405:M0002107','16R4648:0005910',ear(1),false,toni,toni,date(24,07,2016),time(11,11,06)).
+cross.pl:cross('16R405:M0002106','16R4648:0005910',ear(1),false,toni,toni,date(24,07,2016),time(11,10,45)).
+cross.pl:cross('16R405:M0003105','16R4648:0005906',ear(1),false,toni,toni,date(26,07,2016),time(11,45,30)).
+cross.pl:cross('16R405:M0003104','16R4648:0005906',ear(1),false,toni,toni,date(26,07,2016),time(11,45,47)).
+cross_prep.pl:cross_prep('16R4648:0005910',[bag(tassel)],toni,date(23,07,2016),time(20,32,00)).
+cross_prep.pl:cross_prep('16R4648:0005906',[bag(tassel)],toni,date(24,07,2016),time(00,00,00)).
+harvest.pl:harvest('16R405:M0002106','16R4648:0005910',succeeded,'sixteenth',avi,date(23,09,2016),time(12,00,00)).
+harvest.pl:harvest('16R405:M0002107','16R4648:0005910',succeeded,'discard if possible; confusion due to duplicate packet; half',avi,date(23,09,2016),time(12,00,00)).
+harvest.pl:harvest('16R405:M0003104','16R4648:0005906',succeeded,'half',avi,date(23,09,2016),time(12,00,00)).
+harvest.pl:harvest('16R405:M0003105','16R4648:0005906',succeeded,'half; fungus',avi,date(23,09,2016),time(12,00,00)).
+image.pl:image('16R4648:0005906',0279,'e-4','middle',gimmel,'ex situ ambient reflected, field',avi,date(30,07,2016),time(15,30,44)).
+image.pl:image('16R4648:0005910',0103,'e-3','middle',gimmel,'ex situ ambient reflected, field',avi,date(26,07,2016),time(13,30,56)).
+inventory.pl:inventory('16R405:M0002106','16R4648:0005910',num_kernels(quarter),josh,date(14,05,2018),time(10,10,10),v00265).
+inventory.pl:inventory('16R405:M0002107','16R4648:0005910',num_kernels(half),josh,date(14,05,2018),time(10,10,19),v00265).
+inventory.pl:inventory('16R405:M0003104','16R4648:0005906',num_kernels(half),josh,date(14,05,2018),time(10,16,16),v00266).
+inventory.pl:inventory('16R405:M0003105','16R4648:0005906',num_kernels(half),josh,date(14,05,2018),time(10,16,26),v00266).
+mutant.pl:mutant('16R4648:0005901',[phenotype(wild_type),bug(0)],false,false,[],toni,date(17,07,2016),time(12,00,00)).
+mutant.pl:mutant('16R4648:0005902',[phenotype(wild_type),bug(0)],false,false,[],toni,date(17,07,2016),time(12,00,00)).
+mutant.pl:mutant('16R4648:0005903',[phenotype(wild_type),bug(0)],false,false,[],toni,date(17,07,2016),time(12,00,00)).
+mutant.pl:mutant('16R4648:0005904',[phenotype(wild_type),bug(0)],false,false,[],toni,date(17,07,2016),time(12,00,00)).
+mutant.pl:mutant('16R4648:0005905',[phenotype(wild_type),bug(0)],false,false,[],toni,date(17,07,2016),time(12,00,00)).
+mutant.pl:mutant('16R4648:0005906',[phenotype(les),bug(0)],cross,photo,[sample],toni,date(17,07,2016),time(12,00,00)).
+mutant.pl:mutant('16R4648:0005907',[phenotype(les),phenotype(shorter_by_3_ft),phenotype(small_ear),bug(0)],false,false,[],toni,date(17,07,2016),time(12,00,00)).
+mutant.pl:mutant('16R4648:0005908',[phenotype(wild_type),bug(0)],false,false,[],toni,date(17,07,2016),time(12,00,00)).
+mutant.pl:mutant('16R4648:0005909',[phenotype(wild_type),phenotype(rudimentary_tassel),bug(0)],false,false,[],toni,date(17,07,2016),time(12,00,00)).
+mutant.pl:mutant('16R4648:0005910',[phenotype(les),bug(0)],cross,photo,[sample],toni,date(17,07,2016),time(12,00,00)).
+mutant.pl:mutant('16R4648:0005911',[phenotype(wild_type),bug(0)],false,false,[],toni,date(17,07,2016),time(12,00,00)).
+tissue_collectn.pl:sample('16R4648:0005906',e03314,any_leaf,tissue,avi,date(30,07,2016),time(15,30,44)).
+tissue_collectn.pl:sample('16R4648:0005910',e03140,any_leaf,tissue,avi,date(26,07,2016),time(13,31,34)).
+
+#+END_EXAMPLE
+
+#+BEGIN_SRC moved the names, but not the contents of the barcodes files
+
+bash-3.2$ pushd ../../barcodes/16r/
+~/me/c/maize/barcodes/16r ~/me/c/maize/demeter/data
+
+bash-3.2$ ls 16R4483:00059*.eps
+16R4483:0005901.eps	16R4483:0005904.eps	16R4483:0005907.eps	16R4483:0005910.eps
+16R4483:0005902.eps	16R4483:0005905.eps	16R4483:0005908.eps	16R4483:0005911.eps
+16R4483:0005903.eps	16R4483:0005906.eps	16R4483:0005909.eps
+
+bash-3.2$ mv 16R4483:0005901.eps 16R4648:0005901.eps
+bash-3.2$ mv 16R4483:0005902.eps 16R4648:0005902.eps
+bash-3.2$ mv 16R4483:0005903.eps 16R4648:0005903.eps
+bash-3.2$ mv 16R4483:0005904.eps 16R4648:0005904.eps
+bash-3.2$ mv 16R4483:0005905.eps 16R4648:0005905.eps
+bash-3.2$ mv 16R4483:0005906.eps 16R4648:0005906.eps
+bash-3.2$ mv 16R4483:0005907.eps 16R4648:0005907.eps
+bash-3.2$ mv 16R4483:0005908.eps 16R4648:0005908.eps
+bash-3.2$ mv 16R4483:0005909.eps 16R4648:0005909.eps
+bash-3.2$ mv 16R4483:0005910.eps 16R4648:0005910.eps
+bash-3.2$ mv 16R4483:0005911.eps 16R4648:0005911.eps
+
+bash-3.2$ ls 16R4483:00059*.eps
+ls: 16R4483:00059*.eps: No such file or directory
+
+bash-3.2$ ls 16R4648:00059*.eps
+16R4648:0005901.eps	16R4648:0005904.eps	16R4648:0005907.eps	16R4648:0005910.eps
+16R4648:0005902.eps	16R4648:0005905.eps	16R4648:0005908.eps	16R4648:0005911.eps
+16R4648:0005903.eps	16R4648:0005906.eps	16R4648:0005909.eps
+
+bash-3.2$ date
+Wed May 30 18:19:52 CDT 2018
+
+#+END_SRC
+
+
+**** 10R[1025,1243]:001270[348] -> 10R386[567]:00127[348]
+
+oops...
+it's the offspring, dummy, not the 10R data themselves
+
+#+BEGIN_EXAMPLE
+
+planted(r00127,p00072,15,toni,date(30,05,2010),time(15,28,10),full,'10R').
+packed_packet(p00072,'09R401:M0033704','09R0115:0009703',15,toni,date(29,05,2010),time(08,17,11)).
+genotype(1025,401,'09R401:M0033704',115,'09R0115:0009703','M14','M14','?/csp1/?','?/csp1/?',[csp1],'K11503').
+#+END_EXAMPLE
+
+So all 10R row 127 facts should be family 1025.  But the *offspring* get
+different family numbers!
+
+#+BEGIN_SRC new grep results before fixing packed_packet
+$ grep :00127 *.pl | grep 10R | grep -v 1025: | grep -v old | grep -v safe | grep -v index | grep -v plan.pl | grep -v backlog | grep -v '%'
+packed_packet.pl:packed_packet(p00084,'10R1243:0012708','10R1243:0012708',15,toni,date(08,05,2012),time(23,32,49)).
+packed_packet.pl:packed_packet(p00083,'10R3866:0012704','10R3866:0012704',15,toni,date(08,05,2012),time(23,31,41)).
+packed_packet.pl:packed_packet(p00082,'10R3865:0012703','10R3865:0012703',15,toni,date(08,05,2012),time(23,30,35)).    
+bash-3.2
+#+END_SRC
+
+#+BEGIN_SRC after fixing packed_packet
+$ grep :00127 *.pl | grep 10R | grep -v 1025: | grep -v old | grep -v safe | grep -v index | grep -v plan.pl | grep -v backlog | grep -v '%'
+bash-3.2$
+
+$ grep :00127 packed_packet.pl | grep 10R | grep 1025: | grep -v old | grep -v safe | grep -v index | grep -v plan.pl | grep -v backlog | grep -v '%'
+packed_packet(p00084,'10R1025:0012708','10R1025:0012708',15,toni,date(08,05,2012),time(23,32,49)).
+packed_packet(p00083,'10R1025:0012704','10R1025:0012704',15,toni,date(08,05,2012),time(23,31,41)).
+packed_packet(p00082,'10R1025:0012703','10R1025:0012703',15,toni,date(08,05,2012),time(23,30,35)).
+
+
+#+END_SRC
+
+
+#+BEGIN_SRC all packets ever packed from a row 127
+grep :00127 packed_packet.pl | grep -v old | grep -v safe | grep -v index | grep -v plan.pl | grep -v backlog | grep -v '%'
+packed_packet(p00084,'10R1025:0012708','10R1025:0012708',15,toni,date(08,05,2012),time(23,32,49)).
+packed_packet(p00083,'10R1025:0012704','10R1025:0012704',15,toni,date(08,05,2012),time(23,31,41)).
+packed_packet(p00082,'10R1025:0012703','10R1025:0012703',15,toni,date(08,05,2012),time(23,30,35)).
+packed_packet(p01071,'15R205:S0000401','15R4391:0012707',15,toni,date(24,05,2016),time(18,16,26)).
+bash-3.2$ 
+#+END_SRC
+
+#+BEGIN_SRC barcode files fine <2018-05-30 Wed>
+$ date
+Wed May 30 19:30:33 CDT 2018
+bash-3.2$ pwd
+/Users/toni/me/c/maize/demeter/data
+
+% 10r fine
+
+bash-3.2$ pushd ../../barcodes/10r/
+~/me/c/maize/barcodes/10r ~/me/c/maize/demeter/data
+bash-3.2$ ls *:00127*.eps
+10R1025:0012701.eps	10R1025:0012705.eps	10R1025:0012709.eps	10R1025:0012713.eps
+10R1025:0012702.eps	10R1025:0012706.eps	10R1025:0012710.eps	10R1025:0012714.eps
+10R1025:0012703.eps	10R1025:0012707.eps	10R1025:0012711.eps	10R1025:0012715.eps
+10R1025:0012704.eps	10R1025:0012708.eps	10R1025:0012712.eps
+
+
+% so is 12r
+
+$ pushd ../12r
+~/me/c/maize/barcodes/12r ~/me/c/maize/barcodes/10r ~/me/c/maize/demeter/data
+bash-3.2$ ls *:00579*.eps
+12R3865:0057901.eps	12R3865:0057903.eps	12R3865:0057905.eps	12R3865:0057907.eps
+12R3865:0057902.eps	12R3865:0057904.eps	12R3865:0057906.eps
+bash-3.2$ ls *:00580*.eps
+12R3866:0058001.eps	12R3866:0058004.eps	12R3866:0058007.eps	12R3866:0058010.eps
+12R3866:0058002.eps	12R3866:0058005.eps	12R3866:0058008.eps
+12R3866:0058003.eps	12R3866:0058006.eps	12R3866:0058009.eps
+bash-3.2$ ls *:00581*.eps
+12R3867:0058101.eps	12R3867:0058103.eps	12R3867:0058105.eps	12R3867:0058107.eps
+12R3867:0058102.eps	12R3867:0058104.eps	12R3867:0058106.eps	12R3867:0058108.eps
+
+
+#+END_SRC
+
+
+
+***** no offspring of 10R1025:0012703 x 10R1025:0012703
+
+
+#+BEGIN_EXAMPLE
+packed_packet(p00082,'10R1025:0012703','10R1025:0012703',15,toni,date(08,05,2012),time(23,30,35)).
+planted(r00579,p00082,10,toni,date(14,05,2012),time(17,00,00),full,'12R').
+row_status(r00579,num_emerged(7),[ave_leaf_num(8),phenotype(wild_type,7),phenotype(healthy,7)],wade,date(07,06,2012),time(15,10,45),'12R').
+
+$ grep :00579  *.pl | grep 12R | grep -v old | grep -v safe | grep -v index | grep -v plan.pl | grep -v backlog | grep -v '%'
+bash-3.2$ 
+
+#+END_EXAMPLE
+
+
+
+***** no offspring of 10R1025:0012704 x 10R1025:0012704
+
+
+#+BEGIN_EXAMPLE
+packed_packet(p00083,'10R1025:0012704','10R1025:0012704',15,toni,date(08,05,2012),time(23,31,41)).
+planted(r00580,p00083,10,toni,date(14,05,2012),time(17,00,00),full,'12R').
+row_status(r00580,num_emerged(10),[ave_leaf_num(7),phenotype(wild_type,10),phenotype(healthy,10)],wade,date(07,06,2012),time(15,10,45),'12R').
+row_status(r00580,num_emerged(10),[ave_leaf_num(7),phenotype(wild_type,10),phenotype(healthy,10)],wade,date(25,06,2012),time(08,48,35),'12R').
+
+$ grep :00580 *.pl | grep 12R | grep -v old | grep -v safe | grep -v index | grep -v plan.pl | grep -v backlog | grep -v '%'
+bash-3.2$ 
+#+END_EXAMPLE
+
+
+
+
+***** no offspring of 10R1025:0012708 x 10R1025:0012708
+
+#+BEGIN_EXAMPLE image datum is correct
+packed_packet(p00084,'10R1025:0012708','10R1025:0012708',15,toni,date(08,05,2012),time(23,32,49)).
+planted(r00581,p00084,10,fei,date(14,05,2012),time(17,00,00),full,'12R').
+row_status(r00581,num_emerged(8),[ave_leaf_num(4),phenotype(wild_type,8),phenotype(healthy,8)],wade,date(07,06,2012),time(15,10,45),'12R').
+
+$ grep :00581 *.pl | grep 12R | grep -v old | grep -v safe | grep -v index | grep -v plan.pl | grep -v backlog | grep -v '%'
+image.pl:image('12R3867:0058107',2219,e1,'middle',aleph,'ambient reflected, field',derek,date(09,08,2012),time(19,26,44)).
+
+#+END_EXAMPLE
+
+
+
+After modifications, everyone has a fact:
+
+#+BEGIN_SRC prolog <2018-05-31 Thu>
+?- find_descendants_of_lines_wo_genotypes(G),write_list(G).
+Correct to: "demeter_utilities:write_list(G)"? 
+G = [].
+#+END_SRC
+
+
+** ok, pedigrees computed, but need to do some checking for sudden lurches in genotype <2018-06-01 Fri>
+
+see [[file:les1][les1]] for an example
+
+
+** compiling a current sleeve_boundary.pl file <2018-07-13 Fri> --
+<<sleeve_bdry>>
+
+
+:josh: and :mason: re-sorted the corn into inventory order while
+compressing the boxes to make more room on our shelves in the seed room.
+They scanned the first and last ma of every sleeve to make several
+uncorrected.sleeve_bdry.csv files.
+
+Checking the [[file:../../palm/raw_data_from_palms/18r//eta/13.7/raw.sleeve_bdry.csv][raw catted file]] showed multiple duplicate rows when pulled
+into [[file:../../palm/raw_data_from_palms/18r//eta/13.7/sleev_bdy.org][an org file]], so the table was output to [[file:../../palm/raw_data_from_palms/18r//eta/13.7/foo.csv][foo.csv]], sorted, and uniqed
+back to  [[file:../../palm/raw_data_from_palms/18r//eta/13.7/foo.csv][foo.csv]]:
+
+#+BEGIN_SRC 
+  669  pushd ../palm/raw_data_from_palms/18r/zeta/
+  676  mkdir ../eta/13.7
+  677  cat */*slee* > ../eta/13.7/uncorrected.sleeve_bdry.csv
+
+  679  ls */*slee*
+  680  mv 14.5/raw.sleeve_bdry.csv 14.5/uncorrected.sleeve_bdry.csv
+  681  mv 15.6/raw.sleeve_bdry.csv 15.6/uncorrected.sleeve_bdry.csv 
+  682  mv 18.6/raw.sleeve_bdry.csv 18.6/uncorrected.sleeve_bdry.csv 
+  684  mv 5.6/done.sleeve_bdry_pm_-Table\ 1.csv 5.6/uncorrected.sleeve_bdry_pm.csv 
+  685  mv 5.6/raw.sleeve_bdry.csv 5.6/uncorrected.sleeve_bdry.csv 
+
+  690  sort foo.csv > sorted
+  691  uniq sorted > foo.csv
+
+#+END_SRC
+
+
+Of course, it turns out that not everything scanned correctly, so tags and
+sleeves must be rechecked in the seed room:  done <2018-07-14 Sat>
+
+
+Corrected table output to [[file:../../data/palm/raw_data_from_palms/18r/eta/13.7/raw.sleeve_bdry.csv][raw.sleeve_bdry.csv]] for final processing.

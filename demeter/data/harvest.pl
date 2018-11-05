@@ -1829,10 +1829,17 @@ harvest('10R1020:0012501','10R1020:0012501',succeeded,_,toni,date(07,09,2010),ti
 harvest('10R1020:0012508','10R1020:0012508',succeeded,_,toni,date(07,09,2010),time(15,29,41)).
 harvest('10R1020:0012511','10R1020:0012511',succeeded,'late cut ear; quarter ear',toni,date(07,09,2010),time(15,30,59)).
 harvest('10R1025:0012703','10R1025:0012703',succeeded,_,toni,date(07,09,2010),time(15,32,53)).
+
 harvest('10R1025:0012704','10R1025:0012704',succeeded,_,toni,date(07,09,2010),time(15,35,50)).
+
 harvest('10R1025:0012708','10R1025:0012708',succeeded,_,toni,date(07,09,2010),time(15,37,18)).
+
+
+    
 harvest('10R1025:0012712','10R1025:0012712',succeeded,'three-quarter ear',toni,date(07,09,2010),time(15,38,33)).
 harvest('10R1025:0012713','10R1025:0012713',succeeded,_,toni,date(07,09,2010),time(15,39,52)).
+
+
 harvest('10R405:M0002901','10R1723:0015702',succeeded,'ca. 25 kernels; significant fungus; discard if possible',toni,date(07,09,2010),time(17,09,54)).
 harvest('10R405:M0002909','10R2983:0014001',failed,_,toni,date(07,09,2010),time(17,10,59)).
 harvest('10R305:W0003001','10R3069:0037902',succeeded,'long silks',toni,date(07,09,2010),time(17,13,00)).
@@ -4138,7 +4145,7 @@ harvest('12R599:B0131203','12R599:B0131203',succeeded,'0 earworms; three_quarter
 harvest('12R599:B0131202','12R599:B0131202',succeeded,'extensive fungus; discarded; 3 earworms; half; fungus',toni,date(09,09,2012),time(16,00,00)).
 harvest('12R599:B0131201','12R599:B0131201',succeeded,'extensive fungus; discarded; 1 earworm; whole; fungus',toni,date(09,09,2012),time(16,00,00)).
 harvest('12R599:B0131227','12R0642:0132014',succeeded,'0 earworms; whole; fungus',toni,date(09,09,2012),time(16,00,00)).
-harvest('12R599:B0131216','12R0000:0133711',failed,'0 earworms; discarded; 11 cl; fungus',toni,date(09,09,2012),time(16,00,00)).
+harvest('12R599:B0131216','12R9999:0133711',failed,'0 earworms; discarded; 11 cl; fungus',toni,date(09,09,2012),time(16,00,00)).
 harvest('12R599:B0131210','12R0652:0133511',succeeded,'0 earworms; half; fungus',toni,date(09,09,2012),time(16,00,00)).
 
 
@@ -4148,22 +4155,22 @@ harvest('12R599:B0131210','12R0652:0133511',succeeded,'0 earworms; half; fungus'
 % by data/data_conversion/convert_harvest_data.perl
 % called from data/data_conversion/convert_data.perl
 
-harvest('12R0000:0133710','12R0000:0133710',failed,'ear gone; no ear; 0 cl',toni,date(16,09,2012),time(14,00,00)).
+harvest('12R9999:0133710','12R9999:0133710',failed,'ear gone; no ear; 0 cl',toni,date(16,09,2012),time(14,00,00)).
 harvest('12R0653:0133513','12R0653:0133513',failed,'low pollen; 1 earworm; needs tag; 23 cl',toni,date(16,09,2012),time(14,00,00)).
 harvest('12R0652:0133511','12R0652:0133511',succeeded,'needs tag; eighth',toni,date(16,09,2012),time(14,00,00)).
 harvest('12R0653:0133513','12R0653:0133513',succeeded,'needs tag; sixteenth; fungus',toni,date(16,09,2012),time(14,00,00)).
 harvest('12R0651:0133509','12R0651:0133509',failed,'0 cl',toni,date(16,09,2012),time(14,00,00)).
 harvest('12R0642:0132014','12R0642:0132014',failed,'low pollen; vss; 0 cl',toni,date(16,09,2012),time(14,00,00)).
-harvest('12R0642:0132010','12R0642:0132010',failed,'no ear; 0 cl',toni,date(16,09,2012),time(14,00,00)).
+harvest('12R9999:0132010','12R9999:0132010',failed,'no ear; 0 cl',toni,date(16,09,2012),time(14,00,00)).
 harvest('12R599:B0131129','12R599:B0131129',succeeded,'discarded; whole; fungus',toni,date(16,09,2012),time(14,00,00)).
 harvest('12R599:B0131127','12R0648:0133407',succeeded,'needs tag; quarter; fungus',toni,date(16,09,2012),time(14,00,00)).
 harvest('12R599:B0131126','12R0649:0133414',succeeded,'needs tag; 1 earworm; quarter; fungus',toni,date(16,09,2012),time(14,00,00)).
-harvest('12R599:B0131125','12R0000:0133415',failed,'needs tag; 1 earworm; low pollen; 16 cl',toni,date(16,09,2012),time(14,00,00)).
+harvest('12R599:B0131125','12R0665:0133415',failed,'needs tag; 1 earworm; low pollen; 16 cl',toni,date(16,09,2012),time(14,00,00)).
 harvest('12R599:B0131124','12R0116:0051503',succeeded,'needs tag; quarter; fungus',toni,date(16,09,2012),time(14,00,00)).
 harvest('12R599:B0131120','12R599:B0131120',succeeded,'4 earworms; discarded; quarter; fungus',toni,date(16,09,2012),time(14,00,00)).
 harvest('12R599:B0131119','12R0650:0133416',succeeded,'needs tag; 1 earworm; three_quarter; fungus',toni,date(16,09,2012),time(14,00,00)).
-harvest('12R599:B0131118','12R0000:0133415',failed,'needs tag;2 earworms; 6 cl; fungus',toni,date(16,09,2012),time(14,00,00)).
-harvest('12R599:B0131114','12R0643:0132203',failed,'2 earworms; discarded; 19 cl; fungus',toni,date(16,09,2012),time(14,00,00)).
+harvest('12R599:B0131118','12R0665:0133415',failed,'needs tag;2 earworms; 6 cl; fungus',toni,date(16,09,2012),time(14,00,00)).
+harvest('12R599:B0131114','12R9999:0132203',failed,'2 earworms; discarded; 19 cl; fungus',toni,date(16,09,2012),time(14,00,00)).
 harvest('12R599:B0131113','12R0116:0051503',succeeded,'needs tag; sixteenth; fungus',toni,date(16,09,2012),time(14,00,00)).
 harvest('12R599:B0131112','12R0647:0133203',succeeded,'needs tag; 2 earworms; quarter; fungus',toni,date(16,09,2012),time(14,00,00)).
 harvest('12R599:B0131111','12R0116:0051503',succeeded,'2 earworms; discarded; half; fungus',toni,date(16,09,2012),time(14,00,00)).
@@ -4176,30 +4183,30 @@ harvest('12R599:B0131105','12R0116:0051508',succeeded,'discarded; sixteenth; fun
 harvest('12R599:B0131104','12R0116:0051501',succeeded,'needs tag; 3 earworms; half',toni,date(16,09,2012),time(14,00,00)).
 harvest('12R599:B0131103','12R0116:0051501',succeeded,'needs tag; half',toni,date(16,09,2012),time(14,00,00)).
 harvest('12R599:B0131102','12R0653:0133513',succeeded,'needs tag; half; fungus',toni,date(16,09,2012),time(14,00,00)).
-harvest('12R599:B0131101','12R0642:0132010',failed,'2 earworms; needs tag; 0 cl',toni,date(16,09,2012),time(14,00,00)).
+harvest('12R599:B0131101','12R9999:0132010',failed,'2 earworms; needs tag; 0 cl',toni,date(16,09,2012),time(14,00,00)).
 harvest('12R599:B0131025','12R0653:0133513',succeeded,'needs tag; 2 earworms; three_quarter; fungus',toni,date(16,09,2012),time(14,00,00)).
 harvest('12R599:B0131024','12R599:B0131024',succeeded,'0 earworms; half; fungus',toni,date(16,09,2012),time(14,00,00)).
-harvest('12R599:B0131023','12R0000:0133710',succeeded,'1 earworm; discarded; eighth; fungus',toni,date(16,09,2012),time(14,00,00)).
+harvest('12R599:B0131023','12R9999:0133710',succeeded,'1 earworm; discarded; eighth; fungus',toni,date(16,09,2012),time(14,00,00)).
 harvest('12R599:B0131022','12R599:B0131022',succeeded,'3 earworms; discarded; half; fungus',toni,date(16,09,2012),time(14,00,00)).
 harvest('12R599:B0131021','12R599:B0131021',succeeded,'2 earworms; discarded; quarter; fungus',toni,date(16,09,2012),time(14,00,00)).
 harvest('12R599:B0131020','12R0651:0133509',succeeded,'low pollen; needs tag; eighth; fungus',toni,date(16,09,2012),time(14,00,00)).
-harvest('12R599:B0131019','12R0000:0134709',failed,'0 cl',toni,date(16,09,2012),time(14,00,00)).
+harvest('12R599:B0131019','12R9999:0134709',failed,'0 cl',toni,date(16,09,2012),time(14,00,00)).
 harvest('12R599:B0131018','12R599:B0131007',succeeded,'discarded; 1 earworm; quarter; fungus',toni,date(16,09,2012),time(14,00,00)).
-harvest('12R599:B0131017','12R0000:0132717',failed,'discarded; 7 cl; fungus',toni,date(16,09,2012),time(14,00,00)).
+harvest('12R599:B0131017','12R9999:0132717',failed,'discarded; 7 cl; fungus',toni,date(16,09,2012),time(14,00,00)).
 harvest('12R599:B0131016','12R0652:0133511',succeeded,'discarded; quarter; fungus',toni,date(16,09,2012),time(14,00,00)).
 harvest('12R599:B0131015','12R0644:0132303',succeeded,'needs tag; 1 earworm; quarter; fungus',toni,date(16,09,2012),time(14,00,00)).
 harvest('12R599:B0131014','12R0645:0132309',succeeded,'needs tag; quarter; fungus',toni,date(16,09,2012),time(14,00,00)).
-harvest('12R599:B0131013','12R0629:0133204',failed,'needs tag; 16 cl',toni,date(16,09,2012),time(14,00,00)).
+harvest('12R599:B0131013','12R0666:0133204',failed,'needs tag; 16 cl',toni,date(16,09,2012),time(14,00,00)).
 harvest('12R599:B0131012','12R0652:0133511',succeeded,'needs tag; quarter; fungus',toni,date(16,09,2012),time(14,00,00)).
 harvest('12R599:B0131011','12R0116:0051508',failed,'1 earworm; 8 cl; fungus',toni,date(16,09,2012),time(14,00,00)).
 harvest('12R599:B0131010','12R0642:0132014',failed,'pulled ear; low pollen; 3 cl; fungus',toni,date(16,09,2012),time(14,00,00)).
-harvest('12R599:B0131009','12R0645:0132313',succeeded,'needs tag; whole',toni,date(16,09,2012),time(14,00,00)).
-harvest('12R599:B0131008','12R0643:0132214',succeeded,'1 earworm; discarded; eighth; fungus',toni,date(16,09,2012),time(14,00,00)).
-harvest('12R599:B0131007','12R0000:0134708',failed,'1 earworm; 16 cl; fungus',toni,date(16,09,2012),time(14,00,00)).
-harvest('12R599:B0131006','12R0642:0132010',failed,'1 earworm; 3 cl; fungus',toni,date(16,09,2012),time(14,00,00)).
+harvest('12R599:B0131009','12R0646:0132313',succeeded,'needs tag; whole',toni,date(16,09,2012),time(14,00,00)).
+harvest('12R599:B0131008','12R9999:0132214',succeeded,'1 earworm; discarded; eighth; fungus',toni,date(16,09,2012),time(14,00,00)).
+harvest('12R599:B0131007','12R9999:0134708',failed,'1 earworm; 16 cl; fungus',toni,date(16,09,2012),time(14,00,00)).
+harvest('12R599:B0131006','12R9999:0132010',failed,'1 earworm; 3 cl; fungus',toni,date(16,09,2012),time(14,00,00)).
 harvest('12R599:B0131005','12R0643:0132211',succeeded,'needs tag; 1 earworm; half; fungus',toni,date(16,09,2012),time(14,00,00)).
 harvest('12R599:B0131003','12R0644:0132303',succeeded,'discarded; three_quarter; fungus',toni,date(16,09,2012),time(14,00,00)).
-harvest('12R599:B0131002','12R0000:0133711',succeeded,'discarded; quarter; fungus',toni,date(16,09,2012),time(14,00,00)).
+harvest('12R599:B0131002','12R9999:0133711',succeeded,'discarded; quarter; fungus',toni,date(16,09,2012),time(14,00,00)).
 harvest('12R599:B0131001','12R0654:0134713',succeeded,'needs tag; 3 earworms; eighth; fungus',toni,date(16,09,2012),time(14,00,00)).
 
 
@@ -6481,7 +6488,7 @@ harvest('16R0693:0015303','16R0693:0015303',succeeded,'quarter; fungus',avi,date
 harvest('16R0693:0015304','16R0693:0015304',succeeded,'low pollen; quarter; fungus',avi,date(23,09,2016),time(12,00,00)).
 harvest('16R0693:0015306','16R0693:0015306',succeeded,'quarter; fungus',avi,date(23,09,2016),time(12,00,00)).
 harvest('16R0693:0015309','16R0693:0015309',succeeded,'old ear; quarter; fungus',avi,date(23,09,2016),time(12,00,00)).
-harvest('16R0694:0015401','16R0694:0015401',failed,'misbagged; discard;  1 cl',josh,date(26,09,2017),time(12,00,00)).
+harvest('16R0694:0015401','16R0694:0015401',failed,'misbagged; discarded;  1 cl',josh,date(26,09,2017),time(12,00,00)).
 harvest('16R0694:0015402','16R0694:0015402',failed,'0 cl',josh,date(26,09,2017),time(12,00,00)).
 harvest('16R0694:0015406','16R0694:0015406',failed,'very low pollen; old ear; 1 cl',josh,date(26,09,2017),time(12,00,00)).
 harvest('16R0697:0015710','16R0697:0015710',failed,'0 cl',josh,date(26,09,2017),time(12,00,00)).
@@ -6499,7 +6506,7 @@ harvest('16R305:W0001604','16R3607:0010408',failed,'5 cl',josh,date(26,09,2017),
 harvest('16R305:W0001607','16R3607:0010403',succeeded,'quarter',avi,date(23,09,2016),time(12,00,00)).
 harvest('16R305:W0001609','16R3607:0010402',succeeded,'quarter',avi,date(23,09,2016),time(12,00,00)).
 harvest('16R205:S0000602','16R4007:0011605',succeeded,'half',toni,date(23,09,2016),time(12,00,00)).
-harvest('16R205:S0000604','16R4011:0011703',succeeded,'whole;spe; discard if possible; bent stem; three_quarter',toni,date(23,09,2016),time(12,00,00)).
+harvest('16R205:S0000604','16R4011:0011703',succeeded,'whole; pulled ear; discard if possible; bent stem; three_quarter',toni,date(23,09,2016),time(12,00,00)).
 harvest('16R205:S0000605','16R4007:0011605',succeeded,'bent stem; half',toni,date(23,09,2016),time(12,00,00)).
 harvest('16R205:S0000607','16R4507:0010908',succeeded,'half',toni,date(23,09,2016),time(12,00,00)).
 harvest('16R205:S0000608','16R4445:0009809',succeeded,'half; fungus',toni,date(23,09,2016),time(12,00,00)).
@@ -6591,11 +6598,11 @@ harvest('16R305:W0001518','16R4535:0014401',failed,'0 cl',josh,date(26,09,2017),
 harvest('16R305:W0001603','16R4279:0010503',failed,'3 cl',josh,date(26,09,2017),time(12,00,00)).
 harvest('16R305:W0001610','16R4279:0010511',succeeded,'half; fungus',avi,date(23,09,2016),time(12,00,00)).
 harvest('16R305:W0001611','16R4477:0005310',succeeded,'quarter; fungus',avi,date(23,09,2016),time(12,00,00)).
-harvest('16R305:W0001612','16R4477:0005303',succeeded,_,avi,date(23,09,2016),time(12,00,00)).
+harvest('16R305:W0001612','16R0703:0005303',succeeded,_,avi,date(23,09,2016),time(12,00,00)).
 harvest('16R305:W0001615','16R4535:0014404',failed,'0 cl',josh,date(26,09,2017),time(12,00,00)).
 harvest('16R305:W0001616','16R4514:0011809',succeeded,'half; fungus',avi,date(23,09,2016),time(12,00,00)).
 harvest('16R305:W0001617','16R4514:0011809',succeeded,'half; fungus',avi,date(23,09,2016),time(12,00,00)).
-harvest('16R305:W0001618','16R4477:0005311',succeeded,'three_quarter; fungus',avi,date(23,09,2016),time(12,00,00)).
+harvest('16R305:W0001618','16R0703:0005311',succeeded,'three_quarter; fungus',avi,date(23,09,2016),time(12,00,00)).
 harvest('16R305:W0002801','16R4499:0009605',succeeded,'half; fungus',avi,date(23,09,2016),time(12,00,00)).
 harvest('16R305:W0002803','16R4498:0009514',succeeded,'half',avi,date(23,09,2016),time(12,00,00)).
 harvest('16R305:W0002804','16R4498:0009503',succeeded,'half; fungus',avi,date(23,09,2016),time(12,00,00)).
@@ -6640,11 +6647,11 @@ harvest('16R405:M0000811','16R4297:0012305',succeeded,'sixteenth',avi,date(23,09
 harvest('16R405:M0000812','16R4027:0012203',succeeded,'was 28; 24 cl',avi,date(23,09,2016),time(12,00,00)).
 harvest('16R405:M0001702','16R4471:0004707',failed,'0 cl',josh,date(26,09,2017),time(12,00,00)).
 harvest('16R405:M0001703','16R4474:0005001',failed,'0 cl',josh,date(26,09,2017),time(12,00,00)).
-harvest('16R405:M0001704','16R4477:0005305',succeeded,'quarter',avi,date(23,09,2016),time(12,00,00)).
+harvest('16R405:M0001704','16R0703:0005305',succeeded,'quarter',avi,date(23,09,2016),time(12,00,00)).
 harvest('16R405:M0001705','16R4468:0004411',succeeded,'quarter',avi,date(23,09,2016),time(12,00,00)).
 harvest('16R405:M0001706','16R4468:0004411',succeeded,'eighth',avi,date(23,09,2016),time(12,00,00)).
 harvest('16R405:M0001707','16R4471:0004707',succeeded,'quarter',avi,date(23,09,2016),time(12,00,00)).
-harvest('16R405:M0001708','16R4477:0005303',succeeded,'quarter',avi,date(23,09,2016),time(12,00,00)).
+harvest('16R405:M0001708','16R0703:0005303',succeeded,'quarter',avi,date(23,09,2016),time(12,00,00)).
 harvest('16R405:M0001709','16R4515:0011911',succeeded,'quarter',avi,date(23,09,2016),time(12,00,00)).
 harvest('16R405:M0001710','16R4515:0011909',succeeded,'quarter',avi,date(23,09,2016),time(12,00,00)).
 harvest('16R405:M0001711','16R4477:0005309',succeeded,'quarter',avi,date(23,09,2016),time(12,00,00)).
@@ -6676,8 +6683,22 @@ harvest('16R405:M0002101','16R4468:0004411',succeeded,'eighth',avi,date(23,09,20
 harvest('16R405:M0002102','16R4468:0004411',succeeded,'30 cl',avi,date(23,09,2016),time(12,00,00)).
 harvest('16R405:M0002103','16R4516:0012007',succeeded,'quarter',avi,date(23,09,2016),time(12,00,00)).
 harvest('16R405:M0002105','16R4516:0012007',succeeded,'eighth',avi,date(23,09,2016),time(12,00,00)).
-harvest('16R405:M0002106','16R4483:0005910',succeeded,'sixteenth',avi,date(23,09,2016),time(12,00,00)).
-harvest('16R405:M0002107','16R4483:0005910',succeeded,'discard if possible; confusion due to duplicate packet; half',avi,date(23,09,2016),time(12,00,00)).
+
+
+% migrated per results of genetic_utilities:find_descendants_of_lines_wo_genotypes/2
+%
+% Kazic, 31.5.2018
+%
+%
+% harvest('16R405:M0002106','16R4483:0005910',succeeded,'sixteenth',avi,date(23,09,2016),time(12,00,00)).
+% harvest('16R405:M0002107','16R4483:0005910',succeeded,'discarded; confusion due to duplicate packet; half',avi,date(23,09,2016),time(12,00,00)).
+
+harvest('16R405:M0002106','16R4648:0005910',succeeded,'sixteenth',avi,date(23,09,2016),time(12,00,00)).
+% harvest('16R405:M0002107','16R4648:0005910',succeeded,'discarded; confusion due to duplicate packet; nothing planted; half',avi,date(23,09,2016),time(12,00,00)).
+    
+
+
+
 harvest('16R405:M0002108','16R4511:0011305',succeeded,'sixteenth',avi,date(23,09,2016),time(12,00,00)).
 harvest('16R405:M0002109','16R4511:0011305',succeeded,'sixteenth',avi,date(23,09,2016),time(12,00,00)).
 harvest('16R405:M0002110','16R4511:0011305',failed,'13 cl',josh,date(26,09,2017),time(12,00,00)).
@@ -6694,8 +6715,21 @@ harvest('16R405:M0002306','16R4510:0011204',succeeded,'eighth',avi,date(23,09,20
 harvest('16R405:M0002307','16R4300:0012606',succeeded,'old ear; sixteenth',avi,date(23,09,2016),time(12,00,00)).
 harvest('16R405:M0003101','16R4471:0004707',succeeded,'quarter',avi,date(23,09,2016),time(12,00,00)).
 harvest('16R405:M0003103','16R4474:0005001',succeeded,'eighth; fungus',avi,date(23,09,2016),time(12,00,00)).
-harvest('16R405:M0003104','16R4483:0005906',succeeded,'half',avi,date(23,09,2016),time(12,00,00)).
-harvest('16R405:M0003105','16R4483:0005906',succeeded,'half; fungus',avi,date(23,09,2016),time(12,00,00)).
+
+
+% migrated per results of genetic_utilities:find_descendants_of_lines_wo_genotypes/2
+%
+% Kazic, 31.5.2018
+%
+% 
+% harvest('16R405:M0003104','16R4483:0005906',succeeded,'half',avi,date(23,09,2016),time(12,00,00)).
+% harvest('16R405:M0003105','16R4483:0005906',succeeded,'half; fungus',avi,date(23,09,2016),time(12,00,00)).
+
+
+harvest('16R405:M0003104','16R4648:0005906',succeeded,'half',avi,date(23,09,2016),time(12,00,00)).
+harvest('16R405:M0003105','16R4648:0005906',succeeded,'half; fungus',avi,date(23,09,2016),time(12,00,00)).
+
+
 harvest('16R405:M0003106','16R4222:0009407',failed,'low pollen; carried pollen; injured ear leaf; 0 cl',josh,date(26,09,2017),time(12,00,00)).
 harvest('16R405:M0003107','16R4476:0005202',succeeded,'half; fungus',avi,date(23,09,2016),time(12,00,00)).
 harvest('16R405:M0003109','16R4496:0009209',succeeded,'half; fungus',avi,date(23,09,2016),time(12,00,00)).
@@ -6773,7 +6807,7 @@ harvest('16R4488:0006401','16R4488:0006401',succeeded,'discard if possible; whol
 harvest('16R4488:0006403','16R4488:0006403',succeeded,'discard if possible; whole',avi,date(23,09,2016),time(12,00,00)).
 harvest('16R4488:0006404','16R4488:0006404',succeeded,'discard if possible; whole',avi,date(23,09,2016),time(12,00,00)).
 harvest('16R4488:0006409','16R4488:0006409',succeeded,_,avi,date(23,09,2016),time(12,00,00)).
-harvest('16R4488:0006414','16R4488:0006414',succeeded,'bag off 26. 7; discard if possible;  whole',avi,date(23,09,2016),time(12,00,00)).
+harvest('16R4488:0006414','16R4488:0006414',succeeded,'bag off 26.7; discard if possible;  whole',avi,date(23,09,2016),time(12,00,00)).
 harvest('16R4489:0006503','16R4489:0006503',succeeded,_,avi,date(23,09,2016),time(12,00,00)).
 harvest('16R4489:0006504','16R4489:0006504',succeeded,_,avi,date(23,09,2016),time(12,00,00)).
 harvest('16R4489:0006509','16R4489:0006509',succeeded,_,avi,date(23,09,2016),time(12,00,00)).
@@ -6809,6 +6843,26 @@ harvest('16R305:W0000711','16R0691:0015106',succeeded,'half',avi,date(23,09,2016
     
 % 17r
 
+% corrected per notes in ../../crops/17r/management/duped_new_genotypes.org:
+%
+% 4538:00163 -> 4640:00163 
+% 4552:00134 -> 4641:00134
+% 4553:00135 -> 4642:00135
+% 4554:00136 -> 4643:00136
+% 4555:00137 -> 4644:00137
+% 4615:00227 -> 4645:00227
+%
+% these two families did not need fixing; genotype facts entered anyway
+%
+% 4616:00231 -> 4646:00231
+% 4617:00232 -> 4647:00232
+%
+% Kazic, 20.5.2018
+
+
+
+
+    
 
 % the next data sets are commented out because most of the contemporaneous data    
 % were lost and the harvest data had to be re-collected from the actual seed.    
@@ -7050,9 +7104,9 @@ harvest('16R305:W0000711','16R0691:0015106',succeeded,'half',avi,date(23,09,2016
 % harvest('17R4592:0022609','17R4592:0022609',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
 % harvest('17R4592:0022611','17R4592:0022611',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
 % harvest('17R4592:0022613','17R4592:0022613',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
-% harvest('17R4615:0022701','17R4615:0022701',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
-% harvest('17R4615:0022706','17R4615:0022706',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
-% harvest('17R4615:0022708','17R4615:0022708',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+% harvest('17R4645:0022701','17R4645:0022701',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+% harvest('17R4645:0022706','17R4645:0022706',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+% harvest('17R4645:0022708','17R4645:0022708',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
 % harvest('17R4593:0022802','17R4593:0022802',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
 % harvest('17R4593:0022803','17R4593:0022803',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
 % harvest('17R4593:0022807','17R4593:0022807',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
@@ -7230,8 +7284,8 @@ harvest('16R305:W0000711','16R0691:0015106',succeeded,'half',avi,date(23,09,2016
 % harvest('17R4494:0008610','17R4494:0008601',failed,'discarded; whole; fungus',josh,date(26,09,2017),time(12,00,00)).
 % harvest('17R4627:0013811','17R4627:0013811',failed,'discarded; 0 cl; fungus',josh,date(26,09,2017),time(12,00,00)).
 % harvest('17R505:B0002807','17R4453:0008402',failed,'discarded; 0 cl; fungus',josh,date(26,09,2017),time(12,00,00)).
-% harvest('17R4627:0013804','17R4627:0013804',failed,'uncut ear;spe; discard if possible;  0 cl; fungus',josh,date(26,09,2017),time(12,00,00)).
-% harvest('17R205:S0001105','17R4544:0017802',failed,'good ear; discard; 0 cl; fungus',josh,date(26,09,2017),time(12,00,00)).
+% harvest('17R4627:0013804','17R4627:0013804',failed,'uncut ear; pulled ear; discarded;  0 cl; fungus',josh,date(26,09,2017),time(12,00,00)).
+% harvest('17R205:S0001105','17R4544:0017802',failed,'good ear; discarded; 0 cl; fungus',josh,date(26,09,2017),time(12,00,00)).
 % harvest('17R4580:0019910','17R4580:0019910',failed,'discarded; 0 cl; fungus',josh,date(26,09,2017),time(12,00,00)).
 
 
@@ -7382,11 +7436,17 @@ harvest('17R4535:0010604','17R4535:0010604',succeeded,'half',josh,date(24,09,201
 harvest('17R4535:0010605','17R4535:0010604',succeeded,'half',josh,date(24,09,2017),time(12,00,00)).
 harvest('17R4535:0010611','17R4535:0010610',succeeded,'half',josh,date(24,09,2017),time(12,00,00)).
 harvest('17R4535:0010615','17R4535:0010610',succeeded,'half',josh,date(24,09,2017),time(12,00,00)).
-harvest('17R4538:0010801','17R4538:0010801',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
-harvest('17R4538:0010804','17R4538:0010801',succeeded,'three_quarter',josh,date(24,09,2017),time(12,00,00)).
-harvest('17R4538:0010809','17R4538:0010807',succeeded,'half',josh,date(24,09,2017),time(12,00,00)).
-harvest('17R4538:0010811','17R4538:0010801',succeeded,'three_quarter',josh,date(24,09,2017),time(12,00,00)).
-harvest('17R4538:0010813','17R4538:0010801',succeeded,'three_quarter',josh,date(24,09,2017),time(12,00,00)).
+%
+%
+% not certain if rows 108 and 109 really mi1, so discard. 
+% guessed kernel count for 17R4538:0010801 x 17R4538:0010801
+%
+harvest('17R4538:0010801','17R4538:0010801',succeeded,'half; discarded due to ambiguity of family',josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4538:0010803','17R4538:0010801',succeeded,'quarter; discarded due to ambiguity of family',josh,date(24,09,2017),time(12,00,00)).    
+harvest('17R4538:0010804','17R4538:0010801',succeeded,'three_quarter; discarded due to ambiguity of family',josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4538:0010809','17R4538:0010807',succeeded,'half; discarded due to ambiguity of family',josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4538:0010811','17R4538:0010801',succeeded,'three_quarter; discarded due to ambiguity of family',josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4538:0010813','17R4538:0010801',succeeded,'three_quarter; discarded due to ambiguity of family',josh,date(24,09,2017),time(12,00,00)).
 harvest('17R4618:0012502','17R4618:0012502',succeeded,'three_quarter',josh,date(24,09,2017),time(12,00,00)).
 harvest('17R4618:0012503','17R4618:0012503',succeeded,'three_quarter',josh,date(24,09,2017),time(12,00,00)).
 harvest('17R4618:0012507','17R4618:0012507',succeeded,'three_quarter',josh,date(24,09,2017),time(12,00,00)).
@@ -7512,9 +7572,9 @@ harvest('17R4591:0022511','17R4591:0022511',succeeded,_,josh,date(24,09,2017),ti
 harvest('17R4592:0022609','17R4592:0022609',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
 harvest('17R4592:0022611','17R4592:0022611',succeeded,'three_quarter',josh,date(24,09,2017),time(12,00,00)).
 harvest('17R4592:0022613','17R4592:0022613',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
-harvest('17R4615:0022701','17R4615:0022701',succeeded,'three_quarter',josh,date(24,09,2017),time(12,00,00)).
-harvest('17R4615:0022706','17R4615:0022706',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
-harvest('17R4615:0022708','17R4615:0022708',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4645:0022701','17R4645:0022701',succeeded,'three_quarter',josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4645:0022706','17R4645:0022706',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
+harvest('17R4645:0022708','17R4645:0022708',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
 harvest('17R4593:0022802','17R4593:0022802',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
 harvest('17R4593:0022803','17R4593:0022803',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
 harvest('17R4593:0022807','17R4593:0022807',succeeded,_,josh,date(24,09,2017),time(12,00,00)).
@@ -7652,13 +7712,13 @@ harvest('17R205:S0003716','17R4419:0011132',succeeded,'three_quarter',josh,date(
 harvest('17R205:S0003717','17R2252:0011002',succeeded,'three_quarter',josh,date(24,09,2017),time(12,00,00)).
 harvest('17R205:S0003718','17R4419:0011132',succeeded,'half',josh,date(24,09,2017),time(12,00,00)).
 harvest('17R205:S0003719','17R4419:0011128',succeeded,'three_quarter',josh,date(24,09,2017),time(12,00,00)).
-harvest('17R305:W0001702','17R4553:0013505',succeeded,'half',josh,date(24,09,2017),time(12,00,00)).
-harvest('17R305:W0001708','17R4553:0013510',succeeded,'three_quarter',josh,date(24,09,2017),time(12,00,00)).
-harvest('17R305:W0001709','17R4553:0013502',succeeded,'half',josh,date(24,09,2017),time(12,00,00)).
+harvest('17R305:W0001702','17R4642:0013505',succeeded,'half',josh,date(24,09,2017),time(12,00,00)).
+harvest('17R305:W0001708','17R4642:0013510',succeeded,'three_quarter',josh,date(24,09,2017),time(12,00,00)).
+harvest('17R305:W0001709','17R4642:0013502',succeeded,'half',josh,date(24,09,2017),time(12,00,00)).
 harvest('17R305:W0001719','17R4558:0016606',succeeded,'three_quarter',josh,date(24,09,2017),time(12,00,00)).
-harvest('17R305:W0001804','17R4552:0013415',succeeded,'half',josh,date(24,09,2017),time(12,00,00)).
-harvest('17R305:W0001808','17R4552:0013415',succeeded,'half',josh,date(24,09,2017),time(12,00,00)).
-harvest('17R305:W0001813','17R4552:0013415',succeeded,'three_quarter',josh,date(24,09,2017),time(12,00,00)).
+harvest('17R305:W0001804','17R4641:0013415',succeeded,'half',josh,date(24,09,2017),time(12,00,00)).
+harvest('17R305:W0001808','17R4641:0013415',succeeded,'half',josh,date(24,09,2017),time(12,00,00)).
+harvest('17R305:W0001813','17R4641:0013415',succeeded,'three_quarter',josh,date(24,09,2017),time(12,00,00)).
 harvest('17R305:W0001814','17R4497:0016409',succeeded,'half',josh,date(24,09,2017),time(12,00,00)).
 harvest('17R305:W0001815','17R4497:0016409',succeeded,'three_quarter',josh,date(24,09,2017),time(12,00,00)).
 harvest('17R305:W0001817','17R4558:0016606',succeeded,'half',josh,date(24,09,2017),time(12,00,00)).
@@ -7719,32 +7779,32 @@ harvest('17R305:W0005516','17R4569:0018709',succeeded,'half',josh,date(24,09,201
 harvest('17R405:M0002101','17R4547:0018305',failed,'11 cl',josh,date(24,09,2017),time(12,00,00)).
 harvest('17R405:M0002102','17R4578:0017401',succeeded,'quarter',josh,date(24,09,2017),time(12,00,00)).
 harvest('17R405:M0002103','17R4578:0017401',succeeded,'quarter',josh,date(24,09,2017),time(12,00,00)).
-harvest('17R405:M0002106','17R4538:0016311',succeeded,'quarter',josh,date(24,09,2017),time(12,00,00)).
-harvest('17R405:M0002107','17R4538:0016306',succeeded,'quarter',josh,date(24,09,2017),time(12,00,00)).
-harvest('17R405:M0002108','17R4538:0016302',succeeded,'quarter',josh,date(24,09,2017),time(12,00,00)).
+harvest('17R405:M0002106','17R4640:0016311',succeeded,'quarter; discarded due to family ambiguity',josh,date(24,09,2017),time(12,00,00)).
+harvest('17R405:M0002107','17R4640:0016306',succeeded,'quarter; discarded due to family ambiguity',josh,date(24,09,2017),time(12,00,00)).
+harvest('17R405:M0002108','17R4640:0016302',succeeded,'quarter; discarded due to family ambiguity',josh,date(24,09,2017),time(12,00,00)).
 harvest('17R405:M0002110','17R4546:0018205',succeeded,'quarter',josh,date(24,09,2017),time(12,00,00)).
 harvest('17R405:M0002111','17R4509:0017712',succeeded,'quarter',josh,date(24,09,2017),time(12,00,00)).
 harvest('17R405:M0002112','17R4564:0016703',succeeded,'quarter',josh,date(24,09,2017),time(12,00,00)).
 harvest('17R405:M0002113','17R4564:0016707',succeeded,'half',josh,date(24,09,2017),time(12,00,00)).
-harvest('17R405:M0002201','17R4554:0013613',succeeded,'half',josh,date(24,09,2017),time(12,00,00)).
-harvest('17R405:M0002202','17R4538:0016306',succeeded,'quarter',josh,date(24,09,2017),time(12,00,00)).
+harvest('17R405:M0002201','17R4643:0013613',succeeded,'half',josh,date(24,09,2017),time(12,00,00)).
+harvest('17R405:M0002202','17R4640:0016306',succeeded,'quarter; discarded due to family ambiguity',josh,date(24,09,2017),time(12,00,00)).
 harvest('17R405:M0002203','17R4540:0017604',succeeded,'half',josh,date(24,09,2017),time(12,00,00)).
 harvest('17R405:M0002206','17R4546:0018201',succeeded,'half',josh,date(24,09,2017),time(12,00,00)).
 harvest('17R405:M0002207','17R4546:0018201',succeeded,'half',josh,date(24,09,2017),time(12,00,00)).
-harvest('17R405:M0002209','17R4538:0016311',succeeded,'half',josh,date(24,09,2017),time(12,00,00)).
-harvest('17R405:M0002210','17R4554:0013611',succeeded,'quarter',josh,date(24,09,2017),time(12,00,00)).
-harvest('17R405:M0002211','17R4538:0016306',failed,'10 cl',josh,date(24,09,2017),time(12,00,00)).
+harvest('17R405:M0002209','17R4640:0016311',succeeded,'half; discarded due to family ambiguity',josh,date(24,09,2017),time(12,00,00)).
+harvest('17R405:M0002210','17R4643:0013611',succeeded,'quarter',josh,date(24,09,2017),time(12,00,00)).
+harvest('17R405:M0002211','17R4640:0016306',failed,'10 cl; discarded due to family ambiguity',josh,date(24,09,2017),time(12,00,00)).
 harvest('17R405:M0002212','17R4564:0016708',succeeded,'half',josh,date(24,09,2017),time(12,00,00)).
-harvest('17R405:M0002213','17R4554:0013609',succeeded,'half',josh,date(24,09,2017),time(12,00,00)).
-harvest('17R405:M0002215','17R4554:0013608',succeeded,'half',josh,date(24,09,2017),time(12,00,00)).
+harvest('17R405:M0002213','17R4643:0013609',succeeded,'half',josh,date(24,09,2017),time(12,00,00)).
+harvest('17R405:M0002215','17R4643:0013608',succeeded,'half',josh,date(24,09,2017),time(12,00,00)).
 harvest('17R405:M0002216','17R4474:0016104',succeeded,'half',josh,date(24,09,2017),time(12,00,00)).
-harvest('17R405:M0002302','17R4538:0016311',succeeded,'half',josh,date(24,09,2017),time(12,00,00)).
-harvest('17R405:M0002303','17R4474:0016104',succeeded,'quarter',josh,date(24,09,2017),time(12,00,00)).
-harvest('17R405:M0002304','17R4538:0016311',succeeded,'half',josh,date(24,09,2017),time(12,00,00)).
+harvest('17R405:M0002302','17R4640:0016311',succeeded,'half; discarded due to family ambiguity',josh,date(24,09,2017),time(12,00,00)).
+harvest('17R405:M0002303','17R4474:0016104',succeeded,'quarter; discarded due to family ambiguity',josh,date(24,09,2017),time(12,00,00)).
+harvest('17R405:M0002304','17R4640:0016311',succeeded,'half; discarded due to family ambiguity',josh,date(24,09,2017),time(12,00,00)).
 harvest('17R405:M0002306','17R4578:0017406',succeeded,'half',josh,date(24,09,2017),time(12,00,00)).
 harvest('17R405:M0002307','17R4578:0017406',succeeded,'half',josh,date(24,09,2017),time(12,00,00)).
 harvest('17R405:M0002309','17R4578:0017406',succeeded,'half',josh,date(24,09,2017),time(12,00,00)).
-harvest('17R405:M0002310','17R4538:0016302',succeeded,'quarter',josh,date(24,09,2017),time(12,00,00)).
+harvest('17R405:M0002310','17R4640:0016302',succeeded,'quarter; discarded due to family ambiguity',josh,date(24,09,2017),time(12,00,00)).
 harvest('17R405:M0002314','17R4474:0016104',succeeded,'half',josh,date(24,09,2017),time(12,00,00)).
 harvest('17R405:M0002404','17R4474:0016101',succeeded,'quarter',josh,date(24,09,2017),time(12,00,00)).
 harvest('17R405:M0002406','17R4578:0017401',succeeded,'half',josh,date(24,09,2017),time(12,00,00)).
@@ -7752,10 +7812,10 @@ harvest('17R405:M0002408','17R4509:0017712',succeeded,'quarter',josh,date(24,09,
 harvest('17R405:M0002410','17R4533:0019708',succeeded,'quarter',josh,date(24,09,2017),time(12,00,00)).
 harvest('17R405:M0002411','17R4533:0019708',succeeded,'quarter',josh,date(24,09,2017),time(12,00,00)).
 harvest('17R405:M0002413','17R4474:0016101',succeeded,'quarter',josh,date(24,09,2017),time(12,00,00)).
-harvest('17R405:M0002502','17R4555:0013701',succeeded,'eighth',josh,date(24,09,2017),time(12,00,00)).
+harvest('17R405:M0002502','17R4644:0013701',succeeded,'eighth',josh,date(24,09,2017),time(12,00,00)).
 harvest('17R405:M0002505','17R4546:0018201',succeeded,'quarter',josh,date(24,09,2017),time(12,00,00)).
-harvest('17R405:M0002509','17R4555:0013708',succeeded,'quarter',josh,date(24,09,2017),time(12,00,00)).
-harvest('17R405:M0002510','17R4555:0013703',succeeded,'quarter',josh,date(24,09,2017),time(12,00,00)).
+harvest('17R405:M0002509','17R4644:0013708',succeeded,'quarter',josh,date(24,09,2017),time(12,00,00)).
+harvest('17R405:M0002510','17R4644:0013703',succeeded,'quarter',josh,date(24,09,2017),time(12,00,00)).
 harvest('17R405:M0002512','17R4474:0016101',succeeded,'quarter',josh,date(24,09,2017),time(12,00,00)).
 harvest('17R405:M0004201','17R4509:0017712',succeeded,'quarter',josh,date(24,09,2017),time(12,00,00)).
 harvest('17R405:M0004202','17R4509:0017712',succeeded,'quarter',josh,date(24,09,2017),time(12,00,00)).
@@ -7820,12 +7880,12 @@ harvest('17R505:B0002812','17R4494:0008601',succeeded,'quarter',josh,date(24,09,
 harvest('17R505:B0002814','17R4452:0009007',succeeded,'three_quarter',josh,date(24,09,2017),time(12,00,00)).
 harvest('17R505:B0002815','17R4452:0009007',succeeded,'half',josh,date(24,09,2017),time(12,00,00)).
 harvest('17R505:B0002817','17R4452:0009007',succeeded,'half',josh,date(24,09,2017),time(12,00,00)).
-harvest('17R505:B0002902','17R4538:0010807',succeeded,'half',josh,date(24,09,2017),time(12,00,00)).
-harvest('17R505:B0002903','17R4538:0010807',succeeded,'half',josh,date(24,09,2017),time(12,00,00)).
-harvest('17R505:B0002904','17R4538:0010807',succeeded,'three_quarter',josh,date(24,09,2017),time(12,00,00)).
-harvest('17R505:B0002905','17R4538:0010801',succeeded,'half',josh,date(24,09,2017),time(12,00,00)).
-harvest('17R505:B0002907','17R4538:0010801',succeeded,'three_quarter',josh,date(24,09,2017),time(12,00,00)).
-harvest('17R505:B0002908','17R4538:0010801',succeeded,'half',josh,date(24,09,2017),time(12,00,00)).
+harvest('17R505:B0002902','17R4538:0010807',succeeded,'half; discarded due to ambiguity of family',josh,date(24,09,2017),time(12,00,00)).
+harvest('17R505:B0002903','17R4538:0010807',succeeded,'half; discarded due to ambiguity of family',josh,date(24,09,2017),time(12,00,00)).
+harvest('17R505:B0002904','17R4538:0010807',succeeded,'three_quarter; discarded due to ambiguity of family',josh,date(24,09,2017),time(12,00,00)).
+harvest('17R505:B0002905','17R4538:0010801',succeeded,'half; discarded due to ambiguity of family',josh,date(24,09,2017),time(12,00,00)).
+harvest('17R505:B0002907','17R4538:0010801',succeeded,'three_quarter; discarded due to ambiguity of family',josh,date(24,09,2017),time(12,00,00)).
+harvest('17R505:B0002908','17R4538:0010801',succeeded,'half; discarded due to ambiguity of family',josh,date(24,09,2017),time(12,00,00)).
 harvest('17R505:B0002909','17R4535:0010604',succeeded,'half',josh,date(24,09,2017),time(12,00,00)).
 harvest('17R505:B0002910','17R4534:0010403',succeeded,'three_quarter',josh,date(24,09,2017),time(12,00,00)).
 harvest('17R505:B0002912','17R4534:0010403',succeeded,'half',josh,date(24,09,2017),time(12,00,00)).

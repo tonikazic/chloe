@@ -3,11 +3,13 @@
 % crop(CropID,Location,FieldID,Planting,PlantingDate,HarvestStartDate,HarvestEndDate).
 
 
-% 18r guessed
+% 18r
+
+% harvest dates guessed
     
-crop('18R',missouri,field34,1,date(21,05,2018),date(30,9,2018),date(12,10,2018)).
-crop('18R',missouri,field34,2,date(27,05,2018),date(30,9,2018),date(12,10,2018)).
-crop('18R',missouri,field34,3,date(01,06,2018),date(30,9,2018),date(12,10,2018)).
+crop('18R',missouri,field34,1,date(06,06,2018),date(30,9,2018),date(12,10,2018)).
+crop('18R',missouri,field34,2,date(11,06,2018),date(30,9,2018),date(12,10,2018)).
+crop('18R',missouri,field34,3,date(19,06,2018),date(30,9,2018),date(12,10,2018)).
 
 
 
@@ -108,23 +110,23 @@ crop('12N',molokaii,olaola,2,date(28,11,2012),date(13,3,2013),date(13,3,2013)).
 %
 % Kazic, 28.3.2018
 
-crop('12R',missouri,field34,1,date(14,05,2012),_,_).
-crop('12R',missouri,field34,2,date(21,05,2012),_,_).
+crop('12R',missouri,field34,1,date(14,05,2012),date(25,08,2012),date(16,09,2012)).
+crop('12R',missouri,field34,2,date(21,05,2012),date(25,08,2012),date(16,09,2012)).
 
 
 % these are the transplants of the Les15 lines started at home in the laundry room
 %
-crop('12R',missouri,field34,3,date(18,05,2012),_,_).   
+crop('12R',missouri,field34,3,date(18,05,2012),date(25,08,2012),date(16,09,2012)).  
 
 
 % these are the fill-ins for the rows that had zero stand counts
 %
-crop('12R',missouri,field34,4,date(10,06,2012),_,_).
+crop('12R',missouri,field34,4,date(10,06,2012),date(25,08,2012),date(16,09,2012)).
 
 
 % sherry''s demo corn
 %
-crop('12R',missouri,demo,5,date(25,05,2012),_,_).
+crop('12R',missouri,demo,5,date(25,05,2012),date(25,08,2012),date(16,09,2012)).
 
 
 
@@ -179,7 +181,7 @@ crop('10R',missouri,field33,3,date(6,6,2010),date(7,9,2010),date(17,9,2010)).
 % 09r
 
 crop('09R',missouri,field18,1,date(20,5,2009),date(19,9,2009),date(10,10,2009)).
-crop('09R',missouri,field18,1,date(21,5,2009),date(19,9,2009),date(10,10,2009)).
+crop('09R',missouri,field18,14,date(21,5,2009),date(19,9,2009),date(10,10,2009)).
 crop('09R',missouri,field18,2,date(1,6,2009),date(19,9,2009),date(10,10,2009)).
 crop('09R',missouri,field18,3,date(9,6,2009),date(19,9,2009),date(10,10,2009)).
 crop('09R',missouri,field18,10,date(19,6,2009),date(19,9,2009),date(10,10,2009)).
@@ -249,7 +251,7 @@ crop('08R',missouri,field24,1,date(14,6,2008),date(19,10,2008),date(20,10,2008))
 % data are on palms
 %
 crop('07G',missouri,sears_107_n,1,date(13,11,2007),'','').
-crop('07G',missouri,sears_107_n,1,date(14,1,2008),date(18,5,2008),date(18,5,2008)).
+% crop('07G',missouri,sears_107_n,1,date(14,1,2008),date(18,5,2008),date(18,5,2008)).
 %
 % have to look up the planting dates in my notebook!
 %
@@ -285,11 +287,17 @@ crop('07R',missouri,field25,3,date(29,5,2007),date(14,9,2007),date(19,9,2007)).
 
 % 06g
 
-crop('06G',missouri,sears_108_s,1,date(13,11,2006),'','').
-crop('06G',missouri,sears_108_s,2,date(28,11,2006),'','').
-crop('06G',missouri,sears_108_s,3,date(30,11,2006),'','').
-crop('06G',missouri,sears_108_s,4,date(4,12,2006),'','').
-crop('06G',missouri,sears_108_s,5,date(12,12,2006),'','').
+% commented these out as packed_packet, planted, etc. records must 
+% be reconstructed from old spreadsheet data.
+%
+% Kazic, 22.5.2018
+
+    
+% crop('06G',missouri,sears_108_s,1,date(13,11,2006),'','').
+% crop('06G',missouri,sears_108_s,2,date(28,11,2006),'','').
+% crop('06G',missouri,sears_108_s,3,date(30,11,2006),'','').
+% crop('06G',missouri,sears_108_s,4,date(4,12,2006),'','').
+% crop('06G',missouri,sears_108_s,5,date(12,12,2006),'','').
 
 
 

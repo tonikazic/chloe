@@ -2,7 +2,7 @@
 % plant_fate(PlantID,Reason,Observer,Date,Time).
 
 plant_fate('07R2527:0058504',kicked_down(light),toni,date(24,07,2007),time(15,19,53)).
-plant_fate('07R2527,0058505',kicked_down(light),toni,date(24,07,2007),time(15,19,59)).
+plant_fate('07R2527:0058505',kicked_down(light),toni,date(24,07,2007),time(15,19,59)).
 
 
 % 09r
@@ -1372,8 +1372,6 @@ plant_fate('17R4565:0019124',kicked_down(light),toni,date(02,08,2017),time(12,00
 
 
 % 18r
-
-    
 
 
 

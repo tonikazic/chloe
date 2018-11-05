@@ -5121,3 +5121,558 @@ plan('14R405:M0001803','14R4166:0023701',1,['M'],'is 5th','15R').
 
 
     
+
+
+
+
+
+% 18r
+
+
+% 81  [Les1]
+plan('14R205:S0000212','14R4144:0019801',1,[inc,self,'B'],'is 6th!; small lesions, mainly on lower leaves 23.7','18R').
+
+% 82  [Les2]
+plan('13R405:M0002504','13R4079:0004909',1,[inc,self,'B','W'],'is 6th!','18R').
+
+% 83  [Les2]
+plan('13R405:M0002602','13R4081:0005403',1,[inc,self,'B'],'is 6th!','18R').
+
+% 84  [Les2-N845A]
+plan('13R205:S0000507','13R4145:0018815',1,[inc,self,'B'],'is 6th!','18R').
+
+% 85  [Les2-N845A]
+plan('14R305:W0000905','14R4273:0020102',1,[inc,self,'B'],'is 6th!; no phe 8.8 in 18r','18R').
+
+% 86  [Les2-N845A]
+plan('17R405:M0002113','17R4564:0016707',1,[inc,self,'B'],'is 6th!','18R').
+
+% 87  [Les4]
+plan('14R205:S0000215','14R4229:0009701',1,[inc,self,'B'],'is 6th!','18R').
+
+% 88  [Les4]
+plan('15R405:M0001101','15R4353:0011002',1,[inc,self,'B'],'is 6th!','18R').
+
+% 89  [Les6]
+plan('11N205:S0037004','11N3433:0012810',1,[inc,'B'],'is 6th!; no ears 18r','18R').
+
+% 90  [Les6]
+plan('12N3962:0020204','12N3962:0020211',1,[inc,self,'B'],'is 6th!; ears in 18r','18R').
+
+% 91  [Les6]
+plan('15R405:M0001302','15R4354:0011306',1,[inc,'B'],'is 6th! pick one of three; prefer, mutants more robust; no ears 18r','18R').
+
+% 92  [Les6]
+plan('15R405:M0001205','15R4355:0011403',1,[inc,self,'B'],'is 6th! pick one of three; less desirable; no ears 18r','18R').
+
+% 93  [Les6]
+plan('15R405:M0001313','15R4277:0011507',1,[inc,'B'],'is 6th! pick one of three; less desirable; no ears 18r','18R').
+
+% 94  [Les7]
+plan('16R305:W0001610','16R4279:0010511',1,[inc,'B'],'is 6th! alternate for 16R305:W0002914; repeat 17r; no phe 4.8, 8.8 in 18r','18R').
+
+% 95  [Les7]
+plan('16R305:W0002914','16R4279:0010511',1,[inc,self,'B'],'is 6th! alternate for 16R305:W0001610; no phe 4.8, 8.8 in 18r','18R').
+
+% 96  [Les7]
+plan('16R205:S0001202','16R4390:0010609',1,[inc,self,'B'],'is 6th! alternate for 16R205:S0001301','18R').
+
+% 97  [Les7]
+plan('16R205:S0001301','16R4390:0010611',1,[inc,self,'B'],'is 6th! alternate for 16R205:S0001202','18R').
+
+% 98  [Les7]
+plan('15R305:W0000601','15R4359:0012512',1,[inc,'B'],'is 6th! alternate for 15R305:W0000707; mutants flowering MUCH faster than wild types on 2.8; no ears in 18r','18R').
+
+% 99  [Les7]
+plan('15R305:W0000707','15R4360:0012608',1,[inc,'B'],'is 6th! alternate for 15R305:W0000601; no ears in 18r','18R').
+
+% 100  [Les7]
+plan('14R405:M0001211','14R4282:0021308',1,[inc,self,'B'],'is 6th! alternate for 14R405:M0001212','18R').
+
+% 101  [Les7]
+plan('14R405:M0001212','14R4282:0021303',1,[inc,self,'B'],'is 6th! alternate for 14R405:M0001211','18R').
+
+% 102  [Les8]
+plan('14R205:S0000107','14R4284:0021509',1,[inc,self,'B'],'is 6th!','18R').
+
+% 103  [Les9]
+plan('12R305:W0002901','12R3620:0027307',1,[inc,self],'is 6th!; good phe 2.8 and mutants healthy and shedding, but missed all but one wild type; repeat 19r','18R').
+
+% 104  [Les9]
+plan('17R405:M0002306','17R4578:0017406',1,[inc,self,'B'],'is 6th!','18R').
+
+% 105  [Les10]
+plan('14R205:S0000508','14R4287:0022003',1,[inc,'B'],'is 6th! retry 15r; alternate for 14R205:S0000307; no ears in 18r; good phe, bit faster than row 106, 14R205:S0000307 x 14R4160:0022114, and better synced to wild type; prefer;  pick one of two','18R').
+
+% 106  [Les10]
+plan('14R205:S0000307','14R4160:0022114',1,[inc,'B'],'is 6th! retry 15r; alternate for 14R205:S0000508; no ears in 18r; mutants slower than row 105, 14R205:S0000508 x 14R4287:0022003;  pick one of two','18R').
+
+% 107  [Les10]
+plan('13R305:W0000706','13R3623:0024902',1,[inc],'is 6th!; no ears 18r','18R').
+
+% 108  [Les10]
+plan('17R205:S0001307','17R4539:0017501',1,[inc,'B'],'is 6th; no ears 18r','18R').
+
+% 109  [Les11]
+plan('14R205:S0000415','14R4291:0022711',1,[inc,self,'B'],'is 6th!','18R').
+
+% 110  [Les11]
+plan('12R305:W0002602','12R3627:0028208',1,[inc,self,'B'],'is 6th!','18R').
+
+% 111  [Les11]
+plan('16R405:M0003206','16R4511:0011304',1,[inc],'is 6th!','18R').
+
+% 112  [Les12]
+plan('17R205:S0001112','17R4543:0017914',1,[inc,self,'B'],'is 6th! small ear; alternate for 17R205:S0001117; osc 23.7','18R').
+
+% 113  [Les12]
+plan('17R205:S0001117','17R4543:0017901',1,[inc,self,'B'],'is 6th! small ear; alternate for 17R205:S0001112; osc 23.7','18R').
+
+% 114  [Les13]
+plan('12N205:S0041303','12N4017:0028305',1,[inc,self,'B'],'is 6th! low cl','18R').
+
+% 115  [Les13]
+plan('13R205:S0003402','13R4167:0026602',1,[inc,self,'B','W'],'is 6th!','18R').
+
+% 116  [Les15-N2007]
+plan('17R305:W0004012','17R4548:0011508',1,[inc,self,'B'],'is 6th! amazing! alternate for 17R305:W0004016','18R').
+
+% 117  [Les15-N2007]
+plan('17R305:W0004016','17R4548:0011508',1,[inc,self,'B'],'is 6th! amazing! alternate for 17R305:W0004012','18R').
+
+% 118  [Les17]
+plan('14R405:M0001808','14R4296:0024014',1,[inc,self,'B'],'is 6th! S lines have no ear, but W lines do; only 5 plants! overplant 19r; osc 23.7','18R').
+
+% 119  [Les17]
+plan('16R405:M0003312','16R4027:0012203',1,[inc,self,'B'],'is 6th!; poor germination; may not have ears; repeat of 17r','18R').
+
+% 120  [Les17]
+plan('16R405:M0000808','16R4298:0012403',1,[inc,self],'is 6th!; poor germination; may not have ears; repeat of 17r; osc 23.7','18R').
+
+% 121  [Les18]
+plan('12N205:S0038205','12N4028:0030308',1,['B'],'is 6th! just B if room','18R').
+
+% 122  [Les18]
+plan('14R305:W0001006','14R4299:0024502',1,[inc,self,'B'],'is 6th! may have small ear','18R').
+
+% 123  [Les18]
+plan('16R405:M0002208','16R4300:0012606',1,[inc],'is 6th! may have small ear','18R').
+
+% 124  [Les18]
+plan('14R205:S0000204','14R4301:0024705',1,[inc,self,'B'],'is 6th!','18R').
+
+% 125  [Les18]
+plan('11N305:W0031405','11N3464:0019405',1,[inc],'is 6th! got the rest','18R').
+
+% 126  [Les18]
+plan('14R405:M0001209','14R4302:0024808',1,[inc,self,'B'],'is 6th! male had bad tassel in 14r','18R').
+
+% 127  [Les19]
+plan('12N405:M0039608','12N4037:0031503',1,[inc,self,'B'],'is 6th! W line has infertile ears','18R').
+
+% 128  [Les19]
+plan('14R205:S0000405','14R4303:0024904',1,[inc,self,'B'],'is 6th! W line has infertile ears','18R').
+
+% 129  [Les19]
+plan('13R205:S0003403','13R4176:0028502',1,[inc,self],'is 6th! if room, self most important','18R').
+
+% 130  [Les19]
+plan('12R305:W0010711','12R3653:0031303',1,[inc,self],'is 6th! if room, self most important','18R').
+
+% 131  [Les19]
+plan('17R405:M0004413','17R4518:0018408',1,[inc,self,'B'],'is 6th! small ear','18R').
+
+% 132  [Les20-N2457]
+plan('17R405:M0004416','17R4570:0019003',1,[inc,self,'B'],'is 6th!; no phe 9.8 in 18r','18R').
+
+% 133  [Les21]
+plan('14R205:S0000208','14R4308:0026010',1,[inc,self,'B'],'is 6th! may be short','18R').
+
+% 134  [Les21-N1442]
+plan('13R405:M0003608','13R4184:0030002',1,[inc,self],'is 6th! got plenty of B','18R').
+
+% 135  [les23]
+plan('17R4618:0012502','17R4618:0012502',1,[self],'is 6th!; no phe 4.8 in 18r','18R').
+
+% 136  [Les*-mi1]
+plan('16R205:S0001303','16R4537:0014611',1,[inc],'is 6th! just the bulking','18R').
+
+% 137  [Les*-mi1]
+plan('14R305:W0001007','14R4186:0026908',1,[inc,self,'B'],'is 6th!','18R').
+
+% 138  [Les*-mi1]
+plan('14R405:M0001509','14R4313:0027007',1,[inc,self,'B'],'is 6th!','18R').
+
+% 139  [Les*-N1378]
+plan('14R205:S0000101','14R4314:0027101',1,[inc,self,'B'],'is 6th!','18R').
+
+% 140  [Les*-N1378]
+plan('14R405:M0001512','14R4315:0027205',1,[inc,self,'B'],'is 6th!','18R').
+
+% 141  [Les*-N2418]
+plan('15R405:M0001414','15R4365:0019903',1,[inc,self,'B'],'is 6th!','18R').
+
+% 151  [Les15-N2007]
+plan('17R205:S0003715','17R4548:0011508',1,['S'],'is 1st; from 6th bc in W','18R').
+
+% 153  [Les15-N2007]
+plan('17R205:S0001502','17R2252:0011020',1,['S'],'is 2nd; alternate for 17R205:S0003302, 17R205:S0003317, 17R205:S0003505; pick one of four if possible','18R').
+
+% 155  [Les15-N2007]
+plan('17R205:S0003302','17R4419:0011134',1,['S'],'is 2nd; alternate for 17R205:S0001502, 17R205:S0003317, 17R205:S0003505; pick one of four if possible','18R').
+
+% 157  [Les15-N2007]
+plan('17R205:S0003317','17R4419:0011132',1,['S'],'is 2nd; alternate for 17R205:S0001502, 17R205:S0003302, 17R205:S0003505; pick one of four if possible','18R').
+
+% 159  [Les15-N2007]
+plan('17R205:S0003505','17R4419:0011108',1,['S'],'is 2nd; alternate for 17R205:S0001502, 17R205:S0003302, 17R205:S0003317; pick one of four if possible','18R').
+
+% 161  [Les15-N2007]
+plan('12R205:S0008815','12R3270:0014314',1,['S'],'is 3rd; mutants died in 17r','18R').
+
+% 163  [Les15-N2007]
+plan('12R205:S0009109','12R3270:0014314',1,['S'],'is 3rd; mutants died in 17r','18R').
+
+% 165  [Les15-N2007]
+plan('17R405:M0004208','17R4548:0011508',1,['M'],'is 1st; from 6th bc in W; mutants very sick and dwarf','18R').
+
+% 167  [Les15-N2007]
+plan('17R405:M0004414','17R4550:0012019',1,['M'],'is 3rd; most robust mutant; strongly prefer','18R').
+
+% 169  [Les15-N2007]
+plan('17R405:M0004706','17R4552:0012208',1,['M'],'is 3rd; mutants very sick and dwarf','18R').
+
+% 171  [lls1]
+plan('13R4057:0013913','13R4057:0013913',1,[check,'S'],'is 3rd; alternate for 16R4460:0003604; no phe 23.7, 2.8 in 18r','18R').
+
+% 173  [lls1]
+plan('16R4460:0003604','16R4460:0003604',1,[check,'S'],'is 3rd; alternate for 13R4057:0013913; good phe 23.7 but by 2.8 only dwarf dead plants with no tassels in 18r','18R').
+
+% 175  [lls1]
+plan('15R4335:0006104','15R4335:0006104',1,[check,'W'],'is 3rd; semidwarf, good phe 2.8, may shed','18R').
+
+% 177  [lls1]
+plan('15R4336:0006204','15R4336:0006204',1,[check,'M'],'is 3rd','18R').
+
+% 179  [lls1]
+plan('13R4059:0014102','13R4059:0014102',2,[check,'M'],'is 2nd','18R').
+
+% 181  [lls1]
+plan('12N3890:0004911','12N3890:0004911',2,[check,'S'],'is 2nd; alternate for 12N3891:0005011','18R').
+
+% 183  [lls1]
+plan('12N3891:0005011','12N3891:0005011',2,[check,'S'],'is 2nd; alternate for 12N3890:0004911','18R').
+
+% 185  [lls1 121D]
+plan('14R4197:0015402','14R4197:0015402',2,[check,'S'],'is 2nd; alternate for 14R4198:0015503; no tassels in 18r','18R').
+
+% 187  [lls1 121D]
+plan('14R4198:0015503','14R4198:0015503',2,[check,'S'],'is 2nd; alternate for 14R4197:0015402; segregating multiple phes 23.7: classic lls, small chlorotics in healthy plants, and attenuated zn; attempt to capture all','18R').
+
+% 189  [lls1 121D]
+plan('16R4461:0003709','16R4461:0003709',2,[check,'W'],'is 3rd','18R').
+
+% 191  [lls1 121D]
+plan('16R4462:0003803','16R4462:0003803',2,[check,'M'],'is 2nd','18R').
+
+% 193  [lls1 121D]
+plan('16R4463:0003902','16R4463:0003902',2,[check,'W'],'is 3rd; no tassels in 18r','18R').
+
+% 195  [lls1 121D]
+plan('16R4464:0004002','16R4464:0004002',2,[check,'M'],'is 3rd; no plants despite planting twice; check kernels','18R').
+
+% 197  [lls1 121D]
+plan('15R4337:0006301','15R4337:0006301',2,[check,'S'],'is 2nd','18R').
+
+
+% now the notes for row 207 change, why? corrected.
+%
+% Kazic, 1.8.2018
+% 207  [les23]
+plan('17R205:S0001102','17R4626:0015704',1,['S'],'offspring of 16R4465:0004111; fast kinetics; is 4th?; phe 23.7 in 18r, so changed plan to S from self; duplicate of row 218','18R').
+
+% 208  [les23]
+plan('17R205:S0001212','17R4625:0015804',1,[self],'offspring of 16R4466:0004206; fast kinetics','18R').
+
+% 209  [les23]
+plan('17R205:S0003704','17R4625:0015808',1,[self],'offspring of 16R4466:0004206; slow kinetics','18R').
+
+% 210  [les23]
+plan('17R205:S0001210','17R4625:0015809',1,[self],'offspring of 16R4466:0004206; fast kinetics','18R').
+
+% 211  [les23]
+plan('14R205:S0002812','14R4236:0017206',1,[self],'repeat 17r row 160; low cl','18R').
+
+% 212  [les23]
+plan('17R405:M0002216','17R4474:0016104',1,[self],'offspring 17r row 161','18R').
+
+% 213  [Les*-tk1]
+plan('17R205:S0001317','17R0703:0016203',1,['S','M'],'offspring 17r row 162; phe 23.7!!! acting like a dominant; osc 23.7 in 18r','18R').
+
+% 214  [Les*-tk1]
+plan('17R305:W0003903','17R0703:0016203',1,['W','M'],'offspring 17r row 162; phe 23.7 in 18r!!! acting like a dominant','18R').
+
+% 215  [Les*-tk1]
+plan('17R205:S0001217','17R0703:0016204',1,['S','M'],'offspring 17r row 162; phe 23.7 in 18r!!! acting like a dominant; osc 23.7','18R').
+
+% 216  [Les*-tk1]
+plan('17R305:W0003910','17R0703:0016204',1,['W','M'],'offspring 17r row 162; phe 23.7 in 18r!!! acting like a dominant','18R').
+
+% 217  [Les*-tk1]
+plan('17R305:W0003807','17R0703:0016208',1,['W','S','M'],'offspring 17r row 162; phe 23.7 in 18r!!! acting like a dominant','18R').
+
+% 218  [les23]
+plan('17R205:S0001102','17R4626:0015704',1,[self],'offspring of 16R4465:0004111; fast kinetics; is 4th?; phe 23.7 in 18r, so changed plan to S from self; duplicate of row 207','18R').
+
+% 219  [les23]
+plan('17R305:W0001813','17R4552:0013415',1,[check,'W'],'is 3rd; fork of 14R405:M0001302; previous genotype fact misidentified this as Les15, so check phenotype carefully, may have phe','18R').
+
+% 220  [les23]
+plan('17R305:W0001708','17R4553:0013510',1,[check,self],'is 3rd; fork of 14R405:M0001302; previous genotype fact misidentified this as Les15, so check phenotype carefully, may have phe; no phe 2.8 in 18r','18R').
+
+% 221  [les23]
+plan('17R405:M0002201','17R4554:0013613',1,[check,'M'],'is 5th; osc 23.7; previous genotype fact misidentified this as Les17, so check phenotype carefully, may have phe','18R').
+
+% 222  [les23]
+plan('17R405:M0002509','17R4555:0013708',1,[check,'M'],'is 5th; osc 23.7; previous genotype fact misidentified this as Les17, so check phenotype carefully','18R').
+
+% 223  [lls1]
+plan('15R305:W0003016','15R4217:0005818',1,[self],'is 4th','18R').
+
+% 224  [lls1 121D]
+plan('15R405:M0003510','15R4334:0005405',1,[self],'is 2nd','18R').
+
+% 225  [les*-R8-2]
+plan('15R205:S0002412','15R0674:0021810',1,[self],'is 1st; low cl','18R').
+
+% 226  [les*-R168-1]
+plan('15R205:S0002402','15R0678:0022212',1,[self],'is 1st','18R').
+
+% 227  [Les1]
+plan('12N3899:0005901','12N3899:0005901',1,[check,'S'],'is 3rd; no phe 9.8 in 18r; possible pedigree issue','18R').
+
+% 228  [Les1]
+plan('12N205:S0036411','12N3899:0005903',1,[check,'S'],'is 4th; no phe 9.8 in 18r; possible pedigree issue','18R').
+
+% 229  [Les1]
+plan('12R305:W0001416','12R3551:0017902',1,[check,'W'],'is 3rd; no phe 9.8 in 18r; possible pedigree issue','18R').
+
+% 230  [Les1]
+plan('12R405:M0011112','12R3552:0018003',1,[check,'M'],'is 3rd; no phe 9.8 in 18r; possible pedigree issue','18R').
+
+% 231  [Les2]
+plan('11N205:S0039107','11N3399:0007703',1,['S'],'is 2nd','18R').
+
+% 232  [Les2]
+plan('14R305:W0001009','14R4220:0006811',1,['W'],'is 4th','18R').
+
+% 233  [Les2]
+plan('11N405:M0038409','11N3401:0007903',1,['M'],'is 2nd','18R').
+
+% 234  [Les2]
+plan('06N301:W0004207','06N1012:0000201',2,['W'],'is 1st; forebear; good phe 9.8 in 18r','18R').
+
+% 235  [Les2]
+plan('11R305:W0051918','11R3284:0054005',1,['W'],'is 3rd; no phe 9.8 in 18r','18R').
+
+% 236  [Les2]
+plan('11N305:W0038303','11N3405:0008710',1,['W'],'is 4th; no phe 9.8 in 18r','18R').
+
+% 237  [Les2]
+plan('17R305:W0002003','17R4557:0016502',1,['W'],'is 4th; pick one of two; phe 17r; good phe 4.8 in 18r; slower than row 238, 17R305:W0003906 x 17R4558:0016602','18R').
+
+% 238  [Les2]
+plan('17R305:W0003906','17R4558:0016602',1,['W'],'is 4th; pick one of two; phe 17r; good phe 4.8 in 18r; faster than row 237, 17R305:W0002003 x 17R4557:0016502','18R').
+
+% 239  [Les6]
+plan('13R405:M0003605','13R4151:0019601',1,['M'],'is 5th; alternate for 12N405:M0042504','18R').
+
+% 240  [Les6]
+plan('10R405:M0006608','10R2236:0020906',1,['M'],'is 3rd; alternate for 13R405:M0003605; ancestor of 12N405:M0042504 due to low cl','18R').
+
+% 241  [Les8]
+plan('06N201:S0006806','06N1240:0001009',2,['S'],'is 1st','18R').
+
+% 242  [Les8]
+plan('06N301:W0005107','06N1240:0001002',2,['W'],'is 1st','18R').
+
+% 243  [Les8]
+plan('06N401:M0007603','06N1240:0001007',2,['M'],'is 1st','18R').
+
+% 244  [Les8]
+plan('06N201:S0006804','06N1241:0000905',2,['S'],'is 1st','18R').
+
+% 245  [Les8]
+plan('06N301:W0006009','06N1241:0000909',2,['W'],'is 1st; good phe 9.8 in 18r','18R').
+
+% 246  [Les8]
+plan('06N401:M0007003','06N1241:0000903',2,['M'],'is 1st','18R').
+
+% 247  [Les8]
+plan('06N201:S0005606','06N1612:0020507',2,['S'],'is 1st','18R').
+
+% 248  [Les8]
+plan('06R300:W00I1717','06R0006:0000611',2,['W'],'is 1st; low cl','18R').
+
+% 249  [Les8]
+plan('06R400:M00I1806','06R0006:0000611',2,['M'],'is 1st','18R').
+
+% 250  [Les8]
+plan('06N201:S0005004','06N1611:0020404',2,['S'],'is 1st','18R').
+
+% 251  [Les8]
+plan('06N301:W0035901','06N1611:0020404',2,['W'],'is 1st','18R').
+
+% 252  [Les8]
+plan('07R401:M0026102','07R2495:0053408',1,['M'],'is 3rd','18R').
+
+% 253  [Les9]
+plan('15R205:S0000401','15R4391:0012707',1,['S'],'is 5th','18R').
+
+% 254  [Les10]
+plan('12R405:M0008212','12R3624:0027701',1,['M'],'is 2nd','18R').
+
+% 255  [Les10]
+plan('17R405:M0002203','17R4540:0017604',1,['M'],'is 4th; bad tassel; alternate for 17R405:M0002111; no tassels in 18r','18R').
+
+% 256  [Les10]
+plan('17R405:M0002111','17R4509:0017712',1,['M'],'is 4th; bad tassel; alternate for 17R405:M0002203','18R').
+
+% 257  [Les12]
+plan('17R205:S0001204','17R4545:0018105',1,['S'],'is 5th; poor ears in earlier crops; osc 23.7','18R').
+
+% 258  [Les13]
+plan('17R305:W0001902','17R4546:0018201',1,['W'],'is 5th','18R').
+
+% 259  [Les13]
+plan('14R405:M0001412','14R4166:0023701',1,['M'],'is 5th','18R').
+
+% 260  [Les13]
+plan('17R405:M0002206','17R4546:0018201',2,['M'],'is 1st','18R').
+
+% 261  [Les13]
+plan('11N305:W0040104','11N3201:0017703',2,['W'],'is 1st; reach-back','18R').
+
+% 262  [Les13]
+plan('16R405:M0001804','16R4516:0012008',1,['M','W'],'is 5th; line tends to be infertile','18R').
+
+% 263  [Les20-N2457]
+plan('15R305:W0003206','15R4044:0016008',1,['W'],'is 2nd via S; no phe 9.8 in 18r','18R').
+
+% 264  [Les20-N2457]
+plan('15R205:S0002306','15R4403:0015507',1,['S'],'is 4th; no ear; no phe 9.8 in 18r','18R').
+
+% 265  [Les20-N2457]
+plan('15R305:W0002904','15R3654:0016401',1,['W'],'is 5th; alternate for 17R305:W0003817 and 17R305:W0005401; no phe 9.8 in 18r; pick one of three','18R').
+
+% 266  [Les20-N2457]
+plan('17R305:W0003817','17R4569:0018711',1,['W'],'is 5th; alternate for 15R305:W0002904 and 17R305:W0005401; no phe 9.8 in 18r; pick one of three','18R').
+
+% 267  [Les20-N2457]
+plan('17R305:W0005401','17R4569:0018709',1,['W'],'is 5th; alternate for 15R305:W0002904 and 17R305:W0003817; no phe 9.8 in 18r; pick one of three','18R').
+
+% 268  [Les21]
+plan('14R405:M0001610','14R4048:0026106',1,['M'],'is 4th; runs short','18R').
+
+% 269  [Les3-GJ]
+plan('17R4627:0013801','17R4627:0013801',1,[check,'S'],'is 3rd; alternate for 17R4627:0013802; pick one of two; male parent had no ear','18R').
+
+% 270  [Les3-GJ]
+plan('17R4627:0013802','17R4627:0013802',1,[check,'S'],'is 3rd; alternate for 17R4627:0013801; pick one of two; male parent had no ear','18R').
+
+% 271  [Les3-GJ]
+plan('17R4572:0013901','17R4572:0013901',1,[check,'W'],'is 3rd; male parent had ear; alternate for 17R4572:0013904; pick one of two','18R').
+
+% 272  [Les3-GJ]
+plan('17R4572:0013904','17R4572:0013904',1,[check,'W'],'is 3rd; male parent had ear; alternate for 17R4572:0013901; pick one of two','18R').
+
+% 273  [Les3-GJ]
+plan('17R4628:0014002','17R4628:0014002',1,[check,'M'],'is 3rd; male parent had ear; alternate for 17R4628:0014005; pick one of two','18R').
+
+% 274  [Les3-GJ]
+plan('17R4628:0014005','17R4628:0014005',1,[check,'M'],'is 3rd; male parent had ear; alternate for 17R4628:0014002; pick one of two','18R').
+
+% 275  [Les5]
+plan('13R4131:0016409','13R4131:0016409',2,[check,'S','W','M'],'is 0th; plant had phe in 13r','18R').
+
+% 276  [Les5]
+plan('13R4131:0016412','13R4131:0016412',2,[check,'S','W','M'],'is 0th; plant had no phe in 13r','18R').
+
+% 277  [Les5]
+plan('13R4132:0016503','13R4132:0016503',2,[check,'S','W','M'],'is 0th; plant had no phe in 13r','18R').
+
+% 278  [Les5]
+plan('13R4133:0016601','13R4133:0016601',2,[check,'S','W','M'],'is 0th; plant had no phe in 13r','18R').
+
+% 279  [Les5]
+plan('13R4134:0016701','13R4134:0016701',2,[check,'S','W','M'],'is 0th; plant had no phe in 13r','18R').
+
+% 280  [Les5]
+plan('13R4135:0016804','13R4135:0016804',2,[check,'S','W','M'],'is 0th; plant had phe in 13r','18R').
+
+% 281  [Les5]
+plan('13R4135:0016805','13R4135:0016805',2,[check,'S','W','M'],'is 0th; plant had phe in 13r','18R').
+
+% 282  [Les5]
+plan('13R4135:0016807','13R4135:0016807',2,[check,'S','W','M'],'is 0th; plant had no phe in 13r','18R').
+
+% 283  [Les5]
+plan('13R4135:0016809','13R4135:0016809',2,[check,'S','W','M'],'is 0th; plant had phe in 13r','18R').
+
+% 284  [Les5]
+plan('13R4136:0016901','13R4136:0016901',2,[check,'S','W','M'],'is 0th; plant had no phe in 13r','18R').
+
+% 285  [Les5]
+plan('13R4136:0016907','13R4136:0016907',2,[check,'S','W','M'],'is 0th; plant had phe in 13r','18R').
+
+% 286  [Les*-tk1]
+plan('15R305:W0000908','15R4373:0007409',2,[check,'S','W','M'],'forebear les23-tk1; repeat 17r row 162; dominant mutant in row? contaminant?; phe 17.7 16r; repeat of 16r','18R').
+
+% 287  [les23]
+plan('17R305:W0001813','17R4552:0013415',1,[check,'W'],'is 3rd; fork of 14R405:M0001302; previous genotype fact misidentified this as Les15, so check phenotype carefully, may have phe; phe xxx 18r','18R').
+
+% 288  [les23]
+plan('17R305:W0001708','17R4553:0013510',1,[check,'M'],'is 3rd; fork of 14R405:M0001302; previous genotype fact misidentified this as Les15, so check phenotype carefully, no phe xxx in 18r','18R').
+
+% 289  [les23]
+plan('17R405:M0002201','17R4554:0013613',1,[check,'M'],'is 5th; osc 23.7; previous genotype fact misidentified this as Les15, so check phenotype carefully, may have phe','18R').
+
+% 290  [les23]
+plan('17R405:M0002509','17R4555:0013708',1,[check,'M'],'is 5th; osc 23.7; previous genotype fact misidentified this as Les15, so check phenotype carefully, may have phe','18R').
+
+% 291  [les23]
+plan('16R4465:0004111','16R4465:0004111',1,[check,'S','W','M'],'repeat of 17r row 157; fast and slow kinetics; go for slow','18R').
+
+% 292  [les23]
+plan('16R4466:0004206','16R4466:0004206',1,[check,'S','W','M'],'repeat of 17r row 158; fast and slow kinetics; go for slow','18R').
+
+% 293  [les23]
+plan('15R4370:0006703','15R4370:0006703',1,[check,'S'],'repeat 17r row 159','18R').
+
+% 294  [les23]
+plan('15R4372:0007201','15R4372:0007201',1,[check,'M'],'repeat 17r row 161; osc 23.7','18R').
+
+% 295  [les23]
+plan('17R4619:0012702','17R4619:0012702',1,[check,'W'],'is 5th','18R').
+
+% 296  [les23]
+plan('17R4623:0012802','17R4623:0012802',1,[check,'M'],'is 4th','18R').
+
+% 297  [les23]
+plan('17R4622:0012610','17R4622:0012610',1,[check,'M'],'is 5th','18R').
+
+% 298  [les23]
+plan('17R4616:0012904','17R4616:0012904',1,[check,'S'],'is 4th','18R').
+
+% 299  [les23]
+plan('17R4620:0013009','17R4620:0013009',1,[check,'W'],'is 5th','18R').
+
+% 300  [les23]
+plan('17R4624:0013104','17R4624:0013104',1,[check,'M'],'is 4th','18R').
+
+% 301  [les23]
+plan('17R4617:0013208','17R4617:0013208',1,[check,'W'],'is 4th','18R').
+
+% 302  [les23]
+plan('17R4621:0013302','17R4621:0013302',1,[check,'M'],'is 4th','18R').
+

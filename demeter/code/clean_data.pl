@@ -39,7 +39,7 @@
 
 
 
-
+/*
 :-      ensure_loaded(library(lists)),
         ensure_loaded(library(sets)),
         ensure_loaded(library(strings)),
@@ -51,6 +51,8 @@
 %        ensure_loaded(library(basics)),
 %        ensure_loaded(library(listparts)),
         ensure_loaded(library(date)).
+
+*/
 
 %end%
 

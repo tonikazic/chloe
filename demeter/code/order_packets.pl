@@ -27,7 +27,7 @@
 
 
 
-
+/*
 
 :-      ensure_loaded(library(lists)),
         ensure_loaded(library(ordsets)),
@@ -47,13 +47,17 @@
         ensure_loaded(library(date)),
         ensure_loaded(library(strings)).
 
+
+*/
+
+
 %end%
 
 
 
 
 % revised from old.order_packets.pl to use packing_plan/10 facts;
-% however, it's not right!  so do this by hand until I get the algorithm
+% however, it''s not right!  so do this by hand until I get the algorithm
 % correctly coded.  Singleton variables commented out for now.
 %
 % Kazic, 15.5.2011

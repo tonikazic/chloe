@@ -20,7 +20,11 @@
 % Kazic, 17.4.2018
 
 
-    
+% added the elite lines
+%
+% Kazic, 1.6.2018
+
+elite_corn([890,891]).    
 
 
 
