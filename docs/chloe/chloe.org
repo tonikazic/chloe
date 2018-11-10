@@ -1,8 +1,10 @@
+# this is ../c/maize/docs/chloe/chloe.org
+
 #+TITLE: Chloe: a System for Managing Maize Research Crops
 #+AUTHOR: Toni Kazic
 #+DATE: \today
 
-see notes in [[file:./notes.org][notes.org for progress]] <2018-11-04 Sun>
+
 
 * Overview
 
