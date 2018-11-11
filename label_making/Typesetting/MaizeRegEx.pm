@@ -51,6 +51,7 @@ our @EXPORT = qw($palm_re
              $hour_re
              $pm_re 
              $prolog_date_re
+             $prolog_time_re
              $prolog_time_innards_re
              $crop_re
              $planting_re
@@ -197,6 +198,7 @@ $hour_re = qr/\d{1,2}/;
 $pm_re = qr/PM/;
 
 $prolog_date_re = qr/date[\d,\(\)]+/;
+$prolog_time_re = qr/time[\d,\(\)]+/;
 $prolog_time_innards_re = qr/\d{1,2},\d{1,2},\d{1,2}/;
 
 
