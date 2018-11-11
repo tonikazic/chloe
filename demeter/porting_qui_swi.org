@@ -105,6 +105,32 @@ true.
 
 
 
+* TODO write script that updates most recent inventory facts with current sleeve boundaries
+
+When I constructed the list of corn to discard, to prevent any future
+confusion, I realized that since we compressed the corn, the older
+inventory facts will have incorrect boundaries:
+
+
+#+BEGIN_EXAMPLE comment in inventory.pl
+nb:  the following sleeve numbers will conflict with the prior ones.  A new
+script or predicate that adjusts the boundaries for the most current inventory
+facts and writes these out must be written.
+
+Kazic, 21.7.2018
+
+#+END_EXAMPLE
+
+
+So not quite done with inventory yet!
+
+
+I modified  [[file:../data/convert_data/convert_harvest_data.perl][convert_harvest_data.perl]] to grab the harvest days data from
+[[file:data/row_harvested.pl][row_harvested.pl]] <2018-11-11 Sun> 
+
+
+
+
 * GNG porting prolog code
 
 ** preliminary impressions <2018-03-29 Thu>
@@ -183,369 +209,6 @@ But I haven't yet gone through  [[file:code/crop_management.pl][crop_management]
 and tested.
 
 Added in crop, inbred, etc facts.
-
-
-
-* DONE Perl data conversion interlude <2018-04-17 Tue> -- <2018-04-26 Thu>
-
-
-Well, to test the indexing predicates I must have data to index.  And I
-have data I have to add into demeter --- tracking this in [[file:data/update.org][update.org]].
-
-
-So I have started revising the Perl code base as well.  This is in three
-locations:
-   + ../c/maize/label_making
-   + ../c/maize/data/data_conversion
-   + ../c/maize/crops
-
-Testing this as I go, but this will go on through the summer.  
-
-
-
-Main changes are:
-
-** shift to current perl: 
-
-#+begin_src perl
-#!/opt/perl5/perls/perl-5.26.1/bin/perl
-#+end_src
-
-
-** revised file identification lines to be root-independent:
-
-#+BEGIN_SRC 
-# this is ../c/maize/label_making/Typesetting/DefaultOrgztn.pm
-#+END_SRC
-
-
-
-** add new comment:
-
-
-#+BEGIN_SRC 
-
-# converted to run in perl 5.26
-#
-# Kazic, 24.4.2018
-
-
-#+END_SRC
-
-
-
-** have it natter:
-
-#+begin_src perl
-use strict;
-use warnings;
-#+end_src
-
-
-
-** ensure libraries correctly quoted:
-
-#+begin_src perl
-use lib '../../label_making/Typesetting/';      or   use lib './Typesetting/';
-use DefaultOrgztn;
-use OrganizeData;
-use MaizeRegEx;
-use NoteExpsn;
-use ConvertPalmData;
-#+end_src
-
-
-** declare the bloody variables
-
-#+begin_src perl  examples
-my $input_file = $ARGV[0];
-my $out_file = $ARGV[1];
-my $flag = $ARGV[2];
-
-my $file = $demeter_dir . "planted.pl";
-
-
-my $out;
-my @lines;
-
-for ( my $i = $#lines; $i >= 1;  $i-- ) {
-
-my ($packet,$row,$datetime,$ft,$observer) = $lines[$i] =~ /\"?(${packet_re})\"?,\"?(${row_re})\"?,\"?(${datetime_re})\"?,\"?(${ft_re})\"?,\"?(${observer_re})\"?,/;
-#+end_src
-
-
-
-
-** added a flag to toggle printing to various destinations and moving the processed files where useful
-
-#+BEGIN_SRC 
-
-my $flag = $ARGV[2];
-
-
-...
-
-	if ( $flag eq 'go' ) {
-                open $out, '>>', $out_file or die "can't open $out_file\n";
-                print $out "\n\n\n\n% data added from ../../data$input_file on $now\n% by data/data_conversion/convert_cross_data.perl\n% called from data/data_conversion/convert_data.perl\n\n";
-	        }
-
-
-...
-
-
-                if ( $flag eq 'test' ) { print "cross('$ma','$pa',$ear,$repeat,$bee,$pilot,$date,$time).\n"; }
-                elsif ( $flag eq 'q' ) { }  # do nothing
-		elsif ( $flag eq 'go' ) { print $out "cross('$ma','$pa',$ear,$repeat,$bee,$pilot,$date,$time).\n"; }
-
-
-...
-
-
-
-# thanks, Gabor!
-# https://perlmaven.com/how-to-exit-from-perl-script
-
-	if ( ( $flag eq 'test' ) || ( $flag eq 'q' ) ) { exit 42; }
-
-#+END_SRC
-
-
-
-** shift to better ins and outs:
-
-#+begin_src perl examples
-open my $in, '<', $input_file or die "sorry, can't open input file $input_file\n";
-open my $out, '>>', $out_file or die "can't open $out_file\n";
-open TAG, '>', $output or die "can't open $output\n";
-#+end_src
-
-
-** shift filehandles to variables from the old upper case
-     (except for filehandle references, kept the old way for now):
-
-#+begin_src perl
-print $out "planted($row,$packet,$ft,$observer,$date,$time,full,'$crop').\n";
-#+end_src
-
-
-
-
-
-** evaluate array in order
-
-#+begin_src perl
-
-        for ( my $i = 1; $i <= $#lines; $i++ ) {
-
-#+end_src
-
-
-** add check for useless fields
-
-#+BEGIN_SRC 
-
-	        if ( $_ !~ /^,/ ) {
-
-or
-
-
-                if ( $lines[$i] !~ /^,/ ) { 
-
-
-# do regex on data lines
-
-#+END_SRC
-
-
-** simplified data entry by permitting other formats/locations
-   + especially, datetime stamps --- but still prefere proper 24 hour time
-   + fold bug score into other phenotypes as a raw digit
-   + included a few more sanity checks on the data, can always add more
-   + direct conversion of inches to cm
-
-
-** simplified processing workflow: 
-
-   + call: q -> test -> go
-   + file: raw -> unmarked -> done
-
-
-** shift export statements in ../label_making/Typesetting modules (but
-     no other data declarations, since they're covered by the 'our'):
-
-#+begin_src perl
-use MaizeRegEx;
-
-
-
-
-use Exporter;
-
-our @ISA = qw(Exporter);
-our @EXPORT = qw($crop
-             $demeter_dir
-             ...
-#+end_src
-
-
-
-
-
-* DONE improve Perl directory management <2018-07-10 Tue> -- <2018-08-15 Wed>???
-
-
-think this is done now.... <2018-11-01 Thu>
-
-
-
-This $dir_step thing is too cumbersome . . . so made a subroutine
-adjust_paths in [[file:../label_making/Typesetting/DefaultOrgztn.pm][DefaultOrgztn.pm]] and then tested paths on each revised perl
-script so far.
-
-Those scripts are in:
-
-   + crops/scripts
-
-#+BEGIN_SRC converted scripts in crops/scripts so far <2018-07-14 Sat>
-
-bash-3.2$ pwd
-/Users/toni/me/c/maize/crops/scripts
-bash-3.2$ date
-Sat Jul 14 06:25:46 CDT 2018
-bash-3.2$ ls -lt *.perl
--rwxr--r--  1 toni  staff   3663 Jul 13 07:04 make_barcode_index.perl
--rwxrwxr-x  1 toni  staff   4550 Jul 12 06:50 make_pdf_pedigrees.perl
--rwxrwxr-x  1 toni  staff   7122 Jul 11 07:28 merge_plan_data.perl
--rwxrwxr-x  1 toni  staff   3329 Jul 11 06:55 make_seed_packet_file.perl
--rwxrwx---  1 toni  staff   3252 Jul 11 05:24 make_possibly_missing_data.perl
--rwxrwxr-x  1 toni  staff   9283 Jul 10 16:47 count_lines.perl
--rwxrwxrwx  1 toni  staff  13277 Sep 25  2016 make_harvest_plan.perl
--rwxrwxr-x  1 toni  staff   8525 Jun  9  2015 count_contingency_lines.perl
-...
-
-#+END_SRC
-
-   + label_making
-
-
-   + data/data_conversion:  turns out the existing mechanism is just what's
-     needed, so left that alone. <2018-07-14 Sat>
-
-
-
-* DONE interlude: managing inventory data better <2018-07-13 Fri> -- <2018-07-19 Thu>
-
-As part of horsing directory management around in [[file:../crops/scripts][crops/scripts]], I was
-cleaning up [[file:../crops/scripts/obsolete/make_penult_inventory.perl][make_penult_inventory.perl]]. I did several things:
-
-   + eliminated the intermediate proto_inventory file by reading the
-     filtered [[file:data/harvest.pl][harvest.pl]] data into an array directly.
-
-
-   + sorted the corn into inventory order using a 3d hash.  The trick was
-     to assign 0 to the key for families for mutants, then use the regular
-     families for the inbreds' keys.  Then sorting was easy!
-
-   + added the {q,test,go} flags for better debugging.
-
-
-That reminded me that I really needed to automatically add the sleeve data,
-and then insert the sleeve data into the packet labels.  So then I moved
-the file to [[file:..//data/data_conversion/update_inventory.perl][update_inventory.perl]], since it will rely on the sleeve
-boundary data.
-
-
-Cleanup of those data is described in [[file:data/update.org::sleeve_bdry][update.org]].
-
-
-[[file:../data/data_conversion/convert_sleeve_bdry_data.perl][convert_sleeve_bdry_data.perl]] was added to the data_conversion family and generates
-[[file:data/sleeve_bdry.pl][sleeve_bdry.pl]] (<2018-07-14 Sat>).
-
-
-Finally completed finding sleeve boundaries into [[file:..//data/data_conversion/update_inventory.perl][update_inventory.perl]]
-<2018-07-19 Thu>!  
-
-   + The code presumes it is run after each harvest is dried, shelled, and
-     filed.  It's not meant for re-inventorying the entire collection, but
-     could be easily adapted for this purpose (omit the CROP argument and
-     modify the grep for @grep_array).   
-
-   + The sleeve data should contain the first and last ma of each sleeve,
-     and of any other groups of packets not represented by the first and
-     last ma.  The code tests for an undef sleeve, which would arise if a
-     middle group's first and last ma were not scanned, prints a warning,
-     and assigns a bogus sleeve (vxxxxx).
-
-   + Failed or discarded ears are filtered out.
-
-   + Results are APPENDED to [[file:data/inventory.pl][inventory.pl]], since we keep a running
-     inventory. 
-
-
-I tested this with the 17r crop extensively and wrote the increment to
-inventory.pl on <2018-07-21 Sat>.
-
-
-
-
-I had a hard time wrapping my head around:
-   + multidimensional hashes: $inventory{$inv_cropyr}{$inv_croppart}{$key}{$inv_rowplant} = $record;
-   + hash references: my @hash_refs = @{ $sleeves{$inv_cropyr}{$inv_croppart} }{$famkey};
-   + dereferencing to get the hash slice back: my %new_hash = %$hash_ref;
-   + how to figure out the sleeve: use List::MoreUtils 'first_index';
-
-
-In the end, it was quite simple, of course.
-   + index the sleeves by the crop year, crop particle (not the two
-     together), a family key that is 0 for mutants and the family number
-     otherwise, and the rowplant.  Setting all mutant families to 0 ensures
-     they'll come out before the inbred families (a cute trick, I thought,
-     if I say so myself).
-
-   + put both the first and last ma into the sleeve hash:
-#+BEGIN_EXAMPLE
-		$sleeves{$fcropyr}{$fcroppart}{$fkey}{$frp} = $sleeve . "::" . $first_ma;
-                $sleeves{$lcropyr}{$lcroppart}{$lkey}{$lrp} = $sleeve . "::" . $last_ma;
-#+END_EXAMPLE
-     This way the first plant in the sleeve will match exactly, and its
-     index will be found only once.
-
-   + find the index of the first rowplant greater than or equal to the packet's
-     rowplant:
-#+BEGIN_EXAMPLE
-                my $upper_idx = first_index { $_ >= $rp } @key_array;
-#+END_EXAMPLE
-     We already found the first plant, and the remaining rowplants in that
-     sleeve are less than or equal to the last ma's rowplant --- unless the
-     sleeve contains more than two groups of plants.
-
-
-
-* TODO write script that updates most recent inventory facts with current sleeve boundaries
-
-When I constructed the list of corn to discard, to prevent any future
-confusion, I realized that since we compressed the corn, the older
-inventory facts will have incorrect boundaries:
-
-
-#+BEGIN_EXAMPLE comment in inventory.pl
-nb:  the following sleeve numbers will conflict with the prior ones.  A new
-script or predicate that adjusts the boundaries for the most current inventory
-facts and writes these out must be written.
-
-Kazic, 21.7.2018
-
-#+END_EXAMPLE
-
-
-So not quite done with inventory yet!
-
-
-<2018-11-01 Thu>:
-AND another issue:  make sure [[file:../data/convert_data/convert_harvest_data.perl][convert_harvest_data.perl]] grabs the harvest
-days data from [[file:data/row_harvested.pl][row_harvested.pl]].
-
 
 
 
@@ -1786,6 +1449,347 @@ Removed some junk: details in [[file:data/update.org][update.org]] and [[file:..
 
 
 
+
+* TODO revise phenotypic_class, gene_type???
+
+
+
+* DONE Perl data conversion interlude <2018-04-17 Tue> -- <2018-04-26 Thu>
+
+
+Well, to test the indexing predicates I must have data to index.  And I
+have data I have to add into demeter --- tracking this in [[file:data/update.org][update.org]].
+
+
+So I have started revising the Perl code base as well.  This is in three
+locations:
+   + ../c/maize/label_making
+   + ../c/maize/data/data_conversion
+   + ../c/maize/crops
+
+Testing this as I go, but this will go on through the summer.  
+
+
+
+Main changes are:
+
+** shift to current perl: 
+
+#+begin_src perl
+#!/opt/perl5/perls/perl-5.26.1/bin/perl
+#+end_src
+
+
+** revised file identification lines to be root-independent:
+
+#+BEGIN_SRC 
+# this is ../c/maize/label_making/Typesetting/DefaultOrgztn.pm
+#+END_SRC
+
+
+
+** add new comment:
+
+
+#+BEGIN_SRC 
+
+# converted to run in perl 5.26
+#
+# Kazic, 24.4.2018
+
+
+#+END_SRC
+
+
+
+** have it natter:
+
+#+begin_src perl
+use strict;
+use warnings;
+#+end_src
+
+
+
+** ensure libraries correctly quoted:
+
+#+begin_src perl
+use lib '../../label_making/Typesetting/';      or   use lib './Typesetting/';
+use DefaultOrgztn;
+use OrganizeData;
+use MaizeRegEx;
+use NoteExpsn;
+use ConvertPalmData;
+#+end_src
+
+
+** declare the bloody variables
+
+#+begin_src perl  examples
+my $input_file = $ARGV[0];
+my $out_file = $ARGV[1];
+my $flag = $ARGV[2];
+
+my $file = $demeter_dir . "planted.pl";
+
+
+my $out;
+my @lines;
+
+for ( my $i = $#lines; $i >= 1;  $i-- ) {
+
+my ($packet,$row,$datetime,$ft,$observer) = $lines[$i] =~ /\"?(${packet_re})\"?,\"?(${row_re})\"?,\"?(${datetime_re})\"?,\"?(${ft_re})\"?,\"?(${observer_re})\"?,/;
+#+end_src
+
+
+
+
+** added a flag to toggle printing to various destinations and moving the processed files where useful
+
+#+BEGIN_SRC 
+
+my $flag = $ARGV[2];
+
+
+...
+
+	if ( $flag eq 'go' ) {
+                open $out, '>>', $out_file or die "can't open $out_file\n";
+                print $out "\n\n\n\n% data added from ../../data$input_file on $now\n% by data/data_conversion/convert_cross_data.perl\n% called from data/data_conversion/convert_data.perl\n\n";
+	        }
+
+
+...
+
+
+                if ( $flag eq 'test' ) { print "cross('$ma','$pa',$ear,$repeat,$bee,$pilot,$date,$time).\n"; }
+                elsif ( $flag eq 'q' ) { }  # do nothing
+		elsif ( $flag eq 'go' ) { print $out "cross('$ma','$pa',$ear,$repeat,$bee,$pilot,$date,$time).\n"; }
+
+
+...
+
+
+
+# thanks, Gabor!
+# https://perlmaven.com/how-to-exit-from-perl-script
+
+	if ( ( $flag eq 'test' ) || ( $flag eq 'q' ) ) { exit 42; }
+
+#+END_SRC
+
+
+
+** shift to better ins and outs:
+
+#+begin_src perl examples
+open my $in, '<', $input_file or die "sorry, can't open input file $input_file\n";
+open my $out, '>>', $out_file or die "can't open $out_file\n";
+open TAG, '>', $output or die "can't open $output\n";
+#+end_src
+
+
+** shift filehandles to variables from the old upper case
+     (except for filehandle references, kept the old way for now):
+
+#+begin_src perl
+print $out "planted($row,$packet,$ft,$observer,$date,$time,full,'$crop').\n";
+#+end_src
+
+
+
+
+
+** evaluate array in order
+
+#+begin_src perl
+
+        for ( my $i = 1; $i <= $#lines; $i++ ) {
+
+#+end_src
+
+
+** add check for useless fields
+
+#+BEGIN_SRC 
+
+	        if ( $_ !~ /^,/ ) {
+
+or
+
+
+                if ( $lines[$i] !~ /^,/ ) { 
+
+
+# do regex on data lines
+
+#+END_SRC
+
+
+** simplified data entry by permitting other formats/locations
+   + especially, datetime stamps --- but still prefere proper 24 hour time
+   + fold bug score into other phenotypes as a raw digit
+   + included a few more sanity checks on the data, can always add more
+   + direct conversion of inches to cm
+
+
+** simplified processing workflow: 
+
+   + call: q -> test -> go
+   + file: raw -> unmarked -> done
+
+
+** shift export statements in ../label_making/Typesetting modules (but
+     no other data declarations, since they're covered by the 'our'):
+
+#+begin_src perl
+use MaizeRegEx;
+
+
+
+
+use Exporter;
+
+our @ISA = qw(Exporter);
+our @EXPORT = qw($crop
+             $demeter_dir
+             ...
+#+end_src
+
+
+
+
+
+* DONE improve Perl directory management <2018-07-10 Tue> -- <2018-08-15 Wed>???
+
+
+think this is done now.... <2018-11-01 Thu>
+
+
+
+This $dir_step thing is too cumbersome . . . so made a subroutine
+adjust_paths in [[file:../label_making/Typesetting/DefaultOrgztn.pm][DefaultOrgztn.pm]] and then tested paths on each revised perl
+script so far.
+
+Those scripts are in:
+
+   + crops/scripts
+
+#+BEGIN_SRC converted scripts in crops/scripts so far <2018-07-14 Sat>
+
+bash-3.2$ pwd
+/Users/toni/me/c/maize/crops/scripts
+bash-3.2$ date
+Sat Jul 14 06:25:46 CDT 2018
+bash-3.2$ ls -lt *.perl
+-rwxr--r--  1 toni  staff   3663 Jul 13 07:04 make_barcode_index.perl
+-rwxrwxr-x  1 toni  staff   4550 Jul 12 06:50 make_pdf_pedigrees.perl
+-rwxrwxr-x  1 toni  staff   7122 Jul 11 07:28 merge_plan_data.perl
+-rwxrwxr-x  1 toni  staff   3329 Jul 11 06:55 make_seed_packet_file.perl
+-rwxrwx---  1 toni  staff   3252 Jul 11 05:24 make_possibly_missing_data.perl
+-rwxrwxr-x  1 toni  staff   9283 Jul 10 16:47 count_lines.perl
+-rwxrwxrwx  1 toni  staff  13277 Sep 25  2016 make_harvest_plan.perl
+-rwxrwxr-x  1 toni  staff   8525 Jun  9  2015 count_contingency_lines.perl
+...
+
+#+END_SRC
+
+   + label_making
+
+
+   + data/data_conversion:  turns out the existing mechanism is just what's
+     needed, so left that alone. <2018-07-14 Sat>
+
+
+
+* DONE interlude: managing inventory data better <2018-07-13 Fri> -- <2018-07-19 Thu>
+
+As part of horsing directory management around in [[file:../crops/scripts][crops/scripts]], I was
+cleaning up [[file:../crops/scripts/obsolete/make_penult_inventory.perl][make_penult_inventory.perl]]. I did several things:
+
+   + eliminated the intermediate proto_inventory file by reading the
+     filtered [[file:data/harvest.pl][harvest.pl]] data into an array directly.
+
+
+   + sorted the corn into inventory order using a 3d hash.  The trick was
+     to assign 0 to the key for families for mutants, then use the regular
+     families for the inbreds' keys.  Then sorting was easy!
+
+   + added the {q,test,go} flags for better debugging.
+
+
+That reminded me that I really needed to automatically add the sleeve data,
+and then insert the sleeve data into the packet labels.  So then I moved
+the file to [[file:..//data/data_conversion/update_inventory.perl][update_inventory.perl]], since it will rely on the sleeve
+boundary data.
+
+
+Cleanup of those data is described in [[file:data/update.org::sleeve_bdry][update.org]].
+
+
+[[file:../data/data_conversion/convert_sleeve_bdry_data.perl][convert_sleeve_bdry_data.perl]] was added to the data_conversion family and generates
+[[file:data/sleeve_bdry.pl][sleeve_bdry.pl]] (<2018-07-14 Sat>).
+
+
+Finally completed finding sleeve boundaries into [[file:..//data/data_conversion/update_inventory.perl][update_inventory.perl]]
+<2018-07-19 Thu>!  
+
+   + The code presumes it is run after each harvest is dried, shelled, and
+     filed.  It's not meant for re-inventorying the entire collection, but
+     could be easily adapted for this purpose (omit the CROP argument and
+     modify the grep for @grep_array).   
+
+   + The sleeve data should contain the first and last ma of each sleeve,
+     and of any other groups of packets not represented by the first and
+     last ma.  The code tests for an undef sleeve, which would arise if a
+     middle group's first and last ma were not scanned, prints a warning,
+     and assigns a bogus sleeve (vxxxxx).
+
+   + Failed or discarded ears are filtered out.
+
+   + Results are APPENDED to [[file:data/inventory.pl][inventory.pl]], since we keep a running
+     inventory. 
+
+
+I tested this with the 17r crop extensively and wrote the increment to
+inventory.pl on <2018-07-21 Sat>.
+
+
+
+
+I had a hard time wrapping my head around:
+   + multidimensional hashes: $inventory{$inv_cropyr}{$inv_croppart}{$key}{$inv_rowplant} = $record;
+   + hash references: my @hash_refs = @{ $sleeves{$inv_cropyr}{$inv_croppart} }{$famkey};
+   + dereferencing to get the hash slice back: my %new_hash = %$hash_ref;
+   + how to figure out the sleeve: use List::MoreUtils 'first_index';
+
+
+In the end, it was quite simple, of course.
+   + index the sleeves by the crop year, crop particle (not the two
+     together), a family key that is 0 for mutants and the family number
+     otherwise, and the rowplant.  Setting all mutant families to 0 ensures
+     they'll come out before the inbred families (a cute trick, I thought,
+     if I say so myself).
+
+   + put both the first and last ma into the sleeve hash:
+#+BEGIN_EXAMPLE
+		$sleeves{$fcropyr}{$fcroppart}{$fkey}{$frp} = $sleeve . "::" . $first_ma;
+                $sleeves{$lcropyr}{$lcroppart}{$lkey}{$lrp} = $sleeve . "::" . $last_ma;
+#+END_EXAMPLE
+     This way the first plant in the sleeve will match exactly, and its
+     index will be found only once.
+
+   + find the index of the first rowplant greater than or equal to the packet's
+     rowplant:
+#+BEGIN_EXAMPLE
+                my $upper_idx = first_index { $_ >= $rp } @key_array;
+#+END_EXAMPLE
+     We already found the first plant, and the remaining rowplants in that
+     sleeve are less than or equal to the last ma's rowplant --- unless the
+     sleeve contains more than two groups of plants.
+
+
+
 * DONE compute new indices <2018-05-22 Tue> -- <2018-06-01 Fri> and directions for whenever
 
 Well, this was hard . . . found more missing data, and disentangled some
@@ -1855,9 +1859,6 @@ one place.
 
 
 Also revising [[file:../crops/notes/procedure.org][procedure.org]] to reflect the current state of things as I go along.
-
-
-* TODO revise phenotypic_class, gene_type???
 
 
 * making and using a saved state <2018-04-11 Wed> and ff
