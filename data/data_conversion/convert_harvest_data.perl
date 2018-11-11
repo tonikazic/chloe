@@ -2,21 +2,30 @@
 
 # this is ../c/maize/data/data_conversion/convert_harvest_data.perl
 
-# need to add datatime from row_harvested.pl to the
+
+
+
+# script now adds datetime information from row_harvested.pl to the
 # the harvest menu's data (shouldn't be there any more)
-# to generate harvest/7
+# to generate harvest/7.
 #
-# Kazic, 1.11.2018
-
-
-
-
-# for now I have stuffed all the subroutines in the Typesetting subdirectory.  The 
-# first line ("lib") references that easily
-
-# further revised to accommodate ipad data collection; tested and ready to go
+# These data are collected during shelling and filing the corn in the seed
+# room, not during harvest in the field.  The script assumes that a crop's
+# harvest facts are filed in the directory for that crop, NOT in the crop
+# when the corn was shelled.  The significance of this is that the
+# directory is used to get the crop particle for grepping.
 #
-# Kazic, 28.8.2012
+# Thus, the harvest data for the 17r crop were mis-filed into the 18r
+# directory.  I haven't gone back to correct this, since I've changed the
+# script in between.
+#
+#
+# Tested with dummy data, correct.
+#
+# Kazic, 11.11.2018
+
+
+
 
 
 # check notes in output file carefully.  Some regular expressions collide
@@ -33,6 +42,7 @@
 
 use strict;
 use warnings;
+use feature 'say';
 
 
 
@@ -51,20 +61,72 @@ my $out_file = $ARGV[1];
 my $flag = $ARGV[2];
 
 my $cross_file = $demeter_dir . "cross.pl";
+my $row_harvested_file = $demeter_dir . "row_harvested.pl";
 my $out;
 my %cross;
+my %rowh;
 my @lines;
 
 
 
 
-# form the hash of pollinations to correct males with incomplete tags
+
+
+
+
+
+# form the hash of pollinations to correct males with incomplete tags;
+# by harvest, all numerical genotypes in the cross.pl should be complete
+
+my ($crop) = &grab_crop_from_file($input_file);
+
 
 open my $crossfh, '<', $cross_file or die "sorry, can't open cross file $cross_file\n";
+my @this_crops_ears = grep  { $_ =~ /${crop}/ && $_ =~ /^cross\(\'(${num_gtype_re})\'/ && $_ !~ /\%/ } <$crossfh> ;
 
-while (<$crossfh>) {
-        if ( my ($ma,$pa) = $_ =~ /^cross\(\'(${num_gtype_re})\',\'(${num_gtype_re})\',/ ) { $cross{$ma} = $pa; }
-        }
+
+foreach my $elt (@this_crops_ears) {
+	my ($ma,$pa) = $elt =~ /^cross\(\'(${num_gtype_re})\',\'(${num_gtype_re})\',/;
+	$cross{$ma} = $pa;
+        } 
+
+
+# see https://www.perlmonks.org/?node_id=1204680 for discussion; second is more legible
+# say "@{[%cross]}";
+#
+# say join "\n", %cross;
+
+
+
+
+
+
+
+
+# do the same for the row_harvested.pl file to grab the date and time each row
+# was harvested
+
+open my $rowhfh, '<', $row_harvested_file or die "sorry, can't open cross file $row_harvested_file\n";
+my @this_crops_rows = grep  { $_ =~ /${crop}/ && $_ =~ /^row_harvested/ && $_ !~ /\%/ } <$rowhfh> ;
+
+# foreach my $elt  (@this_crops_rows) { print "$elt"; }
+
+
+
+foreach my $elt (@this_crops_rows) {
+	my ($row,$date,$time) = $elt =~ /^row_harvested\((${row_re}),\w+,(${prolog_date_re}),(${prolog_time_re}),/;
+	$row =~ s/[rR]//;
+	$rowh{$row} = $date . "," . $time;
+        } 
+
+# say join "\n", %rowh;
+
+
+
+
+
+
+
 
 
 
@@ -113,11 +175,13 @@ if ( $lines[0] =~ /harvest/ ) {
 #                 ($ok,$failed) = &convert_num_tfs($ok,$failed);
 
 
-                      my ($ma_plant,$pa_plant,$ok,$fuzzy_cl,$num_cl,$fungus,$polltn_note,$datetime,$observer) = $lines[$i] =~ /\"?(${num_gtype_re})\"?,\"?(${num_gtype_re})\"?,\"?(${num_tf_re})\"?,\"?(${fuzzy_cl_re})\"?,\"?(${cl_re})\"?,\"?(${num_tf_re})\"?,\"?(${note_re})\"?,\"?(${datetime_re})\"?,\"?(${observer_re})\"?,*/;
+                      my ($ma_plant,$pa_plant,$ok,$fuzzy_cl,$num_cl,$fungus,$polltn_note,$observer) = $lines[$i] =~ /\"?(${num_gtype_re})\"?,\"?(${num_gtype_re})\"?,\"?(${num_tf_re})\"?,\"?(${fuzzy_cl_re})\"?,\"?(${cl_re})\"?,\"?(${num_tf_re})\"?,\"?(${note_re})\"?,\"?(${observer_re})\"?,*/;
 	
 
-#                        print "($ma_plant,$pa_plant,$ok,$fuzzy_cl,$num_cl,$fungus,$polltn_note,$datetime,$observer)\n";
-	        
+#                        print "($ma_plant,$pa_plant,$ok,$fuzzy_cl,$num_cl,$fungus,$polltn_note,$observer)\n";
+
+
+		      
                       ($ok) = &convert_num_tfs($ok);
 		        
 
@@ -129,6 +193,9 @@ if ( $lines[0] =~ /harvest/ ) {
  
 #                     print "($ma_plant,$pa_plant,$ok,$fuzzy_cl,$num_cl,$fungus,$polltn_note,$observer,$datetime)\n";
 
+
+		      
+# presumes only pa will have an incomplete numerical genotype		      
                 
                       if ( $pa_plant =~ /0000:/ ) { ($pa_plant) = &fill_out_daddy($ma_plant,$pa_plant,\%cross); }
 
@@ -138,13 +205,27 @@ if ( $lines[0] =~ /harvest/ ) {
 
 #                ($success) = &convert_pollination_results($ok,$failed);
                       my ($success) = &convert_pollination_results2($ok);
-		        
-                      my ($date,$time) = &convert_datetime($datetime);
-		        
 
-                      if ( $flag eq 'test' ) { print "harvest('$ma_plant','$pa_plant',$success,$full_note,$observer,$date,$time).\n"; }
+
+		      
+# grab the date and time information from the hash made from row_harvested.pl,
+# rather than pasting in by hand or re-recording in the seed room
+#
+# Kazic, 11.11.2018
+#		      
+#                      my ($date,$time) = &convert_datetime($datetime);
+
+                      my ($ma_row) = $ma_plant =~ /(\d{5})\d{2}$/;
+                      my $date_n_time = $rowh{$ma_row};		        
+                      if ( !exists $rowh{$ma_row} ) { print "missing: $ma_row\n"; }
+
+
+
+		      
+		      
+                      if ( $flag eq 'test' ) { print "harvest('$ma_plant','$pa_plant',$success,$full_note,$observer,$date_n_time).\n"; }
                       elsif ( $flag eq 'q' ) { }  # do nothing
-		      elsif ( $flag eq 'go' ) { print $out "harvest('$ma_plant','$pa_plant',$success,$full_note,$observer,$date,$time).\n"; }
+		      elsif ( $flag eq 'go' ) { print $out "harvest('$ma_plant','$pa_plant',$success,$full_note,$observer,$date_n_time).\n"; }
                       }
 	      }
 
@@ -154,3 +235,6 @@ if ( $lines[0] =~ /harvest/ ) {
 
 	if ( ( $flag eq 'test' ) || ( $flag eq 'q' ) ) { exit 42; }
         }
+
+
+
