@@ -2,11 +2,6 @@
 
 # this is ../c/maize/data/data_conversion/convert_plant_fate_data.perl
 
-# a quick script to convert the tassel menu's data to plant_fate/5
-
-
-# for now I have stuffed all the subroutines in the Typesetting subdirectory.  The 
-# first line ("lib") references that easily
 
 
 # called from convert_data.perl, so input and output files are passed on the command line

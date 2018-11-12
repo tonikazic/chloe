@@ -5,13 +5,6 @@
 # a quick script to convert the tassel menu's data to tassel/5
 
 
-# for now I have stuffed all the subroutines in the Typesetting subdirectory.  The 
-# first line ("lib") references that easily
-
-# modified for ipad data collection; tested and ready to go
-#
-# Kazic, 8.4.2012
-
 
 
 # converted to run in perl 5.26
