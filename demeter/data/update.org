@@ -57,8 +57,8 @@ all 16r data entered <2018-04-24 Tue>
 | phenotypic_class   | bring up to date                                        |               |
 | plan               | add 15r, 16r, 17r data                                  |               |
 | plant              | discard                                                 | <2018-04-26 Thu> |
-| plant_anatomy      | last data are 10r; add any new                          | <2018-04-26 Thu> |
-| plant_height       | merge with plant_anatomy; add any new                   | <2018-04-26 Thu> |
+| plant_anatomy      | last data are 10r; add any new                          | <2018-11-12 Mon> |
+| plant_height       | merge with plant_anatomy; add any new                   | <2018-11-12 Mon> |
 | plant_fate         | add any new                                             | <2018-04-26 Thu> |
 | planted            | add 17r data                                            | <2018-04-20 Fri> |
 | planting_index     | recompute, add 16r and 17r data                         | <2018-05-22 Tue> |

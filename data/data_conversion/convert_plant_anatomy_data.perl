@@ -2,16 +2,16 @@
 
 # this is ../c/maize/data/data_conversion/convert_plant_anatomy_data.perl
 
-# a quick script to convert the cross menu's data to plant_anatomy/8
-
-
-# for now I have stuffed all the subroutines in the Typesetting subdirectory.  The 
-# first line ("lib") references that easily
-
-
-# modified for ipad data collection, but not tested as no data
+# convert the plant_anatomy menu's data to plant_anatomy/8
 #
-# Kazic, 8.4.2012
+# Not all data will be collected, depending on their purpose.  Mainly plant
+# heights are taken, measuring from the ground vertically to the top of the
+# tassel.  That location is preferable to the node at the base of the
+# tassel, which will be much harder to discern in the 3D reconstructions.
+# The flag leaf would be good if not ripped off and not tiny.
+#
+# Kazic, 12.11.2018
+
 
 
 # converted to run in perl 5.26
@@ -23,8 +23,8 @@
 # called from convert_data.perl, so input and output files are passed on the command line
 
 
-# use strict;
-# use warnings;
+use strict;
+use warnings;
 
 
 
@@ -86,7 +86,7 @@ if ( $lines[0] =~ /plant_anatomy/ ) {
 #                ($plant,$first_ear,$addntl_leaves,$observer,$datetime) = $lines[$i] =~ /\"?(${num_gtype_re})\"?,\"?(${abs_leaf_num_re})\"?,\"?(${abs_leaf_num_re})\"?,\"?(${observer_re})\"?,\"?(${datetime_re})\"?,/;
 
 
-# 18r and later, menu is now
+# 17r and later, menu is now
 # ($plant,$height,$datetime,$observer,$num_leaves,$first_ear_leaf,$num_tillers)
 #
 # Kazic, 3.5.2018
@@ -96,12 +96,14 @@ if ( $lines[0] =~ /plant_anatomy/ ) {
 
 #			print "($plant,$height,$datetime,$observer)\n";
 
+
+			
 # hmmm, tape measures usually are in inches, not centimeters, so
 # convert here
 #
 # Kazic, 26.4.2018
 
-#			$height = $height * 2.54;
+			$height = $height * 2.54;
 			
 
 #                print "$plant,$first_ear,$addntl_leaves,$observer,$datetime\n";
