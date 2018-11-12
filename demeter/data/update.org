@@ -33,7 +33,7 @@ all 16r data entered <2018-04-24 Tue>
 | file               | to do                                                   | date all done |
 |--------------------+---------------------------------------------------------+---------------|
 | box                | photo boxes, enter data; belay until sleeves re-bounded |               |
-| cross              | insert 16r data; 17r data done  <2018-04-21 Sat>           | <2018-04-26 Thu> |
+| cross              | add 16r and 17r data                                    | <2018-04-26 Thu> |
 | crop_rowplant      | recompute, adding 16r and 17r data                      | <2018-05-22 Tue> |
 | cross_prep         | add 16r, 17r data                                       | <2018-04-26 Thu> |
 | failed_pollination | convert to harvest facts and add there                  | <2018-05-01 Tue> |
@@ -48,11 +48,11 @@ all 16r data entered <2018-04-24 Tue>
 | inbred_pool        | hunt for M14, more recent B73 records and add           |               |
 | inventory          | add 16r, 17r facts                                      | <2018-05-18 Fri> |
 | later_plantings    | merge into packing_plan?                                |               |
-| leaf_alignmt       | add 15r, 16r, 17r data if they exist                    |               |
+| leaf_alignmt       | add 15r, 16r, 17r data if they exist                    | <2018-11-12 Mon> |
 | mutant             | add 16r, 17r data                                       | <2018-04-26 Thu> |
 | next_crop          | incorporate into crop notes org file                    |               |
 | packed_packet      | add 17r data; ensure all 16r data added                 | <2018-04-26 Thu> |
-| pedigree_tree      | ensure current, add more mutants; fix batch             |               |
+| pedigree_tree      | ensure current, add more mutants; fix batch             | <2018-06-01 Fri> |
 |                    | job problem                                             |               |
 | phenotypic_class   | bring up to date                                        |               |
 | plan               | add 15r, 16r, 17r data                                  |               |
