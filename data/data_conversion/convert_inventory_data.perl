@@ -2,7 +2,7 @@
 
 # this is ../c/maize/data/data_conversion/convert_inventory_data.perl
 
-# a quick script to convert the packed_packet menu data to inventory/7
+# convert the inventory menu data to inventory/7
 #
 # Kazic, 13.5.2011
 
