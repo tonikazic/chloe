@@ -34,7 +34,7 @@ use Cwd 'getcwd';
 use Date::Calc 'Today_and_Now';
 use Data::Dumper 'Dumper';
 use List::MoreUtils 'first_index';
-
+use Time::Local 'timelocal';
 
 
 use lib '../../label_making/Typesetting/';
@@ -126,24 +126,46 @@ while (<$slv_fh>) {
 
 
 
-# %inventory now structured differently so to find the most 
-# recent datum
+
+
+
+# %inventory now structured differently so find the most 
+# recent datum.  This will include packets with 0 kernels.
 
 
 foreach my $elt (@grep_array) { 
 
     
-        my ($ma,$pa,$date,$time,$sleeve) = $elt =~ /\'(${num_gtype_re})\',\'(${num_gtype_re})\',[\(\)\w\_]+,${observer_re},date\((${prolog_date_innards_re})\),time\((${prolog_time_innards_re})\),(${sleeve_re})/;
+        my ($ma,$pa,$kernels,$date,$time,$sleeve) = $elt =~ /\'(${num_gtype_re})\',\'(${num_gtype_re})\',num_kernels\(([\w\_]+)\),${observer_re},date\((${prolog_date_innards_re})\),time\((${prolog_time_innards_re})\),(${sleeve_re})/;
 
-#        print "$ma,$pa,$date,$time,$sleeve\n";
+
 
 
 # convert date and time to timestamp, compare timestamps for each ma
 # as it comes through, update %current_inventory
+#
+# https://www.perlmonks.org/?node_id=319934
+
+        my ($mday,$mon,$year) = $date =~ /(\d{1,2}),(\d{1,2}),(\d{4})/;
+        my ($hour,$min,$sec) = $time =~ /(\d{1,2}),(\d{1,2}),(\d{1,2})/;
 	
+	my $inv_timestamp = timelocal($sec,$min,$hour,$mday,$mon,$year);
+#        print "$ma,$pa,$kernels,$date,$time,$sleeve     $inv_timestamp\n";
 
-# stopped here
 
+        if ( !exists $current_inventory{$ma} ) {
+		$current_inventory{$ma} = join("::",$inv_timestamp,$kernels,$sleeve,$pa,$date,$time);
+	        }
+
+	
+        else {
+                my ($pinv_timestamp,$pkernels) = split(/::/,$current_inventory{$ma});    
+
+		if ( $inv_timestamp > $pinv_timestamp) {
+			$current_inventory{$ma} = join("::",$inv_timestamp,$kernels,$sleeve,$pa,$date,$time);
+#			print "revising $ma x $pa, $pkernels now $kernels\n";
+		        }
+	        }
         }
 
 
@@ -154,6 +176,9 @@ foreach my $elt (@grep_array) {
 
 
 
+
+
+# stopped here
 
 # for %current_inventory,
 #
@@ -174,4 +199,4 @@ foreach my $elt (@grep_array) {
 
 
 
-# rest is cribbed from update_inventory.perl
+# rest is to be cribbed from update_inventory.perl
