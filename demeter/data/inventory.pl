@@ -710,7 +710,7 @@ inventory('06N201:S0004113','06N1605:0020102',num_kernels(half),wade,date(15,01,
 %
 %
 inventory('06N201:S0004401','06N1012:0000205',num_kernels(quarter),wade,date(15,01,2014),time(09,27,33),v00014).
-inventory('06N201:S0004404','06N1012:0000201',num_kernels(half),avi,date(5,23,2014),time(09,27,33),v00014).
+inventory('06N201:S0004404','06N1012:0000201',num_kernels(half),avi,date(23,5,2014),time(09,27,33),v00014).
 
 %
 inventory('06N201:S0004408','06N1012:0000206',num_kernels(quarter),wade,date(15,01,2014),time(09,27,33),v00014).
@@ -2862,7 +2862,7 @@ inventory('07R401:M0023508','07R2639:0068807',num_kernels(quarter),wade,date(15,
 %
 %
 inventory('07R401:M0024305','07R2345:0040908',num_kernels(half),wade,date(15,01,2014),time(09,27,33),v00044).
-inventory('07R401:M0024306','07R0115:0086506',num_kernels(half),avi,date(05,23,2014),time(09,27,33),v00044).
+inventory('07R401:M0024306','07R0115:0086506',num_kernels(half),avi,date(23,05,2014),time(09,27,33),v00044).
 %
 inventory('07R401:M0024308','07R2348:0040709',num_kernels(half),wade,date(15,01,2014),time(09,27,33),v00044).
 inventory('07R401:M0024310','07R2641:0068609',num_kernels(half),wade,date(15,01,2014),time(09,27,33),v00044).
