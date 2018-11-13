@@ -45,7 +45,7 @@ Macs.
 
 
 I have tested several spreadsheet apps over the years, but keep coming back
-to Numbers.  A good spreadsheet app for data collection must do nine
+to Apple's Numbers.  A good spreadsheet app for data collection must do nine
 things:
    + minimize the time spent collecting the data;
    + permit text entry via bluetooth barcode scanner;
@@ -127,6 +127,7 @@ We use [[https://www.dropbox.com/][Dropbox]] for syncing spreadsheets to and fro
 field.  Others can be used as long as they connect to the desirable apps you
 want to use.
 
+
 ** Data Collection Devices
 
    + barcode scanner:  [[https://www.koamtac.com/bluetooth-barcode-scanners/kdc200-bluetooth-barcode-scanner/][KoamTac KDC200i]]
@@ -140,11 +141,31 @@ want to use.
 
 ** Installation
 
+Install the essentials
+
 
 ** Directory Structure
 
 
 ** Configuration for Your System
+
+
+
+1.  modify [[file:../../label_making/Typesetting/DefaultOrgztn.pm][DefaultOrgztn.pm]] for your directory scheme and record-keeping
+    conventions 
+
+
+2.  check all Perl regex lines by grepping
+#
+#+BEGIN_SRC 
+grep '=~' *.perl
+#+END_SRC
+#
+to ensure:
+   + the order of the arguments matches the order of the fields in your
+     spreadsheets
+   + the regular expressions match your conventions.  Nearly all regexs are
+     in [[file:../../label_making/Typesetting/MaizeRegEx.pm][MaizeRegEx.pm]], but a few defined on the fly have crept into the code.
 
 
 * Usage
