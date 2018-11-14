@@ -146,16 +146,16 @@ Install the essentials
 
 ** Directory Structure
 
-
-** Configuration for Your System
-
+show tree
 
 
-1.  modify [[file:../../label_making/Typesetting/DefaultOrgztn.pm][DefaultOrgztn.pm]] for your directory scheme and record-keeping
-    conventions 
+** Configuration for Your Record-Keeping System
+
+1.  Modify [[file:../../label_making/Typesetting/DefaultOrgztn.pm][DefaultOrgztn.pm]] for your directory scheme and record-keeping
+    conventions.
 
 
-2.  check all Perl regex lines by grepping
+2.  Check all Perl regex lines by grepping
 #
 #+BEGIN_SRC 
 grep '=~' *.perl
@@ -163,14 +163,30 @@ grep '=~' *.perl
 #
 to ensure:
    + the order of the arguments matches the order of the fields in your
-     spreadsheets
+     spreadsheets (change *both* as your data collection needs evolve); and
    + the regular expressions match your conventions.  Nearly all regexs are
      in [[file:../../label_making/Typesetting/MaizeRegEx.pm][MaizeRegEx.pm]], but a few defined on the fly have crept into the code.
 
 
+3. Change the format of dates to your preferred format.  All dates in chloe
+   and demeter are of the form DAY sep MONTH sep YEAR: sep is '.' in
+   directories, ',' in Prolog facts.  In the spreadsheets, dates are in the
+   form MONTH/DAY/YEAR.  Conversion subroutines are found in
+   [[file:../../label_making/Typesetting/ConvertPalmData.pm][ConvertPalmData.pm]] and [[file:../../demeter/code/demeter_utilities.pl][demeter_utilities.pl]]; regular expressions are in
+   [[file:../../label_making/Typesetting/MaizeRegEx.pm][MaizeRegEx.pm]].  Both local and UTC dates, times, and timestamps are
+   supported, since plants follow local solar time ;-).
+
+
+4. Change inventory sorting in [[file:../../data/data_conversion/update_inventory.perl][update_inventory.perl]] and
+   [[file:../../data/data_conversion/scootch_sleeve_bdries.perl][scootch_sleeve_bdries.perl]] to match your seed filing scheme.  I file by
+   maternal plant numerical genotype, sorting first by crop, then by
+   whether the mater was an inbred or not (non-inbreds first), then by
+   inbred maternal line (Mo20W, W23, M14, B73), and lastly by rowplant
+   identifier.  All this information is contained in my numerical
+   genotype. 
+
+
 * Usage
-
-
 
 ** Data Collection Procedures
 
