@@ -100,20 +100,13 @@ while (<$slv_fh>) {
         if ( $_ =~ /^sleeve_bdry/ ) {      
                 my ($first_ma,$last_ma,$sleeve) = $_ =~ /sleeve_bdry\(\'(${num_gtype_re})\',\'(${num_gtype_re})\',(${sleeve_re})/;
 
-		
-                my ($fcrop,$ffam,$frp) = $first_ma =~ /(${crop_re})(${family_re}):[SWMBEPL]?(${old_rowplant_re})$/;
-                my ($lcrop,$lfam,$lrp) = $last_ma =~ /(${crop_re})(${family_re}):[SWMBEPL]?(${old_rowplant_re})$/;
 
-                my ($fcropyr,$fcroppart) = $fcrop =~ /(\d{2})(\w)/;
-                my ($lcropyr,$lcroppart) = $lcrop =~ /(\d{2})(\w)/;
+                my ($fcropyr,$fcroppart,$fkey,$frp) = &explode_num_gtype($first_ma);
+                my ($lcropyr,$lcroppart,$lkey,$lrp) = &explode_num_gtype($last_ma);
 
-		my ($fkey, $lkey);
-                if ( length($ffam) == 3 ) { $fkey = $ffam; } else { $fkey = 0; }
-                if ( length($lfam) == 3 ) { $lkey = $lfam; } else { $lkey = 0; }
-		
 
-		$sleeves{$fcropyr}{$fcroppart}{$fkey}{$frp} = $sleeve . "::" . $first_ma;
-                $sleeves{$lcropyr}{$lcroppart}{$lkey}{$lrp} = $sleeve . "::" . $last_ma;
+		$sleeves{$fcropyr}{$fcroppart}{$fkey}{$frp}{$sleeve} = $first_ma;
+                $sleeves{$lcropyr}{$lcroppart}{$lkey}{$lrp}{$sleeve} = $last_ma;
 	        }
         }
 
@@ -139,10 +132,8 @@ foreach my $elt (@grep_array) {
         my ($ma,$pa,$kernels,$date,$time,$sleeve) = $elt =~ /\'(${num_gtype_re})\',\'(${num_gtype_re})\',num_kernels\(([\w\_]+)\),${observer_re},date\((${prolog_date_innards_re})\),time\((${prolog_time_innards_re})\),(${sleeve_re})/;
 
 
-
-
 # convert date and time to timestamp, compare timestamps for each ma
-# as it comes through, update %current_inventory
+# as it comes through, update %current_inventory.  For timelocal, see
 #
 # https://www.perlmonks.org/?node_id=319934
 
@@ -156,18 +147,42 @@ foreach my $elt (@grep_array) {
         if ( !exists $current_inventory{$ma} ) {
 		$current_inventory{$ma} = join("::",$inv_timestamp,$kernels,$sleeve,$pa,$date,$time);
 	        }
-
 	
         else {
                 my ($pinv_timestamp,$pkernels) = split(/::/,$current_inventory{$ma});    
 
 		if ( $inv_timestamp > $pinv_timestamp) {
-			$current_inventory{$ma} = join("::",$inv_timestamp,$kernels,$sleeve,$pa,$date,$time);
-#			print "revising $ma x $pa, $pkernels now $kernels\n";
+
+
+# a little lazy type-testing is needed to avoid Perl's coercing
+# the strings to numbers in the context of the numerical equality test.
+# Regex is the simplest and probably the fastest, and skips the equality test
+# altogether.  For more sophisticated type-testing in Perl, see
+#
+# https://stackoverflow.com/questions/12686335/how-to-tell-apart-numeric-scalars-and-string-scalars-in-perl
+
+                        if ( $kernels =~ /\b0\b/ ) {
+			        delete $current_inventory{$ma};				
+#			        print "DELETING $ma x $pa, $pkernels now $kernels\n";
+			        }
+
+			else {
+			        $current_inventory{$ma} = join("::",$inv_timestamp,$kernels,$sleeve,$pa,$date,$time);
+#			        print "revising $ma x $pa, $pkernels now $kernels\n";
+			        }
 		        }
 	        }
         }
 
+
+
+
+# my $i=1;
+# foreach my $ma ( sort ( keys %current_inventory ) ) {
+#         my ($macropyr,$macroppart,$makey,$marp) = &explode_num_gtype($ma);
+#         print "$ma: $i             $macropyr,$macroppart,$makey,$marp\n";
+#   	  $i++;
+#         }
 
 
 
@@ -180,23 +195,56 @@ foreach my $elt (@grep_array) {
 
 # stopped here
 
-# for %current_inventory,
+# for each ear in %current_inventory:
 #
-# write records to 4d hash for sorting into inventory order:  
-# {cropyr}{crop_particle}{key}{rowplant} = record
+#     separate into the elements of the 5d hash;
+#     find beginning of sleeves that match {$inv_cropyr}{$inv_croppart}{$key}
+#     find sleeve that begins with closest rowplant to ear
+#     check that ear is less than final ear of sleeve
+
+# 		$sleeves{$fcropyr}{$fcroppart}{$fkey}{$frp}{$sleeve} = $first_ma;
+
+
+# or would this be faster as an array, since sleeve_bdry facts are already in order? 
+# ummmm, don't think so per se; maybe HoA???
+
+
+
+# a tree of cases
 #
-# substituting new sleeve for old sleeve in the record
-
-		
-        # my ($inv_crop,$inv_fam,$inv_rowplant) = $ma =~ /(${crop_re})(${family_re}):\w?(${rowplant_re})/;
-        # my ($inv_cropyr,$inv_croppart) = $inv_crop =~ /(\d{2})(\w)/;
-
-	# my $key;
-        # if ( length($inv_fam) == 3 ) { $key = $inv_fam; } else { $key = 0; }
-        # $inventory{$inv_cropyr}{$inv_croppart}{$key}{$inv_rowplant} = $elt;
-
-
-
+# either 1.  current ear is greater than or equal to first ear in sleeve, matching by crop and family; or
+#        2.  current ear is inside a mixed sleeve and its crop is greater than a first ear and less than the last ear
+#
+# if 1: check rowplant of current ear; should be > first ear rowplant and < last ear rowplant; or
+#                                                = first ear rowplant; or
+#                                                                         = last ear rowplant.
+#
+#
+# if 2: find sleeve that begins with crop that is floor of current ear and ends with crop that is
+# ceiling of current ear.  How best to do this?
 
 
-# rest is to be cribbed from update_inventory.perl
+
+
+
+
+
+
+
+
+
+############# subroutines; migrate to Typesetting ############
+
+
+sub explode_num_gtype {
+        my ($num_gtype) = @_;
+
+	my ($crop,$fam,$rp) = $num_gtype =~ /(${crop_re})(${family_re}):[SWMBEPL]?(${old_rowplant_re})$/;
+	my ($cropyr,$croppart) = $crop =~ /(\d{2})(\w)/;
+	my $famkey;
+        if ( length($fam) == 3 ) { $famkey = $fam; } else { $famkey = 0; }
+
+        return($cropyr,$croppart,$famkey,$rp);
+        }
+
+

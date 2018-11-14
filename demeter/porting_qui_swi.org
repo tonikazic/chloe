@@ -105,7 +105,10 @@ true.
 
 
 
-* TODO write script that updates most recent inventory facts with current sleeve boundaries
+* GNG write script that updates most recent inventory facts with current sleeve boundaries
+
+
+** the problem
 
 When I constructed the list of corn to discard, to prevent any future
 confusion, I realized that since we compressed the corn, the older
@@ -127,6 +130,203 @@ So not quite done with inventory yet!
 
 I modified  [[file:../data/convert_data/convert_harvest_data.perl][convert_harvest_data.perl]] to grab the harvest days data from
 [[file:data/row_harvested.pl][row_harvested.pl]] <2018-11-11 Sun> 
+
+
+** corn not yet filed in perfect inventory order?  <2018-11-14 Wed>
+
+Well, do I have a problem with the filing or the algorithm???  It's really
+just a one-off problem with the crop improvement corn in 12n. I guess.
+Thought there was a generation or two after that.
+
+Rest of filing seems ok, by eyeballing sleeve_bdry.pl.
+
+The apparent problem is with the crop improvement and fun corn in 09r, 12r,
+and 12n.  Here are the results from Data::Dumper:
+
+
+
+#+BEGIN_SRC from scootch_sleeve_bdries.perl
+
+# 12n
+$VAR1 = {
+          '12' => {
+                    'N' => {
+
+                             '0' => {
+                                      '0009509' => {
+                                                     'v00134' => '12N3563:0009509'
+                                                   },
+...
+                                      '0022803' => {
+                                                     'v00137' => '12N3980:0022803'
+                                                   }
+                                    },
+                             '205' => {
+                                        '0038201' => {
+                                                       'v00140' => '12N205:S0038201'
+                                                     },
+...
+                                      },
+                             '305' => {
+                                        '0038304' => {
+                                                       'v00141' => '12N305:W0038304'
+                                                     },
+                                      }
+...
+                             '405' => {
+                                        '0039401' => {
+                                                       'v00144' => '12N405:M0039401'
+                                                     },
+...
+                                      },
+                             '504' => {
+                                        '0040508' => {
+                                                       'v00146' => '12N504:B0040508'
+                                                     },
+...
+                                      },
+
+
+# where is this ear? and in the Ws
+
+                             '658' => {
+                                        '0035209' => {
+                                                       'v00138' => '12N658:W0035209',
+                                                       'v00137' => '12N658:W0035209'
+                                                     }
+                                      },
+
+# filed in the Ms
+
+                             '661' => {
+                                        '0035304' => {
+                                                       'v00138' => '12N661:M0035304'
+                                                     }
+                                      },
+                           },
+
+
+# 12r
+
+                    'R' => {
+
+# mutants' sleeves overlap inbreds'
+
+                             '0' => {
+                                      '0017502' => {
+                                                     'v00122' => '12R3547:0017502'
+                                                   },
+...
+                                      '0058411' => {
+                                                     'v00133' => '12R0981:0058411'
+                                                   }
+                                    },
+
+
+                             '205' => {
+                                        '0010917' => {
+                                                       'v00126' => '12R205:S0010917'
+                                                     },
+...
+                                      }
+                           }
+
+
+
+
+                             '305' => {
+                                        '0011606' => {
+                                                       'v00128' => '12R305:W0011606'
+                                                     },
+...
+                                      },
+                             '405' => {
+                                        '0008214' => {
+                                                       'v00129' => '12R405:M0008214'
+                                                     },
+...
+                                      },
+
+                             '503' => {
+                                        '0011810' => {
+                                                       'v00131' => '12R503:B0011810'
+                                                     }
+                                      },
+
+
+# crosses into David Braun's corn; ok
+
+
+                             '599' => {
+                                        '0131127' => {
+                                                       'v00132' => '12R599:B0131127'
+                                                     },
+                                        '0131126' => {
+                                                       'v00131' => '12R599:B0131126'
+                                                     }
+                                      },
+                  },
+
+
+
+
+# 09r
+
+          '09' => {
+                    'R' => {
+                             '0' => {
+                                      '0006215' => {
+                                                     'v00054' => '09R1133:0006215'
+                                                   },
+...
+                                      '0053617' => {
+                                                     'v00061' => '09R0156:0053617'
+                                                   },
+                                    },
+                             '201' => {
+                                        '0042904' => {
+                                                       'v00069' => '09R201:S0042904'
+                                                     },
+...
+                                      },
+                             '301' => {
+                                        '0040106' => {
+                                                       'v00071' => '09R301:W0040106'
+                                                     },
+...
+                                      },
+                             '401' => {
+                                        '0043202' => {
+                                                       'v00078' => '09R401:M0043202'
+                                                     },
+...
+
+                             '998' => {
+                                        '0020904' => {
+                                                       'v00081' => '09R998:P0020904'
+                                                     },
+...
+                                      },
+                                      },
+                             '999' => {
+                                        '0009998' => {
+                                                       'v00082' => '09R999:P0009998'
+                                                     },
+                                        '0029210' => {
+                                                       'v00081' => '09R999:P0029210'
+                                                     },
+                                        '0009999' => {
+                                                       'v00082' => '09R999:P0009999'
+                                                     }
+                                      }
+                           }
+                  },
+
+
+
+
+#+END_SRC
+
 
 
 

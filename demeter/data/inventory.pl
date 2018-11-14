@@ -113,7 +113,14 @@
 % '06R300:W000I518'
 % '06R300:W000I805'
 % '06R300:W000I815'
-
+%
+%
+% should also have done, these were already changed in genotype.pl
+%
+% '06R400:M000I308'
+% '06R400:M000I910'
+%
+% Kazic, 14.11.2018
 
 
     
@@ -483,7 +490,14 @@ inventory('06R300:W105.201','06R0112:0011206',num_kernels(half),wade,date(14,01,
 inventory('06R300:W112.104','06R0059:0005908',num_kernels(half),wade,date(14,01,2014),time(09,06,54),v00009).
 inventory('06R400:M00I0302','06R0087:0008709',num_kernels(quarter),wade,date(14,01,2014),time(09,33,33),v00009).
 inventory('06R400:M00I0306','06R0093:0009304',num_kernels(eighth),wade,date(14,01,2014),time(09,33,33),v00009).
-inventory('06R400:M000I308','06R0097:0009706',num_kernels(quarter),wade,date(14,01,2014),time(09,33,33),v00009).
+%
+% inverted I and 0
+%
+% Kazic, 14.11.2018
+%
+% inventory('06R400:M000I308','06R0097:0009706',num_kernels(quarter),wade,date(14,01,2014),time(09,33,33),v00009).
+inventory('06R400:M00I0308','06R0097:0009706',num_kernels(quarter),wade,date(14,01,2014),time(09,33,33),v00009).
+%
 inventory('06R400:M00I0309','06R0097:0009707',num_kernels(eighth),wade,date(14,01,2014),time(09,33,33),v00009).
 inventory('06R400:M00I0602','06R0040:0004003',num_kernels(quarter),avi,date(23,05,2014),time(00,00,00),v00009).
 inventory('06R400:M00I0605','06R0076:0007601',num_kernels(quarter),wade,date(14,01,2014),time(09,33,33),v00009).
@@ -494,7 +508,13 @@ inventory('06R400:M00I0610','06R0107:0010708',num_kernels(5),avi,date(23,05,2014
 inventory('06R400:M00I0615','06R0107:0010711',num_kernels(1),wade,date(14,01,2014),time(09,33,33),v00010).
 inventory('06R400:M00I0903','06R0112:0011201',num_kernels(eighth),wade,date(14,01,2014),time(09,33,33),v00010).
 inventory('06R400:M00I0907','06R0112:0011205',num_kernels(eighth),wade,date(14,01,2014),time(09,33,33),v00010).
-inventory('06R400:M000I910','06R0076:0007609',num_kernels(37),wade,date(14,01,2014),time(09,33,33),v00007).
+%
+% inverted I and 0
+%
+% Kazic, 14.11.2018
+%
+% inventory('06R400:M000I910','06R0076:0007609',num_kernels(37),wade,date(14,01,2014),time(09,33,33),v00007).
+inventory('06R400:M00I0910','06R0076:0007609',num_kernels(37),wade,date(14,01,2014),time(09,33,33),v00007).
 inventory('06R400:M00I0914','06R0076:0007611',num_kernels(half),wade,date(14,01,2014),time(09,33,33),v00010).
 inventory('06R400:M00I1405','06R0076:0007614',num_kernels(27),wade,date(14,01,2014),time(09,33,33),v00010).
 inventory('06R400:M00I1502','06R0076:0007616',num_kernels(eighth),wade,date(14,01,2014),time(09,33,33),v00010).

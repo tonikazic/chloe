@@ -166,8 +166,14 @@ sleeve_bdry('12R0981:0058411','12R0989:0059205',v00133,mason,date(05,06,2018),ti
 sleeve_bdry('12N3890:0004902','12N3563:0009509',v00134,mason,date(05,06,2018),time(17,47,18)).
 sleeve_bdry('12N3564:0009601','12N3946:0017105',v00135,mason,date(05,06,2018),time(17,48,04)).
 sleeve_bdry('12N3946:0017106','12N3980:0022802',v00136,mason,date(05,06,2018),time(17,48,16)).
+%
+% these next two facts conflict: check seed
+%
+% Kazic, 14.12.2018
+%
 sleeve_bdry('12N3980:0022803','12N658:W0035209',v00137,mason,date(05,06,2018),time(17,48,39)).
 sleeve_bdry('12N661:M0035304','12N658:W0035209',v00138,mason,date(05,06,2018),time(17,48,55)).
+%
 sleeve_bdry('12N205:S0036702','12N205:S0037913',v00139,mason,date(05,06,2018),time(17,50,33)).
 sleeve_bdry('12N205:S0038201','12N305:W0035912',v00140,mason,date(05,06,2018),time(17,50,46)).
 sleeve_bdry('12N305:W0036201','12N305:W0038304',v00141,mason,date(05,06,2018),time(17,51,03)).
