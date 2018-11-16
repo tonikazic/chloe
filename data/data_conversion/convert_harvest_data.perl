@@ -112,6 +112,9 @@ my @this_crops_rows = grep  { $_ =~ /${crop}/ && $_ =~ /^row_harvested/ && $_ !~
 # foreach my $elt  (@this_crops_rows) { print "$elt"; }
 
 
+# tested with new version of prolog_time_re and works
+#
+# Kazic, 16.11.2018
 
 foreach my $elt (@this_crops_rows) {
 	my ($row,$date,$time) = $elt =~ /^row_harvested\((${row_re}),\w+,(${prolog_date_re}),(${prolog_time_re}),/;
