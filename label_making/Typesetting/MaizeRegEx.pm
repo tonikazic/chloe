@@ -198,6 +198,12 @@ $hour_re = qr/\d{1,2}/;
 $pm_re = qr/PM/;
 
 $prolog_date_re = qr/date[\d,\(\)]+/;
+
+# was 
+# $prolog_time_re = qr/time[\d,\(\)]+/;
+#
+# Kazic, 16.11.2018
+#
 $prolog_time_re = qr/time\([\d,]+\)/;
 $prolog_time_innards_re = qr/\d{1,2},\d{1,2},\d{1,2}/;
 
