@@ -131,10 +131,12 @@ want to use.
 ** Data Collection Devices
 
    + barcode scanner:  [[https://www.koamtac.com/bluetooth-barcode-scanners/kdc200-bluetooth-barcode-scanner/][KoamTac KDC200i]]
-   + mobile data collection platforms: We use iPad2, the iPad mini, and an
+   + mobile data collection platforms: We use the iPad2, the iPad mini, and an
      iPhone 5S.  The iPhone is handiest for one-person operations.
-
-
+   + internal color standard for images: [[https://www.forestry-suppliers.com/product_pages/products.php?mi=49900&itemnum=77228&redir=Y][XRite ColorChecker Mini Chart]] is
+     available from [[https://www.forestry-suppliers.com/index1.php][Forestry Suppliers]] (thanks, Juan Gonzalez!)
+   + photography: Nikon D70s or d80??? 10.2 MP camera, AF MICRO NIKKOR 60mm
+     lens, calibrated with a xxx white balance filter (see
 
 
 * Installation
@@ -153,8 +155,8 @@ show tree
 
 1.  Modify [[file:../../label_making/Typesetting/DefaultOrgztn.pm][DefaultOrgztn.pm]] for your directory scheme and record-keeping
     conventions.
-
-
+#
+#
 2.  Check all Perl regex lines by grepping
 #
 #+BEGIN_SRC 
@@ -166,8 +168,8 @@ to ensure:
      spreadsheets (change *both* as your data collection needs evolve); and
    + the regular expressions match your conventions.  Nearly all regexs are
      in [[file:../../label_making/Typesetting/MaizeRegEx.pm][MaizeRegEx.pm]], but a few defined on the fly have crept into the code.
-
-
+#
+#
 3. Change the format of dates to your preferred format.  All dates in chloe
    and demeter are of the form DAY sep MONTH sep YEAR: sep is '.' in
    directories, ',' in Prolog facts.  In the spreadsheets, dates are in the
@@ -175,8 +177,8 @@ to ensure:
    [[file:../../label_making/Typesetting/ConvertPalmData.pm][ConvertPalmData.pm]] and [[file:../../demeter/code/demeter_utilities.pl][demeter_utilities.pl]]; regular expressions are in
    [[file:../../label_making/Typesetting/MaizeRegEx.pm][MaizeRegEx.pm]].  Both local and UTC dates, times, and timestamps are
    supported, since plants follow local solar time ;-).
-
-
+#
+#
 4. Change inventory sorting in [[file:../../data/data_conversion/update_inventory.perl][update_inventory.perl]] and
    [[file:../../data/data_conversion/scootch_sleeve_bdries.perl][scootch_sleeve_bdries.perl]] to match your seed filing scheme.  I file by
    maternal plant numerical genotype, sorting first by crop, then by

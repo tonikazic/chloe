@@ -35,7 +35,7 @@ use Date::Calc 'Today_and_Now';
 use Data::Dumper 'Dumper';
 use List::MoreUtils 'first_index';
 use Time::Local 'timelocal';
-
+use autovivification;
 
 use lib '../../label_making/Typesetting/';
 use DefaultOrgztn;
@@ -97,16 +97,20 @@ open my $slv_fh, '<', $sleeve_file or die "sorry, can't open the sleeve_bdry fil
 
 while (<$slv_fh>) {
 
-        if ( $_ =~ /^sleeve_bdry/ ) {      
-                my ($first_ma,$last_ma,$sleeve) = $_ =~ /sleeve_bdry\(\'(${num_gtype_re})\',\'(${num_gtype_re})\',(${sleeve_re})/;
+        if ( $_ =~ /^sleeve_bdry/ ) {
+
+		
+                my ($first_ma,$last_ma,$sleeve,$date,$time) = $_ =~ /sleeve_bdry\(\'(${num_gtype_re})\',\'(${num_gtype_re})\',(${sleeve_re}),\w+,(${prolog_date_re}),(${prolog_time_re})/;
 
 
+#                print "($first_ma,$last_ma,$sleeve,$date,$time)\n";
+		
                 my ($fcropyr,$fcroppart,$fkey,$frp) = &explode_num_gtype($first_ma);
                 my ($lcropyr,$lcroppart,$lkey,$lrp) = &explode_num_gtype($last_ma);
+                my @last_ma = ($lcropyr,$lcroppart,$lkey,$lrp,$date,$time,$first_ma,$last_ma);
 
-
-		$sleeves{$fcropyr}{$fcroppart}{$fkey}{$frp}{$sleeve} = $first_ma;
-                $sleeves{$lcropyr}{$lcroppart}{$lkey}{$lrp}{$sleeve} = $last_ma;
+		unshift @last_ma, $sleeve;
+		$sleeves{$fcropyr}{$fcroppart}{$fkey}{$frp} = [ @last_ma ];
 	        }
         }
 
@@ -123,7 +127,8 @@ while (<$slv_fh>) {
 
 
 # %inventory now structured differently so find the most 
-# recent datum.  This will include packets with 0 kernels.
+# recent datum.  This will include packets with 0 kernels, which
+# are eliminated in this step.
 
 
 foreach my $elt (@grep_array) { 
@@ -193,7 +198,7 @@ foreach my $elt (@grep_array) {
 
 
 
-# stopped here
+
 
 # for each ear in %current_inventory:
 #
@@ -202,11 +207,12 @@ foreach my $elt (@grep_array) {
 #     find sleeve that begins with closest rowplant to ear
 #     check that ear is less than final ear of sleeve
 
-# 		$sleeves{$fcropyr}{$fcroppart}{$fkey}{$frp}{$sleeve} = $first_ma;
+# 
 
 
-# or would this be faster as an array, since sleeve_bdry facts are already in order? 
-# ummmm, don't think so per se; maybe HoA???
+# want to use datetime of scootching for final revised inventory, and print
+# appropriate header message in inventory file
+
 
 
 
@@ -222,6 +228,43 @@ foreach my $elt (@grep_array) {
 #
 # if 2: find sleeve that begins with crop that is floor of current ear and ends with crop that is
 # ceiling of current ear.  How best to do this?
+#
+# watch out for autovivification!
+#
+# $sleeves{$fcropyr}{$fcroppart}{$fkey}{$frp}{$sleeve} = ($lcropyr,$lcroppart,$lkey,$lrp,$date,$time,$first_ma,$last_ma);
+
+
+
+# cropyrs sort correctly
+# print join("\n",sort qw [13 14 15 06 07 08 09 10 11 12 16 17 18]) . "\n";
+#
+# crop particles do not, unless reversed
+# print join("\n",reverse sort qw [R N G]) . "\n";
+
+
+my @crop_order = qw [R N G];
+
+foreach my $ma ( sort ( keys %current_inventory ) ) {
+        my ($macropyr,$macroppart,$makey,$marp) = &explode_num_gtype($ma);
+#        print "$ma:         $macropyr,$macroppart,$makey,$marp\n";
+
+        my $sleeve = &ear_floor($macropyr,$macroppart,$makey,$marp);
+
+
+
+
+
+
+        }
+
+
+
+
+
+
+
+
+
 
 
 
@@ -248,3 +291,86 @@ sub explode_num_gtype {
         }
 
 
+
+
+
+
+
+
+
+
+
+
+
+# kinda like a back-off tagger ;-)
+#
+# right idea, implementation incorrect
+
+# autovivification help from
+# https://www.perlmonks.org/?node_id=800779
+#
+# numerical tests on strings should succeed:
+# https://perlmaven.com/scalar-variables
+#
+# https://stackoverflow.com/questions/3700069/how-can-i-check-if-a-key-exists-in-a-deep-perl-hash
+
+
+
+sub ear_floor {
+        my ($macropyr,$macroppart,$makey,$marp) = @_;
+
+	no autovivification 'exists';
+
+
+	print "\n\n input: ($macropyr,$macroppart,$makey,$marp)\n";
+
+        my ($cropyr,$croppart,$key,$rp,$sleeve,$croppart_idx,$macroppart_idx);
+        my @rps;
+	
+	if ( $sleeves{$macropyr}{$macroppart}{$makey}{$marp} ) { print "\nall: $sleeves{$macropyr}{$macroppart}{$makey}{$marp}[0]\n"; }
+
+
+        elsif (  ( exists $sleeves{$macropyr}{$macroppart}{$makey} )
+		 && ( @rps = keys %{$sleeves{$macropyr}{$macroppart}{$makey}} )
+	 	 && ( $rp = &find_sleeve_starting_rp($marp,\@rps) ) ) { print "lower rp $rp: $sleeves{$macropyr}{$macroppart}{$makey}{$rp}[0]\n"; }
+#                 ) { print "\nrp: " . join(',',sort @rps); }
+
+	# elsif (  ( exists $sleeves{$macropyr}{$macroppart}{$key}{$rp}{$sleeve} )
+	# 	 && ( $key < $makey ) ) { print "lower key: $sleeve\n"; }
+        # elsif (  ( exists $sleeves{$macropyr}{$croppart}{$key}{$rp}{$sleeve} )
+	# 	 && ( $croppart_idx = first_index { $_ eq $croppart} @crop_order )
+	# 	 && ( $macroppart_idx  = first_index { $_ eq $macroppart} @crop_order ) 
+	# 	 && ( $croppart_idx < $macroppart_idx ) ) { print "lower particle: $sleeve\n"; }
+        # elsif (  ( exists $sleeves{$cropyr}{$croppart}{$key}{$rp}{$sleeve} )
+	# 	 && ( $cropyr < $macropyr ) ) { print "lower year: $sleeve\n"; }
+
+	
+	return $sleeve;
+        }
+
+
+
+
+
+# for discussion of Perl Booleans, see
+# https://stackoverflow.com/questions/39541833/what-values-should-a-boolean-function-in-perl-return
+
+
+sub find_sleeve_starting_rp {
+        my ($marp,$rps_ref) = @_;
+
+#        print "sorted: $marp            " . join(',',sort @{$rps_ref}) . "\n";
+
+        my $lowest = shift @{$rps_ref};
+	if ( $marp > $lowest ) {
+		my $highest = pop @{$rps_ref};
+
+# stopped here
+
+		if ( $marp < $highest ) { print "inside: $marp            " . join(',',sort @{$rps_ref}) . "\n"; }
+	        
+		else { return; }
+	        }
+	else { return; }
+
+        }
