@@ -246,15 +246,12 @@ my @crop_order = qw [R N G];
 
 foreach my $ma ( sort ( keys %current_inventory ) ) {
         my ($macropyr,$macroppart,$makey,$marp) = &explode_num_gtype($ma);
-#        print "$ma:         $macropyr,$macroppart,$makey,$marp\n";
-
         my $sleeve = &ear_floor($macropyr,$macroppart,$makey,$marp);
 
-
-
-
-
-
+	
+# output fact rewritten with sleeve and inventory date, time
+# $current_inventory{$ma} = join("::",$inv_timestamp,$kernels,$sleeve,$pa,$date,$time);
+	
         }
 
 
@@ -309,42 +306,70 @@ sub explode_num_gtype {
 # autovivification help from
 # https://www.perlmonks.org/?node_id=800779
 #
+# however, it pays not to be too picky:  specifying
+# "no autovivification 'exists'"
+# introduces a 1 into the @famkeys on the second and later calls!
+# spooky!  so just shut it off altogether.
+#
+#
+#
 # numerical tests on strings should succeed:
 # https://perlmaven.com/scalar-variables
 #
 # https://stackoverflow.com/questions/3700069/how-can-i-check-if-a-key-exists-in-a-deep-perl-hash
-
+#
+#
+# map trick for subtracting scalar from vector:
+# https://stackoverflow.com/questions/23869082/how-to-subtract-1-from-all-array-elements-in-perl
 
 
 sub ear_floor {
         my ($macropyr,$macroppart,$makey,$marp) = @_;
 
-	no autovivification 'exists';
-
-
-	print "\n\n input: ($macropyr,$macroppart,$makey,$marp)\n";
-
-        my ($cropyr,$croppart,$key,$rp,$sleeve,$croppart_idx,$macroppart_idx);
-        my @rps;
+	my $sleeve;
 	
-	if ( $sleeves{$macropyr}{$macroppart}{$makey}{$marp} ) { print "\nall: $sleeves{$macropyr}{$macroppart}{$makey}{$marp}[0]\n"; }
+	no autovivification;
 
 
-        elsif (  ( exists $sleeves{$macropyr}{$macroppart}{$makey} )
-		 && ( @rps = keys %{$sleeves{$macropyr}{$macroppart}{$makey}} )
-	 	 && ( $rp = &find_sleeve_starting_rp($marp,\@rps) ) ) { print "lower rp $rp: $sleeves{$macropyr}{$macroppart}{$makey}{$rp}[0]\n"; }
-#                 ) { print "\nrp: " . join(',',sort @rps); }
-
-	# elsif (  ( exists $sleeves{$macropyr}{$macroppart}{$key}{$rp}{$sleeve} )
-	# 	 && ( $key < $makey ) ) { print "lower key: $sleeve\n"; }
-        # elsif (  ( exists $sleeves{$macropyr}{$croppart}{$key}{$rp}{$sleeve} )
-	# 	 && ( $croppart_idx = first_index { $_ eq $croppart} @crop_order )
-	# 	 && ( $macroppart_idx  = first_index { $_ eq $macroppart} @crop_order ) 
-	# 	 && ( $croppart_idx < $macroppart_idx ) ) { print "lower particle: $sleeve\n"; }
-        # elsif (  ( exists $sleeves{$cropyr}{$croppart}{$key}{$rp}{$sleeve} )
-	# 	 && ( $cropyr < $macropyr ) ) { print "lower year: $sleeve\n"; }
+	print "\n\ninput: ($macropyr,$macroppart,$makey,$marp)\n";
+        if ( $marp eq "0000000" ) { $sleeve = "v00000"; print "founder\n"; }
+        else {
 
 	
+                my ($cropyr,$croppart,$key,$rp,$sleeve,$croppart_idx,$macroppart_idx);
+                my @rps;
+		my @famkeys;
+		
+		if ( $sleeves{$macropyr}{$macroppart}{$makey}{$marp} ) { print "\nall: $sleeves{$macropyr}{$macroppart}{$makey}{$marp}[0]\n"; }
+	
+	
+                elsif ( ( exists $sleeves{$macropyr}{$macroppart}{$makey} )
+			 && ( @rps = keys %{$sleeves{$macropyr}{$macroppart}{$makey}} )
+		 	 && ( $rp = &find_sleeve_starting_rp($marp,\@rps) ) ) {
+			print "lower rp $rp: $sleeves{$macropyr}{$macroppart}{$makey}{$rp}[0]\n";
+		        }
+	
+#	#
+	
+		elsif ( ( exists $sleeves{$macropyr}{$macroppart} )
+			&& ( @famkeys = keys %{$sleeves{$macropyr}{$macroppart}} )
+		        && ( ($key,$rp) = &find_sleeve_starting_famkey($makey,$marp,\@famkeys) ) ) {
+			print "lower famkey $key: $sleeves{$macropyr}{$macroppart}{$key}{$rp}[0]\n";
+		        }
+	
+	
+	
+		# elsif (  ( exists $sleeves{$macropyr}{$croppart}{$key}{$rp}{$sleeve} )
+		# 	 && ( $croppart_idx = first_index { $_ eq $croppart} @crop_order )
+		# 	 && ( $macroppart_idx  = first_index { $_ eq $macroppart} @crop_order ) 
+		# 	 && ( $croppart_idx < $macroppart_idx ) ) { print "lower particle: $sleeve\n"; }
+                # elsif (  ( exists $sleeves{$cropyr}{$croppart}{$key}{$rp}{$sleeve} )
+		# 	 && ( $cropyr < $macropyr ) ) { print "lower year: $sleeve\n"; }
+	
+	
+	
+	        }
+
 	return $sleeve;
         }
 
@@ -352,6 +377,99 @@ sub ear_floor {
 
 
 
+
+
+
+
+# ($key,$rp) = &find_sleeve_starting_famkey($marp,\@famkeys)
+#
+
+
+# different cases for famkey:
+#
+# in the first two, 0 is present in the subtracted vector, and that's the index we want.
+#
+# input: (06,N,0,0000308)
+# fba:   0  0000308
+# bar:  0, 201, 301, 401
+# foo:  0, 201, 301, 401
+# baz:   0
+#
+# input: (12,N,504,0043008)
+# fba:   504  0043008
+# bar:  0, 205, 305, 405, 504, 661
+# foo:  -504, -299, -199, -99, 0, 157
+# baz:   4
+#
+#
+# in the third, need to look for sign flip
+#
+# input: (12,N,655,0034904)
+# fba:   655  0034904
+# bar:  0, 205, 305, 405, 504, 661
+# foo:  -655, -450, -350, -250, -151, 6
+# baz:   5
+#
+#
+# in the fourth, no zero, no sign flip, crop mismatch
+#
+# input: (07,G,0,0001402)
+# fba:   0  0001402
+# bar:  401
+# foo:  401
+# baz:   0
+#
+#
+# in the fifth, no zeroes, no positives, need largest negative number
+# 
+# input: (10,R,902,0039501)
+# fba:   902  0039501
+# bar:  0, 205, 305, 405
+# foo:  -902, -697, -597, -497
+# baz:   -1
+
+
+
+
+sub find_sleeve_starting_famkey {
+        my ($makey,$marp,$famkey_ref) = @_;
+
+        my @sorted = sort @{$famkey_ref};
+	my $baz = first_index { $_ !~ /\-/ } map { $_ - $makey } @sorted;
+
+	print "fba:   $makey  $marp\n";
+        print "bar:  " . join(", ",@sorted) . "\n";
+        print "foo:  " . join(", ",map { $_ - $makey } @sorted) . "\n";
+        print "baz:   $baz\n";
+
+
+# stopped here	
+# implement famkey cases above, then call next find with right famkey
+
+	
+
+# second condition is equivalent to false in Perl
+	
+#	if ( $baz > 0 ) { return @sorted[$baz-1]; }
+#	else { return; }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# fails if no sign flip, therefore lower bounding sleeve, is found
+#
 # for discussion of Perl Booleans, see
 # https://stackoverflow.com/questions/39541833/what-values-should-a-boolean-function-in-perl-return
 
@@ -359,18 +477,16 @@ sub ear_floor {
 sub find_sleeve_starting_rp {
         my ($marp,$rps_ref) = @_;
 
-#        print "sorted: $marp            " . join(',',sort @{$rps_ref}) . "\n";
+        my @sorted = sort @{$rps_ref};
+	my $baz = first_index { $_ !~ /\-/ } map { $_ - $marp } @sorted;
+	
+#        print "bar:  " . join(", ",@sorted) . "\n";
+#        print "foo:  " . join(", ",map { $_ - $marp } @sorted) . "\n";
+#        print "baz:   $baz\n";
+	
 
-        my $lowest = shift @{$rps_ref};
-	if ( $marp > $lowest ) {
-		my $highest = pop @{$rps_ref};
-
-# stopped here
-
-		if ( $marp < $highest ) { print "inside: $marp            " . join(',',sort @{$rps_ref}) . "\n"; }
-	        
-		else { return; }
-	        }
+# second condition is equivalent to false in Perl
+	
+	if ( $baz > 0 ) { return @sorted[$baz-1]; }
 	else { return; }
-
         }
