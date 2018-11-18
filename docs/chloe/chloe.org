@@ -180,13 +180,17 @@ to ensure:
 #
 #
 4. Change inventory sorting in [[file:../../data/data_conversion/update_inventory.perl][update_inventory.perl]] and
-   [[file:../../data/data_conversion/scootch_sleeve_bdries.perl][scootch_sleeve_bdries.perl]] to match your seed filing scheme.  I file by
+   [[file:../../data/data_conversion/scootch_sleeve_bdries.perl][scootch_sleeve_bdries.perl]] to match your seed filing scheme.  
+#
+I file by
    maternal plant numerical genotype, sorting first by crop, then by
    whether the mater was an inbred or not (non-inbreds first), then by
    inbred maternal line (Mo20W, W23, M14, B73), and lastly by rowplant
    identifier.  All this information is contained in my numerical
    genotype. 
-
+#
+All founder lines (/e.g./, seed gifts from others) are filed in sleeve
+v00000 in box x00000.
 
 * Usage
 
