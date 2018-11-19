@@ -360,7 +360,19 @@ sub ear_floor {
 			print "lower famkey: $sleeve\n";
 		        }
 	
-	
+
+# fourth case in &find_sleeve_starting_famkey is actually this next one,
+# because crop particle is now changed
+#		
+# in the fourth, there is a zero, so belongs with first and second; no sign flip, crop mismatch
+#
+# input: (07,G,0,0001402)
+# fba:   0  0001402
+# bar:  401
+# foo:  401
+# baz:   0
+#
+#
 	
 		# elsif (  ( exists $sleeves{$macropyr}{$croppart}{$key}{$rp}{$sleeve} )
 		# 	 && ( $croppart_idx = first_index { $_ eq $croppart} @crop_order )
@@ -405,6 +417,9 @@ sub ear_floor {
 # baz:   4
 #
 #
+#
+#
+#
 # in the third, no zero, need to look for sign flip
 #
 # input: (12,N,655,0034904)
@@ -413,15 +428,8 @@ sub ear_floor {
 # foo:  -655, -450, -350, -250, -151, 6
 # baz:   5
 #
-#
-# in the fourth, no zero, no sign flip, crop mismatch
-#
-# input: (07,G,0,0001402)
-# fba:   0  0001402
-# bar:  401
-# foo:  401
-# baz:   0
-#
+# in the fourth case, the crop particle is different, so it's not
+# in this subroutine
 #
 # in the fifth, no zeroes, no positives, need largest negative number
 # 
@@ -430,6 +438,7 @@ sub ear_floor {
 # bar:  0, 205, 305, 405
 # foo:  -902, -697, -597, -497
 # baz:   -1
+
 
 
 
@@ -444,7 +453,7 @@ sub find_sleeve_starting_famkey {
 	my $baz = first_index { $_ == 0 } map { $_ - $makey } @sorted;
 
 	
-# 	 print "fba:  $makey  $marp\n";
+#	 print "fba:  $makey  $marp\n";
 #        print "bar:  " . join(", ",@sorted) . "\n";
 #        print "foo:  " . join(", ",map { $_ - $makey } sort @{$famkey_ref}) . "\n";
 #        print "baz:  $baz\n";
@@ -484,10 +493,13 @@ sub find_sleeve_starting_famkey {
                         $neighbor_sleeve = $sleeves{$macropyr}{$macroppart}{$famkey}{$first_rp}[0];
 			$sleeve = &adjust_sleeve($neighbor_sleeve,'inc');
 		        }
-                else { return; }
+
+
+
+		else { return; }
 
 #                print "nsv:  $neighbor_sleeve\n";
-# 		 print "slv:  $sleeve\n";
+# 	         print "slv:  $sleeve\n";
   	        }
 
 
@@ -495,6 +507,8 @@ sub find_sleeve_starting_famkey {
 
 	else {
 
+# need to exclude fourth case from here	as crop particle differs
+#
 # stopped here			
 
 	        print "fba:  $makey  $marp\n";
