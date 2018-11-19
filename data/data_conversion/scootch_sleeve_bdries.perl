@@ -33,7 +33,7 @@ use strict;
 use Cwd 'getcwd';
 use Date::Calc 'Today_and_Now';
 use Data::Dumper 'Dumper';
-use List::MoreUtils 'first_index';
+use List::MoreUtils qw( first_index minmax);
 use Time::Local 'timelocal';
 use autovivification;
 
@@ -248,8 +248,9 @@ foreach my $ma ( sort ( keys %current_inventory ) ) {
         my ($macropyr,$macroppart,$makey,$marp) = &explode_num_gtype($ma);
         my $sleeve = &ear_floor($macropyr,$macroppart,$makey,$marp);
 
-	
-# output fact rewritten with sleeve and inventory date, time
+
+# sort scootchies into inventory order before output
+# output fact rewritten with sleeve and inventory date, time; append to inventory.pl	
 # $current_inventory{$ma} = join("::",$inv_timestamp,$kernels,$sleeve,$pa,$date,$time);
 	
         }
@@ -340,21 +341,23 @@ sub ear_floor {
                 my @rps;
 		my @famkeys;
 		
-		if ( $sleeves{$macropyr}{$macroppart}{$makey}{$marp} ) { print "\nall: $sleeves{$macropyr}{$macroppart}{$makey}{$marp}[0]\n"; }
+		if ( $sleeve = $sleeves{$macropyr}{$macroppart}{$makey}{$marp}[0] ) {
+			print "all: $sleeve\n";
+		        }
 	
 	
                 elsif ( ( exists $sleeves{$macropyr}{$macroppart}{$makey} )
-			 && ( @rps = keys %{$sleeves{$macropyr}{$macroppart}{$makey}} )
-		 	 && ( $rp = &find_sleeve_starting_rp($marp,\@rps) ) ) {
-			print "lower rp $rp: $sleeves{$macropyr}{$macroppart}{$makey}{$rp}[0]\n";
+			&& ( @rps = keys %{$sleeves{$macropyr}{$macroppart}{$makey}} )
+		 	&& ( $sleeve = &find_sleeve_starting_rp($macropyr,$macroppart,$makey,$marp,\@rps) ) ) {
+			print "lower rp: $sleeve\n";
 		        }
 	
-#	#
+
 	
 		elsif ( ( exists $sleeves{$macropyr}{$macroppart} )
 			&& ( @famkeys = keys %{$sleeves{$macropyr}{$macroppart}} )
-		        && ( ($key,$rp) = &find_sleeve_starting_famkey($makey,$marp,\@famkeys) ) ) {
-			print "lower famkey $key: $sleeves{$macropyr}{$macroppart}{$key}{$rp}[0]\n";
+		        && ( $sleeve = &find_sleeve_starting_famkey($macropyr,$macroppart,$makey,$marp,\@famkeys) ) ) {			
+			print "lower famkey: $sleeve\n";
 		        }
 	
 	
@@ -402,7 +405,7 @@ sub ear_floor {
 # baz:   4
 #
 #
-# in the third, need to look for sign flip
+# in the third, no zero, need to look for sign flip
 #
 # input: (12,N,655,0034904)
 # fba:   655  0034904
@@ -432,26 +435,88 @@ sub ear_floor {
 
 
 sub find_sleeve_starting_famkey {
-        my ($makey,$marp,$famkey_ref) = @_;
+        my ($macropyr,$macroppart,$makey,$marp,$famkey_ref) = @_;
 
-        my @sorted = sort @{$famkey_ref};
-	my $baz = first_index { $_ !~ /\-/ } map { $_ - $makey } @sorted;
-
-	print "fba:   $makey  $marp\n";
-        print "bar:  " . join(", ",@sorted) . "\n";
-        print "foo:  " . join(", ",map { $_ - $makey } @sorted) . "\n";
-        print "baz:   $baz\n";
-
-
-# stopped here	
-# implement famkey cases above, then call next find with right famkey
+	my $sleeve;
+	
+        my @sorted = sort @{$famkey_ref};	
+	my @subtracted = map { $_ - $makey } @sorted;
+	my $baz = first_index { $_ == 0 } map { $_ - $makey } @sorted;
 
 	
+# 	 print "fba:  $makey  $marp\n";
+#        print "bar:  " . join(", ",@sorted) . "\n";
+#        print "foo:  " . join(", ",map { $_ - $makey } sort @{$famkey_ref}) . "\n";
+#        print "baz:  $baz\n";
 
-# second condition is equivalent to false in Perl
+
+# implement famkey cases above, then find sleeve with highest rp with that famkey	
+
+        if ( $baz == 0 ) {
+                my $famkey = @sorted[$baz];
+                my @rps = sort ( keys %{$sleeves{$macropyr}{$macroppart}{$famkey}} );
+#                print "fmk:  $famkey\n";
+#                print "rps:  " . join(", ",@rps) . "\n";
+
+		
+# if first rp greater than marp, back up one sleeve
+# if last rp less than marp, go up one sleeve
+# if last rp doesn't exist and first rp less than marp, go up one sleeve
+#
+# haven't implemented checks on new sleeve's starting packets as it all seems ok so far
+		
+                my $first_rp = shift @rps;
+                my $last_rp = pop @rps;
+#                print "frp:  $first_rp\n";
+		if ( defined($last_rp) ) { print "lrp:  $last_rp\n"; }
+#		else { print "lrp:  undef\n"; }
+
+                my $neighbor_sleeve;
+                if ( $first_rp > $marp ) {
+                        $neighbor_sleeve = $sleeves{$macropyr}{$macroppart}{$famkey}{$first_rp}[0];
+			$sleeve = &adjust_sleeve($neighbor_sleeve,'dec');
+		        }
+                elsif ( ( defined($last_rp) ) && ( $last_rp < $marp ) ) {
+                        $neighbor_sleeve = $sleeves{$macropyr}{$macroppart}{$famkey}{$last_rp}[0];
+			$sleeve = &adjust_sleeve($neighbor_sleeve,'inc');
+		        }
+                elsif ( ( !defined($last_rp) ) && ( $first_rp < $marp ) ) {
+                        $neighbor_sleeve = $sleeves{$macropyr}{$macroppart}{$famkey}{$first_rp}[0];
+			$sleeve = &adjust_sleeve($neighbor_sleeve,'inc');
+		        }
+                else { return; }
+
+#                print "nsv:  $neighbor_sleeve\n";
+# 		 print "slv:  $sleeve\n";
+  	        }
+
+
+
+
+	else {
+
+# stopped here			
+
+	        print "fba:  $makey  $marp\n";
+                print "bar:  " . join(", ",@sorted) . "\n";
+                print "foo:  " . join(", ",map { $_ - $makey } sort @{$famkey_ref}) . "\n";
+                print "baz:  $baz\n";
+
+		
+		print "finish case analysis\n";
+	        }
 	
-#	if ( $baz > 0 ) { return @sorted[$baz-1]; }
+
+        return $sleeve;
+
+	
+# not sure when this should be triggered
+#	
+# equivalent to false in Perl
 #	else { return; }
+
+
+
         }
 
 
@@ -466,27 +531,72 @@ sub find_sleeve_starting_famkey {
 
 
 
-
-
+# returns the bounding rp, not the sleeve itself
+#
 # fails if no sign flip, therefore lower bounding sleeve, is found
+#
 #
 # for discussion of Perl Booleans, see
 # https://stackoverflow.com/questions/39541833/what-values-should-a-boolean-function-in-perl-return
 
 
 sub find_sleeve_starting_rp {
-        my ($marp,$rps_ref) = @_;
+        my ($macropyr,$macroppart,$makey,$marp,$rps_ref) = @_;
 
+        my $sleeve;
+
+	my $rp;
         my @sorted = sort @{$rps_ref};
-	my $baz = first_index { $_ !~ /\-/ } map { $_ - $marp } @sorted;
+	my @subtracted = map { $_ - $marp } @sorted;
+	my $baz = first_index { $_ !~ /\-/ } @subtracted;
 	
-#        print "bar:  " . join(", ",@sorted) . "\n";
+#        print "rar:  " . join(", ",@sorted) . "\n";
 #        print "foo:  " . join(", ",map { $_ - $marp } @sorted) . "\n";
-#        print "baz:   $baz\n";
+#        print "baz:  $baz\n";
 	
 
-# second condition is equivalent to false in Perl
+
 	
-	if ( $baz > 0 ) { return @sorted[$baz-1]; }
+	if ( $baz > 0 ) {
+		$rp = @sorted[$baz-1];
+                $sleeve = $sleeves{$macropyr}{$macroppart}{$makey}{$rp}[0];                
+	        }
+
+
+
+	elsif ( $baz < 0 ) {
+		my ($min,$max) = minmax(@subtracted);
+                my $rp_idx = first_index { $_ eq $max } @subtracted;
+                $rp = @sorted[$rp_idx];
+# 		 print "mms:  $min   $max\n";
+#                print "rpi:  $rp_idx\n";
+                $sleeve = $sleeves{$macropyr}{$macroppart}{$makey}{$rp}[0];
+	        }
+
+# equivalent to false in Perl
+	
 	else { return; }
+        }
+
+
+
+
+
+
+sub adjust_sleeve {
+	my ($neighbor_sleeve,$dir) = @_;
+
+        my ($prefix,$zeroes,$num) = $neighbor_sleeve =~ /(v)(0{0,5})(\d{0,5})/;
+        my $change;
+
+
+#	print "pre:  $neighbor_sleeve  $dir  $prefix  $zeroes  $num\n";
+	
+	if ( $dir eq 'dec' ) { $change = $num - 1; }
+	else { $change = $num + 1; }
+
+	if ( length($change) > length($num) ) { chop($zeroes); }
+	elsif ( length($change) < length($num) ) { $zeroes .= '0'; }
+        my $sleeve = $prefix . $zeroes . $change;
+	return $sleeve;
         }
