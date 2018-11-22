@@ -326,3 +326,11 @@ sleeve_bdry('14R205:S0000616','14R305:W0000814',v00171,toni,date(21,11,2018),tim
 sleeve_bdry('14R305:W0000901','14R305:W0001016',v00172,toni,date(21,11,2018),time(16,37,35)).
 sleeve_bdry('14R305:W0002901','14R405:M0001310',v00173,toni,date(21,11,2018),time(16,37,47)).
 sleeve_bdry('14R405:M0001311','14R405:M0001705',v00174,toni,date(21,11,2018),time(16,38,04)).
+
+
+% added this one by hand
+%
+% Kazic, 22.11.2018
+
+sleeve_bdry('10R0160:0000000','15R0681:0000000',v00000,toni,date(22,11,2018),time(06,41,00)).
+    
