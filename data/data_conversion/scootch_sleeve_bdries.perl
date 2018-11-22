@@ -70,7 +70,7 @@ my %current_inventory;
 my %inventory;
 my $out;
 my %sleeves;
-
+my %scootchies;
 
 
 
@@ -90,8 +90,11 @@ my @grep_array = grep { $_ !~ /\%/ && $_ =~ /^inventory/ } <$inv_fh> ;
 
 
 
-# grab the sleeve boundary data and stuff into a similar hash
+# grab the sleeve boundary data and stuff into a similar hash of arrays, %sleeves.
 # read from that hash when sorting and outputting the inventory
+#
+# make a parallel hash, %scootchies, for the scootching dates:  saves pawing through
+# all arrays for those data in the arrays of %sleeves.
 
 
 open my $slv_fh, '<', $sleeve_file or die "sorry, can't open the sleeve_bdry file $sleeve_file\n"; 
@@ -101,7 +104,7 @@ while (<$slv_fh>) {
         if ( $_ =~ /^sleeve_bdry/ ) {
 
 		
-                my ($first_ma,$last_ma,$sleeve,$date,$time) = $_ =~ /sleeve_bdry\(\'(${num_gtype_re})\',\'(${num_gtype_re})\',(${sleeve_re}),\w+,(${prolog_date_re}),(${prolog_time_re})/;
+                my ($first_ma,$last_ma,$sleeve,$observer,$date,$time) = $_ =~ /sleeve_bdry\(\'(${num_gtype_re})\',\'(${num_gtype_re})\',(${sleeve_re}),(${observer_re}),(${prolog_date_re}),(${prolog_time_re})/;
 
 
 #                print "($first_ma,$last_ma,$sleeve,$date,$time)\n";
@@ -113,16 +116,21 @@ while (<$slv_fh>) {
 		
                 $frp =~ s/I/0/;
 		
-                my @last_ma = ($date,$time,$first_ma,$last_ma);
+#                my @last_ma = ($date,$time,$first_ma,$last_ma);
+                my @last_ma = ($first_ma,$last_ma);
 		
 		unshift @last_ma, $sleeve;
 		$sleeves{$fcropyr}{$fcroppart}{$fkey}{$frp} = [ @last_ma ];
+		$scootchies{$sleeve} = [ ($date,$time,$observer) ];
 	        }
         }
 
 
 
 # if ( $flag eq 'q' ) { print Dumper \%sleeves; }
+# if ( $flag eq 'q' ) { print Dumper \%scootchies; }
+
+
 
 
 
@@ -155,14 +163,15 @@ foreach my $elt (@grep_array) {
 #        print "$ma,$pa,$kernels,$date,$time,$sleeve     $inv_timestamp\n";
 
 
-        if ( !exists $current_inventory{$ma} ) {
+        if ( ( !exists $current_inventory{$ma} )
+	     && ( $kernels != 0 ) ) {
 		$current_inventory{$ma} = join("::",$inv_timestamp,$kernels,$sleeve,$pa,$date,$time);
 	        }
 	
         else {
                 my ($pinv_timestamp,$pkernels) = split(/::/,$current_inventory{$ma});    
-
-		if ( $inv_timestamp > $pinv_timestamp) {
+		
+		if ( $inv_timestamp > $pinv_timestamp ) {
 
 
 # a little lazy type-testing is needed to avoid Perl's coercing
@@ -257,17 +266,22 @@ foreach my $ma ( sort ( keys %current_inventory ) ) {
 	$sarp =~ s/I/0/;
 
 	my $sleeve = &ear_floor($macropyr,$macroppart,$makey,$sarp);
+        my ($sc_date,$sc_time,$observer) = @{$scootchies{$sleeve}};
+
+	my ($inv_timestamp,$kernels,$old_sleeve,$pa,$inv_date,$inv_time) = split("::",$current_inventory{$ma});
 
 
-#	print "$macropyr $macroppart $makey $marp $sarp $sleeve\n";	
 
 
 # stopped here
 
-	
-# sort scootchies into inventory order before output
+# sort the scootched into inventory order before output
 # output fact rewritten with sleeve and inventory date, time; append to inventory.pl	
-# $current_inventory{$ma} = join("::",$inv_timestamp,$kernels,$sleeve,$pa,$date,$time);
+	
+
+#	print "$ma $pa $kernels $sc_date $sc_time $observer $sleeve $old_sleeve \n";
+#
+# inventory('17R505:B0005119','17R4577:0009308',num_kernels(half),josh,date(21,7,2018),time(20,38,54),v00210).
 	
         }
 
@@ -290,7 +304,7 @@ foreach my $ma ( sort ( keys %current_inventory ) ) {
 
 
 
-############# subroutines; migrate to Typesetting ############
+############# subroutines; migrate to Typesetting? ############
 
 
 sub explode_num_gtype {
@@ -363,7 +377,7 @@ sub ear_floor {
 		my @famkeys;
 		
 		if ( $sleeve = $sleeves{$macropyr}{$macroppart}{$makey}{$marp}[0] ) {
-     	                return $sleeve;
+			return $sleeve;
 #			print "all: $sleeve\n";
 		        }
 	
@@ -390,8 +404,8 @@ sub ear_floor {
 	
                 else {
                         $sleeve = 'v99999';
-	 	        print "\n\ninput: ($macropyr,$macroppart,$makey,$marp)\n";
-			print "missing case\n";
+                        print "\n\ninput: ($macropyr,$macroppart,$makey,$marp)\n";	  		     
+ 			print "case missing in find_sleeve_starting_rp\n";
      	                return $sleeve;
 		        }	
 	        }
@@ -404,9 +418,6 @@ sub ear_floor {
 
 
 
-
-# ($key,$rp) = &find_sleeve_starting_famkey($marp,\@famkeys)
-#
 
 
 # different cases for famkey:
@@ -579,21 +590,13 @@ sub find_sleeve_starting_famkey {
 
 
 
-
-
-
-
-
-
-		
-
-# defer last cases until placement of crop improvement corn confirmed
+# looks like no more cases
 #
-# Kazic, 20.11.2018
+# Kazic, 22.11.2018
 		
 		else {
-#                        print "\n\ninput: ($macropyr,$macroppart,$makey,$marp)\n";	  		     
-# 			 print "finish case analysis\n";
+                        print "\n\ninput: ($macropyr,$macroppart,$makey,$marp)\n";	  		     
+ 			print "case missing in find_sleeve_starting_famkey\n";
 			return;
 		        }
 	        }
@@ -656,6 +659,12 @@ sub find_sleeve_starting_rp {
 	
 	else { return; }
         }
+
+
+
+
+
+
 
 
 
