@@ -7,6 +7,14 @@
 % Kazic, 14.7.2018    
 
 
+% Each sleeve should have one and only one boundary fact.  When a sleeve is re-read,
+% its earlier fact must be commented out.
+%
+% Kazic, 22.11.2018
+
+
+    
+
 % sleeve_bdry(FirstMaInSleeve,LastMaInSleeve,Sleeve,Observer,Date,Time).    
 
 
@@ -19,15 +27,23 @@
 % by data/data_conversion/convert_sleeve_bdry_data.perl
 % called from data/data_conversion/convert_data.perl
 
+
+% Sleeves that were re-read on {19,21}.11.2018 are commented out here.
+%
+% Kazic, 22.11.2018
+
+
+
+    
 sleeve_bdry('06R0001:0000108','06R0013:0001315',v00001,mason,date(05,06,2018),time(08,33,24)).
 sleeve_bdry('06R0014:0001403','06R0023:0002306',v00002,mason,date(05,06,2018),time(08,34,00)).
 sleeve_bdry('06R0023:0002311','06R0035:0003505',v00003,mason,date(05,06,2018),time(08,37,45)).
 sleeve_bdry('06R0035:0003513','06R0056:0005605',v00004,mason,date(05,06,2018),time(08,38,41)).
 sleeve_bdry('06R0057:0005705','06R0091:0009112',v00005,mason,date(05,06,2018),time(08,39,18)).
 sleeve_bdry('06R0094:0009401','06R200:S00I3712',v00006,mason,date(05,06,2018),time(08,41,38)).
-sleeve_bdry('06R200:S00I4002','06R300:W00I0509',v00007,mason,date(05,06,2018),time(08,41,55)).
-sleeve_bdry('06R300:W00I0514','06R300:W00I6005',v00008,mason,date(05,06,2018),time(08,42,10)).
-sleeve_bdry('06R300:W00I6008','06R400:M00I0607',v00009,mason,date(05,06,2018),time(08,44,10)).
+% sleeve_bdry('06R200:S00I4002','06R300:W00I0509',v00007,mason,date(05,06,2018),time(08,41,55)).
+% sleeve_bdry('06R300:W00I0514','06R300:W00I6005',v00008,mason,date(05,06,2018),time(08,42,10)).
+% sleeve_bdry('06R300:W00I6008','06R400:M00I0607',v00009,mason,date(05,06,2018),time(08,44,10)).
 sleeve_bdry('06R400:M00I0609','06R400:M00I7408',v00010,mason,date(05,06,2018),time(08,55,58)).
 sleeve_bdry('06R400:M00I7409','06N1049:0002707',v00011,mason,date(05,06,2018),time(08,56,21)).
 sleeve_bdry('06N1049:0002708','06N201:S0005007',v00012,mason,date(05,06,2018),time(08,56,47)).
@@ -135,15 +151,9 @@ sleeve_bdry('11N205:S0035503','11N205:S0037006',v00108,mason,date(05,06,2018),ti
 sleeve_bdry('11N205:S0037501','11N205:S0039005',v00109,mason,date(05,06,2018),time(16,49,37)).
 sleeve_bdry('11N205:S0039007','11N305:W0031112',v00110,mason,date(05,06,2018),time(16,49,52)).
 sleeve_bdry('11N305:W0031401','11N305:W0032911',v00111,mason,date(05,06,2018),time(16,50,18)).
-sleeve_bdry('11N305:W0033202','11N305:W0035305',v00112,mason,date(05,06,2018),time(16,51,31)).
-sleeve_bdry('11N305:W0035307','11N305:W0037105',v00113,mason,date(05,06,2018),time(16,51,50)).
-%
-% didn''t spot the missing digit in the next first_ma; supplied
-% from the inventory data for now
-%
-% Kazic, 16.7.2018
-%    
-sleeve_bdry('11N305:W0037106','11N305:W0039208',v00114,mason,date(05,06,2018),time(16,52,04)).
+% sleeve_bdry('11N305:W0033202','11N305:W0035305',v00112,mason,date(05,06,2018),time(16,51,31)).
+% sleeve_bdry('11N305:W0035307','11N305:W0037105',v00113,mason,date(05,06,2018),time(16,51,50)).
+% sleeve_bdry('11N305:W0037106','11N305:W0039208',v00114,mason,date(05,06,2018),time(16,52,04)).
 sleeve_bdry('11N305:W0039209','11N305:W0041007',v00115,mason,date(05,06,2018),time(16,52,16)).
 sleeve_bdry('11N305:W0041008','11N405:M0032101',v00116,mason,date(05,06,2018),time(16,52,30)).
 sleeve_bdry('11N405:M0032104','11N405:M0034009',v00117,mason,date(05,06,2018),time(16,52,41)).
@@ -159,57 +169,61 @@ sleeve_bdry('12R205:S0010917','12R305:W0000813',v00126,mason,date(05,06,2018),ti
 sleeve_bdry('12R305:W0001101','12R305:W0003808',v00127,mason,date(05,06,2018),time(17,29,25)).
 sleeve_bdry('12R305:W0003814','12R305:W0011606',v00128,mason,date(05,06,2018),time(17,29,47)).
 sleeve_bdry('12R305:W0011607','12R405:M0008214',v00129,mason,date(05,06,2018),time(17,30,00)).
-sleeve_bdry('12R405:M0008703','12R405:M0011712',v00130,mason,date(05,06,2018),time(17,33,10)).
-sleeve_bdry('12R503:B0011810','12R599:B0131126',v00131,mason,date(05,06,2018),time(17,33,25)).
-sleeve_bdry('12R599:B0131127','12R0981:0058409',v00132,mason,date(05,06,2018),time(17,33,39)).
-sleeve_bdry('12R0981:0058411','12R0989:0059205',v00133,mason,date(05,06,2018),time(17,47,03)).
-sleeve_bdry('12N3890:0004902','12N3563:0009509',v00134,mason,date(05,06,2018),time(17,47,18)).
-sleeve_bdry('12N3564:0009601','12N3946:0017105',v00135,mason,date(05,06,2018),time(17,48,04)).
-sleeve_bdry('12N3946:0017106','12N3980:0022802',v00136,mason,date(05,06,2018),time(17,48,16)).
-%
-% these next two facts conflict: check seed
-%
-% Kazic, 14.12.2018
-%
-sleeve_bdry('12N3980:0022803','12N658:W0035209',v00137,mason,date(05,06,2018),time(17,48,39)).
-sleeve_bdry('12N661:M0035304','12N658:W0035209',v00138,mason,date(05,06,2018),time(17,48,55)).
-%
-sleeve_bdry('12N205:S0036702','12N205:S0037913',v00139,mason,date(05,06,2018),time(17,50,33)).
-sleeve_bdry('12N205:S0038201','12N305:W0035912',v00140,mason,date(05,06,2018),time(17,50,46)).
-sleeve_bdry('12N305:W0036201','12N305:W0038304',v00141,mason,date(05,06,2018),time(17,51,03)).
-sleeve_bdry('12N305:W0038305','12N405:M0036601',v00142,mason,date(05,06,2018),time(17,53,50)).
-sleeve_bdry('12N405:M0036603','12N405:M0039309',v00143,mason,date(05,06,2018),time(17,54,03)).
-sleeve_bdry('12N405:M0039401','12N504:B0039804',v00144,mason,date(05,06,2018),time(17,54,15)).
-sleeve_bdry('12N504:B0039805','12N504:B0040506',v00145,mason,date(05,06,2018),time(18,19,55)).
-sleeve_bdry('12N504:B0040508','12N504:B0043008',v00146,mason,date(05,06,2018),time(18,20,11)).
-sleeve_bdry('13R3556:0003802','13R3590:0006306',v00147,mason,date(05,06,2018),time(18,20,26)).
-sleeve_bdry('13R4195:0006403','13R3975:0007507',v00148,mason,date(05,06,2018),time(18,25,02)).
-sleeve_bdry('13R3975:0007509','13R4023:0009208',v00149,mason,date(05,06,2018),time(18,25,17)).
-sleeve_bdry('13R3460:0009303','13R4107:0011001',v00150,mason,date(05,06,2018),time(18,25,35)).
-sleeve_bdry('13R4107:0011003','13R4117:B013214',v00151,mason,date(05,06,2018),time(18,26,46)).
-sleeve_bdry('13R4118:B013301','13R4061:0014308',v00152,mason,date(05,06,2018),time(18,27,01)).
-sleeve_bdry('13R4062:0014403','13R3896:0015202',v00153,mason,date(05,06,2018),time(18,27,14)).
-sleeve_bdry('13R3896:0015205','13R4129:0016213',v00154,mason,date(05,06,2018),time(18,29,59)).
-sleeve_bdry('13R4130:0016302','13R4136:0016909',v00155,mason,date(05,06,2018),time(18,30,13)).
-sleeve_bdry('13R205:S0000102','13R305:W0001002',v00156,mason,date(05,06,2018),time(18,30,25)).
-sleeve_bdry('13R305:W0001101','13R504:B0003303',v00157,mason,date(05,06,2018),time(18,40,43)).
-sleeve_bdry('13R504:B0003305','14R3571:0008609',v00158,mason,date(05,06,2018),time(18,40,55)).
-sleeve_bdry('14R3571:0008610','14R4086:0010111',v00159,mason,date(05,06,2018),time(18,41,09)).
-sleeve_bdry('14R4086:0010114','14R4260:0011120',v00160,mason,date(05,06,2018),time(18,50,34)).
-sleeve_bdry('14R3962:0011203','14R4089:0011612',v00161,mason,date(05,06,2018),time(18,50,48)).
-sleeve_bdry('14R4090:0011701','14R4092:0012212',v00162,mason,date(05,06,2018),time(18,51,01)).
-sleeve_bdry('14R3616:0012302','14R4000:0012914',v00163,mason,date(05,06,2018),time(18,51,45)).
-sleeve_bdry('14R4002:0013002','14R4097:0013712',v00164,mason,date(05,06,2018),time(18,52,20)).
-sleeve_bdry('14R4098:0013808','14R4100:0014217',v00165,mason,date(05,06,2018),time(18,53,52)).
-sleeve_bdry('14R3647:0014302','14R3656:0014819',v00166,mason,date(05,06,2018),time(18,54,34)).
-sleeve_bdry('14R4269:0015001','14R1666:0015706',v00167,mason,date(05,06,2018),time(18,54,48)).
-sleeve_bdry('14R1898:0015805','14R4201:0016413',v00168,mason,date(05,06,2018),time(18,55,00)).
-sleeve_bdry('14R0193:0027903','14R205:S0000307',v00169,mason,date(05,06,2018),time(18,55,40)).
-sleeve_bdry('14R205:S0000308','14R205:S0000617',v00170,mason,date(05,06,2018),time(18,55,57)).
-sleeve_bdry('14R205:S0002616','14R305:W0000814',v00171,mason,date(05,06,2018),time(18,56,12)).
-sleeve_bdry('14R305:W0000901','14R305:W0001016',v00172,mason,date(05,06,2018),time(18,56,50)).
-sleeve_bdry('14R305:W0002901','14R405:M0001310',v00173,mason,date(05,06,2018),time(18,57,04)).
-sleeve_bdry('14R405:M0001311','14R405:M0001705',v00174,mason,date(05,06,2018),time(18,57,19)).
+% sleeve_bdry('12R405:M0008703','12R405:M0011712',v00130,mason,date(05,06,2018),time(17,33,10)).
+% sleeve_bdry('12R503:B0011810','12R599:B0131126',v00131,mason,date(05,06,2018),time(17,33,25)).
+% sleeve_bdry('12R599:B0131127','12R0981:0058409',v00132,mason,date(05,06,2018),time(17,33,39)).
+% sleeve_bdry('12R0981:0058411','12R0989:0059205',v00133,mason,date(05,06,2018),time(17,47,03)).
+% sleeve_bdry('12N3890:0004902','12N3563:0009509',v00134,mason,date(05,06,2018),time(17,47,18)).
+% sleeve_bdry('12N3564:0009601','12N3946:0017105',v00135,mason,date(05,06,2018),time(17,48,04)).
+% sleeve_bdry('12N3946:0017106','12N3980:0022802',v00136,mason,date(05,06,2018),time(17,48,16)).
+% %
+% % these next two facts conflict: check seed
+% %
+% % Kazic, 14.12.2018
+% %
+% % corrected per new data, which will be recompiled as the patch is incorrect from v00139 onwards
+% %
+% % Kazic, 20.11.2018
+% %
+% sleeve_bdry('12N3980:0022803','12N205:S0035801',v00137,mason,date(05,06,2018),time(17,48,39)).
+% sleeve_bdry('12N205:S0035803','12N205:S0037305',v00138,mason,date(05,06,2018),time(17,48,55)).
+% %
+% sleeve_bdry('12N205:S0037306','12N205:S0037913',v00139,mason,date(05,06,2018),time(17,50,33)).
+% sleeve_bdry('12N205:S0038201','12N305:W0035912',v00140,mason,date(05,06,2018),time(17,50,46)).
+% sleeve_bdry('12N305:W0036201','12N305:W0038304',v00141,mason,date(05,06,2018),time(17,51,03)).
+% sleeve_bdry('12N305:W0038305','12N405:M0036601',v00142,mason,date(05,06,2018),time(17,53,50)).
+% sleeve_bdry('12N405:M0036603','12N405:M0039309',v00143,mason,date(05,06,2018),time(17,54,03)).
+% sleeve_bdry('12N405:M0039401','12N504:B0039804',v00144,mason,date(05,06,2018),time(17,54,15)).
+% sleeve_bdry('12N504:B0039805','12N504:B0040506',v00145,mason,date(05,06,2018),time(18,19,55)).
+% sleeve_bdry('12N504:B0040508','12N504:B0043008',v00146,mason,date(05,06,2018),time(18,20,11)).
+% sleeve_bdry('13R3556:0003802','13R3590:0006306',v00147,mason,date(05,06,2018),time(18,20,26)).
+% sleeve_bdry('13R4195:0006403','13R3975:0007507',v00148,mason,date(05,06,2018),time(18,25,02)).
+% sleeve_bdry('13R3975:0007509','13R4023:0009208',v00149,mason,date(05,06,2018),time(18,25,17)).
+% sleeve_bdry('13R3460:0009303','13R4107:0011001',v00150,mason,date(05,06,2018),time(18,25,35)).
+% sleeve_bdry('13R4107:0011003','13R4117:B013214',v00151,mason,date(05,06,2018),time(18,26,46)).
+% sleeve_bdry('13R4118:B013301','13R4061:0014308',v00152,mason,date(05,06,2018),time(18,27,01)).
+% sleeve_bdry('13R4062:0014403','13R3896:0015202',v00153,mason,date(05,06,2018),time(18,27,14)).
+% sleeve_bdry('13R3896:0015205','13R4129:0016213',v00154,mason,date(05,06,2018),time(18,29,59)).
+% sleeve_bdry('13R4130:0016302','13R4136:0016909',v00155,mason,date(05,06,2018),time(18,30,13)).
+% sleeve_bdry('13R205:S0000102','13R305:W0001002',v00156,mason,date(05,06,2018),time(18,30,25)).
+% sleeve_bdry('13R305:W0001101','13R504:B0003303',v00157,mason,date(05,06,2018),time(18,40,43)).
+% sleeve_bdry('13R504:B0003305','14R3571:0008609',v00158,mason,date(05,06,2018),time(18,40,55)).
+% sleeve_bdry('14R3571:0008610','14R4086:0010111',v00159,mason,date(05,06,2018),time(18,41,09)).
+% sleeve_bdry('14R4086:0010114','14R4260:0011120',v00160,mason,date(05,06,2018),time(18,50,34)).
+% sleeve_bdry('14R3962:0011203','14R4089:0011612',v00161,mason,date(05,06,2018),time(18,50,48)).
+% sleeve_bdry('14R4090:0011701','14R4092:0012212',v00162,mason,date(05,06,2018),time(18,51,01)).
+% sleeve_bdry('14R3616:0012302','14R4000:0012914',v00163,mason,date(05,06,2018),time(18,51,45)).
+% sleeve_bdry('14R4002:0013002','14R4097:0013712',v00164,mason,date(05,06,2018),time(18,52,20)).
+% sleeve_bdry('14R4098:0013808','14R4100:0014217',v00165,mason,date(05,06,2018),time(18,53,52)).
+% sleeve_bdry('14R3647:0014302','14R3656:0014819',v00166,mason,date(05,06,2018),time(18,54,34)).
+% sleeve_bdry('14R4269:0015001','14R1666:0015706',v00167,mason,date(05,06,2018),time(18,54,48)).
+% sleeve_bdry('14R1898:0015805','14R4201:0016413',v00168,mason,date(05,06,2018),time(18,55,00)).
+% sleeve_bdry('14R0193:0027903','14R205:S0000307',v00169,mason,date(05,06,2018),time(18,55,40)).
+% sleeve_bdry('14R205:S0000308','14R205:S0000617',v00170,mason,date(05,06,2018),time(18,55,57)).
+% sleeve_bdry('14R205:S0002616','14R305:W0000814',v00171,mason,date(05,06,2018),time(18,56,12)).
+% sleeve_bdry('14R305:W0000901','14R305:W0001016',v00172,mason,date(05,06,2018),time(18,56,50)).
+% sleeve_bdry('14R305:W0002901','14R405:M0001310',v00173,mason,date(05,06,2018),time(18,57,04)).
+% sleeve_bdry('14R405:M0001311','14R405:M0001705',v00174,mason,date(05,06,2018),time(18,57,19)).
 sleeve_bdry('14R405:M0001706','14R505:B0002104',v00175,mason,date(15,06,2018),time(15,19,20)).
 sleeve_bdry('14R505:B0002106','15R4337:0006302',v00176,mason,date(15,06,2018),time(15,19,45)).
 sleeve_bdry('15R4337:0006305','15R4344:0007306',v00177,mason,date(15,06,2018),time(15,21,02)).
@@ -246,3 +260,69 @@ sleeve_bdry('17R305:W0003920','17R405:M0002309',v00207,mason,date(18,06,2018),ti
 sleeve_bdry('17R405:M0002310','17R405:M0004705',v00208,mason,date(18,06,2018),time(14,44,36)).
 sleeve_bdry('17R405:M0004706','17R505:B0003014',v00209,mason,date(18,06,2018),time(14,44,53)).
 sleeve_bdry('17R505:B0003017','17R505:B0005119',v00210,mason,date(18,06,2018),time(14,45,10)).
+
+
+
+
+% data added from ../../data../palm/raw_data_from_palms/18r/eta/21.11/sleeve_bdry.csv on Thu Nov 22 05:20:57 CST 2018
+% by data/data_conversion/convert_sleeve_bdry_data.perl
+% called from data/data_conversion/convert_data.perl
+%
+%
+% This batch incorporates the extra sleeves that were read on 19.11.2018.
+%
+% Kazic, 22.11.2018
+
+
+    
+sleeve_bdry('06R200:S00I4806','06R300:W000I219',v00007,toni,date(19,11,2018),time(15,09,12)).
+sleeve_bdry('06R300:W00I0514','06R300:W00I6005',v00008,toni,date(19,11,2018),time(15,09,38)).
+sleeve_bdry('06R300:W00I6008','06R400:M00I0607',v00009,toni,date(19,11,2018),time(15,10,05)).
+sleeve_bdry('11N305:W0033202','11N305:W0035305',v00112,toni,date(19,11,2018),time(15,11,41)).
+sleeve_bdry('11N305:W0035307','11N305:W0037105',v00113,toni,date(19,11,2018),time(15,12,57)).
+sleeve_bdry('11N305:W0037106','11N305:W0039208',v00114,toni,date(19,11,2018),time(15,13,16)).
+sleeve_bdry('12R405:M0008703','12R405:M0011712',v00130,toni,date(19,11,2018),time(15,35,08)).
+sleeve_bdry('12R503:B0011810','12R599:B0131126',v00131,toni,date(19,11,2018),time(15,35,31)).
+sleeve_bdry('12R599:B0131127','12R981:P0058409',v00132,toni,date(19,11,2018),time(15,36,05)).
+sleeve_bdry('12R0981:0058411','12R0989:0059205',v00133,toni,date(21,11,2018),time(15,57,23)).
+sleeve_bdry('12N3890:0004902','12N3563:0009509',v00134,toni,date(21,11,2018),time(15,57,41)).
+sleeve_bdry('12N3564:0009601','12N3946:0017105',v00135,toni,date(21,11,2018),time(15,57,53)).
+sleeve_bdry('12N3946:0017106','12N3980:0022802',v00136,toni,date(21,11,2018),time(15,58,05)).
+sleeve_bdry('12N3980:0022803','12N205:S0035801',v00137,toni,date(21,11,2018),time(15,58,16)).
+sleeve_bdry('12N205:S0035803','12N205:S0037305',v00138,toni,date(21,11,2018),time(15,58,30)).
+sleeve_bdry('12N205:S0037306','12N205:S0039110',v00139,toni,date(21,11,2018),time(16,07,24)).
+sleeve_bdry('12N205:S0041303','12N305:W0037109',v00140,toni,date(21,11,2018),time(16,07,37)).
+sleeve_bdry('12N305:W0037407','12N305:W0041406',v00141,toni,date(21,11,2018),time(16,07,50)).
+sleeve_bdry('12N305:W0041407','12N405:M0038402',v00142,toni,date(21,11,2018),time(16,08,19)).
+sleeve_bdry('12N405:M0038403','12N405:M0039610',v00143,toni,date(21,11,2018),time(16,08,33)).
+sleeve_bdry('12N405:M0039611','12N504:B0040105',v00144,toni,date(21,11,2018),time(16,08,46)).
+sleeve_bdry('12N504:B0040107','12N504:B0040713',v00145,toni,date(21,11,2018),time(16,09,18)).
+sleeve_bdry('12N504:B0040801','12N661:M0035307',v00146,toni,date(21,11,2018),time(16,09,41)).
+sleeve_bdry('13R3556:0003802','13R3590:0006306',v00147,toni,date(21,11,2018),time(16,10,04)).
+sleeve_bdry('13R4195:0006402','13R3975:0007507',v00148,toni,date(21,11,2018),time(16,11,32)).
+sleeve_bdry('13R3975:0007509','13R4023:0009208',v00149,toni,date(21,11,2018),time(16,11,43)).
+sleeve_bdry('13R3460:0009303','13R4107:0011001',v00150,toni,date(21,11,2018),time(16,11,57)).
+sleeve_bdry('13R4107:0011003','13R4117:B013214',v00151,toni,date(21,11,2018),time(16,26,22)).
+sleeve_bdry('13R4118:S013301','13R4061:0014308',v00152,toni,date(21,11,2018),time(16,26,33)).
+sleeve_bdry('13R4062:0014403','13R3896:0015202',v00153,toni,date(21,11,2018),time(16,26,45)).
+sleeve_bdry('13R3896:0015205','13R4129:0016213',v00154,toni,date(21,11,2018),time(16,27,05)).
+sleeve_bdry('13R4130:0016302','13R4136:0016909',v00155,toni,date(21,11,2018),time(16,27,17)).
+sleeve_bdry('13R205:S0000102','13R305:W0001002',v00156,toni,date(21,11,2018),time(16,27,32)).
+sleeve_bdry('13R305:W0001101','13R504:B0003303',v00157,toni,date(21,11,2018),time(16,27,47)).
+sleeve_bdry('13R504:B0003304','14R3571:0008609',v00158,toni,date(21,11,2018),time(16,28,02)).
+sleeve_bdry('14R3571:0008610','14R4086:0010111',v00159,toni,date(21,11,2018),time(16,28,20)).
+sleeve_bdry('14R4086:0010114','14R4260:0011120',v00160,toni,date(21,11,2018),time(16,29,15)).
+sleeve_bdry('14R3962:0011203','14R4089:0011612',v00161,toni,date(21,11,2018),time(16,29,29)).
+sleeve_bdry('14R4090:0011701','14R4092:0012212',v00162,toni,date(21,11,2018),time(16,29,42)).
+sleeve_bdry('14R3616:0012302','14R4000:0012907',v00163,toni,date(21,11,2018),time(16,30,02)).
+sleeve_bdry('14R4002:0013002','14R4097:0013710',v00164,toni,date(21,11,2018),time(16,34,53)).
+sleeve_bdry('14R4098:0013808','14R4100:0014217',v00165,toni,date(21,11,2018),time(16,35,09)).
+sleeve_bdry('14R3647:0014302','14R3656:0014819',v00166,toni,date(21,11,2018),time(16,35,26)).
+sleeve_bdry('14R4269:0015001','14R1666:0015706',v00167,toni,date(21,11,2018),time(16,35,49)).
+sleeve_bdry('14R1898:0015805','14R4201:0016413',v00168,toni,date(21,11,2018),time(16,36,01)).
+sleeve_bdry('14R0193:0027903','14R205:S0000307',v00169,toni,date(21,11,2018),time(16,36,36)).
+sleeve_bdry('14R205:S0000308','14R205:S0000615',v00170,toni,date(21,11,2018),time(16,36,55)).
+sleeve_bdry('14R205:S0000616','14R305:W0000814',v00171,toni,date(21,11,2018),time(16,37,22)).
+sleeve_bdry('14R305:W0000901','14R305:W0001016',v00172,toni,date(21,11,2018),time(16,37,35)).
+sleeve_bdry('14R305:W0002901','14R405:M0001310',v00173,toni,date(21,11,2018),time(16,37,47)).
+sleeve_bdry('14R405:M0001311','14R405:M0001705',v00174,toni,date(21,11,2018),time(16,38,04)).

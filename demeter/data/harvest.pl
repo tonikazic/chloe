@@ -7919,3 +7919,76 @@ harvest('17R505:B0005116','17R4085:0007109',succeeded,'three_quarter',josh,date(
 harvest('17R505:B0005117','17R4577:0009308',succeeded,'half',josh,date(24,09,2017),time(12,00,00)).
 harvest('17R505:B0005118','17R4577:0009308',succeeded,'half',josh,date(24,09,2017),time(12,00,00)).
 harvest('17R505:B0005119','17R4577:0009308',succeeded,'half',josh,date(24,09,2017),time(12,00,00)).
+
+
+
+
+
+
+
+
+
+    
+% 18r
+
+
+
+
+
+
+
+% data added from ../../data../palm/raw_data_from_palms/18r/eta/21.11/harvest.csv on Thu Nov 22 05:20:56 CST 2018
+% by data/data_conversion/convert_harvest_data.perl
+% called from data/data_conversion/convert_data.perl
+
+harvest('18R405:M0004312','18R4680:0016708',failed,'old ear; 1 cl',toni,date(22,09,2018),time(15,28,13)).
+harvest('18R405:M0004311','18R4698:0022208',failed,'1 cl',toni,date(22,09,2018),time(15,28,13)).
+harvest('18R405:M0004013','18R4625:0029202',failed,'13 cl',toni,date(22,09,2018),time(14,45,26)).
+harvest('18R405:M0003707','18R3998:0025409',failed,'15 cl',toni,date(22,09,2018),time(14,30,07)).
+harvest('18R305:W0002005','18R1563:0024812',failed,'0 cl',toni,date(22,09,2018),time(12,11,52)).
+harvest('18R4668:0013109','18R4668:0013109',failed,'0 cl',toni,date(22,09,2018),time(11,14,39)).
+harvest('18R4436:0013910','18R4436:0013910',failed,'3 cl',toni,date(22,09,2018),time(10,59,01)).
+harvest('18R4436:0013909','18R4436:0013909',failed,'0 cl',toni,date(22,09,2018),time(10,59,01)).
+harvest('18R205:S0001406','18R4745:0027903',failed,'9 cl',toni,date(21,09,2018),time(18,15,25)).
+harvest('18R205:S0001213','18R2433:0024102',failed,'5 cl',toni,date(21,09,2018),time(17,38,20)).
+harvest('18R205:S0001209','18R4505:0025311',failed,'9 cl',toni,date(21,09,2018),time(17,38,20)).
+harvest('18R4106:0009018','18R4106:0009018',failed,'0 cl',toni,date(20,09,2018),time(16,23,07)).
+harvest('18R4106:0009017','18R4106:0009017',failed,'0 cl',toni,date(20,09,2018),time(16,23,07)).
+harvest('18R4650:0009102','18R4650:0009109',failed,'21 cl',toni,date(20,09,2018),time(16,16,49)).
+harvest('18R4651:0009208','18R4651:0009203',failed,'8 cl',toni,date(20,09,2018),time(16,09,20)).
+harvest('18R4688:0021001','18R4688:0021001',failed,'0 cl',toni,date(19,09,2018),time(18,27,47)).
+harvest('18R505:B0006017','18R4260:0008917',failed,'0 cl',toni,date(22,09,2018),time(18,25,13)).
+harvest('18R505:B0006010','18R4651:0009209',failed,'4 cl',toni,date(22,09,2018),time(18,25,13)).
+harvest('18R505:B0006009','18R4651:0009203',failed,'10 cl',toni,date(22,09,2018),time(18,25,13)).
+harvest('18R505:B0005916','18R4649:0008612',failed,'2 cl',toni,date(22,09,2018),time(18,12,50)).
+harvest('18R505:B0005913','18R4226:0008308',failed,'3 cl',toni,date(22,09,2018),time(18,12,50)).
+harvest('18R405:M0004903','18R4728:0029703',failed,'8 cl',toni,date(22,09,2018),time(16,58,25)).
+harvest('18R405:M0004804','18R4698:0029009',failed,'10 cl',toni,date(22,09,2018),time(16,49,31)).
+harvest('18R405:M0004701','18R4725:0027408',failed,'0 cl',toni,date(22,09,2018),time(16,39,37)).
+harvest('18R405:M0004608','18R4716:0026210',failed,'7 cl',toni,date(22,09,2018),time(16,31,22)).
+harvest('18R405:M0004508','18R4716:0026210',failed,'0 cl',toni,date(22,09,2018),time(16,20,44)).
+harvest('18R405:M0004501','18R4684:0017908',failed,'5 cl',toni,date(22,09,2018),time(16,20,44)).
+harvest('18R405:M0004313','18R4698:0029007',failed,'0 cl',toni,date(22,09,2018),time(15,28,13)).
+harvest('18R405:M0004408','18R4680:0016708',failed,'very low pollen; 11 cl',toni,date(22,09,2018),time(16,11,06)).
+harvest('18R505:B0005906','18R4440:0008104',failed,'second ear; discarded; whole',toni,date(22,09,2018),time(18,12,50)).
+harvest('18R505:B0005903','18R4440:0008104',failed,'feminized tassel; discarded; quarter',toni,date(22,09,2018),time(18,12,50)).
+harvest('18R505:B0005715','18R4654:0009710',failed,'poor female tassel; discarded; whole',toni,date(22,09,2018),time(17,44,10)).
+harvest('18R505:B0006001','18R4106:0009017',failed,'very low pollen; 12 cl',toni,date(22,09,2018),time(18,25,13)).
+harvest('18R505:B0006306','18R4649:0008612',failed,'pulled ear; bad female tassel; sixteenth',toni,date(22,09,2018),time(18,58,31)).
+harvest('18R505:B0006216','18R4659:0010406',failed,'pulled ear; 5 cl',toni,date(22,09,2018),time(18,48,23)).
+harvest('18R505:B0006207','18R4555:0011902',failed,'pulled ear; 11 cl',toni,date(22,09,2018),time(18,48,23)).
+harvest('18R505:B0006115','18R4442:0012804',failed,'old ear; 24 cl; fungus',toni,date(22,09,2018),time(18,40,11)).
+harvest('18R505:B0006114','18R4438:0012401',failed,'pulled ear; 2 cl',toni,date(22,09,2018),time(18,40,11)).
+harvest('18R505:B0006102','18R4106:0009018',failed,'very low pollen; 11 cl',toni,date(22,09,2018),time(18,40,11)).
+harvest('18R4659:0010413','18R4659:0010406',failed,'misbagged; discarded; whole',toni,date(20,09,2018),time(15,11,47)).
+harvest('18R4665:0011620','18R4665:0011620',failed,'uncut ear; long silks; 5 cl; fungus',toni,date(20,09,2018),time(14,12,37)).
+harvest('18R4689:0021203','18R4689:0021203',failed,'pulled ear;sdisc; eighth; fungus',toni,date(19,09,2018),time(18,33,52)).
+harvest('18R4656:0009901','18R4656:0009907',failed,'very low pollen; 1 cl',toni,date(20,09,2018),time(15,28,36)).
+harvest('18R4492:0008812','18R4492:0008812',failed,'few silks; 0 cl',toni,date(20,09,2018),time(16,48,07)).
+harvest('18R4492:0008816','18R4492:0008816',failed,'very few silks; 0 cl',toni,date(20,09,2018),time(16,48,07)).
+harvest('18R4441:0008707','18R4441:0008717',failed,'wild type; discarded; whole',toni,date(20,09,2018),time(16,59,58)).
+harvest('18R4440:0008102','18R4440:0008102',failed,'feminized tassel; discarded ; half',toni,date(20,09,2018),time(17,38,26)).
+harvest('18R205:S0000410','18R4675:0015317',failed,'very low pollen; 4 cl',toni,date(21,09,2018),time(16,58,59)).
+harvest('18R205:S0001108','18R4676:0015508',failed,'very low pollen; old ear; 0 cl',toni,date(21,09,2018),time(17,24,35)).
+harvest('18R205:S0001603','18R2433:0024103',failed,'very low pollen; 4 cl',toni,date(21,09,2018),time(18,39,17)).
+harvest('18R305:W0002110','18R4695:0021913',failed,'low pollen; 0 cl',toni,date(22,09,2018),time(12,30,23)).
