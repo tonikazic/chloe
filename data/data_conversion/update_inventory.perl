@@ -26,6 +26,13 @@
 # Kazic, 19.7.2018
 
 
+# Now that I've written scootch_sleeve_bdries.perl, this script and
+# that should be refactored together!  Maybe someday.
+#
+# Kazic, 23.11.2018
+
+
+
 
 # call is perl ./update_inventory.perl CROP FLAG
 #
@@ -282,8 +289,7 @@ if ( $flag eq 'go' ) {
 foreach my $inv_cropyr ( sort keys %inventory ) {
 
     
-# reversing sort should produce R, N, G if just year is supplied in initial call
-# untested
+# reversing sort produces R, N, G if just year is supplied in initial call
 #
 # Kazic, 16.7.2018
     
