@@ -18,6 +18,16 @@
 
 
 
+# Now that I've written it, this script and update_inventory.perl should be
+# refactored together!  Maybe someday.
+#
+# Kazic, 23.11.2018
+
+
+
+
+
+
 # call is perl ./update_inventory.perl FLAG
 #
 # where FLAG is one of {go,q,test}.
@@ -68,9 +78,9 @@ my ($year,$month,$day,$hour,$min,$sec) = Today_and_Now();
 
 my %current_inventory;
 my %inventory;
-my $out;
 my %sleeves;
 my %scootchies;
+my %new_inventory;
 
 
 
@@ -81,6 +91,7 @@ my %scootchies;
 
 open my $inv_fh, '<', $inventory_file or die "sorry, can't open the inventory file $inventory_file\n"; 
 my @grep_array = grep { $_ !~ /\%/ && $_ =~ /^inventory/ } <$inv_fh> ;
+# my @grep_array =  <$inv_fh> ;
 
 # foreach my $elt (@grep_array) { print "$elt"; } 
 
@@ -271,18 +282,27 @@ foreach my $ma ( sort ( keys %current_inventory ) ) {
 	my ($inv_timestamp,$kernels,$old_sleeve,$pa,$inv_date,$inv_time) = split("::",$current_inventory{$ma});
 
 
-
-
-# stopped here
-
-# sort the scootched into inventory order before output
-# output fact rewritten with sleeve and inventory date, time; append to inventory.pl	
-	
+        $new_inventory{$macropyr}{$macroppart}{$makey}{$sarp} = [ ($ma,$pa,$kernels,$sc_date,$sc_time,$observer,$sleeve) ];
 
 #	print "$ma $pa $kernels $sc_date $sc_time $observer $sleeve $old_sleeve \n";
-#
-# inventory('17R505:B0005119','17R4577:0009308',num_kernels(half),josh,date(21,7,2018),time(20,38,54),v00210).
-	
+        }
+
+
+# if ( $flag eq 'q' ) { print Dumper \%new_inventory; }
+
+
+
+
+
+
+
+# aliasing of STDOUT to file handle from
+# https://stackoverflow.com/questions/16060919/alias-file-handle-to-stdout-in-perl
+
+my $outfh;
+if ( $flag eq 'test' ) { $outfh = *STDOUT; }
+elsif ( $flag eq 'go' ) {
+	open $outfh, '>>', $inventory_file or die "sorry, can't open the output file $inventory_file\n";
         }
 
 
@@ -290,6 +310,57 @@ foreach my $ma ( sort ( keys %current_inventory ) ) {
 
 
 
+# not sure if I want to comment out previous facts or not
+# can read whole file into @grep_array; must tweak regex for the inventory
+# facts if so
+#
+# make sure previously commented out inventory facts get an extra comment,
+# otherwise this is pretty irreversible
+#
+# other possibilities are more elaborate, like sticking the new data at the
+# top of the file.
+#
+# Kazic, 23.11.2018
+
+
+print $outfh "\n\n\n\n% these are the scootched inventory facts computed by\n% scootch_sleeve_bdries.perl on $today\n% using the current version of the\n% $sleeve_file data.\n\n";
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# sort the scootched into inventory order before output
+# output fact rewritten with sleeve and inventory date, time; append to inventory.pl	
+#
+# direct crib from update_inventory.perl!
+
+foreach my $macropyr ( sort keys %new_inventory ) {
+    
+        foreach my $macroppart ( sort { $b cmp $a } keys %{ $new_inventory{$macropyr} } ) {
+                foreach my $makey ( sort keys %{ $new_inventory{$macropyr}{$macroppart} } ) {
+                        foreach my $sarp ( sort keys %{ $new_inventory{$macropyr}{$macroppart}{$makey} } ) {
+		
+                                my ($ma,$pa,$kernels,$sc_date,$sc_time,$observer,$sleeve) = @{$new_inventory{$macropyr}{$macroppart}{$makey}{$sarp}};
+
+				my $fact = "inventory('" . $ma . "','" . $pa . "',num_kernels(" . $kernels . ")," . $observer . "," . $sc_date . "," . $sc_time . "," . $sleeve . ").";
+		
+                                if ( $flag eq 'q' ) { }  # do nothing
+                                elsif ( ( $flag eq 'test' ) || ( $flag eq 'go' ) ) { print $outfh "$fact\n"}
+			        }
+		        }
+                }
+        }
 
 
 
@@ -344,7 +415,7 @@ sub explode_num_gtype {
 #
 #
 #
-# numerical tests on strings should succeed:
+# numerical tests on strings should (and does) succeed:
 # https://perlmaven.com/scalar-variables
 #
 # https://stackoverflow.com/questions/3700069/how-can-i-check-if-a-key-exists-in-a-deep-perl-hash
