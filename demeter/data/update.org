@@ -26,7 +26,10 @@ bash-3.2$ grep -v '%' *.pl | grep -v old | grep -v safe | grep -v backlog | wc
 
 * table
 
-all 16r data entered <2018-04-24 Tue>
+   + all 16r data entered <2018-04-24 Tue>
+   + all 17r data entered <2018-05-18 Fri>
+   + all 18r field data entered by <2018-09-23 Sun>, must still shell and
+     file 18r corn
 
 
 
@@ -42,11 +45,12 @@ all 16r data entered <2018-04-24 Tue>
 | first_extra_tag    | incorporate data into row_status and retire             |               |
 | gene_type          | bring up to date                                        |               |
 | genotype           | bring up to date                                        | <2018-05-20 Sun> |
-| harvest            | add 16r, 17r data; find missing 17r data                | <2018-05-18 Fri> |
+| harvest            | add 16r, 17r data, including 17r data boys lost         | <2018-05-18 Fri> |
+|                    | add 18r data from shelling crop                         |               |
 | idea               | incorporate into crop notes org file                    |               |
 | image              | add 16r, 17r data; cross-check with images and tissue   | <2018-04-26 Thu> |
 | inbred_pool        | hunt for M14, more recent B73 records and add           |               |
-| inventory          | add 16r, 17r facts                                      | <2018-05-18 Fri> |
+| inventory          | add 16r, 17r facts, scootched bdries                    | <2018-11-24 Sat> |
 | later_plantings    | merge into packing_plan?                                |               |
 | leaf_alignmt       | add 15r, 16r, 17r data if they exist                    | <2018-11-12 Mon> |
 | mutant             | add 16r, 17r data                                       | <2018-04-26 Thu> |
@@ -68,6 +72,7 @@ all 16r data entered <2018-04-24 Tue>
 | row_status         | add 17r                                                 | <2018-04-21 Sat> |
 | sec_in_days        | discard,  merge with num_secs                           | <2018-04-26 Thu> |
 | source             | bring up to date                                        |               |
+| sleeve_bdry        | bring up to date                                        | <2018-11-22 Thu> |
 | tassel             | insert 11n data                                         | <2018-04-29 Sun> |
 | tissue_collectn    | add 16r, 17r data; cross-check with image               | <2018-04-26 Thu> |
 | tissue_sampling    | merge with tissue_collectn                              | <2018-04-26 Thu> |
