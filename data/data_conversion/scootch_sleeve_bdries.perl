@@ -21,7 +21,7 @@
 # Now that I've written it, this script and update_inventory.perl should be
 # refactored together!  Maybe someday.
 #
-# Kazic, 23.11.2018
+# Kazic, 24.11.2018
 
 
 
@@ -36,7 +36,7 @@
 
 
 use strict;
-# use warnings;
+use warnings;
 
 
 
@@ -87,21 +87,23 @@ my %new_inventory;
 
 
 
-# filter out irrelevant lines and write into an array
+
+
+
+# write the original data into an array without filtration
 
 open my $inv_fh, '<', $inventory_file or die "sorry, can't open the inventory file $inventory_file\n"; 
-my @grep_array = grep { $_ !~ /\%/ && $_ =~ /^inventory/ } <$inv_fh> ;
-# my @grep_array =  <$inv_fh> ;
+my @originals =  <$inv_fh> ;
 
-# foreach my $elt (@grep_array) { print "$elt"; } 
-
+# foreach my $elt (@originals) { print "$elt"; } 
 
 
 
 
 
 
-# grab the sleeve boundary data and stuff into a similar hash of arrays, %sleeves.
+
+# grab the sleeve boundary data and stuff into a hash of arrays, %sleeves.
 # read from that hash when sorting and outputting the inventory
 #
 # make a parallel hash, %scootchies, for the scootching dates:  saves pawing through
@@ -118,7 +120,7 @@ while (<$slv_fh>) {
                 my ($first_ma,$last_ma,$sleeve,$observer,$date,$time) = $_ =~ /sleeve_bdry\(\'(${num_gtype_re})\',\'(${num_gtype_re})\',(${sleeve_re}),(${observer_re}),(${prolog_date_re}),(${prolog_time_re})/;
 
 
-#                print "($first_ma,$last_ma,$sleeve,$date,$time)\n";
+#                print "($first_ma,$last_ma,$sleeve,$observer,$date,$time)\n";
 		
                 my ($fcropyr,$fcroppart,$fkey,$frp) = &explode_num_gtype($first_ma);
 
@@ -151,15 +153,16 @@ while (<$slv_fh>) {
 
 
 
-# %inventory now structured differently so find the most 
-# recent datum.  This will include packets with 0 kernels, which
-# are eliminated in this step.
+# inventory.pl is a running inventory, so find the most recent datum for each
+# seed packet.  This will include packets with 0 kernels, which are
+# eliminated in this step.
 
 
-foreach my $elt (@grep_array) { 
+foreach my $elt (@originals) { 
 
-    
-        my ($ma,$pa,$kernels,$date,$time,$sleeve) = $elt =~ /\'(${num_gtype_re})\',\'(${num_gtype_re})\',num_kernels\(([\w\_]+)\),${observer_re},date\((${prolog_date_innards_re})\),time\((${prolog_time_innards_re})\),(${sleeve_re})/;
+        if ( ( $elt !~ /\%/ ) && ( $elt =~ /^inventory/ ) ) {
+	
+                my ($ma,$pa,$kernels,$date,$time,$sleeve) = $elt =~ /\'(${num_gtype_re})\',\'(${num_gtype_re})\',num_kernels\(([\w\_]+)\),${observer_re},date\((${prolog_date_innards_re})\),time\((${prolog_time_innards_re})\),(${sleeve_re})/;
 
 
 # convert date and time to timestamp, compare timestamps for each ma
@@ -167,22 +170,31 @@ foreach my $elt (@grep_array) {
 #
 # https://www.perlmonks.org/?node_id=319934
 
-        my ($mday,$mon,$year) = $date =~ /(\d{1,2}),(\d{1,2}),(\d{4})/;
-        my ($hour,$min,$sec) = $time =~ /(\d{1,2}),(\d{1,2}),(\d{1,2})/;
-	
-	my $inv_timestamp = timelocal($sec,$min,$hour,$mday,$mon,$year);
-#        print "$ma,$pa,$kernels,$date,$time,$sleeve     $inv_timestamp\n";
-
-
-        if ( ( !exists $current_inventory{$ma} )
-	     && ( $kernels != 0 ) ) {
-		$current_inventory{$ma} = join("::",$inv_timestamp,$kernels,$sleeve,$pa,$date,$time);
-	        }
-	
-        else {
-                my ($pinv_timestamp,$pkernels) = split(/::/,$current_inventory{$ma});    
+                my ($mday,$mon,$year) = $date =~ /(\d{1,2}),(\d{1,2}),(\d{4})/;
+                my ($hour,$min,$sec) = $time =~ /(\d{1,2}),(\d{1,2}),(\d{1,2})/;
 		
-		if ( $inv_timestamp > $pinv_timestamp ) {
+		my $inv_timestamp = timelocal($sec,$min,$hour,$mday,$mon,$year);
+#               print "$ma,$pa,$kernels,$date,$time,$sleeve     $inv_timestamp\n";
+
+
+
+                if ( !exists $current_inventory{$ma} ) {
+                    
+		        if ( $kernels =~ /[a-z_]+/ ) { 	
+			        $current_inventory{$ma} = join("::",$inv_timestamp,$kernels,$sleeve,$pa,$date,$time);
+			        }
+                        elsif ( ( $kernels =~ /\d+/ ) && ( $kernels != 0 ) ) {
+			        $current_inventory{$ma} = join("::",$inv_timestamp,$kernels,$sleeve,$pa,$date,$time);
+			        }
+                        else {}       
+
+		        }
+		
+                else {
+                        my ($pinv_timestamp,$pkernels) = split(/::/,$current_inventory{$ma});    
+#			print "$ma:  $pinv_timestamp $pkernels\n";
+			if ( ( defined($pinv_timestamp) )
+			     && ( $inv_timestamp > $pinv_timestamp ) ) {
 
 
 # a little lazy type-testing is needed to avoid Perl's coercing
@@ -192,19 +204,20 @@ foreach my $elt (@grep_array) {
 #
 # https://stackoverflow.com/questions/12686335/how-to-tell-apart-numeric-scalars-and-string-scalars-in-perl
 
-                        if ( $kernels =~ /\b0\b/ ) {
-			        delete $current_inventory{$ma};				
-#			        print "DELETING $ma x $pa, $pkernels now $kernels\n";
+                                if ( $kernels =~ /\b0\b/ ) {
+				        delete $current_inventory{$ma};				
+#				        print "DELETING $ma x $pa, $pkernels now $kernels\n";
+				        }
+			        
+				else {
+				        $current_inventory{$ma} = join("::",$inv_timestamp,$kernels,$sleeve,$pa,$date,$time);
+#				        print "revising $ma x $pa, $pkernels now $kernels\n";
+				        }
 			        }
-
-			else {
-			        $current_inventory{$ma} = join("::",$inv_timestamp,$kernels,$sleeve,$pa,$date,$time);
-#			        print "revising $ma x $pa, $pkernels now $kernels\n";
-			        }
-		        }
-	        }
+			else {}
+	                }
+                }
         }
-
 
 
 
@@ -228,20 +241,15 @@ foreach my $elt (@grep_array) {
 
 # for each ear in %current_inventory:
 #
-#     separate into the elements of the 5d hash;
+#     separate into the keys of the 4d hash;
 #     find beginning of sleeves that match {$inv_cropyr}{$inv_croppart}{$key}
-#     find sleeve that begins with closest rowplant to ear
-#     check that ear is less than final ear of sleeve
-
-
-
-
-# want to use datetime of scootching for final revised inventory, and print
-# appropriate header message in inventory file
-
-
-
-
+#     find sleeve that begins with closest rowplant below the ear
+#
+# finesse the 06R inbred problem (I in numerical genotypes, so a numerical
+# comparison won't work) by searching with the substituted marp string (s/I/0/).
+#
+#
+#
 # a tree of cases
 #
 # either 1.  current ear is greater than or equal to first ear in sleeve, matching by crop and family; or
@@ -253,22 +261,9 @@ foreach my $elt (@grep_array) {
 #
 #
 # if 2: find sleeve that begins with crop that is floor of current ear and ends with crop that is
-# ceiling of current ear.  How best to do this?
-#
-# watch out for autovivification!
-#
-# $sleeves{$fcropyr}{$fcroppart}{$fkey}{$frp}{$sleeve} = ($lcropyr,$lcroppart,$lkey,$lrp,$date,$time,$first_ma,$last_ma);
+# ceiling of current ear.  See below.
 
 
-
-# cropyrs sort correctly
-# print join("\n",sort qw [13 14 15 06 07 08 09 10 11 12 16 17 18]) . "\n";
-#
-# crop particles do not, unless reversed
-# print join("\n",reverse sort qw [R N G]) . "\n"
-
-
-# finesse the 06R inbred problem by searching with the substituted marp string
 
 foreach my $ma ( sort ( keys %current_inventory ) ) {
         my ($macropyr,$macroppart,$makey,$marp) = &explode_num_gtype($ma);
@@ -296,13 +291,19 @@ foreach my $ma ( sort ( keys %current_inventory ) ) {
 
 
 
+
+
+
+
+
+
 # aliasing of STDOUT to file handle from
 # https://stackoverflow.com/questions/16060919/alias-file-handle-to-stdout-in-perl
 
 my $outfh;
 if ( $flag eq 'test' ) { $outfh = *STDOUT; }
 elsif ( $flag eq 'go' ) {
-	open $outfh, '>>', $inventory_file or die "sorry, can't open the output file $inventory_file\n";
+	open $outfh, '>', $inventory_file or die "sorry, can't open the output file $inventory_file\n";
         }
 
 
@@ -310,29 +311,22 @@ elsif ( $flag eq 'go' ) {
 
 
 
-# not sure if I want to comment out previous facts or not
-# can read whole file into @grep_array; must tweak regex for the inventory
-# facts if so
+# Previous data are commented out with double %s so they can be easily
+# found.  New data are appended to the end of the file so that subsequent
+# inventory increments are adjacent.
 #
-# make sure previously commented out inventory facts get an extra comment,
-# otherwise this is pretty irreversible
-#
-# other possibilities are more elaborate, like sticking the new data at the
-# top of the file.
-#
-# Kazic, 23.11.2018
+# First seven lines of the file are fixed.  Some extraneous blank lines are
+# skipped.
 
 
-print $outfh "\n\n\n\n% these are the scootched inventory facts computed by\n% scootch_sleeve_bdries.perl on $today\n% using the current version of the\n% $sleeve_file data.\n\n";
+if ( $flag ne 'q' ) {
+
+        for my $i (0..6) { print $outfh $originals[$i]; }
+        print $outfh "% previous inventory data and their accompanying comments are\n% commented out with %% .\n% The most recent data are at the bottom of the file (search for 'newest data').\n% The most recent scootching was done on $today.\n\n\n\n\n";
+        for my $i (22..$#originals) { print $outfh "%% $originals[$i]"; }
 
 
-
-
-
-
-
-
-
+        print $outfh "\n\n\n\n\n\n%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% newest data %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\n\n\n\n% these are the scootched inventory facts computed by\n% ../../data/data_conversion/scootch_sleeve_bdries.perl\n% on $today\n% using the current version of the\n% $sleeve_file data.\n% nb:  06R inbreds with decimal rowplants may not be in the indicated sleeve.\n\n";
 
 
 
@@ -343,23 +337,37 @@ print $outfh "\n\n\n\n% these are the scootched inventory facts computed by\n% s
 # sort the scootched into inventory order before output
 # output fact rewritten with sleeve and inventory date, time; append to inventory.pl	
 #
+# cropyrs sort correctly
+# print join("\n",sort qw [13 14 15 06 07 08 09 10 11 12 16 17 18]) . "\n";
+#
+# crop particles do not, unless reversed, hence $b cmp $a
+# print join("\n",reverse sort qw [R N G]) . "\n"
+#
+# the 06R inbreds with decimal rowplants may not be in the correct places
+#
 # direct crib from update_inventory.perl!
 
-foreach my $macropyr ( sort keys %new_inventory ) {
-    
-        foreach my $macroppart ( sort { $b cmp $a } keys %{ $new_inventory{$macropyr} } ) {
-                foreach my $makey ( sort keys %{ $new_inventory{$macropyr}{$macroppart} } ) {
-                        foreach my $sarp ( sort keys %{ $new_inventory{$macropyr}{$macroppart}{$makey} } ) {
-		
-                                my ($ma,$pa,$kernels,$sc_date,$sc_time,$observer,$sleeve) = @{$new_inventory{$macropyr}{$macroppart}{$makey}{$sarp}};
 
-				my $fact = "inventory('" . $ma . "','" . $pa . "',num_kernels(" . $kernels . ")," . $observer . "," . $sc_date . "," . $sc_time . "," . $sleeve . ").";
-		
-                                if ( $flag eq 'q' ) { }  # do nothing
-                                elsif ( ( $flag eq 'test' ) || ( $flag eq 'go' ) ) { print $outfh "$fact\n"}
+        foreach my $macropyr ( sort keys %new_inventory ) {
+    
+                foreach my $macroppart ( sort { $b cmp $a } keys %{ $new_inventory{$macropyr} } ) {
+                        foreach my $makey ( sort keys %{ $new_inventory{$macropyr}{$macroppart} } ) {
+                                foreach my $sarp ( sort keys %{ $new_inventory{$macropyr}{$macroppart}{$makey} } ) {
+			
+                                        my ($ma,$pa,$kernels,$sc_date,$sc_time,$observer,$sleeve) = @{$new_inventory{$macropyr}{$macroppart}{$makey}{$sarp}};
+	
+					my $fact = "inventory('" . $ma . "','" . $pa . "',num_kernels(" . $kernels . ")," . $observer . "," . $sc_date . "," . $sc_time . "," . $sleeve . ").";
+			
+                                        if ( $flag eq 'q' ) { }  # do nothing
+                                        elsif ( ( $flag eq 'test' ) || ( $flag eq 'go' ) ) { print $outfh "$fact\n"}
+				        }
 			        }
-		        }
+                        }
                 }
+
+
+
+        print $outfh "\n\n\n\n";
         }
 
 
@@ -371,11 +379,7 @@ foreach my $macropyr ( sort keys %new_inventory ) {
 
 
 
-
-
-
-
-############# subroutines; migrate to Typesetting? ############
+############################# subroutines ###############################
 
 
 sub explode_num_gtype {
@@ -403,7 +407,10 @@ sub explode_num_gtype {
 
 # kinda like a back-off tagger ;-)
 #
-# right idea, implementation incorrect
+# note that the $marp here is really the $sarp in the caller;
+# I've retained $marp as it's more descriptive and only my 06R
+# numerical genotypes are substituted into, anyway.
+
 
 # autovivification help from
 # https://www.perlmonks.org/?node_id=800779
@@ -415,10 +422,11 @@ sub explode_num_gtype {
 #
 #
 #
-# numerical tests on strings should (and does) succeed:
+# numerical tests on strings should (and do) succeed:
 # https://perlmaven.com/scalar-variables
 #
 # https://stackoverflow.com/questions/3700069/how-can-i-check-if-a-key-exists-in-a-deep-perl-hash
+#
 #
 #
 # map trick for subtracting scalar from vector:
@@ -455,7 +463,7 @@ sub ear_floor {
 	
                 elsif ( ( exists $sleeves{$macropyr}{$macroppart}{$makey} )
 			&& ( @rps = keys %{$sleeves{$macropyr}{$macroppart}{$makey}} )
-		 	&& ( $sleeve = &find_sleeve_starting_rp($macropyr,$macroppart,$makey,$marp,\@rps) ) ) {
+		 	&& ( $sleeve = &find_rp_starting_sleeve($macropyr,$macroppart,$makey,$marp,\@rps) ) ) {
      	                return $sleeve;
 #			print "lower rp: $sleeve\n";
 		        }
@@ -464,7 +472,7 @@ sub ear_floor {
 	
 		elsif ( ( exists $sleeves{$macropyr}{$macroppart} )
 			&& ( @famkeys = keys %{$sleeves{$macropyr}{$macroppart}} )
-		        && ( $sleeve = &find_sleeve_starting_famkey($macropyr,$macroppart,$makey,$marp,\@famkeys) ) ) {			
+		        && ( $sleeve = &find_famkey_starting_sleeve($macropyr,$macroppart,$makey,$marp,\@famkeys) ) ) {			
      	                return $sleeve;
 #			print "lower famkey: $sleeve\n";
 		        }
@@ -476,7 +484,7 @@ sub ear_floor {
                 else {
                         $sleeve = 'v99999';
                         print "\n\ninput: ($macropyr,$macroppart,$makey,$marp)\n";	  		     
- 			print "case missing in find_sleeve_starting_rp\n";
+ 			print "case missing in find_rp_starting_sleeve\n";
      	                return $sleeve;
 		        }	
 	        }
@@ -491,7 +499,10 @@ sub ear_floor {
 
 
 
-# different cases for famkey:
+
+
+
+# different cases for famkey (this description is modified a bit in the code below):
 #
 # in the first two, 0 is present in the subtracted vector, and that's the index we want.
 #
@@ -522,7 +533,7 @@ sub ear_floor {
 # in the fourth case, the crop particle is different, so it's not
 # in this subroutine
 #
-# fourth case in &find_sleeve_starting_famkey is actually this next one,
+# fourth case in &find_famkey_starting_sleeve is actually this next one,
 # because crop particle is now changed;
 #
 # no, that's incorrect; we have a 07G sleeve start, it's just with a different family, so
@@ -537,8 +548,6 @@ sub ear_floor {
 # baz:   0
 #
 #
-
-
 #
 # in the fifth, no zeroes, no positives, need largest negative number
 # 
@@ -550,9 +559,7 @@ sub ear_floor {
 
 
 
-
-
-sub find_sleeve_starting_famkey {
+sub find_famkey_starting_sleeve {
         my ($macropyr,$macroppart,$makey,$marp,$famkey_ref) = @_;
 
 	my $sleeve;
@@ -568,7 +575,6 @@ sub find_sleeve_starting_famkey {
 #        print "baz:  $baz\n";
 
 
-# implement famkey cases above, then find sleeve with highest rp with that famkey	
 
         if ( $baz != -1 ) {
                 my $famkey = $sorted[$baz];
@@ -580,8 +586,6 @@ sub find_sleeve_starting_famkey {
 # if first rp greater than marp, back up one sleeve
 # if last rp less than marp, go up one sleeve
 # if last rp doesn't exist and first rp less than marp, go up one sleeve
-#
-# haven't implemented checks on new sleeve's starting packets as it all seems ok so far
 		
                 my $first_rp = shift @rps;
                 my $last_rp = pop @rps;
@@ -661,13 +665,13 @@ sub find_sleeve_starting_famkey {
 
 
 
-# looks like no more cases
+# looks like no more cases!
 #
 # Kazic, 22.11.2018
 		
 		else {
                         print "\n\ninput: ($macropyr,$macroppart,$makey,$marp)\n";	  		     
- 			print "case missing in find_sleeve_starting_famkey\n";
+ 			print "case missing in find_famkey_starting_sleeve\n";
 			return;
 		        }
 	        }
@@ -686,7 +690,8 @@ sub find_sleeve_starting_famkey {
 
 
 
-# returns the bounding rp, not the sleeve itself
+# returns the bounding rp, not the sleeve itself, to suit call to
+# hash in ear_floor
 #
 # fails if no sign flip, therefore lower bounding sleeve, is found
 #
@@ -695,7 +700,7 @@ sub find_sleeve_starting_famkey {
 # https://stackoverflow.com/questions/39541833/what-values-should-a-boolean-function-in-perl-return
 
 
-sub find_sleeve_starting_rp {
+sub find_rp_starting_sleeve {
         my ($macropyr,$macroppart,$makey,$marp,$rps_ref) = @_;
 
         my $sleeve;
