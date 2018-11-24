@@ -82,6 +82,18 @@ my $output = $output_dir . $file_stem . $tex_suffix;
 #
 # Kazic, 27.4.2018
 
+
+# on a 2 x 11 inch strip that will be laminated, want something like
+#
+# Kazic          crop              v0000--v0000
+# box #          crop              first ma -- last ma or note
+#
+# where crop is really two lines high
+#
+# pull data from csv file generated from an org file?  see boxes.org
+
+# stopped here
+
 my %boxes = (   0 => 'fdtnl::seed gifts,;;06R, 06N inbreds;;bags 1--8',
              1 => '06R::Mo20W mutants,;; inbreds;;sleeves 1--7',
              2 => '06R::Mo20W, W23;;mutants, inbreds;;sleeves 8--14',
