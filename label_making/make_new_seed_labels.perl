@@ -22,10 +22,12 @@
 # Kazic, 27.4.2018
 
 
-# call is ./make_new_seed_labels.perl i
+# call is ./make_new_seed_labels.perl i FLAG
 #
 # use i as the first argument to supply the inventory directory tree
 # from DefaultOrgztn per usual
+#
+# and where FLAG is one of {q,test,go}
 
 
 
@@ -38,8 +40,9 @@ use strict;
 use warnings;
 
 
-
+use Cwd 'getcwd';
 use Date::Calc qw(Today);
+
 
 use lib './Typesetting/';
 use DefaultOrgztn;
@@ -54,17 +57,23 @@ my ($todayyear,$todaymonth,$todayday) = &Today;
 my $today = $todayday . "." . $todaymonth . "." . $todayyear;
 
 
+my $local_dir = getcwd;
+my $crop = $ARGV[0];
+my $flag = $ARGV[1];
+my ($dir,$input_dir,$barcodes,$tags_dir) = &adjust_paths($crop,$local_dir);
+# print "d: $dir\nid: $input_dir\nb: $barcodes\nt:$tags_dir\n";
 
-my $input_stem = "still_more_18r_tags";
-# my $input_stem = "final_tags_for_18r";
-my $tags_stem = "still_more_18r_tags";
+
+
+my $input_stem = "first_19r_tags";
+my $tags_stem = "first_19r_tags";
 
 # $input_stem = "new_seed_labels.csv";
 # $tags_stem = "new_seed_labels";
 
 
 my $input_file = $input_dir . $input_stem;
-my $output_file = $output_dir . $tags_stem . $tex_suffix;
+my $output_file = $tags_dir . $tags_stem . $tex_suffix;
 my @labels;
 
 
