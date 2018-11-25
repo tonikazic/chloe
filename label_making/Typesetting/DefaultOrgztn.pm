@@ -122,10 +122,16 @@ sub adjust_paths {
                 }
 
 
+# modified this for inventory stuff in label_making; check in other locations!
+#
+# Kazic, 24.11.2018
+	
         elsif ( $crop =~ /i/ ) {
                 $dir = "$rel_step" . "crops/inventory";
-                $input_dir = "$dir/crops/inventory/management/";
-                $tags_dir = "$dir/crops/inventory/tags/";
+                $input_dir = "$dir/management/";
+                $tags_dir = "$dir/tags/";
+#                $input_dir = "$dir/crops/inventory/management/";
+#                $tags_dir = "$dir/crops/inventory/tags/";
                 $barcodes = "$rel_step" . "barcodes/inventory/";
                 }
 
