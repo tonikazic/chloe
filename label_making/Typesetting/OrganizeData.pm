@@ -58,24 +58,51 @@ sub make_inventory_labels {
 
         ($type,$start,$stop,$crop,$boxes) = @_;
 
-#        foreach $key  (sort keys %$boxes) { print "$key $$boxes{$key} \n"; }
-
 
         for ( $i = $start; $i <= $stop; $i++ ) {
-                $padded_code = &pad_row($i,5); 
-        	$code = $type . $padded_code;
-#                $barcode_out = $barcodes . $code . $esuffix;
-#                system("/usr/local/bin/barcode -c -E -b $code -u in -g \"2.25x0.75\" -e 128 -o $barcode_out");
 
-                $barcode_out = &make_barcodes($barcodes,$code,$esuffix);
+		my $record;
+                if ( $type ne "x" ) {
 
+		        $padded_code = &pad_row($i,5); 
+        	        $code = $type . $padded_code;
+#                       $barcode_out = $barcodes . $code . $esuffix;
+#                       system("/usr/local/bin/barcode -c -E -b $code -u in -g \"2.25x0.75\" -e 128 -o $barcode_out");
 
-                if ( $type eq "x" ) {
-			$sleeve = "";
-                        $box = $type . $padded_code;
-                        ($crop,$comment) = split(/::/,$$boxes{$i});  
+                        $barcode_out = &make_barcodes($barcodes,$code,$esuffix);
 		        }
 
+
+# revised for new box labels in ../make_inventory_labels.perl
+#
+# Kazic, 25.11.2018
+		
+                if ( $type eq "x" ) {
+                        my ($box,$first_crop,$last_crop,$first_sleeve,$last_sleeve,$first_ma,$last_ma,$comment) = split(/::/,$$boxes[$i]);
+#			print "sub: ($box,$first_crop,$last_crop,$first_sleeve,$last_sleeve,$first_ma,$last_ma,$comment)\n";
+
+			my ($box_str,$crop_str,$sleeve_str,$trun_first_ma,$trun_last_ma,$rp_str);
+
+                        $box_str = "box " . $box;
+
+			if ( $first_crop eq $last_crop ) { $crop_str = $first_crop; }
+			else {$crop_str = $first_crop . "/" . $last_crop; }
+
+                        if ( ( $box eq 0 ) || ( $box eq 20 ) ) { $sleeve_str = $comment; } 
+			else { $sleeve_str = $first_sleeve . " -- " . $last_sleeve; }
+
+                        $trun_first_ma = $first_ma;
+			$trun_first_ma =~ s/^[\w]+://;
+                        $trun_last_ma = $last_ma;
+			$trun_last_ma =~ s/^[\w]+://;
+			$rp_str = $trun_first_ma . " -- " . $trun_last_ma;
+			
+#                        print "$crop_str   $sleeve_str   $rp_str\n";
+
+			$record = join("::",($box_str,$crop_str,$sleeve_str,$rp_str));
+		        }
+
+		
                 elsif ( $type eq "v" ) {
                         $sleeve = $type . $padded_code;
                         $box = "";
@@ -99,10 +126,10 @@ sub make_inventory_labels {
 		        }
 
 
-
-
-                $record = $type . "::" . $barcode_out  . "::" . $crop . "::" . $box . "::" . $comment . "::" . $sleeve;
-
+                if ( $type ne "x" ) { $record = $type . "::" . $barcode_out  . "::" . $crop . "::" . $box . "::" . $comment . "::" . $sleeve; }
+                
+                
+#                print "$record\n";
                 push(@labels,$record);
 	        }
 
