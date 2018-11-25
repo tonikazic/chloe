@@ -89,6 +89,10 @@ my $num_cutting = $ARGV[2];
 
 
 
+# convert to DefaultOrgtzn::adjust_paths
+#
+# Kazic, 24.11.2018
+
 my $input_stem = "replacemt_rows";
 my $input_file = $input_dir . $input_stem;
 
