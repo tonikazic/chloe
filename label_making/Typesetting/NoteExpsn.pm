@@ -142,6 +142,7 @@ sub expand_note {
 
                 $note =~ s/\bls\b/long silks/g;
                 $note =~ s/\bvls\b/very long silks/g;
+                $note =~ s/\bvfs\b/very few silks/g;
                 $note =~ s/\bfs\b/few silks/g;
                 $note =~ s/\bss\b/short silks/g;
                 $note =~ s/\bvss\b/very short silks/g;
