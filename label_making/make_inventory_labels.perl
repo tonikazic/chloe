@@ -78,6 +78,10 @@ my $output_file = $tags_dir . $file_stem . $tex_suffix;
 
 
 
+
+
+
+
 open my $in, '<', $input_file  or die "can't open $input_file\n";
 my (@lines) = grep { $_ !~ /%/ && $_ !~ /^\n/ && $_ !~ /\#/ } <$in>;
 
@@ -105,7 +109,6 @@ foreach my $line (@lines) {
  		        }
 
 		else { push @{$tmp{$box}}, $sleeve, [ @record ]; }
-		        
 	        }
         }
 
@@ -125,27 +128,12 @@ foreach my $line (@lines) {
 # compare them, just grab box start and ends
 
 
-
-
 foreach my $box ( sort { $a <=> $b } ( keys %tmp ) ) {
-#        print "$box  " . join(" ",@{$tmp{$box}}) . "\n";
 
          my $num_sleeves = $#{$tmp{$box}};	
 
-#	 my @evens;
-#	 my @odds;
-#	 my @js = (0,1);
 	 my $last = $#{$tmp{$box}} - 1;
-#	 for ( my $i =0; $i <= $#{$tmp{$box}}; $i+=2 ) { push @evens, $i; }
-#	 for ( my $i =1; $i <= $#{$tmp{$box}}; $i+=2 ) { push @odds, $i; }
-	
 	 my @ref = \@{$tmp{$box}};
-#        print "$box  " . join(" ",@{$tmp{$box}}[@evens]) . "\n";
-# 	 for my $o (@odds) { for my $j (@js) { print "o: $o j: $j  " . @{$tmp{$box}}[$o]->[$j] . "  "; } }		
-#        print "\n";
-#        print "lrp:  " . @{$tmp{$box}}[$num_sleeves]->[1] . "\n";
-#	 print "fsv:  " . $ref[0][0] . "\n";
-
 
 		
 # need to pluck out boundary elements
@@ -190,28 +178,32 @@ my (@labels) = &make_inventory_labels($type,$start,$stop,$crop,\@boxes);
 
 
 
-# stopped here		
+
 
 # conversion of old bareword filehandle to lexical and passing that around; see
 # https://stackoverflow.com/questions/16539193/how-to-pass-filehandle-as-reference-between-modules-and-subs-in-perl
 
 open my $tag, '>', $output_file or die "can't open tags file $output_file\n";
 
-# 
 
 if ( $type ne "x" ) { &begin_small_label_latex_file($tag); }
-else { &begin_row_stake_latex_file($tag); }
+else { &begin_box_label_latex_file($tag); }
 
 
-# nb:  picture not closed properly, but file runs ok
+
+
+
+
+
+# nb:  picture not closed properly for non-box labels, but file runs ok
+# box labels do close correctly
 #
-# Kazic, 17.6.2009
+# Kazic, 26.11.2018
 
 for ( my $i = 0; $i <= $#labels; $i++ ) {
 
         if ( $type eq "x" ) {
-#		print "lpt:  $type $labels[$i]\n";
-                &print_box_label($tag,$labels[$i]);
+                &print_box_label($tag,$i,$#labels,$labels[$i]);
 	        }
 	
 	else {
@@ -223,63 +215,12 @@ for ( my $i = 0; $i <= $#labels; $i++ ) {
 	        }
         }
 
-&end_latex_file($tag);
+
+if ( $type eq "x" ) { &end_box_label_latex_file($tag); }
+else { &end_latex_file($tag); }
 
 
 
 
 
-# &generate_pdf($output_dir,$file_stem,$ps_suffix,$pdf_suffix);
-
-
-
-
-
-
-##################### miserable AoA errors ################
-
-# oh boy, just going around in circles here
-
-
-		
-#                print "    "   . join(" ",@{$tmp{$box}}[@odds]) . "\n";
-#     ARRAY(0x7faa44150398) ARRAY(0x7faa44150218) ARRAY(0x7faa441502a8)
-
-
-#                print "    "   . join(" ",\@{$tmp{$box}}[@odds]) . "\n";
-#    REF(0x7f7ffb15da28) REF(0x7f7ffb15dab8) REF(0x7f7ffb15db48)
-		
-		
-#		for my $o (@odds) { for my $j (@js) { print "o: $o j: $j  " . @{$tmp{$box}}[$o][$j] . "  "; } }
-# syntax error at ./make_inventory_labels.perl line 155, near "]["
-
-#		for my $o (@odds) { for my $j (@js) { print "o: $o j: $j  " . $ref[$o][$j] . "  "; } }
-# Use of uninitialized value in concatenation (.) or string at ./make_inventory_labels.perl line 158, <$in> line 213.
-
-
-#		for my $o (@odds) { for my $j (@js) { print "o: $o j: $j  " . \$ref[$o][$j] . "  "; } }		
-		# o: 1 j: 0  SCALAR(0x7fd9da3a68d8)  o: 1 j: 1  SCALAR(0x7fd9da3a67a0)  o: 3 j: 0  SCALAR(0x7fd9da3a67b8)  o: 3 j: 1  SCALAR(0x7fd9da3a6890)  o: 5 j: 0  SCALAR(0x7fd9da3a6758)  o: 5 j: 1  SCALAR(0x7fd9da3a6818)
-
-
-#	        print "$box  " . join(" ",@{$tmp{$box}}[0..5]) . "\n";
-# 71  v00208 ARRAY(0x7fb1e22db888) v00209 ARRAY(0x7fb1e22db708) v00210 ARRAY(0x7fb1e22db798)
-	
-#		print "fsv:  " . @{$tmp{$box}}[0]->[0] . "\n\n";
-# Can't use string ("v00000") as an ARRAY ref while "strict refs" in use at ./make_inventory_labels.perl line 201, <$in> line 213.
-
-#		print "fsv:  " . @{$tmp{$box}}[0][0] . "\n\n";
-# syntax error at ./make_inventory_labels.perl line 204, near "]["
-
-#                print "lsv:  " . @{$tmp{$box}}[$last]->[0] . "\n";
-# Can't use string ("v00000") as an ARRAY ref while "strict refs" in use at ./make_inventory_labels.perl line 193, <$in> line 213.
-
-
-
-
-# obsolete:  the old box hash
-#
-# my %boxes = (   0 => 'fdtnl::seed gifts,;;06R, 06N inbreds;;bags 1--8',
-#              1 => '06R::Mo20W mutants,;; inbreds;;sleeves 1--7',
-#            ....
-#          99999 => '99n::S;;sleeves --' ); 
-
+&generate_pdf($tags_dir,$file_stem,$ps_suffix,$pdf_suffix);
