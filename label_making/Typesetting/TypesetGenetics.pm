@@ -85,85 +85,63 @@ our @EXPORT = qw(
 
 # on a ~2 x 11 inch strip that will be laminated, want something like
 #
-# Kazic          crop              v0000--v0000
-# box #          crop              first ma -- last ma or note
+# Kazic          crop              first ma -- last ma or note
+# box #          crop              v00000 -- v00000
 #
 # where crop is really two lines high.  Printed on 8.5 x 11 inch paper, 1.7 inches wide,
 # 5 labels/sheet.
 
 
+# A different layout strategy here:  we're printing each page as a
+# centered tabular of three columns, rotated into landscape mode.
+# Five labels are on each page, each label is a block of two tabular lines. 
+# Two lines are added at the beginning and end of each block to adjust the 
+# spacing between labels so that the five labels fit properly on the page.
+# The LaTeX array package's \centering mechanism is exploited to center the
+# text within fixed-width columns.
+#
+# You must manually adjust the spacing to suit your record-keeping.  A sample
+# LaTeX file, ../latex/box_label_test.tex, is provided to help you do that.
+
+
 
 sub print_box_label {
 
-        ($filehandle,$labels) = @_;
+        ($filehandle,$i,$num_labels,$labels) = @_;
 
 #	print "sub $labels\n";
 	my ($box,$crop,$sleeves,$rps) = split(/::/,$labels);
 
-	print "sub ($box,$crop,$sleeves,$rps)\n";
+#	print "sub ($box,$crop,$sleeves,$rps)\n";
 	
-# stopped here
+
 
         $rem = $i % 5;
-        $stack = int($i / 5);
-        $side = $stack % 2;
-        $step = $rem % 5;
-
-
-# guides x are 0, 106
-
-        $delta_x = 106;
-        $left_x = -1;
-        $rt_x = $left_x + $delta_x;
-
-        $y = 250 - 25.5 * $step;  
-        $rt_y = $y;    
 
 
         if ( $rem == 0 )  {
-                if ( $i != 0 ) { print $filehandle "\\newpage\n"; }
-
-                &begin_picture($filehandle);
-                &print_stack($filehandle,$side,$stack);
-#                &print_little_label_guide_boxes($filehandle);
-                &print_box_label_left($filehandle,$left_x,$y,$crop,$pruned_box);
-                &print_box_label_right($filehandle,$rt_x,$rt_y,$barcode_file,$comment);
+                if ( $num_labels != 0 ) { print $filehandle "\\newpage\n"; }
+                &begin_tabular($filehandle);
+                &print_block($filehandle,$box,$crop,$sleeves,$rps);
                 }
 
 
-        elsif ( $rem > 0 ) { 
+        elsif ( ( $rem > 0 ) && ($rem < 5 ) ) { &print_block($filehandle,$box,$crop,$sleeves,$rps); }
 
-                if ( $rem == 10 ) { &print_stack($filehandle,$side,$stack); }
-
-                &print_box_label_left($filehandle,$left_x,$y,$crop,$pruned_box);
-                &print_box_label_right($filehandle,$rt_x,$y,$barcode_file,$comment);
-	        }
 
 # finish the page
 
-        if ( ( $rem == 9 ) || ( $i == $#labels ) ) { &end_picture($filehandle); }
+        if ( ( $rem == 4 ) || ( $i == $num_labels ) ) { &end_tabular($filehandle); }
         }
 
 
 
 
+sub begin_tabular {
+	($filehandle) = @_;
 
-
-sub print_box_label_left { 
-        ($filehandle,$x,$y,$crop,$pruned_box) = @_;
-
-        $name_x = $x + 1;
-        $name_y = $y + 2;
-
-        $crop_x = $x + 60;
-        $crop_y = $y + 6.8;
-
-
-        print $filehandle "\\put($name_x,$name_y){\\scalebox{1.8}{\\Huge{\\textbf{$surname}}}} \\\\
-                   \\put($crop_x,$crop_y){\\begin{tabular}{p{35mm}} \\\\
-                                          \\hfill \\scalebox{1.2}{\\Huge{\\textbf{$crop}}} \\\\
-                                          \\hfill  \\rule{0mm}{9mm} \\scalebox{1.2}{\\Huge{\\textbf{$pruned_box}}}
-                                          \\end{tabular}}\n";
+        print $filehandle "\\begin{center}\n
+\\begin{tabular}{>{\\centering\\arraybackslash}p{2.85in} >{\\centering\\arraybackslash}p{2.5in} >{\\centering\\arraybackslash}p{5in}}\n";
         }
 
 
@@ -172,42 +150,29 @@ sub print_box_label_left {
 
 
 
+sub end_tabular { 
+	($filehandle) = @_;
 
-
-
-sub print_box_label_right {
-        ($filehandle,$x,$y,$barcode_file,$comment) = @_;
-
-        $new = "";
-        $sleeve = "";
-
-        $comment_x = $x;
-        $comment_y = $y + 9;
-
-        $sleeve_x = $comment_x + 1;
-        $sleeve_y = $y - 1;
-
-        $bc_x = $x + 51;
-        $bc_y = $y - 3;
-
-        my $i;
-
-        @comment_lines = split(/;;/,$comment);
-
-        for ( $i = 0 ; $i <= $#comment_lines ; $i++) {
-                if ( $i == $#comment_lines ) { $sleeve = "\\large{" . $comment_lines[$i] . "}"; } 
-                elsif ( $i == $#comment_lines - 1 ) { $new .= "\\Large{" . $comment_lines[$i] . "}"; } 
-                else { $new .= "\\Large{" . $comment_lines[$i] . "} \\\\ "; }
-	        }
-
-        print $filehandle "\\put($comment_x,$comment_y){\\begin{tabular}{l}$new\\end{tabular}}
-                   \\put($sleeve_x,$sleeve_y){\\emph{$sleeve}}
-                   \\put($bc_x,$bc_y){\\scalebox{0.75}{\\includegraphics{$barcode_file}}}\n";
-        }                             
+        print $filehandle "\\end{tabular}\n\\end{center}\n\n\n";
+        }
 
 
 
 
+
+
+sub print_block {
+        ($filehandle,$box,$crop,$sleeves,$rps) = @_;
+
+	print $filehandle "%
+  \\rule{0mm}{4.97mm} & & \\\\
+  \\scalebox{3.5}{\\textsc{KAZIC}}
+  & \\multirow{2}{*}{\\scalebox{3.5}{\\textbf{$crop}}}
+  & \\scalebox{2.9}{$rps} \\\\
+  \\rule{0mm}{17mm} \\scalebox{4.5}{$box}
+  & & \\scalebox{2.85}{$sleeves} \\\\
+  \\rule{0mm}{4.97mm} & & \\\\ \\hline \n";
+         }
 
 
 
