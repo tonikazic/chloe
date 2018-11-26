@@ -35,7 +35,7 @@ bash-3.2$ grep -v '%' *.pl | grep -v old | grep -v safe | grep -v backlog | wc
 
 | file               | to do                                                   | date all done |
 |--------------------+---------------------------------------------------------+---------------|
-| box                | photo boxes, enter data; belay until sleeves re-bounded |               |
+| box                | photo boxes, enter data; belay until sleeves re-bounded | <2018-11-26 Mon> |
 | cross              | add 16r and 17r data                                    | <2018-04-26 Thu> |
 | crop_rowplant      | recompute, adding 16r and 17r data                      | <2018-05-22 Tue> |
 | cross_prep         | add 16r, 17r data                                       | <2018-04-26 Thu> |
