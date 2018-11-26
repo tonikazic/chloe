@@ -1,0 +1,84 @@
+% this is ../c/maize/label_making/latex/box_label_test.tex
+%
+% This sample file can be tinkered with to help you figure out the
+% lay out of your box labels.  You may want to adjust:
+%
+%      1.  the included information
+%      2.  the number of columns and their widths (three columns specified
+%          as >{\centering\arraybackslash}p{2.85in} )
+%      3.  the scaling of the text items ( \scalebox{3.5}{ )
+%      4.  the inter-block spacing ( \rule{0mm}{4.9mm} )
+%      5.  the little \rule used to provide visual separation between
+%          the name and the box number in the first column
+%          ( \rule{0mm}{17mm} )
+%      6.  the textheight in ./box_label_margins.sty
+%
+% Other latex approaches to layout, for example package stackengine, may
+% suit you better.
+%
+% Kazic, 26.11.2018
+
+\documentclass[12pt]{article}
+\usepackage{multirow,lscape,array}
+\usepackage{box_label_margins}
+\pagestyle{empty}
+\thispagestyle{empty}
+\DeclareMathSizes{12}{30}{13}{9}
+
+
+
+
+\begin{document}
+
+\begin{landscape}
+
+
+\begin{center}
+\begin{tabular}{>{\centering\arraybackslash}p{2.85in} >{\centering\arraybackslash}p{2.5in} >{\centering\arraybackslash}p{5in}}
+%
+  \rule{0mm}{4.9mm} & & \\
+  \scalebox{3.5}{\textsc{KAZIC}}
+  & \multirow{2}{*}{\scalebox{3.5}{\textbf{13R/15R}}}
+  & \scalebox{2.9}{W00I6008 -- W0005007} \\
+  \rule{0mm}{17mm} \scalebox{4.5}{box 200}
+  & & \scalebox{2.85}{v00070 -- v02072} \\
+  \rule{0mm}{4.9mm} & & \\ \hline
+%
+  \rule{0mm}{4.9mm} & & \\
+  \scalebox{3.5}{\textsc{KAZIC}}
+  & \multirow{2}{*}{\scalebox{3.5}{\textbf{13R/15R}}}
+  & \scalebox{2.9}{W00I6008 -- W0005007} \\
+  \rule{0mm}{17mm} \scalebox{4.5}{box 200}
+  & & \scalebox{2.85}{v00070 -- v02072} \\
+  \rule{0mm}{4.9mm} & & \\ \hline
+%
+  \rule{0mm}{4.9mm} & & \\
+  \scalebox{3.5}{\textsc{KAZIC}}
+  & \multirow{2}{*}{\scalebox{3.5}{\textbf{13R/15R}}}
+  & \scalebox{2.9}{W00I6008 -- W0005007} \\
+  \rule{0mm}{17mm} \scalebox{4.5}{box 200}
+  & & \scalebox{2.85}{v00070 -- v02072} \\
+  \rule{0mm}{4.9mm} & & \\ \hline
+%
+  \rule{0mm}{4.9mm} & & \\
+  \scalebox{3.5}{\textsc{KAZIC}}
+  & \multirow{2}{*}{\scalebox{3.5}{\textbf{13R/15R}}}
+  & \scalebox{2.9}{W00I6008 -- W0005007} \\
+  \rule{0mm}{17mm} \scalebox{4.5}{box 200}
+  & & \scalebox{2.85}{v00070 -- v02072} \\
+  \rule{0mm}{4.9mm} & & \\ \hline
+%
+  \rule{0mm}{4.9mm} & & \\
+  \scalebox{3.5}{\textsc{KAZIC}}
+  & \multirow{2}{*}{\scalebox{3.5}{\textbf{13R/15R}}}
+  & \scalebox{2.9}{W00I6008 -- W0005007} \\
+  \rule{0mm}{17mm} \scalebox{4.5}{box 200}
+  & & \scalebox{2.85}{v00070 -- v02072} \\
+  \rule{0mm}{4.9mm} & & \\ \hline
+\end{tabular}
+\end{center}  
+
+  
+\end{landscape}
+
+\end{document}
