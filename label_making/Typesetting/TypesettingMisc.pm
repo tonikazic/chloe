@@ -27,6 +27,7 @@ our @EXPORT = qw(begin_latex_file
              begin_box_label_latex_file
              begin_small_label_latex_file
              end_latex_file
+             end_box_label_latex_file
              begin_picture
              begin_big_picture
              begin_row_stake_picture
@@ -107,10 +108,14 @@ sub begin_row_stake_latex_file {
 sub begin_box_label_latex_file {
         ($filehandle) = @_;
 
-        print $filehandle "\\documentclass[12pt]{article}\n\\usepackage{multirow,lscape,array}\n\\usepackage{box_label_margins}\n\\pagestyle{empty}\n\\thispagestyle{empty}\n\\DeclareMathSizes{12}{30}{13}{9}\n\\begin{document}\n\n";
+        print $filehandle "\\documentclass[12pt]{article}\n\\usepackage{multirow,lscape,array}\n\\usepackage{box_label_margins}\n\\pagestyle{empty}\n\\thispagestyle{empty}\n\\DeclareMathSizes{12}{30}{13}{9}\n\\begin{document}\n\n\\begin{landscape}\n\n";
         }
 
+sub end_box_label_latex_file {
+        ($filehandle) = @_;
 
+        print $filehandle "\\end{landscape}\n\\end{document}";
+        }
 
 
 
