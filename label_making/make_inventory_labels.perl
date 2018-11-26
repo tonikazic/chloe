@@ -180,13 +180,6 @@ foreach my $box ( sort { $a <=> $b } ( keys %tmp ) ) {
 
 
 
-# on a 2 x 11 inch strip that will be laminated, want something like
-#
-# Kazic          crop              v0000--v0000
-# box #          crop              first ma -- last ma or note
-#
-# where crop is really two lines high.  Printed on 8.5 x 11 inch paper, 1.7 inches wide.
-
 
 
 
@@ -217,10 +210,8 @@ else { &begin_row_stake_latex_file($tag); }
 for ( my $i = 0; $i <= $#labels; $i++ ) {
 
         if ( $type eq "x" ) {
-		print "lpt:  $type $labels[$i]\n";
-
-# stopped here
-#                &print_box_label($tag,.....$barcode_out,$box,$crop,$comment,$i,$#labels);
+#		print "lpt:  $type $labels[$i]\n";
+                &print_box_label($tag,$labels[$i]);
 	        }
 	
 	else {
