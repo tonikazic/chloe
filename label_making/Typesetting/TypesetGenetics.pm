@@ -81,7 +81,140 @@ our @EXPORT = qw(
 
 #### for inventory management
 
-### for boxes
+########################## new version for boxes #########################
+
+# on a ~2 x 11 inch strip that will be laminated, want something like
+#
+# Kazic          crop              v0000--v0000
+# box #          crop              first ma -- last ma or note
+#
+# where crop is really two lines high.  Printed on 8.5 x 11 inch paper, 1.7 inches wide,
+# 5 labels/sheet.
+
+
+
+sub print_box_label {
+
+        ($filehandle,$labels) = @_;
+
+#	print "sub $labels\n";
+	my ($box,$crop,$sleeves,$rps) = split(/::/,$labels);
+
+	print "sub ($box,$crop,$sleeves,$rps)\n";
+	
+# stopped here
+
+        $rem = $i % 5;
+        $stack = int($i / 5);
+        $side = $stack % 2;
+        $step = $rem % 5;
+
+
+# guides x are 0, 106
+
+        $delta_x = 106;
+        $left_x = -1;
+        $rt_x = $left_x + $delta_x;
+
+        $y = 250 - 25.5 * $step;  
+        $rt_y = $y;    
+
+
+        if ( $rem == 0 )  {
+                if ( $i != 0 ) { print $filehandle "\\newpage\n"; }
+
+                &begin_picture($filehandle);
+                &print_stack($filehandle,$side,$stack);
+#                &print_little_label_guide_boxes($filehandle);
+                &print_box_label_left($filehandle,$left_x,$y,$crop,$pruned_box);
+                &print_box_label_right($filehandle,$rt_x,$rt_y,$barcode_file,$comment);
+                }
+
+
+        elsif ( $rem > 0 ) { 
+
+                if ( $rem == 10 ) { &print_stack($filehandle,$side,$stack); }
+
+                &print_box_label_left($filehandle,$left_x,$y,$crop,$pruned_box);
+                &print_box_label_right($filehandle,$rt_x,$y,$barcode_file,$comment);
+	        }
+
+# finish the page
+
+        if ( ( $rem == 9 ) || ( $i == $#labels ) ) { &end_picture($filehandle); }
+        }
+
+
+
+
+
+
+sub print_box_label_left { 
+        ($filehandle,$x,$y,$crop,$pruned_box) = @_;
+
+        $name_x = $x + 1;
+        $name_y = $y + 2;
+
+        $crop_x = $x + 60;
+        $crop_y = $y + 6.8;
+
+
+        print $filehandle "\\put($name_x,$name_y){\\scalebox{1.8}{\\Huge{\\textbf{$surname}}}} \\\\
+                   \\put($crop_x,$crop_y){\\begin{tabular}{p{35mm}} \\\\
+                                          \\hfill \\scalebox{1.2}{\\Huge{\\textbf{$crop}}} \\\\
+                                          \\hfill  \\rule{0mm}{9mm} \\scalebox{1.2}{\\Huge{\\textbf{$pruned_box}}}
+                                          \\end{tabular}}\n";
+        }
+
+
+
+
+
+
+
+
+
+
+sub print_box_label_right {
+        ($filehandle,$x,$y,$barcode_file,$comment) = @_;
+
+        $new = "";
+        $sleeve = "";
+
+        $comment_x = $x;
+        $comment_y = $y + 9;
+
+        $sleeve_x = $comment_x + 1;
+        $sleeve_y = $y - 1;
+
+        $bc_x = $x + 51;
+        $bc_y = $y - 3;
+
+        my $i;
+
+        @comment_lines = split(/;;/,$comment);
+
+        for ( $i = 0 ; $i <= $#comment_lines ; $i++) {
+                if ( $i == $#comment_lines ) { $sleeve = "\\large{" . $comment_lines[$i] . "}"; } 
+                elsif ( $i == $#comment_lines - 1 ) { $new .= "\\Large{" . $comment_lines[$i] . "}"; } 
+                else { $new .= "\\Large{" . $comment_lines[$i] . "} \\\\ "; }
+	        }
+
+        print $filehandle "\\put($comment_x,$comment_y){\\begin{tabular}{l}$new\\end{tabular}}
+                   \\put($sleeve_x,$sleeve_y){\\emph{$sleeve}}
+                   \\put($bc_x,$bc_y){\\scalebox{0.75}{\\includegraphics{$barcode_file}}}\n";
+        }                             
+
+
+
+
+
+
+
+
+
+
+######## old versions for box labels ##################
 
 # each record is two labels:  a fixed left label and a varying right label
 #
@@ -89,7 +222,7 @@ our @EXPORT = qw(
 # for each record, then move down the page
 
 
-sub print_box_label {
+sub old_print_box_label {
 
         ($filehandle,$barcode_out,$box,$crop,$comment,$i,$#labels) = @_;
 
@@ -143,7 +276,7 @@ sub print_box_label {
 
 
 
-sub print_box_label_left { 
+sub old_print_box_label_left { 
         ($filehandle,$x,$y,$crop,$pruned_box) = @_;
 
         $name_x = $x + 1;
@@ -169,7 +302,7 @@ sub print_box_label_left {
 
 
 
-sub print_box_label_right {
+sub old_print_box_label_right {
         ($filehandle,$x,$y,$barcode_file,$comment) = @_;
 
         $new = "";
