@@ -171,37 +171,10 @@ foreach my $box ( sort { $a <=> $b } ( keys %tmp ) ) {
         }
 
 
-foreach my $elt (@boxes) { print "$elt\n"; }
+# foreach my $elt (@boxes) { print "$elt\n"; }
 
 
 
-
-
-
-
-# my %boxes = (   0 => 'fdtnl::seed gifts,;;06R, 06N inbreds;;bags 1--8',
-#              1 => '06R::Mo20W mutants,;; inbreds;;sleeves 1--7',
-#              2 => '06R::Mo20W, W23;;mutants, inbreds;;sleeves 8--14',
-#              3 => '06R::W23, M14 mutants,;; inbreds;;sleeves 15--21',
-#              4 => '06R::M14 mutants,;;inbreds, Gerry hets,;;MGCSC sibs;;sleeves 22--28',
-#              5 => '06N::Mo20W lines;;sleeves 29--35',
-#              6 => '06N::Mo20W lines;;sleeves 36--42',
-#              7 => '06N::Mo20W lines;;sleeves 43--48',
-#              8 => '06N::W23 lines;;sleeves 49--55',
-#              9 => '06N::W23 lines;;sleeves 56--62',
-#             10 => '06N::W23 lines;;sleeves 63--69',
-#             11 => '06N::W23, M14 lines;;sleeves 70--76',
-#             12 => '06N::M14 lines;;sleeves 77--83',
-#             13 => '07R::Mo20W lines;;sleeves 84--90',
-#             14 => '07R::Mo20W lines;;sleeves 91--97',
-#             15 => '07R::Mo20W, W23 lines;;sleeves 98--104',
-#             16 => '07R::W23 lines;;sleeves 105--111',
-#             17 => '07R::W23, M14 lines;;sleeves 112--118',
-#             18 => '07R::M14 lines;;sleeves 119--125',
-#             19 => '07R::M14 lines, selfs;;sleeves 126--132',
-#             20 => 'next box!',
-#          99998 => '50r::W;;sleeves --',
-#          99999 => '99n::S;;sleeves --' ); 
 
 
 
@@ -213,25 +186,28 @@ foreach my $elt (@boxes) { print "$elt\n"; }
 # box #          crop              first ma -- last ma or note
 #
 # where crop is really two lines high.  Printed on 8.5 x 11 inch paper, 1.7 inches wide.
-#
-# want to pass a @boxes, rather than a hash
+
+
+
+
+			
+my (@labels) = &make_inventory_labels($type,$start,$stop,$crop,\@boxes);
+# foreach my $label (@labels ) { print "$label\n"; }
+
+
 
 
 # stopped here		
 
-=pod		
-			
-my (@labels) = &make_inventory_labels($type,$start,$stop,$crop,\%boxes);
+# conversion of old bareword filehandle to lexical and passing that around; see
+# https://stackoverflow.com/questions/16539193/how-to-pass-filehandle-as-reference-between-modules-and-subs-in-perl
 
+open my $tag, '>', $output_file or die "can't open tags file $output_file\n";
 
+# 
 
-
-open(TAG,">$output");
-
-&begin_small_label_latex_file(\*TAG);
-
-
-
+if ( $type ne "x" ) { &begin_small_label_latex_file($tag); }
+else { &begin_row_stake_latex_file($tag); }
 
 
 # nb:  picture not closed properly, but file runs ok
@@ -239,20 +215,30 @@ open(TAG,">$output");
 # Kazic, 17.6.2009
 
 for ( my $i = 0; $i <= $#labels; $i++ ) {
-        my ($type,$barcode_out,$crop,$box,$comment,$sleeve) = split(/::/,$labels[$i]);
-        if ( $type eq "x" ) { &print_box_label(\*TAG,$barcode_out,$box,$crop,$comment,$i,$#labels); }
-        elsif ( $type eq "v" ) { &print_sleeve_label(\*TAG,$barcode_out,$sleeve,$i,$#labels); }
-        elsif ( $type eq "a" ) { &print_sleeve_label(\*TAG,$barcode_out,$sleeve,$i,$#labels); }
-        elsif ( $type eq "t" ) { &print_pot_label(\*TAG,$barcode_out,$sleeve,$i,$#labels); }
+
+        if ( $type eq "x" ) {
+		print "lpt:  $type $labels[$i]\n";
+
+# stopped here
+#                &print_box_label($tag,.....$barcode_out,$box,$crop,$comment,$i,$#labels);
+	        }
+	
+	else {
+	        my ($type,$barcode_out,$crop,$box,$comment,$sleeve) = split(/::/,$labels[$i]);
+                if ( $type eq "v" ) { &print_sleeve_label($tag,$barcode_out,$sleeve,$i,$#labels); }
+                elsif ( $type eq "a" ) { &print_sleeve_label($tag,$barcode_out,$sleeve,$i,$#labels); }
+                elsif ( $type eq "t" ) { &print_pot_label($tag,$barcode_out,$sleeve,$i,$#labels); }
+                else { print "Warning! missing case in make_inventory_labels.perl\n"; }
+	        }
         }
 
-&end_latex_file(\*TAG);
+&end_latex_file($tag);
 
 
-close(TAG);
 
 
-&generate_pdf($output_dir,$file_stem,$ps_suffix,$pdf_suffix);
+
+# &generate_pdf($output_dir,$file_stem,$ps_suffix,$pdf_suffix);
 
 
 
@@ -295,3 +281,14 @@ close(TAG);
 
 #                print "lsv:  " . @{$tmp{$box}}[$last]->[0] . "\n";
 # Can't use string ("v00000") as an ARRAY ref while "strict refs" in use at ./make_inventory_labels.perl line 193, <$in> line 213.
+
+
+
+
+# obsolete:  the old box hash
+#
+# my %boxes = (   0 => 'fdtnl::seed gifts,;;06R, 06N inbreds;;bags 1--8',
+#              1 => '06R::Mo20W mutants,;; inbreds;;sleeves 1--7',
+#            ....
+#          99999 => '99n::S;;sleeves --' ); 
+
