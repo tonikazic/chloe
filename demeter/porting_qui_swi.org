@@ -1,3 +1,5 @@
+# this is ../c/maize/demeter/porting_qui_swi.org
+
 #+title: Posting Demeter from Quintus Prolog to SWI Prolog
 #+date: <2018-03-26 Mon>
 #+author: Toni Kazic
@@ -152,7 +154,7 @@ could have probably just used the former!
 
 
 
-** GNG revise [[file:code/genetic_utilities.pl][genetic_utilities]] as needed by [[file:code/crop_management.pl][crop_management]] and other code <2018-04-15 Sun>
+** DONE revise [[file:code/genetic_utilities.pl][genetic_utilities]] as needed by [[file:code/crop_management.pl][crop_management]] and other code <2018-04-15 Sun>
 
 Still (<2018-04-11 Wed>) going, working my way through
 [[file:code/genetic_utilities.pl][genetic_utilities.pl]].  Taking the opportunity to revise code as I go along.
@@ -171,7 +173,7 @@ sound.
 
 Now <2018-04-26 Thu> need to work on the indexing predicates.
 
-
+Done, tested, and finished around <2018-06-01 Fri>.
 
 
 
@@ -183,6 +185,22 @@ But I haven't yet gone through  [[file:code/crop_management.pl][crop_management]
 and tested.
 
 Added in crop, inbred, etc facts.
+
+
+
+** TODO pedigree cmptn
+
+*** Use mutant data to confirm fgenotype.  Conditions:
+
+   + no data on that plant
+   + datum says wt
+   + datum says mutant
+
+*** Check for shifts in assigned gene and Knum through the pedigree.
+
+
+** TODO lingering issues in analyze_crops, etc.
+
 
 
 
@@ -1424,7 +1442,10 @@ Removed some junk: details in [[file:data/update.org][update.org]] and [[file:..
 
 
 
+
+
 * TODO revise phenotypic_class, gene_type???
+
 
 
 
