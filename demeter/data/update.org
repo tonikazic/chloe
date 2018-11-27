@@ -30,6 +30,15 @@ bash-3.2$ grep -v '%' *.pl | grep -v old | grep -v safe | grep -v backlog | wc
    + all 17r data entered <2018-05-18 Fri>
    + all 18r field data entered by <2018-09-23 Sun>, must still shell and
      file 18r corn
+   + figure out microscopy images.  This table copied from
+     [[file:../../data/palm/raw_data_from_palms/get_into_demeter.org][get_into_demeter.org]].  Tables in both files must be revised when
+     microscopy images done.
+
+
+| crop | palm  | subdir | file                       | date done     | remark                     |
+|------+-------+--------+----------------------------+---------------+----------------------------|
+| 13r/ | eta/  | 10.8/  | raw.microscopy_samples.csv |               |                            |
+| 13r/ | zeta/ | 26.4/  | raw.microscopy.csv         |               |                            |
 
 
 
@@ -1387,7 +1396,7 @@ G = [].
 see [[file:les1][les1]] for an example
 
 
-** compiling a current sleeve_boundary.pl file <2018-07-13 Fri> --
+** compiling a current sleeve_boundary.pl file <2018-07-13 Fri> -- <2018-11-25 Sun>
 <<sleeve_bdry>>
 
 
@@ -1417,9 +1426,12 @@ back to  [[file:../../palm/raw_data_from_palms/18r//eta/13.7/foo.csv][foo.csv]]:
 
 #+END_SRC
 
-
 Of course, it turns out that not everything scanned correctly, so tags and
 sleeves must be rechecked in the seed room:  done <2018-07-14 Sat>
 
 
 Corrected table output to [[file:../../data/palm/raw_data_from_palms/18r/eta/13.7/raw.sleeve_bdry.csv][raw.sleeve_bdry.csv]] for final processing.
+
+
+Script [[file:../../data/data_conversion/scootch_sleeve_bdries.perl][scootch_sleeve_bdries.perl]] finished <2018-11-25 Sun>.  Also wrote
+new box label subroutines in [[file:../../label_making/make_inventory_labels.perl][make_inventory_labels.perl]] <2018-11-26 Mon>.
