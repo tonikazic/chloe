@@ -139,7 +139,7 @@
 % til after getting 18r in!
 %
 %
-% Another important to check is to ensure the mutant allele and Knum in the 
+% Another important thing to check is to ensure the mutant allele and Knum in the 
 % genotypes in a pedigree are unchanged from the root.  I''ve picked up a transition from Les4 to
 % Les1 in one M14 branch by hand, and there may be more.  See ../data/update.org for this result.
 %
@@ -359,6 +359,10 @@ build_pedigrees([(MN,PN)|Founders],Acc,Trees) :-
 % eliminate extraneous nesting of lists; convert to an ordset to remove
 % duplicates and speed execution
 
+% need to incorporate gene and Knum information, and their checking, from
+% here on down.
+
+    
 grab_offspring(MN,PN,Descendants) :-
          ( find_planted(MN,PN,PlantList) ->
                 ( find_offspring(PlantList,ListDescendants) ->
@@ -579,7 +583,7 @@ descendant(Plant,DescMN,DescPN) :-
 
 
 
-
+% test!
 
 match_excluding_family_nums(Plant1ID,Plant2ID) :-
         remove_family(Plant1ID,Plant1SansFam),
@@ -992,7 +996,9 @@ make_bee_warning_cmd(Increment,Cmd) :-
 
 
 
-
+% hmmm, maybe stick gene and Knum here?
+%
+% Kazic, 27.11.2018
 
 associated_data(Ma,Pa,Bee,MaImages,PaImages) :-
         ( ( nonvar(Ma),
