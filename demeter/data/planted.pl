@@ -7697,7 +7697,13 @@ planted(r00146,p00108,20,toni,date(5,6,2017),time(12,0,0),full,'17R').
 % by data/data_conversion/convert_planted_data.perl
 % called from data/data_conversion/convert_data.perl
 
-planted(r00001,p00001,20,mason,date(06,06,2018),time(15,58,12),full,'18R').
+% this row re-planted in the second planting as no germination, so
+% commented out.
+%
+% Kazic, 27.11.2018
+%    
+% planted(r00001,p00001,20,mason,date(06,06,2018),time(15,58,12),full,'18R').
+
 planted(r00002,p00001,20,mason,date(06,06,2018),time(15,59,07),full,'18R').
 planted(r00003,p00001,20,mason,date(06,06,2018),time(16,01,40),full,'18R').
 planted(r00004,p00001,20,mason,date(06,06,2018),time(16,00,58),full,'18R').
