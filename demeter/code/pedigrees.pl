@@ -17,6 +17,7 @@
                 construct_pedigrees/1,
                 find_imaged_ancestors/1,
                 find_plants_offspring/2,
+		grab_founders/1,
                 grab_offspring/3,
                 test_pedigrees/2,
                 compute_pedigree/3,
@@ -160,6 +161,8 @@
 % ../../crops/scripts/make_pdf_pedigrees.perl generates the
 % pdf and Dropbox versions
 
+
+%! compute_pedigrees(+PlanningCrop:atom) is nondet.
     
 compute_pedigrees(PlanningCrop) :-
         construct_pedigrees(Trees),
@@ -178,11 +181,19 @@ compute_pedigrees(PlanningCrop) :-
 %
 % Kazic, 23.10.2012
 
+
+% Calling on a founding inbred line produces infinite loopinng
+% as grab_founders/2 is incorrect --- that is, it's not robust to that error
+%
+% Kazic, 29.11.2018
+
+
+
 % test_pedigrees([640,641,642,643,644,645,646,647,648,649,650,651,652,653,654],'18r').
 
 
-%! test_pedigrees(+Families:list,+PlanningCrop:atom) is semidet.
-   
+%! test_pedigrees(+Families:list,+PlanningCrop:atom) is nondet.
+
  
 test_pedigrees(Families,PlanningCrop) :-
         grab_founders(Families,Parents),
@@ -233,6 +244,36 @@ compute_pedigree(Ma,Pa,PlanningCrop) :-
     
 %%%%%%%% pedigree construction
 
+
+% a top-level interface that returns all the founding lines;
+% for checking genotype.pl
+%
+% nope --- this exposed the problem grab_founders/2 has with
+% founding inbred lines!
+%
+% I thought I was saving time using the conditions in the findall instead of
+% calling genotype, but no .....
+%
+% I think I do want to build pedigrees of the crop improvement lines, so need
+% to modify all dependent clauses consistently.
+%
+% Kazic, 29.11.2018
+
+
+
+%! grab_founders(+Founders:list) is det.
+
+grab_founders(Founders) :-
+	findall(Family,(genotype(Family,_,_,_,_,_,_,_,_,_,_),Family < 1000),IntFamilies),
+	sort(IntFamilies,Families),
+	grab_founders(Families,Founders).
+
+
+
+
+
+
+
     
 
 % for test_pedigrees/2, first test if the family is a founder; 
@@ -241,6 +282,13 @@ compute_pedigree(Ma,Pa,PlanningCrop) :-
 % this and maybe some other predicates will need to change.
 %
 % Kazic, 24.5.2018
+
+
+% predicate loop infinitely if called with a founding inbred line.
+% need to make it robust to that error
+%
+% Kazic, 29.11.2018
+
 
     
 %! grab_founders(+Families:list,-Parents:list) is semidet.
@@ -254,8 +302,13 @@ grab_founders([Family|Families],Acc,Parents) :-
         ( founder(Family,Ma,Pa,_,_,_,_,_,_) ->
                 append(Acc,[(Ma,Pa)],NewAcc)
 	;
-	        grab_founders_aux(Family,FounderParents),
-	        append(Acc,[FounderParents],NewAcc)
+%	        grab_founders_aux(Family,FounderParents),
+%	        append(Acc,[FounderParents],NewAcc)
+	        ( grab_founders_aux(Family,FounderParents) ->
+	                append(Acc,[FounderParents],NewAcc)
+		;
+		        NewAcc = Acc
+		)
         ),
         grab_founders(Families,NewAcc,Parents).
 
@@ -266,7 +319,14 @@ grab_founders([Family|Families],Acc,Parents) :-
 % is defined by the paternal line.
 %
 % Kazic, 24.5.2018
- 
+
+% hmmm, infinite back-tracking on inbred founding lines (e.g., 200)
+% why is this even here?
+%
+% Kazic, 29.11.2018
+
+
+
 grab_founders_aux(Family,(Ma,Pa)) :-   
         ( founder(Family,Ma,Pa,_,_,_,_,_,_) ->
 	        true
@@ -970,6 +1030,8 @@ pretty_pedigree(Stream,Increment,Indentn,[(Ma,Pa)-H|T]) :-
 
 
 % convert to swipl
+
+% just need atomic_list_concat here?
 
 make_cmd(Increment,Cmd) :-
         number_chars(Increment,IncChars),

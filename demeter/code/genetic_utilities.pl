@@ -1760,7 +1760,7 @@ get_year_from_particle(Crop,YearSuffix,Year) :-
 % Identifying founders relies on allocating blocks of family numbers below 1000.
 %
 % Family numbers for founders are manually assigned and are always less than 1000.  Numbers 
-% between 200 and 499 are reserved for my inbred lines:  2** is Mo20W, 3** is W23, and 4** is M14;
+% between 200 and 499 are reserved for my inbred lines:  2** is Mo20W, 3** is W23, 4** is M14,
 % and 5** is B73;
 % *[00-49] are selfed, *[51-99] are sibbed.  These are usually made in sufficient quantity to last
 % several years, so I believe I will not run out of integers.
@@ -1785,9 +1785,20 @@ get_year_from_particle(Crop,YearSuffix,Year) :-
 % Kazic, 23.5.2018
 
 
+
+% modified to exclude the second generation of crop improvement lines, families
+% 655--664, so that those are included in the pedigrees computed from families
+% 631--641.  That's the easiest work-around for erroneous assignment of family
+% numbers.
+%
+% Kazic, 29.11.2018
+    
+
 founder(F,MN,PN,MG1,MG2,PG1,PG2,Gs,K) :-
         genotype(F,_,MN,_,PN,MG1,MG2,PG1,PG2,Gs,K),
         F =< 1000,
+	F < 655,
+	F > 664,
         mutant_by_family(F).
    
 

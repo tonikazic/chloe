@@ -1069,7 +1069,13 @@ genotype(599,599,'12R599:B0000000',599,'12R599:B0000000','B73','B73','B73','B73'
 % For B73, members of family 504 were selfed in 11N with very little selection and all 
 % offspring pooled.  In 12R and subsequent crops, plants were selected and chain-sibbed,
 % just like the other three lines.
-
+%
+%
+% In 13R, offspring of these lines have 4 digit families and are filed among the mutants,
+% since that''s the inventory sorting and scootching algorithms.
+%
+% Kazic, 19.11.2018
+    
 
 % genotype(630,205,'11N205:S0039102',205,'11N205:S0039104','Mo20W','Mo20W','Mo20W','Mo20W',['Mo20W'],'K20502').
 genotype(631,205,'11N205:S0039105',205,'11N205:S0039104','Mo20W','Mo20W','Mo20W','Mo20W',['Mo20W'],'K20501').
@@ -1086,6 +1092,13 @@ genotype(641,405,'11N405:M0040901',405,'11N405:M0040806','M14','M14','M14','M14'
 
 
 
+% really, giving these next three-digit family numbers was a mistake: since they descend
+% from the real founders 631--641, they should have four digit family numbers so that
+% the pedigrees are properly computed.
+%
+% the work-around is to simply exclude the following family numbers in the definition of
+% genetic_utilities:founder/9:  655--664.
+    
 
 genotype(655,632,'12R632:S0013004',634,'12R634:S0013213','Mo20W','Mo20W','Mo20W','Mo20W',['Mo20W'],'K20506').
 genotype(656,633,'12R633:S0013113',632,'12R632:S0013006','Mo20W','Mo20W','Mo20W','Mo20W',['Mo20W'],'K20501').
