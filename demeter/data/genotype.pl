@@ -219,24 +219,29 @@
 
 
 % family number blocks, 30.11.2018
-
-% | start | stop | description                        |
-% |-------+------+------------------------------------|
-% |     1 |  193 | mutants                            |
-% |   194 |  199 | NAM                                |
-% |   600 |  619 | NAM                                |
-% |       |  629 | NAM                                |
-% |   620 |  628 | Brink, Barkan, Shyu, Baker         |
-% |   200 |  599 | inbreds                            |
-% |   631 |  641 | crop improvement                   |
-% |   655 |  664 | crop improvement, but not founders |
-% |   642 |  654 | Braun                              |
-% |   665 |  703 | Braun, Balint-Kurti, Kazic         |
-% |   992 |  999 | popcorn                            |
-% |   900 |  989 | popcorn                            |
-% |   892 |  991 | sweet corn                         |
-% |   890 |  891 | elite                              |
-% |  1000 |      | mutants                            |
+%
+% direct copy of table in ./update.org
+%
+%
+% | start | stop | description                                |
+% |-------+------+--------------------------------------------|
+% |     1 |  193 | mutants                                    |
+% |   194 |  199 | NAM                                        |
+% |   600 |  619 | NAM                                        |
+% |       |  629 | NAM                                        |
+% |   620 |  622 | Barkan                                     |
+% |   623 |  627 | Shyu/Johal                                 |
+% |       |  628 | Baker                                      |
+% |   200 |  599 | inbreds                                    |
+% |   631 |  641 | crop improvement                           |
+% |   655 |  664 | crop improvement, but not founders         |
+% |   642 |  654 | Braun                                      |
+% |   665 |  703 | MGCSC, Braun, Balint-Kurti, Gardner, Kazic |
+% |   992 |  999 | popcorn                                    |
+% |   900 |  989 | popcorn                                    |
+% |   892 |  991 | sweet corn                                 |
+% |   890 |  891 | elite                                      |
+% |  1000 |      | mutants                                    |
 
 
 
