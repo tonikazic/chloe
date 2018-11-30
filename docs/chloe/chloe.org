@@ -192,6 +192,7 @@ I file by
 All founder lines (/e.g./, seed gifts from others) are filed in sleeve
 v00000 in box x00000.
 
+
 * Usage
 
 ** Data Collection Procedures
@@ -202,3 +203,6 @@ v00000 in box x00000.
 
 ** Crop Management
 
+** Using Demeter
+
+make a save state as the database expands for faster loading
