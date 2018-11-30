@@ -1791,43 +1791,58 @@ get_year_from_particle(Crop,YearSuffix,Year) :-
 % 631--641.  That's the easiest work-around for erroneous assignment of family
 % numbers.
 %
-% Kazic, 29.11.2018
-    
+% expanded to include the founding crop improvement lines and to explicitly
+% exclude inbreds.
+%
+% Kazic, 30.11.2018
+
+
+%! founder(+F:num,-MN:atom,-PN:atom,-MG1:atom,-MG2:atom,
+%!                -PG1:atom,-PG2:atom,-Gs:list,-K:atom) is semi-det.
+
+
+
+
+% stopped here
+%
+% revise per new family specs
+%
+% Kazic, 30.11.2018
 
 founder(F,MN,PN,MG1,MG2,PG1,PG2,Gs,K) :-
-        genotype(F,_,MN,_,PN,MG1,MG2,PG1,PG2,Gs,K),
-        F =< 1000,
-	F < 655,
-	F > 664,
-        mutant_by_family(F).
-   
-
-
-
-
-
-        
-
-
-
-
-inbred(NumGtype,Family,Inbred) :-
-        ( nonvar(NumGtype) ->
-                ( genotype(Family,_,NumGtype,_,_,_,_,_,_,_,_) ->
-                        true
+        ( genotype(F,_,MN,_,PN,MG1,MG2,PG1,PG2,Gs,K) ->
+                F =< 1000,
+%	        F < 655,
+%	        F > 664,
+	        \+ inbred(F,_),
+	        ( crop_improvement(F,_)
                 ;
-                        get_family(NumGtype,Family)
-                )
+	          mutant_by_family(F)
+	        )
         ;
-                nonvar(Family)
-        ),
-        inbred(Family,Inbred).
+                false
+        ).
 
 
+
+
+
+
+
+
+
+
+%%%%%%%%% specification of family blocks, according to table in ../data/genotype.pl %%%%%%%
+%
+% revised to specify blocks of families more cleanly
+%
+% Kazic, 30.11.2018
 
 
 
 inbred(Family,InbredPrefix) :-
+	Family > 199,
+	Family < 600,
         ( ( Family < 300,
             Family >= 200 ) ->
                 InbredPrefix = 'S'
@@ -1859,6 +1874,75 @@ inbred(Family,InbredPrefix) :-
 
 
 
+%! nam_founders(+Family:int) is det.
+
+nam_founders(Family) :-
+	memberchk(Family,[194,195,196,197,198,199,
+			  600,601,602,603,604,605,606,607,608,609,
+			  610,611,612,613,614,615,616,617,618,619,
+			  629]).
+
+
+
+
+
+
+
+
+
+
+% corn I planted for other people who are not Gerry Neuffer, such as Jason Green
+%
+% right now this is just Jason's corn
+%
+% Kazic, 1.6.2018
+
+
+%! other_peoples_corn(+Family:int) is det.
+
+other_peoples_corn(Family) :-
+         memberchk(Family,[623,624,625,626,627]).
+
+
+
+
+
+
+
+
+
+
+
+
+% the crop improvement families, which end up with suitable particles
+% in every generation.  This means that construct_plant_prefix/4
+% must test for 4-digit crop improvement families and pad rows to 4 digits
+% only.
+%
+% Kazic, 1.6.2018
+
+
+%! crop_improvement(+Family:int,-Prefix:atom) is semidet.
+
+crop_improvement(Family,Prefix) :-
+        ( memberchk(Family,[631,632,633,634,655,656,4118,4119]),
+          Prefix = 'S' )
+        ;
+        ( memberchk(Family,[635,636,637,638,639,657,658]),
+          Prefix = 'W' )
+        ;
+
+        ( memberchk(Family,[640,641,659,660,661,662]),
+          Prefix = 'M' )
+        ;
+
+        ( memberchk(Family,[663,664,4116,4117]),
+          Prefix = 'B' ).
+        
+
+
+
+
 % popcorn P
 % sweet E
 % elite L
@@ -1866,29 +1950,46 @@ inbred(Family,InbredPrefix) :-
 %! fun_corn(+Family:int,-FunCorn:atom) is det.
 
 fun_corn(Family,FunCornPrefix) :-
-        ( ( Family < 1000,
-            Family >= 900, 
-            \+ Family =:= 990,
-            \+ Family =:= 901 ) ->
-                FunCornPrefix = 'P'
+	Family >= 890,
+	Family =< 999,
+        ( elite(Family,FunCornPrefix)
         ;
-                ( ( Family < 900, 
-                    Family >= 892 
-                  ;
-                    Family =:= 990
-                  ;
-                    Family =:= 901 ) ->
-                        FunCornPrefix = 'E'
-                ;
+	  sweet_corn(Family,FunCornPrefix)
+	;
+	  popcorn(Family,FunCornPrefix)
+	).
 
-                        ( ( Family =< 891,
-                            Family >= 890 ) ->
-                                FunCornPrefix = 'L'
-                        ;
-                                false
-                        )
-                )
-        ).
+
+
+elite(Family,'L') :-
+	memberchk(Family,[890,891]).
+
+
+sweet_corn(Family,'E') :-
+        memberchk(Family,[892,893,894,895,897,897,898,899,990,991]).
+
+
+popcorn(Family,'P') :-
+        Family >= 900,
+	Family =< 999,
+	\+ sweet_corn(Family,_).
+
+
+
+
+
+
+
+
+% covers Gerry''s 11n families
+
+%! gerry_families(+Family:int) is det.
+
+gerry_families(Family) :-
+        Family >= 3332,
+        Family =< 3393.
+
+
 
 
 
@@ -3404,6 +3505,21 @@ selfing_candidate(PlantID,Crop) :-
 
 
 
+inbred(NumGtype,Family,Inbred) :-
+        ( nonvar(NumGtype) ->
+                ( genotype(Family,_,NumGtype,_,_,_,_,_,_,_,_) ->
+                        true
+                ;
+                        get_family(NumGtype,Family)
+                )
+        ;
+                nonvar(Family)
+        ),
+        inbred(Family,Inbred).
+
+
+
+
 
 
 
@@ -3702,6 +3818,8 @@ mutant_rows(Crop,[Row-(_,Family,_,_,_,_,_,_,_,_)|T],Acc,MutantRows) :-
 
 
 
+
+
 mutant(PlantID) :-
         atom_length(PlantID,Len),
         ( Len == 15 ->
@@ -3726,11 +3844,25 @@ mutant(PlantID) :-
 % Kazic, 1.6.2018
 
 
+% want to preserve the distinction between mutants and crop improvement
+% lines; we want to consider the latter only when building pedigrees.
+%
+% Kazic, 30.11.2018
+
+
+% bounds incorrect!
+% not all corn returned by crop_improvement/2 is a founder
+%
+% Kazic, 30.11.2018
+
+%! mutant_by_family(+Family:int) is semi-det.
+
 mutant_by_family(Family) :-
         integer(Family),
-        ( Family < 200
+        ( Family < 194
         ;
-          Family >= 1000,
+          Family >= 620,
+	  \+ fun_corn(Family,_),
           \+ gerry_families(Family),
           \+ crop_improvement(Family,_)
         ;
@@ -3743,64 +3875,6 @@ mutant_by_family(Family) :-
           memberchk(Family,[599,628,629])
         ).
 
-
-
-
-
-
-
-
-% covers Gerry''s 11n families
-
-gerry_families(Family) :-
-        Family >= 3332,
-        Family =< 3393.
-
-
-
-
-
-% corn I planted for other people who are not Gerry Neuffer, such as Jason Green
-%
-% Kazic, 1.6.2018
-
-
-%! other_peoples_corn(+Family:int) is det.
-
-
-other_peoples_corn(Family) :-
-        Family >= 623,
-        Family =< 627.
-
-
-
-
-% the crop improvement families, which end up with suitable particles
-% in every generation.  This means that construct_plant_prefix/4
-% must test for 4-digit crop improvement families and pad rows to 4 digits
-% only.
-%
-% Kazic, 1.6.2018
-
-
-%! crop_improvement(+Family:int,-Prefix:atom) is det.
-
-
-crop_improvement(Family,Prefix) :-
-        ( memberchk(Family,[631,632,633,634,655,656,4118,4119]),
-          Prefix = 'S' )
-        ;
-        ( memberchk(Family,[635,636,637,638,639,657,658]),
-          Prefix = 'W' )
-        ;
-
-        ( memberchk(Family,[640,641,659,660,661,662]),
-          Prefix = 'M' )
-        ;
-
-        ( memberchk(Family,[663,664,4116,4117]),
-          Prefix = 'B' ).
-        
 
 
 

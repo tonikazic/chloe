@@ -290,8 +290,9 @@ grab_founders(Founders) :-
 % Kazic, 29.11.2018
 
 
+
     
-%! grab_founders(+Families:list,-Parents:list) is semidet.
+%! grab_founders(+Families:list,-Parents:list) is nondet.
     
 grab_founders(Families,Parents) :-
         grab_founders(Families,[],Parents).
@@ -299,35 +300,44 @@ grab_founders(Families,Parents) :-
 
 grab_founders([],A,A).
 grab_founders([Family|Families],Acc,Parents) :-
-        ( founder(Family,Ma,Pa,_,_,_,_,_,_) ->
-                append(Acc,[(Ma,Pa)],NewAcc)
+        ( inbred(Family,_) ->
+	        NewAcc = Acc
 	;
-%	        grab_founders_aux(Family,FounderParents),
-%	        append(Acc,[FounderParents],NewAcc)
-	        ( grab_founders_aux(Family,FounderParents) ->
-	                append(Acc,[FounderParents],NewAcc)
-		;
-		        NewAcc = Acc
-		)
-        ),
+	        ( founder(Family,Ma,Pa,_,_,_,_,_,_) ->
+                        append(Acc,[(Ma,Pa)],NewAcc)
+	        ;
+	                ( grab_founders_aux(Family,FounderParents) ->
+	                         append(Acc,[FounderParents],NewAcc)
+		        ;
+		                 NewAcc = Acc
+		        )
+                )
+	),
         grab_founders(Families,NewAcc,Parents).
 
 
 
 
+
+
+
+% need to climb backwards through the pedigree to the founder, if
+% the input family is not a founder
+%
 % nb: all of my back-crosses are inbred x mutant, so the founding family
 % is defined by the paternal line.
 %
 % Kazic, 24.5.2018
 
-% hmmm, infinite back-tracking on inbred founding lines (e.g., 200)
-% why is this even here?
+
+% still too rococo
 %
-% Kazic, 29.11.2018
+% Kazic, 30.11.2018
 
 
 
 grab_founders_aux(Family,(Ma,Pa)) :-   
+        \+ inbred(Family,_),
         ( founder(Family,Ma,Pa,_,_,_,_,_,_) ->
 	        true
 	;  
