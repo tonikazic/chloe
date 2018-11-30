@@ -1435,3 +1435,24 @@ Corrected table output to [[file:../../data/palm/raw_data_from_palms/18r/eta/13.
 
 Script [[file:../../data/data_conversion/scootch_sleeve_bdries.perl][scootch_sleeve_bdries.perl]] finished <2018-11-25 Sun>.  Also wrote
 new box label subroutines in [[file:../../label_making/make_inventory_labels.perl][make_inventory_labels.perl]] <2018-11-26 Mon>.
+
+
+* family number blocks
+
+| start | stop | description                        |
+|-------+------+------------------------------------|
+|     1 |  193 | mutants                            |
+|   194 |  199 | NAM                                |
+|   600 |  619 | NAM                                |
+|       |  629 | NAM                                |
+|   620 |  628 | Brink, Barkan, Shyu, Baker         |
+|   200 |  599 | inbreds                            |
+|   631 |  641 | crop improvement                   |
+|   655 |  664 | crop improvement, but not founders |
+|   642 |  654 | Braun                              |
+|   665 |  703 | Braun, Balint-Kurti, Kazic         |
+|   992 |  999 | popcorn                            |
+|   900 |  989 | popcorn                            |
+|   892 |  991 | sweet corn                         |
+|   890 |  891 | elite                              |
+|  1000 |      | mutants                            |

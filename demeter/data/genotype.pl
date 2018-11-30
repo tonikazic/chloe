@@ -216,6 +216,44 @@
 
 
 
+
+
+% family number blocks, 30.11.2018
+
+% | start | stop | description                        |
+% |-------+------+------------------------------------|
+% |     1 |  193 | mutants                            |
+% |   194 |  199 | NAM                                |
+% |   600 |  619 | NAM                                |
+% |       |  629 | NAM                                |
+% |   620 |  628 | Brink, Barkan, Shyu, Baker         |
+% |   200 |  599 | inbreds                            |
+% |   631 |  641 | crop improvement                   |
+% |   655 |  664 | crop improvement, but not founders |
+% |   642 |  654 | Braun                              |
+% |   665 |  703 | Braun, Balint-Kurti, Kazic         |
+% |   992 |  999 | popcorn                            |
+% |   900 |  989 | popcorn                            |
+% |   892 |  991 | sweet corn                         |
+% |   890 |  891 | elite                              |
+% |  1000 |      | mutants                            |
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 % genotype/11
 
 % genotype(Family,MaFam,MaNumGtype,PaFam,PaNumGtype,MaGMa,MaGPa,PaGMa,PaGPa,GeneticFeaturesOfGreatestInterest,KNumber).
@@ -1289,6 +1327,228 @@ genotype(702,702,'16R0702:0000000',702,'16R0702:0000000','Cateto Nortista - GIN 
 genotype(703,305,'15R305:W0000908',4373,'15R4373:0007409','W23','W23','M14','Les*-tk1',['Les*-tk1'],'K70309').    
 
     
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%% popcorn %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+genotype(992,992,'07R992:P0mawhyl',992,'07R992:P0mawhyl','open-pollinated','yellow/white',pointed,'strawberry popcorn',[],'K99200').
+genotype(993,993,'07R993:P0madkpu',993,'07R993:P0madkpu','open-pollinated','dark purple/blue-black',pointed,'strawberry popcorn',[],'K99300').
+genotype(994,994,'07R994:P0modkpi',994,'07R994:P0modkpi','open-pollinated','slightly darker light pink',flat,'strawberry popcorn',[],'K99400').
+genotype(995,995,'07R995:P0moltpi',995,'07R995:P0moltpi','open-pollinated','very light pink',flat,'strawberry popcorn',[],'K99500').
+genotype(996,996,'07R996:P0moclwh',996,'07R996:P0moclwh','open-pollinated','nearly clearish white',flat,'strawberry popcorn',[],'K99600').
+genotype(997,997,'07R997:P0molryl',997,'07R997:P0molryl','open-pollinated','light red/yellow',flat,'strawberry popcorn',[],'K99700').
+genotype(998,998,'07R998:P0momdpu',998,'07R998:P0momdpu','open-pollinated',purple,flat,'strawberry popcorn',[],'K99800').
+genotype(999,999,'07R999:P0molrpi',999,'07R999:P0molrpi','open-pollinated','light red/pinkish kernel',flat,'strawberry popcorn',[],'K99900').
+
+
+
+
+% new popcorn lines will run between 900 and 989, omitting 990, 991 (sweet corn)
+%
+% Kazic, 28.4.2010
+%
+% I will run out, so then count down from 900.
+%
+% Kazic, 20.5.2012
+
+
+% Bill''s 09R popcorn lines planted in 10R
+
+genotype(900,992,'09R992:P0029304',992,'09R992:P0xxxxxx','open-pollinated','yellow','medium kernel','smooth top',[],'K90000').
+genotype(901,992,'09R992:P0029304',992,'09R992:P0xxxxxx','open-pollinated','white','medium kernel','smooth top',[],'K90100').
+genotype(902,999,'09R999:P0029202',999,'09R999:P0xxxxxx','open-pollinated','dark purple/black','medium kernel','smooth top',[],'K90200').
+genotype(903,998,'09R998:P0020908',998,'09R998:P0xxxxxx','open-pollinated','mixed dark silver and green/yellow silver','medium kernel','smooth top',[],'K90300').
+genotype(904,999,'09R999:P0029201',999,'09R999:P0xxxxxx','open-pollinated','light pink w/ some yellowish cast','medium kernel','smooth top',[],'K90400').
+genotype(905,999,'09R999:P0029202',999,'09R999:P0xxxxxx','open-pollinated','white','medium kernel','smooth top',[],'K90500').
+genotype(906,999,'09R999:P0029202',999,'09R999:P0xxxxxx','open-pollinated','red pink','medium kernel','smooth top',[],'K90600').
+genotype(907,992,'09R992:P0029305',992,'09R992:P0xxxxxx','open-pollinated','medium-dark red','oblong kernel','some silk scars, some smooth',[],'K90700').
+genotype(908,998,'09R998:P0020808',998,'09R998:P0xxxxxx','open-pollinated','dark silver','medium kernel','some silk scars, some smooth',[],'K90800').
+genotype(909,993,'09R993:P0000110',993,'09R993:P0xxxxxx','open-pollinated','dark red','long kernel','pointed top',[],'K90900').
+genotype(910,993,'09R993:P0000110',993,'09R993:P0xxxxxx','open-pollinated','lighter red-brown','medium kernel','smooth top',[],'K91000').
+genotype(911,911,'10R911:P0000000',911,'10R911:P0000000','Weiler 1','ufo','oblong kernel','smooth top',[],'K91100').
+genotype(912,912,'10R912:P0000000',912,'10R912:P0000000','Weiler 1','black','oblong kernel','smooth top',[],'K91200').
+genotype(913,913,'10R913:P0000000',913,'10R913:P0000000','Weiler 2','ufo','small kernel','smooth top',[],'K91300').
+genotype(914,914,'10R914:P0000000',914,'10R914:P0000000','Weiler 3','yellow','oblong kernel','smooth top',[],'K91400').
+
+
+
+% phenotypes deduced from planting sequence and phenotypes in packing_plan.pl.  Popcorn
+% was planted in successive rows.  No guarantees of correctness within a parental set!
+%
+% Kazic, 23.7.2011
+
+
+genotype(915,908,'10R908:P0040105',908,'10R908:P0040105','split purple-yellow cl','smooth cl','small ear','',[],'').
+genotype(916,908,'10R908:P0040105',908,'10R908:P0040105','purple with silver spot cl','smooth cl','small ear','',[],'').
+genotype(917,908,'10R908:P0040105',908,'10R908:P0040105','dark purple cl','smooth cl','small ear','',[],'').
+genotype(918,908,'10R908:P0040105',908,'10R908:P0040105','medium purple cl','smooth cl','small ear','',[],'').
+genotype(919,908,'10R908:P0040105',908,'10R908:P0040105','light purple cl','smooth cl','small ear','',[],'').
+%
+% omitted? light yellow cl; smooth cl; small ear
+
+genotype(920,904,'10R904:P0039709',904,'10R904:P0039709','red w/yellow speckle cl','mooth cl','long ear','',[],'').
+genotype(921,904,'10R904:P0039709',904,'10R904:P0039709','yellow w/ light purple speckle cl','smooth cl','long ear','',[],'').
+genotype(922,904,'10R904:P0039709',904,'10R904:P0039709','dark red-purple cl','smooth cl','long ear','',[],'').
+genotype(923,904,'10R904:P0039709',904,'10R904:P0039709','red cl','smooth cl','long ear','',[],'').
+genotype(924,904,'10R904:P0039709',904,'10R904:P0039709','light red cl','smooth cl','long ear','',[],'').
+genotype(925,904,'10R904:P0039709',904,'10R904:P0039709','yellow cl','smooth cl','long ear','',[],'').
+%
+% omitted? light yellow cl','smooth cl','long ear
+
+
+genotype(926,999,'09R999:P0029205',999,'09R999:P0029205','split ear, pink and purple cl','smooth cl','long ear','',[],'').
+genotype(927,999,'09R999:P0029205',999,'09R999:P0029205','split ear, yellow and white cl','smooth cl','long ear','',[],'').
+
+
+genotype(928,911,'10R911:P0040402',911,'10R911:P0040402','dark red cl','pointed cl','small ear','ear glumes',[],'').
+genotype(929,911,'10R911:P0040402',911,'10R911:P0040402','dark purple-black cl','pointed cl','small ear','ear glumes',[],'').
+
+genotype(930,912,'10R912:P0040504',912,'10R912:P0040504','dark purple-black cl','pointed cl','small ear','ear glumes',[],'').
+genotype(931,912,'10R912:P0040504',912,'10R912:P0040504','lighter purple-brown-orange cl','pointed cl','small ear','ear glumes',[],'').
+genotype(932,912,'10R912:P0040504',912,'10R912:P0040504','mostly orange sectoring ufo cl','pointed cl','small ear','ear glumes',[],'').
+genotype(933,912,'10R912:P0040504',912,'10R912:P0040504','mostly yellow sectoring ufo cl','pointed cl','small ear','ear glumes',[],'').
+genotype(934,912,'10R912:P0040504',912,'10R912:P0040504','orange cl','pointed cl','small ear','ear glumes',[],'').
+genotype(935,912,'10R912:P0040504',912,'10R912:P0040504','light pink-white cl','pointed cl','small ear','ear glumes',[],'').
+genotype(936,912,'10R912:P0040504',912,'10R912:P0040504','yellow cl','pointed cl','small ear','ear glumes',[],'').
+%
+% omitted?  light yellow cl; pointed cl; small ear; ear glumes
+
+
+genotype(937,914,'10R914:P0040706',914,'10R914:P0040706','light yellow uniform cl','pointed cl','small ear','ear glumes',[],'').
+genotype(938,914,'10R914:P0040706',914,'10R914:P0040706','yellow uniform cl','pointed cl','small ear','ear glumes',[],'').
+genotype(939,914,'10R914:P0040706',914,'10R914:P0040706','yellow with orange splotches on top cl','pointed cl','small ear','ear glumes',[],'').
+genotype(940,914,'10R914:P0040706',914,'10R914:P0040706','yellow with purple-brown splotches on top cl','pointed cl','small ear','ear glumes',[],'').
+genotype(941,914,'10R914:P0040706',914,'10R914:P0040706','yellow with dark purple-black splotches on top cl','pointed cl','small ear','ear glumes',[],'').
+%
+% omitted?  orange uniform cl; pointed cl; small ear; ear glumes
+
+
+
+
+% made in response to warnings from identify_row/3, but I think these are duplicates and packing facts
+% or plan facts not correct. . . ugh
+%
+% Kazic, 23.7.2011
+%
+
+genotype(942,992,'09R992:P0029306',992,'09R992:P0xxxxxx','','','','',[],'').
+genotype(943,992,'09R992:P0029307',992,'09R992:P0xxxxxx','','','','',[],'').
+genotype(944,900,'10R900:P0000000',900,'10R900:P0000000','','','','',[],'').
+genotype(945,908,'10R908:P0000000',908,'10R908:P0000000','','','','',[],'').
+genotype(946,915,'10R915:P0000000',915,'10R915:P0000000','','','','',[],'').
+genotype(947,916,'10R916:P0000000',916,'10R916:P0000000','','','','',[],'').
+genotype(948,917,'10R917:P0000000',917,'10R917:P0000000','','','','',[],'').
+genotype(949,918,'10R918:P0000000',918,'10R918:P0000000','','','','',[],'').
+genotype(950,919,'10R919:P0000000',919,'10R919:P0000000','','','','',[],'').
+genotype(951,920,'10R920:P0000000',920,'10R920:P0000000','','','','',[],'').
+genotype(952,921,'10R921:P0000000',921,'10R921:P0000000','','','','',[],'').
+genotype(953,922,'10R922:P0000000',922,'10R922:P0000000','','','','',[],'').
+genotype(954,923,'10R923:P0000000',923,'10R923:P0000000','','','','',[],'').
+genotype(955,924,'10R924:P0000000',924,'10R924:P0000000','','','','',[],'').
+genotype(956,925,'10R925:P0000000',925,'10R925:P0000000','','','','',[],'').
+genotype(957,926,'09R926:P0000000',926,'09R926:P0000000','','','','',[],'').
+genotype(958,927,'09R927:P0000000',927,'09R927:P0000000','','','','',[],'').
+genotype(959,909,'10R909:P0040307',909,'10R909:P0040307','','','','',[],'').
+genotype(960,928,'10R928:P0000000',928,'10R928:P0000000','','','','',[],'').
+genotype(961,929,'10R929:P0000000',929,'10R929:P0000000','','','','',[],'').
+genotype(962,911,'10R911:P0040407',911,'10R911:P0040407','','','','',[],'').
+genotype(963,912,'10R912:P0040501',912,'10R912:P0040501','','','','',[],'').
+genotype(964,930,'10R930:P0000000',930,'10R930:P0000000','','','','',[],'').
+genotype(965,901,'10R901:P0000000',901,'10R901:P0000000','','','','',[],'').
+genotype(966,931,'10R931:P0000000',931,'10R931:P0000000','','','','',[],'').
+genotype(967,932,'10R932:P0000000',932,'10R932:P0000000','','','','',[],'').
+genotype(968,933,'10R933:P0000000',933,'10R933:P0000000','','','','',[],'').
+genotype(969,934,'10R934:P0000000',934,'10R934:P0000000','','','','',[],'').
+genotype(970,935,'10R935:P0000000',935,'10R935:P0000000','','','','',[],'').
+genotype(971,936,'10R936:P0000000',936,'10R936:P0000000','','','','',[],'').
+genotype(972,913,'10R913:P0040603',913,'10R913:P0040603','','','','',[],'').
+genotype(973,937,'10R937:P0000000',937,'10R937:P0000000','','','','',[],'').
+genotype(974,938,'10R938:P0000000',938,'10R938:P0000000','','','','',[],'').
+genotype(975,939,'10R939:P0000000',939,'10R939:P0000000','','','','',[],'').
+genotype(976,940,'10R940:P0000000',940,'10R940:P0000000','','','','',[],'').
+genotype(977,941,'10R941:P0000000',941,'10R941:P0000000','','','','',[],'').
+genotype(978,998,'09R998:P0020808',998,'09R998:P0020808','','','','',[],'').
+
+
+
+% further subdivision of Weiler 1 line and offspring, for 12r
+
+genotype(979,979,'10R979:P0000000',979,'10R979:P0000000','','','','',['small sector orange, less than 50%, mostly white'],'K97900').
+	        		      	      
+genotype(980,980,'10R980:P0000000',980,'10R980:P0000000','','','','',['medium sector orange, less than ~75%, mostly orange'],'K98000').
+	        		      	      
+genotype(981,981,'10R981:P0000000',981,'10R981:P0000000','','','','',['nearly complete sector orange, dark orange, streaks over embryo'],'K98100').
+	        		      	      
+genotype(982,982,'10R982:P0000000',982,'10R982:P0000000','','','','',['very dark orange/purple, orange streaks over embryo'],'K98200').
+
+genotype(983,983,'10R983:P0000000',983,'10R983:P0000000','','','','',['very few orange sectors, mostly white, less than 25%'],'K98300').
+
+genotype(984,984,'11R984:P0003508',984,'11R984:P0003508','','','','',['medium density orange sectors, ear nearly full of sectored kernels'],'K98408').
+
+genotype(985,985,'11R985:P0003703',985,'11R985:P0003703','','','','',['nearly white kernels with very few orange sectors, ear split nearly evenly between heavily sectored and less sectored kernels'],'K98503').
+
+genotype(986,986,'11R986:P0003703',986,'11R986:P0003703','','','','',['kernels with very few orange sectors, ear split nearly evenly between heavily sectored and less sectored kernels'],'K98603').
+
+genotype(987,987,'11R987:P0003902',987,'11R987:P0003902','','','','',['kernels with half orange sectors, near the ear boundary of zones; probably all have split starch'],'K98702').
+
+genotype(988,988,'11R988:P0003902',988,'11R988:P0003902','','','','',['white kernels with split starch'],'K98802').
+
+genotype(989,989,'11R989:P0004001',989,'11R989:P0004001','','','','',['lightly sectoring kernels from predominantly white ear'],'K98901').
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%% sweet corn; purchased as needed %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% new sweet corn lines will run between 880 and 891, so no overlapping with the popcorn
+% I do not anticipate very many more of these.
+%
+% Kazic, 23.7.2011
+
+genotype(892,892,'11R892:E0serend',893,'11R892:E0serend','serendipity','','','',[],'').
+genotype(893,893,'07R893:E0earsun',893,'07R893:E0earsun','early sunglow','','','',[],'').
+genotype(894,894,'07R894:E0goljub',894,'07R894:E0goljub','golden jubilee','','','',[],'').
+genotype(895,895,'07R895:E0cogent',895,'07R895:E0cogent','country gentleman','','','',[],'').
+genotype(897,896,'07R896:E0kankrn',896,'07R896:E0kankrn','kandy korn','','','',[],'').
+genotype(897,897,'07R897:E0silqun',897,'07R897:E0silqun','silver queen','','','',[],'').
+genotype(898,898,'07R898:E0bodcus',898,'07R898:E0bodcus',bodacious,'','','',[],'').
+genotype(899,899,'07R899:E0bnjour',899,'07R899:E0bnjour','bon jour','','','',[],'').
+genotype(990,990,'07R990:E0casino',990,'07R990:E0casino',casino,'','','',[],'').
+genotype(991,991,'07R991:E0golban',991,'07R991:E0golban','golden bantam','','','',[],'').
+
+
+
+
+    
+%%%%%%%%%%%%%%%%%%%%%% elite lines %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% get these from Matt and Chris, numbers for now are between 890 -- 891 inclusive.
+%
+% Kazic, 20.4.2018    
+
+genotype(890,890,'16R890:L0xxxxxx',890,'16R890:L0xxxxxx','mfa elite','','','',[],'').    
+genotype(891,891,'17R891:L0xxxxxx',891,'17R891:L0xxxxxx','mfa elite','','','',[],'').
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -3609,212 +3869,6 @@ genotype(2228,201,'07G201:S0000404',1705,'07G1705:0001101','Mo20W','Mo20W','M14/
 
 
 
-
-
-
-
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%% popcorn %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-genotype(992,992,'07R992:P0mawhyl',992,'07R992:P0mawhyl','open-pollinated','yellow/white',pointed,'strawberry popcorn',[],'K99200').
-genotype(993,993,'07R993:P0madkpu',993,'07R993:P0madkpu','open-pollinated','dark purple/blue-black',pointed,'strawberry popcorn',[],'K99300').
-genotype(994,994,'07R994:P0modkpi',994,'07R994:P0modkpi','open-pollinated','slightly darker light pink',flat,'strawberry popcorn',[],'K99400').
-genotype(995,995,'07R995:P0moltpi',995,'07R995:P0moltpi','open-pollinated','very light pink',flat,'strawberry popcorn',[],'K99500').
-genotype(996,996,'07R996:P0moclwh',996,'07R996:P0moclwh','open-pollinated','nearly clearish white',flat,'strawberry popcorn',[],'K99600').
-genotype(997,997,'07R997:P0molryl',997,'07R997:P0molryl','open-pollinated','light red/yellow',flat,'strawberry popcorn',[],'K99700').
-genotype(998,998,'07R998:P0momdpu',998,'07R998:P0momdpu','open-pollinated',purple,flat,'strawberry popcorn',[],'K99800').
-genotype(999,999,'07R999:P0molrpi',999,'07R999:P0molrpi','open-pollinated','light red/pinkish kernel',flat,'strawberry popcorn',[],'K99900').
-
-
-
-
-% new popcorn lines will run between 900 and 989, omitting 990, 991 (sweet corn)
-%
-% Kazic, 28.4.2010
-%
-% I will run out, so then count down from 900.
-%
-% Kazic, 20.5.2012
-
-
-% Bill''s 09R popcorn lines planted in 10R
-
-genotype(900,992,'09R992:P0029304',992,'09R992:P0xxxxxx','open-pollinated','yellow','medium kernel','smooth top',[],'K90000').
-genotype(901,992,'09R992:P0029304',992,'09R992:P0xxxxxx','open-pollinated','white','medium kernel','smooth top',[],'K90100').
-genotype(902,999,'09R999:P0029202',999,'09R999:P0xxxxxx','open-pollinated','dark purple/black','medium kernel','smooth top',[],'K90200').
-genotype(903,998,'09R998:P0020908',998,'09R998:P0xxxxxx','open-pollinated','mixed dark silver and green/yellow silver','medium kernel','smooth top',[],'K90300').
-genotype(904,999,'09R999:P0029201',999,'09R999:P0xxxxxx','open-pollinated','light pink w/ some yellowish cast','medium kernel','smooth top',[],'K90400').
-genotype(905,999,'09R999:P0029202',999,'09R999:P0xxxxxx','open-pollinated','white','medium kernel','smooth top',[],'K90500').
-genotype(906,999,'09R999:P0029202',999,'09R999:P0xxxxxx','open-pollinated','red pink','medium kernel','smooth top',[],'K90600').
-genotype(907,992,'09R992:P0029305',992,'09R992:P0xxxxxx','open-pollinated','medium-dark red','oblong kernel','some silk scars, some smooth',[],'K90700').
-genotype(908,998,'09R998:P0020808',998,'09R998:P0xxxxxx','open-pollinated','dark silver','medium kernel','some silk scars, some smooth',[],'K90800').
-genotype(909,993,'09R993:P0000110',993,'09R993:P0xxxxxx','open-pollinated','dark red','long kernel','pointed top',[],'K90900').
-genotype(910,993,'09R993:P0000110',993,'09R993:P0xxxxxx','open-pollinated','lighter red-brown','medium kernel','smooth top',[],'K91000').
-genotype(911,911,'10R911:P0000000',911,'10R911:P0000000','Weiler 1','ufo','oblong kernel','smooth top',[],'K91100').
-genotype(912,912,'10R912:P0000000',912,'10R912:P0000000','Weiler 1','black','oblong kernel','smooth top',[],'K91200').
-genotype(913,913,'10R913:P0000000',913,'10R913:P0000000','Weiler 2','ufo','small kernel','smooth top',[],'K91300').
-genotype(914,914,'10R914:P0000000',914,'10R914:P0000000','Weiler 3','yellow','oblong kernel','smooth top',[],'K91400').
-
-
-
-% phenotypes deduced from planting sequence and phenotypes in packing_plan.pl.  Popcorn
-% was planted in successive rows.  No guarantees of correctness within a parental set!
-%
-% Kazic, 23.7.2011
-
-
-genotype(915,908,'10R908:P0040105',908,'10R908:P0040105','split purple-yellow cl','smooth cl','small ear','',[],'').
-genotype(916,908,'10R908:P0040105',908,'10R908:P0040105','purple with silver spot cl','smooth cl','small ear','',[],'').
-genotype(917,908,'10R908:P0040105',908,'10R908:P0040105','dark purple cl','smooth cl','small ear','',[],'').
-genotype(918,908,'10R908:P0040105',908,'10R908:P0040105','medium purple cl','smooth cl','small ear','',[],'').
-genotype(919,908,'10R908:P0040105',908,'10R908:P0040105','light purple cl','smooth cl','small ear','',[],'').
-%
-% omitted? light yellow cl; smooth cl; small ear
-
-genotype(920,904,'10R904:P0039709',904,'10R904:P0039709','red w/yellow speckle cl','mooth cl','long ear','',[],'').
-genotype(921,904,'10R904:P0039709',904,'10R904:P0039709','yellow w/ light purple speckle cl','smooth cl','long ear','',[],'').
-genotype(922,904,'10R904:P0039709',904,'10R904:P0039709','dark red-purple cl','smooth cl','long ear','',[],'').
-genotype(923,904,'10R904:P0039709',904,'10R904:P0039709','red cl','smooth cl','long ear','',[],'').
-genotype(924,904,'10R904:P0039709',904,'10R904:P0039709','light red cl','smooth cl','long ear','',[],'').
-genotype(925,904,'10R904:P0039709',904,'10R904:P0039709','yellow cl','smooth cl','long ear','',[],'').
-%
-% omitted? light yellow cl','smooth cl','long ear
-
-
-genotype(926,999,'09R999:P0029205',999,'09R999:P0029205','split ear, pink and purple cl','smooth cl','long ear','',[],'').
-genotype(927,999,'09R999:P0029205',999,'09R999:P0029205','split ear, yellow and white cl','smooth cl','long ear','',[],'').
-
-
-genotype(928,911,'10R911:P0040402',911,'10R911:P0040402','dark red cl','pointed cl','small ear','ear glumes',[],'').
-genotype(929,911,'10R911:P0040402',911,'10R911:P0040402','dark purple-black cl','pointed cl','small ear','ear glumes',[],'').
-
-genotype(930,912,'10R912:P0040504',912,'10R912:P0040504','dark purple-black cl','pointed cl','small ear','ear glumes',[],'').
-genotype(931,912,'10R912:P0040504',912,'10R912:P0040504','lighter purple-brown-orange cl','pointed cl','small ear','ear glumes',[],'').
-genotype(932,912,'10R912:P0040504',912,'10R912:P0040504','mostly orange sectoring ufo cl','pointed cl','small ear','ear glumes',[],'').
-genotype(933,912,'10R912:P0040504',912,'10R912:P0040504','mostly yellow sectoring ufo cl','pointed cl','small ear','ear glumes',[],'').
-genotype(934,912,'10R912:P0040504',912,'10R912:P0040504','orange cl','pointed cl','small ear','ear glumes',[],'').
-genotype(935,912,'10R912:P0040504',912,'10R912:P0040504','light pink-white cl','pointed cl','small ear','ear glumes',[],'').
-genotype(936,912,'10R912:P0040504',912,'10R912:P0040504','yellow cl','pointed cl','small ear','ear glumes',[],'').
-%
-% omitted?  light yellow cl; pointed cl; small ear; ear glumes
-
-
-genotype(937,914,'10R914:P0040706',914,'10R914:P0040706','light yellow uniform cl','pointed cl','small ear','ear glumes',[],'').
-genotype(938,914,'10R914:P0040706',914,'10R914:P0040706','yellow uniform cl','pointed cl','small ear','ear glumes',[],'').
-genotype(939,914,'10R914:P0040706',914,'10R914:P0040706','yellow with orange splotches on top cl','pointed cl','small ear','ear glumes',[],'').
-genotype(940,914,'10R914:P0040706',914,'10R914:P0040706','yellow with purple-brown splotches on top cl','pointed cl','small ear','ear glumes',[],'').
-genotype(941,914,'10R914:P0040706',914,'10R914:P0040706','yellow with dark purple-black splotches on top cl','pointed cl','small ear','ear glumes',[],'').
-%
-% omitted?  orange uniform cl; pointed cl; small ear; ear glumes
-
-
-
-
-% made in response to warnings from identify_row/3, but I think these are duplicates and packing facts
-% or plan facts not correct. . . ugh
-%
-% Kazic, 23.7.2011
-%
-
-genotype(942,992,'09R992:P0029306',992,'09R992:P0xxxxxx','','','','',[],'').
-genotype(943,992,'09R992:P0029307',992,'09R992:P0xxxxxx','','','','',[],'').
-genotype(944,900,'10R900:P0000000',900,'10R900:P0000000','','','','',[],'').
-genotype(945,908,'10R908:P0000000',908,'10R908:P0000000','','','','',[],'').
-genotype(946,915,'10R915:P0000000',915,'10R915:P0000000','','','','',[],'').
-genotype(947,916,'10R916:P0000000',916,'10R916:P0000000','','','','',[],'').
-genotype(948,917,'10R917:P0000000',917,'10R917:P0000000','','','','',[],'').
-genotype(949,918,'10R918:P0000000',918,'10R918:P0000000','','','','',[],'').
-genotype(950,919,'10R919:P0000000',919,'10R919:P0000000','','','','',[],'').
-genotype(951,920,'10R920:P0000000',920,'10R920:P0000000','','','','',[],'').
-genotype(952,921,'10R921:P0000000',921,'10R921:P0000000','','','','',[],'').
-genotype(953,922,'10R922:P0000000',922,'10R922:P0000000','','','','',[],'').
-genotype(954,923,'10R923:P0000000',923,'10R923:P0000000','','','','',[],'').
-genotype(955,924,'10R924:P0000000',924,'10R924:P0000000','','','','',[],'').
-genotype(956,925,'10R925:P0000000',925,'10R925:P0000000','','','','',[],'').
-genotype(957,926,'09R926:P0000000',926,'09R926:P0000000','','','','',[],'').
-genotype(958,927,'09R927:P0000000',927,'09R927:P0000000','','','','',[],'').
-genotype(959,909,'10R909:P0040307',909,'10R909:P0040307','','','','',[],'').
-genotype(960,928,'10R928:P0000000',928,'10R928:P0000000','','','','',[],'').
-genotype(961,929,'10R929:P0000000',929,'10R929:P0000000','','','','',[],'').
-genotype(962,911,'10R911:P0040407',911,'10R911:P0040407','','','','',[],'').
-genotype(963,912,'10R912:P0040501',912,'10R912:P0040501','','','','',[],'').
-genotype(964,930,'10R930:P0000000',930,'10R930:P0000000','','','','',[],'').
-genotype(965,901,'10R901:P0000000',901,'10R901:P0000000','','','','',[],'').
-genotype(966,931,'10R931:P0000000',931,'10R931:P0000000','','','','',[],'').
-genotype(967,932,'10R932:P0000000',932,'10R932:P0000000','','','','',[],'').
-genotype(968,933,'10R933:P0000000',933,'10R933:P0000000','','','','',[],'').
-genotype(969,934,'10R934:P0000000',934,'10R934:P0000000','','','','',[],'').
-genotype(970,935,'10R935:P0000000',935,'10R935:P0000000','','','','',[],'').
-genotype(971,936,'10R936:P0000000',936,'10R936:P0000000','','','','',[],'').
-genotype(972,913,'10R913:P0040603',913,'10R913:P0040603','','','','',[],'').
-genotype(973,937,'10R937:P0000000',937,'10R937:P0000000','','','','',[],'').
-genotype(974,938,'10R938:P0000000',938,'10R938:P0000000','','','','',[],'').
-genotype(975,939,'10R939:P0000000',939,'10R939:P0000000','','','','',[],'').
-genotype(976,940,'10R940:P0000000',940,'10R940:P0000000','','','','',[],'').
-genotype(977,941,'10R941:P0000000',941,'10R941:P0000000','','','','',[],'').
-genotype(978,998,'09R998:P0020808',998,'09R998:P0020808','','','','',[],'').
-
-
-
-% further subdivision of Weiler 1 line and offspring, for 12r
-
-genotype(979,979,'10R979:P0000000',979,'10R979:P0000000','','','','',['small sector orange, less than 50%, mostly white'],'K97900').
-	        		      	      
-genotype(980,980,'10R980:P0000000',980,'10R980:P0000000','','','','',['medium sector orange, less than ~75%, mostly orange'],'K98000').
-	        		      	      
-genotype(981,981,'10R981:P0000000',981,'10R981:P0000000','','','','',['nearly complete sector orange, dark orange, streaks over embryo'],'K98100').
-	        		      	      
-genotype(982,982,'10R982:P0000000',982,'10R982:P0000000','','','','',['very dark orange/purple, orange streaks over embryo'],'K98200').
-
-genotype(983,983,'10R983:P0000000',983,'10R983:P0000000','','','','',['very few orange sectors, mostly white, less than 25%'],'K98300').
-
-genotype(984,984,'11R984:P0003508',984,'11R984:P0003508','','','','',['medium density orange sectors, ear nearly full of sectored kernels'],'K98408').
-
-genotype(985,985,'11R985:P0003703',985,'11R985:P0003703','','','','',['nearly white kernels with very few orange sectors, ear split nearly evenly between heavily sectored and less sectored kernels'],'K98503').
-
-genotype(986,986,'11R986:P0003703',986,'11R986:P0003703','','','','',['kernels with very few orange sectors, ear split nearly evenly between heavily sectored and less sectored kernels'],'K98603').
-
-genotype(987,987,'11R987:P0003902',987,'11R987:P0003902','','','','',['kernels with half orange sectors, near the ear boundary of zones; probably all have split starch'],'K98702').
-
-genotype(988,988,'11R988:P0003902',988,'11R988:P0003902','','','','',['white kernels with split starch'],'K98802').
-
-genotype(989,989,'11R989:P0004001',989,'11R989:P0004001','','','','',['lightly sectoring kernels from predominantly white ear'],'K98901').
-
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%% sweet corn; purchased as needed %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-% new sweet corn lines will run between 880 and 891, so no overlapping with the popcorn
-% I do not anticipate very many more of these.
-%
-% Kazic, 23.7.2011
-
-genotype(892,892,'11R892:E0serend',893,'11R892:E0serend','serendipity','','','',[],'').
-genotype(893,893,'07R893:E0earsun',893,'07R893:E0earsun','early sunglow','','','',[],'').
-genotype(894,894,'07R894:E0goljub',894,'07R894:E0goljub','golden jubilee','','','',[],'').
-genotype(895,895,'07R895:E0cogent',895,'07R895:E0cogent','country gentleman','','','',[],'').
-genotype(897,896,'07R896:E0kankrn',896,'07R896:E0kankrn','kandy korn','','','',[],'').
-genotype(897,897,'07R897:E0silqun',897,'07R897:E0silqun','silver queen','','','',[],'').
-genotype(898,898,'07R898:E0bodcus',898,'07R898:E0bodcus',bodacious,'','','',[],'').
-genotype(899,899,'07R899:E0bnjour',899,'07R899:E0bnjour','bon jour','','','',[],'').
-genotype(990,990,'07R990:E0casino',990,'07R990:E0casino',casino,'','','',[],'').
-genotype(991,991,'07R991:E0golban',991,'07R991:E0golban','golden bantam','','','',[],'').
-
-
-
-
-    
-%%%%%%%%%%%%%%%%%%%%%% elite lines %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-% get these from Matt and Chris, numbers for now are between 890 -- 891 inclusive.
-%
-% Kazic, 20.4.2018    
-
-genotype(890,890,'16R890:L0xxxxxx',890,'16R890:L0xxxxxx','mfa elite','','','',[],'').    
-genotype(891,891,'17R891:L0xxxxxx',891,'17R891:L0xxxxxx','mfa elite','','','',[],'').
 
 
 
