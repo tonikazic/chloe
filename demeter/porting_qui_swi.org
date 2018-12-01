@@ -190,6 +190,10 @@ Added in crop, inbred, etc facts.
 
 ** TODO pedigree cmptn
 
+Test using 19r as the planning crop.
+
+*** Test pedigree construction by crop and rowplant, excluding family numbers
+
 *** Use mutant data to confirm fgenotype.  Conditions:
 
    + no data on that plant
