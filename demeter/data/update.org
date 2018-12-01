@@ -1450,8 +1450,9 @@ new box label subroutines in [[file:../../label_making/make_inventory_labels.per
 |   623 |  627 | Shyu/Johal                                 |
 |       |  628 | Baker                                      |
 |   200 |  599 | inbreds                                    |
-|   631 |  641 | crop improvement                           |
-|   655 |  664 | crop improvement, but not founders         |
+|   631 |  641 | crop improvement (S,W,M)                   |
+|   663 |  664 | crop improvement (B)                       |
+|   655 |  662 | crop improvement, but not founders         |
 |   642 |  654 | Braun                                      |
 |   665 |  703 | MGCSC, Braun, Balint-Kurti, Gardner, Kazic |
 |   992 |  999 | popcorn                                    |

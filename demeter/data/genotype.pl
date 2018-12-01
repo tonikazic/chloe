@@ -234,8 +234,9 @@
 % |   623 |  627 | Shyu/Johal                                 |
 % |       |  628 | Baker                                      |
 % |   200 |  599 | inbreds                                    |
-% |   631 |  641 | crop improvement                           |
-% |   655 |  664 | crop improvement, but not founders         |
+% |   631 |  641 | crop improvement (S,W,M)                   |
+% |   663 |  664 | crop improvement (B)                       |
+% |   655 |  662 | crop improvement, but not founders         |
 % |   642 |  654 | Braun                                      |
 % |   665 |  703 | MGCSC, Braun, Balint-Kurti, Gardner, Kazic |
 % |   992 |  999 | popcorn                                    |
@@ -1154,6 +1155,10 @@ genotype(659,640,'12R640:M0013801',641,'12R641:M0013907','M14','M14','M14','M14'
 genotype(660,641,'12R641:M0013902',640,'12R640:M0013801','M14','M14','M14','M14',['M14'],'K40506').
 genotype(661,641,'12R641:M0013907',640,'12R640:M0013807','M14','M14','M14','M14',['M14'],'K40506').
 genotype(662,641,'12R641:M0013903',640,'12R640:M0013802','M14','M14','M14','M14',['M14'],'K40506').
+
+
+% BUT, these are the start of the B73 crop improvement
+
 genotype(663,504,'12R504:B0014106',504,'12R504:B0014007','B73','B73','B73','B73',['B73'],'K50407').
 genotype(664,504,'12R504:B0014007',504,'12R504:B0014103','B73','B73','B73','B73',['B73'],'K50403').
 
