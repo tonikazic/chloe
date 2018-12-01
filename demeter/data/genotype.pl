@@ -229,7 +229,8 @@
 % |   194 |  199 | NAM                                        |
 % |   600 |  619 | NAM                                        |
 % |       |  629 | NAM                                        |
-% |   620 |  622 | Barkan                                     |
+% |       |  620 | Brink                                      |
+% |   621 |  622 | Barkan                                     |
 % |   623 |  627 | Shyu/Johal                                 |
 % |       |  628 | Baker                                      |
 % |   200 |  599 | inbreds                                    |
@@ -241,9 +242,8 @@
 % |   900 |  989 | popcorn                                    |
 % |   892 |  991 | sweet corn                                 |
 % |   890 |  891 | elite                                      |
-% |  1000 |      | mutants                                    |
-
-
+% |  3332 | 3393 | gerry's 11n families                       |
+% |  1000 |      | mutants, except for gerry's 11n            |
 
 
 
@@ -980,6 +980,9 @@ genotype(618,618,'11R0618:0000000',618,'11R0618:0000000','Tx303','Tx303','Tx303'
 genotype(619,619,'11R0619:0000000',619,'11R0619:0000000','TZi8','TZi8','TZi8','TZi8',['TZi8'],'K61900').
 %
 % full packet note is W22R-r: Standard (Brink)
+% this is the corn for Karen's going-away 3D plant reconstruction
+% present that never worked; corn was fine, photography probably ok
+% but the other person's student couldn't do the reconstruction
 %
 genotype(620,620,'11R0620:0000000',620,'11R0620:0000000','W22R-r: Standard (Brink)','W22R-r: Standard (Brink)','W22R-r: Standard (Brink)','W22R-r: Standard (Brink)',['W22R-r'],'K62000').
 

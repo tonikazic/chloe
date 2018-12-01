@@ -1437,7 +1437,7 @@ Script [[file:../../data/data_conversion/scootch_sleeve_bdries.perl][scootch_sle
 new box label subroutines in [[file:../../label_making/make_inventory_labels.perl][make_inventory_labels.perl]] <2018-11-26 Mon>.
 
 
-* family number blocks, <2018-11-30 Fri>
+* family number blocks, <2018-12-01 Sat>
 
 | start | stop | description                                |
 |-------+------+--------------------------------------------|
@@ -1445,7 +1445,8 @@ new box label subroutines in [[file:../../label_making/make_inventory_labels.per
 |   194 |  199 | NAM                                        |
 |   600 |  619 | NAM                                        |
 |       |  629 | NAM                                        |
-|   620 |  622 | Barkan                                     |
+|       |  620 | Brink                                      |
+|   621 |  622 | Barkan                                     |
 |   623 |  627 | Shyu/Johal                                 |
 |       |  628 | Baker                                      |
 |   200 |  599 | inbreds                                    |
@@ -1457,4 +1458,6 @@ new box label subroutines in [[file:../../label_making/make_inventory_labels.per
 |   900 |  989 | popcorn                                    |
 |   892 |  991 | sweet corn                                 |
 |   890 |  891 | elite                                      |
-|  1000 |      | mutants                                    |
+|  3332 | 3393 | gerry's 11n families                       |
+|  1000 |      | mutants, except for gerry's 11n            |
+

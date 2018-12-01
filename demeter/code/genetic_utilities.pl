@@ -1795,30 +1795,35 @@ get_year_from_particle(Crop,YearSuffix,Year) :-
 % exclude inbreds.
 %
 % Kazic, 30.11.2018
+%
+%
+% revised using new family specs
+%
+% Kazic, 1.12.2018
+%
+%
+% in the future, will have to add a clause for four-digit
+% founder mutant families
+%
+%
+% fun corn is excluded by setting the upper bound to 890
+% if pedigrees of the popcorn are desired, upper bound should
+% go to 1000 and a conditional memberchk for popcorn should be
+% included
 
 
 %! founder(+F:num,-MN:atom,-PN:atom,-MG1:atom,-MG2:atom,
 %!                -PG1:atom,-PG2:atom,-Gs:list,-K:atom) is semi-det.
 
 
-
-
-% stopped here
-%
-% revise per new family specs
-%
-% Kazic, 30.11.2018
-
 founder(F,MN,PN,MG1,MG2,PG1,PG2,Gs,K) :-
         ( genotype(F,_,MN,_,PN,MG1,MG2,PG1,PG2,Gs,K) ->
-                F =< 1000,
-%	        F < 655,
-%	        F > 664,
+                F > 0,
+                F < 890,
 	        \+ inbred(F,_),
-	        ( crop_improvement(F,_)
-                ;
-	          mutant_by_family(F)
-	        )
+                \+ nam_founder(F), 
+                \+ other_peoples_corn(F),
+		\+ crop_improvement_second_gen(F)
         ;
                 false
         ).
@@ -1874,9 +1879,9 @@ inbred(Family,InbredPrefix) :-
 
 
 
-%! nam_founders(+Family:int) is det.
+%! nam_founder(+Family:int) is det.
 
-nam_founders(Family) :-
+nam_founder(Family) :-
 	memberchk(Family,[194,195,196,197,198,199,
 			  600,601,602,603,604,605,606,607,608,609,
 			  610,611,612,613,614,615,616,617,618,619,
@@ -1939,6 +1944,42 @@ crop_improvement(Family,Prefix) :-
         ( memberchk(Family,[663,664,4116,4117]),
           Prefix = 'B' ).
         
+
+
+
+
+% to kludge around incorrect family assignment for the second
+% generation of crop improvement, distinguish the founding
+% members from the remainder
+%
+% Kazic, 1.12.2018
+
+crop_improvement_founder(Family,Prefix) :-
+        ( memberchk(Family,[631,632,633,634]),
+          Prefix = 'S' )
+        ;
+        ( memberchk(Family,[635,636,637,638,639]),
+          Prefix = 'W' )
+        ;
+
+        ( memberchk(Family,[640,641]),
+          Prefix = 'M' )
+        ;
+
+        ( memberchk(Family,[663,664]),
+          Prefix = 'B' ).
+        
+
+
+
+
+crop_improvement_second_gen(Family) :-
+        memberchk(Family,[655,656,657,658,659,660,661,662,663,664]).
+
+
+
+
+
 
 
 
@@ -3861,19 +3902,23 @@ mutant_by_family(Family) :-
         integer(Family),
         ( Family < 194
         ;
-          Family >= 620,
+          Family >= 621,
+          \+ nam_founder(Family), 
+          \+ other_peoples_corn(Family),
+          \+ crop_improvement(Family,_),
 	  \+ fun_corn(Family,_),
-          \+ gerry_families(Family),
-          \+ crop_improvement(Family,_)
-        ;
-          Family >= 642,
-          Family < 890
-        ;
-          Family >= 599,
-          Family =< 622
-        ;
-          memberchk(Family,[599,628,629])
+          \+ gerry_families(Family)
         ).
+
+%        ;
+%          Family >= 642,
+%          Family < 890
+%        ;
+%          Family >= 599,
+%          Family =< 622
+%        ;
+%          memberchk(Family,[599,628,629])
+
 
 
 
