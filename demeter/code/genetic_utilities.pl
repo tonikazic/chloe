@@ -1974,7 +1974,7 @@ crop_improvement_founder(Family,Prefix) :-
 
 
 crop_improvement_second_gen(Family) :-
-        memberchk(Family,[655,656,657,658,659,660,661,662,663,664]).
+        memberchk(Family,[655,656,657,658,659,660,661,662]).
 
 
 
