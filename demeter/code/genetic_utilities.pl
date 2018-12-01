@@ -1766,8 +1766,8 @@ get_year_from_particle(Crop,YearSuffix,Year) :-
 % several years, so I believe I will not run out of integers.
 %
 % B73 now occupies the 500s, and inbred lines with the same names as mine, but from different
-% sources, are now numbered from 99 backwards.  So with the Weil B73 David Braun had in 12r, this is 
-% 599.
+% sources, are now numbered from 99 backwards.  So with the Weil B73 David Braun had in 12r,
+% this is 599.
 %
 %
 % Numerical genotypes of the founders are quite irregular, since they originate in other labs,
@@ -1797,7 +1797,9 @@ get_year_from_particle(Crop,YearSuffix,Year) :-
 % Kazic, 30.11.2018
 %
 %
-% revised using new family specs
+% revised using new family specs --- a reminder, these are dependent on my
+% idiosyncratic ordering of family numbers, and will have to be modified for
+% yours
 %
 % Kazic, 1.12.2018
 %

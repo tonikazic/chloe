@@ -154,8 +154,12 @@
 
 %%%%%%%%%% top-level predicates
     
-    
-    
+
+% compute all desired pedigrees for a crop being planned
+%
+% this predicate rolls finding the founders with build_pedigrees/2
+%
+%
 % PlanningCrop is the crop being planned; 
 % output is in ../../crops/PlanningCrop/planning/current_pedigrees    
 % ../../crops/scripts/make_pdf_pedigrees.perl generates the
@@ -177,23 +181,15 @@ compute_pedigrees(PlanningCrop) :-
     
 
 
-% given a list of family numbers, generate the pedigrees
+% given a list of family numbers, build their pedigrees
 %
 % Kazic, 23.10.2012
-
-
-% Calling on a founding inbred line produces infinite loopinng
-% as grab_founders/2 is incorrect --- that is, it's not robust to that error
 %
-% Kazic, 29.11.2018
-
-
-
+%
 % test_pedigrees([640,641,642,643,644,645,646,647,648,649,650,651,652,653,654],'18r').
 
 
 %! test_pedigrees(+Families:list,+PlanningCrop:atom) is nondet.
-
  
 test_pedigrees(Families,PlanningCrop) :-
         grab_founders(Families,Parents),
@@ -242,123 +238,7 @@ compute_pedigree(Ma,Pa,PlanningCrop) :-
 
 
     
-%%%%%%%% pedigree construction
-
-
-% a top-level interface that returns all the founding lines;
-% for checking genotype.pl
-%
-% nope --- this exposed the problem grab_founders/2 has with
-% founding inbred lines!
-%
-% I thought I was saving time using the conditions in the findall instead of
-% calling genotype, but no .....
-%
-% I think I do want to build pedigrees of the crop improvement lines, so need
-% to modify all dependent clauses consistently.
-%
-% Kazic, 29.11.2018
-
-
-
-%! grab_founders(+Founders:list) is det.
-
-grab_founders(Founders) :-
-	findall(Family,(genotype(Family,_,_,_,_,_,_,_,_,_,_),Family < 1000),IntFamilies),
-	sort(IntFamilies,Families),
-	grab_founders(Families,Founders).
-
-
-
-
-
-
-
-    
-
-% for test_pedigrees/2, first test if the family is a founder; 
-% if not, get the founding family wrt the paternal line, since
-% that''s how I do my back-crosses.  For other genetic schemes,
-% this and maybe some other predicates will need to change.
-%
-% Kazic, 24.5.2018
-
-
-% predicate loop infinitely if called with a founding inbred line.
-% need to make it robust to that error
-%
-% Kazic, 29.11.2018
-
-
-
-    
-%! grab_founders(+Families:list,-Parents:list) is nondet.
-    
-grab_founders(Families,Parents) :-
-        grab_founders(Families,[],Parents).
-    
-
-grab_founders([],A,A).
-grab_founders([Family|Families],Acc,Parents) :-
-        ( inbred(Family,_) ->
-	        NewAcc = Acc
-	;
-	        ( founder(Family,Ma,Pa,_,_,_,_,_,_) ->
-                        append(Acc,[(Ma,Pa)],NewAcc)
-	        ;
-	                ( grab_founders_aux(Family,FounderParents) ->
-	                         append(Acc,[FounderParents],NewAcc)
-		        ;
-		                 NewAcc = Acc
-		        )
-                )
-	),
-        grab_founders(Families,NewAcc,Parents).
-
-
-
-
-
-
-
-% need to climb backwards through the pedigree to the founder, if
-% the input family is not a founder
-%
-% nb: all of my back-crosses are inbred x mutant, so the founding family
-% is defined by the paternal line.
-%
-% Kazic, 24.5.2018
-
-
-% still too rococo
-%
-% Kazic, 30.11.2018
-
-
-
-grab_founders_aux(Family,(Ma,Pa)) :-   
-        \+ inbred(Family,_),
-        ( founder(Family,Ma,Pa,_,_,_,_,_,_) ->
-	        true
-	;  
-                genotype(Family,_,_,PaFam,_,_,_,_,_,_,_),
-                genotype(PaFam,_,ParMa,PaternalPaFam,ParPa,_,_,_,_,_,_),
-                ( founder(PaFam,ParMa,ParPa,_,_,_,_,_,_) ->
-		        Ma = ParMa,
-		        Pa = ParPa
-		;
-                        grab_founders_aux(PaternalPaFam,(Ma,Pa))
-                )
-        ).
-
-
-
-
-
-
-
-
-    
+%%%%%%%%%%%%%%%%%%%%% pedigree construction %%%%%%%%%%%%%%%%%%%%%%
 
 
     
@@ -383,10 +263,12 @@ construct_pedigrees(Trees) :-
 
 
 
-% for a list of (Ma,Pa) tuples that are crosses between founders, return their trees
-% of descendants
-    
-
+% for a list of (Ma,Pa) tuples that are crosses between founders, return
+% their pedigrees
+%    
+%
+% sample calls:
+%
 % W23/Les1
 %
 %        build_pedigrees([('M18 112 512','M18 114 509')],Trees).
@@ -396,7 +278,7 @@ construct_pedigrees(Trees) :-
 % build_pedigrees([('06R0009:0000000','06R0009:0000000')],Trees),write_list(Trees).
 % build_pedigrees([('06R0035:0000000','06R0035:0000000')],Trees),write_list(Trees).
 
-% oops, halts after 06R/07R, why?  incorrect indices most likely
+
     
 
 %! build_pedigrees(+Founders:list,-Trees:list) is semidet.    
@@ -431,7 +313,8 @@ build_pedigrees([(MN,PN)|Founders],Acc,Trees) :-
 
 % need to incorporate gene and Knum information, and their checking, from
 % here on down.
-
+%
+% stopped here; use 19r as the planning crop for testing
     
 grab_offspring(MN,PN,Descendants) :-
          ( find_planted(MN,PN,PlantList) ->
@@ -659,6 +542,141 @@ match_excluding_family_nums(Plant1ID,Plant2ID) :-
         remove_family(Plant1ID,Plant1SansFam),
         remove_family(Plant2ID,Plant2SansFam),
         Plant1SansFam == Plant2SansFam.
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%% definition of founding lines for pedigree construction %%%%%%%%%
+
+% I'm only interested in building pedigrees for mutant and crop improvement
+% lines:  all pedigree construction begins with these founders.
+
+
+% a top-level interface that returns all the founding mutant or crop
+% improvement lines; for checking genotype.pl and clauses in
+% genetic_utilities that group families by type:
+%
+%        inbred/2,
+%        nam_founder/1,
+%        other_peoples_corn/1,
+%        crop_improvement/2,
+%        crop_improvement_founder/2,
+%        crop_improvement_second_gen/1,
+%        fun_corn/2,
+%        elite/2,
+%        sweet_corn/2,
+%        popcorn/2,
+%        gerry_families/1.
+%
+% note that most numerical bounds for families that reflect my
+% idiosyncratic numbering appear in those clauses (but not all! --- see
+% grab_founders/1 and grab_founders_aux/2 in this module).  You'll need to
+% modify both numbering and family groups for your experiment.
+%
+% Kazic, 1.12.2018
+
+
+%! grab_founders(-Founders:list) is det.
+
+grab_founders(Founders) :-
+	findall(Family,(genotype(Family,_,_,_,_,_,_,_,_,_,_),
+			            Family < 890,Family > 0),IntFamilies),
+	sort(IntFamilies,Families),
+	grab_founders(Families,Founders).
+
+
+
+
+
+
+
+    
+
+% first test if the family is a founder; if not, get the founding family
+% wrt the paternal line, since that''s how I do my back-crosses.  For other
+% genetic schemes, this and maybe some other predicates will need to
+% change.
+%
+% Since the predicate can be called with non-founding lines, this backward
+% recursion to the founder is needed.
+%
+% Kazic, 1.12.2018
+
+    
+%! grab_founders(+Families:list,-Parents:list) is nondet.
+    
+grab_founders(Families,Parents) :-
+        grab_founders(Families,[],Parents).
+    
+
+grab_founders([],A,A).
+grab_founders([Family|Families],Acc,Parents) :-
+        ( founder(Family,Ma,Pa,_,_,_,_,_,_) ->
+                append(Acc,[(Ma,Pa)],NewAcc)
+	;
+	        ( grab_founders_aux(Family,FounderParents) ->
+	                 append(Acc,[FounderParents],NewAcc)
+	        ;
+	                 NewAcc = Acc
+	        )
+	),
+        grab_founders(Families,NewAcc,Parents).
+
+
+
+
+
+
+
+
+
+% climb backwards through the pedigree to the founder, if the input family
+% is not a founder
+%
+% nb: all of my back-crosses are inbred x mutant, so the founding family
+% is defined by the paternal line; and the second clause relies on my
+% ordering of family numbers for founding mutant lines.
+%
+% Kazic, 1.12.2018
+
+grab_founders_aux(Family,(Ma,Pa)) :-   
+        ( founder(Family,Ma,Pa,_,_,_,_,_,_) ->
+	        true
+	;  
+
+
+% if PaFam < 890 and not a founder, fail
+% depending on clause ordering to save a little speed,
+% not very declarative!
+	
+                ( Family < 890 ->
+% 	        \+ founder(PaFam,_,_,_,_,_,_,_,_),
+	                false
+                ;
+                        genotype(Family,_,_,PaFam,_,_,_,_,_,_,_),
+                        genotype(PaFam,_,ParMa,PaternalPaFam,ParPa,_,_,_,_,_,_),
+                        ( founder(PaFam,ParMa,ParPa,_,_,_,_,_,_) ->
+                                Ma = ParMa,
+                                Pa = ParPa
+			;
+                                grab_founders_aux(PaternalPaFam,(Ma,Pa))
+                        )
+		)
+        ).
+
+
+
+
+
+
+
+
+    
 
 
 
