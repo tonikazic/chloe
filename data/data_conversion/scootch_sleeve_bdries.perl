@@ -311,19 +311,24 @@ elsif ( $flag eq 'go' ) {
 
 
 
-# Previous data are commented out with double %s so they can be easily
-# found.  New data are appended to the end of the file so that subsequent
+# It is INCORRECT to comment out previous inventory data --- empty packets
+# can be used to produce descendants before the seed was exhausted, so
+# commenting out those data will break pedigree construction.
+#
+# New data are appended to the end of the file so that subsequent
 # inventory increments are adjacent.
 #
-# First seven lines of the file are fixed.  Some extraneous blank lines are
-# skipped.
+# First seventeen lines of the file are fixed.  Some extraneous blank lines
+# are skipped.
+#
+# Kazic, 2.12.2018
 
 
 if ( $flag ne 'q' ) {
 
-        for my $i (0..6) { print $outfh $originals[$i]; }
-        print $outfh "% previous inventory data and their accompanying comments are\n% commented out with %% .\n% The most recent data are at the bottom of the file (search for 'newest data').\n% The most recent scootching was done on $today.\n\n\n\n\n";
-        for my $i (22..$#originals) { print $outfh "%% $originals[$i]"; }
+        for my $i (0..16) { print $outfh $originals[$i]; }
+        print $outfh "% The most recent data are at the bottom of the file (search for 'newest data').\n% The most recent scootching was done on $today.\n\n\n\n\n";
+        for my $i (22..$#originals) { print $outfh "$originals[$i]"; }
 
 
         print $outfh "\n\n\n\n\n\n%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% newest data %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\n\n\n\n% these are the scootched inventory facts computed by\n% ../../data/data_conversion/scootch_sleeve_bdries.perl\n% on $today\n% using the current version of the\n% $sleeve_file data.\n% nb:  06R inbreds with decimal rowplants may not be in the indicated sleeve.\n\n";
