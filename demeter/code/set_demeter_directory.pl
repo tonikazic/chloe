@@ -74,8 +74,9 @@ demeter_root_directory('c/maize/demeter/').
 % added the relative locations of the directories needed for
 % pedigree output
 %
-% Kazic, 24.5.2018
+% Kazic, 6.12.2018
 
+pedigree_scripts_directory('../../crops/scripts/').
 pedigree_root_directory('../../crops/').
 pedigree_planning_directory('planning/current_pedigrees/').
 
