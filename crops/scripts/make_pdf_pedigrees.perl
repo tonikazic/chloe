@@ -20,9 +20,9 @@
 # Kazic, 24.5.2018
 #
 #
-# added flags; retest in 19r
+# added more flags; retest in 19r
 #
-# Kazic, 12.7.2018
+# Kazic, 2.12.2018
 
 
 
@@ -41,7 +41,7 @@ use warnings;
 use Cwd 'getcwd';
 use File::Find;
 use File::Path 'make_path';
-
+use File::Basename;
 
 
 use lib '../../label_making/Typesetting/';
@@ -55,7 +55,7 @@ my $flag = $ARGV[1];
 my $local_dir = getcwd;
 my ($dir) = &adjust_paths($crop,$local_dir);
 
-
+if ( $flag eq 'test' ) { print "local_dir: $local_dir\ndir: $dir\n"; }
 
 
 
@@ -67,24 +67,21 @@ my ($dir) = &adjust_paths($crop,$local_dir);
 #
 # Kazic, 13.6.2018
 
+
+my $curr_dir = getcwd;
 my $pedigree_tree = $dir . $pedigree_root;
 
-
-chdir $pedigree_tree;
-my $curr_dir = getcwd;
-
-
-
-
-
-
-# nb, $pdf_pedigree_tree is relative to the $curr_dir
-
-my $pdf_pedigree_tree = $dir_step . $pdf_pedigrees;
+my $pdf_pedigree_tree = $pedigree_tree;
+$pdf_pedigree_tree =~ s/current/pdf/;
 my $dropbox_pedigree_root = $dropbox_root . $crop . "/" . $pdf_pedigrees;
 
 
-if ( $flag eq 'test' ) { print "pwd: $curr_dir\npt: $pedigree_tree\nppt: $pdf_pedigree_tree\ndpr: $dropbox_pedigree_root\n"; }
+if ( $flag eq 'test' ) {
+	print "pedigree_tree: $pedigree_tree\n"; 
+        print "pdf_pedigree_tree: $pdf_pedigree_tree\ndropbox_pedigree_root: $dropbox_pedigree_root\n"; 
+        }
+
+
 
 
 
@@ -100,16 +97,19 @@ if ( $flag eq 'test' ) { print "pwd: $curr_dir\npt: $pedigree_tree\nppt: $pdf_pe
 # Kazic, 9.4.2014
 
 
-my $mk_cmd = "mkdir -p $dropbox_pedigree_root 2> /dev/null";
-if ( $flag eq 'test' ) { print "dropbox mkdir: $mk_cmd\n"; }
+my $pdf_mk_cmd = "mkdir -p $pdf_pedigree_tree 2> /dev/null";
+my $dp_mk_cmd = "mkdir -p $dropbox_pedigree_root 2> /dev/null";
+if ( $flag eq 'test' ) { print "pdf mkdir: $pdf_mk_cmd\n"; print "dropbox mkdir: $dp_mk_cmd\n"; }
 
 
 
-if ( $flag eq 'go' ) {
-        if ( ! -d $dropbox_pedigree_root ) { system($mk_cmd); }
+if ( ( $flag eq 'test' ) || ( $flag eq 'go' ) ) {
 
-        find(\&build_pdf_tree,$curr_dir);
-        find(\&generate_pdf,$curr_dir);
+        if ( ( $flag eq 'go' ) && ( ! -d $pdf_pedigree_tree ) ) { system($pdf_mk_cmd); }
+        if ( ( $flag eq 'go' ) && ( ! -d $dropbox_pedigree_root ) ) { system($dp_mk_cmd); }
+
+        find(\&build_pdf_tree,$pedigree_tree);
+        find(\&generate_pdf,$pedigree_tree);
         }
 
 
@@ -152,12 +152,23 @@ elsif ( $flag eq 'go' ) { system($cp_cmd); }
 
 # here, I've just used the unix command as it's simpler
 
+
+# hmm, not creating correct dir names for the pdf pedigrees...
+# passing the subdir; get whole name, substitute pdf for current,
+# and make that tree
+# am I passing in the right directory?  think so
+#
+# stopped here
+
 sub build_pdf_tree {
 
+        print "bdf top: $_\n";
+	
         if ( -d ) {
-	        my $local_pdf_dir = $pdf_pedigree_tree . $_;
-#	        print "lpd: $local_pdf_dir\n";
-                system("mkdir -p $local_pdf_dir 2> /dev/null");
+	        $pdf_pedigree_tree =~ s/current_/pdf_/;
+		$pdf_pedigree_tree .= $_;
+	        if ( $flag eq 'test' ) { print "lpd: $pdf_pedigree_tree \n"; }
+                if ( $flag eq 'go' ) { print "bdt: $pdf_pedigree_tree \n"; system("mkdir -p $pdf_pedigree_tree 2> /dev/null"); }
 	        }
         }
 
@@ -207,18 +218,18 @@ sub generate_pdf {
 # and over for the pdf output.
 
                         my $pdf_branch = $File::Find::name;
-#                        print "pdfb: $pdf_branch\n";
+                        if ( $flag eq 'test' ) { print "pdfb: $pdf_branch\n"; }
 
 
                         $pdf_branch =~ s/current/pdf/;
                         my $pdf = $pdf_branch . ".pdf";
 
-#                        print "pdf file: $pdf\n";
+                        if ( $flag eq 'test' ) { print "pdf file: $pdf\n"; }
 			
                         if ( ! -e $pdf ) {
                                 my $cmd = "enscript -r '" . $_ . "' -o f.ps; ps2pdf f.ps '" . $pdf . "'; rm f.ps";
-#                                print "cmd is $cmd\n";
-                                system($cmd);
+                                if ( $flag eq 'test' ) { print "cmd is $cmd\n"; }
+                                if ( $flag eq 'go' ) { system($cmd); }
 			        }
 		        }
 	        }
