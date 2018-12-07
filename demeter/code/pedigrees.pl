@@ -314,6 +314,11 @@ build_pedigrees([(MN,PN)|Founders],Acc,Trees) :-
 % need to incorporate gene and Knum information, and their checking, from
 % here on down.
 %
+% need to separate checking a built pedigree from building it without using
+% family numbers.  For checking, get the checking info after construction,
+% rather than carrying it along during construction.
+%
+%
 % stopped here; use 19r as the planning crop for testing
     
 grab_offspring(MN,PN,Descendants) :-
@@ -716,7 +721,7 @@ make_output_dir(PlanningCrop,ASCIIDir,LowerCaseCrop) :-
 
         build_subdirectories(ASCIIDir),
         atomic_list_concat(['chmod -R u+rwx ',ASCIIDir,'; chmod -R o-rwx ',ASCIIDir],ChmodCmd),
-        format('chmod cmd: ~w~n',[ChmodCmd]),
+%        format('double chmod cmd: ~w~n',[ChmodCmd]),
         shell(ChmodCmd).
 
 
@@ -811,13 +816,33 @@ make_pedigree_index(SubDir,[H|T]) :-
 % pdf and Dropbox versions
 %
 % Kazic, 24.5.2018
-    
-output_pedigrees(ASCIIDir,LowerCaseCrop,Switch,Trees) :-
-        pretty_pedigrees(ASCIIDir,0,5,Switch,Trees),
-        atom_concat('../../crops/scripts/make_pdf_pedigrees.perl ',LowerCaseCrop,Cmd),       
-        format('shell cmd is: ~w~n',[Cmd]),
-        shell(Cmd).
 
+
+% added flag, set to go
+%
+% Kazic, 2.12.2018
+
+
+% cd to the scripts directory to simplify things on the Perl side,
+% then return to this directory, which is set by file_search_path/2 in
+% ./set_demeter_directory.pl
+%
+% there are probably better ways of managing the environment of the forked
+% process, but this will do for now.
+%
+% Kazic, 6.12.2018
+
+%! output_pedigrees(+ASCIIDir:atom,+LowerCaseCrop:atom,+Switch:atom,+Trees:list) is det.
+
+output_pedigrees(ASCIIDir,LowerCaseCrop,Switch,Trees) :-
+	working_directory(ThisDir,ThisDir),
+	pedigree_scripts_directory(ScriptDir),
+        pretty_pedigrees(ASCIIDir,0,5,Switch,Trees),
+	cd(ScriptDir),
+        atomic_list_concat(['./make_pdf_pedigrees.perl ',LowerCaseCrop,' go'],Cmd),       
+        format('shell cmd is: ~w~nnow entering make_pdf_pedigrees.perl!~n~n',[Cmd]),
+        shell(Cmd),
+        cd(ThisDir).
 
 
 
