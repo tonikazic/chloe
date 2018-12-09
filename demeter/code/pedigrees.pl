@@ -166,6 +166,12 @@
 % pdf and Dropbox versions
 
 
+% undecided: insert test_pedigrees/2 here after build_pedigrees/2, or as an
+% early call in output_pedigrees/4?
+%
+% Kazic, 9.12.2018
+
+
 %! compute_pedigrees(+PlanningCrop:atom) is nondet.
     
 compute_pedigrees(PlanningCrop) :-
@@ -187,6 +193,11 @@ compute_pedigrees(PlanningCrop) :-
 %
 %
 % test_pedigrees([640,641,642,643,644,645,646,647,648,649,650,651,652,653,654],'18r').
+
+% undecided: insert test_pedigrees/2 here after build_pedigrees/2, or as an
+% early call in output_pedigrees/4?
+%
+% Kazic, 9.12.2018
 
 
 %! test_pedigrees(+Families:list,+PlanningCrop:atom) is nondet.
@@ -219,7 +230,13 @@ test_pedigrees(Families,PlanningCrop) :-
 % compute_pedigree('11R0621:0000000','11R0621:0000000','../results/12n_planning').
 % compute_pedigree('11R0628:0000000','11R0628:0000000','../results/12n_planning').
 % compute_pedigree('11R0199:0000000','11R0199:0000000','../results/12n_planning').
-    
+
+
+% undecided: insert test_pedigrees/2 here after build_pedigrees/2, or as an
+% early call in output_pedigrees/4?
+%
+% Kazic, 9.12.2018
+
 
 compute_pedigree(Ma,Pa,PlanningCrop) :-
         build_pedigrees([(Ma,Pa)],Trees),
@@ -240,6 +257,10 @@ compute_pedigree(Ma,Pa,PlanningCrop) :-
     
 %%%%%%%%%%%%%%%%%%%%% pedigree construction %%%%%%%%%%%%%%%%%%%%%%
 
+% undecided: insert test_pedigrees/2 here after build_pedigrees/2, or as an
+% early call in output_pedigrees/4?
+%
+% Kazic, 9.12.2018
 
     
 %! construct_pedigrees(-Trees:list) is semidet.
@@ -279,6 +300,10 @@ construct_pedigrees(Trees) :-
 % build_pedigrees([('06R0035:0000000','06R0035:0000000')],Trees),write_list(Trees).
 
 
+% undecided: insert test_pedigrees/2 here after build_pedigrees/2, or as an
+% early call in output_pedigrees/4?
+%
+% Kazic, 9.12.2018
     
 
 %! build_pedigrees(+Founders:list,-Trees:list) is semidet.    
@@ -823,6 +848,14 @@ make_pedigree_index(SubDir,[H|T]) :-
 %
 % Kazic, 6.12.2018
 
+
+% undecided: insert test_pedigrees/2 here after build_pedigrees/2, or as an
+% early call in output_pedigrees/4?
+%
+% Kazic, 9.12.2018
+
+
+
 %! output_pedigrees(+ASCIIDir:atom,+LowerCaseCrop:atom,+Switch:atom,+Trees:list) is det.
 
 output_pedigrees(ASCIIDir,LowerCaseCrop,Switch,Trees) :-
@@ -878,11 +911,15 @@ pretty_pedigrees(ASCIIDir,Increment,Indentn,Switch,[Tree|Trees]) :-
 % hey, get the file name from the gene of interest!  And, concatenate it with the K number
 % if needed to distinguish different accessions of the same mutant!
 %
+% hmmm, count lines/page?
+%
 % untested
 %
 % Kazic, 16.10.2012
-
-% hmmm, count lines/page?
+%
+% seems to work fine by now!
+%
+% Kazic, 9.12.2018
 
 pretty_pedigrees_aux(PlanningCrop,Increment,Indentn,Switch,(FounderMa,FounderPa)-Tree) :-
         ( ( atom(FounderMa),
