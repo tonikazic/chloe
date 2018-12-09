@@ -311,16 +311,7 @@ build_pedigrees([(MN,PN)|Founders],Acc,Trees) :-
 % eliminate extraneous nesting of lists; convert to an ordset to remove
 % duplicates and speed execution
 
-% need to incorporate gene and Knum information, and their checking, from
-% here on down.
-%
-% need to separate checking a built pedigree from building it without using
-% family numbers.  For checking, get the checking info after construction,
-% rather than carrying it along during construction.
-%
-%
-% stopped here; use 19r as the planning crop for testing
-    
+
 grab_offspring(MN,PN,Descendants) :-
          ( find_planted(MN,PN,PlantList) ->
                 ( find_offspring(PlantList,ListDescendants) ->
@@ -694,7 +685,7 @@ grab_founders_aux(Family,(Ma,Pa)) :-
 
 
 
-%%%%%%%%%%%%% directory management:  OS-dependent!
+%%%%%%%%%%%%%%%%%%%%%%% directory management:  OS-dependent! %%%%%%%%%%%%%%%%%%%%%%%
 
 
 
@@ -809,7 +800,7 @@ make_pedigree_index(SubDir,[H|T]) :-
 
 
 
-%%%% pedigree output
+%%%%%%%%%%%%%%%%%%%%%%% pedigree output %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 % call ../../crops/scripts/make_pdf_pedigrees.perl to generate
@@ -843,6 +834,8 @@ output_pedigrees(ASCIIDir,LowerCaseCrop,Switch,Trees) :-
         format('shell cmd is: ~w~nnow entering make_pdf_pedigrees.perl!~n~n',[Cmd]),
         shell(Cmd),
         cd(ThisDir).
+
+
 
 
 
@@ -910,6 +903,9 @@ pretty_pedigrees_aux(PlanningCrop,Increment,Indentn,Switch,(FounderMa,FounderPa)
                 imaged_pedigree(Stream,Increment,Indentn,[(FounderMa,FounderPa)-Tree])
         ),
         close(Stream).
+
+
+
 
 
 
@@ -1029,7 +1025,7 @@ pedigree_header(Stream,File,Switch,MG,Mut) :-
         utc_timestamp_n_date(TimeStamp,UTCDate),
         ( Switch == ped ->
                 format(Stream,'% generated ~w (=~w) by compute_pedigrees/1.~n~n',[UTCDate,TimeStamp]),
-                format(Stream,'% Horizontal pedigrees, generations at same indentation.  S: Mo20W; W: W23; M: M14.~n',[]),
+                format(Stream,'% Horizontal pedigrees, generations at same indentation.  S: Mo20W; W: W23; M: M14; B: B73.~n',[]),
                 format(Stream,'% !!! => cross was not by Toni; references to image locations on right.~n',[])
         ;
                 format(Stream,'% generated ~w (=~w) by find_imaged_ancestors/1.~n~n',[UTCDate,TimeStamp]),
@@ -1041,6 +1037,41 @@ pedigree_header(Stream,File,Switch,MG,Mut) :-
 
 
 
+
+
+
+
+
+
+
+
+
+% need to incorporate gene and Knum information, and their checking, from
+% here on down.
+%
+% need to separate checking a built pedigree from building it without using
+% family numbers.  For checking, get the checking info after construction,
+% rather than carrying it along during construction.
+%
+%
+
+
+% add Knums to genotypes for founders missing them
+% look at associated_data/5 called during output_pedigrees/3
+
+
+% going into pedigrees:pretty_pedigree/4:
+
+%% [('06R0001:0000108', '06R0001:0000106')-[],
+%%  ('06R200:S00I0608', '06R0001:0000104')-[('06N201:S0013305', '06N1000:0003302')-[],
+%% 					    ('06N301:W0008706', '06N1000:0003302')-[],
+%% 					    (..., ...)-[], ... - ...],
+%%  ('06R200:S00I1608', '06R0001:0000104')-[('11N205:S0036312', '11N1010:0006302')-[],
+%% 					    (..., ...)-[...|...], ... - ...],
+%%                                          ('06R201:S00I1608', '06R0001:0000104')-[],  ....
+
+
+% stopped here; use 19r as the planning crop for testing
 
 
 
@@ -1082,30 +1113,16 @@ pretty_pedigree(Stream,Increment,Indentn,[(Ma,Pa)-H|T]) :-
 
 
 
-% convert to swipl
-
-% just need atomic_list_concat here?
 
 make_cmd(Increment,Cmd) :-
-        number_chars(Increment,IncChars),
-        atom_chars(IncAtom,IncChars),
-        atomic_list_concat(['~',IncAtom,'| ~w x ~w'],Cmd).
+        atomic_list_concat(['~',Increment,'| ~w x ~w'],Cmd).	
 
 
 make_imaged_cmd(Increment,Cmd) :-
-        number_chars(Increment,IncChars),
-        atom_chars(IncAtom,IncChars),
-        atomic_list_concat(['~',IncAtom,'| ~w  ~w   x   ~w  ~w'],Cmd).
-
-
-
-
+         atomic_list_concat(['~',Increment,'| ~w  ~w   x   ~w  ~w'],Cmd).
 
 make_bee_warning_cmd(Increment,Cmd) :-
-        number_chars(Increment,IncChars),
-        atom_chars(IncAtom,IncChars),
-%        atomic_list_concat(['~',IncAtom,'| ~w x ~w by ~w'],Cmd).
-        atomic_list_concat(['~',IncAtom,'| ~w x ~w     !!!'],Cmd).
+        atomic_list_concat(['~',Increment,'| ~w x ~w     !!!'],Cmd).	
 
 
 
