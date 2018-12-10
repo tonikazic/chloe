@@ -192,7 +192,36 @@ Added in crop, inbred, etc facts.
 
 Test using 19r as the planning crop.
 
-*** Test pedigree construction by crop and rowplant, excluding family numbers
+*** GNG Test pedigree construction by crop and rowplant, excluding family numbers
+
+
+
+#+BEGIN_SRC prolog
+test_pedigrees([1,2,3],'19r').
+#+END_SRC
+
+Added missing Knums to founders in [[file:data/genotype.pl][genotype.pl]] <2018-12-10 Mon>.  Checks out:
+
+#+BEGIN_SRC prolog
+1 ?- ['../data/genotype'].
+true.
+
+3 ?- [demeter_utilities].
+true.
+
+4 ?- findall(F,genotype(F,_,_,_,_,_,_,_,_,_,'K00'),Fs),write_list(Fs).
+Fs = [].
+
+
+#+END_SRC
+
+
+Decided to write a set of predicates that can stand alone, and leave
+calling after pedigrees:build_pedigrees/2 or during pedigrees:pretty_pedigree/4 for
+later (<2018-12-10 Mon>).  My rationale is that checking will be mostly a
+one-time thing....
+
+
 
 *** Use mutant data to confirm fgenotype.  Conditions:
 
