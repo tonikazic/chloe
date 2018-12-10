@@ -13,16 +13,17 @@
 
 
 :-      module(pedigrees, [
-                build_pedigrees/2,
-                construct_pedigrees/1,
-                find_imaged_ancestors/1,
-                find_plants_offspring/2,
-		grab_founders/1,
-                grab_offspring/3,
-                test_pedigrees/2,
-                compute_pedigree/3,
-                compute_pedigrees/1
-                ]).
+               build_pedigrees/2,
+	       check_pedigrees/2,	       
+               construct_pedigrees/1,
+               find_imaged_ancestors/1,
+               find_plants_offspring/2,
+	       grab_founders/1,
+               grab_offspring/3,
+               test_pedigrees/2,
+               compute_pedigree/3,
+               compute_pedigrees/1
+               ]).
 
 
 
@@ -166,12 +167,6 @@
 % pdf and Dropbox versions
 
 
-% undecided: insert test_pedigrees/2 here after build_pedigrees/2, or as an
-% early call in output_pedigrees/4?
-%
-% Kazic, 9.12.2018
-
-
 %! compute_pedigrees(+PlanningCrop:atom) is nondet.
     
 compute_pedigrees(PlanningCrop) :-
@@ -193,11 +188,6 @@ compute_pedigrees(PlanningCrop) :-
 %
 %
 % test_pedigrees([640,641,642,643,644,645,646,647,648,649,650,651,652,653,654],'18r').
-
-% undecided: insert test_pedigrees/2 here after build_pedigrees/2, or as an
-% early call in output_pedigrees/4?
-%
-% Kazic, 9.12.2018
 
 
 %! test_pedigrees(+Families:list,+PlanningCrop:atom) is nondet.
@@ -232,11 +222,6 @@ test_pedigrees(Families,PlanningCrop) :-
 % compute_pedigree('11R0199:0000000','11R0199:0000000','../results/12n_planning').
 
 
-% undecided: insert test_pedigrees/2 here after build_pedigrees/2, or as an
-% early call in output_pedigrees/4?
-%
-% Kazic, 9.12.2018
-
 
 compute_pedigree(Ma,Pa,PlanningCrop) :-
         build_pedigrees([(Ma,Pa)],Trees),
@@ -257,10 +242,6 @@ compute_pedigree(Ma,Pa,PlanningCrop) :-
     
 %%%%%%%%%%%%%%%%%%%%% pedigree construction %%%%%%%%%%%%%%%%%%%%%%
 
-% undecided: insert test_pedigrees/2 here after build_pedigrees/2, or as an
-% early call in output_pedigrees/4?
-%
-% Kazic, 9.12.2018
 
     
 %! construct_pedigrees(-Trees:list) is semidet.
@@ -298,12 +279,6 @@ construct_pedigrees(Trees) :-
 %
 % build_pedigrees([('06R0009:0000000','06R0009:0000000')],Trees),write_list(Trees).
 % build_pedigrees([('06R0035:0000000','06R0035:0000000')],Trees),write_list(Trees).
-
-
-% undecided: insert test_pedigrees/2 here after build_pedigrees/2, or as an
-% early call in output_pedigrees/4?
-%
-% Kazic, 9.12.2018
     
 
 %! build_pedigrees(+Founders:list,-Trees:list) is semidet.    
@@ -700,8 +675,89 @@ grab_founders_aux(Family,(Ma,Pa)) :-
     
 
 
+%%%%%%%%%%%%%%%%%%%%%%%% pedigree integrity checks %%%%%%%%%%%%%%%%%%%%%%
+
+% a set of predicates to check constructed pedigrees and flag problems
+
+% need to incorporate gene and Knum information, and their checking, from
+% here on down.
+%
+% need to separate checking a built pedigree from building it without using
+% family numbers.  For checking, get the checking info after construction,
+% rather than carrying it along during construction.
+%
+%
 
 
+
+% look at associated_data/5 called during output_pedigrees/3
+
+
+% going into pedigrees:pretty_pedigree/4:
+
+% [('06R0001:0000108', '06R0001:0000106')-[],
+%  ('06R200:S00I0608', '06R0001:0000104')-[('06N201:S0013305', '06N1000:0003302')-[],
+% 					    ('06N301:W0008706', '06N1000:0003302')-[],
+% 					    (..., ...)-[], ... - ...],
+%  ('06R200:S00I1608', '06R0001:0000104')-[('11N205:S0036312', '11N1010:0006302')-[],
+% 					    (..., ...)-[...|...], ... - ...],
+%                                          ('06R201:S00I1608', '06R0001:0000104')-[],  ....
+
+
+% use 19r as the planning crop for testing
+
+
+
+
+
+
+
+%! check_pedigrees(+Trees:list,-Checked:list) is nondet.
+
+check_pedigrees([],[]).
+check_pedigrees([Tree|Trees],[Checked|RestChecked]) :-
+	check_pedigree(Tree,Checked),
+	check_pedigrees(Trees,RestChecked).
+
+
+check_pedigree([(FounderMa,FounderPa)-Desc|RestTree],Checked) :-
+	genotype(_,_,FounderMa,_,FounderPa,_,_,_,_,[Mutant],FounderK),
+	check_pedigree([(FounderMa,FounderPa)-Desc|RestTree],Mutant,FounderK,FounderK,[],Checked).
+
+
+
+
+
+
+
+
+
+% want to identify potential problems for manual checking
+
+
+% Mutant should be unchanged throughout.
+%
+% Knum check against founder should neglect last two digits, but
+% check against subsequent Knums should construct specific ones (with
+% the different last two digits) and check those.
+%
+% Checked should be a list of observed changes from founder or intermediate, with
+% family numbers of pa and changed descendant
+%
+% Kazic, 10.12.2018
+
+
+% stopped here
+
+
+check_pedigree([],_,_,_,A,A).
+check_pedigree([(Ma,Pa)-Desc|T],Mutant,FounderK,IntK,Acc,Checked) :-
+
+
+% double recursion on Desc, append its return Acc to this to make overall NewAcc
+
+
+	check_pedigree(T,Mutant,FounderK,IntK,NewAcc,Checked).
 
 
 
@@ -848,11 +904,6 @@ make_pedigree_index(SubDir,[H|T]) :-
 %
 % Kazic, 6.12.2018
 
-
-% undecided: insert test_pedigrees/2 here after build_pedigrees/2, or as an
-% early call in output_pedigrees/4?
-%
-% Kazic, 9.12.2018
 
 
 
@@ -1080,35 +1131,6 @@ pedigree_header(Stream,File,Switch,MG,Mut) :-
 
 
 
-
-
-
-% need to incorporate gene and Knum information, and their checking, from
-% here on down.
-%
-% need to separate checking a built pedigree from building it without using
-% family numbers.  For checking, get the checking info after construction,
-% rather than carrying it along during construction.
-%
-%
-
-
-% add Knums to genotypes for founders missing them
-% look at associated_data/5 called during output_pedigrees/3
-
-
-% going into pedigrees:pretty_pedigree/4:
-
-%% [('06R0001:0000108', '06R0001:0000106')-[],
-%%  ('06R200:S00I0608', '06R0001:0000104')-[('06N201:S0013305', '06N1000:0003302')-[],
-%% 					    ('06N301:W0008706', '06N1000:0003302')-[],
-%% 					    (..., ...)-[], ... - ...],
-%%  ('06R200:S00I1608', '06R0001:0000104')-[('11N205:S0036312', '11N1010:0006302')-[],
-%% 					    (..., ...)-[...|...], ... - ...],
-%%                                          ('06R201:S00I1608', '06R0001:0000104')-[],  ....
-
-
-% stopped here; use 19r as the planning crop for testing
 
 
 
