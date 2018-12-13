@@ -747,17 +747,46 @@ check_pedigree([(FounderMa,FounderPa)-Desc|RestTree],Checked) :-
 % Kazic, 10.12.2018
 
 
-% stopped here
+% can easily make double recursion if desirable
 
 
 check_pedigree([],_,_,_,A,A).
 check_pedigree([(Ma,Pa)-Desc|T],Mutant,FounderK,IntK,Acc,Checked) :-
 
+        check_pedigree_aux(Ma,Pa,Desc,Mutant,FounderK,IntK,PedAcc),
+        append(PedAcc,Acc,NewAcc),
 
-% double recursion on Desc, append its return Acc to this to make overall NewAcc
-
+% might need something else for Knums, let's see
 
 	check_pedigree(T,Mutant,FounderK,IntK,NewAcc,Checked).
+
+
+
+
+
+
+
+
+check_pedigree_aux(Ma,Pa,Desc,Mutant,FounderK,IntK,PedAcc) :-
+        check_pedigree_aux(Ma,Pa,Desc,Mutant,FounderK,IntK,[],PedAcc).
+
+
+
+check_pedigree_aux(_,_,[],_,_,_,A,A).
+check_pedigree_aux(Ma,Pa,[(OffMa,OffPa)-Desc|T],Mutant,FounderK,IntK,Acc,PedAcc) :-
+
+% recurse on both Desc and T
+% errr, look at pedigree construction code!
+% stopped here
+
+
+
+
+
+
+
+
+
 
 
 
