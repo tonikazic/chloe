@@ -767,6 +767,14 @@ check_pedigree([(Ma,Pa)-Desc|T],Mutant,FounderK,IntK,Acc,Checked) :-
 
 
 
+
+% recurse on both Desc and T
+% errr, look at pedigree construction code!
+% stopped here, must test
+%
+% Kazic, 2.1.2019
+
+
 check_pedigree_aux(Ma,Pa,Desc,Mutant,FounderK,IntK,PedAcc) :-
         check_pedigree_aux(Ma,Pa,Desc,Mutant,FounderK,IntK,[],PedAcc).
 
@@ -775,14 +783,33 @@ check_pedigree_aux(Ma,Pa,Desc,Mutant,FounderK,IntK,PedAcc) :-
 check_pedigree_aux(_,_,[],_,_,_,A,A).
 check_pedigree_aux(Ma,Pa,[(OffMa,OffPa)-Desc|T],Mutant,FounderK,IntK,Acc,PedAcc) :-
 
-% recurse on both Desc and T
-% errr, look at pedigree construction code!
-% stopped here
+        ( genotype(_,_,OffMa,_,OffPa,_,_,_,_,[OffMutant],OffK) ->
+                OffMutant == Mutant,
+	        check_knums(FounderK,OffK,IntK),
+		check_pedigree_aux(OffMa,OffPa,Desc,Mutant,FounderK,IntK,Acc,NewAcc),
+		check_pedigree_aux(OffMa,OffPa,T,Mutant,FounderK,IntK,NewAcc,PedAcc)
+
+	;
+
+                append(Acc,[(OffMa,OffPa)],NewAcc),
+	        check_pedigree_aux(_,_,[],_,_,_,NewAcc,PedAcc)
+
+	).
+	  
+	
 
 
 
-
-
+check_knums(FounderK,FounderK,FounderK).
+check_knums(FounderK,OffK,IntK) :-
+	OffK \== FounderK,
+	sub_atom(FounderK,0,3,2,FounderPrefix),
+	sub_atom(OffK,0,3,2,OffPrefix),
+        ( FounderPrefix == OffPrefix ->
+	        IntK = OffK
+	;
+                false
+        ).
 
 
 
