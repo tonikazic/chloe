@@ -1,4 +1,4 @@
-# Chloe and Demeter form the crop management system for our maize research.  
+# Chloe and Demeter are the code for the crop management system for our maize research.  
 
 # Preparing for public release.
 
