@@ -1,18 +1,55 @@
 # this is ../c/maize/docs/chloe/chloe.org
 
-#+TITLE: Chloe: a System for Managing Maize Research Crops
+#+TITLE: A System for Managing Maize Research Crops
 #+AUTHOR: Toni Kazic
 #+DATE: \today
 
 
 
-* Overview
+* Introduction
 
-basic intro
+Planning, managing, and collecting data from research crops are
+labor-intensive tasks.  Each laboratory and experiment has its own goals
+and methods, and these can change with every planting.  Over the last
+tweleve years, I have built a flexible system that reduces manual effort
+and can be easily changed as one's needs evolve.
 
-Chloe is one of the many titles of Demeter, meaning ``young green shoot''.
+
+
+The system includes five components.
+
+   + /Chloe/: a set of Perl scripts to process raw data; generate tags,
+     labels, and barcodes; and miscellaneous crop management tasks.  Chloe
+     is one of the many titles of Demeter, meaning ``young green shoot''.  
+   + /Demeter/: a Prolog database for crop, genetic, and phenotype data;
+     associated data provenance; and code for pedigree generation, crop
+     planning, and management of field work. 
+   + Spreadsheets for data collection in the field using smart phones and
+     small barcode scanners.
+   + Cloud services for data transfer from field to server, and secondary
+     storage of raw data.
+   + Robust protocols for data collection and transfer.
+
+
+All code relies entirely on open-source code that run on all desktop
+platforms.  We use spreadsheets on smart phones and tablets to collect the
+tabular data using small hand-held barcode scanners.  The cloud service Dropbox is
+used to transfer spreadsheet data from the phones to a server and provides
+secondary storage of the raw data.  After manual inspection and correction
+of the raw data (for example, for failed barcode readings), data are
+processed and deposited in Demeter.
+
+
+Code and documentation are on GitHub at
+https://github.com/tonikazic/chloe.git.  The code is currently released
+under the terms of the GNU Affero General Public License v3.0 license.
+
+
+
+* Overview of Data Services
 
 insert flow and state diagrams here
+
 
 
 * Dependencies and Cloud Services
