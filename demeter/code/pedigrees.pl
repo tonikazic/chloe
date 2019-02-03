@@ -739,20 +739,14 @@ grab_founders_aux(Family,(Ma,Pa)) :-
 %! check_pedigrees(+Trees:list,-Checked:list) is nondet.
 
 
-% check_pedigrees([('06R0001:0000108', '06R0001:0000106')-[],
-%                  ('06R200:S00I0608', '06R0001:0000104')-[('06N201:S0013305', '06N1000:0003302')-[],
-% 					                   ('06N301:W0008706', '06N1000:0003302')-[]],
-%                  ('06R200:S00I1608', '06R0001:0000104')-[('11N205:S0036312', '11N1010:0006302')-[],
-%                                                          ('06R201:S00I1608', '06R0001:0000104')-[]]],C).
 
 
 
-% check_pedigrees([('06R0001:0000108', '06R0001:0000106')-[],('06R200:S00I0608', '06R0001:0000104')-[('06N201:S0013305', '06N1000:0003302')-[],('06N301:W0008706', '06N1000:0003302')-[]],('06R200:S00I1608', '06R0001:0000104')-[('11N205:S0036312', '11N1010:0006302')-[],('06R201:S00I1608', '06R0001:0000104')-[]]],C).
 
 
-% works on these confected data
-%
-% call: spy(check_pedigree_aux/8),check_pedigrees([('06R0001:0000108', '06R0001:0000106')-[],('06R200:S00I0608', '06R0001:0000104')-[('06N201:S0013305', '06N1000:0003302')-[],('06N301:W0008706', '06N1000:0003302')-[]],('06R200:S00I1608', '06R0001:0000104')-[('11N205:S0036312', '11N1010:0006302')-[],('06R201:S00I1608', '06R0001:0000104')-[]]],C).
+
+
+
 
 
 check_pedigrees([],[]).
@@ -761,11 +755,17 @@ check_pedigrees([Tree|Trees],[Checked|RestChecked]) :-
 	check_pedigrees(Trees,RestChecked).
 
 
-check_pedigree((_,_)-[],[]).
-check_pedigree((FounderMa,FounderPa)-[Desc|RestTree],Checked) :-
-	genotype(_,_,FounderMa,_,FounderPa,_,_,_,_,[Mutant],FounderK),
-	check_pedigree((FounderMa,FounderPa)-[Desc|RestTree],Mutant,FounderK,FounderK,[],Checked).
 
+
+
+
+% call:  spy(check_pedigree/2),test_n_check_pedigrees([1],'19r',C).
+
+
+check_pedigree((_,_)-[],[]).
+check_pedigree((FounderMa,FounderPa)-Descendants,Checked) :-
+	genotype(_,_,FounderMa,_,FounderPa,_,_,_,_,[Mutant],FounderK),
+	check_pedigree(Descendants,Mutant,FounderK,[],Checked).
 
 
 
@@ -792,15 +792,19 @@ check_pedigree((FounderMa,FounderPa)-[Desc|RestTree],Checked) :-
 % can easily make double recursion if desirable
 
 
-check_pedigree((_,_)-[],_,K,K,A,A).
-check_pedigree((Ma,Pa)-[Desc|T],Mutant,FounderK,IntK,Acc,Checked) :-
 
-        check_pedigree_aux(Ma,Pa,Desc,Mutant,FounderK,IntK,PedAcc),
+
+
+
+check_pedigree([],_,_,A,A).
+check_pedigree([Branch|OtherBranches],Mutant,FounderK,Acc,Checked) :-
+
+        check_pedigree_branch(Branch,Mutant,FounderK,[],PedAcc),
         append(PedAcc,Acc,NewAcc),
 
 % might need something else for Knums, let's see
 
-	check_pedigree((Ma,Pa)-T,Mutant,FounderK,IntK,NewAcc,Checked).
+	check_pedigree(OtherBranches,Mutant,FounderK,NewAcc,Checked).
 
 
 
@@ -810,56 +814,51 @@ check_pedigree((Ma,Pa)-[Desc|T],Mutant,FounderK,IntK,Acc,Checked) :-
 
 
 
-% recurse on both Desc and T
-% errr, look at pedigree construction code!
+
+
+% Knum changes at the start of each major pedigree branch,
+% but should be constant thereafter.
+
+
+% stopped here; not binding on next branchlet
 %
-% Kazic, 2.1.2019
+%   Call: (14) pedigrees:check_pedigree_branch(('06R200:S00I0608', '06R0001:0000104')-[('06N201:S0013305', '06N1000:0003302')-[],  ('06N301:W0008706', '06N1000:0003302')-[],  ('06N301:W0031404', '06N1000:0003302')-[],  ('06N401:M0012601', '06N1000:0003302')-[]], 'Les1', 'K0100', [], _10364) ? 
+% creep
+%   Fail: (14) pedigrees:check_pedigree_branch(('06R200:S00I0608', '06R0001:0000104')-[('06N201:S0013305', '06N1000:0003302')-[],  ('06N301:W0008706', '06N1000:0003302')-[],  ('06N301:W0031404', '06N1000:0003302')-[],  ('06N401:M0012601', '06N1000:0003302')-[]], 'Les1', 'K0100', [], _10364) ? 
 
 
-check_pedigree_aux(Ma,Pa,Desc,Mutant,FounderK,IntK,PedAcc) :-
-        check_pedigree_aux(Ma,Pa,Desc,Mutant,FounderK,IntK,[],PedAcc).
-
-f
-
-check_pedigree_aux(_,_,[],_,K,K,A,A).
-check_pedigree_aux(_,_,(_,_)-[],_,K,K,A,A).
-check_pedigree_aux(_Ma,_Pa,(OffMa,OffPa)-[Desc|T],Mutant,FounderK,IntK,Acc,PedAcc) :-
-
+check_pedigree_branch([],_,_,A,A).
+check_pedigree_branch((_,_)-[],_,_,A,A).
+check_pedigree_branch([(OffMa,OffPa)-OffDesc|OtherDesc],Mutant,FounderK,Acc,PedAcc) :-
         ( genotype(_,_,OffMa,_,OffPa,_,_,_,_,[OffMutant],OffK) ->
-          OffMutant == Mutant
+                OffMutant == Mutant,
+                check_knums(FounderK,OffK),
 
-
-% initially, IntK = FounderK so check_knums/3 fails
-% what do I want? something like NewIntK on the return, as Knums
-% change over the pedigree, but should always have a constant prefix
-%
-% stopped here
-%
-% Kazic, 10.1.2019
-	
-	
-	        check_knums(FounderK,OffK,IntK),
-		check_pedigree_aux(OffMa,OffPa,Desc,Mutant,FounderK,IntK,Acc,NewAcc),
-		check_pedigree_aux(OffMa,OffPa,T,Mutant,FounderK,IntK,NewAcc,PedAcc)
-
-	;
-
-                append(Acc,[(OffMa,OffPa)],NewAcc),
-	        check_pedigree_aux(_,_,[],_,FounderK,FounderK,NewAcc,PedAcc)
-
+                check_pedigree_branch(OffDesc,Mutant,OffK,Acc,IntAcc),
+		check_pedigree_branch(OtherDesc,Mutant,OffK,IntAcc,PedAcc)
+        ;
+	        atomic_list_concat(['no genotype for ',OffMa,' x ',OffPa],Warning),
+	        check_pedigree_branch([],_,_,[Warning],PedAcc)
 	).
+
+
 	  
 	
 
 
+	
 
-check_knums(FounderK,FounderK,FounderK).
-check_knums(FounderK,OffK,IntK) :-
+
+
+
+
+check_knums(K,K).
+check_knums(FounderK,OffK) :-
 	OffK \== FounderK,
 	sub_atom(FounderK,0,_,2,FounderPrefix),
 	sub_atom(OffK,0,_,2,OffPrefix),
         ( FounderPrefix == OffPrefix ->
-	        IntK = OffK
+                true
 	;
                 false
         ).
