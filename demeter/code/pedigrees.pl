@@ -207,13 +207,25 @@ test_pedigrees(Families,PlanningCrop) :-
 % Kazic, 10.1.2019
 
 
-% stopped here, testing
+
+% look at associated_data/5 called during output_pedigrees/3
 %
-%
-% Kazic, 10.1.2019
+% use 19r as the planning crop for testing
 
 
-% call: spy(check_pedigree_aux/8),test_n_check_pedigrees([1],'19r',C).
+% stopped here --- still to do
+%
+%    test with other founders, multiple founders
+%    les1-k0100_mo20w ends up in classify in the pedigree subdirs, why?
+%        should be les1-k0104_mo20w, so not inheriting Knum correctly
+%
+% Kazic, 28.2.2019
+
+
+
+% call: spy(check_pedigree/5),spy(check_pedigree_branch/5),test_n_check_pedigrees([1],'19r',C).
+
+
 
 test_n_check_pedigrees(Families,PlanningCrop,Checked) :-
         grab_founders(Families,Parents),
@@ -714,39 +726,9 @@ grab_founders_aux(Family,(Ma,Pa)) :-
 
 
 
-% look at associated_data/5 called during output_pedigrees/3
-
-
-% going into pedigrees:pretty_pedigree/4:
-
-% [('06R0001:0000108', '06R0001:0000106')-[],
-%  ('06R200:S00I0608', '06R0001:0000104')-[('06N201:S0013305', '06N1000:0003302')-[],
-% 					    ('06N301:W0008706', '06N1000:0003302')-[],
-% 					    (..., ...)-[], ... - ...],
-%  ('06R200:S00I1608', '06R0001:0000104')-[('11N205:S0036312', '11N1010:0006302')-[],
-% 					    (..., ...)-[...|...], ... - ...],
-%                                          ('06R201:S00I1608', '06R0001:0000104')-[],  ....
-
-
-% use 19r as the planning crop for testing
-
-
-
-
-
 
 
 %! check_pedigrees(+Trees:list,-Checked:list) is nondet.
-
-
-
-
-
-
-
-
-
-
 
 
 check_pedigrees([],[]).
@@ -759,12 +741,13 @@ check_pedigrees([Tree|Trees],[Checked|RestChecked]) :-
 
 
 
-% call:  spy(check_pedigree/2),test_n_check_pedigrees([1],'19r',C).
+
 
 
 check_pedigree((_,_)-[],[]).
 check_pedigree((FounderMa,FounderPa)-Descendants,Checked) :-
 	genotype(_,_,FounderMa,_,FounderPa,_,_,_,_,[Mutant],FounderK),
+	format('~n~n~n~ntop: ~w~n~n',[(FounderMa,FounderPa)-Descendants]),
 	check_pedigree(Descendants,Mutant,FounderK,[],Checked).
 
 
@@ -799,7 +782,8 @@ check_pedigree((FounderMa,FounderPa)-Descendants,Checked) :-
 check_pedigree([],_,_,A,A).
 check_pedigree([Branch|OtherBranches],Mutant,FounderK,Acc,Checked) :-
 
-        check_pedigree_branch(Branch,Mutant,FounderK,[],PedAcc),
+	format('~w~n~n',[[Branch]]),
+        check_pedigree_branch([Branch],Mutant,FounderK,[],PedAcc),
         append(PedAcc,Acc,NewAcc),
 
 % might need something else for Knums, let's see
@@ -816,29 +800,32 @@ check_pedigree([Branch|OtherBranches],Mutant,FounderK,Acc,Checked) :-
 
 
 
+
+
+
+
+
+
 % Knum changes at the start of each major pedigree branch,
 % but should be constant thereafter.
 
 
-% stopped here; not binding on next branchlet
-%
-%   Call: (14) pedigrees:check_pedigree_branch(('06R200:S00I0608', '06R0001:0000104')-[('06N201:S0013305', '06N1000:0003302')-[],  ('06N301:W0008706', '06N1000:0003302')-[],  ('06N301:W0031404', '06N1000:0003302')-[],  ('06N401:M0012601', '06N1000:0003302')-[]], 'Les1', 'K0100', [], _10364) ? 
-% creep
-%   Fail: (14) pedigrees:check_pedigree_branch(('06R200:S00I0608', '06R0001:0000104')-[('06N201:S0013305', '06N1000:0003302')-[],  ('06N301:W0008706', '06N1000:0003302')-[],  ('06N301:W0031404', '06N1000:0003302')-[],  ('06N401:M0012601', '06N1000:0003302')-[]], 'Les1', 'K0100', [], _10364) ? 
+
 
 
 check_pedigree_branch([],_,_,A,A).
-check_pedigree_branch((_,_)-[],_,_,A,A).
-check_pedigree_branch([(OffMa,OffPa)-OffDesc|OtherDesc],Mutant,FounderK,Acc,PedAcc) :-
+check_pedigree_branch([(_,_)-[]],_,_,A,A).
+check_pedigree_branch([(OffMa,OffPa)-OffDesc|T],Mutant,FounderK,Acc,PedAcc) :-
         ( genotype(_,_,OffMa,_,OffPa,_,_,_,_,[OffMutant],OffK) ->
                 OffMutant == Mutant,
                 check_knums(FounderK,OffK),
-
                 check_pedigree_branch(OffDesc,Mutant,OffK,Acc,IntAcc),
-		check_pedigree_branch(OtherDesc,Mutant,OffK,IntAcc,PedAcc)
+		check_pedigree(T,Mutant,OffK,IntAcc,PedAcc)
         ;
-	        atomic_list_concat(['no genotype for ',OffMa,' x ',OffPa],Warning),
-	        check_pedigree_branch([],_,_,[Warning],PedAcc)
+	        term_to_atom(OffDesc,OffDescTerm),
+	        atomic_list_concat(['no genotype for ',OffMa,' x ',OffPa,', descendants are ',OffDescTerm],Warning),
+	        append(Acc,[Warning],IntAcc),
+		check_pedigree(T,Mutant,FounderK,IntAcc,PedAcc)
 	).
 
 
