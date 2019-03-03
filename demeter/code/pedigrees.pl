@@ -202,6 +202,9 @@ test_pedigrees(Families,PlanningCrop) :-
 
 
 
+
+
+
 % patched in to figure out pedigree checking
 %
 % Kazic, 10.1.2019
@@ -215,17 +218,21 @@ test_pedigrees(Families,PlanningCrop) :-
 
 % stopped here --- still to do
 %
-%    test with other founders, multiple founders
-%    les1-k0100_mo20w ends up in classify in the pedigree subdirs, why?
-%        should be les1-k0104_mo20w, so not inheriting Knum correctly
+%    nicer output of checks on the pedigree output, rather than a lump
 %
-% Kazic, 28.2.2019
+%    many pedigrees end up in classify in the pedigree subdirs, why?
+%
+% Kazic, 3.3.2019
 
 
+% succeeds with:
+%
+% findall(I,between(1,199,I),L),test_n_check_pedigrees(L,'19r',C).
+% findall(I,between(600,703,I),L),test_n_check_pedigrees(L,'19r',C).
 
-% call: spy(check_pedigree/5),spy(check_pedigree_branch/5),test_n_check_pedigrees([1],'19r',C).
+% call: spy(check_pedigrees/2),asserta(toggle(test)),test_n_check_pedigrees([1,2,3,4,5],'19r',C).
 
-
+% findall(I,between(1,20,I),L),test_n_check_pedigrees(L,'19r',C).
 
 test_n_check_pedigrees(Families,PlanningCrop,Checked) :-
         grab_founders(Families,Parents),
@@ -713,16 +720,15 @@ grab_founders_aux(Family,(Ma,Pa)) :-
 
 %%%%%%%%%%%%%%%%%%%%%%%% pedigree integrity checks %%%%%%%%%%%%%%%%%%%%%%
 
-% a set of predicates to check constructed pedigrees and flag problems
-
-% need to incorporate gene and Knum information, and their checking, from
-% here on down.
+% want to identify potential problems for manual checking
 %
-% need to separate checking a built pedigree from building it without using
+% so, a set of predicates to check constructed pedigrees and flag problems
+%
+% separate checking a built pedigree from building it without using
 % family numbers.  For checking, get the checking info after construction,
 % rather than carrying it along during construction.
 %
-%
+% Kazic, 3.3.2019
 
 
 
@@ -744,10 +750,20 @@ check_pedigrees([Tree|Trees],[Checked|RestChecked]) :-
 
 
 
+
+
+
+%! check_pedigree(+Pedigree:list,-Checked:list) is semidet?
+
 check_pedigree((_,_)-[],[]).
 check_pedigree((FounderMa,FounderPa)-Descendants,Checked) :-
 	genotype(_,_,FounderMa,_,FounderPa,_,_,_,_,[Mutant],FounderK),
-	format('~n~n~n~ntop: ~w~n~n',[(FounderMa,FounderPa)-Descendants]),
+%	toggle(State),
+%	( State == test ->
+%	        format('~n~n~n~ntop: ~w~n~n',[(FounderMa,FounderPa)-Descendants])
+%	;
+%	        true
+%	),
 	check_pedigree(Descendants,Mutant,FounderK,[],Checked).
 
 
@@ -757,38 +773,39 @@ check_pedigree((FounderMa,FounderPa)-Descendants,Checked) :-
 
 
 
-% want to identify potential problems for manual checking
 
 
-% Mutant should be unchanged throughout.
+
+% Mutant should be unchanged throughout, except in the case of constructed
+% double mutants.
 %
-% Knum check against founder should neglect last two digits, but
-% check against subsequent Knums should construct specific ones (with
-% the different last two digits) and check those.
+% Knum check against the founder neglects the last two digits, but checks
+% against subsequent Knums constructs specific ones (with the different
+% last two digits) and check those.
 %
-% Checked should be a list of observed changes from founder or intermediate, with
-% family numbers of pa and changed descendant
+% Checked is a list of observed changes from founder or intermediate.
 %
-% Kazic, 10.12.2018
-
-
-% can easily make double recursion if desirable
+% Kazic, 3.3.2019
 
 
 
 
-
+%! check_pedigree(+Branches:list,+Mutant:atom,+FounderK:atom,+Acc:list,-Checked:list) is nondet.
 
 check_pedigree([],_,_,A,A).
 check_pedigree([Branch|OtherBranches],Mutant,FounderK,Acc,Checked) :-
 
-	format('~w~n~n',[[Branch]]),
-        check_pedigree_branch([Branch],Mutant,FounderK,[],PedAcc),
+%	toggle(State),
+%	( State == test ->
+%	        format('~w~n~n',[[Branch]])
+%	;
+%	        true
+%       ),
+
+	check_pedigree_branch([Branch],Mutant,FounderK,Acc,PedAcc),
         append(PedAcc,Acc,NewAcc),
-
-% might need something else for Knums, let's see
-
-	check_pedigree(OtherBranches,Mutant,FounderK,NewAcc,Checked).
+	sort(NewAcc,Sorted),
+	check_pedigree(OtherBranches,Mutant,FounderK,Sorted,Checked).
 
 
 
@@ -809,22 +826,30 @@ check_pedigree([Branch|OtherBranches],Mutant,FounderK,Acc,Checked) :-
 % Knum changes at the start of each major pedigree branch,
 % but should be constant thereafter.
 
+% Offspring without genotype facts should have no descendants, but can be
+% visited multiple times.  Don't bother including warning messages for
+% these.  This reduces the stack needed in subsequent appends.
 
-
-
+%! check_pedigree_branch(+Offspring:list,+Mutant:atom,+FounderK:atom,+Acc:list,-PedAcc:list) is nondet.
 
 check_pedigree_branch([],_,_,A,A).
 check_pedigree_branch([(_,_)-[]],_,_,A,A).
 check_pedigree_branch([(OffMa,OffPa)-OffDesc|T],Mutant,FounderK,Acc,PedAcc) :-
         ( genotype(_,_,OffMa,_,OffPa,_,_,_,_,[OffMutant],OffK) ->
-                OffMutant == Mutant,
-                check_knums(FounderK,OffK),
-                check_pedigree_branch(OffDesc,Mutant,OffK,Acc,IntAcc),
+	        check_marker(Mutant,OffMutant,OffMa,OffPa,MarkerWarning),
+	        check_knums(FounderK,OffK,OffMa,OffPa,KNumWarning),
+                append(Acc,[MarkerWarning,KNumWarning],CheckAcc),
+		check_pedigree_branch(OffDesc,OffMutant,OffK,CheckAcc,IntAcc),
 		check_pedigree(T,Mutant,OffK,IntAcc,PedAcc)
         ;
-	        term_to_atom(OffDesc,OffDescTerm),
-	        atomic_list_concat(['no genotype for ',OffMa,' x ',OffPa,', descendants are ',OffDescTerm],Warning),
-	        append(Acc,[Warning],IntAcc),
+                ( OffDesc \== [] ->
+	
+	                term_to_atom(OffDesc,OffDescTerm),
+	                atomic_list_concat(['no genotype for ',OffMa,' x ',OffPa,', descendants are ',OffDescTerm,'; '],Warning),
+	                append(Acc,[Warning],IntAcc)
+                ;
+		        IntAcc = Acc
+		),
 		check_pedigree(T,Mutant,FounderK,IntAcc,PedAcc)
 	).
 
@@ -833,21 +858,37 @@ check_pedigree_branch([(OffMa,OffPa)-OffDesc|T],Mutant,FounderK,Acc,PedAcc) :-
 	
 
 
-	
+
+
+
+
+%! check_marker(+Mutant:atom,+OffMutant:atom,+OffMa:atom,+OffPa:atom,-MarkerWarning:atom)	         is semidet.
+
+check_marker(M,M,_,_,[]).
+check_marker(Mutant,OffMutant,OffMa,OffPa,MarkerWarning) :-
+        Mutant \== OffMutant,
+        atomic_list_concat(['marker shifts for ',OffMa,' x ',OffPa,' from ',Mutant,' to ',OffMutant,'; '],MarkerWarning).
 
 
 
 
 
-check_knums(K,K).
-check_knums(FounderK,OffK) :-
+
+
+
+
+
+%! check_knums(+FounderK:atom,+OffK:atom,+OffMa:atom,+OffPa:atom,-KNumWarning:atom) is semidet.
+
+check_knums(K,K,_,_,[]).
+check_knums(FounderK,OffK,OffMa,OffPa,KNumWarning) :-
 	OffK \== FounderK,
 	sub_atom(FounderK,0,_,2,FounderPrefix),
-	sub_atom(OffK,0,_,2,OffPrefix),
-        ( FounderPrefix == OffPrefix ->
-                true
+	( ( sub_atom(OffK,0,_,2,OffPrefix),
+            FounderPrefix == OffPrefix ) ->
+                KNumWarning = []
 	;
-                false
+                atomic_list_concat(['KNum shifts for ',OffMa,' x ',OffPa,' from ',FounderK,' to ',OffK,'; '],KNumWarning)
         ).
 
 
