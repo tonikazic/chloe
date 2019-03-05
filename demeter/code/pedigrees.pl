@@ -218,11 +218,11 @@ test_pedigrees(Families,PlanningCrop) :-
 
 % stopped here --- still to do
 %
-%    nicer output of checks on the pedigree output, rather than a lump
+%    integrate pedigree checks with other pedigree building predicates
 %
 %    many pedigrees end up in classify in the pedigree subdirs, why?
 %
-% Kazic, 3.3.2019
+% Kazic, 5.3.2019
 
 
 % succeeds with:
@@ -234,12 +234,16 @@ test_pedigrees(Families,PlanningCrop) :-
 
 % findall(I,between(1,20,I),L),test_n_check_pedigrees(L,'19r',C).
 
+
+
+
+
 test_n_check_pedigrees(Families,PlanningCrop,Checked) :-
         grab_founders(Families,Parents),
         build_pedigrees(Parents,Trees),
 	check_pedigrees(Trees,Checked),
         make_output_dir(PlanningCrop,ASCIIDir,LowerCaseCrop),
-        output_pedigrees(ASCIIDir,LowerCaseCrop,ped,Trees).
+        output_pedigrees(ASCIIDir,LowerCaseCrop,ped,Checked).
 
 
 
@@ -734,11 +738,11 @@ grab_founders_aux(Family,(Ma,Pa)) :-
 
 
 
-%! check_pedigrees(+Trees:list,-Checked:list) is nondet.
+%! check_pedigrees(+Trees:list,-Tree-Checked:keylist) is nondet.
 
 
 check_pedigrees([],[]).
-check_pedigrees([Tree|Trees],[Checked|RestChecked]) :-
+check_pedigrees([Tree|Trees],[Tree-Checked|RestChecked]) :-
 	check_pedigree(Tree,Checked),
 	check_pedigrees(Trees,RestChecked).
 
@@ -750,6 +754,11 @@ check_pedigrees([Tree|Trees],[Checked|RestChecked]) :-
 
 
 
+% there is some kludgey list manipulation here and in the next predicate
+% (flatten, sort).  At some point, go back and see if there is a better way
+% to build the check list.
+%
+% Kazic, 5.3.2019
 
 
 
@@ -764,7 +773,8 @@ check_pedigree((FounderMa,FounderPa)-Descendants,Checked) :-
 %	;
 %	        true
 %	),
-	check_pedigree(Descendants,Mutant,FounderK,[],Checked).
+	check_pedigree(Descendants,Mutant,FounderK,[],Int),
+	flatten(Int,Checked).
 
 
 
@@ -845,7 +855,7 @@ check_pedigree_branch([(OffMa,OffPa)-OffDesc|T],Mutant,FounderK,Acc,PedAcc) :-
                 ( OffDesc \== [] ->
 	
 	                term_to_atom(OffDesc,OffDescTerm),
-	                atomic_list_concat(['no genotype for ',OffMa,' x ',OffPa,', descendants are ',OffDescTerm,'; '],Warning),
+	                atomic_list_concat(['no genotype for ',OffMa,' x ',OffPa,', descendants are ',OffDescTerm],Warning),
 	                append(Acc,[Warning],IntAcc)
                 ;
 		        IntAcc = Acc
@@ -867,7 +877,7 @@ check_pedigree_branch([(OffMa,OffPa)-OffDesc|T],Mutant,FounderK,Acc,PedAcc) :-
 check_marker(M,M,_,_,[]).
 check_marker(Mutant,OffMutant,OffMa,OffPa,MarkerWarning) :-
         Mutant \== OffMutant,
-        atomic_list_concat(['marker shifts for ',OffMa,' x ',OffPa,' from ',Mutant,' to ',OffMutant,'; '],MarkerWarning).
+        atomic_list_concat(['marker shifts for ',OffMa,' x ',OffPa,' from ',Mutant,' to ',OffMutant],MarkerWarning).
 
 
 
@@ -888,7 +898,7 @@ check_knums(FounderK,OffK,OffMa,OffPa,KNumWarning) :-
             FounderPrefix == OffPrefix ) ->
                 KNumWarning = []
 	;
-                atomic_list_concat(['KNum shifts for ',OffMa,' x ',OffPa,' from ',FounderK,' to ',OffK,'; '],KNumWarning)
+                atomic_list_concat(['KNum shifts for ',OffMa,' x ',OffPa,' from ',FounderK,' to ',OffK],KNumWarning)
         ).
 
 
@@ -1079,6 +1089,11 @@ output_pedigrees(ASCIIDir,LowerCaseCrop,Switch,Trees) :-
 %
 % Kazic, 25.9.2012
 
+
+
+
+
+
 pretty_pedigrees(_,_,_,_,[]).
 pretty_pedigrees(ASCIIDir,Increment,Indentn,Switch,[Tree|Trees]) :-
         pretty_pedigrees_aux(ASCIIDir,Increment,Indentn,Switch,Tree),
@@ -1095,20 +1110,20 @@ pretty_pedigrees(ASCIIDir,Increment,Indentn,Switch,[Tree|Trees]) :-
 
 
 
-% hey, get the file name from the gene of interest!  And, concatenate it with the K number
-% if needed to distinguish different accessions of the same mutant!
-%
-% hmmm, count lines/page?
-%
-% untested
-%
-% Kazic, 16.10.2012
-%
-% seems to work fine by now!
+% hey, get the file name from the gene of interest!  And, concatenate it
+% with the K number if needed to distinguish different accessions of the
+% same mutant!
 %
 % Kazic, 9.12.2018
 
-pretty_pedigrees_aux(PlanningCrop,Increment,Indentn,Switch,(FounderMa,FounderPa)-Tree) :-
+
+% added output of pedigree checks
+%
+% Kazic, 5.3.2019
+
+
+
+pretty_pedigrees_aux(PlanningCrop,Increment,Indentn,Switch,(FounderMa,FounderPa)-Tree-Checks) :-
         ( ( atom(FounderMa),
             atom(FounderPa) ) ->
                 genotype(_,_,FounderMa,_,FounderPa,MG,_,_,_,[Mut],K)
@@ -1126,7 +1141,13 @@ pretty_pedigrees_aux(PlanningCrop,Increment,Indentn,Switch,(FounderMa,FounderPa)
         ;
                 imaged_pedigree(Stream,Increment,Indentn,[(FounderMa,FounderPa)-Tree])
         ),
+
+	output_checks(Stream,Checks),
         close(Stream).
+
+
+
+
 
 
 
@@ -1676,6 +1697,31 @@ identify_line(FoundingMale,Locus,KNum) :-
 
 
 
+
+
+
+
+
+% to output nontrivial pedigree checking results 
+%
+% Kazic, 5.3.2019
+
+output_checks(_,[]).
+output_checks(Stream,Checks) :-
+        format(Stream,'~n~n~n~nCheck:~n~n~n',[]),
+	output_checks_aux(Stream,Checks).
+
+
+
+
+
+
+
+
+output_checks_aux(_,[]).
+output_checks_aux(Stream,[Check|Checks]) :-
+	format(Stream,'~w~n~n',Check),
+	output_checks_aux(Stream,Checks).
 
 
 
