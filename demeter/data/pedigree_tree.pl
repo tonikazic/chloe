@@ -53,6 +53,11 @@
 
 
 
+% revise to reflect current file names
+%
+% Kazic, 6.3.2019
+
+
 pedigree_tree(balint_kurti,[
 'les-r1-1-k66700_cml333',
 'les-r2-1-k66800_cml333',

@@ -1754,27 +1754,32 @@ get_year_from_particle(Crop,YearSuffix,Year) :-
 
 
 
-% a founder is a line donated by someone:  Gerry, USDA Peoria, MGCSC, Guri, Damon, Karen, etc.  
+% a founder is a line donated by someone: Gerry, USDA Peoria, MGCSC, Guri,
+% Damon, Karen, etc.
 %
 %
-% Identifying founders relies on allocating blocks of family numbers below 1000.
+% Identifying founders relies on allocating blocks of family numbers below
+% 1000.
 %
-% Family numbers for founders are manually assigned and are always less than 1000.  Numbers 
-% between 200 and 499 are reserved for my inbred lines:  2** is Mo20W, 3** is W23, 4** is M14,
-% and 5** is B73;
-% *[00-49] are selfed, *[51-99] are sibbed.  These are usually made in sufficient quantity to last
-% several years, so I believe I will not run out of integers.
+% Family numbers for founders are manually assigned and are always less
+% than 1000.  Numbers between 200 and 499 inclusive are reserved for my
+% inbred lines: 2** is Mo20W, 3** is W23, 4** is M14, and 5** is B73;
+% *[00-49] are selfed, *[51-99] are sibbed.  These are usually made in
+% sufficient quantity to last several years, so I believe I will not run
+% out of integers.
 %
-% B73 now occupies the 500s, and inbred lines with the same names as mine, but from different
-% sources, are now numbered from 99 backwards.  So with the Weil B73 David Braun had in 12r,
-% this is 599.
+% B73 now occupies the 500s, and inbred lines with the same names as mine,
+% but from different sources, are now numbered from 99 backwards.  So with
+% the Weil B73 David Braun had in 12r, this is 599.
 %
 %
-% Numerical genotypes of the founders are quite irregular, since they originate in other labs,
-% and so will fail genetic_utilites:deconstruct_plantID_aux/5.  If a numerical genotype was not
-% supplied I construct one:  CropOfFirstPlanting * 0 * AccessionedFamilyNumber * : * 0000000.
-% Notice that the family number in the numerical genotype is padded so that it is four characters,
-% but in the genotype/11 fact it is not.
+% Numerical genotypes of the founders are quite irregular, since they
+% originate in other labs, and so will fail
+% genetic_utilites:deconstruct_plantID_aux/5.  If a numerical genotype was
+% not supplied I construct one: CropOfFirstPlanting * 0 *
+% AccessionedFamilyNumber * : * 0000000.  Notice that the family number in
+% the numerical genotype is padded so that it is four characters, but in
+% the genotype/11 fact it is not.
 % 
 % Kazic, 21.2.2009
 
@@ -1786,10 +1791,10 @@ get_year_from_particle(Crop,YearSuffix,Year) :-
 
 
 
-% modified to exclude the second generation of crop improvement lines, families
-% 655--664, so that those are included in the pedigrees computed from families
-% 631--641.  That's the easiest work-around for erroneous assignment of family
-% numbers.
+% modified to exclude the second generation of crop improvement lines,
+% families 655--664, so that those are included in the pedigrees computed
+% from families 631--641.  That's the easiest work-around for erroneous
+% assignment of family numbers.
 %
 % expanded to include the founding crop improvement lines and to explicitly
 % exclude inbreds.
@@ -1798,8 +1803,8 @@ get_year_from_particle(Crop,YearSuffix,Year) :-
 %
 %
 % revised using new family specs --- a reminder, these are dependent on my
-% idiosyncratic ordering of family numbers, and will have to be modified for
-% yours
+% idiosyncratic ordering of family numbers, and will have to be modified
+% for yours
 %
 % Kazic, 1.12.2018
 %
@@ -1814,11 +1819,48 @@ get_year_from_particle(Crop,YearSuffix,Year) :-
 % included
 
 
+
+% modified to remove conditional; see founder_cndtnl/9 below for comments.
+%
+% founder/9 is mainly used in pedigree construction, and I have tested this
+% unconditional version there.  I HAVE NOT TESTED THIS VERSION IN
+% inventory_checking.pl.
+%
+% Kazic, 6.3.2019
+
+
+
 %! founder(+F:num,-MN:atom,-PN:atom,-MG1:atom,-MG2:atom,
 %!                -PG1:atom,-PG2:atom,-Gs:list,-K:atom) is semi-det.
 
 
 founder(F,MN,PN,MG1,MG2,PG1,PG2,Gs,K) :-
+        genotype(F,_,MN,_,PN,MG1,MG2,PG1,PG2,Gs,K),
+        F > 0,
+        F < 890,
+	\+ inbred(F,_),
+        \+ nam_founder(F), 
+        \+ other_peoples_corn(F),
+	\+ crop_improvement_second_gen(F).
+
+
+
+
+
+
+
+
+% predicate as defined on 1.12.2018.  Since then, I included a genotype/11
+% fact for the skipped rows, family = 0000, which causes this predicate to
+% fail (or return []) when finding all founders using setof, bagof, or
+% findall.  In retrospect, I think the conditional is incorrect logic,
+% since if the first set of conditions fails, the predicate fails; and
+% including the conditional false guarantees failure no matter what.  So I
+% have placed the conditional version here for reference.
+%
+% Kazic, 6.3.2019
+
+founder_cndtnl(F,MN,PN,MG1,MG2,PG1,PG2,Gs,K) :-
         ( genotype(F,_,MN,_,PN,MG1,MG2,PG1,PG2,Gs,K) ->
                 F > 0,
                 F < 890,

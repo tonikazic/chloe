@@ -21,7 +21,7 @@
 	       grab_founders/1,
                grab_offspring/3,
                test_pedigrees/2,
-	       test_n_check_pedigrees/3,
+%	       test_n_check_pedigrees/3,
                compute_pedigree/3,
                compute_pedigrees/1
                ]).
@@ -42,6 +42,13 @@
 
 
 
+
+
+
+
+
+
+
 % nb: this file contains calls to the operating system en lieu de    
 % swipl predicates, so it will have to be modified for non-Unix operating
 % systems.  See also set_demeter_directory.pl for OS-dependent data.
@@ -54,24 +61,19 @@
 
 
 
-% call is: compute_pedigrees('CROP').
-%
-% call is: pedigrees:find_offspring(['06R0009:0000908'],X).
-
-
-
 
 
 
     
-%%%%%%%%% older comments and current update on these issues %%%%%%%%%%%%%%%%%
+%%%%%%%%% older comments and current update on these issues (all fixed) %%%%%%%%%%%%%%%%%
 
-% have tested extensively with the W23/Les1 pedigree, uncovering a number of logical
-% and data errors.  Warning statements have been inserted to prevent silent failures.
-% Significant data cleaning and accessions are still required before this code can be 
-% reworked.  In principle it should use only the planting, cross, and inventory data; 
-% I have used some index predicates to speed the computation, but this has the potential 
-% to introduce errors.  See results/missing_rows for warning message output.
+% have tested extensively with the W23/Les1 pedigree, uncovering a number
+% of logical and data errors.  Warning statements have been inserted to
+% prevent silent failures.  Significant data cleaning and accessions are
+% still required before this code can be reworked.  In principle it should
+% use only the planting, cross, and inventory data; I have used some index
+% predicates to speed the computation, but this has the potential to
+% introduce errors.  See results/missing_rows for warning message output.
 %
 % Kazic, 5.5.2009
 
@@ -87,22 +89,24 @@
 % Kazic, 6.5.2011
 
 
-% Warning!  multiply-planted rows in 11R are still not correctly resolved; Oh43 is included in
-% the les5-GJ2_b73 pedigree!
+% Warning!  multiply-planted rows in 11R are still not correctly resolved;
+% Oh43 is included in the les5-GJ2_b73 pedigree!
 %
 % Failed ears also appearing in pedigrees, don''t think these are in inventory.
 %
 % Kazic, 29.4.2012
 %
 %
-% transplants are now correctly tracked, except for the confused ones in 09R; the second
-% instantiation has the correct family in the index facts.
+% transplants are now correctly tracked, except for the confused ones in
+% 09R; the second instantiation has the correct family in the index facts.
 %
-% BUT I am baffled why the descendants of family 184, made in 11R, do not appear in any pedigree!
-% These are the {S,W,M}/Rp1-D21, which were planted in 11N.  There were successful pollinations
-% from 11N families 3476 and 3477 (rows 220 and 221, respectively).
+% BUT I am baffled why the descendants of family 184, made in 11R, do not
+% appear in any pedigree!  These are the {S,W,M}/Rp1-D21, which were
+% planted in 11N.  There were successful pollinations from 11N families
+% 3476 and 3477 (rows 220 and 221, respectively).
 %
-% I believe I have fixed the data to allow the Baker/Braun les pedigree to be built.
+% I believe I have fixed the data to allow the Baker/Braun les pedigree to
+% be built.
 %
 % Kazic, 3.5.2012
 
@@ -110,13 +114,15 @@
 
 
 
-% I solved the Les5 problem by getting better Les5 plants (family 116).  
-% But I need to make sure this pedigree is computed.  I think there may be a problem
-% with files getting over-written, because the generated file names are duplicates.
+% I solved the Les5 problem by getting better Les5 plants (family 116).
+% But I need to make sure this pedigree is computed.  I think there may be
+% a problem with files getting over-written, because the generated file
+% names are duplicates.
 %
 % Kazic, 17.10.2012
 
-% test separately for families 600 -- 622, 628, 629, 631 -- 641; still being missed
+% test separately for families 600 -- 622, 628, 629, 631 -- 641; still
+% being missed
 %
 % Kazic, 23.10.2012
 
@@ -131,26 +137,49 @@
 %
 % The funny I/O problem quintus had was resolved by porting to swipl.
 %
-% The file names have shifted from the previous versions, so there is no guarantee the
-% perl scripts that ablate a crop and its descendants and then compares one crops''s
-% pedigrees to the prior ones will work correctly.
+% The file names have shifted from the previous versions, so there is no
+% guarantee the perl scripts that ablate a crop and its descendants and
+% then compares one crops''s pedigrees to the prior ones will work
+% correctly.
 %
 %
-% Instead, I should still compute pedigrees by matching crop and rowplant 
-% as a check on the predicates computed by unification.  This is
-% why I have built multiple new indices.  But this will have to keep
-% til after getting 18r in!
+% Instead, I should still compute pedigrees by matching crop and rowplant
+% as a check on the predicates computed by unification.  This is why I have
+% built multiple new indices.  But this will have to keep til after getting
+% 18r in!
 %
 %
-% Another important thing to check is to ensure the mutant allele and Knum in the 
-% genotypes in a pedigree are unchanged from the root.  I''ve picked up a transition from Les4 to
-% Les1 in one M14 branch by hand, and there may be more.  See ../data/update.org for this result.
+% Another important thing to check is to ensure the mutant allele and Knum
+% in the genotypes in a pedigree are unchanged from the root.  I''ve picked
+% up a transition from Les4 to Les1 in one M14 branch by hand, and there
+% may be more.  See ../data/update.org for this result.
 %
 % Kazic, 1.6.2018
 
 
 
-    
+
+
+
+
+% stopped here --- still to do
+%
+%    revise ../data/pedigree_tree.pl to sort the ones in the classify subtree
+%
+%    construct pedigrees ignoring family numbers; compute a new index
+%    based on genotype/11 to facilitate this
+%
+% Kazic, 6.3.2019
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -168,12 +197,27 @@
 % pdf and Dropbox versions
 
 
+
+
+
+% added check_pedigrees/2 and shifted argument passed to output_pedigrees/4
+%
+% Kazic, 6.3.2019
+
+
+
+% call is: compute_pedigrees('19r').
+
+
+
 %! compute_pedigrees(+PlanningCrop:atom) is nondet.
-    
+
 compute_pedigrees(PlanningCrop) :-
         construct_pedigrees(Trees),
+	check_pedigrees(Trees,Checked),	
         make_output_dir(PlanningCrop,ASCIIDir,LowerCaseCrop),
-        output_pedigrees(ASCIIDir,LowerCaseCrop,ped,Trees).
+%        output_pedigrees(ASCIIDir,LowerCaseCrop,ped,Trees).
+        output_pedigrees(ASCIIDir,LowerCaseCrop,ped,Checked).	
 
 
 
@@ -191,59 +235,25 @@ compute_pedigrees(PlanningCrop) :-
 % test_pedigrees([640,641,642,643,644,645,646,647,648,649,650,651,652,653,654],'18r').
 
 
+% added check_pedigrees/2 and shifted argument passed to output_pedigrees/4
+%
+% Kazic, 6.3.2019
+
+
 %! test_pedigrees(+Families:list,+PlanningCrop:atom) is nondet.
- 
+
 test_pedigrees(Families,PlanningCrop) :-
         grab_founders(Families,Parents),
         build_pedigrees(Parents,Trees),
+	check_pedigrees(Trees,Checked),	
         make_output_dir(PlanningCrop,ASCIIDir,LowerCaseCrop),
-        output_pedigrees(ASCIIDir,LowerCaseCrop,ped,Trees).
-
-
-
-
-
-
-
-% patched in to figure out pedigree checking
-%
-% Kazic, 10.1.2019
-
-
-
-% look at associated_data/5 called during output_pedigrees/3
-%
-% use 19r as the planning crop for testing
-
-
-% stopped here --- still to do
-%
-%    integrate pedigree checks with other pedigree building predicates
-%
-%    many pedigrees end up in classify in the pedigree subdirs, why?
-%
-% Kazic, 5.3.2019
-
-
-% succeeds with:
-%
-% findall(I,between(1,199,I),L),test_n_check_pedigrees(L,'19r',C).
-% findall(I,between(600,703,I),L),test_n_check_pedigrees(L,'19r',C).
-
-% call: spy(check_pedigrees/2),asserta(toggle(test)),test_n_check_pedigrees([1,2,3,4,5],'19r',C).
-
-% findall(I,between(1,20,I),L),test_n_check_pedigrees(L,'19r',C).
-
-
-
-
-
-test_n_check_pedigrees(Families,PlanningCrop,Checked) :-
-        grab_founders(Families,Parents),
-        build_pedigrees(Parents,Trees),
-	check_pedigrees(Trees,Checked),
-        make_output_dir(PlanningCrop,ASCIIDir,LowerCaseCrop),
+%        output_pedigrees(ASCIIDir,LowerCaseCrop,ped,Trees).
         output_pedigrees(ASCIIDir,LowerCaseCrop,ped,Checked).
+
+
+
+
+
 
 
 
@@ -261,19 +271,22 @@ test_n_check_pedigrees(Families,PlanningCrop,Checked) :-
 % Kazic, 3.5.2012
 
 
-% compute_pedigree('11R0192:0000000','11R0192:0000000','../results/12n_planning').
-% compute_pedigree('11R0193:0000000','11R0193:0000000','../results/12n_planning').
-% compute_pedigree('11R0622:0000000','11R0622:0000000','../results/12n_planning').
-% compute_pedigree('11R0621:0000000','11R0621:0000000','../results/12n_planning').
-% compute_pedigree('11R0628:0000000','11R0628:0000000','../results/12n_planning').
-% compute_pedigree('11R0199:0000000','11R0199:0000000','../results/12n_planning').
+% added check_pedigrees/2 and shifted argument passed to output_pedigrees/4
+%
+% Kazic, 6.3.2019
 
+
+
+% compute_pedigree('11R0192:0000000','11R0192:0000000','19r').
+% compute_pedigree('11R0199:0000000','11R0199:0000000','19r').
 
 
 compute_pedigree(Ma,Pa,PlanningCrop) :-
         build_pedigrees([(Ma,Pa)],Trees),
+	check_pedigrees(Trees,Checked),
         make_output_dir(PlanningCrop,ASCIIDir,LowerCaseCrop),
-        output_pedigrees(ASCIIDir,LowerCaseCrop,ped,Trees).
+%        output_pedigrees(ASCIIDir,LowerCaseCrop,ped,Trees).
+        output_pedigrees(ASCIIDir,LowerCaseCrop,ped,Checked).	
 
 
 
@@ -450,6 +463,9 @@ find_plants_offspring(Plant,Tree) :-
 %
 % Kazic, 5.5.2009
 
+
+% call is: pedigrees:find_offspring(['06R0009:0000908'],X).
+
 find_offspring(Plants,Trees) :-
         find_offspring(Plants,[],Trees).
 
@@ -624,6 +640,11 @@ match_excluding_family_nums(Plant1ID,Plant2ID) :-
 % Kazic, 1.12.2018
 
 
+
+
+
+
+
 %! grab_founders(-Founders:list) is det.
 
 grab_founders(Founders) :-
@@ -649,6 +670,10 @@ grab_founders(Founders) :-
 % recursion to the founder is needed.
 %
 % Kazic, 1.12.2018
+
+
+
+
 
     
 %! grab_founders(+Families:list,-Parents:list) is nondet.
@@ -686,6 +711,17 @@ grab_founders([Family|Families],Acc,Parents) :-
 % ordering of family numbers for founding mutant lines.
 %
 % Kazic, 1.12.2018
+
+
+
+
+% a problem here: endless backtracking (until the local stack is exhausted)
+% if called with family 890.
+%
+% Kazic, 6.3.2019
+
+
+
 
 grab_founders_aux(Family,(Ma,Pa)) :-   
         ( founder(Family,Ma,Pa,_,_,_,_,_,_) ->
@@ -1728,7 +1764,44 @@ output_checks_aux(Stream,[Check|Checks]) :-
 
 
 
-%%%%%%%%%%%%%%% obsolete?
+%%%%%%%%%%%%%%% obsolete
+
+
+
+% patched in to figure out pedigree checking
+%
+% Kazic, 10.1.2019
+
+
+
+% succeeds with:
+%
+% findall(I,between(1,199,I),L),test_n_check_pedigrees(L,'19r',C).
+% findall(I,between(600,703,I),L),test_n_check_pedigrees(L,'19r',C).
+
+% call: spy(check_pedigrees/2),asserta(toggle(test)),test_n_check_pedigrees([1,2,3,4,5],'19r',C).
+
+% findall(I,between(1,20,I),L),test_n_check_pedigrees(L,'19r',C).
+
+
+
+
+
+test_n_check_pedigrees(Families,PlanningCrop,Checked) :-
+        grab_founders(Families,Parents),
+        build_pedigrees(Parents,Trees),
+	check_pedigrees(Trees,Checked),
+        make_output_dir(PlanningCrop,ASCIIDir,LowerCaseCrop),
+        output_pedigrees(ASCIIDir,LowerCaseCrop,ped,Checked).
+
+
+
+
+
+
+%%%%%%%%%% obsolete? %%%%%%%%%%%%%%%%%%%%%%%%
+
+
 
 % it will be easier to trace the pedigrees through the successive crops if the 
 % the crops are ordered.  First split each crop into Year-Season keyvalue pair;
