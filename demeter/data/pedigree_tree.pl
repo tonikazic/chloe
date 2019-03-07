@@ -55,7 +55,7 @@
 
 % revise to reflect current file names
 %
-% Kazic, 6.3.2019
+% Kazic, 7.3.2019
 
 
 pedigree_tree(balint_kurti,[
@@ -73,10 +73,10 @@ pedigree_tree(balint_kurti,[
 'les-r168-1-k67800_nc262',
 'les-r168-2-k67900_nc262',
 'les-r169-1-k68000_nc262',
-'les-r170-1-k68100_nc262oh7bbc3f4:5entry155',
-'les-r171-1-k68200_nc262oh7bbc3f4:5entry155',
-'les-r171-3-k68300_nc262oh7bbc3f4:5entry155',
-'les-r172-1-k68400_nc262oh7bbc3f4:5entry155']).
+'les-r170-1-k68100_nc262oh7bbc3f45entry155',
+'les-r171-1-k68200_nc262oh7bbc3f45entry155',
+'les-r171-3-k68300_nc262oh7bbc3f45entry155',
+'les-r172-1-k68400_nc262oh7bbc3f45entry155']).
 
 
 
@@ -95,8 +95,8 @@ pedigree_tree(braun,[
 'osclgwhlgchl-k64807_',
 'osclgwhlgchl-k64914_',
 'osclgwhlgchl-k65016_',
-'possiblelesionmimic;ems-k66515_',
-'possiblelesionmimic;ems-k66604_',
+'possiblelesionmimicems-k66515_',
+'possiblelesionmimicems-k66604_',
 'unk-k64311_',
 'unk-k64403_',
 'unk-k64509_',
@@ -122,16 +122,11 @@ pedigree_tree(classify,[]).
 pedigree_tree(crop_improvement,[
 'mo20w-k20501_mo20w',
 'mo20w-k20506_mo20w',
-%
-% missing:
-%
-% 'mo20W-K20511_mo20W',
-% 'w23-K30504_w23',
-% 'w23-K30510_w23',
-% 'w23-K30511_w23',
-% 'm14-K40501_m14',
-%
-%
+'mo20w-k20511_mo20w',
+'w23-k30504_w23',
+'w23-k30510_w23',
+'w23-k30511_w23',
+'m14-k40501_m14',
 'w23-k30505_w23',
 'w23-k30506_w23',
 'm14-k40506_m14',
@@ -155,23 +150,23 @@ pedigree_tree(crop_improvement,[
 
 
 pedigree_tree(exp_nonexp,[
-'les1exp-_les1nonexp',
-'les2exp-_les2nonexp',
-'les4exp-_les4nonexp',
-'les5exp-_les5exp',
-'les6exp-_les6nonexp',
-'les7exp-_les7nonexp',
-'les8exp-_les8nonexp',
-'les9exp-_les9nonexp',
-'les10exp-_les10nonexp',
-'les11exp-_les11nonexp',
-'les12exp-_les12nonexp',
-'les15exp-_les15nonexp',
 'les17exp-k4800_les17',
-'les18exp-_les18nonexp',
-'les19exp-_les19nonexp',
-'les20exp-_les20nonexp',
-'les21exp-_les21nonexp']).
+'les1exp-k3600_les1nonexp',
+'les2exp-k3700_les2nonexp',
+'les4exp-k3800_les4nonexp',
+'les5exp-k3900_les5exp',
+'les6exp-k4000_les6nonexp',
+'les7exp-k4100_les7nonexp',
+'les8exp-k4200_les8nonexp',
+'les9exp-k4300_les9nonexp',
+'les10exp-k4400_les10nonexp',
+'les11exp-k4500_les11nonexp',
+'les12exp-k4600_les12nonexp',
+'les15exp-k4700_les15nonexp',
+'les18exp-k4900_les18nonexp',
+'les19exp-k5000_les19nonexp',
+'les20exp-k5100_les20nonexp',
+'les21exp-k5200_les21nonexp']).
 
 
 
@@ -207,7 +202,7 @@ pedigree_tree(gerrys_martys_babies,[
 'les-2274-k13400_m020yw23',
 'les-2318-k13500_mo20y',
 'les-2386-k13600_mo17',
-'les-a853-_+',
+'les-a853-k12800_+',
 'les-funk-4-k15000_+',
 'les-na853-k15100_w23b77',
 'll-264-k12500_mo20yw23',
@@ -219,7 +214,7 @@ pedigree_tree(gerrys_martys_babies,[
 'nec-1613-k13200_ahornj',
 'nec-n1613-k15400_+',
 'nec-n490a-k15500_+',
-'spt-1320c-_+']).
+'spt-1320c-k12900_+']).
 
 
 
@@ -256,7 +251,7 @@ pedigree_tree(nam_fndrs,[
 'p39-k61700_p39',
 'tx303-k61800_tx303',
 'tzi8-k61900_tzi8',
-'w22r-r-k62000_w22r-r:standard(brink)']).
+'w22r-r-k62000_w22r-rstandard(brink)']).
 
 
 
@@ -267,8 +262,6 @@ pedigree_tree(nam_fndrs,[
 
 
 pedigree_tree(not_useful,[
-
-
 '-_',
 'acd2-k18000_',
 'camo-k13800_b73',
@@ -278,27 +271,27 @@ pedigree_tree(not_useful,[
 'd9-k14400_d9',
 'grmzm2g157354_t03-k62100_grmzm2g157354_t03',
 'hsf1-k14100_hsf1',
-'ht1-_b73ht1',
-'ht1-ge440-_ht1-ge440m14',
-'ht1-ladyfinger-_m14',
-'ht2-_ht2a619',
-'ht4-_ht4',
-'htn1-_htn1w22',
-'ij2-n8-_w22ij2-n8',
-'lep-8691-_+',
+'ht1-ge440-k9700_ht1-ge440m14',
+'ht1-k9900_b73ht1',
+'ht1-ladyfinger-k9800_m14',
+'ht2-k10000_ht2a619',
+'ht4-k10100_ht4',
+'htn1-k10200_htn1w22',
+'ij2-n8-k10300_w22ij2-n8',
+'lep-8691-k10400_+',
 'les1-k0104_mo20w',
 'les5-n1449-k68500_2007-942-1',
 'les-ec91-k11700_c-13',
 'les-ec91-k17100_b73',
 'les-k17200_les',
-'les-3f-3330-_+',
-'les-2119-_w23l317',
+'les-3f-3330-k8800_+',
+'les-2119-k9200_w23l317',
 'les-n502c-k7300_b73ht1',
 'les-n2015-k7900_+',
 'les-n2420-k8600_m14',
 'les-na1176-k8900_b73ag32',
 'les-pi251888-k9400_+',
-'les1-n843-_b73ht1',
+'les1-n843-k5400_b73ht1',
 'les2-gj-k15800_',
 'les3-gj2-k15900_mo17',
 'les3-k5600_w23',
@@ -307,34 +300,34 @@ pedigree_tree(not_useful,[
 'les5-gj2-k16100_b73',
 'les5-n1449-k5800_w23',
 'les6-n1451-k5900_+',
-'les7-n1461-_w23',
-'les8-n2005-_w23',
-'les9-n2008-_(m14w23)',
-'les10-na607-_w23',
-'les11-n1438-_w23',
-'les12-n1453-_w23',
-'les13-n2003-_w23',
-'les15-_mo20w',
-'les15-_w23',
-'les17-n2345-_w23',
-'les18-n2441-_w23',
-'les19-n2450-_w23',
-'les21-_mo20w',
+'les7-n1461-k6000_w23',
+'les8-n2005-k6100_w23',
+'les9-n2008-k6200_(m14w23)',
+'les10-na607-k6300_w23',
+'les11-n1438-k6400_w23',
+'les12-n1453-k6500_w23',
+'les13-n2003-k6600_w23',
+'les15-k1200_mo20w',
+'les15-k2900_w23',
+'les17-n2345-k6800_w23',
+'les18-n2441-k6900_w23',
+'les19-n2450-k7000_w23',
+'les21-k1600_mo20w',
 'les23-k11400_mo20w',
 'les101-k16500_les101',
 'les102-k16600_mo20w',
 'les2014-k16800_+',
-'lesdl(mop1)-_mo20w',
-'lls1-k17700_',
-'mop1-_mop1mop1',
-'pl-rhoades-_mcclintockfullcolor',
-'rhm1y1-_rhm1y1',
+'lesdl(mop1)-k01700_mo20w',
+'lls1-k1700_mo20w',
+'mop1-k12100_mop1mop1',
+'pl-rhoades-k12300_mcclintockfullcolor',
+'rhm1y1-k10800_rhm1y1',
 'spc1-n1376-k14000_w23',
 'spc3-n553c-k11000_+',
 'tp2-k14700_tp2',
-'vms-8522-_m14w23',
-'w22-_920021',
-'zn1-_zn1',
+'vms-8522-k11100_m14w23',
+'w22-k12400_920021',
+'zn1-k11200_zn1',
 %
 % gardner corn		  
 %	
@@ -361,39 +354,40 @@ pedigree_tree(not_useful,[
 
 
 pedigree_tree(primary_dominants,[
-'les1-_mo20w',
-'les1-_w23',
-'les2-_mo20w',
-'les2-_w23',
-'les2-n845a-_les2-n845a',
-'les4-_mo20w',
-'les4-_w23',
-'les6-_mo20w',
-'les6-_w23',
-'les7-_mo20w',
-'les7-_w23',
-'les8-_mo20w',
-'les8-_w23',
-'les9-_mo20w',
-'les9-_w23',
-'les10-_mo20w',
-'les10-_w23',
-'les11-_mo20w',
-'les12-_mo20w',
-'les12-_w23',
-'les13-_mo20w',
-'les13-_w23',
-'les15-n2007-_w23',
-'les17-_mo20w',
-'les17-_w23',
-'les18-_mo20w',
-'les18-_w23',
-'les19-_mo20w',
-'les19-_w23',
-'les20-n2457-_w23',
+'les-tk1-k70309_w23',
+'les1-k0100_mo20w',
+'les1-k1900_w23',
+'les2-k0200_mo20w',
+'les2-k2000_w23',
+'les2-n845a-k5500_les2-n845a',
+'les4-k0300_mo20w',
+'les4-k2100_w23',
+'les6-k0400_mo20w',
+'les6-k2200_w23',
+'les7-k0500_mo20w',
+'les7-k2300_w23',
+'les8-k0600_mo20w',
+'les8-k2400_w23',
+'les9-k0700_mo20w',
+'les9-k2500_w23',
+'les10-k0800_mo20w',
+'les10-k2600_w23',
+'les11-k0900_mo20w',
+'les12-k1000_mo20w',
+'les12-k2700_w23',
+'les13-k1100_mo20w',
+'les13-k2800_w23',
+'les15-n2007-k6700_w23',
+'les17-k1300_mo20w',
+'les17-k3000_w23',
+'les18-k1400_mo20w',
+'les18-k3100_w23',
+'les19-k1500_mo20w',
+'les19-k3200_w23',
+'les20-n2457-k7100_w23',
 'les20-n2459-k68600_w23',
-'les21-_w23',
-'les21-n1442-_b73ht1']).
+'les21-k3300_w23',
+'les21-n1442-k7200_b73ht1']).
 
 
 
@@ -408,8 +402,8 @@ pedigree_tree(primary_dominants,[
 pedigree_tree(primary_recessives,[
 'les3-gj-k11900_+',
 'les5-k11600_',
-'les23-_mo20w',
-'les23-_w23',
+'les23-k1800_mo20w',
+'les23-k3500_w23',
 'les23-k16300_',
 'lls1-_mo20w',
 'lls1-k10600_+',
@@ -444,16 +438,16 @@ pedigree_tree(secondary_dominants,[
 'd10-k14500_d10',
 'idfbpl-k19200_idfbpl',
 'idfbplsib-k19300_idfbpl',
-'les-mi1-_mop1',
-'les-n1378-_cm105',
-'les-n2320-_b73ht1',
-'les-n2397-_+',
-'les-n2418-_b73ag32',
+'les-mi1-k12200_mop1',
+'les-n1378-k7400_cm105',
+'les-n2320-k8100_b73ht1',
+'les-n2397-k8400_+',
+'les-n2418-k8500_b73ag32',
 'les-n2420-k13900_b73',
-'les-na7145-_b73ht1',
+'les-na7145-k9100_b73ht1',
 'les101-k11800_i-54',
 'les102-k12000_i-52',
-'lesds-1-_',
+'lesds-1-k16900_',
 'lls1-nk-k17800_',		  
 'tp1-k14600_tp1']).
 
@@ -479,28 +473,28 @@ pedigree_tree(secondary_recessives,[
 'camocf0-2-k19101_b73',
 'cpc1-n2284b-k9600_+',
 'csp1-k11500_',
-'-_les-n1395c',
+'-k7500_les-n1395c',
 'les-74-1820-6-k14900_b73ht1mo17',
-'les-74-1873-9-_+',
-'les-ats-_b73ht1',
+'les-74-1873-9-k9300_+',
+'les-ats-k9500_b73ht1',
 'les-b1-k62805_b73',
-'les-n2012-_+',
-'les-n2013-_les-n2013',
-'les-n2290a-_mo20w',
-'les-n2333a-_(b73ag32)',
-'les-n2363a-_+',
-'les-n2502-_les-n2502',
-'les-na467-_les-na467',
-'les-pi262474-_+',
-'les-tilling1-_',
+'les-n2012-k7700_+',
+'les-n2013-k7800_les-n2013',
+'les-n2290a-k8000_mo20w',
+'les-n2333a-k8200_(b73ag32)',
+'les-n2363a-k8300_+',
+'les-n2502-k8700_les-n2502',
+'les-na467-k9000_les-na467',
+'les-pi262474-k13700_+',
+'les-tilling1-k17400_',
 'les28-k16400_',
 'les297-k16700_+',
-'lesla-_lesla',
-'nec-6853-_+',
+'lesla-k17300_lesla',
+'nec-6853-k10700_+',
 'nec2-8147-k15300_+',
 'newnecrotic-k62200_l522-10',
 'spc1-n1376-k10900_w23',
-'les-n1450-_+']).
+'les-n1450-k7600_+']).
 
 
 
