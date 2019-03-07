@@ -162,14 +162,12 @@
 
 
 
-% stopped here --- still to do
-%
-%    revise ../data/pedigree_tree.pl to sort the ones in the classify subtree
+% still to do
 %
 %    construct pedigrees ignoring family numbers; compute a new index
 %    based on genotype/11 to facilitate this
 %
-% Kazic, 6.3.2019
+% Kazic, 7.3.2019
 
 
 
@@ -713,40 +711,25 @@ grab_founders([Family|Families],Acc,Parents) :-
 % Kazic, 1.12.2018
 
 
-
-
-% a problem here: endless backtracking (until the local stack is exhausted)
-% if called with family 890.
+% revised to make termination condition more explicit
 %
-% Kazic, 6.3.2019
+% Kazic, 7.3.2019
 
 
-
+grab_founders_aux(Family,(Ma,Pa)) :-
+	founder(Family,Ma,Pa,_,_,_,_,_,_).
 
 grab_founders_aux(Family,(Ma,Pa)) :-   
-        ( founder(Family,Ma,Pa,_,_,_,_,_,_) ->
-	        true
-	;  
-
-
-% if PaFam < 890 and not a founder, fail
-% depending on clause ordering to save a little speed,
-% not very declarative!
-	
-                ( Family < 890 ->
-% 	        \+ founder(PaFam,_,_,_,_,_,_,_,_),
-	                false
-                ;
-                        genotype(Family,_,_,PaFam,_,_,_,_,_,_,_),
-                        genotype(PaFam,_,ParMa,PaternalPaFam,ParPa,_,_,_,_,_,_),
-                        ( founder(PaFam,ParMa,ParPa,_,_,_,_,_,_) ->
-                                Ma = ParMa,
-                                Pa = ParPa
-			;
-                                grab_founders_aux(PaternalPaFam,(Ma,Pa))
-                        )
-		)
+        genotype(Family,_,_,PaFam,_,_,_,_,_,_,_),
+	PaFam \== Family,
+        genotype(PaFam,_,ParMa,PaternalPaFam,ParPa,_,_,_,_,_,_),
+        ( founder(PaFam,ParMa,ParPa,_,_,_,_,_,_) ->
+                Ma = ParMa,
+                Pa = ParPa
+	;
+                grab_founders_aux(PaternalPaFam,(Ma,Pa))
         ).
+
 
 
 
@@ -1786,13 +1769,71 @@ output_checks_aux(Stream,[Check|Checks]) :-
 
 
 
-
 test_n_check_pedigrees(Families,PlanningCrop,Checked) :-
         grab_founders(Families,Parents),
         build_pedigrees(Parents,Trees),
 	check_pedigrees(Trees,Checked),
         make_output_dir(PlanningCrop,ASCIIDir,LowerCaseCrop),
         output_pedigrees(ASCIIDir,LowerCaseCrop,ped,Checked).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+% the prior version of this, with just the Family < 890, produced infinite
+% backtracking for family 890.  Cleaned up the logic, current predicate is
+% above.
+%
+% Kazic, 7.3.2019
+
+
+
+%% grab_founders_aux(Family,(Ma,Pa)) :-   
+%%         ( founder(Family,Ma,Pa,_,_,_,_,_,_) ->
+%% 	        true
+%% 	;  
+
+
+%% % if PaFam < 890 and not a founder, fail
+%% % depending on clause ordering to save a little speed,
+%% % not very declarative!
+	
+%%                 ( ( Family < 890,
+%%    	            \+ founder(Family,_,_,_,_,_,_,_,_) ) ->
+%% 	                false
+%%                 ;
+%%                         genotype(Family,_,_,PaFam,_,_,_,_,_,_,_),
+%% 		        PaFam \== Family,
+%%                         genotype(PaFam,_,ParMa,PaternalPaFam,ParPa,_,_,_,_,_,_),
+%%                         ( founder(PaFam,ParMa,ParPa,_,_,_,_,_,_) ->
+%%                                 Ma = ParMa,
+%%                                 Pa = ParPa
+%% 			;
+%%                                 grab_founders_aux(PaternalPaFam,(Ma,Pa))
+%%                         )
+%% 		)
+%%         ).
+
+
+
+
+
+
+
+
+
+
+
 
 
 
