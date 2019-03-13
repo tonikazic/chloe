@@ -8,6 +8,17 @@
 
 
 
+% still to do some convenient day
+%
+%    construct pedigrees ignoring family numbers; compute a new index
+%    based on genotype/11 to facilitate this
+%
+% Kazic, 7.3.2019
+
+
+
+
+
 %declarations%
 
 
@@ -159,15 +170,6 @@
 
 
 
-
-
-
-% still to do
-%
-%    construct pedigrees ignoring family numbers; compute a new index
-%    based on genotype/11 to facilitate this
-%
-% Kazic, 7.3.2019
 
 
 

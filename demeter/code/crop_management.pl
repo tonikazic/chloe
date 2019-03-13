@@ -15,6 +15,19 @@
 
 
 
+
+% still to do some convenient day
+%
+%    better estimation of heterozygous and homozygous mutant
+%    symbolic genotypes from mutant/8 facts
+%
+% Kazic, 13.3.2019
+
+
+
+
+
+
 %declarations%
 
 :-       module(crop_management,[
