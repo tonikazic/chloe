@@ -1,5 +1,4 @@
-# Chloe and Demeter are the code components of our crop management 
-# system for our maize research.  
+# Chloe and Demeter are the code components of our crop management system for our maize research.  
 
 
    + *chloe*:  a set of Perl scripts to process raw data; generate tags, labels, 
