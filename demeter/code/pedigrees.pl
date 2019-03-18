@@ -327,6 +327,31 @@ construct_pedigrees(Trees) :-
 
 % for a list of (Ma,Pa) tuples that are crosses between founders, return
 % their pedigrees
+%
+%
+% Pedigrees are built by:
+%
+%          for each founding Ma x Pa, find each crop and row in which that seed
+%          was planted, using planting_index/4  (find_planted/3)
+%
+%          for each crop and row, get the list of surviving plants in that row,
+%          using row_members_index/3 (get_row_members/2 called by find_planted/3)
+%
+%          for each surviving plant, find its descendants.  These appear in inventory/7
+%          or harvest/7 facts:  both facts have the surviving plant as either Ma or Pa
+%          (descendants/3 called by find_offspring/2)
+%
+%
+% Identification of plants is by unification on the entire numerical genotype.
+%
+% Kazic, 18.3.2019
+
+
+
+
+
+
+
 %    
 %
 % sample calls:
@@ -549,6 +574,10 @@ find_offspring_aux([(DescMN,DescPN)|NextGens],[(DescMN,DescPN)-Tree|Trees]) :-
 % Kazic, 23.5.2018
 
 
+% stopped here
+
+
+
 
 descendant(Plant,DescMN,DescPN) :-
         ( inventory(Plant,DescPN,_,_,_,_,_),
@@ -594,8 +623,11 @@ descendant(Plant,DescMN,DescPN) :-
 
 
 
+% use crop_rowplant_index/4 instead of deconstructing
+%
+%
+% Kazic, 18.3.2019
 
-% test!
 
 match_excluding_family_nums(Plant1ID,Plant2ID) :-
         remove_family(Plant1ID,Plant1SansFam),
