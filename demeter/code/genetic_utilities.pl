@@ -108,7 +108,7 @@
                 pad/3,
                 plan_includes/3,
                 pot/1,
-		remove_family/2,
+%		remove_family/2,
 		remove_row_prefix/2,
 		remove_padding/2,
 		remove_padding_aux/2,
@@ -4992,18 +4992,6 @@ next_crop_aux(PackingTimestamp,[Timestamp-Candidate|T],Crop) :-
 
 
 
-% for pedigree matching
-
-%! remove_family(+PlantID:atom,-PlantIDSansFam:atom) is det.
-
-remove_family(PlantID,PlantIDSansFam) :-
-        sub_atom(PlantID,0,3,_,Crop),
-        sub_atom(PlantID,FrontLen,1,BackLen,':'),
-        IncColon is BackLen + 1,
-        sub_atom(PlantID,FrontLen,IncColon,_,Back),
-        atom_concat(Crop,Back,PlantIDSansFam).
-
-
 
 
 
@@ -5250,4 +5238,30 @@ construct_crop_relative_dirs(Crop,PlngDir,MgmtDir,TagsDir) :-
         atomic_list_concat([Root,CropParticle,Plng],PlngDir),
         atomic_list_concat([Root,CropParticle,Mgmt],MgmtDir),
         atomic_list_concat([Root,CropParticle,Tags],TagsDir).
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%% obsolete %%%%%%%%%%%%%%%%%%%%
+
+% for pedigree matching
+%
+% nah, use the already computed crop_rowplant_index/4
+%
+% Kazic, 18.3.2019
+
+
+%! remove_family(+PlantID:atom,-PlantIDSansFam:atom) is det.
+
+remove_family(PlantID,PlantIDSansFam) :-
+        sub_atom(PlantID,0,3,_,Crop),
+        sub_atom(PlantID,FrontLen,1,BackLen,':'),
+        IncColon is BackLen + 1,
+        sub_atom(PlantID,FrontLen,IncColon,_,Back),
+        atom_concat(Crop,Back,PlantIDSansFam).
+
 
