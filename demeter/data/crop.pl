@@ -5,11 +5,9 @@
 
 % 18r
 
-% harvest dates guessed
-    
-crop('18R',missouri,field34,1,date(06,06,2018),date(30,9,2018),date(12,10,2018)).
-crop('18R',missouri,field34,2,date(11,06,2018),date(30,9,2018),date(12,10,2018)).
-crop('18R',missouri,field34,3,date(19,06,2018),date(30,9,2018),date(12,10,2018)).
+crop('18R',missouri,field34,1,date(06,06,2018),date(19,9,2018),date(12,10,2018)).
+crop('18R',missouri,field34,2,date(11,06,2018),date(20,9,2018),date(12,10,2018)).
+crop('18R',missouri,field34,3,date(19,06,2018),date(22,9,2018),date(12,10,2018)).
 
 
 
