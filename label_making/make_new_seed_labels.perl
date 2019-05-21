@@ -22,6 +22,14 @@
 # Kazic, 27.4.2018
 
 
+# fixed bug in call to generate_pdf and excluded blank lines 
+#
+# Kazic, 21.5.2019
+
+
+
+
+
 # call is ./make_new_seed_labels.perl i FLAG
 #
 # use i as the first argument to supply the inventory directory tree
@@ -65,8 +73,8 @@ my ($dir,$input_dir,$barcodes,$tags_dir) = &adjust_paths($crop,$local_dir);
 
 
 
-my $input_stem = "first_19r_tags";
-my $tags_stem = "first_19r_tags";
+my $input_stem = "18r_harvest_tags_needed.csv";
+my $tags_stem = "18r_harvest_tags_needed";
 
 # $input_stem = "new_seed_labels.csv";
 # $tags_stem = "new_seed_labels";
@@ -76,13 +84,14 @@ my $input_file = $input_dir . $input_stem;
 my $output_file = $tags_dir . $tags_stem . $tex_suffix;
 my @labels;
 
+# print "ts: $tex_suffix\nof: $output_file\n";
 
 
 open my $in, '<', $input_file or die "can't open $input_file\n";
 
 while (<$in>) {
 
-   	if ( ( $_ !~ /^,/ ) && ( $_ !~ /^\#/ ) ) {
+   	if ( ( $_ !~ /^,/ ) && ( $_ !~ /^\#/ ) && ( $_ !~ /^\n/ ) ) {
     
                 my ($correct_ma,$correct_pa,$old_ma) = $_ =~ /^\"?(${num_gtype_re})\"?,\"?(${num_gtype_re})\"?,\"?(${num_gtype_re})\"?,*/;
 
@@ -106,8 +115,13 @@ while (<$in>) {
 
 
 # now have to make the latex files for the tags, moving over @cross
+#
+# use generate_pdf, rather than generate_pdfl, as the barcodes' eps
+# files must be incorporated into the final tags
+#
+# Kazic, 21.5.2019
 
 &make_new_seed_labels($output_file,$today,$#labels,\@labels);
-&generate_pdf($output_dir,$tags_stem,$ps_suffix,$pdf_suffix);
+&generate_pdf($tags_dir,$tags_stem,$ps_suffix,$pdf_suffix);
 
 
