@@ -13,6 +13,12 @@
 % Kazic, 22.11.2018
 
 
+% revised to reflect compression of the last 17R box
+%
+% Kazic, 21.5.2019
+
+
+
     
 
 % sleeve_bdry(FirstMaInSleeve,LastMaInSleeve,Sleeve,Observer,Date,Time).    
@@ -257,9 +263,9 @@ sleeve_bdry('17R205:S0001509','17R205:S0003513',v00204,mason,date(18,06,2018),ti
 sleeve_bdry('17R205:S0003514','17R305:W0001709',v00205,mason,date(18,06,2018),time(14,43,51)).
 sleeve_bdry('17R305:W0001719','17R305:W0003918',v00206,mason,date(18,06,2018),time(14,44,06)).
 sleeve_bdry('17R305:W0003920','17R405:M0002309',v00207,mason,date(18,06,2018),time(14,44,21)).
-sleeve_bdry('17R405:M0002310','17R405:M0004705',v00208,mason,date(18,06,2018),time(14,44,36)).
-sleeve_bdry('17R405:M0004706','17R505:B0003014',v00209,mason,date(18,06,2018),time(14,44,53)).
-sleeve_bdry('17R505:B0003017','17R505:B0005119',v00210,mason,date(18,06,2018),time(14,45,10)).
+% sleeve_bdry('17R405:M0002310','17R405:M0004705',v00208,mason,date(18,06,2018),time(14,44,36)).
+% sleeve_bdry('17R405:M0004706','17R505:B0003014',v00209,mason,date(18,06,2018),time(14,44,53)).
+% sleeve_bdry('17R505:B0003017','17R505:B0005119',v00210,mason,date(18,06,2018),time(14,45,10)).
 
 
 
@@ -341,7 +347,14 @@ sleeve_bdry('10R0160:0000000','15R0681:0000000',v00000,toni,date(22,11,2018),tim
 % by data/data_conversion/convert_sleeve_bdry_data.perl
 % called from data/data_conversion/convert_data.perl
 
-sleeve_bdry('17R405:M0002314','17R405:M0004706',v00208,toni,date(20,05,2019),time(14,29,26)).
+
+% think I justed missed the first packet as I didn't discard any, and refiled
+% the subsequent packets
+%
+% Kazic, 21.5.2019
+
+% sleeve_bdry('17R405:M0002314','17R405:M0004706',v00208,toni,date(20,05,2019),time(14,29,26)).
+sleeve_bdry('17R405:M0002310','17R405:M0004706',v00208,toni,date(20,05,2019),time(14,29,26)).
 sleeve_bdry('17R405:M0004708','17R505:B0005009',v00209,toni,date(20,05,2019),time(14,31,00)).
 sleeve_bdry('17R505:B0005011','18R4441:0008718',v00210,toni,date(20,05,2019),time(14,31,00)).
 sleeve_bdry('18R4441:0008719','18R4654:0009716',v00211,toni,date(20,05,2019),time(14,31,00)).
