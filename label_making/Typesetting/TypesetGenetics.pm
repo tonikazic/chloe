@@ -3039,7 +3039,9 @@ sub print_inbred_seed_bag_label_aux {
 
 # ok, still have to add BIG BOLD plantIDs
 
-
+# latex file should compile without errors; last condition closes the picture
+#
+# Kazic, 21.5.2019
 
 sub print_new_seed_labels {
 
@@ -3058,6 +3060,8 @@ sub print_new_seed_labels {
         $delta_y = 51;
 
 
+#        print "rem: $rem side: $side stack: $stack step: $step\n";
+	
         if ( $rem == 0 ) {
 
                 if ( $i != 0 ) { print $filehandle "\\newpage\n"; }
@@ -3102,6 +3106,7 @@ sub print_new_seed_labels {
 # finish the page
 
                 if ( ( $rem == 9 ) || ( $i == $#labels ) ) { &end_picture($filehandle); }
+
 	        }
         }
 
