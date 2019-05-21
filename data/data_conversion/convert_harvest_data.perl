@@ -20,7 +20,7 @@
 # script in between.
 #
 #
-# Tested with dummy data, correct.
+# Tested with dummy data (../palm/raw_data_from_palms/18r/eta/11.11/dummy.harvest.csv), correct.
 #
 # Kazic, 11.11.2018
 
@@ -38,6 +38,12 @@
 # converted to run in perl 5.26
 #
 # Kazic, 24.4.2018
+
+
+# added condition to exclude blank lines
+#
+# Kazic, 21.5.2019
+
 
 
 use strict;
@@ -157,7 +163,7 @@ if ( $lines[0] =~ /harvest/ ) {
 	
         for ( my $i = 1; $i <= $#lines; $i++ ) {
 
-              if ( ( $lines[$i] !~ /^,/ ) && ( $lines[$i] !~ /^#/ ) ) { 
+              if ( ( $lines[$i] !~ /^,/ ) && ( $lines[$i] !~ /^#/ ) && ( $lines[$i] !~ /^[\n\t\r]/ ) ) { 
 	    
 # clean up here, rather than burdening data entry in field
 
@@ -181,7 +187,7 @@ if ( $lines[0] =~ /harvest/ ) {
                       my ($ma_plant,$pa_plant,$ok,$fuzzy_cl,$num_cl,$fungus,$polltn_note,$observer) = $lines[$i] =~ /\"?(${num_gtype_re})\"?,\"?(${num_gtype_re})\"?,\"?(${num_tf_re})\"?,\"?(${fuzzy_cl_re})\"?,\"?(${cl_re})\"?,\"?(${num_tf_re})\"?,\"?(${note_re})\"?,\"?(${observer_re})\"?,*/;
 	
 
-#                        print "($ma_plant,$pa_plant,$ok,$fuzzy_cl,$num_cl,$fungus,$polltn_note,$observer)\n";
+                        print "($ma_plant,$pa_plant,$ok,$fuzzy_cl,$num_cl,$fungus,$polltn_note,$observer)\n";
 
 
 		      
