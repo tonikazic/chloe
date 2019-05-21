@@ -7,7 +7,7 @@
 % Kazic, 14.7.2018    
 
 
-% Each sleeve should have one and only one boundary fact.  When a sleeve is re-read,
+% Each sleeve should have only one boundary fact.  When a sleeve is re-read,
 % its earlier fact must be commented out.
 %
 % Kazic, 22.11.2018
@@ -333,4 +333,24 @@ sleeve_bdry('14R405:M0001311','14R405:M0001705',v00174,toni,date(21,11,2018),tim
 % Kazic, 22.11.2018
 
 sleeve_bdry('10R0160:0000000','15R0681:0000000',v00000,toni,date(22,11,2018),time(06,41,00)).
-    
+
+
+
+
+% data added from ../../data../palm/raw_data_from_palms/18r/eta/20.5/sleeve_bdry.csv on Tue May 21 15:25:29 CDT 2019
+% by data/data_conversion/convert_sleeve_bdry_data.perl
+% called from data/data_conversion/convert_data.perl
+
+sleeve_bdry('17R405:M0002314','17R405:M0004706',v00208,toni,date(20,05,2019),time(14,29,26)).
+sleeve_bdry('17R405:M0004708','17R505:B0005009',v00209,toni,date(20,05,2019),time(14,31,00)).
+sleeve_bdry('17R505:B0005011','18R4441:0008718',v00210,toni,date(20,05,2019),time(14,31,00)).
+sleeve_bdry('18R4441:0008719','18R4654:0009716',v00211,toni,date(20,05,2019),time(14,31,00)).
+sleeve_bdry('18R4654:0009718','18R4666:0011704',v00212,toni,date(20,05,2019),time(14,31,00)).
+sleeve_bdry('18R4666:0011705','18R4699:0022310',v00213,toni,date(20,05,2019),time(14,31,00)).
+sleeve_bdry('18R4701:0022506','18R205:S0001117',v00214,toni,date(20,05,2019),time(14,32,00)).
+sleeve_bdry('18R205:S0001202','18R305:W0001809',v00215,toni,date(20,05,2019),time(14,32,00)).
+sleeve_bdry('18R305:W0001810','18R305:W0002017',v00216,toni,date(20,05,2019),time(14,32,00)).
+sleeve_bdry('18R305:W0002018','18R405:M0004114',v00217,toni,date(20,05,2019),time(14,32,00)).
+sleeve_bdry('18R405:M0004202','18R505:B0005617',v00218,toni,date(20,05,2019),time(14,32,00)).
+sleeve_bdry('18R505:B0005705','18R505:B0006113',v00219,toni,date(20,05,2019),time(14,32,00)).
+sleeve_bdry('18R505:B0006202','18R505:B0006314',v00220,toni,date(20,05,2019),time(14,33,16)).

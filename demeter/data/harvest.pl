@@ -7992,3 +7992,422 @@ harvest('18R205:S0000410','18R4675:0015317',failed,'very low pollen; 4 cl',toni,
 harvest('18R205:S0001108','18R4676:0015508',failed,'very low pollen; old ear; 0 cl',toni,date(21,09,2018),time(17,24,35)).
 harvest('18R205:S0001603','18R2433:0024103',failed,'very low pollen; 4 cl',toni,date(21,09,2018),time(18,39,17)).
 harvest('18R305:W0002110','18R4695:0021913',failed,'low pollen; 0 cl',toni,date(22,09,2018),time(12,30,23)).
+
+
+
+
+% data added from ../../data../palm/raw_data_from_palms/18r/eta/16.5/harvest.csv on Tue May 21 15:16:22 CDT 2019
+% by data/data_conversion/convert_harvest_data.perl
+% called from data/data_conversion/convert_data.perl
+
+harvest('18R505:B0005607','18R4436:0013910',succeeded,'14 cl',toni,date(22,09,2018),time(17,26,58)).
+harvest('18R505:B0005608','18R4441:0008717',succeeded,'three_quarter',toni,date(22,09,2018),time(17,26,58)).
+harvest('18R505:B0005611','18R4441:0008717',succeeded,'eighth',toni,date(22,09,2018),time(17,26,58)).
+harvest('18R505:B0005612','18R4436:0013910',succeeded,'three_quarter',toni,date(22,09,2018),time(17,26,58)).
+harvest('18R505:B0005707','18R4439:0013310',succeeded,'quarter',toni,date(22,09,2018),time(17,44,10)).
+harvest('18R505:B0005811','18R4492:0008812',succeeded,_,toni,date(22,09,2018),time(18,02,51)).
+harvest('18R505:B0005805','18R4658:0010214',succeeded,'three_quarter',toni,date(22,09,2018),time(18,02,51)).
+harvest('18R505:B0005809','18R4658:0010214',succeeded,_,toni,date(22,09,2018),time(18,02,51)).
+harvest('18R505:B0005605','18R4659:0010406',succeeded,'eighth',toni,date(22,09,2018),time(17,26,58)).
+harvest('18R505:B0005717','18R4661:0010804',succeeded,_,toni,date(22,09,2018),time(17,44,10)).
+harvest('18R505:B0005803','18R4661:0010804',succeeded,_,toni,date(22,09,2018),time(18,02,51)).
+harvest('18R505:B0005804','18R4661:0010813',succeeded,'half; fungus',toni,date(22,09,2018),time(18,02,51)).
+harvest('18R505:B0005807','18R4442:0012804',succeeded,'sixteenth',toni,date(22,09,2018),time(18,02,51)).
+harvest('18R505:B0005613','18R4226:0008308',succeeded,'quarter',toni,date(22,09,2018),time(17,26,58)).
+harvest('18R505:B0005616','18R4492:0008812',succeeded,_,toni,date(22,09,2018),time(17,26,58)).
+harvest('18R505:B0005617','18R4492:0008812',succeeded,'eighth',toni,date(22,09,2018),time(17,26,58)).
+harvest('18R505:B0005705','18R4492:0008816',succeeded,'three_quarter',toni,date(22,09,2018),time(17,44,10)).
+harvest('18R505:B0005708','18R4492:0008816',succeeded,'half',toni,date(22,09,2018),time(17,44,10)).
+harvest('18R505:B0005815','18R4492:0008816',succeeded,'half',toni,date(22,09,2018),time(18,02,51)).
+harvest('18R505:B0005714','18R4260:0008908',succeeded,'quarter; fungus',toni,date(22,09,2018),time(17,44,10)).
+harvest('18R505:B0005709','18R4260:0008917',succeeded,'three_quarter; fungus',toni,date(22,09,2018),time(17,44,10)).
+harvest('18R505:B0005710','18R4260:0008917',succeeded,'three_quarter',toni,date(22,09,2018),time(17,44,10)).
+harvest('18R505:B0005711','18R4651:0009203',succeeded,'three_quarter',toni,date(22,09,2018),time(17,44,10)).
+harvest('18R505:B0005716','18R4654:0009710',succeeded,'three_quarter; fungus',toni,date(22,09,2018),time(17,44,10)).
+harvest('18R505:B0005712','18R4654:0009713',succeeded,'three_quarter',toni,date(22,09,2018),time(17,44,10)).
+harvest('18R505:B0005713','18R4654:0009713',succeeded,'three_quarter; fungus',toni,date(22,09,2018),time(17,44,10)).
+harvest('18R505:B0005601','18R4656:0009907',succeeded,'half',toni,date(22,09,2018),time(17,26,58)).
+harvest('18R505:B0005604','18R4656:0009907',succeeded,'half',toni,date(22,09,2018),time(17,26,58)).
+harvest('18R505:B0005810','18R4656:0009907',succeeded,'three_quarter',toni,date(22,09,2018),time(18,02,51)).
+
+
+
+
+% data added from ../../data../palm/raw_data_from_palms/18r/eta/17.5/harvest.csv on Tue May 21 15:16:43 CDT 2019
+% by data/data_conversion/convert_harvest_data.perl
+% called from data/data_conversion/convert_data.perl
+
+harvest('18R505:B0006314','18R4658:0010214',succeeded,'pulled ear; sixteenth',toni,date(22,09,2018),time(18,58,31)).
+harvest('18R505:B0006002','18R4659:0010406',succeeded,'eighth',toni,date(22,09,2018),time(18,25,13)).
+harvest('18R505:B0006208','18R4443:0010910',succeeded,'pulled ear; was quarter; extreme fungus; discard if possible; sixteenth',toni,date(22,09,2018),time(18,48,23)).
+harvest('18R505:B0006204','18R4555:0011902',succeeded,'pulled ear; eighth',toni,date(22,09,2018),time(18,48,23)).
+harvest('18R505:B0006112','18R4100:0012118',succeeded,'old ear; pulled ear; quarter',toni,date(22,09,2018),time(18,40,11)).
+harvest('18R405:M0004407','18R2030:0025205',succeeded,'quarter',toni,date(22,09,2018),time(16,11,06)).
+harvest('18R405:M0004411','18R2030:0025205',succeeded,'quarter',toni,date(22,09,2018),time(16,11,06)).
+harvest('18R405:M0004502','18R2030:0025205',succeeded,'three_quarter',toni,date(22,09,2018),time(16,20,44)).
+harvest('18R505:B0006110','18R4100:0012118',succeeded,'pulled ear; quarter',toni,date(22,09,2018),time(18,40,11)).
+harvest('18R505:B0006202','18R4100:0012107',succeeded,'pulled ear; quarter',toni,date(22,09,2018),time(18,48,23)).
+harvest('18R505:B0006014','18R4260:0008908',succeeded,'quarter',toni,date(22,09,2018),time(18,25,13)).
+harvest('18R405:M0003611','18R4408:0026810',succeeded,'very low pollen; sixteenth',toni,date(22,09,2018),time(14,18,49)).
+harvest('18R505:B0006113','18R4438:0012401',succeeded,_,toni,date(22,09,2018),time(18,40,11)).
+harvest('18R505:B0005908','18R4440:0008113',succeeded,'three_quarter',toni,date(22,09,2018),time(18,12,50)).
+harvest('18R505:B0006211','18R4443:0010910',succeeded,'pulled ear; eighth',toni,date(22,09,2018),time(18,48,23)).
+harvest('18R405:M0003806','18R4474:0029403',succeeded,'three_quarter',toni,date(22,09,2018),time(14,31,13)).
+harvest('18R505:B0006308','18R4492:0008812',succeeded,'pulled ear; quarter',toni,date(22,09,2018),time(18,58,31)).
+harvest('18R405:M0003916','18R4626:0029101',failed,'10 cl',toni,date(22,09,2018),time(14,36,31)).
+harvest('18R405:M0004101','18R4626:0029107',succeeded,'sixteenth',toni,date(22,09,2018),time(14,58,06)).
+harvest('18R405:M0004110','18R4626:0029107',succeeded,'half',toni,date(22,09,2018),time(14,58,06)).
+harvest('18R505:B0006006','18R4654:0009710',succeeded,_,toni,date(22,09,2018),time(18,25,13)).
+harvest('18R505:B0006007','18R4654:0009713',succeeded,_,toni,date(22,09,2018),time(18,25,13)).
+harvest('18R505:B0006312','18R4657:0010109',succeeded,'pulled ear; half',toni,date(22,09,2018),time(18,58,31)).
+harvest('18R505:B0006313','18R4658:0010214',succeeded,'pulled ear; three_quarter',toni,date(22,09,2018),time(18,58,31)).
+harvest('18R505:B0006210','18R4661:0010804',succeeded,'pulled ear; quarter',toni,date(22,09,2018),time(18,48,23)).
+harvest('18R505:B0006212','18R4660:0010606',succeeded,'pulled ear; eighth',toni,date(22,09,2018),time(18,48,23)).
+harvest('18R405:M0004402','18R4680:0016708',succeeded,'misbagged; discard if possible; sixteenth; fungus',toni,date(22,09,2018),time(16,11,06)).
+harvest('18R405:M0004104','18R4716:0026206',succeeded,'quarter',toni,date(22,09,2018),time(14,58,06)).
+harvest('18R405:M0004111','18R4716:0026206',succeeded,'misbagged; discard if possible; half',toni,date(22,09,2018),time(14,58,06)).
+harvest('18R405:M0003614','18R4725:0027408',failed,'21 cl',toni,date(22,09,2018),time(14,18,49)).
+harvest('18R405:M0004006','18R4727:0029614',succeeded,'sixteenth',toni,date(22,09,2018),time(14,45,26)).
+harvest('18R405:M0004012','18R4727:0029614',succeeded,'three_quarter',toni,date(22,09,2018),time(14,45,26)).
+harvest('18R405:M0004109','18R4727:0029611',succeeded,'quarter',toni,date(22,09,2018),time(14,58,06)).
+harvest('18R405:M0004112','18R4725:0027408',succeeded,'three_quarter',toni,date(22,09,2018),time(14,58,06)).
+harvest('18R405:M0004113','18R4733:0030202',succeeded,'three_quarter',toni,date(22,09,2018),time(14,58,06)).
+harvest('18R405:M0004206','18R4731:0030011',succeeded,'26 cl',toni,date(22,09,2018),time(15,19,43)).
+harvest('18R405:M0004210','18R4733:0030202',succeeded,'quarter',toni,date(22,09,2018),time(15,19,43)).
+harvest('18R405:M0004212','18R4733:0030205',succeeded,'quarter',toni,date(22,09,2018),time(15,19,43)).
+harvest('18R405:M0004103','18R4745:0027903',succeeded,'half',toni,date(22,09,2018),time(14,58,06)).
+harvest('18R405:M0004105','18R4745:0027901',succeeded,'eighth',toni,date(22,09,2018),time(14,58,06)).
+harvest('18R405:M0003906','18R4751:0028502',succeeded,'half',toni,date(22,09,2018),time(14,36,31)).
+harvest('18R405:M0003907','18R4751:0028502',succeeded,'half',toni,date(22,09,2018),time(14,36,31)).
+harvest('18R405:M0004301','18R4691:0021404',succeeded,'quarter',toni,date(22,09,2018),time(15,28,13)).
+harvest('18R405:M0004003','18R4691:0021406',succeeded,'quarter',toni,date(22,09,2018),time(14,45,26)).
+harvest('18R405:M0004403','18R4697:0022104',succeeded,'half',toni,date(22,09,2018),time(16,11,06)).
+harvest('18R405:M0004307','18R4698:0022208',succeeded,'quarter',toni,date(22,09,2018),time(15,28,13)).
+harvest('18R405:M0004310','18R4698:0022208',succeeded,'quarter',toni,date(22,09,2018),time(15,28,13)).
+harvest('18R405:M0004204','18R2437:0024301',succeeded,'quarter',toni,date(22,09,2018),time(15,19,43)).
+harvest('18R405:M0004304','18R2437:0024301',succeeded,'quarter',toni,date(22,09,2018),time(15,28,13)).
+harvest('18R405:M0004202','18R2437:0024304',succeeded,'quarter',toni,date(22,09,2018),time(15,19,43)).
+harvest('18R405:M0004203','18R2437:0024304',succeeded,'eighth',toni,date(22,09,2018),time(15,19,43)).
+harvest('18R405:M0004503','18R1612:0024903',succeeded,'quarter',toni,date(22,09,2018),time(16,20,44)).
+harvest('18R405:M0004008','18R3998:0025405',succeeded,'quarter',toni,date(22,09,2018),time(14,45,26)).
+harvest('18R405:M0004011','18R3998:0025405',succeeded,'half',toni,date(22,09,2018),time(14,45,26)).
+harvest('18R405:M0003902','18R3998:0025409',succeeded,'quarter',toni,date(22,09,2018),time(14,36,31)).
+harvest('18R405:M0004007','18R3998:0025409',succeeded,'desperate daddy; quarter',toni,date(22,09,2018),time(14,45,26)).
+harvest('18R405:M0003905','18R4751:0028502',succeeded,'half',toni,date(22,09,2018),time(14,36,31)).
+harvest('18R405:M0004015','18R0703:0028604',succeeded,'half',toni,date(22,09,2018),time(14,45,26)).
+harvest('18R405:M0004106','18R0703:0028604',succeeded,'half',toni,date(22,09,2018),time(14,58,06)).
+harvest('18R405:M0003604','18R4698:0029008',succeeded,'quarter',toni,date(22,09,2018),time(14,18,49)).
+harvest('18R405:M0003607','18R4698:0029008',failed,'23 cl',toni,date(22,09,2018),time(14,18,49)).
+harvest('18R405:M0004114','18R4733:0030202',succeeded,'three_quarter',toni,date(22,09,2018),time(14,58,06)).
+harvest('18R505:B0005911','18R4440:0008113',succeeded,'three_quarter',toni,date(22,09,2018),time(18,12,50)).
+harvest('18R505:B0006309','18R4492:0008812',succeeded,'pulled ear; three_quarter',toni,date(22,09,2018),time(18,58,31)).
+harvest('18R505:B0005917','18R4492:0008816',succeeded,'half',toni,date(22,09,2018),time(18,12,50)).
+harvest('18R505:B0006016','18R4260:0008917',succeeded,'stem broken above ear; quarter',toni,date(22,09,2018),time(18,25,13)).
+harvest('18R505:B0006011','18R4106:0009017',succeeded,'eighth',toni,date(22,09,2018),time(18,25,13)).
+harvest('18R505:B0006013','18R4106:0009018',succeeded,'quarter',toni,date(22,09,2018),time(18,25,13)).
+harvest('18R505:B0006101','18R4106:0009018',succeeded,'quarter',toni,date(22,09,2018),time(18,40,11)).
+harvest('18R505:B0005902','18R4654:0009710',succeeded,'three_quarter',toni,date(22,09,2018),time(18,12,50)).
+harvest('18R505:B0006004','18R4654:0009710',succeeded,_,toni,date(22,09,2018),time(18,25,13)).
+
+
+
+
+% data added from ../../data../palm/raw_data_from_palms/18r/eta/18.5/harvest.csv on Tue May 21 15:17:03 CDT 2019
+% by data/data_conversion/convert_harvest_data.perl
+% called from data/data_conversion/convert_data.perl
+
+harvest('18R305:W0002008','18R1563:0024807',succeeded,_,toni,date(22,09,2018),time(12,11,52)).
+harvest('18R405:M0004602','18R4679:0016502',succeeded,'three_quarter',toni,date(22,09,2018),time(16,31,22)).
+harvest('18R405:M0004513','18R4679:0016504',succeeded,'half',toni,date(22,09,2018),time(16,20,44)).
+harvest('18R405:M0004511','18R4679:0016511',succeeded,'half',toni,date(22,09,2018),time(16,20,44)).
+harvest('18R405:M0004510','18R4679:0016514',succeeded,'three_quarter',toni,date(22,09,2018),time(16,20,44)).
+harvest('18R405:M0004507','18R2030:0025208',succeeded,'quarter',toni,date(22,09,2018),time(16,20,44)).
+harvest('18R405:M0004610','18R4408:0026810',failed,'very old ear; discard if possible; 19 cl',toni,date(22,09,2018),time(16,31,22)).
+harvest('18R405:M0004807','18R4474:0029403',succeeded,'very old ear; eighth',toni,date(22,09,2018),time(16,49,31)).
+harvest('18R405:M0004706','18R4684:0017713',failed,'discard if possible; 17 cl',toni,date(22,09,2018),time(16,39,37)).
+harvest('18R405:M0004705','18R4697:0028901',succeeded,'discard if possible; 23 cl',toni,date(22,09,2018),time(16,39,37)).
+harvest('18R405:M0004709','18R4697:0028908',succeeded,'eighth',toni,date(22,09,2018),time(16,39,37)).
+harvest('18R405:M0004809','18R4728:0029704',succeeded,'25 cl',toni,date(22,09,2018),time(16,49,31)).
+harvest('18R405:M0004812','18R4728:0029704',succeeded,'half',toni,date(22,09,2018),time(16,49,31)).
+harvest('18R405:M0004902','18R4727:0029614',succeeded,'eighth',toni,date(22,09,2018),time(16,58,25)).
+harvest('18R405:M0004907','18R4728:0029703',succeeded,'sixteenth',toni,date(22,09,2018),time(16,58,25)).
+harvest('18R405:M0004912','18R4727:0029609',succeeded,'sixteenth',toni,date(22,09,2018),time(16,58,25)).
+harvest('18R405:M0004913','18R4727:0029609',succeeded,'quarter',toni,date(22,09,2018),time(16,58,25)).
+harvest('18R405:M0004914','18R4727:0029611',succeeded,'half',toni,date(22,09,2018),time(16,58,25)).
+harvest('18R405:M0004908','18R4733:0030205',succeeded,'sixteenth',toni,date(22,09,2018),time(16,58,25)).
+harvest('18R205:S0000905','18R4690:0021310',succeeded,'three_quarter',toni,date(21,09,2018),time(17,11,24)).
+harvest('18R205:S0000917','18R4690:0021310',succeeded,'half',toni,date(21,09,2018),time(17,11,24)).
+harvest('18R205:S0000918','18R4690:0021310',succeeded,'three_quarter',toni,date(21,09,2018),time(17,11,24)).
+harvest('18R305:W0001815','18R4691:0021404',succeeded,'three_quarter',toni,date(22,09,2018),time(11,34,53)).
+harvest('18R305:W0001816','18R4691:0021404',succeeded,_,toni,date(22,09,2018),time(11,34,53)).
+harvest('18R305:W0001817','18R4691:0021404',succeeded,'half',toni,date(22,09,2018),time(11,34,53)).
+harvest('18R305:W0001901','18R4691:0021404',succeeded,_,toni,date(22,09,2018),time(11,54,34)).
+harvest('18R405:M0005003','18R4691:0021404',succeeded,'half',toni,date(22,09,2018),time(17,13,52)).
+harvest('18R405:M0005006','18R4691:0021404',succeeded,'quarter',toni,date(22,09,2018),time(17,13,52)).
+harvest('18R305:W0001911','18R4691:0021406',succeeded,_,toni,date(22,09,2018),time(11,54,34)).
+harvest('18R305:W0001912','18R4691:0021406',succeeded,'three_quarter',toni,date(22,09,2018),time(11,54,34)).
+harvest('18R305:W0001913','18R4691:0021406',succeeded,_,toni,date(22,09,2018),time(11,54,34)).
+harvest('18R405:M0004605','18R4691:0021406',succeeded,'half',toni,date(22,09,2018),time(16,31,22)).
+harvest('18R405:M0004704','18R4691:0021406',succeeded,'half',toni,date(22,09,2018),time(16,39,37)).
+harvest('18R205:S0000910','18R4692:0021501',succeeded,'quarter',toni,date(21,09,2018),time(17,11,24)).
+harvest('18R205:S0000913','18R4692:0021502',succeeded,'half',toni,date(21,09,2018),time(17,11,24)).
+harvest('18R205:S0000904','18R4692:0021503',succeeded,'three_quarter',toni,date(21,09,2018),time(17,11,24)).
+harvest('18R205:S0000304','18R4692:0021505',succeeded,'three_quarter',toni,date(21,09,2018),time(16,54,48)).
+harvest('18R305:W0002214','18R4694:0021701',succeeded,_,toni,date(22,09,2018),time(12,41,14)).
+harvest('18R405:M0005105','18R4694:0021701',succeeded,'half',toni,date(22,09,2018),time(17,17,05)).
+harvest('18R305:W0002216','18R4694:0021703',succeeded,_,toni,date(22,09,2018),time(12,41,14)).
+harvest('18R405:M0005301','18R4694:0021703',succeeded,'few silks; misbagged; discard if possible; sixteenth',toni,date(22,09,2018),time(17,19,11)).
+harvest('18R305:W0002215','18R4694:0021705',succeeded,_,toni,date(22,09,2018),time(12,41,14)).
+harvest('18R405:M0005409','18R4694:0021705',succeeded,'half',toni,date(22,09,2018),time(17,22,38)).
+harvest('18R305:W0002117','18R4695:0021904',succeeded,_,toni,date(22,09,2018),time(12,30,23)).
+harvest('18R305:W0002112','18R4695:0021912',succeeded,'three_quarter',toni,date(22,09,2018),time(12,30,23)).
+harvest('18R405:M0004505','18R4697:0022104',succeeded,'three_quarter',toni,date(22,09,2018),time(16,20,44)).
+harvest('18R405:M0004509','18R4697:0022104',succeeded,'quarter',toni,date(22,09,2018),time(16,20,44)).
+harvest('18R305:W0002109','18R4706:0023203',succeeded,'quarter',toni,date(22,09,2018),time(12,30,23)).
+harvest('18R305:W0002106','18R4706:0023205',succeeded,'half',toni,date(22,09,2018),time(12,30,23)).
+harvest('18R305:W0002104','18R4706:0023206',succeeded,'quarter',toni,date(22,09,2018),time(12,30,23)).
+harvest('18R305:W0002018','18R2325:0023404',succeeded,_,toni,date(22,09,2018),time(12,11,52)).
+harvest('18R305:W0002101','18R2325:0023404',succeeded,_,toni,date(22,09,2018),time(12,30,23)).
+harvest('18R305:W0002014','18R2325:0023411',succeeded,'three_quarter',toni,date(22,09,2018),time(12,11,52)).
+harvest('18R305:W0002017','18R2325:0023411',succeeded,_,toni,date(22,09,2018),time(12,11,52)).
+harvest('18R305:W0001804','18R4709:0023801',succeeded,'three_quarter',toni,date(22,09,2018),time(11,34,53)).
+harvest('18R305:W0001801','18R4709:0023802',succeeded,_,toni,date(22,09,2018),time(11,34,53)).
+harvest('18R305:W0001803','18R4709:0023810',succeeded,'three_quarter',toni,date(22,09,2018),time(11,34,53)).
+harvest('18R305:W0002012','18R2442:0024201',succeeded,_,toni,date(22,09,2018),time(12,11,52)).
+harvest('18R305:W0002013','18R2442:0024201',succeeded,_,toni,date(22,09,2018),time(12,11,52)).
+harvest('18R305:W0002010','18R2442:0024204',succeeded,_,toni,date(22,09,2018),time(12,11,52)).
+harvest('18R305:W0002009','18R2442:0024209',succeeded,'three_quarter',toni,date(22,09,2018),time(12,11,52)).
+harvest('18R305:W0002219','18R2442:0024209',succeeded,_,toni,date(22,09,2018),time(12,41,14)).
+harvest('18R305:W0002316','18R2442:0024209',succeeded,_,toni,date(22,09,2018),time(12,48,03)).
+harvest('18R205:S0000310','18R2468:0024401',succeeded,'three_quarter',toni,date(21,09,2018),time(16,54,48)).
+harvest('18R205:S0000215','18R2468:0024404',succeeded,'three_quarter',toni,date(21,09,2018),time(16,50,50)).
+harvest('18R205:S0000210','18R2468:0024406',succeeded,_,toni,date(21,09,2018),time(16,50,50)).
+harvest('18R305:W0002007','18R1563:0024807',succeeded,_,toni,date(22,09,2018),time(12,11,52)).
+harvest('18R305:W0002004','18R1563:0024812',succeeded,_,toni,date(22,09,2018),time(12,11,52)).
+harvest('18R305:W0001917','18R4714:0025801',succeeded,_,toni,date(22,09,2018),time(11,54,34)).
+harvest('18R305:W0001918','18R4714:0025801',succeeded,_,toni,date(22,09,2018),time(11,54,34)).
+harvest('18R305:W0002003','18R4714:0025801',succeeded,'three_quarter',toni,date(22,09,2018),time(12,11,52)).
+harvest('18R405:M0004808','18R4739:0026005',succeeded,'half',toni,date(22,09,2018),time(16,49,31)).
+harvest('18R405:M0004811','18R4739:0026005',succeeded,'quarter',toni,date(22,09,2018),time(16,49,31)).
+harvest('18R405:M0004611','18R4739:0026008',succeeded,'half',toni,date(22,09,2018),time(16,31,22)).
+harvest('18R405:M0004702','18R4739:0026008',succeeded,'eighth',toni,date(22,09,2018),time(16,39,37)).
+harvest('18R305:W0001905','18R4740:0026108',succeeded,_,toni,date(22,09,2018),time(11,54,34)).
+harvest('18R305:W0001907','18R4740:0026108',succeeded,_,toni,date(22,09,2018),time(11,54,34)).
+harvest('18R305:W0001908','18R4740:0026108',succeeded,_,toni,date(22,09,2018),time(11,54,34)).
+harvest('18R305:W0001812','18R4722:0027102',succeeded,_,toni,date(22,09,2018),time(11,34,53)).
+harvest('18R305:W0001902','18R4722:0027102',succeeded,_,toni,date(22,09,2018),time(11,54,34)).
+harvest('18R305:W0002414','18R4722:0027102',succeeded,_,toni,date(22,09,2018),time(12,52,58)).
+harvest('18R305:W0001903','18R4722:0027105',succeeded,_,toni,date(22,09,2018),time(11,54,34)).
+harvest('18R305:W0002501','18R4722:0027105',succeeded,_,toni,date(22,09,2018),time(12,55,05)).
+harvest('18R305:W0002503','18R4722:0027105',succeeded,_,toni,date(22,09,2018),time(12,55,05)).
+harvest('18R305:W0001809','18R4695:0028704',succeeded,_,toni,date(22,09,2018),time(11,34,53)).
+harvest('18R305:W0001810','18R4695:0028704',succeeded,_,toni,date(22,09,2018),time(11,34,53)).
+harvest('18R305:W0001811','18R4695:0028704',succeeded,_,toni,date(22,09,2018),time(11,34,53)).
+harvest('18R305:W0001814','18R4730:0029901',succeeded,'three_quarter',toni,date(22,09,2018),time(11,34,53)).
+harvest('18R305:W0002509','18R4730:0029901',succeeded,_,toni,date(22,09,2018),time(12,55,05)).
+harvest('18R305:W0002519','18R4730:0029901',succeeded,_,toni,date(22,09,2018),time(12,55,05)).
+harvest('18R305:W0001805','18R4730:0029907',succeeded,'quarter',toni,date(22,09,2018),time(11,34,53)).
+harvest('18R305:W0001806','18R4730:0029907',succeeded,_,toni,date(22,09,2018),time(11,34,53)).
+harvest('18R305:W0001813','18R4730:0029907',succeeded,_,toni,date(22,09,2018),time(11,34,53)).
+
+
+
+
+% data added from ../../data../palm/raw_data_from_palms/18r/eta/19.5/harvest.csv on Tue May 21 15:24:37 CDT 2019
+% by data/data_conversion/convert_harvest_data.perl
+% called from data/data_conversion/convert_data.perl
+
+harvest('18R4686:0020803','18R4686:0020803',succeeded,'three_quarter',toni,date(19,09,2018),time(18,17,56)).
+harvest('18R4436:0013902','18R4436:0013910',succeeded,'sixteenth',toni,date(22,09,2018),time(10,59,01)).
+harvest('18R4038:0013007','18R4038:0013006',succeeded,_,toni,date(20,09,2018),time(13,50,38)).
+harvest('18R4661:0010820','18R4661:0010804',succeeded,'eighth',toni,date(20,09,2018),time(14,59,23)).
+harvest('18R4661:0010817','18R4661:0010813',succeeded,_,toni,date(20,09,2018),time(14,59,23)).
+harvest('18R4662:0011003','18R4662:0011008',succeeded,_,toni,date(20,09,2018),time(14,52,49)).
+harvest('18R4662:0011004','18R4662:0011008',succeeded,'three_quarter',toni,date(20,09,2018),time(14,52,49)).
+harvest('18R4662:0011007','18R4662:0011011',succeeded,_,toni,date(20,09,2018),time(14,52,49)).
+harvest('18R4662:0011012','18R4662:0011011',succeeded,'quarter',toni,date(20,09,2018),time(14,52,49)).
+harvest('18R4665:0011612','18R4665:0011620',succeeded,_,toni,date(20,09,2018),time(14,12,37)).
+harvest('18R4665:0011613','18R4665:0011620',succeeded,'half',toni,date(20,09,2018),time(14,12,37)).
+harvest('18R4665:0011615','18R4665:0011620',succeeded,'half',toni,date(20,09,2018),time(14,12,37)).
+harvest('18R4665:0011617','18R4665:0011620',succeeded,_,toni,date(20,09,2018),time(14,12,37)).
+harvest('18R4665:0011619','18R4665:0011620',succeeded,_,toni,date(20,09,2018),time(14,12,37)).
+harvest('18R4666:0011704','18R4666:0011705',succeeded,'three_quarter',toni,date(20,09,2018),time(14,02,10)).
+harvest('18R4666:0011709','18R4666:0011705',succeeded,'three_quarter',toni,date(20,09,2018),time(14,02,10)).
+harvest('18R4666:0011716','18R4666:0011707',succeeded,_,toni,date(20,09,2018),time(14,02,10)).
+harvest('18R4666:0011718','18R4666:0011707',succeeded,_,toni,date(20,09,2018),time(14,02,10)).
+harvest('18R3647:0012505','18R3647:0012508',succeeded,'three_quarter',toni,date(20,09,2018),time(13,55,49)).
+harvest('18R3647:0012512','18R3647:0012508',succeeded,'28 cl',toni,date(20,09,2018),time(13,55,49)).
+harvest('18R3647:0012513','18R3647:0012508',succeeded,_,toni,date(20,09,2018),time(13,55,49)).
+harvest('18R4038:0013005','18R4038:0013006',succeeded,'quarter',toni,date(20,09,2018),time(13,50,38)).
+harvest('18R4038:0013009','18R4038:0013006',succeeded,_,toni,date(20,09,2018),time(13,50,38)).
+harvest('18R4038:0013012','18R4038:0013006',succeeded,'three_quarter',toni,date(20,09,2018),time(13,50,38)).
+harvest('18R4538:0013607','18R4538:0013612',succeeded,'quarter',toni,date(22,09,2018),time(11,07,16)).
+harvest('18R4538:0013611','18R4538:0013612',succeeded,'three_quarter',toni,date(22,09,2018),time(11,07,16)).
+harvest('18R4436:0013906','18R4436:0013910',succeeded,'sixteenth',toni,date(22,09,2018),time(10,59,01)).
+harvest('18R4456:0014001','18R4456:0014004',succeeded,'three_quarter',toni,date(20,09,2018),time(13,48,36)).
+harvest('18R205:S0001602','18R4678:0015901',succeeded,'half',toni,date(21,09,2018),time(18,39,17)).
+harvest('18R205:S0001608','18R4678:0015901',succeeded,'half',toni,date(21,09,2018),time(18,39,17)).
+harvest('18R205:S0001609','18R4678:0015902',succeeded,'vivipary; eighth',toni,date(21,09,2018),time(18,39,17)).
+harvest('18R205:S0001617','18R4678:0015902',succeeded,'half',toni,date(21,09,2018),time(18,39,17)).
+harvest('18R205:S0001619','18R0703:0028604',succeeded,'quarter',toni,date(21,09,2018),time(18,39,17)).
+harvest('18R205:S0001402','18R2433:0024102',succeeded,'half',toni,date(21,09,2018),time(18,15,25)).
+harvest('18R205:S0001505','18R2433:0024103',succeeded,'quarter',toni,date(21,09,2018),time(18,23,57)).
+harvest('18R205:S0001508','18R2490:0025003',succeeded,'half',toni,date(21,09,2018),time(18,23,57)).
+harvest('18R3647:0012508','18R3647:0012508',succeeded,'quarter',toni,date(20,09,2018),time(13,55,49)).
+harvest('18R4226:0008308','18R4226:0008308',succeeded,'three_quarter',toni,date(20,09,2018),time(17,15,13)).
+harvest('18R4226:0008311','18R4226:0008308',succeeded,'half',toni,date(20,09,2018),time(17,15,13)).
+harvest('18R4440:0008104','18R4440:0008104',succeeded,_,toni,date(20,09,2018),time(17,38,26)).
+harvest('18R4440:0008106','18R4440:0008113',succeeded,_,toni,date(20,09,2018),time(17,38,26)).
+harvest('18R4440:0008107','18R4440:0008104',succeeded,'zoe; sixteenth',toni,date(20,09,2018),time(17,38,26)).
+harvest('18R4440:0008113','18R4440:0008113',succeeded,_,toni,date(20,09,2018),time(17,38,26)).
+harvest('18R4441:0008714','18R4441:0008717',succeeded,_,toni,date(20,09,2018),time(16,59,58)).
+harvest('18R4441:0008717','18R4441:0008717',succeeded,'quarter; fungus',toni,date(20,09,2018),time(16,59,58)).
+harvest('18R4442:0012804','18R4442:0012804',succeeded,'half',toni,date(22,09,2018),time(11,20,01)).
+harvest('18R205:S0001202','18R4469:0029309',succeeded,'three_quarter',toni,date(21,09,2018),time(17,38,20)).
+harvest('18R205:S0001316','18R4469:0029309',succeeded,_,toni,date(21,09,2018),time(18,00,56)).
+harvest('18R205:S0001512','18R4469:0029309',succeeded,'half',toni,date(21,09,2018),time(18,23,57)).
+harvest('18R205:S0001206','18R4505:0025311',succeeded,'three_quarter',toni,date(21,09,2018),time(17,38,20)).
+harvest('18R205:S0001307','18R4505:0025312',succeeded,'half',toni,date(21,09,2018),time(18,00,56)).
+harvest('18R205:S0001312','18R4505:0025312',succeeded,'eighth',toni,date(21,09,2018),time(18,00,56)).
+harvest('18R4538:0013602','18R4538:0013612',succeeded,'eighth',toni,date(22,09,2018),time(11,07,16)).
+harvest('18R4574:0009604','18R4574:0009604',succeeded,_,toni,date(20,09,2018),time(16,05,16)).
+harvest('18R205:S0001102','18R4626:0029107',succeeded,'three_quarter',toni,date(21,09,2018),time(17,24,35)).
+harvest('18R205:S0001107','18R4626:0029101',succeeded,'quarter',toni,date(21,09,2018),time(17,24,35)).
+harvest('18R205:S0001519','18R4625:0029213',succeeded,_,toni,date(21,09,2018),time(18,23,57)).
+harvest('18R4649:0008612','18R4649:0008612',succeeded,'three_quarter',toni,date(20,09,2018),time(17,10,56)).
+harvest('18R4665:0011609','18R4665:0011620',succeeded,_,toni,date(20,09,2018),time(14,12,37)).
+harvest('18R4666:0011705','18R4666:0011705',succeeded,'quarter',toni,date(20,09,2018),time(14,02,10)).
+harvest('18R4667:0012709','18R4667:0012709',succeeded,'quarter',toni,date(22,09,2018),time(11,23,35)).
+harvest('18R205:S0001014','18R4675:0015317',succeeded,'quarter',toni,date(21,09,2018),time(17,20,21)).
+harvest('18R205:S0001115','18R4675:0015317',succeeded,'quarter',toni,date(21,09,2018),time(17,24,35)).
+harvest('18R205:S0001203','18R4678:0015901',succeeded,'quarter',toni,date(21,09,2018),time(17,38,20)).
+harvest('18R205:S0001205','18R4675:0015308',succeeded,'half',toni,date(21,09,2018),time(17,38,20)).
+harvest('18R205:S0001210','18R4675:0015308',succeeded,'was sixteenth; 15 cl; fungus',toni,date(21,09,2018),time(17,38,20)).
+harvest('18R205:S0001308','18R4678:0015903',succeeded,'three_quarter',toni,date(21,09,2018),time(18,00,56)).
+harvest('18R205:S0001313','18R4678:0015903',succeeded,'three_quarter',toni,date(21,09,2018),time(18,00,56)).
+harvest('18R205:S0001314','18R4678:0015903',succeeded,_,toni,date(21,09,2018),time(18,00,56)).
+harvest('18R205:S0001601','18R4678:0015901',succeeded,_,toni,date(21,09,2018),time(18,39,17)).
+harvest('18R205:S0001710','18R4676:0015508',succeeded,'26 cl',toni,date(21,09,2018),time(19,00,08)).
+harvest('18R205:S0001711','18R4675:0015308',succeeded,'half',toni,date(21,09,2018),time(19,00,08)).
+harvest('18R4686:0020801','18R4686:0020801',succeeded,_,toni,date(19,09,2018),time(18,17,56)).
+harvest('18R4687:0020901','18R4687:0020901',succeeded,'half',toni,date(19,09,2018),time(18,22,17)).
+harvest('18R4687:0020904','18R4687:0020904',succeeded,'three_quarter',toni,date(19,09,2018),time(18,22,17)).
+harvest('18R4687:0020909','18R4687:0020909',succeeded,_,toni,date(19,09,2018),time(18,22,17)).
+harvest('18R4688:0021002','18R4688:0021002',succeeded,_,toni,date(19,09,2018),time(18,27,47)).
+harvest('18R4688:0021003','18R4688:0021003',succeeded,_,toni,date(19,09,2018),time(18,27,47)).
+harvest('18R4688:0021004','18R4688:0021004',succeeded,_,toni,date(19,09,2018),time(18,27,47)).
+harvest('18R4689:0021208','18R4689:0021208',succeeded,'pulled ear; discard if possible; half; fungus',toni,date(19,09,2018),time(18,33,52)).
+harvest('18R4689:0021211','18R4689:0021211',succeeded,'pulled ear; half',toni,date(19,09,2018),time(18,33,52)).
+harvest('18R4696:0022001','18R4696:0022001',succeeded,_,toni,date(20,09,2018),time(12,51,06)).
+harvest('18R4696:0022002','18R4696:0022002',succeeded,_,toni,date(20,09,2018),time(12,51,06)).
+harvest('18R4696:0022012','18R4696:0022012',succeeded,_,toni,date(20,09,2018),time(12,51,06)).
+harvest('18R4699:0022302','18R4699:0022302',succeeded,'pulled ear; very low pollen; sixteenth',toni,date(20,09,2018),time(12,54,44)).
+harvest('18R4699:0022310','18R4699:0022310',succeeded,_,toni,date(20,09,2018),time(12,54,44)).
+harvest('18R4700:0022402','18R4700:0022402',succeeded,_,toni,date(20,09,2018),time(12,58,45)).
+harvest('18R4700:0022403','18R4700:0022403',succeeded,_,toni,date(20,09,2018),time(12,58,45)).
+harvest('18R4701:0022506','18R4701:0022506',succeeded,_,toni,date(20,09,2018),time(13,02,13)).
+harvest('18R4702:0022603','18R4702:0022603',succeeded,_,toni,date(20,09,2018),time(13,05,26)).
+harvest('18R4702:0022609','18R4702:0022609',succeeded,_,toni,date(20,09,2018),time(13,05,26)).
+harvest('18R4702:0022610','18R4702:0022610',succeeded,_,toni,date(20,09,2018),time(13,05,26)).
+harvest('18R205:S0001309','18R4720:0026903',succeeded,_,toni,date(21,09,2018),time(18,00,56)).
+harvest('18R205:S0001310','18R4720:0026903',succeeded,'eighth',toni,date(21,09,2018),time(18,00,56)).
+harvest('18R205:S0001607','18R4745:0027907',succeeded,'half',toni,date(21,09,2018),time(18,39,17)).
+harvest('18R205:S0001612','18R4745:0027903',succeeded,_,toni,date(21,09,2018),time(18,39,17)).
+harvest('18R205:S0001613','18R4745:0027901',succeeded,'half',toni,date(21,09,2018),time(18,39,17)).
+harvest('18R205:S0001208','18R4685:0020704',succeeded,'three_quarter',toni,date(21,09,2018),time(17,38,20)).
+harvest('18R205:S0001211','18R4685:0020704',succeeded,'half',toni,date(21,09,2018),time(17,38,20)).
+harvest('18R205:S0001212','18R4685:0020704',succeeded,'half',toni,date(21,09,2018),time(17,38,20)).
+harvest('18R205:S0001112','18R4690:0021305',succeeded,'three_quarter',toni,date(21,09,2018),time(17,24,35)).
+harvest('18R205:S0001117','18R4690:0021305',succeeded,'quarter',toni,date(21,09,2018),time(17,24,35)).
+harvest('18R205:S0001008','18R4690:0021307',succeeded,'three_quarter',toni,date(21,09,2018),time(17,20,21)).
+harvest('18R205:S0001504','18R2433:0024102',succeeded,'quarter',toni,date(21,09,2018),time(18,23,57)).
+harvest('18R205:S0001113','18R2473:0024601',succeeded,'three_quarter',toni,date(21,09,2018),time(17,24,35)).
+harvest('18R205:S0001106','18R2473:0024605',succeeded,'three_quarter',toni,date(21,09,2018),time(17,24,35)).
+harvest('18R205:S0001101','18R2473:0024612',succeeded,'three_quarter',toni,date(21,09,2018),time(17,24,35)).
+harvest('18R205:S0001511','18R2490:0025003',succeeded,'half',toni,date(21,09,2018),time(18,23,57)).
+harvest('18R205:S0001405','18R0703:0028604',succeeded,'three_quarter',toni,date(21,09,2018),time(18,15,25)).
+harvest('18R205:S0001404','18R4625:0029202',succeeded,'eighth',toni,date(21,09,2018),time(18,15,25)).
+harvest('18R205:S0001514','18R4469:0029309',succeeded,'three_quarter',toni,date(21,09,2018),time(18,23,57)).
+harvest('18R205:S0001517','18R4469:0029309',succeeded,'sixteenth',toni,date(21,09,2018),time(18,23,57)).
+harvest('18R4440:0008101','18R4440:0008104',succeeded,_,toni,date(20,09,2018),time(17,38,26)).
+harvest('18R4440:0008105','18R4440:0008104',succeeded,'three_quarter',toni,date(20,09,2018),time(17,38,26)).
+harvest('18R4440:0008103','18R4440:0008113',succeeded,'three_quarter',toni,date(20,09,2018),time(17,38,26)).
+harvest('18R4226:0008312','18R4226:0008305',succeeded,'three_quarter',toni,date(20,09,2018),time(17,15,13)).
+harvest('18R4226:0008301','18R4226:0008308',succeeded,'half',toni,date(20,09,2018),time(17,15,13)).
+harvest('18R4226:0008302','18R4226:0008308',succeeded,'three_quarter',toni,date(20,09,2018),time(17,15,13)).
+harvest('18R4226:0008307','18R4226:0008308',succeeded,'three_quarter',toni,date(20,09,2018),time(17,15,13)).
+harvest('18R4649:0008611','18R4649:0008612',succeeded,_,toni,date(20,09,2018),time(17,10,56)).
+harvest('18R4649:0008615','18R4649:0008612',succeeded,_,toni,date(20,09,2018),time(17,10,56)).
+harvest('18R4441:0008713','18R4441:0008717',succeeded,'three_quarter',toni,date(20,09,2018),time(16,59,58)).
+harvest('18R4441:0008716','18R4441:0008717',succeeded,'three_quarter',toni,date(20,09,2018),time(16,59,58)).
+harvest('18R4441:0008718','18R4441:0008717',succeeded,_,toni,date(20,09,2018),time(16,59,58)).
+harvest('18R4441:0008719','18R4441:0008717',succeeded,_,toni,date(20,09,2018),time(16,59,58)).
+harvest('18R4492:0008802','18R4492:0008812',succeeded,_,toni,date(20,09,2018),time(16,48,07)).
+harvest('18R4492:0008803','18R4492:0008812',succeeded,'half',toni,date(20,09,2018),time(16,48,07)).
+harvest('18R4492:0008810','18R4492:0008812',succeeded,'three_quarter',toni,date(20,09,2018),time(16,48,07)).
+harvest('18R4492:0008807','18R4492:0008816',succeeded,'three_quarter',toni,date(20,09,2018),time(16,48,07)).
+harvest('18R4492:0008808','18R4492:0008816',succeeded,'three_quarter',toni,date(20,09,2018),time(16,48,07)).
+harvest('18R4260:0008902','18R4260:0008908',succeeded,_,toni,date(20,09,2018),time(16,35,23)).
+harvest('18R4260:0008903','18R4260:0008908',succeeded,_,toni,date(20,09,2018),time(16,35,23)).
+harvest('18R4260:0008909','18R4260:0008908',succeeded,'three_quarter',toni,date(20,09,2018),time(16,35,23)).
+harvest('18R4260:0008912','18R4260:0008908',succeeded,'three_quarter',toni,date(20,09,2018),time(16,35,23)).
+harvest('18R4260:0008904','18R4260:0008917',succeeded,'quarter',toni,date(20,09,2018),time(16,35,23)).
+harvest('18R4260:0008905','18R4260:0008917',succeeded,_,toni,date(20,09,2018),time(16,35,23)).
+harvest('18R4668:0013111','18R4668:0013109',succeeded,'half',toni,date(22,09,2018),time(11,14,39)).
+harvest('18R4106:0009002','18R4106:0009017',succeeded,'half; fungus',toni,date(20,09,2018),time(16,23,07)).
+harvest('18R4106:0009003','18R4106:0009017',succeeded,_,toni,date(20,09,2018),time(16,23,07)).
+harvest('18R4106:0009004','18R4106:0009017',succeeded,_,toni,date(20,09,2018),time(16,23,07)).
+harvest('18R4106:0009009','18R4106:0009018',succeeded,_,toni,date(20,09,2018),time(16,23,07)).
+harvest('18R4106:0009011','18R4106:0009018',succeeded,_,toni,date(20,09,2018),time(16,23,07)).
+harvest('18R4106:0009014','18R4106:0009018',succeeded,_,toni,date(20,09,2018),time(16,23,07)).
+harvest('18R4650:0009105','18R4650:0009109',succeeded,'eighth',toni,date(20,09,2018),time(16,16,49)).
+harvest('18R4650:0009106','18R4650:0009109',succeeded,'three_quarter',toni,date(20,09,2018),time(16,16,49)).
+harvest('18R4650:0009112','18R4650:0009109',succeeded,'half',toni,date(20,09,2018),time(16,16,49)).
+harvest('18R4651:0009201','18R4651:0009203',succeeded,'three_quarter',toni,date(20,09,2018),time(16,09,20)).
+harvest('18R4651:0009202','18R4651:0009203',succeeded,'three_quarter',toni,date(20,09,2018),time(16,09,20)).
+harvest('18R4651:0009210','18R4651:0009203',succeeded,'32 cl',toni,date(20,09,2018),time(16,09,20)).
+harvest('18R4666:0011715','18R4666:0011707',succeeded,'three_quarter',toni,date(20,09,2018),time(14,02,10)).
+harvest('18R4525:0026402','18R9998:0000000',succeeded,'eighth',toni,date(20,09,2018),time(13,35,37)).
+harvest('18R4529:0026502','18R9998:0000000',succeeded,_,toni,date(20,09,2018),time(13,17,05)).
+harvest('18R4529:0026505','18R9998:0000000',succeeded,_,toni,date(20,09,2018),time(13,17,05)).
+harvest('18R4529:0026506','18R9998:0000000',succeeded,'three_quarter',toni,date(20,09,2018),time(13,17,05)).
+harvest('18R4718:0026613','18R9998:0000000',succeeded,_,toni,date(20,09,2018),time(13,29,03)).
+harvest('18R4720:0026910','18R9998:0000000',succeeded,_,toni,date(20,09,2018),time(13,26,42)).
+
+
+
+
+% data added from ../../data../palm/raw_data_from_palms/18r/eta/20.5/harvest.csv on Tue May 21 15:25:29 CDT 2019
+% by data/data_conversion/convert_harvest_data.perl
+% called from data/data_conversion/convert_data.perl
+
+harvest('18R4654:0009701','18R4654:0009710',succeeded,_,toni,date(20,09,2018),time(15,42,09)).
+harvest('18R4654:0009702','18R4654:0009710',succeeded,_,toni,date(20,09,2018),time(15,42,09)).
+harvest('18R4654:0009703','18R4654:0009710',succeeded,_,toni,date(20,09,2018),time(15,42,09)).
+harvest('18R4654:0009705','18R4654:0009710',succeeded,_,toni,date(20,09,2018),time(15,42,09)).
+harvest('18R4654:0009706','18R4654:0009713',succeeded,_,toni,date(20,09,2018),time(15,42,09)).
+harvest('18R4654:0009710','18R4654:0009710',succeeded,'old ear; whole',toni,date(20,09,2018),time(15,42,09)).
+harvest('18R4654:0009712','18R4654:0009713',succeeded,_,toni,date(20,09,2018),time(15,42,09)).
+harvest('18R4654:0009713','18R4654:0009713',succeeded,_,toni,date(20,09,2018),time(15,42,09)).
+harvest('18R4654:0009715','18R4654:0009713',succeeded,_,toni,date(20,09,2018),time(15,42,09)).
+harvest('18R4654:0009716','18R4654:0009710',succeeded,'quarter',toni,date(20,09,2018),time(15,42,09)).
+harvest('18R4654:0009718','18R4654:0009713',succeeded,_,toni,date(20,09,2018),time(15,42,09)).
+harvest('18R4655:0009816','18R4655:0009812',succeeded,_,toni,date(20,09,2018),time(15,38,15)).
+harvest('18R4655:0009817','18R4655:0009812',succeeded,_,toni,date(20,09,2018),time(15,38,15)).
+harvest('18R4656:0009903','18R4656:0009907',succeeded,'half',toni,date(20,09,2018),time(15,28,36)).
+harvest('18R4656:0009904','18R4656:0009907',succeeded,_,toni,date(20,09,2018),time(15,28,36)).
+harvest('18R4656:0009905','18R4656:0009907',succeeded,_,toni,date(20,09,2018),time(15,28,36)).
+harvest('18R4658:0010209','18R4658:0010214',succeeded,'quarter',toni,date(20,09,2018),time(15,23,48)).
+harvest('18R4658:0010210','18R4658:0010214',succeeded,'half',toni,date(20,09,2018),time(15,23,48)).
+harvest('18R3995:0010313','18R3995:0010304',succeeded,'three_quarter',toni,date(20,09,2018),time(15,20,38)).
+harvest('18R4659:0010401','18R4659:0010406',succeeded,'half',toni,date(20,09,2018),time(15,11,47)).
+harvest('18R4659:0010402','18R4659:0010406',succeeded,'uncut ear; long silks; quarter',toni,date(20,09,2018),time(15,11,47)).
+harvest('18R4659:0010403','18R4659:0010406',succeeded,_,toni,date(20,09,2018),time(15,11,47)).
+harvest('18R4659:0010406','18R4659:0010406',succeeded,'quarter',toni,date(20,09,2018),time(15,11,47)).
+harvest('18R4659:0010411','18R4659:0010406',succeeded,'sixteenth',toni,date(20,09,2018),time(15,11,47)).
+harvest('18R4263:0010703','18R4263:0010709',succeeded,'three_quarter',toni,date(20,09,2018),time(15,03,25)).
+harvest('18R4263:0010705','18R4263:0010709',succeeded,'three_quarter',toni,date(20,09,2018),time(15,03,25)).
+harvest('18R4263:0010711','18R4263:0010709',succeeded,_,toni,date(20,09,2018),time(15,03,25)).
+harvest('18R4263:0010712','18R4263:0010719',succeeded,'three_quarter',toni,date(20,09,2018),time(15,03,25)).
+harvest('18R4263:0010717','18R4263:0010719',succeeded,_,toni,date(20,09,2018),time(15,03,25)).
+harvest('18R4263:0010718','18R4263:0010719',succeeded,_,toni,date(20,09,2018),time(15,03,25)).
