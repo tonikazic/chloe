@@ -45,13 +45,24 @@ sub expand_note {
         if ( $note ) {
 
                 $note = lc($note);
-                $note =~ s/\;/\; /g;
-                $note =~ s/^\s+//g;
                 $note =~ s/\s{2,}/\s/g;
                 $note =~ s/^\.+$//g;
                 $note =~ s/\?\./\?/g;
                 $note =~ s/,,/, ,/g;
 
+		
+# shifted in substitution sequence to prevent introduced spaces from confusing parser
+# when handling compound comments
+# must test
+#
+# Kazic, 21.5.2019
+
+#                $note =~ s/^\s+//g;
+                $note =~ s/\;/\; /g;
+
+
+
+		
 # next two don't seem to work
 #
 # Kazic, 11.10.09
@@ -158,6 +169,7 @@ sub expand_note {
                 $note =~ s/\bue\b/uncut ear/g;
                 $note =~ s/\bvye\b/very young ear/g;
                 $note =~ s/\boe\b/old ear/g;
+                $note =~ s/\bvoe\b/very old ear/g;
                 $note =~ s/\blce\b/late cut ear/g;
                 $note =~ s/\bpopt\b/popped tassel/g;
                 $note =~ s/\bct\b/cut tassel/g;
