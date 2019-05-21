@@ -138,9 +138,10 @@ open my $slv_fh, '<', $sleeve_file or die "sorry, can't open the sleeve_bdry fil
 
 while (<$slv_fh>) {
 
-        if ( $_ =~ /^sleeve_bdry/ ) {      
+        if ( ( $_ =~ /^sleeve_bdry/ ) && ( $_ !~ /^[\%\n\r\t]/ ) ) {      
                 my ($first_ma,$last_ma,$sleeve) = $_ =~ /sleeve_bdry\(\'(${num_gtype_re})\',\'(${num_gtype_re})\',(${sleeve_re})/;
 
+#		print "($first_ma,$last_ma,$sleeve)\n";
 		
                 my ($fcrop,$ffam,$frp) = $first_ma =~ /(${crop_re})(${family_re}):[SWMBEPL]?(${old_rowplant_re})$/;
                 my ($lcrop,$lfam,$lrp) = $last_ma =~ /(${crop_re})(${family_re}):[SWMBEPL]?(${old_rowplant_re})$/;
