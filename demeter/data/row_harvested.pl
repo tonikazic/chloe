@@ -138,63 +138,64 @@ row_harvested(r00063,toni,date(22,09,2018),time(18,58,31),'18R').
 
 
 
-% dummy data to test new version of convert_harvest_data.perl
+% confected data to test new version of convert_harvest_data.perl;
+% accurate enough for reality
 %
 % Kazic, 11.11.2018
-
-row_harvested(r00028,toni,date(11,11,2018),time(11,11,11),'18R').
-row_harvested(r00029,toni,date(11,11,2018),time(11,11,11),'18R').
-row_harvested(r00030,toni,date(11,11,2018),time(11,11,11),'18R').
-row_harvested(r00033,toni,date(11,11,2018),time(11,11,11),'18R').
-row_harvested(r00034,toni,date(11,11,2018),time(11,11,11),'18R').
-row_harvested(r00035,toni,date(11,11,2018),time(11,11,11),'18R').
-row_harvested(r00055,toni,date(11,11,2018),time(11,11,11),'18R').
-row_harvested(r00064,toni,date(11,11,2018),time(11,11,11),'18R').
-row_harvested(r00067,toni,date(11,11,2018),time(11,11,11),'18R').
-row_harvested(r00069,toni,date(11,11,2018),time(11,11,11),'18R').
-row_harvested(r00071,toni,date(11,11,2018),time(11,11,11),'18R').
-row_harvested(r00072,toni,date(11,11,2018),time(11,11,11),'18R').
-row_harvested(r00074,toni,date(11,11,2018),time(11,11,11),'18R').
-row_harvested(r00076,toni,date(11,11,2018),time(11,11,11),'18R').
-row_harvested(r00079,toni,date(11,11,2018),time(11,11,11),'18R').
-row_harvested(r00084,toni,date(11,11,2018),time(11,11,11),'18R').
-row_harvested(r00093,toni,date(11,11,2018),time(11,11,11),'18R').
-row_harvested(r00095,toni,date(11,11,2018),time(11,11,11),'18R').
-row_harvested(r00100,toni,date(11,11,2018),time(11,11,11),'18R').
-row_harvested(r00106,toni,date(11,11,2018),time(11,11,11),'18R').
-row_harvested(r00126,toni,date(11,11,2018),time(11,11,11),'18R').
-row_harvested(r00129,toni,date(11,11,2018),time(11,11,11),'18R').
-row_harvested(r00132,toni,date(11,11,2018),time(11,11,11),'18R').
-row_harvested(r00133,toni,date(11,11,2018),time(11,11,11),'18R').
-row_harvested(r00138,toni,date(11,11,2018),time(11,11,11),'18R').
-row_harvested(r00198,toni,date(11,11,2018),time(11,11,11),'18R').
-row_harvested(r00199,toni,date(11,11,2018),time(11,11,11),'18R').
-row_harvested(r00200,toni,date(11,11,2018),time(11,11,11),'18R').
-row_harvested(r00201,toni,date(11,11,2018),time(11,11,11),'18R').
-row_harvested(r00202,toni,date(11,11,2018),time(11,11,11),'18R').
-row_harvested(r00203,toni,date(11,11,2018),time(11,11,11),'18R').
-row_harvested(r00204,toni,date(11,11,2018),time(11,11,11),'18R').
-row_harvested(r00205,toni,date(11,11,2018),time(11,11,11),'18R').
-row_harvested(r00206,toni,date(11,11,2018),time(11,11,11),'18R').
-row_harvested(r00207,toni,date(11,11,2018),time(11,11,11),'18R').
-row_harvested(r00211,toni,date(11,11,2018),time(11,11,11),'18R').
-row_harvested(r00213,toni,date(11,11,2018),time(11,11,11),'18R').
-row_harvested(r00214,toni,date(11,11,2018),time(11,11,11),'18R').
-row_harvested(r00215,toni,date(11,11,2018),time(11,11,11),'18R').
-row_harvested(r00216,toni,date(11,11,2018),time(11,11,11),'18R').
-row_harvested(r00217,toni,date(11,11,2018),time(11,11,11),'18R').
-row_harvested(r00218,toni,date(11,11,2018),time(11,11,11),'18R').
-row_harvested(r00219,toni,date(11,11,2018),time(11,11,11),'18R').
-row_harvested(r00221,toni,date(11,11,2018),time(11,11,11),'18R').
-row_harvested(r00222,toni,date(11,11,2018),time(11,11,11),'18R').
-row_harvested(r00227,toni,date(11,11,2018),time(11,11,11),'18R').
-row_harvested(r00228,toni,date(11,11,2018),time(11,11,11),'18R').
-row_harvested(r00229,toni,date(11,11,2018),time(11,11,11),'18R').
-row_harvested(r00230,toni,date(11,11,2018),time(11,11,11),'18R').
-row_harvested(r00231,toni,date(11,11,2018),time(11,11,11),'18R').
-row_harvested(r00232,toni,date(11,11,2018),time(11,11,11),'18R').
-row_harvested(r00234,toni,date(11,11,2018),time(11,11,11),'18R').
-row_harvested(r00235,toni,date(11,11,2018),time(11,11,11),'18R').
-row_harvested(r00236,toni,date(11,11,2018),time(11,11,11),'18R').
-row_harvested(r00238,toni,date(11,11,2018),time(11,11,11),'18R').
+%
+%% row_harvested(r00028,toni,date(11,11,2018),time(11,11,11),'18R').
+%% row_harvested(r00029,toni,date(11,11,2018),time(11,11,11),'18R').
+%% row_harvested(r00030,toni,date(11,11,2018),time(11,11,11),'18R').
+%% row_harvested(r00033,toni,date(11,11,2018),time(11,11,11),'18R').
+%% row_harvested(r00034,toni,date(11,11,2018),time(11,11,11),'18R').
+%% row_harvested(r00035,toni,date(11,11,2018),time(11,11,11),'18R').
+%% row_harvested(r00055,toni,date(11,11,2018),time(11,11,11),'18R').
+%% row_harvested(r00064,toni,date(11,11,2018),time(11,11,11),'18R').
+%% row_harvested(r00067,toni,date(11,11,2018),time(11,11,11),'18R').
+%% row_harvested(r00069,toni,date(11,11,2018),time(11,11,11),'18R').
+%% row_harvested(r00071,toni,date(11,11,2018),time(11,11,11),'18R').
+%% row_harvested(r00072,toni,date(11,11,2018),time(11,11,11),'18R').
+%% row_harvested(r00074,toni,date(11,11,2018),time(11,11,11),'18R').
+%% row_harvested(r00076,toni,date(11,11,2018),time(11,11,11),'18R').
+%% row_harvested(r00079,toni,date(11,11,2018),time(11,11,11),'18R').
+%% row_harvested(r00084,toni,date(11,11,2018),time(11,11,11),'18R').
+%% row_harvested(r00093,toni,date(11,11,2018),time(11,11,11),'18R').
+%% row_harvested(r00095,toni,date(11,11,2018),time(11,11,11),'18R').
+%% row_harvested(r00100,toni,date(11,11,2018),time(11,11,11),'18R').
+%% row_harvested(r00106,toni,date(11,11,2018),time(11,11,11),'18R').
+%% row_harvested(r00126,toni,date(11,11,2018),time(11,11,11),'18R').
+%% row_harvested(r00129,toni,date(11,11,2018),time(11,11,11),'18R').
+%% row_harvested(r00132,toni,date(11,11,2018),time(11,11,11),'18R').
+%% row_harvested(r00133,toni,date(11,11,2018),time(11,11,11),'18R').
+%% row_harvested(r00138,toni,date(11,11,2018),time(11,11,11),'18R').
+%% row_harvested(r00198,toni,date(11,11,2018),time(11,11,11),'18R').
+%% row_harvested(r00199,toni,date(11,11,2018),time(11,11,11),'18R').
+%% row_harvested(r00200,toni,date(11,11,2018),time(11,11,11),'18R').
+%% row_harvested(r00201,toni,date(11,11,2018),time(11,11,11),'18R').
+%% row_harvested(r00202,toni,date(11,11,2018),time(11,11,11),'18R').
+%% row_harvested(r00203,toni,date(11,11,2018),time(11,11,11),'18R').
+%% row_harvested(r00204,toni,date(11,11,2018),time(11,11,11),'18R').
+%% row_harvested(r00205,toni,date(11,11,2018),time(11,11,11),'18R').
+%% row_harvested(r00206,toni,date(11,11,2018),time(11,11,11),'18R').
+%% row_harvested(r00207,toni,date(11,11,2018),time(11,11,11),'18R').
+%% row_harvested(r00211,toni,date(11,11,2018),time(11,11,11),'18R').
+%% row_harvested(r00213,toni,date(11,11,2018),time(11,11,11),'18R').
+%% row_harvested(r00214,toni,date(11,11,2018),time(11,11,11),'18R').
+%% row_harvested(r00215,toni,date(11,11,2018),time(11,11,11),'18R').
+%% row_harvested(r00216,toni,date(11,11,2018),time(11,11,11),'18R').
+%% row_harvested(r00217,toni,date(11,11,2018),time(11,11,11),'18R').
+%% row_harvested(r00218,toni,date(11,11,2018),time(11,11,11),'18R').
+%% row_harvested(r00219,toni,date(11,11,2018),time(11,11,11),'18R').
+%% row_harvested(r00221,toni,date(11,11,2018),time(11,11,11),'18R').
+%% row_harvested(r00222,toni,date(11,11,2018),time(11,11,11),'18R').
+%% row_harvested(r00227,toni,date(11,11,2018),time(11,11,11),'18R').
+%% row_harvested(r00228,toni,date(11,11,2018),time(11,11,11),'18R').
+%% row_harvested(r00229,toni,date(11,11,2018),time(11,11,11),'18R').
+%% row_harvested(r00230,toni,date(11,11,2018),time(11,11,11),'18R').
+%% row_harvested(r00231,toni,date(11,11,2018),time(11,11,11),'18R').
+%% row_harvested(r00232,toni,date(11,11,2018),time(11,11,11),'18R').
+%% row_harvested(r00234,toni,date(11,11,2018),time(11,11,11),'18R').
+%% row_harvested(r00235,toni,date(11,11,2018),time(11,11,11),'18R').
+%% row_harvested(r00236,toni,date(11,11,2018),time(11,11,11),'18R').
+%% row_harvested(r00238,toni,date(11,11,2018),time(11,11,11),'18R').
     
