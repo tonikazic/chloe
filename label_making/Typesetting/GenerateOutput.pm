@@ -30,12 +30,16 @@ our @EXPORT = qw(generate_pdf
 
 
 
-
+# added check of input arguments
+#
+# Kazic, 21.5.2019
 
 
 sub generate_pdf {
         ($output_dir,$file_stem,$ps_suffix,$pdf_suffix) = @_;
 
+#        print "od: $output_dir\nfs: $file_stem\nps: $ps_suffix\npdf: $pdf_suffix\n";
+	
         chdir($output_dir);
         system("latex $file_stem");
         system("dvips $file_stem");
