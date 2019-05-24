@@ -1,6 +1,6 @@
 % this is ../c/maize/demeter/data/planting_index.pl
 
-% generated on Tuesday, November 27, 2018 at 10:59:28 UTC (= 1543316368.409609) by
+% generated on Friday, May 24, 2019 at 12:03:06 UTC (= 1558699386.96687) by
 % genetic_utilities:make_planting_index/1.
 
 

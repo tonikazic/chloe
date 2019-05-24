@@ -1040,18 +1040,39 @@ make_row_members_facts(RPStream,RMStream) :-
 
 
 
-
+% errors in assigning families to the categories used in make_barcode_elts/3
+% will cause back-tracking into make_num_gtypes_aux/4, in turn back-tracking into
+% pad/3 in that clause.  pad/3 will produce complaints of the form
+%
+% Warning! StringOrAtom X is too large to pad to 5 in genetic_utiliies:pad/3
+%
+% and back-tracking continues indefinitely.  The format/2 calls here show the
+% last successful Row-(Crop,Family):  the point of failure that follows that one
+% can be found by looking at planting_index/4.
+%
+% I've made corrections to make_barcode_elts/3 to include the nam_founder/1 condition
+% and added my family 620 (the Brink W22-r) to the list of other_peoples_corn/1.
+%
+%
+% nb: my funky 06R inbred I rows will throw the pad/3 warning, but compile anyway.
+%
+% Kazic, 24.5.2019
 
 
 build_crop_rowplant_facts(_,_,[]).
 build_crop_rowplant_facts(RPStream,RMStream,[Row-(Crop,Family)|RowsFams]) :-
 %         format('bcrf/3: row ~w, crop ~w, family ~w~n',[Row,Crop,Family]),
          construct_plant_prefix(Crop,Row,Family,PlantPrefix),
+%         format('bcrf/3: row ~w, crop ~w, family ~w, prefix ~w~n',[Row,Crop,Family,PlantPrefix]),
          pad(Row,5,PaddedRow),
          find_current_stand_count(PaddedRow,Crop,NumPlants),
          make_num_gtypes_aux(PlantPrefix,NumPlants,RowNumGtypes),
+
          write_crop_rowplant_facts(RPStream,Crop,PaddedRow,RowNumGtypes),
-         format(RMStream,'row_members_index(~q,~q,~q).~n',[Crop,Row,RowNumGtypes]),
+%	 arg(1,RowNumGtypes,Foo),
+%         format('bcrf/3: row ~w, prow ~w, crop ~w, family ~w, prefix ~w, gtypes ~w ~n',[Row,PaddedRow,Crop,Family,PlantPrefix,Foo]),	 
+
+	 format(RMStream,'row_members_index(~q,~q,~q).~n',[Crop,Row,RowNumGtypes]),
          build_crop_rowplant_facts(RPStream,RMStream,RowsFams).
 
 
@@ -1946,11 +1967,15 @@ nam_founder(Family) :-
 %
 % Kazic, 1.6.2018
 
+% added the Brink W22R-r
+%
+% Kazic, 24.5.2019
+
 
 %! other_peoples_corn(+Family:int) is det.
 
 other_peoples_corn(Family) :-
-         memberchk(Family,[623,624,625,626,627]).
+         memberchk(Family,[620,623,624,625,626,627]).
 
 
 
@@ -4379,7 +4404,9 @@ field_planted(Row,Crop) :-
 
 
 
-
+% added the nam_founder/1 clause
+%
+% Kazic, 24.5.2019
 
 
 %! make_barcode_elts(+Crop:atom,+Family:int,-BarcodeElts:atom) is nondet?.
@@ -4404,6 +4431,11 @@ make_barcode_elts(Crop,Family,BarcodeElts) :-
                 PaddedFamily = Family
         ;
                 other_peoples_corn(Family),
+                Prefix = '',
+                pad(Family,4,PaddedFamily)
+
+        ;
+                nam_founder(Family),
                 Prefix = '',
                 pad(Family,4,PaddedFamily)
 
