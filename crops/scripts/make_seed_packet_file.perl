@@ -19,10 +19,17 @@
 # Kazic, 13.6.2018
 
 
+
+# toggled off warnings to track down how uninitialized value is inserted
+# into %inventory
+#
+# Kazic, 2.6.2019
+
 use strict;
-use warnings;
+# use warnings;
 
 use Cwd 'getcwd';
+use Time::Local 'timelocal';
 
 
 
@@ -48,26 +55,26 @@ chomp($today);
 
 
 my %inbred;
+my %inventory;
 
 
 
 my $input_file = $dir . $planning_root . "sequenced.packing_plan.pl";
 my $out_file = $input_dir . "seed_packet_labels";
 my $inbred_file = $demeter_dir . "current_inbred.pl";
+my $inventory_file = $demeter_dir . "inventory.pl";
 
-# print "i: $input_file\no: $out_file\nd: $inbred_file\n";
-
-
-
+# print "i: $input_file\no: $out_file\nd: $inbred_file\nv: $inventory_file\n";
 
 
 
 
-# get the family numbers for the current inbreds.
+
+
+
+# get the family numbers for the current inbreds and elite corn
 
 open my $inbred_fh, '<', $inbred_file or die "sorry, can't open input file $inbred_file\n";
-
-
 
 while (<$inbred_fh>) {
         if ( $_ =~ /$uccrop/ ) { 
@@ -84,9 +91,41 @@ while (<$inbred_fh>) {
 
 
 
-# should read the inventory file and supply the sleeves for the final output
+
+
+
+# read the inventory file and get the current sleeves for the final output
 #
-# Kazic, 1.6.2019
+# hmmm, I am still missing a condition that prevents putting uninitialized values in the hash
+# error is thrown when generating final output
+#
+# Kazic, 2.6.2019
+
+
+open my $inventory_fh, '<', $inventory_file or die "sorry, can't open input file $inventory_file\n";
+
+while (<$inventory_fh>) {
+        if ( ( $_ =~ /inventory/ ) && ( $_ !~ /%/ ) ) {
+	        my ($vma,$vpa,$date,$time,$sleeve) = $_ =~ /inventory\(\'(${num_gtype_re})\',\'(${num_gtype_re})\',.+,date\((${prolog_date_innards_re})\),time\((${prolog_time_innards_re})\),(${sleeve_re})/;
+
+                my ($mday,$mon,$year) = $date =~ /(\d+),(\d+),(\d+)/;
+		my ($hour,$min,$sec) = $time =~ /(\d+),(\d+),(\d+)/;
+		my $timestamp = timelocal($sec,$min,$hour,$mday,$mon,$year);
+#		print "($vma,$vpa,$mday,$mon,$year,$hour,$min,$sec,$sleeve) $timestamp\n";
+
+                if ( !exists $inventory{$vma} ) { $inventory{$vma} = join("::",$timestamp,$vpa,$sleeve); }
+		else {
+                        my ($ptimestamp,$pvpa,$psleeve) = split(/::/,$inventory{$vma});
+                        if ( ( defined($ptimestamp) ) && ( $timestamp > $ptimestamp ) && ( $pvpa eq $vpa ) ) {
+                                $inventory{$vma} = join("::",$timestamp,$vpa,$sleeve);
+#				print "substituting $sleeve for old $psleeve for ma $vma\n";
+			        }
+		        }
+                }
+        }
+
+
+
 
 
 
@@ -176,13 +215,18 @@ while (<$in>) {
 
 
 		
-# now after all this, print the re-arranged line to the output file
+# now after all this, print the re-arranged line with the current sleeve to the output file
 #
-# someday, get the sleeve correctly from the inventory data
-#
-# Kazic, 10.7.2018
+# Kazic, 2.6.2019
 
-		print $out "$packet,$family,$ma,$pa,$cl,$ft,v00,$num_packets,$row,$planting\n";
+
+                my ($ts,$vpa,$sleeve) = split(/::/,$inventory{$ma});
+
+                if ( ( $ma =~ /xxxx/ ) || ( $ma =~ /elite/ ) ) { $sleeve = "x00020"; }
+		elsif ( $pa eq $vpa ) { }
+		else { print "Warning! planned pa $pa does not match inventory pa $vpa for ma $ma!\n"; }
+
+		print $out "$packet,$family,$ma,$pa,$cl,$ft,$sleeve,$num_packets,$row,$planting\n";
 	        }
 	}
 
