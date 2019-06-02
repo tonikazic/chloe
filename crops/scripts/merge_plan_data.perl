@@ -64,6 +64,11 @@
 
 
 
+# modified to allow for 3 digit gifts of seed
+#
+# Kazic, 1.6.2019
+
+
 
 use strict;
 use warnings;
@@ -242,7 +247,7 @@ elsif ( $operation eq "sequence" ) {
         while (<$cur_fh>) {
 
                 if ( $_ =~ /^packing_plan/ ) {
-                        my ($front,$middle,$end) = $_ =~ /^(packing_plan\()(,.+)(,\d{1,2},\d{1,2}\).)$/;
+                        my ($front,$middle,$end) = $_ =~ /^(packing_plan\()(,.+)(,\d{1,3},\d{1,2}\).)$/;
 #                        print "$i $front $middle $end\n";
                         print $out $front . $i . $middle . ",'" . $current_crop_string . "'" . $end . "\n";
                         $i++;
