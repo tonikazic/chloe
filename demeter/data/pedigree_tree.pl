@@ -53,9 +53,9 @@
 
 
 
-% revise to reflect current file names
+% revised to reflect current file names
 %
-% Kazic, 7.3.2019
+% Kazic, 1.6.2019
 
 
 pedigree_tree(balint_kurti,[
@@ -262,6 +262,10 @@ pedigree_tree(nam_fndrs,[
 
 
 pedigree_tree(not_useful,[
+'d10-k14500_d10',
+'idfbpl-k19200_idfbpl',
+'idfbplsib-k19300_idfbpl',
+'les1-k0100_mo20w',		      
 '-_',
 'acd2-k18000_',
 'camo-k13800_b73',
@@ -279,7 +283,6 @@ pedigree_tree(not_useful,[
 'htn1-k10200_htn1w22',
 'ij2-n8-k10300_w22ij2-n8',
 'lep-8691-k10400_+',
-'les1-k0104_mo20w',
 'les5-n1449-k68500_2007-942-1',
 'les-ec91-k11700_c-13',
 'les-ec91-k17100_b73',
@@ -318,7 +321,6 @@ pedigree_tree(not_useful,[
 'les102-k16600_mo20w',
 'les2014-k16800_+',
 'lesdl(mop1)-k01700_mo20w',
-'lls1-k1700_mo20w',
 'mop1-k12100_mop1mop1',
 'pl-rhoades-k12300_mcclintockfullcolor',
 'rhm1y1-k10800_rhm1y1',
@@ -355,7 +357,7 @@ pedigree_tree(not_useful,[
 
 pedigree_tree(primary_dominants,[
 'les-tk1-k70309_w23',
-'les1-k0100_mo20w',
+'les1-k0104_mo20w',
 'les1-k1900_w23',
 'les2-k0200_mo20w',
 'les2-k2000_w23',
@@ -405,7 +407,7 @@ pedigree_tree(primary_recessives,[
 'les23-k1800_mo20w',
 'les23-k3500_w23',
 'les23-k16300_',
-'lls1-_mo20w',
+'lls1-k1700_mo20w',
 'lls1-k10600_+',
 'lls1121d-k3400_w23',
 'lls1121d-k5300_lls1121d']).
@@ -435,9 +437,6 @@ pedigree_tree(puzzles,[
 
 
 pedigree_tree(secondary_dominants,[
-'d10-k14500_d10',
-'idfbpl-k19200_idfbpl',
-'idfbplsib-k19300_idfbpl',
 'les-mi1-k12200_mop1',
 'les-n1378-k7400_cm105',
 'les-n2320-k8100_b73ht1',
