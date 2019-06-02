@@ -7,6 +7,12 @@
 
 
 
+% aaargh!  this must be ported to swipl!
+%
+% Kazic, 1.6.2019
+
+
+
 %declarations%
 
 
