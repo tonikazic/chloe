@@ -32,9 +32,13 @@
 # Kazic, 24.4.2011
 
 
-# port to 5.26 untested
+# port to 5.26 untested --- fix directory management, warnings, etc.
 #
-# Kazic, 17.4.2018
+# works, but with a little kludging in Typesetting/TypesetGenetics.pm:print_seed_packet_label
+#
+# main thing is to fix the directory handling so the latex works correctly
+#
+# Kazic, 2.6.2019
 
 
 
@@ -54,23 +58,24 @@ use GenerateOutput;
 
 
 
-my $input_file = "../crops/18r/management/seed_packet_labels";
+my $input_file = "../crops/19r/management/seed_packet_labels";
 
 # $input_file = "resorted_guys_packet_label_list.csv";
 # $input_file = "second_packet_label_list.csv";
 # $input_file = "popcorn_packet_label_list.csv";
 # $input_file = "sweet_corn_packet_label_list.csv";
 
-my $file_stem = "../crops/18r/tags/packet_labels";
+my $file_stem = "../crops/19r/tags/packet_labels";
 # $file_stem = "second_seed_packet_labels";
 
 
 my $input = $input_dir . $input_file;
 #my $output = $output_dir . $file_stem . $tex_suffix;
-$output = "../crops/18r/tags/packet_labels.tex";
-my $barcodes = "../barcodes/18r/";
+$output = "../crops/19r/tags/packet_labels.tex";
+my $output_dir = "../crops/19r/tags/";
+my $barcodes = "../barcodes/19r/";
 
-print "i: $input\no: $output\nb: $barcodes\n";
+# print "i: $input\no: $output\nb: $barcodes\n";
 
 my $num_gtype_re = qr/[\w\:\.\-\s\;\?]*/;
 my $in_btwn_re = qr/[\w\*\-\+\.\/\s\{\}\|\;\(\)\?\^\,]*/;
@@ -235,10 +240,6 @@ for ( $i = 0; $i <= $#labels; $i++ ) {
 
 
 
-# print "($output_dir,$file_stem,$ps_suffix,$pdf_suffix)\n";
+print "($output_dir,$file_stem,$ps_suffix,$pdf_suffix)\n";
 
 &generate_pdf($output_dir,$file_stem,$ps_suffix,$pdf_suffix);
-
-
-
-
