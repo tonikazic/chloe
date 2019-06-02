@@ -84,6 +84,14 @@ while (<$inbred_fh>) {
 
 
 
+# should read the inventory file and supply the sleeves for the final output
+#
+# Kazic, 1.6.2019
+
+
+
+
+
 
 open my $in, '<', $input_file or die "sorry, can't open input file $input_file\n";
 open my $out, '>', $out_file or die "can't open $out_file\n";
@@ -109,7 +117,7 @@ while (<$in>) {
         if ( $_ =~ /^packing_plan/ ) {
 	        my ($row,$num_packets,$elite,$planting,$rest,$ma,$pa,$cl,$ft,$family,$pnum,$padding,$packet,$ma_ifam,$record);
 
-#			print $_;
+#		print $_;
 		
                 if ( $_ =~ /elite/ ) { 
 		        ($row,$num_packets,$elite,$planting,$rest) = $_ =~ /^packing_plan\((\d+),(\d+),\[(elite)\],(${planting_re}),(.*)/; 
@@ -127,11 +135,16 @@ while (<$in>) {
                 ($cl,$ft) = $rest =~ /(${cl_re}),(${ft_re})\)\.$/;
 
 
+
 		
 		
 # family and packet assignment
 
-		if ( $ma !~ /xxxx/ ) { 
+# included condition to prevent individual numbering of elite corn packets
+#
+# Kazic, 2.6.2019
+
+		if ( ( $ma !~ /xxxx/ ) && ( $ma !~ /elite/ ) ) { 
                         $family = '0000'; 
                         $pnum = length($p);
 			$padding = 5 - $pnum;
@@ -139,11 +152,24 @@ while (<$in>) {
 			$p++;
 		        }
 		
-                else { 
-		        ($ma_ifam) = $ma =~ /\d{2}[NRG](\d{3})\:/;
-                        $record = $inbred{$ma_ifam};
-                        ($family,$packet) = split(/::/,$record);
-                        }
+                elsif ( $ma =~ /\d{2}[NRG](\d{3})\:/ ) {
+			($ma_ifam) = $ma =~ /\d{2}[NRG](\d{3})\:/;
+			$record = $inbred{$ma_ifam};
+		        ($family,$packet) = split(/::/,$record);
+		        }
+
+
+		
+# ugly hard-wired kludge for the elite corn for now
+#
+# Kazic, 1.6.2019
+			
+		else {
+			$record = $inbred{891};
+		        ($family,$packet) = split(/::/,$record);
+		        }
+
+                
 		
 #                print "($row,$num_packets,$ma,$pa,$planting,$cl,$ft,$family,$packet)\n";
 
