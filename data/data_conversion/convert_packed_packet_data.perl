@@ -77,11 +77,17 @@ if ( $lines[0] =~ /packed_packet/ ) {
 
 # revised to reflect order of fields on iphone
 #
-# Kazic, 2.6.2017	
+# Kazic, 2.6.2017
+#
+# permuted order of $datetime and $num_cl as this is simplest
+# in the seed room, now that I have standardized row lengths
+# and planting density.
+#
+# Kazic, 4.6.2019
 		
-                my ($packet,$ma_plant,$pa_plant,$num_cl,$datetime,$observer) = $lines[$i] =~ /\"?(${packet_re})\"?,\"?(${num_gtype_re})\"?,\"?(${num_gtype_re})\"?,\"?(${cl_re})\"?,\"?(${datetime_re})\"?,\"?(${observer_re})\"?,*/;
+                my ($packet,$ma_plant,$pa_plant,$datetime,$num_cl,$observer) = $lines[$i] =~ /\"?(${packet_re})\"?,\"?(${num_gtype_re})\"?,\"?(${num_gtype_re})\"?,\"?(${datetime_re})\"?,\"?(${cl_re})\"?,\"?(${observer_re})\"?,*/;
 			
-#               print "($packet,$ma_plant,$pa_plant,$num_cl,$datetime,$observer)\n";
+#               print "($packet,$ma_plant,$pa_plant,$datetime,$num_cl,$observer)\n";
 			
                         
 			
