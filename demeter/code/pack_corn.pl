@@ -7,9 +7,14 @@
 
 
 
-% aaargh!  this must be ported to swipl!
+% aaargh!  this must be ported to swipl!  clean up choose_lines.pl as part of this
+% fix directory management
 %
-% Kazic, 1.6.2019
+% order_packets.pl moved to ../archival/obsolete_code for now, not sure it's needed here.
+% the guts of the algorithm to sort packets into inventory order for printing are in
+% ../c/maize/data/data_conversion/update_inventory.perl and uses a four-dimensional hash.
+%
+% Kazic, 16.6.2019
 
 
 
@@ -118,6 +123,8 @@ check_row_numbering(Crop,Lines) :-
                 format('Warning! row sequence numbers ~w are not consecutive!~n',[NonconsecutiveNums]),
                 false
         ).
+
+
 
 
 
@@ -439,20 +446,27 @@ generate_output(Crop,Chosen) :-
 
 
 % all mutant packet labels start at 10 to preserve packet numbers
-% 1 -- 9 for inbred lines!
+% 1 -- 9 for inbred, elite, and skipped lines!
 %
+% p00000 = no corn planted for skipped rows
 % p00001 = Mo20W
 % p00002 = W23
 % p00003 = M14
 % p00004 = B73
+% p00005 = any elite line, this can vary by crop
 %
-% Kazic, 24.4.2011
+% Kazic, 16.6.2019
+
+
+
 
 
 % adapted to accommodate move to phasma: phasma can''t write to athe''s partitions, so 
 % stick it in phasma''s /home/toni/demeter/results/CROP_planning/packet_label_list.csv.
 %
 % Kazic, 15.5.2015
+
+% adapt back now that we are porting to swipl
 
 output_packet_label_file(LCrop,TimeStamp,UTCDate,Chosen) :-
 %        atomic_list_concat(['../../maize/crops/',LCrop,'/planning/packet_label_list.csv'],File),

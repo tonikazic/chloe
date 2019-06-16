@@ -5,6 +5,15 @@
 % Kazic, 30.5.09
 
 
+% this should be ported to swipl and revised to order packets into
+% inventory order, using something along the lines of
+% ../c/maize/data/data_conversion/update_inventory.perl's four dimensional
+% hash.
+%
+% Kazic, 16.62019
+
+
+
 
 %declarations%
 

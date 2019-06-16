@@ -8,6 +8,11 @@
 
 
 
+% port to swipl!
+%
+% Kazic, 16.6.2019
+
+
 %declarations%
 
 
@@ -90,6 +95,11 @@
 
 
 
+
+% port to swipl, just pass data back to pack_corn/1, clean up any remaining
+% directory management
+%
+% Kazic, 16.6.2019
 
 
 choose_lines(Crop,File) :-
