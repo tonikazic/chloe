@@ -51,6 +51,7 @@
  	        dead_plants/2,
                 deconstruct_plantIDs/2,		       
                 deconstruct_plantID/5,
+		determine_planting/3,
                 estimate_seed/3,
                 extract_row/2,
                 filter_by_date/3,
@@ -75,6 +76,7 @@
                 get_rowplants/2,
                 get_rowplant/2,
                 get_source_daddy/3,
+		get_true_planting/13,
                 get_year/2,
                 grab_male_rows/2,
                 grab_parents_from_packets/2,
@@ -108,6 +110,7 @@
                 pad/3,
                 plan_includes/3,
                 pot/1,
+		reorganize_plan/3,
 %		remove_family/2,
 		remove_row_prefix/2,
 		remove_padding/2,
@@ -1766,9 +1769,15 @@ get_knum(PlantID,KNum) :-
 get_nursery_from_particle(Crop,Nursery) :-
         sub_atom(Crop,2,1,_,Nursery).
 
+
+% modified to return year as number, not atom
+%
+% Kazic, 14.6.2019
+
 get_year_from_particle(Crop,YearSuffix,Year) :-
         sub_atom(Crop,0,2,_,YearSuffix),
-        atom_concat('20',YearSuffix,Year).
+        atom_concat('20',YearSuffix,YearAtom),
+	atom_number(YearAtom,Year).
 
 
 
@@ -5271,6 +5280,131 @@ construct_crop_relative_dirs(Crop,PlngDir,MgmtDir,TagsDir) :-
         atomic_list_concat([Root,CropParticle,Mgmt],MgmtDir),
         atomic_list_concat([Root,CropParticle,Tags],TagsDir).
 
+
+
+
+
+
+
+
+
+
+
+% the field and plan had to be rearranged because of weather,
+% miscalculation, skips, replantings, or whatever.  So now, compute the
+% plan for what was really done so this can be used to generate the field
+% book.
+%
+% Kazic, 14.6.2019
+
+
+% still some screwy dupes ....
+%
+% Kazic, 14.6.2019
+
+reorganize_plan(Crop,OldPackingPlanFile,NewPPFile) :-
+	ensure_loaded(OldPackingPlanFile),
+        get_year_from_particle(Crop,_,Year),
+        get_nursery_from_particle(Crop,Nursery),
+	crop_months(Nursery,Months),
+	order_planting_dates(Crop,PlantingDates),
+        setof(Seq-(Ma,Pa,Pltng,Plan,Comment,Knum,Cl,Ft),get_true_planting(Crop,Year,Months,PlantingDates,Seq,Ma,Pa,Plan,Comment,Knum,Pltng,Cl,Ft),L),
+
+	keysort(L,Sorted),
+	output_new_plan(Crop,NewPPFile,Sorted).
+
+
+
+
+% The naive version would ignore rows skipped for computer vision or
+% planted with elite lines.  The former are determined in the field during
+% the first planting.  The latter are ``packed'' in the sense we bulk-plant
+% them using the Jang planter, aiming for ~30 kernels/row.  The
+% packed_packet/7 facts give the numerical genotypes, but the
+% packing_plan/10 called here just say
+%
+%
+%        [elite],
+%
+% instead of
+%
+%        ['17R891:L0xxxxxx','17R891:L0xxxxxx'],
+%
+% so there would be no unification.  The former problem is handled by
+% adding a fact for the skipped rows to
+% ../c/maize/crops/CROP/planning/sequenced.packing_plan.pl and the latter
+% by the alternation in calling packing_plan/10.
+%
+% Kazic, 14.6.2019
+
+
+
+
+
+% this doesn't incorporate closest_contemporaneous_packet*/{6,7}, but
+% should: if packets are packed in a prior year but not planted until a
+% subsequent year and then the field is rearranged from the plan, this
+% predicate will fail on those rows.
+%
+% Kazic, 15.6.2019
+
+get_true_planting(Crop,Year,Months,PlantingDates,Seq,Ma,Pa,Plan,Comment,Knum,Pltng,Cl,Ft) :-
+         planted(Row,Pkt,Ft,_,date(Day,Mo,Year),_,_,Crop),
+	 packed_packet(Pkt,Ma,Pa,Cl,_,date(_,_,Year),_),
+	 memberchk(Mo,Months),
+	 ( packing_plan(_,_,[Ma,Pa],_,Plan,Comment,Knum,Crop,_,_)
+	 ;
+	   packing_plan(_,_,[elite],_,Plan,Comment,Knum,Crop,_,_),
+	   Ma = '17R891:L0xxxxxx',
+	   Pa = Ma
+	 ),
+ 	 extract_row(Row,Seq),
+         determine_planting(Year-Mo-Day,PlantingDates,Pltng).
+
+
+
+
+
+order_planting_dates(Crop,PlantingDates) :-
+	setof(Yr-Mo-Day,R^P^K^H^T^W^planted(R,P,K,H,date(Day,Mo,Yr),T,W,Crop),Dates),
+	sort(Dates,PlantingDates).
+
+
+
+
+
+
+
+output_new_plan(Crop,NewPPFile,Sorted) :-
+        open(NewPPFile,write,Stream),
+	local_timestamp_n_date(_,Today),
+	format(Stream,'% this is ~w~n~n% computed by genetic_utilities:reorganize_plan/3~n% on ~w~n% because the field had to be reorganized to accommodate weather and last-minute changes to the plan.~n% This file reflects what was actually done and incorporates prior relevant plan information.~n~n~n~n',[NewPPFile,Today]),
+	output_new_plan_aux(Crop,Stream,Sorted),
+	close(Stream).
+
+
+
+output_new_plan_aux(_,_,[]).
+output_new_plan_aux(Crop,Stream,[Seq-(Ma,Pa,Pltng,Plan,Comment,Knum,Cl,Ft)|T]) :-
+         format(Stream,'packing_plan(~w,1,[~q,~q],~w,~w,~q,~q,~q,~w,~w).~n',[Seq,Ma,Pa,Pltng,Plan,Comment,Knum,Crop,Cl,Ft]),
+	 output_new_plan_aux(Crop,Stream,T).
+
+
+
+
+
+
+
+
+% assumes PlantingDates are sorted chronologically using
+% order_planting_dates/2 above
+%
+% Kazic, 14.6.2019
+
+determine_planting(Date,[Date|_],1).
+determine_planting(Date,[_,Date|_],2).
+determine_planting(Date,[_,_,Date|_],3).
+determine_planting(Date,[_,_,_,Date|_],4).
 
 
 
