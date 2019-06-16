@@ -33,6 +33,7 @@
                 later/2,
                 latest/2,
 		letter/2,
+		local_timestamp_n_date/2,
 		lower_case_letters/1,
 		lp_subseq/3,
 		next_day/2,
@@ -40,6 +41,7 @@
 		our_date/1,
 		our_to_swi_date/2,
                 remove_singletons/3,
+		row_length/2,
 		split_at_key/4,
 		split_at_key_op/5,
 		swi_date/1,
@@ -225,6 +227,11 @@ utc_timestamp_n_date(TimeStamp,EquivalentUTCDateTime) :-
         get_time(TimeStamp),
 	stamp_date_time(TimeStamp,DateStruc,'UTC'),
         format_time(atom(EquivalentUTCDateTime),'%A, %B %d, %Y at %H:%M:%S UTC',DateStruc).
+
+
+local_timestamp_n_date(TimeStamp,LocalDateTime) :-
+        get_time(TimeStamp),
+        format_time(atom(LocalDateTime),'%A, %B %d, %Y at %H:%M:%S %Z',TimeStamp).
 
 
 
@@ -555,6 +562,9 @@ upper_case_letters(['R','N','G','A','B','C','D','E','F','H','I','J','K','L','M',
 
 
 
+
+row_length(full,20).
+row_length(half,10).
 
 
 
