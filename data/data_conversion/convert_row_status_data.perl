@@ -86,12 +86,25 @@ if ( $lines[0] =~ /row_status/ ) {
 
 
 
-                my ($row,$num_emerged,$num_wild_type,$num_mutant,$num_dead,$ave_leaf_num,$datetime,$int_phenotype_list,$observer) = $lines[$i] =~ /\"?(${row_re})\"?,\"?(${state_or_cl_re})\"?,\"?(${cl_re})\"?,\"?(${cl_re})\"?,\"?(${cl_re})\"?,\"?(${abs_leaf_num_re})\"?,\"?(${datetime_re})\"?,\"?(${note_re})\"?,\"?(${observer_re})\"?,*/;		
+# removed explicit count of wild-types:  these are now the emerged
+# less the mutants and the dead.
+#
+# This markedly simplifies data collection in the field.
+#
+# Kazic, 20.7.2019
 
 
+#                my ($row,$num_emerged,$num_wild_type,$num_mutant,$num_dead,$ave_leaf_num,$datetime,$int_phenotype_list,$observer) = $lines[$i] =~ /\"?(${row_re})\"?,\"?(${state_or_cl_re})\"?,\"?(${cl_re})\"?,\"?(${cl_re})\"?,\"?(${cl_re})\"?,\"?(${abs_leaf_num_re})\"?,\"?(${datetime_re})\"?,\"?(${note_re})\"?,\"?(${observer_re})\"?,*/;		
+#
 #                print "$row,$num_emerged,$num_wild_type,$num_mutant,$num_dead,$ave_leaf_num,$datetime,$int_phenotype_list,$observer\n";
 
 
+
+                my ($row,$num_emerged,$num_mutant,$num_dead,$ave_leaf_num,$datetime,$int_phenotype_list,$observer) = $lines[$i] =~ /\"?(${row_re})\"?,\"?(${state_or_cl_re})\"?,\"?(${cl_re})\"?,\"?(${cl_re})\"?,\"?(${abs_leaf_num_re})\"?,\"?(${datetime_re})\"?,\"?(${note_re})\"?,\"?(${observer_re})\"?,*/;		
+
+#                print "$row,$num_emerged,$num_mutant,$num_dead,$ave_leaf_num,$datetime,$int_phenotype_list,$observer\n";
+
+		
 
 # need to parse and pool data, along the lines of NoteExpsn.pm
 
@@ -104,11 +117,12 @@ if ( $lines[0] =~ /row_status/ ) {
 		
 		
                 ($ave_leaf_num) = &check_null($ave_leaf_num);
-                ($num_wild_type) = &check_null($num_wild_type);
+#                ($num_wild_type) = &check_null($num_wild_type);
                 ($num_mutant) = &check_null($num_mutant);
                 ($num_dead) = &check_null($num_dead);
 
 		my $health = $num_emerged - $num_dead;
+                my $num_wild_type = $health - $num_mutant;
 		
 		
 

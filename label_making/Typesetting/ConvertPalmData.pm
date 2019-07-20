@@ -366,13 +366,18 @@ sub check_quotes {
 
 
 
-
+# a null string is not a string containing 0!
+# Nor should it imply 0; the data are most likely to be text.
+#
+# added condition for just spaces
+#
+# Kazic, 20.7.2019
 
 
 sub check_null {
         ($string) = @_;
 
-        if ( ( $string eq "" ) || ( $string =~ /\"\"/ ) || ( $string =~ /\_/ ) ) { $string = "\"\""; }
+        if ( ( $string eq "" ) || ( $string =~ /\"\"/ ) || ( $string =~ /\s+/ ) || ( $string =~ /\_/ ) ) { $string = "\"\""; }
 
         return $string;
         }
