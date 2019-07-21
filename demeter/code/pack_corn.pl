@@ -56,22 +56,6 @@
 
 
 
-
-:-      ensure_loaded(library(lists)),
-        ensure_loaded(library(ordsets)),
-        ensure_loaded(library(samsort)),
-        ensure_loaded(library(sets)),
-%
-% libraries not in SICStus Prolog
-%
-        ensure_loaded(library(listparts)),
-        ensure_loaded(library(basics)),
-        ensure_loaded(library(listparts)),
-        ensure_loaded(library(basics)),
-        ensure_loaded(library(not)),
-        ensure_loaded(library(flatten)),
-        ensure_loaded(library(strings)).
-
 %end%
 
 
@@ -89,8 +73,15 @@
 % Kazic, 9.6.2011
 
 pack_corn(Crop) :-
-        format('Warning! make sure maize/CROP/planning/ is present!~n',[]),
         load_crop_planning_data(Crop),
+
+        setof(p(Row,NumPackets,Alternatives,Plntg,Plan,Comments,K,Crop,Cl,Ft),
+	      packing_plan(Row,NumPackets,Alternatives,Plntg,Plan,Comments,K,Crop,Cl,Ft),Choices),
+	choose_lines(Choices,Chosen),
+
+
+
+	
         check_row_numbering(Crop,Lines),
         organize_corn(Crop,Lines,Chosen),
         sort(Chosen,Sorted),

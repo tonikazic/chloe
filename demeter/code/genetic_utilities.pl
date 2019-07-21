@@ -9,6 +9,7 @@
                 all_crops/1,
                 all_mutants/1,
 		all_preps_except_shootbagging/2,
+		annotate_string/3,
 		bag/1,   
                 bagged_tassel/3,
 		box/1,
@@ -24,6 +25,7 @@
                 check_doubly_assigned_rows_for_different_parents/2,
                 check_ear_status/1,
                 check_inventory/3,
+                check_inventory/4,
                 check_mutant_arg/0,
                 check_parents/7,
                 check_predicate_format/1,
@@ -52,17 +54,22 @@
                 deconstruct_plantIDs/2,		       
                 deconstruct_plantID/5,
 		determine_planting/3,
+		disassemble_plantID/8,
                 estimate_seed/3,
                 extract_row/2,
                 filter_by_date/3,
                 find_all_mutants/1,
+		find_all_plantings_of_line/3,
                 find_closest_crop_after_packing/3,
                 find_current_stand_count/3,
                 find_descendants_of_lines_wo_genotypes/1,
+                find_max/3,
 		find_multiply_planted_rows/2,
                 find_plan/2,
                 founder/9,
                 fun_corn/2,
+		fuzzy_greater/2,		
+		fuzzy_max/3,
                 genotype/2,
                 get_crop/2,
                 get_family/2,
@@ -80,6 +87,8 @@
                 get_year/2,
                 grab_male_rows/2,
                 grab_parents_from_packets/2,
+		greater/2,
+		has_fungus/2,
                 identify_row/3,
                 identify_rows/2,
                 identify_rows/3,
@@ -88,6 +97,7 @@
                 inbred/2,
                 index_by_ears/4,
                 inferred_stand_count/6,
+		is_greater/2,
                 issue_warning/2,
                 make_barcode_elts/3,		       
                 make_indices/5,
@@ -95,6 +105,7 @@
                 make_rest_of_indices/2,
                 make_planting_index/1,
                 make_rowplant/3,
+		max/3,
                 most_recent_crop/1,
                 most_recent_datum/2,
                 mutant/1,
@@ -138,6 +149,7 @@
                 track_transplants_to_row/3,
                 unsplit_crop/3,
                 unsplit_crops/2,
+		was_planted/8,
 		wild_type/1,
                 winter_nursery/2,
                 write_list_facts_w_skips/2,
@@ -1127,15 +1139,13 @@ early_row(Crop,Row) :-
 
 
 
-% be able to use the Ma x Pa data directly from the pedigrees without fixing them manually
-% in emacs!
+% rewritten to handle all ways of passing in parents, including ('Ma,Pa'), 'Ma,Pa', 'Ma x Pa',
+% and 'Ma','Pa' in the same predicate
 %
-% Kazic, 27.5.2010
-%
-% rewrite to handle both 'Ma,Pa' and 'Ma x Pa' in the same predicate
-%
-% Kazic, 1.4.2018
+% Kazic, 20.7.2019
 
+
+%! convert_parental_syntax(+CrossAlternatives:list,-Alternatives:list) is semidet.
 
 convert_parental_syntax(CrossAlternatives,Alternatives) :-
         convert_parental_syntax(CrossAlternatives,[],Alternatives).
@@ -1143,7 +1153,25 @@ convert_parental_syntax(CrossAlternatives,Alternatives) :-
 
 
 convert_parental_syntax([],A,A).
+convert_parental_syntax([(Ma,Pa)|CrossAlternatives],Acc,Alternatives) :-
+        append(Acc,[(Ma,Pa)],NewAcc),
+        convert_parental_syntax(CrossAlternatives,NewAcc,Alternatives).
+
+
+
+convert_parental_syntax([Ma,Pa|CrossAlternatives],Acc,Alternatives) :-
+        atom_length(Ma,15),
+	atom_length(Pa,15),
+        append(Acc,[(Ma,Pa)],NewAcc),
+        convert_parental_syntax(CrossAlternatives,NewAcc,Alternatives).
+
+
+
+
+
 convert_parental_syntax([Parents|CrossAlternatives],Acc,Alternatives) :-
+	atom_length(Parents,Len),
+	Len > 30,
         sub_atom(Parents,0,15,_,MaNumGtype),
         ( sub_atom(Parents,_,_,_,',') ->
                 sub_atom(Parents,16,15,_,PaNumGtype)
@@ -2429,6 +2457,23 @@ get_source_daddy(Fam,Ma,Pa) :-
 
 
 
+
+
+%! annotate_string(+Prefix:atom,+StringOrList,-Annotated:string) is semidet.
+
+annotate_string(Prefix,StringOrList,Annotated) :-
+	( is_list(StringOrList) ->
+	        atomic_list_concat(StringOrList,', ',Merged)
+	;
+	        Merged = StringOrList
+	),
+        atomic_list_concat([Prefix,':  ',Merged,'.  '],Annotated).
+
+
+
+
+
+
 output_data(File,Switch,L) :-
         open(File,write,Stream),
         output_header(Switch,File,Stream),
@@ -3163,6 +3208,17 @@ check_day_window_aux(NumDays,EarlierTS,LaterTS) :-
 
 
 
+check_inventory(Ma,Pa,Sleeve,RNum) :-
+        setof(TS-(Ma,Pa,Num,FSleeve),timestamp_inventory(Ma,Pa,Num,FSleeve,TS),List),
+        reverse(List,[_-(Ma,Pa,num_kernels(RNum),Sleeve)|_]),
+	( harvest(Ma,Pa,_,_,_,_,_) ->
+	        check_ear_status(Ma)
+        ;
+                true
+        ).
+
+
+
 
 check_inventory(Ma,Pa,Sleeve) :-
         setof(TS-(Ma,Pa,Num,FSleeve),timestamp_inventory(Ma,Pa,Num,FSleeve,TS),List),
@@ -3214,9 +3270,261 @@ check_quantity_cl(DescMN,DescPN,Num) :-
 
 
 
+
+
+% for comparing amounts of kernels for choose_lines:pick_best/5
+% modelled on find_max/3 and dependents
+%
+% Kazic, 21.7.2019
+
+
+is_greater(Term1,Term2) :-
+        ( ( number(Term1),
+            number(Term2) ) ->
+                    ( Term1 >= Term2 ->
+                            true
+                    ;
+                            false
+                    )
+        ;
+                    ( ( \+ number(Term1),
+                        \+ number(Term2) ) ->
+                            greater(Term1,Term2)
+                    ;
+                            ( ( number(Term1),
+                                \+ number(Term2) ) ->
+                                    fuzzy_greater(Term1,Term2)
+                            ;
+                                    \+ number(Term1),
+                                    number(Term2),
+                                    fuzzy_greater(Term2,Term1)
+                            )
+                    )
+        ).
+               
+
+
+
+
+greater(X,X).
+
+greater(whole,_).
+
+greater(three_quarter,half).
+greater(three_quarter,quarter).
+greater(three_quarter,eighth).
+greater(three_quarter,sixteenth).
+
+greater(half,quarter).
+greater(half,eighth).
+greater(half,sixteenth).
+
+greater(quarter,eighth).
+greater(quarter,sixteenth).
+
+greater(eighth,sixteenth).
+
+
+
+
+
+
+fuzzy_greater(Num,Term) :-
+        ( Num >= 200 ->
+                is_greater(whole,Term)
+        ;
+                ( Num >= 100 ->
+                        is_greater(half,Term)
+                ;
+                        ( Num >= 50 ->
+                                is_greater(quarter,Term)
+                        ;
+                                format('Warning!  low kernel count for ~w cl!~n',[Num])
+                        )
+                )
+        ).
+
+
+
+
+
+
+
+
+
+
+
+
+% transplanted from choose_lines.pl, not sure these are really needed,
+% but the model for is_greater/2 and dependents
+%
+% Kazic, 21.7.2019
+
+find_max(Term1,Term2,Term1) :- 
+        Term1 == Term2.
+find_max(Term1,Term2,Max) :-
+        ( ( number(Term1),
+            number(Term2) ) ->
+                    ( Term1 >= Term2 ->
+                            Max = Term1
+                    ;
+                            Max = Term2
+                    )
+        ;
+                    ( ( \+ number(Term1),
+                        \+ number(Term2) ) ->
+                            max(Term1,Term2,Max)
+                    ;
+                            ( ( number(Term1),
+                                \+ number(Term2) ) ->
+                                    fuzzy_max(Term1,Term2,Max)
+                            ;
+                                    \+ number(Term1),
+                                    number(Term2),
+                                    fuzzy_max(Term2,Term1,Max)
+                            )
+                    )
+        ).
+               
+
+
+
+
+% need all combinations in both directions!
+
+max(X,X,X).
+
+max(whole,_,whole).
+max(_,whole,whole).
+
+max(three_quarter,half,three_quarter).
+max(half,three_quarter,three_quarter).
+max(three_quarter,quarter,three_quarter).
+max(quarter,three_quarter,three_quarter).
+max(three_quarter,eighth,three_quarter).
+max(eighth,three_quarter,three_quarter).
+max(three_quarter,sixteenth,three_quarter).
+max(sixteenth,three_quarter,three_quarter).
+
+max(half,quarter,half).
+max(quarter,half,half).
+max(half,eighth,half).
+max(eighth,half,half).
+max(half,sixteenth,half).
+max(sixteenth,half,half).
+
+max(quarter,eighth,quarter).
+max(eighth,quarter,quarter).
+max(quarter,sixteenth,quarter).
+max(sixteenth,quarter,quarter).
+
+max(eighth,sixteenth,eighth).
+max(sixteenth,eighth,eighth).
+
+
+
+
+
+        
+
+
+fuzzy_max(Num,Term,Max) :-
+        ( Num >= 200 ->
+                find_max(whole,Term,Max)
+        ;
+                ( Num >= 100 ->
+                        find_max(half,Term,Max)
+                ;
+                        ( Num >= 24 ->
+                                find_max(quarter,Term,Max)
+                        ;
+                                format('Warning!  low kernel count for ~w cl!~n',[Num])
+                        )
+                )
+        ).
+
+
+
+
+
+
+
+is_earlier(NumGtype1,NumGtype2) :-
+        disassemble_plantID(NumGtype1,Crop1,Yr1,_,FirstMon1,Family1,Row1,Plant1),
+        disassemble_plantID(NumGtype2,Crop2,Yr2,_,FirstMon2,Family2,Row2,Plant2),
+	atom_length(Family1,Len1),
+	atom_length(Family2,Len2),
+        ( Crop1 == Crop2 ->
+                Len1 == Len2,
+                ( ( Len1 == 3,
+                    Family1 == Family2 ) ->
+	  	        ( Row1 < Row2 ->
+                                true	    
+                        ;
+                                Row1 == Row2, 
+                                Plant1 < Plant2
+                        ;
+	  	                false
+                        )
+                ;
+	  	        ( Row1 < Row2 ->
+                                true	    
+                        ;
+                                Row1 == Row2, 
+                                Plant1 < Plant2
+                        ;
+	  	                false
+                        )
+		)
+        ;
+                ( ( Yr1 < Yr2,
+                    FirstMon1 =< FirstMon2 ) ->
+	  	        ( Row1 < Row2 ->
+                                true	    
+                        ;
+                                Row1 == Row2, 
+                                Plant1 < Plant2
+                        ;
+	  	                false
+                        )
+
+		;  
+		        false
+		)
+	).
+
+
+
+	
+
+
+
+%! disassemble_plantID(+NumGtype:atom,-Crop:atom,-Yr:integer,-Nursery:atom,-FirstMon:integer,
+%                      -Family:integer,-Row:integer,Plant:integer).
+	
+disassemble_plantID(NumGtype,Crop,Yr,Nursery,FirstMon,Family,Row,Plant) :-	
+        deconstruct_plantID(NumGtype,Crop,Family,Row,Plant),
+        get_year_from_particle(Crop,_,Yr),
+	get_nursery_from_particle(Crop,Nursery),
+        crop_months(Nursery,[FirstMon|_]).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 % only for ears that have harvest facts!
 %
-% Kazic, 7.5.2011
+% Kazic, 7.5.20211
 %
 % Convention is that an empty comment signifies a perfectly fine ear.
 %
@@ -3231,6 +3539,24 @@ check_ear_status(MaNumericalGenotype) :-
         ).
 
 
+
+
+
+
+
+
+% if the ear has fungus, the predicate is true; note call from
+% choose_lines:choose_line/3.
+%
+% Kazic, 20.7.2019
+
+has_fungus(Ma,Pa) :-
+        harvest(Ma,Pa,succeeded,Comment,_,_,_),
+        ( nonvar(Comment) ->
+                \+ sub_atom(Comment,_,_,_,fungus)
+        ;
+                false
+        ).
 
 
 
@@ -4956,6 +5282,50 @@ get_parental_families([(Ma,Pa)|T],[(MaFam,PaFam)|T2]) :-
         get_family(Ma,MaFam),
         get_family(Pa,PaFam),
         get_parental_families(T,T2).
+
+
+
+
+
+
+
+% find all the crops in which a line was planted, and retrieve the
+% plans for that line.
+%
+% Kazic, 21.7.2019
+
+
+find_all_plantings_of_line(Ma,Pa,CropData) :-
+        setof(TimeStamp-(Packet,Row,Crop,Plan,Comments),
+	      was_planted(Ma,Pa,TimeStamp,Packet,Row,Crop,Plan,Comments),CropData).
+
+       
+
+
+
+
+
+was_planted(Ma,Pa,PlntgTS,Packet,Row,Crop,Plan,Comments) :-
+	packed_packet(Packet,Ma,Pa,_,_,date(KD,KM,PkingYr),KTime),
+	get_timestamp(date(KD,KM,PkingYr),KTime,PkingTS),
+        get_year(Ma,MaYr),
+	atomic_concat(20,MaYr,MaYrAtom),
+	atom_number(MaYrAtom,MaFullYr),
+        planted(Row,Packet,_,_,date(PD,PM,PlntgYr),PTime,_,Crop),
+	get_timestamp(date(PD,PM,PlntgYr),PTime,PlntgTS),	
+	MaFullYr =< PkingYr,
+        PkingTS < PlntgTS,
+        ( plan(Ma,Pa,_,Plan,Comments,Crop) ->
+	        true
+        ;
+                Plan = [],
+	        Comments = ''
+	).
+
+
+
+
+
 
 
 

@@ -1,4 +1,4 @@
-% this is demeter/code/order_packets.pl
+% this is ../c/maize/demeter/code/order_packets.pl
 
 % given a planting number, a collection of predicates to order packets by rows and insert shams
 %
@@ -35,29 +35,6 @@
         use_module(demeter_tree('data/load_data')).
 
 
-
-/*
-
-:-      ensure_loaded(library(lists)),
-        ensure_loaded(library(ordsets)),
-        ensure_loaded(library(sets)),
-%
-% libraries not in SICStus Prolog
-%
-%        ensure_loaded(library(listparts)),
-%        ensure_loaded(library(basics)),
-%        ensure_loaded(library(foreach)),  
-        ensure_loaded(library(listparts)), 
-        ensure_loaded(library(basics)),    
-        ensure_loaded(library(foreach)),    
-        ensure_loaded(library(aggregate)),
-        ensure_loaded(library(not)),
-        ensure_loaded(library(flatten)),
-        ensure_loaded(library(date)),
-        ensure_loaded(library(strings)).
-
-
-*/
 
 
 %end%

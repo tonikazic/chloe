@@ -37,11 +37,15 @@
 
 :-
         ensure_loaded(demeter_utilities),
-        ensure_loaded(genetic_utilities).
+        ensure_loaded(genetic_utilities),
+        ensure_loaded(pedigrees),
+        ensure_loaded(pack_corn),
+        ensure_loaded(choose_lines).
+	
 
 
 /*
-        ensure_loaded(pedigrees),
+
         ensure_loaded(analyze_crop),
         ensure_loaded(crop_management),
         ensure_loaded(order_packets).
