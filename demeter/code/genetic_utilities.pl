@@ -63,6 +63,7 @@
                 find_closest_crop_after_packing/3,
                 find_current_stand_count/3,
                 find_descendants_of_lines_wo_genotypes/1,
+		find_family/3,
                 find_max/3,
 		find_multiply_planted_rows/2,
                 find_plan/2,
@@ -97,6 +98,7 @@
                 inbred/2,
                 index_by_ears/4,
                 inferred_stand_count/6,
+		is_earlier/2,
 		is_greater/2,
                 issue_warning/2,
                 make_barcode_elts/3,		       
@@ -3446,51 +3448,52 @@ fuzzy_max(Num,Term,Max) :-
 
 
 
-
-
+% if we're in the same crop and one of the lines is an inbred, make
+% sure the other is the same inbred
 
 is_earlier(NumGtype1,NumGtype2) :-
-        disassemble_plantID(NumGtype1,Crop1,Yr1,_,FirstMon1,Family1,Row1,Plant1),
-        disassemble_plantID(NumGtype2,Crop2,Yr2,_,FirstMon2,Family2,Row2,Plant2),
-	atom_length(Family1,Len1),
-	atom_length(Family2,Len2),
-        ( Crop1 == Crop2 ->
-                Len1 == Len2,
-                ( ( Len1 == 3,
-                    Family1 == Family2 ) ->
-	  	        ( Row1 < Row2 ->
-                                true	    
-                        ;
-                                Row1 == Row2, 
-                                Plant1 < Plant2
-                        ;
-	  	                false
-                        )
-                ;
-	  	        ( Row1 < Row2 ->
-                                true	    
-                        ;
-                                Row1 == Row2, 
-                                Plant1 < Plant2
-                        ;
-	  	                false
-                        )
-		)
+        ( NumGtype1 == NumGtype2 ->
+                true
         ;
-                ( ( Yr1 < Yr2,
-                    FirstMon1 =< FirstMon2 ) ->
-	  	        ( Row1 < Row2 ->
-                                true	    
-                        ;
+                disassemble_plantID(NumGtype1,Crop1,Yr1,_,FirstMon1,Family1,Row1,Plant1),
+                disassemble_plantID(NumGtype2,Crop2,Yr2,_,FirstMon2,Family2,Row2,Plant2),
+                ( Crop1 == Crop2 ->
+		        ( Row1 < Row2 ->
+		                ( ( inbred(Family1,InbredPrefix),
+		                    inbred(Family2,InbredPrefix) ) ->
+			                true
+			        ;  
+                                        mutant_by_family(Family1),
+                                        mutant_by_family(Family2)
+                                )
+			;
                                 Row1 == Row2, 
                                 Plant1 < Plant2
                         ;
-	  	                false
+		                false
                         )
 
-		;  
-		        false
-		)
+                ;
+                        ( Yr1 < Yr2 ->
+		                true
+                        ;
+                                ( Yr1 > Yr2 ->
+			                false
+			        ;
+                                        Yr1 == Yr2,
+				        ( FirstMon1 =< FirstMon2 ->
+				                ( Row1 < Row2 ->
+                                                        true	    
+                                                ;
+                                                        Row1 == Row2, 
+                                                        Plant1 < Plant2
+                                                )
+					;
+		  	                        false
+                                        )
+			        )
+		        )
+                )
 	).
 
 
@@ -3552,11 +3555,15 @@ check_ear_status(MaNumericalGenotype) :-
 
 has_fungus(Ma,Pa) :-
         harvest(Ma,Pa,succeeded,Comment,_,_,_),
-        ( nonvar(Comment) ->
-                \+ sub_atom(Comment,_,_,_,fungus)
-        ;
+        ( var(Comment) ->
                 false
-        ).
+        ;
+	        ( sub_atom(Comment,_,_,_,fungus) ->
+                        true
+                ;
+                        false
+                )
+	).
 
 
 
@@ -5289,17 +5296,33 @@ get_parental_families([(Ma,Pa)|T],[(MaFam,PaFam)|T2]) :-
 
 
 
+
+
+
+
+
+
+
 % find all the crops in which a line was planted, and retrieve the
-% plans for that line.
+% plans for that line.  Issue a warning if we've tried this too many
+% times already.
 %
-% Kazic, 21.7.2019
+% Kazic, 22.7.2019
 
 
-find_all_plantings_of_line(Ma,Pa,CropData) :-
+find_all_plantings_of_line(Ma,Pa,PriorCropData) :-
         setof(TimeStamp-(Packet,Row,Crop,Plan,Comments),
-	      was_planted(Ma,Pa,TimeStamp,Packet,Row,Crop,Plan,Comments),CropData).
+	      was_planted(Ma,Pa,TimeStamp,Packet,Row,Crop,Plan,Comments),PriorCropData),
 
-       
+        find_family(Ma,Pa,Family),
+	length(PriorCropData,NumPriorPlantings),
+        ( ( mutant_by_family(Family),
+	    NumPriorPlantings > 3 ) ->
+	        format('Warning!  ~w x ~w planted in many previous crops ~w, check outcomes.~n',[Ma,Pa,PriorCropData])	         
+        ;
+
+                true
+        ).
 
 
 
@@ -5321,6 +5344,34 @@ was_planted(Ma,Pa,PlntgTS,Packet,Row,Crop,Plan,Comments) :-
                 Plan = [],
 	        Comments = ''
 	).
+
+
+
+
+
+
+
+
+
+
+
+
+
+% for the purpose of packing seed, if we don't have a genotype/11 fact for
+% the line yet (won't if the line has never been planted), then confect the
+% 0000 family for it.
+%
+% Kazic, 22.7.2019
+
+%! find_family(+Ma:atom,+Pa:atom,-Family:atom) is semidet.
+
+find_family(Ma,Pa,Family) :-
+        ( genotype(Family,_,Ma,_,Pa,_,_,_,_,_,_) ->
+                true
+        ;
+                Family = '0000'
+        ).
+	
 
 
 
