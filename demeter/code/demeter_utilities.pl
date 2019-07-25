@@ -22,6 +22,7 @@
 %declarations%
 
 :-       module(demeter_utilities,[
+                append_to_planning_file/2,
 		check_slash/2,
 		construct_date/2,
 		construct_dates/2,
@@ -33,6 +34,7 @@
                 later/2,
                 latest/2,
 		letter/2,
+		load_crop_planning_data/1,
 		local_timestamp_n_date/2,
 		lower_case_letters/1,
 		lp_subseq/3,
@@ -641,5 +643,46 @@ remove_singletons(Bag,[H|T],Remainder) :-
                 NewAcc = Bag
         ),
         remove_singletons(NewAcc,T,Remainder).       
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%% utilities for pack_corn:pack_corn/1
+
+% transplanted from old order_packets.pl
+%
+% assumes default directory organization; change if yours differs
+%
+% Kazic, 25.7.2019
+
+load_crop_planning_data(Crop) :-
+        current_crop(Crop),
+        convert_crop(Crop,LCrop),
+        atomic_list_concat(['../../crops/',LCrop,'/planning/packing_plan.pl'],PackingPlanFile),
+        ensure_loaded(pack_corn:[PackingPlanFile]).
+
+
+
+
+append_to_planning_file(Crop,Plans) :-
+	open(demeter_tree('data/plan.pl'),append,Stream),
+        convert_crop(Crop,LCrop),	
+        format(Stream,'~n~n~n~n% ~w~n~n',[LCrop]),
+        output_header(plano,demeter_tree('data/plan.pl'),Stream),
+        write_list_facts(Stream,Plans),
+        close(Stream).
+
+
 
 
