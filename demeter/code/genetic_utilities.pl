@@ -139,6 +139,7 @@
                 selfed_plants/2,
                 selfing_candidate/2,
                 silking_ear/4,
+                skip/1,
 		sleeve/1,
                 sort_by_crop/3,
                 sort_by_male_rows/2,
@@ -2147,8 +2148,18 @@ gerry_families(Family) :-
 
 
 
+% we now skip rows for computer vision experiments, so detect that
+%
+% detect by either:
+%     maternal numerical genotype
+%     standard packet number
+%     number of kernels planted
+%
+% Kazic, 23.7.2019
 
-
+skip('06R0000:0000000').
+skip(p00000).
+skip(0).
 
 
 
@@ -2465,12 +2476,19 @@ get_source_daddy(Fam,Ma,Pa) :-
 
 annotate_string(Prefix,StringOrList,Annotated) :-
 	( is_list(StringOrList) ->
-	        atomic_list_concat(StringOrList,', ',Merged)
+	        ( StringOrList == [] ->
+	                Merged = ''
+		;
+	                atomic_list_concat(StringOrList,', ',Merged)
+                )
 	;
 	        Merged = StringOrList
 	),
-        atomic_list_concat([Prefix,':  ',Merged,'.  '],Annotated).
-
+        ( Merged == '' ->
+                Annotated = Merged
+        ;
+	        atomic_list_concat([Prefix,':  ',Merged,'.  '],Annotated)
+        ).
 
 
 
@@ -5303,26 +5321,27 @@ get_parental_families([(Ma,Pa)|T],[(MaFam,PaFam)|T2]) :-
 
 
 
-% find all the crops in which a line was planted, and retrieve the
-% plans for that line.  Issue a warning if we've tried this too many
-% times already.
+% find all the crops in which a mutant line was planted, and retrieve the
+% plans for that line.  Issue a warning if we've tried this too many times
+% already.
 %
 % Kazic, 22.7.2019
 
 
 find_all_plantings_of_line(Ma,Pa,PriorCropData) :-
-        setof(TimeStamp-(Packet,Row,Crop,Plan,Comments),
-	      was_planted(Ma,Pa,TimeStamp,Packet,Row,Crop,Plan,Comments),PriorCropData),
-
-        find_family(Ma,Pa,Family),
-	length(PriorCropData,NumPriorPlantings),
-        ( ( mutant_by_family(Family),
-	    NumPriorPlantings > 3 ) ->
-	        format('Warning!  ~w x ~w planted in many previous crops ~w, check outcomes.~n',[Ma,Pa,PriorCropData])	         
+	get_family(Pa,PaFam),
+        ( ( Pa \== '06R0000:0000000', mutant_by_family(PaFam) ) ->
+		setof(TimeStamp-(Packet,Row,Crop,Plan,Comments),
+		      was_planted(Ma,Pa,TimeStamp,Packet,Row,Crop,Plan,Comments),PriorCropData),
+		length(PriorCropData,NumPriorPlantings),
+                ( NumPriorPlantings > 3 ->
+		        format('Warning!  ~w x ~w planted in ~w previous crops ~w, check outcomes.~n',[Ma,Pa,NumPriorPlantings,PriorCropData])	         
+                ;
+		        true
+		)
         ;
-
-                true
-        ).
+                PriorCropData = []
+	).
 
 
 
