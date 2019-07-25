@@ -10,6 +10,7 @@
                 all_mutants/1,
 		all_preps_except_shootbagging/2,
 		annotate_string/3,
+                append_to_planning_file/2,
 		bag/1,   
                 bagged_tassel/3,
 		box/1,
@@ -101,6 +102,7 @@
 		is_earlier/2,
 		is_greater/2,
                 issue_warning/2,
+		load_crop_planning_data/1,
                 make_barcode_elts/3,		       
                 make_indices/5,
                 make_frpc_index/1,
@@ -172,6 +174,8 @@
 
 
 %end%
+
+
 
 
 
@@ -1480,6 +1484,11 @@ deconstruct_plantID(PlantID,Crop,Family,Row,Plant) :-
 
 
 
+
+% added clauses in conditional to handle inbreds
+%
+% Kazic, 25.7.2019
+
 deconstruct_plantID_aux(PlantID,Crop,Family,Row,Plant) :-
         atom_length(PlantID,15),
         get_crop(PlantID,Crop),
@@ -1488,7 +1497,9 @@ deconstruct_plantID_aux(PlantID,Crop,Family,Row,Plant) :-
         get_plant(PlantID,PaddedPlant),
         ( ( PaddedRow \== '00000',
             PaddedRow \== 'xxxxx',
-            PaddedRow \== 'yyyyy', 
+            PaddedRow \== '0xxxx',	    
+            PaddedRow \== 'yyyyy',
+            PaddedRow \== '0yyyy', 	    
             \+ sub_atom(PaddedRow,_,_,_,'I') ) ->
 
                 atom_number(PaddedRow,Row),
@@ -5845,6 +5856,47 @@ determine_planting(Date,[Date|_],1).
 determine_planting(Date,[_,Date|_],2).
 determine_planting(Date,[_,_,Date|_],3).
 determine_planting(Date,[_,_,_,Date|_],4).
+
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%% utilities for pack_corn:pack_corn/1
+
+% transplanted from old order_packets.pl
+%
+% assumes default directory organization; change if yours differs
+%
+% Kazic, 25.7.2019
+
+load_crop_planning_data(Crop) :-
+        current_crop(Crop),
+        convert_crop(Crop,LCrop),
+        atomic_list_concat(['../../crops/',LCrop,'/planning/packing_plan.pl'],PackingPlanFile),
+        ensure_loaded(pack_corn:[PackingPlanFile]).
+
+
+
+
+append_to_planning_file(Crop,Plans) :-
+	open(demeter_tree('data/plan.pl'),append,Stream),
+        convert_crop(Crop,LCrop),	
+        format(Stream,'~n~n~n~n% ~w~n~n',[LCrop]),
+        output_header(plano,demeter_tree('data/plan.pl'),Stream),
+        write_list_facts(Stream,Plans),
+        close(Stream).
+
+
+
+
+
 
 
 
