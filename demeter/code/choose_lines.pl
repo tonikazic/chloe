@@ -17,10 +17,7 @@
 %      check_lines/3.
 %
 %
-% Kazic, 22.7.2019
-
-
-
+% Kazic, 26.7.2019
 
 
 
@@ -35,7 +32,7 @@
 
 
 :-      module(choose_lines, [
-                choose_lines/2
+                choose_lines/3
                 ]).
 
 
@@ -60,30 +57,43 @@
 
 
 
-%! choose_lines(+AvailableChoices:list,-ChosenLines:list) is semidet.
+%! choose_lines(+WarningStream:io_stream,+AvailableChoices:list,-ChosenLines:list) is semidet.
 %
 % see the heads of each list for their syntax.
+%
+% a family that does not yet have a genotype/11 fact because it has
+% never been planted is '0000' by default; idiosyncratic
 
 
-choose_lines([],[]).
-choose_lines([p(Row,NumPackets,CrossAlternatives,Plntg,Plan,Comments,K,Crop,Cl,Ft)|Choices],
-	     [Locatn-(Row,NumPackets,MaNumGtype,PaNumGtype,Family,Plntg,MergedPlan,MergedComments,K,Crop,Cl,Ft)|Chosen]) :-
+choose_lines(_,[],[]).
+choose_lines(WarningStream,[p(Row,NumPackets,CrossAlternatives,Plntg,Plan,Comments,K,Crop,Cl,Ft)|T],
+	     [Locatn-(Row,NumPackets,MaNumGtype,PaNumGtype,
+		                                Family,Plntg,Plan,FinalComments,K,Crop,Cl,Ft)|Chosen]) :-
         ( convert_parental_syntax(CrossAlternatives,Alternatives) ->
                 true
         ;
-                format('Warning!  choose_lines:choose_lines/2 calls an unconsidered case in genetic_utilities:convert_parental_syntax/2 for ~w~n',[CrossAlternatives]),
+                format('Warning!  choose_lines:choose_lines/3 calls an unconsidered case in genetic_utilities:convert_parental_syntax/2 for ~w~n',[CrossAlternatives]),
 	        Alternatives = CrossAlternatives
         ),
 
-	choose_line(Alternatives,Locatn,MaNumGtype,PaNumGtype,Family,OldCropData),
+	choose_line(Crop,Alternatives,WarningStream,Locatn,MaNumGtype,PaNumGtype,Family,OldCropData),
         ( ( Family == '0000' ; skip(MaNumGtype) ; inbred(Family,_) ) ->
-                MergedPlan = [],
-                MergedComments = []
+                FinalComments = Comments
         ;
-	        append([_-(_,_,Crop,Plan,Comments)],OldCropData,NewOldData),
-	        merge_plans_n_comments(NewOldData,MergedPlan,MergedComments)
-        ),
-	choose_lines(Choices,Chosen).
+	        merge_plans_n_comments(OldCropData,PreviousPlan,PreviousComments),
+	        ( PreviousPlan == '' ->
+		        PriorPlans = ''
+                ;
+                        atom_concat('.  PREVIOUS PLANS:  ',PreviousPlan,PriorPlans)
+		),
+                ( PreviousComments == '' ->
+		        PriorComments = ''
+                ;
+                        atom_concat('   PREVIOUS COMMENTS:  ',PreviousComments,PriorComments)
+                ),
+	        atomic_list_concat([Comments,PriorPlans,PriorComments],FinalComments)
+        ),   
+        choose_lines(WarningStream,T,Chosen).
 
 
 
@@ -106,11 +116,11 @@ choose_lines([p(Row,NumPackets,CrossAlternatives,Plntg,Plan,Comments,K,Crop,Cl,F
 
 
 
-%! choose_line(+CrossAlternatives:list,-BestLocatn:atom,-BestMa:atom,
+%! choose_line(+Crop:atom,+CrossAlternatives:list,-BestLocatn:atom,-BestMa:atom,
 %                        -BestPa:atom,-BestFamily:atom,-PriorCropData:list) is semidet.
 
 
-choose_line(CrossAlternatives,BestLocatn,BestMa,BestPa,BestFamily,PriorCropData) :-
+choose_line(Crop,CrossAlternatives,WarningStream,BestLocatn,BestMa,BestPa,BestFamily,PriorCropData) :-
 	check_lines(CrossAlternatives,[],Checked),
 	( Checked == [] ->
 	        nth1(1,CrossAlternatives,(BestMa,BestPa)),
@@ -135,7 +145,7 @@ choose_line(CrossAlternatives,BestLocatn,BestMa,BestPa,BestFamily,PriorCropData)
 		)
 
 	),
-        find_all_plantings_of_line(BestMa,BestPa,PriorCropData),
+        find_all_plantings_of_line(Crop,WarningStream,BestMa,BestPa,PriorCropData),
         find_family(BestMa,BestPa,BestFamily).
 
 
@@ -228,20 +238,20 @@ pick_best([NumCl-(MaNumGtype,PaNumGtype,Locatn)|T],RNum-(Ma,Pa,SoFarLocatn),Best
 
 
 
-%! merge_plans_n_comments(+OldCropData:list,-MergedPlan:atom,-MergedComments:atom) is semidet.
+%! merge_plans_n_comments(+OldCropData:list,-PreviousPlans:atom,-PreviousComments:atom) is semidet.
 
 
-merge_plans_n_comments(OldCropData,MergedPlan,MergedComments) :-
-        merge_plans_n_comments(OldCropData,'',MergedPlan,'',MergedComments).
+merge_plans_n_comments(OldCropData,PreviousPlan,PreviousComments) :-
+        merge_plans_n_comments(OldCropData,'',PreviousPlan,'',PreviousComments).
 
 
 merge_plans_n_comments([],P,P,C,C).
-merge_plans_n_comments([_-(_,_,Crop,Plan,Comment)|T],PlanAcc,MergedPlan,CommentAcc,MergedComments) :-
+merge_plans_n_comments([_-(_,_,Crop,Plan,Comment)|T],PlanAcc,PreviousPlan,CommentAcc,PreviousComments) :-
         annotate_string(Crop,Plan,IntPlan),
 	annotate_string(Crop,Comment,IntComment),
         atom_concat(PlanAcc,IntPlan,NewPlanAcc),
         atom_concat(CommentAcc,IntComment,NewCommentAcc),
-        merge_plans_n_comments(T,NewPlanAcc,MergedPlan,NewCommentAcc,MergedComments).
+        merge_plans_n_comments(T,NewPlanAcc,PreviousPlan,NewCommentAcc,PreviousComments).
 
 
 

@@ -1,20 +1,49 @@
-% this is demeter/code/pack_corn.pl
+% this is ../c/maize/demeter/code/pack_corn.pl
 
-% generate the packing stickers from the new packing_plan facts; builds
-% on choose_lines.pl and order_packets.pl
+
+
+
+% given a crop's packing plan file (in ../c/maize/crops/CROP/planning/packing_plan.pl,
+% generated as described in ../c/maize/crops/notes/procedure.org):
 %
-% Kazic, 24.4.2011
-
-
-
-% aaargh!  this must be ported to swipl!  clean up choose_lines.pl as part of this
-% fix directory management
+%         choose among alternative lines for each row;
+%         issue a warning if a line has been planted more than 3 times already;
+%         assemble the previous plans and comments for that line and append to the current ones;
+%         append the current plan/6 facts to ../data/plan.pl; and
+%         generate the file for packet labels that will be input to
+%                 ../../label_making/make_seed_packet_labels.perl.
+%
+%
+%
+%
+% Note that after the 19R plan facts are generated, it would be good to modify
+% choose_lines:merge_plans_n_comments/3 to prevent indefinite, repetitive
+% expansion.
+%
+% Also, someday modify genetic_utilities:find_all_plantings_of_line/5 to compute the
+% outcomes of prior plantings and spit those out, rather than tell the user to go look them
+% up.
+%
+%
+%
+%
+% ported to swipl!  cleaned up choose_lines.pl and added to genetic_utilities.pl
+% as part of this
 %
 % order_packets.pl moved to ../archival/obsolete_code for now, not sure it's needed here.
 % the guts of the algorithm to sort packets into inventory order for printing are in
 % ../c/maize/data/data_conversion/update_inventory.perl and uses a four-dimensional hash.
 %
-% Kazic, 16.6.2019
+% Kazic, 26.7.2019
+
+
+
+% call is: pack_corn('19R').
+
+
+
+
+
 
 
 
@@ -32,26 +61,14 @@
 
 
 :-      use_module(demeter_tree('code/choose_lines'), [
-                find_max/3,
-                foundational_line/3,
-                fuzzy_max/3,
-                max/3
+                choose_lines/3
                 ]).
 
-
-
-
-
-:-      use_module(demeter_tree('code/order_packets'), [
-                append_to_planning_file/2,
-                load_crop_planning_data/1
-                ]).
 
 
 
 :-      use_module(demeter_tree('code/genetic_utilities')),
         use_module(demeter_tree('code/demeter_utilities')),
-        use_module(demeter_tree('code/pedigrees')),
         use_module(demeter_tree('data/load_data')).
 
 
@@ -64,56 +81,27 @@
 
 
 
-% call: [load_demeter,pack_corn],pack_corn('15R').
 
-% add a predicate to sort the corn first by sleeve, then by family if Ma inbred, and last by Ma Rowplant 
-% for both selves and inbreds.  This simplifies packing and will help reduce packing errors.
-% Trial algorithm in crop_management.pl is incorrect.
-%
-% Kazic, 9.6.2011
+
+
+% note the elements of the output list of choose_lines/2 are keyed by sleeve,
+% but are in the same order as the rows in the planning file.
+
+
+%! pack_corn(+Crop:atom) is semidet.
 
 pack_corn(Crop) :-
         load_crop_planning_data(Crop),
 
         setof(p(Row,NumPackets,Alternatives,Plntg,Plan,Comments,K,Crop,Cl,Ft),
 	      packing_plan(Row,NumPackets,Alternatives,Plntg,Plan,Comments,K,Crop,Cl,Ft),Choices),
-	choose_lines(Choices,Chosen),
 
+	open_planning_warning_file(Crop,LCrop,TimeStamp,UTCDate,WarningStream),
+	choose_lines(WarningStream,Choices,Chosen),
+	close(WarningStream),
+        place_in_inventory_order(Chosen,InventoryOrder),
 
-
-	
-        check_row_numbering(Crop,Lines),
-        organize_corn(Crop,Lines,Chosen),
-        sort(Chosen,Sorted),
-        generate_output(Crop,Sorted).
-
-
-
-
-
-
-
-
-% false if numbers not consecutive or duplicated
-
-check_row_numbering(Crop,Lines) :-
-        bagof(RowSequenceNum-(NumPackets,SetAlternativeParents,
-                             Plntg,CrossInstructns,SetInstructions,Crop,Cl,Ft),
-                             NumPackets^SetAlternativeParents^
-                             Plntg^CrossInstructns^SetInstructions^KNum^Crop^Cl^
-                             Ft^packing_plan(RowSequenceNum,NumPackets,
-			     SetAlternativeParents,Plntg,CrossInstructns,SetInstructions,
-                                                   KNum,Crop,Cl,Ft),Lines),
-
-
-        samsort(Lines,SortedBag),
-        find_nonconsecutive_nums(SortedBag,NonconsecutiveNums),
-        ( NonconsecutiveNums == [] ->
-                true
-	;
-                format('Warning! row sequence numbers ~w are not consecutive!~n',[NonconsecutiveNums]),
-                false
-        ).
+	generate_output(LCrop,TimeStamp,UTCDate,Chosen,InventoryOrder).
 
 
 
@@ -121,39 +109,64 @@ check_row_numbering(Crop,Lines) :-
 
 
 
-find_nonconsecutive_nums(Sorted,NonconsecutiveNums) :-
-        find_nonconsecutive_nums(Sorted,[],NonconsecutiveNums).
 
 
 
-% hmmm, not really the right test here, but leave for now
+% this is for my idiosyncratic corn filing scheme, adjust the keys for yours
 %
-% Kazic, 26.4.2011
+%
+%
+% a simple sort on multiple keys does the job
+%
+%% [debug] 13 ?- sort([v00010-2017-4-205-(a,b),v00010-2018-4-205-(a,b),v00011-2018-11-305-(a,b),v00009-2017-4-305-(a,b),v00010-2018-11-205-(a,b),v00010-2018-11-305-(a,b)],X),demeter_utilities:write_list(X).
+%% v00009-2017-4-305-(a,b) 
+%% v00010-2017-4-205-(a,b) 
+%% v00010-2018-4-205-(a,b) 
+%% v00010-2018-11-205-(a,b) 
+%% v00010-2018-11-305-(a,b) 
+%% v00011-2018-11-305-(a,b) 
+%% X = [v00009-2017-4-305-(a, b), v00010-2017-4-205-(a, b), v00010-2018-4-205-(a, b), v00010-2018-11-205-(a, b), v00010-2018-11-305-(a, b), ... - ... - 11-305-(a, b)].
+%
+%
+% construction of the keys reflects my idiosyncratic filing of my corn; adapt
+% to your own
+%
+% Kazic, 25.7.2019
 
-find_nonconsecutive_nums([],A,A).
-find_nonconsecutive_nums([H-_],Acc,NonconsecutiveNums) :-
-        ( Acc == [] ->
-                 NewAcc = Acc
+
+%! place_in_inventory_order(+Sorted:list,-InventoryOrder:list) is semidet.
+
+place_in_inventory_order(Sorted,InventoryOrder) :-
+        construct_keys(Sorted,Keyed),
+	sort(Keyed,InventoryOrder).
+
+
+
+
+
+
+
+
+
+
+
+
+%! construct_keys(+Sorted:list,-Keyed:list) is semidet.
+
+construct_keys([],[]).
+construct_keys([Locatn-(Row,NumPackets,MaNumGtype,PaNumGtype,Family,Plntg,Plan,Comments,K,Crop,Cl,Ft)|Sorted],
+	       [Locatn-MaYr-MaFirstMon-SortFamily-MaRow-MaPlant-(Row,NumPackets,MaNumGtype,PaNumGtype,Family,Plntg,Plan,Comments,K,Crop,Cl,Ft)|Keyed]) :-
+        disassemble_plantID(MaNumGtype,_,MaYr,_,MaFirstMon,MaFamily,MaRow,MaPlant),
+	( mutant_by_family(MaFamily) ->
+	        SortFamily = '0000'
         ;
-                 last(End,Acc),
-                 ( H is End + 1 ->
-                         NewAcc = Acc
-                 ;
-                         append(Acc,[H],NewAcc)
-                 )
+                SortFamily = MaFamily
         ),
-        find_nonconsecutive_nums([],NewAcc,NonconsecutiveNums).
+        construct_keys(Sorted,Keyed).
 
 
 
 
-find_nonconsecutive_nums([H1-_,H2-X|T],Acc,NonconsecutiveNums) :-
-        ( H2 is H1 + 1 ->
-                NewAcc = Acc
-        ;
-                append(Acc,[H1],NewAcc)
-        ),
-        find_nonconsecutive_nums([H2-X|T],NewAcc,NonconsecutiveNums).
 
 
 
@@ -162,272 +175,17 @@ find_nonconsecutive_nums([H1-_,H2-X|T],Acc,NonconsecutiveNums) :-
 
 
 
-
-
-
-% changed to permit use of Ma x Pa syntax which is cut and pasted directly
-% from the pedigrees
-%
-% Kazic, 27.5.2010
-%
-%
-% modified to include all of the instructions from the new packing_plan/10
-% facts.
-%
-% Kazic, 24.4.2011
-%
-%
-% handle the skipped rows explicitly:  the CrossInstructns test
-%
-% Kazic, 2.5.2011
-
-
-organize_corn(_,[],[]).
-organize_corn(Crop,[RowSequenceNum-(NumPackets,SetAlternativeParents,
-                                  Plntg,CrossInstructns,SetInstructions,Crop,Cl,Ft)|Choices],
-                 [Locatn-(RowSequenceNum,NumPackets,InbredPacketNum,MaNumGtype,PaNumGtype,Family,Plntg,
-                                       CrossInstructns,SetInstructions,Crop,Cl,Ft)|Chosen]) :-
-        ( convert_parental_syntax(SetAlternativeParents,Alternatives) ->
-                true
-        ;
-                format('Warning!  pack_corn:organize_corn/3 calls an unconsidered case in genetic_utilities:convert_parental_syntax/2 for ~w~n',[SetAlternativeParents])
-        ),
-
-        ( CrossInstructns == [] ->
-                Cl == 0,
-                arg(1,Alternatives,(MaNumGtype,PaNumGtype)),
-                MaNumGtype == PaNumGtype,
-                get_family(MaNumGtype,Family),
-                Family == 0000,
-                Locatn = 0
-        ;
-                ( is_list(Alternatives) ->
-                        length(Alternatives,Num),
-                        ( Num =:= 1 ->
-                                ( arg(1,Alternatives,(MaNumGtype,PaNumGtype)) ->
-                                        find_location(MaNumGtype,PaNumGtype,Family,Locatn)
-				;
-                                        arg(1,Alternatives,StockOrMutant),
-                                        MaNumGtype = StockOrMutant,
-                                        Locatn = 0
-                                )
-			;
-
-
-% if this fails because of fungus, call again with first ear in list, just grab location
-%
-% Kazic, 24.5.2010
-
-                                ( mod_choose_line(Alternatives,MaNumGtype,PaNumGtype,Family,Locatn) ->
-                                        true
-                	        ;
-                                        arg(1,Alternatives,Default),
-                                        arg(1,Default,(MaNumGtype,PaNumGtype)),
-                                        find_location(MaNumGtype,PaNumGtype,Family,Locatn),
-                                        format('Warning! all ears in ~w have fungus, first one taken.~n',[Alternatives])
-                	        )
-                        )
-                ;	        
-                        compound(Alternatives),
-                        arg(1,Alternatives,MaNumGtype),
-                        arg(2,Alternatives,PaNumGtype),
-                        find_location(MaNumGtype,PaNumGtype,Family,Locatn)
-                )
-        ),
-
-
-% assign packet number if seed is an inbred; otherwise, leave it uninstantiated
-%
-% Kazic, 9.6.2014
-
-        get_rowplant(MaNumGtype,MaRowPlant),
-        ( MaRowPlant == xxxxxx ->
-                current_inbred(Crop,Family,Family,_,InbredPacketNum)
-        ;
-                true
-        ),
-        organize_corn(Crop,Choices,Chosen).
-
-
-
-
-
-
-
-
-
-
-
-% incorporates most_recent_datum/2
-%
-% Kazic, 24.4.2011
-%
-% shifted logic so that a warning for a missing family number is issued, even 
-% if the kernel count is deemed too low.
-%
-% Kazic, 5.6.2014
-
-find_location(MaNumGtype,PaNumGtype,Family,Locatn) :-
-        ( setof(InvDate-InvTime-(MaNumGtype,PaNumGtype,Cl,Loc),
-              inventory(MaNumGtype,PaNumGtype,num_kernels(Cl),_,InvDate,InvTime,Loc),InventoryFacts) ->
-                most_recent_datum(InventoryFacts,_-(MaNumGtype,PaNumGtype,NumCl,Locatn)),
-                ( check_quantity_cl(MaNumGtype,PaNumGtype,NumCl) ->
-                        true
-	        ;
-                        format('Warning!  not enough seed for ~w x ~w: find an alternative line!~n',[MaNumGtype,PaNumGtype])
-                ),
-
-                ( genotype(Family,_,MaNumGtype,_,PaNumGtype,_,_,_,_,_,_) ->
-                        true
-		;
-                        format('Warning! family not yet assigned for ~w x ~w~n',[MaNumGtype,PaNumGtype]),
-                        Family = '0000'
-                )
-
-	;
-                ( foundational_line(MaNumGtype,Family,Locatn) ->
-                        ( var(PaNumGtype) ->
-                                PaNumGtype = MaNumGtype
-                        ;
-                                true
-                        )
-                ;
-                        format('Warning! inventory fact for ~w x ~w not found, choose again!~n',[MaNumGtype,PaNumGtype]),       
-                        Family = '0000',
-                        Locatn = -1
-                )
-        ).
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-% add test for fungus in seed; reject seed if harvest fact indicates fungus
-%
-% harvest('09R1130:0001205','09R1130:0001205',succeeded,'fungus',toni,date(19,09,2009),time(12,31,29)).
-%
-% Kazic, 24.5.2010
-
-%%%% stopped here for now as no line choices in 11r
-%
-% plan is to incorporate most_recent_datum/2 and exploit more passed data
-%
-% Kazic, 24.4.2011
-
-
-mod_choose_line([(MaNumGtype,PaNumGtype)|T],CMaNumGtype,CPaNumGtype,CFamily,CLocatn) :-
-        ( inventory(MaNumGtype,PaNumGtype,num_kernels(NumCl),_,_,_,Locatn) ->
-%
-% insert fungus test here
-% 
-
-                ( genotype(Family,_,MaNumGtype,_,PaNumGtype,_,_,_,_,_,_) ->
-                        true
-	        ;
-                        format('Warning! family not yet assigned for ~w x ~w~n',[MaNumGtype,PaNumGtype]),
-                        Family = '0000'
-                )
-        ;
-                ( foundational_line(MaNumGtype,Family,Locatn) ->
-                        NumCl = 25
-                ;
- 
-                        format('Warning! inventory fact for ~w x ~w not found, choose again!~n',[MaNumGtype,PaNumGtype]),       
-                        NumCl = 0000,
-                        Locatn = -1
-                )
-        ),
-        mod_choose_line(T,MaNumGtype,PaNumGtype,Family,Locatn,NumCl,CMaNumGtype,CPaNumGtype,CFamily,CLocatn).
-
-
-
-
-
-
-
-
-
-mod_choose_line([],M,P,F,L,_,M,P,F,L).
-mod_choose_line([(MaNumGtype,PaNumGtype)|T],MaxMa,MaxPa,MaxFam,MaxLoc,MaxNumCl,CMaNumGtype,CPaNumGtype,CFam,CLocatn) :-
-        ( inventory(MaNumGtype,PaNumGtype,num_kernels(NumCl),_,_,_,Locatn) ->
-                ( genotype(Family,_,MaNumGtype,_,PaNumGtype,_,_,_,_,_,_) ->
-                        true
-	        ;
-                        format('Warning! family not yet assigned for ~w x ~w~n',[MaNumGtype,PaNumGtype]),
-                        Family = '0000'
-                )
-        ;
-                ( foundational_line(MaNumGtype,Family,Locatn) ->
-                        NumCl = 25
-                ;
-
-                        format('Warning! inventory fact for ~w x ~w not found, choose again!~n',[MaNumGtype,PaNumGtype]),       
-                        Family = '0000',
-                        NumCl = 0
-                )
-        ),
-        ( NumCl == whole ->
-               NewMaxMa = MaNumGtype,
-               NewMaxPa = PaNumGtype,
-               NewMaxFam = Family,
-               NewMaxLoc = Locatn,
-               NewMaxCl = NumCl
-             
-        ;
-               ( find_max(NumCl,MaxNumCl,Max) ->
-                      ( Max == NumCl ->
-                              NewMaxMa = MaNumGtype,
-                              NewMaxPa = PaNumGtype,
-                              NewMaxFam = Family,
-                              NewMaxLoc = Locatn,
-                              NewMaxCl = NumCl
-                      ;
-                              NewMaxMa = MaxMa,
-                              NewMaxPa = MaxPa,
-                              NewMaxFam = MaxFam,
-                              NewMaxLoc = MaxLoc,
-                              NewMaxCl = MaxNumCl
-                      )
-                ;
-                      format('unconsidered case for find_max/3 in mod_choose_line/10 for ~w vs ~w~n',[NumCl,MaxNumCl])
-                )
-        ),
-        mod_choose_line(T,NewMaxMa,NewMaxPa,NewMaxFam,NewMaxLoc,NewMaxCl,CMaNumGtype,CPaNumGtype,CFam,CLocatn).
-
-
-
-
-
-
-
-
-        
-
-
-
-% generate two output files:  the flat file for the Perl script (which must be modified)
+% generate two output files:  the flat file for the Perl packet labels script
 % and append to the plan.pl file
 %
-% Kazic, 24.4.2011
+% Kazic, 26.7.2019
 
 
-generate_output(Crop,Chosen) :-
-        utc_timestamp_n_date(TimeStamp,UTCDate),
-        convert_crop(Crop,LCrop),
-        output_packet_label_file(LCrop,TimeStamp,UTCDate,Chosen),
-        output_plan_file(LCrop,Chosen).
+%! generate_output(+LCrop:atom,+TimeStamp:atom,+UTCDate:atom,+Chosen:list,+InventoryOrder:list) is semidet.
 
-
+generate_output(LCrop,TimeStamp,UTCDate,Chosen,InventoryOrder) :-
+        output_plan_file(LCrop,Chosen),
+        output_packet_label_file(LCrop,TimeStamp,UTCDate,InventoryOrder).
 
 
 
@@ -436,8 +194,77 @@ generate_output(Crop,Chosen) :-
 
 
 
+%! output_plan_file(+LCrop:atom,+Chosen:list) is semidet.
+
+output_plan_file(LCrop,Chosen) :-
+        morph_into_plans(Chosen,Plans),
+        append_to_planning_file(LCrop,Plans).
+
+
+
+
+
+
+% since the same mutant line can be planted in multiple rows in the same planting,
+% eliminate those duplicates.
+
+
+morph_into_plans(Chosen,Plans) :-
+	morph_into_plans(Chosen,[],Plans).
+
+morph_into_plans([],A,A).
+morph_into_plans([_-(_,_,MaNumGtype,PaNumGtype,Family,Plntg,MergedPlan,MergedComments,_,Crop,_,_)|T],
+		                                                                             Acc,Plans) :-
+	( current_inbred(Crop,_,_,Family,_) ->
+                NewAcc = Acc
+        ;
+                ( memberchk(plan(MaNumGtype,PaNumGtype,Plntg,MergedPlan,MergedComments,Crop),Acc) ->
+                        NewAcc = Acc
+                ;
+	  
+		        append(Acc,[plan(MaNumGtype,PaNumGtype,Plntg,MergedPlan,MergedComments,Crop)],NewAcc)
+                )
+	),
+	morph_into_plans(T,NewAcc,Plans).
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%! output_packet_label_file(+LCrop:atom,+TimeStamp:atom,+UTCDate:atom,+InventoryOrder:list) is semidet.
+
+output_packet_label_file(LCrop,TimeStamp,UTCDate,InventoryOrder) :-
+        atomic_list_concat(['../../crops/',LCrop,'/management/seed_packet_labels.csv'],File),
+        open(File,write,Stream),
+        format(Stream,'% this is ~w~n!n',[File]),
+        format(Stream,'% generated ~w (=~w) by pack_corn:pack_corn/1.~n%~n',[UTCDate,TimeStamp]),
+        format(Stream,'% This file is ready for processing by ../../label_making/make_seed_packet_labels.perl.~n%~n',[]),
+        format(Stream,'% Data are of the form~n%~n%       $packet,$family,$ma_num_gtype,$pa_num_gtype,$cl,$ft,$sleeve,$num_packets_needed,$row_sequence_num,$planting~n%~n% and are in inventory order.~n%~n%~n',[]),
+
+        output_packets(Stream,10,InventoryOrder),
+        close(Stream).
+
+
+
+
+
+
+
+
+% my idiosyncratic packet organization:  change to fit your needs
+%
 % all mutant packet labels start at 10 to preserve packet numbers
-% 1 -- 9 for inbred, elite, and skipped lines!
+% 0 -- 9 for inbred, elite, and skipped lines!
 %
 % p00000 = no corn planted for skipped rows
 % p00001 = Mo20W
@@ -449,77 +276,29 @@ generate_output(Crop,Chosen) :-
 % Kazic, 16.6.2019
 
 
+output_packets(_,_,[]).
+output_packets(Stream,PacketNum,[Locatn-_-_-_-_-_-(RowSequenceNum,NumPackets,MaNumGtype,PaNumGtype,
+						                Family,Plntg,_,_,_,Crop,Cl,Ft)|Chosen]) :-
+
+% not a skipped or bulk-planted elite row
+
+	( Locatn \== z00000 ->
 
 
+% an inbred row with the standard packet number
 
-% adapted to accommodate move to phasma: phasma can''t write to athe''s partitions, so 
-% stick it in phasma''s /home/toni/demeter/results/CROP_planning/packet_label_list.csv.
-%
-% Kazic, 15.5.2015
+	        ( Locatn == a00001 ->
+                        current_inbred(Crop,_,_,Family,Packet),
+                        NewPacketNum = PacketNum
+                ;
+                        pad(PacketNum,5,PaddedPacket),
+                        atom_concat(p,PaddedPacket,Packet),
+                        NewPacketNum is PacketNum + 1
+                ),
 
-% adapt back now that we are porting to swipl
+		format(Stream,'~w,~w,~w,~w,~w,~w,~w,~w,~w,~w~n',[Packet,Family,MaNumGtype,PaNumGtype,Cl,Ft,Locatn,NumPackets,RowSequenceNum,Plntg])
 
-output_packet_label_file(LCrop,TimeStamp,UTCDate,Chosen) :-
-%        atomic_list_concat(['../../maize/crops/',LCrop,'/planning/packet_label_list.csv'],File),
-        atomic_list_concat(['/home/toni/demeter/results/',LCrop,'_planning/packet_label_list.csv'],File),
-        open(File,write,Stream),
-        format(Stream,'% this is ~w~n',[File]),
-        format(Stream,'% generated ~w (=~w) by pack_corn/2.~n%~n',[UTCDate,TimeStamp]),
-        format(Stream,'% This file is ready for processing by ../../label_making/make_seed_packet_labels.perl.~n%~n',[]),
-        format(Stream,'% Data are of the form $packet,$family,$ma_num_gtype,$pa_num_gtype,$cl,$ft,$sleeve,$num_packets_needed,$row_sequence_num,$plntg.~n%~n%~n',[]),
-        output_chosen(Stream,10,Chosen),
-        close(Stream).
-
-
-
-
-
-
-
-% order of arguments a bit unusual after adding RowSequenceNum and Plntg
-%
-% Kazic, 24.4.2011
-%
-% added an argument for the fixed inbred packet numbers; otherwise,
-% increment the running packet number count.
-%
-% Kazic, 9.6.2014
-
-output_chosen(_,_,[]).
-output_chosen(Stream,PacketNum,[Locatn-(RowSequenceNum,NumPackets,InbredPacketNum,MaNumGtype,PaNumGtype,Family,Plntg,
-                                               _,_,_,Cl,Ft)|Chosen]) :-
-        ( var(InbredPacketNum) ->
-                format(Stream,'~w,~w,~w,~w,~w,~w,~w,~w,~w,~w~n',[PacketNum,Family,MaNumGtype,PaNumGtype,Cl,Ft,Locatn,NumPackets,RowSequenceNum,Plntg]),
-                NewPacketNum is PacketNum + 1
-        ;
-                format(Stream,'~w,~w,~w,~w,~w,~w,~w,~w,~w,~w~n',[InbredPacketNum,Family,MaNumGtype,PaNumGtype,Cl,Ft,Locatn,NumPackets,RowSequenceNum,Plntg]),
+	;
                 NewPacketNum = PacketNum
         ),
-        output_chosen(Stream,NewPacketNum,Chosen).
-
-
-
-
-
-
-
-% rewrite facts to fit existing predicate in order_packets
-%
-% Kazic, 24.4.2011
-
-output_plan_file(LCrop,Chosen) :-
-        morph_into_plans(Chosen,Plans),
-        append_to_planning_file(LCrop,Plans).
-
-
-
-
-
-
-
-morph_into_plans([],[]).
-morph_into_plans(
-      [_-(_,_,_,MaNumGtype,PaNumGtype,_,Plntg,CrossInstructns,SetInstructions,Crop,_,_)|T1],
-                     [plan(MaNumGtype,PaNumGtype,Plntg,CrossInstructns,SetInstructions,Crop)|T2]) :-
-        morph_into_plans(T1,T2).
-      
+        output_packets(Stream,NewPacketNum,Chosen).

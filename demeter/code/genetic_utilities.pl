@@ -60,7 +60,7 @@
                 extract_row/2,
                 filter_by_date/3,
                 find_all_mutants/1,
-		find_all_plantings_of_line/3,
+		find_all_plantings_of_line/5,
                 find_closest_crop_after_packing/3,
                 find_current_stand_count/3,
                 find_descendants_of_lines_wo_genotypes/1,
@@ -118,6 +118,7 @@
 		next_crop/3,
                 nonzero_stand_count/2,
                 mutant_by_family/1,
+                open_planning_warning_file/5,
 		output_data/3,
                 output_header/3,
                 packet/1,
@@ -127,10 +128,10 @@
                 pot/1,
 		reorganize_plan/3,
 %		remove_family/2,
-		remove_row_prefix/2,
 		remove_padding/2,
 		remove_padding_aux/2,
 		remove_padding_list/2,
+		remove_row_prefix/2,
 		reverse_chronological_order/2,
                 row/1,
 		row_from_parents/4,
@@ -154,7 +155,7 @@
                 track_transplants_to_row/3,
                 unsplit_crop/3,
                 unsplit_crops/2,
-		was_planted/8,
+		was_planted/9,
 		wild_type/1,
                 winter_nursery/2,
                 write_list_facts_w_skips/2,
@@ -2741,7 +2742,7 @@ output_header_aux(tags,Stream) :-
 
 
 output_header_aux(plano,Stream) :-
-        format(Stream,'order_packets:generate_plan/1.~n~n~n',[]),
+        format(Stream,'% pack_corn:pack_corn/1.~n~n~n',[]),
         format(Stream,'% plan(Ma,Pa,Planting,Instructions,Notes,Crop).~n~n~n',[]).
 
 
@@ -5336,17 +5337,21 @@ get_parental_families([(Ma,Pa)|T],[(MaFam,PaFam)|T2]) :-
 % plans for that line.  Issue a warning if we've tried this too many times
 % already.
 %
-% Kazic, 22.7.2019
+% Someday, have the code root through the data for the outcomes.
+%
+% Kazic, 26.7.2019
 
 
-find_all_plantings_of_line(Ma,Pa,PriorCropData) :-
+find_all_plantings_of_line(CurrentCrop,WarningStream,Ma,Pa,PriorCropData) :-
 	get_family(Pa,PaFam),
         ( ( Pa \== '06R0000:0000000', mutant_by_family(PaFam) ) ->
-		setof(TimeStamp-(Packet,Row,Crop,Plan,Comments),
-		      was_planted(Ma,Pa,TimeStamp,Packet,Row,Crop,Plan,Comments),PriorCropData),
+		findall(TimeStamp-(Packet,Row,Crop,Plan,Comments),
+		      was_planted(CurrentCrop,Ma,Pa,TimeStamp,Packet,Row,Crop,Plan,Comments),
+		           PriorCropData),
+
 		length(PriorCropData,NumPriorPlantings),
                 ( NumPriorPlantings > 3 ->
-		        format('Warning!  ~w x ~w planted in ~w previous crops ~w, check outcomes.~n',[Ma,Pa,NumPriorPlantings,PriorCropData])	         
+		        format(WarningStream,'Warning!  ~w x ~w planted in ~w previous crops ~w, check outcomes.~n~n',[Ma,Pa,NumPriorPlantings,PriorCropData])	         
                 ;
 		        true
 		)
@@ -5358,13 +5363,14 @@ find_all_plantings_of_line(Ma,Pa,PriorCropData) :-
 
 
 
-was_planted(Ma,Pa,PlntgTS,Packet,Row,Crop,Plan,Comments) :-
+was_planted(CurrentCrop,Ma,Pa,PlntgTS,Packet,Row,Crop,Plan,Comments) :-
 	packed_packet(Packet,Ma,Pa,_,_,date(KD,KM,PkingYr),KTime),
 	get_timestamp(date(KD,KM,PkingYr),KTime,PkingTS),
         get_year(Ma,MaYr),
 	atomic_concat(20,MaYr,MaYrAtom),
 	atom_number(MaYrAtom,MaFullYr),
         planted(Row,Packet,_,_,date(PD,PM,PlntgYr),PTime,_,Crop),
+	Crop @< CurrentCrop,
 	get_timestamp(date(PD,PM,PlntgYr),PTime,PlntgTS),	
 	MaFullYr =< PkingYr,
         PkingTS < PlntgTS,
@@ -5374,6 +5380,8 @@ was_planted(Ma,Pa,PlntgTS,Packet,Row,Crop,Plan,Comments) :-
                 Plan = [],
 	        Comments = ''
 	).
+
+
 
 
 
@@ -5885,11 +5893,28 @@ load_crop_planning_data(Crop) :-
 
 
 
-append_to_planning_file(Crop,Plans) :-
-	open(demeter_tree('data/plan.pl'),append,Stream),
-        convert_crop(Crop,LCrop),	
+
+
+
+%! open_planning_warning_file(+Crop:atom,-LCrop:atom,-TimeStamp:atom,-UTCDate:atom,-WarningStream:io_stream) is det.
+
+open_planning_warning_file(Crop,LCrop,TimeStamp,UTCDate,WarningStream) :-
+        convert_crop(Crop,LCrop),
+        utc_timestamp_n_date(TimeStamp,UTCDate),
+	
+        atomic_list_concat(['../../crops/',LCrop,'/planning/packing_warnings'],WarningsFile),
+	open(WarningsFile,write,WarningStream),
+        format(WarningStream,'% this is ~w~n~n',[WarningsFile]),
+        format(WarningStream,'% generated on ~w (=~w) by pack_corn:pack_corn/1.~n%~n% check the results of prior plantings and adjust the plan accordingly!~n~n~n~n',[UTCDate,TimeStamp]).
+
+
+
+
+
+append_to_planning_file(LCrop,Plans) :-
+	open('../data/plan.pl',append,Stream),
         format(Stream,'~n~n~n~n% ~w~n~n',[LCrop]),
-        output_header(plano,demeter_tree('data/plan.pl'),Stream),
+        output_header(plano,'../data/plan.pl',Stream),
         write_list_facts(Stream,Plans),
         close(Stream).
 
