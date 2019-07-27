@@ -1405,6 +1405,7 @@ sub print_seed_packet_label {
 
         ($filehandle,$barcode_out,$family,$ma_num_gtype,$pa_num_gtype,$sleeve,$cl,$ft,$rowseqnum,$plntg,$i,$#labels) = @_;
         $barcode_file = $barcode_rel_dir . $barcode_out;
+#	        $barcode_file = $barcode_out;
 
         $rem = $i % 30;
         $stack = int($i / 10);
@@ -1579,7 +1580,7 @@ sub print_seed_packet_label_aux {
                    \\put($packet_x,$packet_y){\\begin{tabular}{lr}
                    \\multicolumn{2}{c}{\\huge{$big}} \\\\
                    \\multicolumn{2}{c}{$sleeve} \\\\
-                   \\multicolumn{2}{c}{\\small{$cl cl ($ft)}} \\end{tabular}}\n";
+                   \\multicolumn{2}{c}{\\small{$cl k ($ft)}} \\end{tabular}}\n";
 	        }
                     
 
