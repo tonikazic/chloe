@@ -58,21 +58,16 @@ use GenerateOutput;
 
 
 
-my $input_file = "../crops/19r/management/seed_packet_labels";
+my $input_file = "../crops/19r/management/seed_packet_labels.csv";
 
-# $input_file = "resorted_guys_packet_label_list.csv";
-# $input_file = "second_packet_label_list.csv";
-# $input_file = "popcorn_packet_label_list.csv";
-# $input_file = "sweet_corn_packet_label_list.csv";
+my $file_stem = "packet_labels";
 
-my $file_stem = "../crops/19r/tags/packet_labels";
-# $file_stem = "second_seed_packet_labels";
 
 
 my $input = $input_dir . $input_file;
-#my $output = $output_dir . $file_stem . $tex_suffix;
-$output = "../crops/19r/tags/packet_labels.tex";
 my $output_dir = "../crops/19r/tags/";
+my $output = $output_dir . $file_stem . $tex_suffix;
+
 my $barcodes = "../barcodes/19r/";
 
 # print "i: $input\no: $output\nb: $barcodes\n";
@@ -86,11 +81,6 @@ my $in_btwn_re = qr/[\w\*\-\+\.\/\s\{\}\|\;\(\)\?\^\,]*/;
 
 
 
-# packet num not in spreadsheet, though it could be; calculated here
-#
-# Kazic, 18.10.07
-#
-# previous comment obsolete!
 # pack_corn/1 now generates the packet number, and skips the first 9 numbers to 
 # leave those numbers for inbred lines.  So as needed, generate the input csv file
 # for the inbred lines by hand (pretty easy!) and then use that as input here.
@@ -131,51 +121,29 @@ while (<$in>) {
 #
 # Kazic, 24.4.2011
 
+# hmmm, getting a bogus first output line; regex is missing something
+#
+# Kazic, 26.7.2019
+	
         if ( $_ !~ /^[\#\%\n]/ ) {
 
 	       ($packet,$family,$ma_num_gtype,$pa_num_gtype,$cl,$ft,$sleeve,$num_packets_needed,$rowseqnum,$plntg) = $_ =~ /^,*(${packet_num_re}),(${family_re}),(${wierd_gtype_re}),(${wierd_gtype_re}),(${cl_re}),(${ft_re}),(${locatn_re}),(${cl_re}),(${family_re}),(${ft_re})$/;
 
 
 #               print "($packet,$family,$ma_num_gtype,$pa_num_gtype,$cl,$ft,$sleeve,$num_packets_needed,$rowseqnum,$plntg)\n";
-#               print "($packet,$sleeve,$rowseqnum)\n";
 
 
-# if one needs to generate the packet numbers automatically, with different types of automation!
-#
-# Kazic, 16.5.09
-#
-#
-# modified cases to conform more closely with likely output from choose_lines:choose_lines/2.
-# I don't think these cases are disjoint or exhaustive, but I suspect there are too many cases considering
-# the current predicate.
-#
-# Kazic, 2.6.2010
-#
+
 # have retained cases for now, despite switch to pack_corn:pack_corn/1
 #
 # Kazic, 24.4.2011
 
                 if ( ( $packet !~ /p\d{0,5}/ ) && ( $packet !~ /^999/ ) && ( $packet !~ /^\d+/) ) {
-#
-# oops!  need to increment the packet num so that inbreds' and mutants' packet numbers don't overlap!
-# This assumes that packet numbers for inbreds are separately generated, which they are; for inbreds,
-# packet numbers are supplied and the penultimate clause applies.
-#
-# Kazic, 25.5.09
-#
-#
-# incrementing now occurs in pack_corn.pl, so can use the packet numbers it generates
-#
-# Kazic, 24.4.2011
-#
-#
-#                        $packet_num += 10;
                         $packet_num = &pad_row($i,5);
                         $packet_num = 'p' . $packet_num;
 		        }
 		
                 elsif ( ( $packet =~ /^\d+/ ) && ( $packet !~ /^999/ ) ) {
-#                        $packet_num += 10;
                         $packet_num = &pad_row($packet,5);
                         $packet_num = 'p' . $packet_num;
 		        }
@@ -240,6 +208,6 @@ for ( $i = 0; $i <= $#labels; $i++ ) {
 
 
 
-print "($output_dir,$file_stem,$ps_suffix,$pdf_suffix)\n";
+# print "($output_dir,$file_stem,$ps_suffix,$pdf_suffix)\n";
 
 &generate_pdf($output_dir,$file_stem,$ps_suffix,$pdf_suffix);
