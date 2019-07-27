@@ -104,7 +104,8 @@
                 issue_warning/2,
 		load_crop_planning_data/1,
                 make_barcode_elts/3,		       
-                make_indices/5,
+                make_indices/0,
+                make_indices/5,		
                 make_frpc_index/1,
                 make_rest_of_indices/2,
                 make_planting_index/1,
@@ -229,6 +230,9 @@
 
 
 
+
+make_indices :-
+        make_indices('../data/barcode_index.pl','../data/frpc_index.pl','../data/planting_index.pl','../data/crop_rowplant_index.pl','../data/row_members_index.pl'). 
 
 
 
