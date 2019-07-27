@@ -246,10 +246,10 @@ morph_into_plans([_-(_,_,MaNumGtype,PaNumGtype,Family,Plntg,MergedPlan,MergedCom
 output_packet_label_file(LCrop,TimeStamp,UTCDate,InventoryOrder) :-
         atomic_list_concat(['../../crops/',LCrop,'/management/seed_packet_labels.csv'],File),
         open(File,write,Stream),
-        format(Stream,'% this is ~w~n!n',[File]),
-        format(Stream,'% generated ~w (=~w) by pack_corn:pack_corn/1.~n%~n',[UTCDate,TimeStamp]),
-        format(Stream,'% This file is ready for processing by ../../label_making/make_seed_packet_labels.perl.~n%~n',[]),
-        format(Stream,'% Data are of the form~n%~n%       $packet,$family,$ma_num_gtype,$pa_num_gtype,$cl,$ft,$sleeve,$num_packets_needed,$row_sequence_num,$planting~n%~n% and are in inventory order.~n%~n%~n',[]),
+        format(Stream,'# this is ~w~n~n',[File]),
+        format(Stream,'# generated ~w (=~w) by pack_corn:pack_corn/1.~n#~n',[UTCDate,TimeStamp]),
+        format(Stream,'# This file is ready for processing by ../../label_making/make_seed_packet_labels.perl.~n#~n',[]),
+        format(Stream,'# Data are of the form~n%~n#       $packet,$family,$ma_num_gtype,$pa_num_gtype,$cl,$ft,$sleeve,$num_packets_needed,$row_sequence_num,$planting~n#~n# and are in inventory order.~n#~n#~n',[]),
 
         output_packets(Stream,10,InventoryOrder),
         close(Stream).
