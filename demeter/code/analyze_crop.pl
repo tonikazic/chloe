@@ -41,6 +41,7 @@
 %end%
 
 
+:- format('~n~nWarning!  multiple errors of singleton variables and in branches still to fix, 27.7.2019.~n~n~n',[]).
 
 
 

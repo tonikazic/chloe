@@ -63,33 +63,21 @@
 :-      use_module(demeter_tree('code/analyze_crop')),
         use_module(demeter_tree('code/genetic_utilities')),
         use_module(demeter_tree('code/demeter_utilities')),
-        use_module(demeter_tree('code/clean_data')),    
+%        use_module(demeter_tree('code/clean_data')),    
         use_module(demeter_tree('data/load_data')).
 
 
 
 
-:-      use_module(demeter_tree('code/order_packets'), [
-                load_crop_planning_data/1
-                ]).
-
-
-
-
-
-
-
-/*
-
-:-      ensure_loaded(library(lists)),
-        ensure_loaded(library(sets)),
-        ensure_loaded(library(basics)),
-        ensure_loaded(library(strings)),
-        ensure_loaded(library(not)).
-
-*/
 
 %end%
+
+
+
+:- format('~n~nWarning!  multiple singleton variable in branch errors still to fix, 27.7.2019.~n~n~n',[]).
+
+
+
 
 
 
@@ -112,7 +100,7 @@
 %! generate_plant_tags_file(+Crop:atom,+GTypeFileStem:atom,+TagFileStem:atom) is semidet.
 
     
-% call: generate_plant_tags_file('18R','fgenotype.pl','plant_list.csv').
+% call is: generate_plant_tags_file('19R','fgenotype.pl','plant_list.csv').
 
 generate_plant_tags_file(Crop,GTypeFileStem,TagFileStem) :-
         construct_crop_relative_dirs(Crop,_,MgmtDir,_),
@@ -144,7 +132,7 @@ generate_plant_tags_file(Crop,GTypeFileStem,TagFileStem) :-
 generate_plant_tags_file_aux(Crop,GTypeFile,TagData) :-
         ensure_loaded(load_data:demeter_tree('data/priority_rows')),
         priority_rows(Crop,Rows),
-        setof(N,M^P^MN^PN^G1^G2^G3^G4^ML^K^(genotype(N,M,MN,P,PN,G1,G2,G3,G4,ML,K), N > 999, N < 9999),Nums),
+        setof(N,M^P^MN^PN^G1^G2^G3^G4^ML^K^(genotype(N,M,MN,P,PN,G1,G2,G3,G4,ML,K), N > 999, N < 9998),Nums),
         last(Nums,LastFamilyNum),
         get_tag_data(Crop,Rows,LastFamilyNum,GtypeData,TagData),
         output_tentative_genotype(Crop,GTypeFile,GtypeData).
@@ -873,16 +861,18 @@ watched_tassel(Date,Crop,_RowPlant,StatusDay-Status,Plan,ToDo) :-
 
 
 
-
+% rewrote to eliminate singleton error in branch using findall/3 instead of setof/3
+%
+% Kazic, 27.7.2019
 
 make_todo_list(PlantID,Crop,Plan,ToDo) :-
         get_family(PlantID,Family),
-%        dummy(Family),
         ( plan_for_row(Crop,Family,Plan) ->
-                ( setof(Ma,Pil^Da^Time^cross(Ma,PlantID,ear(1),false,toni,Pil,Da,Time),Mas) ->
+                findall(Ma,cross(Ma,PlantID,ear(1),false,toni,_,_,_),Mas),
+                length(Mas,SoFar),
+                ( SoFar > 0 ->
                         make_todo_list_aux(Mas,Plan,ToDo)
 		;
-                        Mas = [],
                         ToDo = all
                 )
         ;
@@ -1399,7 +1389,9 @@ count_inbred_crosses_so_far_by_female(Inbred,[PlantID|T],Acc,Num) :-
 
 % count by male instead
 
-% stopped here . . . more to do
+% stopped here . . . more to do on rewriting and singleton variables in branches
+%
+% Kazic, 27.7.2019
 
 count_inbred_crosses_to_do_by_male(RestPlan,RowMembers,InbredCrossStatus) :-
         length(_Inbreds,NumInbredsNeeded),
