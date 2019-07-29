@@ -25,6 +25,12 @@
 
 
 
+% some errors still remain.
+% These will likely become apparent as the season progresses.
+%
+% Kazic, 29.7.2019
+
+
 
 
 

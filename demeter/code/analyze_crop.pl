@@ -1,7 +1,13 @@
-% this is demeter/code/analyze_crop.pl
+% this is ../c/maize/demeter/code/analyze_crop.pl
 
 
-% miscellaneous data
+% miscellaneous data and predicates
+
+
+% ported to SWI prolog, but some errors still remain.
+% These will likely become apparent as the season progresses.
+%
+% Kazic, 29.7.2019
 
 
 
@@ -286,7 +292,7 @@ identify_mutant_rows_lines(Crop,[Row|Rows],Acc,MutantLines) :-
 
 % make the field book:  can update this as often as needed
 %
-% call is: make_field_book('18R',field_book).
+% call is: make_field_book('19R',field_book).
 
 %! make_field_book(+Crop:atom,+File:atom) is semidet.
 
@@ -377,12 +383,19 @@ output_plans_aux(Stream,Crop,[Row-Marker-(_,Ma,Pa,_,_,_,_,K,Plan,Notes,Plntg)|Pl
 
 % find the plans for all rows that were planted with mutants in a crop
 % set a flag to output the checked plans as plan/6 facts.
-		  
+
+
+% switched from setof/3 to bagof/3 to accommodate the same line planted in multiple rows.
+%
+% Kazic, 29.7.2019
+
 %! find_mutant_row_plans(+Crop:atom,+CropDir:atom,-ChkedPlans:list,-Flag:atom) is semidet.
 		  
 find_mutant_row_plans(Crop,CropDir,ChkedPlans,Flag) :-
         identify_mutant_rows_lines(Crop,MutantLines),	
-        ( setof(Ma-(Pa,Plntg,Plan,Notes),plan(Ma,Pa,Plntg,Plan,Notes,Crop),Plans) ->
+%        ( setof(Ma-(Pa,Plntg,Plan,Notes),plan(Ma,Pa,Plntg,Plan,Notes,Crop),Plans) ->
+
+        ( bagof(Ma-(Pa,Plntg,Plan,Notes),plan(Ma,Pa,Plntg,Plan,Notes,Crop),Plans) ->
                 format('Hello!  Using the plan/6 facts for crop ~w~n',[Crop]),
 		Flag = done  
         ;
@@ -393,6 +406,7 @@ find_mutant_row_plans(Crop,CropDir,ChkedPlans,Flag) :-
                 format('Warning!  Using the preliminary packing_plan facts for crop ~w~n',[Crop]),
 		Flag = do
         ),
+%	write_list_facts(Plans),
 	check_parents_plans(MutantLines,Plans,ChkedPlans).
 
 
