@@ -2,7 +2,7 @@ how to generate pedigrees, plant tags, field book, and harvest plan
 revised <2014-06-02 Mon> :toni:
 again revised <2015-09-25 Fri> :toni:
 and again <2019-05-21 Tue> :toni:
-
+and again <2019-07-29 Mon> :toni:
 
 
 
@@ -78,12 +78,12 @@ drwxr-xr-x  12 toni  staff       408 May 18 18:56 17r_data_reconstructn
 
 
 
-2.  Recalculate indices using [[file:../../demeter/code/genetic_utilities][make_indices/5]].  Errors and crashes are
-    likely to be from incomplete data, not bugs in the code.  The most
-    likely culprits are missing [[file:../../demeter/data/packed_packet.pl][packed_packet/7]], [[file:../../demeter/data/planted.pl][planted/8]], [[file:../../demeter/data/genotype.pl][genotype/11]],
-    and [[file:../../demeter/data/harvest.pl][harvest/7]] facts.  Rows that were planted twice are now commented
-    out in [[file:../../demeter/data/planted.pl][planted/8]], so no editing of [[file:../../demeter/data/planting_index.pl][planting_index/4]] facts or computing
-    indices in two steps are needed.
+2.  Recalculate indices using [[file:../../demeter/code/genetic_utilities][make_indices/0]].  Errors and crashes are
+   likely to be from incomplete data, not bugs in the code.  The most
+   likely culprits are missing [[file:../../demeter/data/packed_packet.pl][packed_packet/7]], [[file:../../demeter/data/planted.pl][planted/8]], [[file:../../demeter/data/genotype.pl][genotype/11]], and
+   [[file:../../demeter/data/harvest.pl][harvest/7]] facts.  Comment out any rows that were planted twice in
+   [[file:../../demeter/data/planted.pl][planted/8]] before indexing, so no editing of [[file:../../demeter/data/planting_index.pl][planting_index/4]] facts or
+   computing indices in two steps are needed.
 
 
 3.  Check compilation of the data and make a save state.  You shouldn't
@@ -258,7 +258,7 @@ blank lines; and then diff and wc the two files against each other.
 
 
 
-* GNG revise packing and planting
+* DONE packing and planting
 
 
 ** packet labels and plan
@@ -271,13 +271,13 @@ below).
 
 
 
-*** GNG edit and test: prolog-based procedure to generate packets and plan: revise pack_corn:pack_corn/1!!!! <2019-06-16 Sun>
+*** DONE prolog-based procedure to generate packets and plan
 
 
 1. move [[file:../CROP/planning/sequenced.packing_plan.pl][sequenced.packing_plan.pl]] to [[file:../CROP/planning/packing_plan.pl][packing_plan.pl]].
 
 
-% stopped here
+
 
 2.  use pack_corn:pack_corn/1 to generate plan/6, packet labels, and row
 sequence labels.   Include the inbreds so that every packet has the correct
@@ -307,13 +307,6 @@ packing_plan(RowSequenceNum,NumPackets,
 
 3. Predicate will fail if harvest facts absent!
 
-
-4. Results are dumped into [[file:phasma:/home/toni/demeter/results/CROP_planning/][my phasma demeter directory]].  They must be tarred
-up and scped to athe.
-
-5. Hmmm, I don't think plan is generated here . . . double-check code.  I
-might have to revise the predicate to dump the incremental plan to my home
-directory on phasma, then copy into [[file:/athe/c/maize/demeter/data/plan.pl][plan.pl]].
 
 
 
@@ -450,6 +443,9 @@ winter nursery.
 * DONE generation of new family numbers, genotypes, and plant tags
 
 
+
+
+
 If lines that were not previously planted are planted in the current crop,
 then their families and genotypes will not have been assigned.  So run
 [[file:../../demeter/code/crop_management.pl][crop_management:generate_plant_tags_file/3]] to get the new family numbers
@@ -501,7 +497,10 @@ the machinist for drilling and sawing.  It usually takes Fedex several days
 to print, cut, and perforate the tags: allow a week, as they may not have
 sufficient cardstock and have to order more (a slow and error-prone
 process).  Perforation is the slow step, since each sheet must be
-individually done.
+individually done (unless they're shipped to a location that has a
+perforating machine).  Ensure that the wide perforations --- ca. 1 mm space
+between holes --- is used, not the microperforations.  These tear off too
+easily in a breeze, scattering tags.  Waterproof paper is unncecessary.
 
 
 Yes, it's possible to re-use the sheets if they were printed incorrectly
@@ -527,42 +526,36 @@ Allow at least a week for the machinist to drill and saw the tags.
 
 
 
-* GNG making the plan/6 facts
+* DONE making the plan/6 facts
 
 
 
-*** TODO merging previous plans
+** Prolog-based /de novo/ plan/6 generation
 
-. Run [[file:../scripts/merge_plan_data.perl][merge_plan_data.perl]] in operation merge to
+[[file:../../demeter/code/pack_corn.pl][pack_corn:pack_corn/1]] generates new [[file:../../demeter/data/plan.pl][plan/6]] facts and appends these to the
+file for each crop.  The revised version incorporates old plans and
+comments into the current comments derived from the [[file:../CROP/planning/packing_plan.org][packing_plan.org]] file
+in its various incarnations.
+
+
+These facts can be amended as needed directly in the file.
+
+
+nb:  Family numbers ARE NOT INCLUDED IN THE PLAN FILE, so amendments to 
+accommodate migration of family numbers is not needed.
+
+
+
+** Perl-based merging previous plans
+
+Run [[file:../scripts/merge_plan_data.perl][merge_plan_data.perl]] in operation merge to
 fuse the prior year's packing_plan.pl and last year's final plan
 information, stripping out row number and crop identifier.
 
 call is perl ./merge_plan_data.perl merge  CURRENT_CROP PRIOR_CROP
 
 
-. 
 
-
-
-
-*** GNG /de novo/ plan/6 generation
-
-1.  Recompute the indices after planting is finished (see [[indexing]] above).
-    [[file:../../demeter/data/planting_index.pl][planting_index/4]] gives what was actually planted in each row,
-    simplifying flagging any revisions needed to the anticipated plans.
-
-    It can happen that family numbers are changed, or different seed packed
-    than what was planned, or there are scanning errors during packing,
-    between the time the packing_plan.org file is written and the corn is
-    planted.  By showing what was actually planted in the most
-    contemporaneous packet packed, [[file:../../demeter/data/planting_index.pl][planting_index/4]] helps pin down these
-    discrepancies for resolution.  The [[file:../../demeter/data/genotype.pl][genotype/11]] facts rule: usually the
-    packed_packet facts will be ok, but the two packing_plan files may need
-    editing to get everything to jibe.
-
-
-
-2.  Export [[file:../c/maize/crops/CROP/planning/packing_plan.org][packing_plan.org]] to prolog and run 
 
 
 
@@ -583,13 +576,15 @@ call is perl ./merge_plan_data.perl merge  CURRENT_CROP PRIOR_CROP
     packed_packet facts will be ok, but the two packing_plan files may need
     editing to get everything to jibe.
 
-
+    This especially applies to the plan/6 facts, which rely on the
+   numerical genotypes to find the plans.
 
 
 2.  Run [[file:../../demeter/code/analyze_crop.pl][make_field_book/2]] on all remedied data, reindexed and stored in a
     new save state.  This makes a nice file, now suitable for ipad and
     iphone6.  This requires either packing_plan/10 facts or the plan/6
-    facts.  
+    facts.  The file is automatically pushed to the designated Dropbox
+    directory. 
 
     The plan/6 facts may have incorrect markers or K numbers compared to
     the packing_plan file.  This happens through mis-identification of the
@@ -597,14 +592,34 @@ call is perl ./merge_plan_data.perl merge  CURRENT_CROP PRIOR_CROP
     check again.
 
     [[file:../../demeter/code/analyze_crop.pl][make_field_book/2]] should be run each time there are new observations or
-    plans to be incorporated into the plan/6 facts.
+    plans to be incorporated into the plan/6 facts (see below for summary).
 
     Someday add automatically generated cut-down jpegs of images . . .
 
 
 
+3.  As the plan is amended during the season, make a new save state:
+#+begin_src prolog incantation
+bash-3.2$ swipl
+?- ['../data/load_data',set_demeter_directory],qsave_program('../data/saved_data').
+#+end_src
 
-3.  If needed, independently check prolog field book by running
+recompute the indices (just in case):
+
+#+begin_src prolog indices
+2 ?- [genetic_utilities].
+3 ?- make_indices.
+#+end_src
+
+and recompute the field book:
+
+#+begin_src prolog field book
+?- [analyze_crop].
+?- make_field_book('19R',field_book).
+#+end_src
+
+
+4.  If needed, independently check prolog field book by running
     crops/check_row_assignments.perl.  It gives the planting number, which
     is useful. (obsolete?)
 
@@ -613,43 +628,9 @@ call is perl ./merge_plan_data.perl merge  CURRENT_CROP PRIOR_CROP
 
 
 
-* emergency plant tag and field book production
 
 
-#+begin_rmk
-
-
-<2014-06-19 Thu> :toni:
-
-Trito needs to be shut down as the air conditioner is leaking, so we are
-going to confect data for the second and third plantings, and the
-row_status facts, then compute.  I've already fixed the family number
-re-use problem.
-
-
-#+end_rmk
-
-
-** to confect planted/8 and row_status/7
-
-. grepped second and third planting from sequenced.packing_plan.pl, which
-has row numbers and ma and pa
-
-. wrote clean_data:confect_planting_n_stand_count_data/4, which confected
-dummy row_status facts for all planted and unplanted corn, and planted/8
-facts for unplanted corn in the second and third plantings.
-
-
-. sorted data in output file and appended, with appropriate comments, to
-planted.pl and row_status.pl
-
-
-. recomputed indices, plant tags, and field book per usual.  BUT we
-discovered the directions needed a little work!
-
-
-
-* harvest plan
+* TODO harvest plan
 
 . First clean any uncleaned data files.  Common errors are:
    + incomplete plant IDs (usually because tags wouldn't scan).  Keep track
@@ -1013,3 +994,43 @@ i: ../palm/raw_data_from_palms/15r/zeta/12.8/mutanta.csv o: ../../demeter/data/m
 
 
 #+END_SRC
+
+
+
+
+* obsolete
+
+** emergency plant tag and field book production
+
+
+#+begin_rmk
+
+
+<2014-06-19 Thu> :toni:
+
+Trito needs to be shut down as the air conditioner is leaking, so we are
+going to confect data for the second and third plantings, and the
+row_status facts, then compute.  I've already fixed the family number
+re-use problem.
+
+
+#+end_rmk
+
+
+** to confect planted/8 and row_status/7
+
+. grepped second and third planting from sequenced.packing_plan.pl, which
+has row numbers and ma and pa
+
+. wrote clean_data:confect_planting_n_stand_count_data/4, which confected
+dummy row_status facts for all planted and unplanted corn, and planted/8
+facts for unplanted corn in the second and third plantings.
+
+
+. sorted data in output file and appended, with appropriate comments, to
+planted.pl and row_status.pl
+
+
+. recomputed indices, plant tags, and field book per usual.  BUT we
+discovered the directions needed a little work!
+
