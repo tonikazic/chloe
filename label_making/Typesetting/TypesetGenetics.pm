@@ -1624,6 +1624,11 @@ sub print_seed_packet_label_aux {
 
 
 
+# toggle print_perforation_guides_plant_tags to suit Fedex's preferences
+# as needed.  So far they prefer the guide lines.
+#
+# Kazic, 29.7.2019
+
 sub print_plant_tags {
 
 #        ($filehandle,$barcode_file,$pre_row,$pplant,$family,$ma_num_gtype,$pa_family,$pa_num_gtype,$pma_ma_gma_gtype,$pma_ma_gpa_gtype,$pma_pa_gma_gtype,$pma_pa_mutant,$ppa_ma_gma_gtype,$ppa_ma_gpa_gtype,$ppa_pa_gma_gtype,$ppa_pa_mutant,$quasi_allele,$i,$#tags) = @_;
@@ -1680,7 +1685,7 @@ sub print_plant_tags {
         $base_y = 7;     
         $top_box_y = $base_y + 235;            # top tag
         $med_box_y = $base_y + 146;  
-        $mid_box_y = $base_y + 78;
+        $mid_box_y = $base_y + 80;	 
         $bot_box_y = $base_y + 14;
 
 
@@ -1694,6 +1699,7 @@ sub print_plant_tags {
 
                 &begin_big_picture($filehandle);
                 &print_big_stack($filehandle,$stack);
+                &print_perforation_guides_plant_tags($filehandle);		
 #                &print_plant_tag_guide_boxes($filehandle);
                 }
 

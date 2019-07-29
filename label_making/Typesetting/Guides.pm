@@ -31,6 +31,7 @@ our @EXPORT = qw(print_big_label_guide_boxes
              print_business_card_guide_boxes
              print_business_card_guide_lines
              print_partial_business_card_guide_lines
+             print_perforation_guides_plant_tags
              print_horizontal_row_stake_cutting_lines
              print_little_label_guide_boxes
              print_vertical_row_stake_label_guide_boxes
@@ -291,12 +292,16 @@ sub print_vertical_row_stake_cutting {
 
 
 
+# to help the folks at Fedex
+#
+# Kazic, 29.7.2019
 
-
-
-
-
-
+sub print_perforation_guides_plant_tags {
+        ($filehandle) = @_;
+        print $filehandle "\\put(-3,52){\\rule{211mm}{0.1mm}}\n";
+        print $filehandle "\\put(-3,118){\\rule{211mm}{0.1mm}}\n";
+        print $filehandle "\\put(-3,184){\\rule{211mm}{0.1mm}}\n";
+        }
 
 
 
