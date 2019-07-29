@@ -155,8 +155,8 @@ for ( my $i = 0; $i <= $#lines; $i++ ) {
 
 #               print "$barcode_out,$barcode_elts,$prow,$pplant,$marker\n";
 
-                my $record = $new_barcode_elts . "::" . $barcode_out . "::" . $pre_row . "::" . $pplant . "::" . $crop . "::" . $family  . "::" .  $ma_num_gtype . "::" . $pa_family . "::" . $pa_num_gtype . "::" . $ma_gma_gtype . "::" . $marker . "::" . $quasi_allele;
 
+                my $record = $new_barcode_elts . "::" . $barcode_out . "::" . $pre_row . "::" . $pplant . "::" . $uc_crop . "::" . $family  . "::" .  $ma_num_gtype . "::" . $pa_family . "::" . $pa_num_gtype . "::" . $ma_gma_gtype . "::" . $marker . "::" . $quasi_allele;		
 
 #               print "main: $record\n";
 
@@ -213,7 +213,7 @@ if ( scalar @fates > 0 ) {
 #
 # otherwise works fine
 #
-# stopped here, must return and figure this out
+# stopped here, must return and figure this out some time
 #
 # Kazic, 25.7.2018
 
@@ -327,7 +327,7 @@ if ( $flag eq 'q' ) { }
 elsif ( ( $flag eq 'test' ) || ( $flag eq 'go' ) ) { &make_plant_tags($output_file,$#columnar,\@columnar); }
 
 
-if ( ( $flag eq 'q' ) || ( $flag eq 'test' ) { }
+if ( ( $flag eq 'q' ) || ( $flag eq 'test' ) ) { }
 elsif ( $flag eq 'go' ) { &generate_plant_tags($tags_dir,$tags_stem); }
 
 
