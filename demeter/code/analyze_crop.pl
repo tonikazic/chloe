@@ -290,7 +290,8 @@ identify_mutant_rows_lines(Crop,[Row|Rows],Acc,MutantLines) :-
 
 
 
-% make the field book:  can update this as often as needed
+% make the field book:  can update this as often as needed, but must
+% first make a new save state to incorporate the modified plans.
 %
 % call is: make_field_book('19R',field_book).
 
