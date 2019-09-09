@@ -332,7 +332,9 @@ packing_plan(RowSequenceNum,NumPackets,
 
 3.  The script [[file:../scripts/make_seed_packet_file.perl][make_seed_packet_file.perl]] now includes the
     current inventory sleeve for each packet.  There is a bug in
-    constructing the %inventory, however. <2019-06-02 Sun>
+    constructing the %inventory, however. <2019-06-02 Sun>  Bug corrected
+   --- the problem was in parsing ``sleeve'' z00000 for the infinite
+   amounts of elite and skipped corn.  Fixed, <2019-09-08 Sun>.
 
 
 
