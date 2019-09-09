@@ -11,13 +11,32 @@
 
 
 
+
+
+
+% 19r
+
+% added in the skipped corn, today putting in full digits to make the perl
+% regular expression match
+%
+% Kazic, 8.9.2019
+
+current_inbred('19R',201,201,205,p00001).
+current_inbred('19R',301,301,305,p00002).
+current_inbred('19R',401,401,405,p00003).
+current_inbred('19R',504,504,505,p00004).
+current_inbred('19R',891,891,891,p00005).
+current_inbred('19R',000,000,000,p00000).
+
+
+
 % 18r
 
 current_inbred('18R',201,201,205,p00001).
 current_inbred('18R',301,301,305,p00002).
 current_inbred('18R',401,401,405,p00003).
 current_inbred('18R',504,504,505,p00004).
-    
+current_inbred('18R',891,891,891,p00005).    
 
 
 
