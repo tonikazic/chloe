@@ -27,7 +27,7 @@
 %
 %
 %
-% Not shown are other files generated during planning ---
+% Not shown here are other files generated during planning ---
 %       pedigrees (../../demeter/code/pedigrees.pl:build_pedigrees/20) and
 %       the field book (../../demeter/code/analyze_crop.pl:make_field_book/2).
 %
