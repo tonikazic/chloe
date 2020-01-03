@@ -23,6 +23,10 @@
 %     ../../demeter/code/genetic_utilties:make_indices/0
 %
 %
+% Each fact has a comment describing its semantics and one or more sample facts.
+%
+%
+%
 % Not shown are other files generated during planning ---
 %       pedigrees (../../demeter/code/pedigrees.pl:build_pedigrees/20) and
 %       the field book (../../demeter/code/analyze_crop.pl:make_field_book/2).
