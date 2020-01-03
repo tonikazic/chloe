@@ -2,11 +2,13 @@
 
 
    + *Chloe*:  a set of Perl scripts to process raw data; generate tags, labels, 
-   and barcodes; and miscellaneous crop management tasks.
+   and barcodes; and miscellaneous crop management tasks.  These files have a .perl
+   suffix.
    
-   + *Demeter*: a Prolog database for crop, genetic, and phenotype data; associated 
-   data provenance; and code for pedigree generation, crop planning, and management 
-   of field work.
+   + *Demeter*: a declarative, Prolog database for crop, genetic, and phenotype data; 
+   associated data provenance; and code for pedigree generation, crop planning, and 
+   management of field work.    These files have a .pl suffix, since I started writing
+   Prolog before Perl.
    
    Both rely entirely on open-source tools.
 
