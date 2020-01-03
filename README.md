@@ -1,10 +1,10 @@
 # Chloe and Demeter are the code components of our crop management system for our maize research.  
 
 
-   + *chloe*:  a set of Perl scripts to process raw data; generate tags, labels, 
+   + *Chloe*:  a set of Perl scripts to process raw data; generate tags, labels, 
    and barcodes; and miscellaneous crop management tasks.
    
-   + *demeter*: a Prolog database for crop, genetic, and phenotype data; associated 
+   + *Demeter*: a Prolog database for crop, genetic, and phenotype data; associated 
    data provenance; and code for pedigree generation, crop planning, and management 
    of field work.
    
