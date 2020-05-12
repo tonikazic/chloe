@@ -87,9 +87,9 @@ sub expand_note {
                 $note =~ s/\bdis\b/diseased/g;
                 $note =~ s/\bbd\b/but diseased/g;
 
-                $note =~ s/se\b/small ear/g;
-                $note =~ s/re\b/rudimentary ear/g;
-                $note =~ s/ne\b/no ear/g;
+                $note =~ s/\bse\b/small ear/g;
+                $note =~ s/\bre\b/rudimentary ear/g;
+                $note =~ s/\bne\b/no ear/g;
 
                 $note =~ s/\bft\b/feminized tassel/g;
                 $note =~ s/\bpt\b/poor tassel/g;
@@ -165,8 +165,10 @@ sub expand_note {
                 $note =~ s/\bnp\b/no pollen/g;
                 $note =~ s/\bdd\b/desperate daddy/g;
                 $note =~ s/\bde\b/desperate ear/g;
+                $note =~ s/\but x ut\b/mutant x mutant/g;
                 $note =~ s/\bpe\b/pulled ear/g;
                 $note =~ s/\bue\b/uncut ear/g;
+                $note =~ s/ye\b/young ear/g;
                 $note =~ s/\bvye\b/very young ear/g;
                 $note =~ s/\boe\b/old ear/g;
                 $note =~ s/\bvoe\b/very old ear/g;
@@ -175,6 +177,8 @@ sub expand_note {
                 $note =~ s/\bct\b/cut tassel/g;
                 $note =~ s/\bglas\b/glassine bag/g;
                 $note =~ s/\bunk\b/unknown/g;
+                $note =~ s/\bbw\b/what is bw/g;
+                $note =~ s/\bcont\b/what is cont/g;		
 
 
 

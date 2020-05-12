@@ -1,17 +1,8 @@
-#!/opt/perl5/perls/perl-5.26.1/bin/perl
+#!/usr/local/bin/perl
 
 # this is ../c/maize/data/data_conversion/convert_cross_data.perl
 
-# a quick script to convert the cross menu's data to cross/8
-
-
-# for now I have stuffed all the subroutines in the Typesetting subdirectory.  The 
-# first line ("lib") references that easily
-#
-#
-# Modified for ipad data collection; tested and ready to go.
-#
-# Kazic, 7.4.2012
+# convert the cross menu's data to cross/8
 
 
 # converted to run in perl 5.26

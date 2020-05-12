@@ -1,4 +1,4 @@
-#!/opt/perl5/perls/perl-5.26.1/bin/perl
+#!/usr/local/bin/perl
 
 # this is ../c/maize/data/data_conversion/convert_mutant_data.perl
 # this was maize/data/data_conversion/convert_mutanta_data.perl
