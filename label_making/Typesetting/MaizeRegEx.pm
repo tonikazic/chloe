@@ -135,7 +135,7 @@ $instructns_re = qr/.+/;
 $tf_re = qr/[tT]rue|[fF]alse/;
 $num_tf_re = qr/1|0/;
 $num_tfxtra_re = qr/1|0|4/;
-$observer_re = qr/toni|shukai|josh|mason|avi|linh|derek|wade|amy|hawaiian_research|bill|dylan|matt|clay/;
+$observer_re = qr/toni|dewi|jang|chris|harperees|josh|mason|avi|linh|derek|wade|amy|hawaiian_research|bill|dylan|matt|clay/;
 $blank_re = qr/\s*/;
 
 
@@ -285,7 +285,14 @@ $ext_re  = qr/\.\w{3}/;
 $old_rowplant_re = qr/\d*I?[\d\.]{4,7}/;
 $rowplant_re  = qr/\d{7}$/;
 $rest_re  = qr/[\"\:\w\s\-\?\,\/]+/;
-$sleeve_re  = qr/[vV]\d{5}/;
+
+
+# added z to allow for z00000, the ``sleeve'' that ``contains'' either
+# the infinite amount of elite corn or the infinite amount of skipped corn
+#
+# Kazic, 8.9.2019
+
+$sleeve_re  = qr/[vVz]\d{5}/;
 $sleeve_bag_re  = qr/[avAV]\d{5}/;
 $locatn_re  = qr/[avxAVX]*\d{0,5}/;
 $box_re  = qr/[xX]\d{5}/;
@@ -300,7 +307,7 @@ $min_row_re  = qr/\d{3}/;
 $padded_row_re  = qr/\d{5}/;
 $row_re  = qr/[rR]\d{5}/;
 $cl_re = qr/\d{0,3}/;
-$word_cl_re = qr/(whole|three_quarter|half|quarter|eighth|sixteenth)/;
+$word_cl_re = qr/(whole|three_quarter|half|quarter|eighth|sixteenth|inf)/;
 $fuzzy_cl_re = qr/[a-z\_]*/;
 $state_or_cl_re = qr/[\w\d]+/;
 $ft_re = qr/\d{1,2}/;

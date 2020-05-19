@@ -1,4 +1,4 @@
-#!/opt/perl5/perls/perl-5.26.1/bin/perl
+#!/usr/local/bin/perl
 
 
 # this is ../c/maize/label_making/make_seed_packet_labels.perl
@@ -58,9 +58,11 @@ use GenerateOutput;
 
 
 
-my $input_file = "../crops/19r/management/seed_packet_labels.csv";
+# my $input_file = "../crops/19r/management/seed_packet_labels.csv";
+my $input_file = "../crops/19r/management/sep_seed_packet_labels";
 
-my $file_stem = "packet_labels";
+# my $file_stem = "packet_labels";
+my $file_stem = "sep_packet_labels";
 
 
 

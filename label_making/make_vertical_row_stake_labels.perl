@@ -1,4 +1,4 @@
-#!/opt/perl5/perls/perl-5.26.1/bin/perl
+#!/usr/local/bin/perl
 
 # this is ../c/maize/label_making/make_vertical_row_stake_labels.perl
 
@@ -52,6 +52,27 @@
 # Kazic, 5.5.2011
 
 
+# modified call to take a crop label and a list of paper types, to improve
+# tracking of stake longevity and plastic ``paper'' materials
+#
+# nb:  the CROP_MARKER is NOT the same as the CROP, which is i.  It is the crop
+# in which the stakes are made.
+#
+# Kazic, 14.5.2020
+
+
+# call is ./make_vertical_row_stake_labels.perl i r CROP_MARKER DOUBLE_COLON_SEPARATED_LIST_PAPER_TYPES
+#
+# e.g., ./make_vertical_row_stake_labels.perl i r 20r 'foo::bar'
+# ./make_vertical_row_stake_labels.perl i r 20r 'polyes'
+
+
+# polyes ==> MtM polyester sheet for 20r, see
+# ../equipmt/row_stakes/materials/mtm_polyester_super_tuff.txt
+#
+# still need to handle the case of multiple materials
+#
+# Kazic, 15.5.2020
 
 
 
@@ -59,8 +80,10 @@ use strict;
 use warnings;
 
 
-use lib './Typesetting/';
+use Cwd 'getcwd';
 
+
+use lib './Typesetting/';
 use DefaultOrgztn;
 use OrganizeData;
 use TypesetGenetics;
@@ -71,7 +94,15 @@ use GenerateOutput;
 my $crop = $ARGV[0];
 my $num_rows = $ARGV[1];
 my $num_cutting = $ARGV[2];
+my $material_list = $ARGV[3];
 
+my @materials = split(/::/,$material_list);
+my $num_materials = scalar @materials;
+# for ( my $j = 0; $j <= $#materials ; $j++) { print "$materials[$j] \n"; }
+
+
+
+# print "($crop,$num_rows,$num_cutting,$material_list)\n";
 
 
 
@@ -92,16 +123,30 @@ my $num_cutting = $ARGV[2];
 # convert to DefaultOrgtzn::adjust_paths
 #
 # Kazic, 24.11.2018
+#
+# done
+#
+# Kazic, 14.5.2020
 
-my $input_stem = "replacemt_rows";
+my $local_dir = getcwd;
+my ($dir,$input_dir,$barcodes,$tags_dir) = &adjust_paths($crop,$local_dir);
+
+my $input_stem = $num_cutting . "_stakes";
 my $input_file = $input_dir . $input_stem;
+
+my $output_file = $tags_dir . $input_stem;
+
+
+# print "($input_file,$dir,$input_dir,$barcodes,$tags_dir,$output_file)\n";
+
+
 
 my @labels_needed;
 my @labels;
 
 
-my $file_stem = "row_stake_labels"; 
-my $output = $output_dir . $file_stem . $tex_suffix;
+
+
 
 
 
@@ -142,7 +187,7 @@ elsif ( $num_rows =~ /^r$/ ) { (@labels) = &make_replacement_row_stake_labels($#
 # Kazic, 18.4.2018
 
 
-open TAG, '>', $output or die "can't open $output\n";
+open TAG, '>', $output_file or die "can't open $output_file\n";
 
 
 &begin_row_stake_latex_file(\*TAG);
@@ -153,22 +198,49 @@ open TAG, '>', $output or die "can't open $output\n";
 
 # vertical-specific calls
 
-my ($i,$barcode_out,$row_num);
+my ($i,$barcode_out,$row_num,$material);
+
+
+
+
+# need to count number of sheets and divide by number of materials,
+# then loop through the materials for blocks for each sheets.
+# but right now this is fine for 20r and I need to get on to the
+# pedigrees.
+#
+# Kazic, 15.5.2020
+
+if ( $num_materials == 1 ) { $material = @materials[0]; }
+else {}
+
+
+
+# replacement stakes
+
 
 if ( $num_rows =~ /^r$/ ) {
 
         for ( $i = 0; $i <= $#labels; $i++ ) {
 	        ($barcode_out,$row_num) = split(/::/,$labels[$i]);
 #	        print "($barcode_out,$row_num)\n";
-                &print_vertical_row_stake_label(\*TAG,$barcode_out,$row_num,$i,$#labels);
+
+
+#                &print_vertical_row_stake_label(\*TAG,$barcode_out,$row_num,$i,$#labels);
+		
+                &print_vertical_row_stake_label(\*TAG,$barcode_out,$row_num,$num_cutting,$material,$i,$#labels);
+		
+
                 }
         }
+
+
+# de novo stakes
 
 else {
 
         for ( $i = 0; $i <= $num_rows - 1; $i++ ) {
                 ($barcode_out,$row_num) = split(/::/,$labels[$i]);
-                &print_vertical_row_stake_label(\*TAG,$barcode_out,$row_num,$i,$num_rows);
+                &print_vertical_row_stake_label(\*TAG,$barcode_out,$row_num,$num_cutting,$material,$i,$num_rows);
                 }
         }
 
@@ -187,5 +259,15 @@ else {
 
 # latex whines about a use of \raise in vertical mode, just push
 # r at the latex prompt to enter \nonstopmode
+#
+# ! You can't use `\raise' in vertical mode.
+# \put  (#1,#2)#3->\@killglue \raise 
+#                                   #2\unitlength \hb@xt@ \z@ {\kern #1\unitl...
+# l.273 ...90}{\scalebox{1.2}{\Huge{\textbf{248}}}}}
+#                                                  
+# ? r
 
-&generate_pdf($output_dir,$file_stem,$ps_suffix,$pdf_suffix);
+
+&generate_pdf($tags_dir,$input_stem,$ps_suffix,$pdf_suffix);
+
+

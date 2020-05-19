@@ -647,6 +647,7 @@ sub make_new_seed_labels {
                 &print_new_seed_labels(\*TAG,$ma,$ma_barcode_file,$pa,$pa_barcode_file,$old_ma,$today,$i,$#labels);
                 }
 
+        &end_picture(\*TAG);	
         &end_latex_file(\*TAG);
         close(TAG);
         }

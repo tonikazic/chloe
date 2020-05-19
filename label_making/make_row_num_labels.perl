@@ -1,4 +1,4 @@
-#!/usr/bin/perl
+#!/usr/local/bin/perl
 
 # this is . . . /maize/label_making/make_row_num_labels.perl
 

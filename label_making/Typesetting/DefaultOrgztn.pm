@@ -136,7 +136,7 @@ sub adjust_paths {
                 }
 
 
-
+#        print "($dir,$input_dir,$barcodes,$tags_dir)\n";
 	
 	return ($dir,$input_dir,$barcodes,$tags_dir);
         }
@@ -293,15 +293,32 @@ $max_row_length = 5;
 #
 # Kazic, 22.9.2018
 
+# old
+#
+# %bags = (
+#         'S' => 'purple::red::Mo20W females',
+#         'W' => 'green::yellow::W23 females',
+#         'M' => 'red::red::M14 females',
+#         'B' => 'orange::red::B73 females',
+#         'U' => 'purple::yellow::mutant bulking',
+#         '@' => 'green::red::back-crossed selves',
+#         'D' => 'red::yellow::double mutants',
+#         'P' => 'green::green::fun, test, and open pollinated corn');
+
+
+# permuted for 19r
+#
+# Kazic, 11.6.2019
+
 %bags = (
-        'S' => 'purple::red::Mo20W females',
-        'W' => 'green::yellow::W23 females',
-        'M' => 'red::red::M14 females',
-        'B' => 'orange::red::B73 females',
-        'U' => 'purple::yellow::mutant bulking',
+        'S' => 'purple::blue::Mo20W females',
+        'W' => 'green::blue::W23 females',
+        'M' => 'red::blue::M14 females',
+        'B' => 'white::blue::B73 females',
+        'U' => 'white::red::mutant bulking',
         '@' => 'green::red::back-crossed selves',
         'D' => 'red::yellow::double mutants',
-        'P' => 'green::green::fun, test, and open pollinated corn');
+        'P' => 'green::yellow::fun, test, and open pollinated corn');
 
 
 

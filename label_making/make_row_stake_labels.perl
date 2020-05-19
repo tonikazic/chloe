@@ -1,4 +1,4 @@
-#!/usr/bin/perl
+#!/usr/local/bin/perl
 
 # this is ../c/maize/label_making/make_row_stake_labels.perl
 

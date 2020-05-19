@@ -1,4 +1,4 @@
-#!/usr/bin/perl
+#!/usr/local/bin/perl
 
 # this is . . . /maize/demeter/data/make_harvest_plan.perl
 #

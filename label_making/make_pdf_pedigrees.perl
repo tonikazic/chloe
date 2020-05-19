@@ -1,4 +1,4 @@
-#!/usr/bin/perl
+#!/usr/local/bin/perl
 
 # this is . . ./maize/crops/make_pdf_pedigrees.perl
 

@@ -768,10 +768,21 @@ sub print_old_vertical_row_stake_label_aux_aux {
 # Kazic, 12.5.2014
 
 
+# added crop marker (same for all pages) and material, 1 page/material
+#
+# Kazic, 15.5.2020
+
 sub print_vertical_row_stake_label {
 
-        ($filehandle,$barcode_out_upper,$row_upper,$i,$num_rows) = @_;
+#        ($filehandle,$barcode_out_upper,$row_upper,$i,$num_rows) = @_;
 
+        ($filehandle,$barcode_out_upper,$row_upper,$num_cutting,$material,$i,$num_rows) = @_;
+
+#        print "($barcode_out_upper,$row_upper,$num_cutting,$material,$i,$num_rows)\n";
+
+
+
+	
         $barcode_file = $barcode_rel_dir . $barcode_out;
 
 
@@ -797,12 +808,13 @@ sub print_vertical_row_stake_label {
 
                 &begin_picture($filehandle);
                 &print_stack($filehandle,$side,$stack);
-                &print_vertical_row_stake_label_aux($filehandle,$left_x,$y,$barcode_out_upper,$row_upper);
+#		&print_vertical_row_stake_label_guide_boxes($filehandle);
+                &print_vertical_row_stake_label_aux($filehandle,$left_x,$y,$barcode_out_upper,$row_upper,$num_cutting,$material);
 	        }
 
 
 
-# what's the right condition for the 31st label? $rem is 1, $i = $num_rows
+# what's the right condition for the 21st label? $rem is 1, $i = $num_rows
 
         elsif ( $rem > 0 ) { 
 
@@ -811,14 +823,14 @@ sub print_vertical_row_stake_label {
 # left side
 
                 if ( $side == 0 ) {
-                        &print_vertical_row_stake_label_aux($filehandle,$left_x,$y,$barcode_out_upper,$row_upper);
+                        &print_vertical_row_stake_label_aux($filehandle,$left_x,$y,$barcode_out_upper,$row_upper,$num_cutting,$material);
                         }
 
 
 # right side
 
                 elsif ( $side == 1 ) {
-                        &print_vertical_row_stake_label_aux($filehandle,$right_x,$y,$barcode_out_upper,$row_upper);
+                        &print_vertical_row_stake_label_aux($filehandle,$right_x,$y,$barcode_out_upper,$row_upper,$num_cutting,$material);
 		        }
 
 	        }
@@ -843,7 +855,7 @@ sub print_vertical_row_stake_label {
 # Kazic, 13.5.2014
 
 sub print_vertical_row_stake_label_aux { 
-        ($filehandle,$x,$y,$barcode_out_upper,$row_upper) = @_;
+        ($filehandle,$x,$y,$barcode_out_upper,$row_upper,$num_cutting,$material) = @_;
 
         $row_x = $x + 14; 
         $row_y = $y + 3;  
@@ -851,7 +863,7 @@ sub print_vertical_row_stake_label_aux {
         $barcode_x = $x + 35;
         $barcode_y = $y + 1;
 
-	&print_vertical_row_stake_label_aux_aux($filehandle,$barcode_x,$barcode_y,$barcode_out_upper,$row_x,$row_y,$row_upper);
+	&print_vertical_row_stake_label_aux_aux($filehandle,$barcode_x,$barcode_y,$barcode_out_upper,$row_x,$row_y,$row_upper,$num_cutting,$material);
         }
 
 
@@ -865,10 +877,15 @@ sub print_vertical_row_stake_label_aux {
 
 sub print_vertical_row_stake_label_aux_aux {
 
-        my ($filehandle,$barcode_x,$barcode_y,$barcode_file,$row_x,$row_y,$row) = @_;
+        my ($filehandle,$barcode_x,$barcode_y,$barcode_file,$row_x,$row_y,$row,$num_cutting,$material) = @_;
 
         $rule_y = $row_y - 4;
         $guide_x = $row_x - 15;
+
+        $num_cutting_x = $row_x + 75;	
+	$num_cutting_y = $rule_y + 2;
+	$material_y = $rule_y + 10;	
+
 
         if ( $row !~ /\d{4}/ ) { print $filehandle "\\put($row_x,$row_y){\\rotatebox{90}{\\scalebox{1.2}{\\Huge{\\textbf{$row}}}}}\n"; }
         else { print $filehandle "\\put($row_x,$row_y){\\rotatebox{90}{\\scalebox{0.9}{\\Huge{\\textbf{$row}}}}}\n"; }
@@ -878,6 +895,8 @@ sub print_vertical_row_stake_label_aux_aux {
 	print $filehandle "\\put($row_x,$rule_y){\\rule{60mm}{0.1mm}}\n";
 #	print $filehandle "\\put($guide_x,$rule_y){\\rule{0.1mm}{1in}}\n";
 
+        print $filehandle "\\put($num_cutting_x,$num_cutting_y){\\rotatebox{90}{\\scalebox{0.75}{\\large{\\textbf{$num_cutting}}}}}\n";
+        print $filehandle "\\put($num_cutting_x,$material_y){\\rotatebox{90}{\\scalebox{0.75}{\\large{\\textbf{$material}}}}}\n";	
         }
 
 

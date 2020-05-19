@@ -1,4 +1,4 @@
-#!/opt/perl5/perls/perl-5.26.1/bin/perl
+#!/usr/local/bin/perl
 
 # this is ../c/maize/label_making/make_inventory_labels.perl
 
