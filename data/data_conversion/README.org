@@ -1,0 +1,19 @@
+# this is ../c/maize/data/data_conversion/README.org
+#+author: Toni Kazic
+
+
+
+location of script changed from
+
+/opt/perl5/perls/perl-5.26.1/bin/perl to /usr/local/bin/perl
+
+
+using
+
+#+BEGIN_SRC substitute the value of foof
+
+foof="convert_sleeve_bdry_data.perl" ; sed 's|/opt/perl5/perls/perl-5.26.1/bin/perl|/usr/local/bin/perl|' $foof > foo; head -1 foo ; mv foo $foof
+
+#+END_SRC
+
+<2020-05-12 Tue>
