@@ -1,4 +1,4 @@
-#!/opt/perl5/perls/perl-5.26.1/bin/perl
+#!/usr/local/bin/perl
 
 
 
@@ -59,8 +59,8 @@ my %inventory;
 
 
 
-my $input_file = $dir . $planning_root . "sequenced.packing_plan.pl";
-my $out_file = $input_dir . "seed_packet_labels";
+my $input_file = $dir . $planning_root . "sep_sequenced.packing_plan.pl";
+my $out_file = $input_dir . "sep_seed_packet_labels";
 my $inbred_file = $demeter_dir . "current_inbred.pl";
 my $inventory_file = $demeter_dir . "inventory.pl";
 
@@ -77,7 +77,7 @@ my $inventory_file = $demeter_dir . "inventory.pl";
 open my $inbred_fh, '<', $inbred_file or die "sorry, can't open input file $inbred_file\n";
 
 while (<$inbred_fh>) {
-        if ( $_ =~ /$uccrop/ ) { 
+        if ( $_ =~ /$uccrop/ ) {
 	        my ($ima,$cur,$packet) = $_ =~ /\',(\d{3}),\d{3},(\d{3}),(p\d{5})\).$/;
 #                print "($ima,$cur,$packet)\n";
                 $inbred{$ima} = $cur . "::" . $packet;
@@ -96,23 +96,29 @@ while (<$inbred_fh>) {
 
 # read the inventory file and get the current sleeves for the final output
 #
-# hmmm, I am still missing a condition that prevents putting uninitialized values in the hash
-# error is thrown when generating final output
+# made sure that ``sleeves'' containing infinite amounts of skipped or
+# elite corn are accepted in the regex; otherwise parsing of the date fails
+# and then an error in forming the $timestamp is thrown.
 #
-# Kazic, 2.6.2019
+# Kazic, 8.9.2019
 
 
 open my $inventory_fh, '<', $inventory_file or die "sorry, can't open input file $inventory_file\n";
 
+
+
 while (<$inventory_fh>) {
-        if ( ( $_ =~ /inventory/ ) && ( $_ !~ /%/ ) ) {
+        if ( ( $_ =~ /inventory/ ) && ( $_ !~ /%/ ) && ( $_ !~ /^\n/ ) ) {
 	        my ($vma,$vpa,$date,$time,$sleeve) = $_ =~ /inventory\(\'(${num_gtype_re})\',\'(${num_gtype_re})\',.+,date\((${prolog_date_innards_re})\),time\((${prolog_time_innards_re})\),(${sleeve_re})/;
 
                 my ($mday,$mon,$year) = $date =~ /(\d+),(\d+),(\d+)/;
 		my ($hour,$min,$sec) = $time =~ /(\d+),(\d+),(\d+)/;
-		my $timestamp = timelocal($sec,$min,$hour,$mday,$mon,$year);
-#		print "($vma,$vpa,$mday,$mon,$year,$hour,$min,$sec,$sleeve) $timestamp\n";
 
+		
+		
+		my $timestamp = timelocal($sec,$min,$hour,$mday,$mon,$year);
+		
+#		print "($vma,$vpa,$mday,$mon,$year,$hour,$min,$sec,$sleeve) $timestamp\n";
                 if ( !exists $inventory{$vma} ) { $inventory{$vma} = join("::",$timestamp,$vpa,$sleeve); }
 		else {
                         my ($ptimestamp,$pvpa,$psleeve) = split(/::/,$inventory{$vma});
