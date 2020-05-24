@@ -21,6 +21,7 @@
     
 :-      module(load_data, [
                 barcode_index/7,
+		branch_status/11,
                 box/5,
                 contaminant/5,
                 crop/7,
@@ -68,7 +69,8 @@
 
 :-
 	ensure_loaded(barcode_index),
-	ensure_loaded(box),
+	ensure_loaded(branch_status),
+	ensure_loaded(box),	
 	ensure_loaded(contaminant),
 	ensure_loaded(crop),
 	ensure_loaded(crop_rowplant_index),

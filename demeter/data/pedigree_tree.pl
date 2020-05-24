@@ -21,7 +21,10 @@
 %
 % Kazic, 26.5.2018
 
-    
+
+% further reclassifications
+%
+% Kazic, 24.5.2020
     
 
 % pedigree_tree(SubDir,ListFileNames).
@@ -342,7 +345,22 @@ pedigree_tree(not_useful,[
 '002-(2n)-003-001-b-k68900_bofodgo123',
 '002-(2n)-003-001-001-b-k68700_altiplanobov903',
 '(2n)-002-001-b-k70200_catetonortista-gini',
-'(2n)-003-001-b-k69700_br105']).
+'(2n)-003-001-b-k69700_br105',
+%
+% others
+%
+'tp1-k14600_tp1',
+'lesds-1-k16900_',
+'newnecrotic-k62200_l522-10',
+'les297-k16700_+',
+'les-ats-k9500_b73ht1',
+'les-74-1820-6-k14900_b73ht1mo17',
+'camocf0-2-k19101_b73',
+'camocf0-1-k19002_b73',
+'lls1-K17700_',
+
+foo
+	      ]).
 
 
 
@@ -410,7 +428,9 @@ pedigree_tree(primary_recessives,[
 'lls1-k1700_mo20w',
 'lls1-k10600_+',
 'lls1121d-k3400_w23',
-'lls1121d-k5300_lls1121d']).
+'lls1121d-k5300_lls1121d',
+'les-tk2-k70404_mo20w'
+	      ]).
 
 
 
@@ -446,9 +466,7 @@ pedigree_tree(secondary_dominants,[
 'les-na7145-k9100_b73ht1',
 'les101-k11800_i-54',
 'les102-k12000_i-52',
-'lesds-1-k16900_',
-'lls1-nk-k17800_',		  
-'tp1-k14600_tp1']).
+'lls1-nk-k17800_']).
 
 
 
@@ -468,15 +486,12 @@ pedigree_tree(secondary_dominants,[
 
 
 pedigree_tree(secondary_recessives,[
-'camocf0-1-k19002_b73',
-'camocf0-2-k19101_b73',
 'cpc1-n2284b-k9600_+',
 'csp1-k11500_',
 '-k7500_les-n1395c',
-'les-74-1820-6-k14900_b73ht1mo17',
 'les-74-1873-9-k9300_+',
-'les-ats-k9500_b73ht1',
 'les-b1-k62805_b73',
+'les-n1395c-k7500_les-n1395c',
 'les-n2012-k7700_+',
 'les-n2013-k7800_les-n2013',
 'les-n2290a-k8000_mo20w',
@@ -487,11 +502,9 @@ pedigree_tree(secondary_recessives,[
 'les-pi262474-k13700_+',
 'les-tilling1-k17400_',
 'les28-k16400_',
-'les297-k16700_+',
 'lesla-k17300_lesla',
 'nec-6853-k10700_+',
 'nec2-8147-k15300_+',
-'newnecrotic-k62200_l522-10',
 'spc1-n1376-k10900_w23',
 'les-n1450-k7600_+']).
 
@@ -707,7 +720,6 @@ pedigree_tree(suppressors,[
 %%         'les102-K16600_mo20W',
 %%         'les2014-K16800_+',
 %%         'lesDL(Mop1)-_mo20W',
-%%         'lls1-K17700_',
 %%         'mop1-_mop1mop1',
 %%         'pl-Rhoades-_mcClintockfullcolor',
 %%         'rhm1Y1-_rhm1Y1',
@@ -841,7 +853,7 @@ pedigree_tree(suppressors,[
 
 
 %% pedigree_tree(secondary_recessives,[
-%%         '-_les*-N1395C',                        % was les*-N1395C_les*-N1395C
+%%         '-_les*-N1395C',                        
 %%         'camocf0-1-K19002_b73',
 %%         'camocf0-2-K19101_b73',
 %%         'cpc1-N2284B-K9600_+',
