@@ -2557,12 +2557,20 @@ output_data(File,Switch,L) :-
                                                  ( Switch == mutls ->
                                                          write_plans_for_ipad(Stream,L)
                                                  ;
-                                                         ( Switch \== foo ->
-                                                                 write_list_facts(Stream,L) 
+
+                                                         ( Switch == branch_status ->
+						                 nth0(0,L,Threshold,Lists),
+							         format(Stream,'~d.~n~n~n',[Threshold]),
+                                                                 write_branch_status(Stream,Lists)
                                                          ;
-                                                                 write_undecorated_list(Stream,L) 
+						 
+                                                                 ( Switch \== foo ->
+                                                                         write_list_facts(Stream,L) 
+                                                                 ;
+                                                                         write_undecorated_list(Stream,L) 
+                                                                 )
                                                          )
-                                                 )
+					         )
                                          )
                                 )
                         )
@@ -2590,6 +2598,11 @@ output_header(Switch,File,Stream) :-
 output_header_aux(brcd,Stream) :-
         format(Stream,'% genetic_utilities:make_barcode_index/7.~n~n~n',[]),
         format(Stream,'% barcode_index(RowNum,Crop,Plant,RowPlant,Family,PostColon,Barcode).~n~n~n',[]).
+
+
+output_header_aux(branch_status,Stream) :-
+        format(Stream,'% pedigrees:check_status_branches/3.~n~n~n',[]),
+        format(Stream,'% The threshold for back-crosses was set to ',[]).
 
 
 
@@ -2764,6 +2777,10 @@ output_header_aux(replant,Stream) :-
 
 
 
+
+
+
+% 	output_data(OutputFile,branch_status,[FinishedBranches,BulksNeeded,BCThreshold,BackCrossesNeeded]).
 
 
 
@@ -2980,6 +2997,37 @@ write_planting_plan(Stream,PriorRow,[Row-(Sequence,Packet,_)|T]) :-
         ),
         format(Stream,'~d ~10|~w ~23|~d~n',[Row,Packet,Sequence]),
         write_planting_plan(Stream,Row,T).
+
+
+
+
+
+
+
+
+
+% Kazic, 24.5.2020
+
+
+write_branch_status(Stream,[FinishedBranches,BulksNeeded,BackCrossesNeeded]) :-
+	length(FinishedBranches,NumFinished),
+	length(BulksNeeded,NumBulks),
+	length(BackCrossesNeeded,NumBCs),
+
+        format(Stream,'% the following ~d branches have all back-crosses and possible bulking completed:~n~n',[NumFinished]),
+        sort(FinishedBranches,SortedFinishedBranches),
+	write_list(Stream,SortedFinishedBranches),
+	format(Stream,'~n~n~n~n% the following ~d branches need these bulking operations:~n~n',[NumBulks]),
+        sort(BulksNeeded,SortedBulksNeeded),
+	write_list(Stream,SortedBulksNeeded),
+	format(Stream,'~n~n~n~n% the following ~d branches need further back-crosses:~n~n',[NumBCs]),
+        sort(BackCrossesNeeded,SortedBackCrossesNeeded),
+	write_list(Stream,SortedBackCrossesNeeded).
+	
+
+
+
+
 
 
 

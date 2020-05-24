@@ -26,7 +26,7 @@
 :-      module(pedigrees, [
                build_pedigrees/2,
 	       check_pedigrees/2,
-%	       check_status_branches/2,
+	       check_status_branches/3,
                construct_pedigrees/1,
                find_imaged_ancestors/1,
                find_plants_offspring/2,
@@ -294,7 +294,69 @@ compute_pedigree(Ma,Pa,PlanningCrop) :-
 
 
 
-% check_status_branches() :-
+
+
+
+
+
+
+% well, what is left to do in line construction?
+%
+% this will vary according to your experiment
+%
+% the code exploits some formalized notation in the arguments of ../data/branch_status.pl.
+%
+% Kazic, 24.5.2020
+
+
+%! check_status_branches(+PlanningCrop:atom,+BCThreshold:integer,+File:atom) is semidet.
+
+% call is: check_status_branches('20r',3,status_branches).
+
+check_status_branches(PlanningCrop,BCThreshold,File) :-
+
+        make_branch_output_file(PlanningCrop,File,OutputFile),
+	
+        findall(Gene-K-Inbred,(branch_status(Gene,K,Inbred,[inc,'B'],'infertile ear',_,_,_,_,_,_);
+			       branch_status(Gene,K,Inbred,[inc,'B'],'no ear',_,_,_,_,_,_);
+			       branch_status(Gene,K,Inbred,[inc,'B',self],_,_,_,_,_,_,_)),FinishedBranches),
+        
+        findall(Gene-K-Inbred-(ToDos,Ma,Pa),(branch_status(Gene,K,Inbred,Done,Ear,_,Ma,Pa,_,_,_),
+			       ( sub_string(Ear,0,3,_,'6th')
+			       ;
+                                 sub_string(Ear,_,_,_,'check ear')
+			       ;
+                                 sub_string(Ear,_,_,_,'ok ear')
+			       ),
+                               subtract([inc,'B',self],Done,Needed),
+			       Needed \== [],
+			       ( ( memberchk(self,Needed),
+				   ( sub_string(Ear,_,_,_,'infertile ear')
+				   ;
+				     sub_string(Ear,_,_,_,'no ear')
+				   ) ) ->
+				       subtract(Needed,[self],ToDos)
+			       ;
+			               ToDos = Needed
+                               ) ),BulksNeeded),
+
+	findall(BCNeeded-(Gene-K-Inbred-(Ear,BMa,BPa)),(branch_status(Gene,K,Inbred,[],Ear,0,BMa,BPa,_,_,_),
+			       sub_string(Ear,0,1,_,BCNumAtom),
+                               ( atom_number(BCNumAtom,BCNum)->
+			               BCNeeded is 6 - BCNum,
+				       BCNeeded > 0,
+				       BCNeeded =< BCThreshold
+			       ;
+                                       false
+			       )
+                               ),Int1),
+        sort(Int1,BackCrossesNeeded),
+	output_data(OutputFile,branch_status,[BCThreshold,FinishedBranches,BulksNeeded,BackCrossesNeeded]).
+	
+
+
+
+
 
 
 
@@ -998,7 +1060,10 @@ make_output_dir(PlanningCrop,ASCIIDir,LowerCaseCrop) :-
 
 
 
-    
+
+
+
+
 
 
 
@@ -1053,7 +1118,22 @@ make_subdirs_n_indices(ASCIIDir,[SubDir-Files|T]) :-
 
 
 
+%! make_branch_output_dir(+PlanningCrop:atom,+File:atom,-OutputFile:atom) is det.
 
+
+make_branch_output_file(PlanningCrop,File,OutputFile) :-
+        convert_crop(PlanningCrop,LowerCaseCrop),
+        check_slash(LowerCaseCrop,LowerCaseCropS),
+        pedigree_root_directory(RootDir),
+        pedigree_planning_directory(Plnng),
+        atomic_list_concat([RootDir,LowerCaseCropS,Plnng],ASCIIDir),
+
+        ( exists_directory(ASCIIDir) ->
+                true
+        ;
+                make_directory(ASCIIDir)
+        ),
+	atom_concat(ASCIIDir,File,OutputFile).
 
 
 
