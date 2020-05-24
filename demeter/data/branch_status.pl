@@ -24,7 +24,7 @@ branch_status('Les2','K2002','M14',[inc,'B',self],'ok ear',4226,'13R405:M0002602
 branch_status('Les2','K2002','Mo20W',[inc,'B',self],'ok ear',4080,'12N205:S0038508','12N3921:0011908',date(22,5,2020),time(12,00,00),toni).
 branch_status('Les2','K2002','W23',[inc,'B',self],'ok ear',3571,'11N305:W0031109','11N3408:0009003',date(22,5,2020),time(12,00,00),toni).
 branch_status('Les2-N845A','K5515','M14',['B',self],'ok ear',4649,'17R405:M0002113','17R4564:0016707',date(22,5,2020),time(12,00,00),toni).
-branch_status('Les2-N845A','K5515','Mo20W',[inc,'B',self],'good ear',4258,'13R205:S0000507','13R4145:0018815',date(22,5,2020),time(12,00,00),toni).
+branch_status('Les2-N845A','K5515','Mo20W',[inc,'B',self],'ok ear',4258,'13R205:S0000507','13R4145:0018815',date(22,5,2020),time(12,00,00),toni).
 branch_status('Les2-N845A','K5515','W23',['B'],'ok ear',4448,'14R305:W0000905','14R4273:0020102',date(22,5,2020),time(12,00,00),toni).
 branch_status('Les4','K0302','M14',[inc,'B',self],'ok ear',3584,'11N405:M0034004','11N3413:0009901',date(22,5,2020),time(12,00,00),toni).
 branch_status('Les4','K0302','Mo20W',[inc,'B'],'ok ear?',4227,'13R205:S0002205','13R4082:0005502',date(22,5,2020),time(12,00,00),toni).
@@ -45,31 +45,26 @@ branch_status('Les6','K2202','M14',[inc,'B'],'no ear',4651,'15R405:M0001205','15
 branch_status('Les6','K2202','Mo20W',[inc,'B'],'no ear',4088,'12N205:S0038208','12N3965:0020603',date(22,5,2020),time(12,00,00),toni).
 branch_status('Les6','K2202','W23',[inc,'B'],'infertile ear',3966,'12R305:W0000208','12R3602:0025213',date(22,5,2020),time(12,00,00),toni).
 branch_status('Les6','K2212','M14',[inc,'B'],'no ear',4561,'16R405:M0001811','16R4356:0010005',date(22,5,2020),time(12,00,00),toni).
-branch_status('Les6','K2212','Mo20W',[inc,'B',self],'good ear',4089,'12N205:S0041602','12N3970:0021101',date(22,5,2020),time(12,00,00),toni).
+branch_status('Les6','K2212','Mo20W',[inc,'B',self],'ok ear',4089,'12N205:S0041602','12N3970:0021101',date(22,5,2020),time(12,00,00),toni).
 branch_status('Les6','K2212','W23',[inc,'B',self],'ok ear',4090,'12N305:W0037407','12N3971:0021212',date(22,5,2020),time(12,00,00),toni).
-branch_status('Les7','K0509','M14',[inc,'B',self],'good ear; low cl terminal',3975,'12R405:M0000601','12R3608:0025901',date(22,5,2020),time(12,00,00),toni).
-branch_status('Les7','K0509','Mo20W',[inc,'B',self],'good ear',4091,'12N205:S0037911','12N3973:0021509',date(22,5,2020),time(12,00,00),toni).
+branch_status('Les7','K0509','M14',[inc,'B',self],'ok ear; low cl terminal',3975,'12R405:M0000601','12R3608:0025901',date(22,5,2020),time(12,00,00),toni).
+branch_status('Les7','K0509','Mo20W',[inc,'B',self],'ok ear',4091,'12N205:S0037911','12N3973:0021509',date(22,5,2020),time(12,00,00),toni).
 branch_status('Les7','K0509','W23',[],'check ear',0,'16R305:W0001610','16R4279:0010511',date(22,5,2020),time(12,00,00),toni).
-branch_status('Les7','K2312','M14',['B',self],'good ear',4657,'14R405:M0001212','14R4282:0021303',date(22,5,2020),time(12,00,00),toni).
-branch_status('Les7','K2312','Mo20W',[inc,'B',self],'good ear',4654,'16R205:S0001301','16R4390:0010611',date(22,5,2020),time(12,00,00),toni).
+branch_status('Les7','K2312','M14',['B',self],'ok ear',4657,'14R405:M0001212','14R4282:0021303',date(22,5,2020),time(12,00,00),toni).
+branch_status('Les7','K2312','Mo20W',[inc,'B',self],'ok ear',4654,'16R205:S0001301','16R4390:0010611',date(22,5,2020),time(12,00,00),toni).
 branch_status('Les7','K2312','W23',[inc,'B'],'no ear',4656,'15R305:W0000707','15R4360:0012608',date(22,5,2020),time(12,00,00),toni).
 branch_status('Les8','K0601','M14',[],'2nd',0,'18R405:M0004202','18R2437:0024304',date(22,5,2020),time(12,00,00),toni).
 branch_status('Les8','K0601','Mo20W',[],'3rd',0,'18R205:S0001402','18R2433:0024102',date(22,5,2020),time(12,00,00),toni).
 branch_status('Les8','K0601','W23',[],'2nd',0,'18R305:W0002010','18R2442:0024204',date(22,5,2020),time(12,00,00),toni).
 branch_status('Les8','K2405','M14',[inc,'B'],'infertile ear',4452,'14R405:M0001103','14R4285:0021603',date(22,5,2020),time(12,00,00),toni).
 branch_status('Les8','K2405','Mo20W',['B'],'check ear',4658,'14R205:S0000107','14R4284:0021509',date(22,5,2020),time(12,00,00),toni).
-branch_status('Les8','K2405','W23',[inc,'B',self],'good ear',4092,'12N305:W0039207','12N3614:0024110',date(22,5,2020),time(12,00,00),toni).
+branch_status('Les8','K2405','W23',[inc,'B',self],'ok ear',4092,'12N305:W0039207','12N3614:0024110',date(22,5,2020),time(12,00,00),toni).
 branch_status('Les9','K0707','Mo20W',[inc,'B'],'infertile ear',3616,'11N205:S0036710','11N3445:0015105',date(22,5,2020),time(12,00,00),toni).
 branch_status('Les9','K0707','W23',[inc,'B'],'infertile ear',4093,'13R4093:0008004','13R4093:0008006',date(22,5,2020),time(12,00,00),toni).
-branch_status('Les9','K0707','M14',[inc,'B',self],'barely fertile ear',4094,'12N405:M0035703','12N3993:0024910',date(22,5,2020),time(12,00,00),toni).
+branch_status('Les9','K0707','M14',[inc,'B',self],'infertile ear',4094,'12N405:M0035703','12N3993:0024910',date(22,5,2020),time(12,00,00),toni).
 branch_status('Les9','K2506','W23',[inc,'B'],'infertile ear',3995,'12R305:W0002901','12R3620:0027307',date(22,5,2020),time(12,00,00),toni).
 branch_status('Les9','K2506','Mo20W',[],'check ear',4764,'18R205:S0001206','18R4505:0025311',date(22,5,2020),time(12,00,00),toni).
 branch_status('Les9','K2506','M14',[inc,'B',self],'ok ear',4659,'17R405:M0002306','17R4578:0017406',date(22,5,2020),time(12,00,00),toni).
-
-
-
-% foo
-
 branch_status('Les10','K0801','Mo20W',['B'],'check ear',4660,'14R205:S0000307','14R4160:0022114',date(22,5,2020),time(12,00,00),toni).
 branch_status('Les10','K0801','M14',[],'3rd',0,'18R405:M0004011','18R3998:0025405',date(22,5,2020),time(12,00,00),toni).
 branch_status('Les10','K0801','W23',[inc,'B'],'no ear',4263,'13R305:W0000706','13R3623:0024902',date(22,5,2020),time(12,00,00),toni).
@@ -91,8 +86,8 @@ branch_status('Les13','K1109','W23',[],'small ear',0,'18R305:W0001917','18R4714:
 branch_status('Les13','K1109','M14',[],'2nd',0,'18R405:M0004611','18R4739:0026008',date(22,5,2020),time(12,00,00),toni).
 branch_status('Les13','K1109','M14',[],'5th',0,'14R405:M0001803','14R4166:0023701',date(22,5,2020),time(12,00,00),toni).
 branch_status('Les13','K2805','Mo20W',[],'6th; 2 rows',0,'13R205:S0003402','13R4167:0026602',date(22,5,2020),time(12,00,00),toni).
-branch_status('Les13','K2805','Mo20W',[],'5th; no ear; 2 rows',0,'12N205:S0037903','12N4019:0028805',date(22,5,2020),time(12,00,00),toni).
-branch_status('Les13','K2805','Mo20W',[],'5th; small ear; 2 rows',0,'12N205:S0038201','12N4019:0028812',date(22,5,2020),time(12,00,00),toni).
+branch_status('Les13','K2805','Mo20W',[],'5th; no ear; 2 rows; alternate',0,'12N205:S0037903','12N4019:0028805',date(22,5,2020),time(12,00,00),toni).
+branch_status('Les13','K2805','Mo20W',[],'5th; small ear; 2 rows; alternate',0,'12N205:S0038201','12N4019:0028812',date(22,5,2020),time(12,00,00),toni).
 branch_status('Les13','K2805','W23',[],'2nd',0,'18R305:W0001905','18R4740:0026108',date(22,5,2020),time(12,00,00),toni).
 branch_status('Les13','K2805','M14',[],'4th',0,'18R405:M0004111','18R4716:0026206',date(22,5,2020),time(12,00,00),toni).
 branch_status('Les15','K6711','Mo20W',[],'4th!',0,'19R205:S0000402','19R4774:0012602',date(22,5,2020),time(12,00,00),toni).
