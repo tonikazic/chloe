@@ -169,10 +169,10 @@
 
 
     
-:-      use_module(demeter_tree('data/load_data')),
-        use_module(demeter_tree('code/demeter_utilities')).
+:-    use_module(demeter_tree('code/demeter_utilities')).
 
-    
+
+% :-    ensure_loaded(demeter_tree('data/load_data')).
 
 
 %end%

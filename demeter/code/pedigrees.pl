@@ -25,7 +25,8 @@
 
 :-      module(pedigrees, [
                build_pedigrees/2,
-	       check_pedigrees/2,	       
+	       check_pedigrees/2,
+%	       check_status_branches/2,
                construct_pedigrees/1,
                find_imaged_ancestors/1,
                find_plants_offspring/2,
@@ -43,7 +44,7 @@
  
 :-      use_module(demeter_tree('code/genetic_utilities')),
         use_module(demeter_tree('code/demeter_utilities')),
-        use_module(demeter_tree('data/load_data')),
+%        use_module(demeter_tree('data/load_data')),
 %        use_module(demeter_tree('code/plan_crop')).
         true.
 
@@ -293,7 +294,7 @@ compute_pedigree(Ma,Pa,PlanningCrop) :-
 
 
 
-
+% check_status_branches() :-
 
 
 

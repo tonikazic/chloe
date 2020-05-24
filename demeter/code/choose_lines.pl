@@ -42,8 +42,8 @@
 :-      use_module(demeter_tree('code/genetic_utilities')),
         use_module(demeter_tree('code/pedigrees')),
         use_module(demeter_tree('code/demeter_utilities')),    
-        use_module(demeter_tree('data/load_data')).
-
+%        use_module(demeter_tree('data/load_data')).
+        true.
 
 
 %end%
