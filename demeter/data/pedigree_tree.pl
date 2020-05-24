@@ -357,9 +357,7 @@ pedigree_tree(not_useful,[
 'les-74-1820-6-k14900_b73ht1mo17',
 'camocf0-2-k19101_b73',
 'camocf0-1-k19002_b73',
-'lls1-K17700_',
-
-foo
+'lls1-K17700_'
 	      ]).
 
 
