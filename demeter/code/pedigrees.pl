@@ -311,7 +311,7 @@ compute_pedigree(Ma,Pa,PlanningCrop) :-
 
 %! check_status_branches(+PlanningCrop:atom,+BCThreshold:integer,+File:atom) is semidet.
 
-% call is: check_status_branches('20r',3,status_branches).
+% call is: check_status_branches('20r',3,'status_branches.org').
 
 check_status_branches(PlanningCrop,BCThreshold,File) :-
 

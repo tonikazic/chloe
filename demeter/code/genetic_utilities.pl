@@ -2602,7 +2602,7 @@ output_header_aux(brcd,Stream) :-
 
 output_header_aux(branch_status,Stream) :-
         format(Stream,'% pedigrees:check_status_branches/3.~n~n~n',[]),
-        format(Stream,'% The threshold for back-crosses was set to ',[]).
+        format(Stream,'The threshold for back-crosses was set to ',[]).
 
 
 
@@ -3014,13 +3014,13 @@ write_branch_status(Stream,[FinishedBranches,BulksNeeded,BackCrossesNeeded]) :-
 	length(BulksNeeded,NumBulks),
 	length(BackCrossesNeeded,NumBCs),
 
-        format(Stream,'% the following ~d branches have all back-crosses and possible bulking completed:~n~n',[NumFinished]),
+        format(Stream,'* ~d Done~n~nThe following ~d branches have all back-crosses and possible bulking completed:~n~n',[NumFinished,NumFinished]),
         sort(FinishedBranches,SortedFinishedBranches),
 	write_list(Stream,SortedFinishedBranches),
-	format(Stream,'~n~n~n~n% the following ~d branches need these bulking operations:~n~n',[NumBulks]),
+	format(Stream,'~n~n~n~n* ~d Bulks to Do~n~nThe following ~d branches need these bulking operations:~n~n',[NumBulks,NumBulks]),
         sort(BulksNeeded,SortedBulksNeeded),
 	write_list(Stream,SortedBulksNeeded),
-	format(Stream,'~n~n~n~n% the following ~d branches need further back-crosses:~n~n',[NumBCs]),
+	format(Stream,'~n~n~n~n* ~d Back-crosses to Do~n~nThe following ~d branches need further back-crosses:~n~n',[NumBCs,NumBCs]),
         sort(BackCrossesNeeded,SortedBackCrossesNeeded),
 	write_list(Stream,SortedBackCrossesNeeded).
 	
