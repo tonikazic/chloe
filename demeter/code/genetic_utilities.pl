@@ -75,6 +75,7 @@
                 genotype/2,
                 get_crop/2,
                 get_family/2,
+		get_inventory_sorting_key/4,
                 get_knum/2,
 		get_line/12,
 		get_nursery_from_particle/2,
@@ -1647,6 +1648,20 @@ remove_padding_aux(Atom,Number) :-
 
 
 %%% get pieces from the plantID
+
+
+
+get_inventory_sorting_key(Ma,MaCrop,MaFam,MaRowPlant) :-
+        get_crop(Ma,MaCrop),
+	get_family(Ma,Family),
+	( Family >= 1000 ->
+	        MaFam = 0
+        ;
+                MaFam = Family
+        ),
+        get_rowplant(Ma,MaRowPlant).
+
+	
 
 get_crop(NumericalGenotype,Crop) :-
         ( sub_atom(NumericalGenotype,_,1,_,':') ->
