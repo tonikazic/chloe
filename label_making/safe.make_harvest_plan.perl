@@ -7,7 +7,7 @@
 #
 # Kazic, 22.8.2012
 
-# call is: perl ./make_harvest_plan.perl CROP DAYS_TO_HARVEST_DATE
+# call is /usr/local/bin/perl make_harvest_plan.perl CROP DAYS_TO_HARVEST_DATE
 
 # ooops, need a subroutine that tells me what to harvest today, and what its
 # background is, and the color coding.  DONE.
@@ -28,15 +28,6 @@
 # right at the top!  So for sure this is an issue of wierd environment variables.
 #
 # Kazic, 21.8.2013
-
-
-# modified type selection scheme so the rows don't have to be kludged in
-#
-# Kazic, 23.9.2014
-
-
-# to generate pdf of the output files, go to the terminal and:
-# enscript FILE -o h.ps ; ps2pdf h.ps FILE.pdf ; rm h.ps
 
 
 # use lib '/System/Library/Perl/Extras/5.10.0/darwin-thread-multi-2level/Date';
@@ -68,7 +59,7 @@ $exphardoy = Day_of_Year($year,$expharmon,$expharday);
 
 
 $cross_file = "../demeter/data/cross.pl";
-$harvest_file = "$crop/management/rows_harvested_so_far";
+$harvest_file = "../demeter/data/harvest.pl";
 $plan_file = "$crop/management/harvest_plan";
 $todays_work = "$crop/management/" . $expharday . "." . $expharmon . ".harvest";
 
@@ -89,15 +80,13 @@ print OUT "% this is $plan_file
 % \"days to harvest\" is the difference between the nominal harvest date and today.
 %
 % Onion/mesh bag color-coding:
-%        U = purple/red          (mutant bulking)
-%        D = red/green           (double mutants)
-%        @ = green/red           (bced selves)
-%        S = purple/yellow       (Mo20W females)
-%        W = green/yellow        (W23 females)
-%        M = red/yellow          (M14 females)
-%        B = white/red           (B73 females)
-%        P = purple/green        (popcorn or other fun corn) \n\n\n";
-
+%        @ = green/red
+%        S = purple/yellow
+%        W = green/yellow
+%        M = red/yellow
+%        B = green/red
+%        P = purple/green
+%        D = red/green \n\n\n";
 
 
 
@@ -115,100 +104,29 @@ while (<CRS>) {
 
 
 # only want ears that didn't need to be repeated
-#
-# make sure line begins with cross and isn't commented out
-#
-# Kazic, 27.9.2015
 
-                ($ma,$pa,$date) = $_ =~ /^cross\(\'(${num_gtype_re})\',\'(${num_gtype_re})\',.+,false,.+,(${prolog_date_re})/;
+                ($ma,$pa,$date) = $_ =~ /cross\(\'(${num_gtype_re})\',\'(${num_gtype_re})\',.+,false,.+,(${prolog_date_re})/;
                 chop($date);
  
-
-# modified type selection scheme so that rows don't have to be kludged in
-# need to store a row's types, one ear at a time
-# postpone evaluation of majority type until after all ears stored
-#
-# Kazic, 23.9.2014
-
-# the inbreds are easy to pick off
-
-                if ( $ma =~ /\:[SWMB]/ ) { ($cross_type,$marow,$maplant) = $ma =~ /\:(\w)?(\d{3,5})(\d{2})/; }
-
-
-# now sort through inter-mutant crosses
-
-                else {
-                        ($ma_rowplant) = $ma =~ /\:0{2,4}(\d{5,6})/;
-                        ($pa_rowplant) = $pa =~ /\:0{2,4}(\d{5,6})/;
-                        ($marow,$maplant) = $ma_rowplant =~ /(\d{1,4})(\d{2})$/;
-
-
-                        if ( $ma_rowplant eq $pa_rowplant ) { $cross_type = "@"; }
-
-                        else {
-                                ($parow) = $pa_rowplant =~ /(\d{1,4})\d{2}$/;
-                                ($mafam) = $ma =~ /^\d{2}\w(\d+)\:/;
-                                ($pafam) = $pa =~ /^\d{2}\w(\d+)\:/;
-                                if ( ( $marow eq $parow ) || ( $mafam eq $pafam ) ) { $cross_type = "U" }
-                                elsif ( $mafam ne $pafam ) { $cross_type = "D"; }
-                                }
-		        }
-
-
-
+                ($type,$marow,$maplant) = $ma =~ /\:(\w)?(\d{3,5})(\d{2})/;
                 $marow = int($marow);
 
 
-
-
                 if ( ( exists $rows{$marow} ) && ( $marow ne "0" ) ) {
-                        ($mindate,$maxdate,$plants,$type_so_far) = split('::',$rows{$marow});
+                        ($mindate,$maxdate,$plants) = split('::',$rows{$marow});
                         if ( $date lt $mindate ) { $mindate = $date; }                         
                         if ( $date gt $maxdate ) { $maxdate = $date; }                         
                         ++$plants;
-
-
-
-
-# accumulate the type of ear in each row
-# types stored as string of the form type=num;
-#
-# I can use the variable directly in the regex, without the ${}:
-
-
-                        if ( $type_so_far =~ /$cross_type/ ) {
-                                ($front,$value,$back) = $type_so_far =~ /(^.*$cross_type\=)(\d+)(.*$)/;
-                                ++$value;
-                                $new_type_so_far = $front . $value . $back;
-                                }
-
-
-                        else { $new_type_so_far = $type_so_far . ";" . $cross_type . "=" . 1; }
-
-
-                        $rows{$marow} = $mindate . "::" . $maxdate . "::" . $plants . "::" . $new_type_so_far;
+                        $rows{$marow} = $mindate . "::" . $maxdate . "::" . $plants . "::" . $type;
                         }                        
 
-                elsif ( $marow ne "0" ) { 
-                        $new_type_so_far = $cross_type . "=" . 1;
-                        $mindate = $date;
-                        $maxdate = $date;
-                        $plants = 1;
-			$rows{$marow} = $mindate . "::" . $maxdate . "::" . $plants . "::" . $new_type_so_far;
-                        }
+                elsif ( $marow ne "0" ) { $rows{$marow} = $date . "::" . $date . "::" . 1 . "::" . $type; }
 
-
-
-
-
-#                print "$ma, $new_type_so_far, $marow, $mindate, $maxdate, $plants\n";
+#                print "$ma, $type, $marow, $mindate, $maxdate, $plants\n";
 
                 $ma = "";
                 $pa = "";
                 $type = "";
-                $type_so_far = "";
-                $new_type_so_far = "";
-                $cross_type = "";
                 $marow = "";
                 $maplant = "";
                 $date = "";
@@ -224,7 +142,7 @@ close(CRS);
 
 
 
-# the old version of this loop is now obsolete, since we have changed the harvesting procedure.
+# this is now obsolete, since we have changed the harvesting procedure.
 #
 # We used to collect the harvest data in the field, so as to monitor our
 # progress and enable faster crop planning.  But this is too slow now with
@@ -237,22 +155,20 @@ close(CRS);
 # Kazic, 23.9.2014
 
 
-# EXCEPT: we still need to know which rows we've harvested so far, so that the next day's
-# work doesn't include rows already done.
-#
-# Kazic, 27.9.2014
-
-
 while (<HARV>) {
 
+        if ( $_ =~ /$crop_str/ ) {
 
-        if ( ($row) = $_ =~ /^\s*(\d+)\s*$/ ) {
+                ($harvma) = $_ =~ /harvest\(\'(${num_gtype_re})\',/;
 
-                $harvmarow = int($row);
+                ($harvmarow) = $harvma =~ /\:\w?(\d{3,5})\d{2}/;
+                $harvmarow = int($harvmarow);
 
 
                 if ( ( exists $harv{$harvmarow} ) && ( $harvmarow ne "0" ) ) {
-                        $harv{$harvmarow} = 1;
+                        $ears = $harv{$harvmarow};
+                        ++$ears;
+                        $harv{$harvmarow} = $ears;
                         }                        
 
                 elsif ( $harvmarow ne "0" ) { $harv{$harvmarow} = 1; }
@@ -260,7 +176,7 @@ while (<HARV>) {
 #               print "$harvmarow $harv{$harvmarow}\n";
 
                 $harvmarow = "";
-                $row = "";
+                $ears = "";
 	        }
         }
 
@@ -284,36 +200,20 @@ foreach $marow ( sort ( keys %rows ) ) {
         ($minday,$minmo,$year) = $mindate =~ /date\((\d+),(\d+),(\d+)/;
         ($maxday,$maxmo) = $maxdate =~ /date\((\d+),(\d+),/;
 	
-
-
-# now read the types into a hash and figure out the majority type
-#
-# sorting idea from Gabor Szabo [[http://perlmaven.com/how-to-sort-a-hash-in-perl]]
-# this returns the key corresponding to the maximum value
-#
-# the trick relies on the maximum coming last in the sort, overwriting all previous
-# values of $row_type
-
-
-        (%type_hash) = split(/[\;=]/,$type);
-        foreach my $ear_type ( sort { $type_hash{$a} <=> $type_hash{$b} } keys %type_hash ) { $row_type = $ear_type; }
-
 	
         $range = &Delta_Days($year,$maxmo,$maxday,$year,$minmo,$minday);
      	
         ($year,$harvestmonth,$harvestday) = &Add_Delta_Days($year,$maxmo,$maxday,40);
 	
         $harvestdoy = Day_of_Year($year,$harvestmonth,$harvestday);
-        $info = $plants . "::" . $range . "::" . $row_type;
+        $info = $plants . "::" . $range . "::" . $type;
         $harvest{$harvestdoy}{$marow} = $info;
 
-#        print "$marow,$row_type,$mindate,$maxdate,$plants,$range,$harvestdate\n";
+#        print "$marow,$mindate,$maxdate,$plants,$range,$harvestdate\n";
 	
         $harvestdate = "";
 	$marow = "";
         $type = "";
-        $ear_type = "";
-        $row_type = "";
 	$mindate = "";
 	$maxdate = "";
 	$plants = "";
@@ -334,15 +234,15 @@ foreach $marow ( sort ( keys %rows ) ) {
 
 
 
-# now write the hash of hashes to OUT
+# now write out the hash of hashes to OUT
 
 $total_ears = 0;
 $total_rows = 0;
 $harvest_days = scalar @{[%{ $harvest{$harvestdoy} }]};
 print OUT "% $harvest_days harvest days\n\n\n";
 
-printf OUT "%s %6s %6s %6s %12s %17s %13s %13s\n" ,"harvest date","row","type","ears","date range","days to harvest","ears so far","rows so far";
-print OUT "------------------------------------------------------------------------------------------------\n";
+printf OUT "%s %6s %8s %12s %17s %13s %13s\n" ,"harvest date","row","ears","date range","days to harvest","ears so far","rows so far";
+print OUT "---------------------------------------------------------------------------------------\n";
 
 
         
@@ -356,16 +256,17 @@ foreach $harvestdoy ( sort { $a <=> $b } ( keys %harvest ) ) {
                 $info = $harvest{$harvestdoy}{$marow};
 
 
+# discard third argument in this next line
 
-                ($plants,$range,$row_type) = split(/::/,$info);
+                ($plants,$range) = split(/::/,$info);
                 $delayed = &Delta_Days($todayyear,$todaymonth,$todayday,$year,$hmonth,$hday);
                 $total_ears += $plants;
                 $total_rows += 1;
 
-                printf OUT "%19s%6s%7s%10s%15s%20s\n" ,$marow,$row_type,$plants,$range,$delayed;
+                printf OUT "%19s%7s%10s%15s\n" ,$marow,$plants,$range,$delayed;
 	        }
 
-        printf OUT "%74d%14d\n\n",$total_ears,$total_rows;
+        printf OUT "%68d%14d\n\n",$total_ears,$total_rows;
         }
 
 
@@ -386,29 +287,52 @@ close(OUT);
 
 foreach $harvestdoy ( sort { $a <=> $b } ( keys %harvest ) ) {
 
+
 	if ( $harvestdoy <= $exphardoy ) { 
 
                 for $marow ( sort { $a <=> $b } keys %{ $harvest{$harvestdoy} } ) {
 
                         $info = $harvest{$harvestdoy}{$marow};
-                        ($plants,$range,$row_type) = split(/::/,$info);
+                        ($plants,$range,$type) = split(/::/,$info);
 
                         $ears_harvested = $harv{$marow};
 
-#			print "$marow ($plants,$range,$row_type)\n";
-
 
 # sometimes a pollination wasn't recorded!
+#
+#                        if ( $ears_harvested ne $plants ) { 
 
-                        if ( $ears_harvested <= $plants ) { 
+                        if ( $ears_harvested < $plants ) { 
 
-				$colors = $bags{$row_type};
+				$colors = $bags{$type};
                                 $diff = $harvestdoy - $exphardoy;
 
-                                $hinfo = $plants . "::" . $colors . "::" . $diff;
-				$todayswork{$row_type}{$marow} = $hinfo;
 
-#                                print "$row_type $vmarow $diff $hinfo\n";
+
+# special for bulking mutants in 13r, since in that crop they were treated as regular
+# mutants:
+
+                                if ( ( $marow >= 37 ) && ( $marow < 103 ) ) {
+                                        $type = "P";
+                                        $colors = "purple::green";
+			  		}
+
+
+
+# special for double mutant construction and crop improvement 
+
+                                elsif ( ( $marow >= 103 ) && ( $marow < 139 ) ) {
+                                        $type = "D";
+                                        $colors = "red::yellow";
+			  		}
+
+
+
+
+                                $hinfo = $plants . "::" . $colors . "::" . $diff;
+				$todayswork{$type}{$marow} = $hinfo;
+
+#                                print "$type $marow $diff $hinfo\n";
 			        }
 		        }
                 }
@@ -429,6 +353,10 @@ print TODAY "% this is $todays_work
 % \"days to harvest\" is the difference between the nominal
 % harvest date and the expected harvest date 
 % of $expharday.$expharmon.\n\n\n";
+#
+# % nb:  in 12r rows 582 -- 592 are popcorn, and get 
+# % white onion bags and green mesh bags.
+
 
 
 printf TODAY "%29s %7s %6s %6s %7s\n" ,"days to","onion","mesh","total","total";
@@ -441,27 +369,21 @@ $total_ears = 0;
 $total_rows = 0;
 
 
-foreach $row_type (@ear_order) {
+foreach $type (@ear_order) {
 
         print TODAY "\n\n";
 
-        foreach $marow ( sort { $a <=> $b } keys %{ $todayswork{$row_type} } ) {
+        foreach $marow ( sort { $a <=> $b } keys %{ $todayswork{$type} } ) {
+                $hinfo = $todayswork{$type}{$marow};
+                ($plants,$onion,$mesh,$diff) = split(/::/,$hinfo);
+                $total_ears += $plants;
+                $total_rows += 1;
+
+                if ( $type eq "0" ) { $easy_type = "@"; }
+                else { $easy_type = $type; }
 
 
-# !exists is the negation of exists :-)
-
-                if ( !exists $harv{$marow} ) { 
-
-                        $hinfo = $todayswork{$row_type}{$marow};
-                        ($plants,$onion,$mesh,$diff) = split(/::/,$hinfo);
-                        $total_ears += $plants;
-                        $total_rows += 1;
-		        
-#                        print "$row_type, $hinfo\n";
-		        
-                        printf TODAY "%2s%8s%6s%10s%11s%7s\n" ,$row_type,$marow,$plants,$diff,$onion,$mesh; 
-                        }
-
+                printf TODAY "%2s%8s%6s%10s%11s%7s\n" ,$easy_type,$marow,$plants,$diff,$onion,$mesh;
 	        }
 
         printf TODAY "%50d%8d\n\n",$total_ears,$total_rows;

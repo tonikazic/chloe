@@ -1,42 +1,48 @@
-#!/usr/local/bin/perl
+#!/opt/local/bin/perl
 
-# this is /athe/c/maize/crops/count_lines.perl
+# this is /athe/c/maize/crops/count_contingency_lines.perl
 #
-# a script to compute the lines in the different categories and output the results to
+# modified from /athe/c/maize/crops/count_lines.perl
+#
+# a script to compute the lines in a file tangled from the contingency_planting.org file 
+# in the different categories and output the results to
 # computable tables in an org file
 #
-# the org file generated should be substituted back into packing_plan.org, under strategy; 
-# the tables prettified; gerry's rows inserted; and the new values calculated.
+# the org file generated should be substituted back into packing_plan.org, under strategy;
+# the corresponding inbred blocks marked; 
+# the tables prettified; and the new values calculated.
 #
-# note the over-planting factors and third planting inbreds are hard-wired 
-# and may need to change with different inbreds!
 #
 # help with multidimensional hashes from Gabor Szabo: http://perlmaven.com/multi-dimensional-hashes
 #
 #
-# call is: perl count_lines.perl CROP
+# call is: perl count_contingency_lines.perl CROP
 #
-# Kazic, 14.5.2015
-
-
-# check this and make sure it's counting correctly for
-# different situations!
-#
-# Kazic, 22.5.2017
+# Kazic, 6.6.2015
 
 
 
 use lib qw(../label_making/);
 use Typesetting::MaizeRegEx;
 use Typesetting::DefaultOrgztn;
-# use Lingua::EN::Words2Nums;
+#
+# this next just for laieikawai
+#
+# use lib qw(/opt/local/lib/perl5/site_perl/5.8.9/);
+use Lingua::EN::Words2Nums;
 
 
 
+# toggle the input files
 
-$input = "packing_plan.org";
-$file = $crop . $planning_root . $input;
-$out = $crop . $planning_root . "line_counts.org";
+
+
+$input = "bcs_no_bulks";
+# $input = "yes";
+# $input = "maybe";
+# $input = "unlikely";
+$file = $crop . "/planning/" . $input;
+$out = $crop . "/planning/" . $input . "_line_counts.org";
 
 $today = `date`;
 chomp($today);
@@ -61,14 +67,10 @@ open(IN,"$file") or die "can't open input file $file\n";
 
 while (<IN>) {
 
-        if ( $_ =~ /begin_src prolog \:tangle yes/ ) { $flag = "on"; }
-        elsif ($_ =~ /end_src/ ) { $flag = "off"; }
-
-#        if ( ( $flag eq "on" ) && ( $_ =~ /^packing_plan/ ) && ( $_ !~ /\[inbred\]/ ) ) { print $_; }
-
-        if ( ( $flag eq "on" ) && ( $_ =~ /^packing_plan/ ) && ( $_ !~ /\[inbred\]/ ) ) {
+        if ( ( $_ =~ /^packing_plan/ ) && ( $_ !~ /\[inbred\]/ ) ) {
                 ($ma,$planting,$destinatn,$instructns,$ft) = $_ =~ /\[\'([\w\:]+)\s.+,(\d),(\[[\w\'\,\s\-]+\]),\'(.+)\',\'K\d+\',\d{1,2},(\d+)\)\./;
 
+#		print "($ma,$planting,$destinatn,$instructns,$ft)\n";
 
                 $lines++;
                 if ( $planting eq "1" ) { $first++; }
@@ -102,6 +104,7 @@ while (<IN>) {
                 if ( $destinatn =~ /\'M\'/ )    { $type = "m";    &count_mutants($type,$planting,$destinatn,$instructns); }
                 if ( $destinatn =~ /out-cros/ ) { $type = "ox";   &count_mutants($type,$planting,$destinatn,$instructns); }
 	        }
+
         }
 
 
@@ -122,7 +125,7 @@ print OUT "*** TODO line counts\n
 
 
 
-#+NAME:inbreds
+#+NAME:" . $input . "_contingency_inbreds
 |                                           |       S |     W |       M |      B | total rows by plntg |
 |-------------------------------------------+---------+-------+---------+--------+---------------------|
 | over-planting factors                     |     1.3 |   1.3 |     1.7 |    1.3 |                 0.5 |
@@ -157,7 +160,7 @@ print OUT "*** TODO physical rows\n
 
 
 
-#+NAME:rows
+#+NAME:" . $input . "_contingency_rows
 |----------------------------------------+-------|
 | full rows mutants                      |   $full |
 | half rows mutants                      |   $half |
@@ -167,7 +170,7 @@ print OUT "*** TODO physical rows\n
 | gerry's rows                           |  |
 | total rows needed, exclusive of border | |
 |                                        | |\n" .
-'#+TBLFM: @3$2=remote(inbreds,@15$6)::@4$2=@1 + @2 + @3::@5$2=@1 + @3 + @2/2::@7$2=@5+@6' . "\n\n";
+'#+TBLFM: @3$2=remote(' . $input . '_contingency_inbreds,@15$6)::@4$2=@1 + @2 + @3::@5$2=@1 + @3 + @2/2::@7$2=@5+@6' . "\n\n";
 
 
 
@@ -209,12 +212,6 @@ sub count_mutants {
 #
 # Kazic, 14.5.2015
 
-%words2nums = ('one' => 1,
-              'two' => 2,
-	      'three' => 3,
-	      'four' => 4,
-	      'five' => 5,);
-
 
 sub picks {
 
@@ -223,8 +220,8 @@ sub picks {
 #        print "\n\npassed v: $value\n";
 
         ($kword,$nword) = $instructns =~ /pick (\w+) of (\w+)/;
-        $k = $words2nums{$kword};
-        $n = $words2nums{$nword};
+        $k = words2nums($kword);
+        $n = words2nums($nword);
         $picks++;
 
         if ( $picks < $n ) { $dest{$planting}{$type} = $value; }

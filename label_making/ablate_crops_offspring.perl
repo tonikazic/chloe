@@ -1,4 +1,4 @@
-#!/usr/bin/perl
+#!/usr/local/bin/perl
 
 # this is /athe/c/maize/ablate_crops_offspring.perl
 
