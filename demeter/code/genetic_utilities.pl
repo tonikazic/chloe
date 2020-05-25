@@ -3088,7 +3088,7 @@ write_branch_status(Stream,[FinishedBranches,BulksNeeded,BackCrossesNeeded]) :-
 	format(Stream,'~n~n~n~n* ~d Bulks to Do~n~nThe following ~d branches need these bulking operations:~n~n',[NumBulks,NumBulks]),
         sort(BulksNeeded,SortedBulksNeeded),
 	write_list(Stream,SortedBulksNeeded),
-	format(Stream,'~n~n~n~n* ~d Back-crosses to Do~n~nThe following ~d branches need further back-crosses:~n~n',[NumBCs,NumBCs]),
+	format(Stream,'~n~n~n~n* ~d Back-crosses to Do~n~nThe following ~d branches need further back-crosses or selfing:~n~n',[NumBCs,NumBCs]),
         sort(BackCrossesNeeded,SortedBackCrossesNeeded),
 	write_list(Stream,SortedBackCrossesNeeded).
 	
