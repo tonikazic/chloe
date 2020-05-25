@@ -1,4 +1,4 @@
-#!/usr/bin/perl
+#!/usr/local/bin/perl
 
 # this is /athe/c/maize/crops/replace_bogus_inventory_facts.perl
 #

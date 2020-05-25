@@ -1,4 +1,4 @@
-#!/usr/bin/perl
+#!/usr/local/bin/perl
 
 # this is /athe/c/maize/crops/add_reinventoried_corn_if_absent.perl
 #

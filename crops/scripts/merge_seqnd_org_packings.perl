@@ -1,4 +1,4 @@
-#!/usr/bin/perl
+#!/usr/local/bin/perl
 
 # this is . . ./maize/crops/merge_seqnd_org_packings.perl 
 

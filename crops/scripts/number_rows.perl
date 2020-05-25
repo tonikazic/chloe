@@ -1,4 +1,4 @@
-#!/usr/bin/perl
+#!/usr/local/bin/perl
 
 # this is . . ./maize/crops/number_rows.perl
 

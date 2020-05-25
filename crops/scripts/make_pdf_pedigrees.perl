@@ -223,7 +223,7 @@ sub generate_pdf {
                         if ( ! -e $pdf ) {
                                 my $cmd = "enscript -r '" . $_ . "' -o f.ps; ps2pdf f.ps '" . $pdf . "'; rm f.ps";
                                 if ( $flag eq 'test' ) { print "cmd is $cmd\n"; }
-                                if ( $flag eq 'go' ) { system($cmd); }
+                                if ( $flag eq 'go' ) { print "$pdf: ";  system($cmd); }
 			        }
 		        }
 	        }

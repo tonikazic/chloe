@@ -1,4 +1,4 @@
-#!/opt/local/bin/perl
+#!/usr/local/bin/perl
 
 # this is /athe/c/maize/crops/count_contingency_lines.perl
 #

@@ -1,4 +1,4 @@
-#!/usr/bin/perl
+#!/usr/local/bin/perl
 
 # this is ../data/reinventory/check_inventory_gtype_tag_mismatches_copy.perl
 
