@@ -315,7 +315,7 @@ compute_pedigree(Ma,Pa,PlanningCrop) :-
 
 check_status_branches(PlanningCrop,BCThreshold,File) :-
 
-        make_branch_output_file(PlanningCrop,File,OutputFile),
+        make_planning_output_file(PlanningCrop,File,OutputFile),
 	
         findall(Gene-K-Inbred,(branch_status(Gene,K,Inbred,[inc,'B'],'infertile ear',_,_,_,_,_,_);
 			       branch_status(Gene,K,Inbred,[inc,'B'],'no ear',_,_,_,_,_,_);
@@ -1114,26 +1114,6 @@ make_subdirs_n_indices(ASCIIDir,[SubDir-Files|T]) :-
 
 
 
-
-
-
-
-%! make_branch_output_dir(+PlanningCrop:atom,+File:atom,-OutputFile:atom) is det.
-
-
-make_branch_output_file(PlanningCrop,File,OutputFile) :-
-        convert_crop(PlanningCrop,LowerCaseCrop),
-        check_slash(LowerCaseCrop,LowerCaseCropS),
-        pedigree_root_directory(RootDir),
-        pedigree_planning_directory(Plnng),
-        atomic_list_concat([RootDir,LowerCaseCropS,Plnng],ASCIIDir),
-
-        ( exists_directory(ASCIIDir) ->
-                true
-        ;
-                make_directory(ASCIIDir)
-        ),
-	atom_concat(ASCIIDir,File,OutputFile).
 
 
 

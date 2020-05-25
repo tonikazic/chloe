@@ -143,13 +143,16 @@ packed_not_planted(Year,Crop,SortedPackets) :-
 
 
 
+
+
+
 % print out the unplanted packets nicely as Prolog facts
 
 %! make_pnp_facts(+SortedPackets:list,+PlanningCrop:atom,+File:atom) is det.
 
 make_pnp_facts(SortedPackets,PlanningCrop,File) :-
         wrap_pnp(SortedPackets,PNPFacts),
-        make_pnp_output_file(PlanningCrop,File,OutputFile),
+        make_planning_output_file(PlanningCrop,File,OutputFile),
         output_data(OutputFile,bar,PNPFacts).
 
 
@@ -174,30 +177,6 @@ wrap_pnp([(Ma,Pa,Packet)|T],[pnp(Ma,Pa,Packet)|T2]) :-
 
 
 
-
-
-% form the relative path for the output file.
-%
-% note unix shell doesn't care about the double slash, so ignore it
-%
-% Kazic, 25.5.2020
-
-%! make_pnp_output_file(+PlanningCrop:atom,+File:atom,-OutputFile:atom) is det.
-
-
-make_pnp_output_file(PlanningCrop,File,OutputFile) :-
-        convert_crop(PlanningCrop,LowerCaseCrop),
-        check_slash(LowerCaseCrop,LowerCaseCropS),
-        pedigree_root_directory(RootDir),
-        planning_directory(Plnng),
-        atomic_list_concat([RootDir,LowerCaseCropS,Plnng],ASCIIDir),
-
-        ( exists_directory(ASCIIDir) ->
-                true
-        ;
-                make_directory(ASCIIDir)
-        ),
-	atom_concat(ASCIIDir,File,OutputFile).
 
 
 

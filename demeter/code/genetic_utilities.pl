@@ -109,6 +109,7 @@
                 make_indices/5,		
                 make_frpc_index/1,
                 make_rest_of_indices/2,
+		make_planning_output_file/3,
                 make_planting_index/1,
                 make_rowplant/3,
 		max/3,
@@ -2520,6 +2521,58 @@ annotate_string(Prefix,StringOrList,Annotated) :-
         ;
 	        atomic_list_concat([Prefix,':  ',Merged,'.  '],Annotated)
         ).
+
+
+
+
+
+
+
+
+
+
+
+
+
+% note unix shell doesn't care about the double slash, so ignore it
+%
+% Kazic, 25.5.2020
+
+%! make_planning_output_file(+PlanningCrop:atom,+File:atom,-OutputFile:atom) is det.
+
+
+make_planning_output_file(PlanningCrop,File,OutputFile) :-
+        convert_crop(PlanningCrop,LowerCaseCrop),
+        check_slash(LowerCaseCrop,LowerCaseCropS),
+        pedigree_root_directory(RootDir),
+        planning_directory(Plnng),
+        atomic_list_concat([RootDir,LowerCaseCropS,Plnng],ASCIIDir),
+
+        ( exists_directory(ASCIIDir) ->
+                true
+        ;
+                make_directory(ASCIIDir)
+        ),
+	atom_concat(ASCIIDir,File,OutputFile).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
