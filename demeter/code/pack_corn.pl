@@ -52,7 +52,9 @@
 
 
 :-      module(pack_corn, [
-                pack_corn/1
+		make_pnp_facts/3,
+                pack_corn/1,
+		packed_not_planted/3      
                 ]).
 
 
@@ -81,6 +83,8 @@
 
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% top-level predicates %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
 
 
@@ -102,6 +106,99 @@ pack_corn(Crop) :-
         place_in_inventory_order(Chosen,InventoryOrder),
 
 	generate_output(LCrop,TimeStamp,UTCDate,Chosen,InventoryOrder).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+% what was packed in a given year but not planted?
+
+% most useful
+% call is: packed_not_planted(2019,'19R',L),make_pnp_fats(L,'20r','pnp.pl').
+
+packed_not_planted(Year,Crop,SortedPackets) :-
+        findall(MaCrop-MaFam-MaRowPlant-(Ma,Pa,Packet),(packed_packet(Packet,Ma,Pa,_,_,date(_,_,Year),_),
+                                \+ planted(_,Packet,_,_,_,_,_,Crop),
+                               get_inventory_sorting_key(Ma,MaCrop,MaFam,MaRowPlant)
+			       ),Packets),
+        sort(Packets,Int),
+	pairs_keys_values(Int,_,SortedPackets).
+
+
+
+
+
+
+
+
+
+
+
+% print out the unplanted packets nicely as Prolog facts
+
+%! make_pnp_facts(+SortedPackets:list,+PlanningCrop:atom,+File:atom) is det.
+
+make_pnp_facts(SortedPackets,PlanningCrop,File) :-
+        wrap_pnp(SortedPackets,PNPFacts),
+        make_pnp_output_file(PlanningCrop,File,OutputFile),
+        output_data(OutputFile,bar,PNPFacts).
+
+
+
+
+wrap_pnp([],[]).
+wrap_pnp([(Ma,Pa,Packet)|T],[pnp(Ma,Pa,Packet)|T2]) :-
+	wrap_pnp(T,T2).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+% form the relative path for the output file.
+%
+% note unix shell doesn't care about the double slash, so ignore it
+%
+% Kazic, 25.5.2020
+
+%! make_pnp_output_file(+PlanningCrop:atom,+File:atom,-OutputFile:atom) is det.
+
+
+make_pnp_output_file(PlanningCrop,File,OutputFile) :-
+        convert_crop(PlanningCrop,LowerCaseCrop),
+        check_slash(LowerCaseCrop,LowerCaseCropS),
+        pedigree_root_directory(RootDir),
+        planning_directory(Plnng),
+        atomic_list_concat([RootDir,LowerCaseCropS,Plnng],ASCIIDir),
+
+        ( exists_directory(ASCIIDir) ->
+                true
+        ;
+                make_directory(ASCIIDir)
+        ),
+	atom_concat(ASCIIDir,File,OutputFile).
+
 
 
 
