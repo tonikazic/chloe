@@ -38,7 +38,7 @@
 
 
 
-% call is: pack_corn('19R').
+% call is: pack_corn('20R').
 
 
 
@@ -54,7 +54,8 @@
 :-      module(pack_corn, [
 		make_pnp_facts/3,
                 pack_corn/1,
-		packed_not_planted/3      
+		packed_not_planted/3,
+		replace_packet_nums/3
                 ]).
 
 
@@ -139,6 +140,53 @@ packed_not_planted(Year,Crop,SortedPackets) :-
 
 
 
+% err, need something to find unplanted packets that could be planted in the current crop
+% assumes files with predicates of the form
+%
+%             pnp(Ma,Pa,PriorPacketNum).
+%             seed(CurrentPacketNum,Family,Ma,Pa,Ft,Cl,Sleeve,NumPkts,RowNum,Planting).
+%
+% seed/10 is emacsed from the seed_packet_list.csv, and the results of this computation
+% are edited back into that file.  The mutant packet numbers in seed_packet_list.csv have 10000
+% added to them to easily distinguish new and old packets.
+%
+% Kazic, 26.5.2020
+
+%! replace_packet_nums(+PNPFile:atom,+ModFile:atom,+OutputFile:atom) is semidet.
+
+
+% replace_packet_nums('../../crops/20r/planning/pnp.pl','../../crops/20r/planning/mod_seed_packet_labels.pl','../../crops/20r/planning/sub_pkt_nums').
+
+replace_packet_nums(PNPFile,ModFile,OutputFile) :-
+	[PNPFile,ModFile],
+	findall(Ma-(Pa,OldPkt),pnp(Ma,Pa,OldPkt),PNPs),
+        filter_list(PNPs,Filtered),
+	open(OutputFile,write,Stream),
+	write_undecorated_list(Stream,Filtered),
+	close(Stream).
+
+
+
+
+filter_list(PNPs,Filtered) :-
+        findall(Ma-(Pa,NewPkt),seed(NewPkt,_,Ma,Pa,_,_,_,_,_,_),Needed),
+	filter_list(PNPs,Needed,Filtered).
+
+
+
+filter_list(PNPs,Needed,Filtered) :-
+	filter_list(PNPs,Needed,[],Filtered).
+
+
+filter_list([],_,A,A).
+filter_list([Ma-(Pa,OldPkt)|PNPs],Needed,Acc,Filtered) :-
+        ( selectchk(Ma-(Pa,NewPkt),Needed,Rest) ->
+	        append(Acc,[Ma-(Pa,OldPkt,NewPkt)],NewAcc)
+	;
+                Rest = Needed,
+	        NewAcc = Acc
+        ),
+	filter_list(PNPs,Rest,NewAcc,Filtered).
 
 
 
@@ -146,6 +194,11 @@ packed_not_planted(Year,Crop,SortedPackets) :-
 
 
 
+
+
+
+
+	
 % print out the unplanted packets nicely as Prolog facts
 
 %! make_pnp_facts(+SortedPackets:list,+PlanningCrop:atom,+File:atom) is det.
