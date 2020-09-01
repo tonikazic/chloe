@@ -310,16 +310,31 @@ $max_row_length = 5;
 #
 # Kazic, 11.6.2019
 
-%bags = (
-        'S' => 'purple::blue::Mo20W females',
-        'W' => 'green::blue::W23 females',
-        'M' => 'red::blue::M14 females',
-        'B' => 'white::blue::B73 females',
-        'U' => 'white::red::mutant bulking',
-        '@' => 'green::red::back-crossed selves',
-        'D' => 'red::yellow::double mutants',
-        'P' => 'green::yellow::fun, test, and open pollinated corn');
+# %bags = (
+#         'S' => 'purple::blue::Mo20W females',
+#         'W' => 'green::blue::W23 females',
+#         'M' => 'red::blue::M14 females',
+#         'B' => 'white::blue::B73 females',
+#         'U' => 'white::red::mutant bulking',
+#         '@' => 'green::red::back-crossed selves',
+#         'D' => 'red::yellow::double mutants',
+#         'P' => 'green::yellow::fun, test, and open pollinated corn');
 
+
+
+# proposed 20r
+#
+# Kazic, 1.9.2020
+
+%bags = (
+        'S' => 'red::red::Mo20W females',
+        'W' => 'red::blue::W23 females',
+        'M' => 'green::red::M14 females',
+        'B' => 'purple::yellow::B73 females',
+        'U' => 'orange::red::mutant bulking',
+        '@' => 'orange::blue::back-crossed selves',
+        'D' => 'orange::red::double mutants',
+        'P' => 'green::yellow::fun, test, and open pollinated corn');
 
 
 
