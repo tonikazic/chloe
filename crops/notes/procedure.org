@@ -89,7 +89,8 @@ bash-3.2$ echo $PYTHONPATH
 > {Accessibility,Full Disk Access, Files and Folders, Developer Tools} need
 to see Emacs, ruby, etc.
 
-
+[[https://spin.atomicobject.com/2019/12/12/fixing-emacs-macos-catalina/][This lovely post by Chris Farber]] explains Apple's rationale for restricting
+file access, essentially to protect the user's privacy.
 
 
 ** Perl modules
