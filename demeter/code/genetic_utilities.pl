@@ -56,6 +56,8 @@
                 deconstruct_plantID/5,
 		determine_planting/3,
 		disassemble_plantID/8,
+		elite/1,
+		elite/2,
                 estimate_seed/3,
                 extract_row/2,
                 filter_by_date/3,
@@ -96,6 +98,7 @@
                 identify_rows/2,
                 identify_rows/3,
                 identify_rows/4,
+		ignorable/1,
                 inbred/3,
                 inbred/2,
                 index_by_ears/4,
@@ -135,6 +138,7 @@
 		remove_padding_aux/2,
 		remove_padding_list/2,
 		remove_row_prefix/2,
+		remove_row_prefixes/2,		
 		reverse_chronological_order/2,
                 row/1,
 		row_from_parents/4,
@@ -266,7 +270,7 @@ make_indices(BarcodeFile,FRPCFile,PltngFile,RPFile,RMFile) :-
 
 
     
-% expand_file_name/2 will get just the plant tags'' barcodes, saving
+% expand_file_name/2 will get just the plant tags' barcodes, saving
 % a lot of time and choice points.  But in the end, it was faster and easier
 % to just call a perl script!  Note the script assumes the DefaultOrgztn found
 % in ../../label_making/Typesetting/DefaultOrgztn.pm.
@@ -322,6 +326,11 @@ make_barcode_index(BarcodeFile) :-
 
     
 
+
+
+
+
+% frpc === family, rowplant, crop
 
 %! make_frpc_index(+FRPCFile:atom) is semidet.
 
@@ -977,7 +986,7 @@ contemporaneous_packet(Window,Date,Time,PDate,PTime) :-
 % rewrote further to use the planted/8 facts and dispense with the setof over get_numerical_genotype/1.
 % Stand count data are ``manufactured'' for the crops before 09R, which had no stand counts per se.
 %
-% Kazic, 1.12.09
+% Kazic, 1.12.2009
 %
 % ummm, the problem is that in 06R some mutant rows had > 15 plants, such as row 77!  so re-inserted
 % actual gathering of numerical genotypes and then included these in the ord_union.
@@ -1051,6 +1060,8 @@ make_rest_of_indices_aux(RPFile,RMFile) :-
 %! make_row_members_facts(+RPStream:atom,+RMStream:atom) is semidet.
 
 
+
+
 make_row_members_facts(RPStream,RMStream) :-
         setof(Row-(Crop,Family),
               MF^PF^MGma^MGPa^PGma^PGpa^M^K^Ma^Pa^(planting_index(Ma,Pa,Crop,Row),
@@ -1088,13 +1099,26 @@ make_row_members_facts(RPStream,RMStream) :-
 % Kazic, 24.5.2019
 
 
+
+
 build_crop_rowplant_facts(_,_,[]).
 build_crop_rowplant_facts(RPStream,RMStream,[Row-(Crop,Family)|RowsFams]) :-
 %         format('bcrf/3: row ~w, crop ~w, family ~w~n',[Row,Crop,Family]),
          construct_plant_prefix(Crop,Row,Family,PlantPrefix),
 %         format('bcrf/3: row ~w, crop ~w, family ~w, prefix ~w~n',[Row,Crop,Family,PlantPrefix]),
-         pad(Row,5,PaddedRow),
-         find_current_stand_count(PaddedRow,Crop,NumPlants),
+%
+%         pad(Row,5,PaddedRow),
+%	 
+% arrgh!!! pad/3 produces '00001', not r00001!!! so the setof in find_current_stand_count/3 hands back 20!
+%
+% corrected to build_row/2, and that fixed the bogus plant problem ;-)
+%
+% Kazic, 15.9.2020
+%
+
+         build_row(Row,PaddedRow),
+	 
+	 find_current_stand_count(PaddedRow,Crop,NumPlants),
          make_num_gtypes_aux(PlantPrefix,NumPlants,RowNumGtypes),
 
          write_crop_rowplant_facts(RPStream,Crop,PaddedRow,RowNumGtypes),
@@ -1103,6 +1127,8 @@ build_crop_rowplant_facts(RPStream,RMStream,[Row-(Crop,Family)|RowsFams]) :-
 
 	 format(RMStream,'row_members_index(~q,~q,~q).~n',[Crop,Row,RowNumGtypes]),
          build_crop_rowplant_facts(RPStream,RMStream,RowsFams).
+
+
 
 
 
@@ -1543,10 +1569,21 @@ get_prefix(PlantID,Prefix) :-
 
 
 
+remove_row_prefixes([],[]).
+remove_row_prefixes([PrefixedRow|T],[Row|T2]) :-
+	remove_row_prefix(PrefixedRow,Row),
+        remove_row_prefixes(T,T2).
+
+
+
+
+
+
 
 % test for and remove the leading 'r', returning an integer
 %
 % if it''s an 06r inbred row, just return the atom
+
 
 %! remove_row_prefix(+RRow:atom,-Row:intORatom) is semidet.
 
@@ -1581,6 +1618,8 @@ remove_padding_list([],[]).
 remove_padding_list([Padded|T],[Unpadded|T2]) :-
         remove_padding(Padded,Unpadded),
         remove_padding_list(T,T2).
+
+
 
 
 
@@ -1642,7 +1681,17 @@ remove_padding_aux(Atom,Number) :-
 
 
 
+% an ignorable row is a skipped row or one planted with elite corn
+%
+% this is idiosyncratic to me
+%
+% Kazic, 17.7.2020
 
+ignorable(PlantId) :-
+	( skip(PlantId)
+	;
+	  elite(PlantId)
+	).
 
 
 
@@ -2143,8 +2192,17 @@ fun_corn(Family,FunCornPrefix) :-
 
 
 
+
+elite(PlantId) :-
+	get_family(PlantId,Family),
+	elite(Family,_).
+
+
+
 elite(Family,'L') :-
-	memberchk(Family,[890,891]).
+	memberchk(Family,[889,890,891]).
+
+
 
 
 sweet_corn(Family,'E') :-
@@ -2631,13 +2689,17 @@ output_data(File,Switch,L) :-
 							         format(Stream,'~d.~n~n~n',[Threshold]),
                                                                  write_branch_status(Stream,Lists)
                                                          ;
-						 
-                                                                 ( Switch \== foo ->
-                                                                         write_list_facts(Stream,L) 
+                                                                 ( Switch == muttable ->
+                                                                         write_prefilled_mutant_table(Stream,L)
                                                                  ;
-                                                                         write_undecorated_list(Stream,L) 
+							 
+                                                                         ( Switch \== foo ->
+                                                                                 write_list_facts(Stream,L) 
+                                                                         ;
+                                                                                 write_undecorated_list(Stream,L) 
+                                                                         )
                                                                  )
-                                                         )
+						         )
 					         )
                                          )
                                 )
@@ -2726,6 +2788,11 @@ output_header_aux(mutls,Stream) :-
 output_header_aux(muts,Stream) :-
         format(Stream,'% genetic_utilities:find_all_mutants/1.~n~n~n',[]),
         format(Stream,'% Sorted list of all markers of interest in genotype/11~n~n~n',[]).
+
+
+output_header_aux(muttable,Stream) :-
+        format(Stream,'% crop_management:prefill_mutant_table/1.~n~n~n',[]),
+        format(Stream,'% plantIDs and scoring dates. ~n% Open in Numbers, set starting row and formats, and copy these columns.~n~n',[]).
 
 
 
@@ -3109,9 +3176,15 @@ write_undecorated_list(Stream,[H|T]) :-
 
 
 
+write_prefilled_mutant_table(_,[]).
+write_prefilled_mutant_table(Stream,[p(PlantID,date(Day,Month,Year),time(Hour,Min,Sec),Obsv)|T]) :-
+        format(Stream,'~w,~d/~d/~d ~d:~d:~d,~w,~n',[PlantID,Month,Day,Year,Hour,Min,Sec,Obsv]),
+	write_prefilled_mutant_table(Stream,T).
 
 
 
+
+	
 
 
 % given a string or atom and the number of padding characters needed,
@@ -4439,11 +4512,11 @@ mutant(PlantID) :-
 %        Jason Green''s 11R corn (623--627)
 %        crop improvement lines (630--664 and 4116, 4117)
 %        gerry''s 11n families (3332--3340, 3361--3393)
-%        elite lines (890--891)
+%        elite lines (889--891)
 %        sweet corn (892--899, 990--991)
 %        popcorn (992--999, 902--989)
 %
-% Kazic, 1.6.2018
+% Kazic, 14.7.2020
 
 
 % want to preserve the distinction between mutants and crop improvement
@@ -5460,21 +5533,27 @@ get_parental_families([(Ma,Pa)|T],[(MaFam,PaFam)|T2]) :-
 % Someday, have the code root through the data for the outcomes.
 %
 % Kazic, 26.7.2019
-
+%
+% yes, but endless concatenation doesn't help.  So instead, clean up AllPriorCropData before
+% writing plan/6 facts.  Facts for 20r manually cleaned for now while I figure out how to do
+% this automatically, going backwards and forwards.
+%
+% Kazic, 14.7.2020
 
 find_all_plantings_of_line(CurrentCrop,WarningStream,Ma,Pa,PriorCropData) :-
 	get_family(Pa,PaFam),
         ( ( Pa \== '06R0000:0000000', mutant_by_family(PaFam) ) ->
 		findall(TimeStamp-(Packet,Row,Crop,Plan,Comments),
 		      was_planted(CurrentCrop,Ma,Pa,TimeStamp,Packet,Row,Crop,Plan,Comments),
-		           PriorCropData),
+		           AllPriorCropData),
 
-		length(PriorCropData,NumPriorPlantings),
+		length(AllPriorCropData,NumPriorPlantings),
                 ( NumPriorPlantings > 3 ->
 		        format(WarningStream,'Warning!  ~w x ~w planted in ~w previous crops ~w, check outcomes.~n~n',[Ma,Pa,NumPriorPlantings,PriorCropData])	         
                 ;
 		        true
-		)
+		),
+		filter_prior_crop_data(AllPriorCropData,PriorCropData)
         ;
                 PriorCropData = []
 	).
@@ -5505,6 +5584,36 @@ was_planted(CurrentCrop,Ma,Pa,PlntgTS,Packet,Row,Crop,Plan,Comments) :-
 
 
 
+
+
+% stopped here
+%
+% Endless concatenation.  Cleaned plan/6 facts for 20r manually while I
+% figure out corrections.
+%
+% Kazic, 14.7.2020
+
+% within each Plan and Comments string, we have
+%
+% PREVIOUS PLANS: and PREVIOUS COMMENTS:  , repeated multiple times
+%
+% and within each of those,
+%
+% 18R:  *.  18R:  *.  19R:  *. etc., also repeated multiple times and not always sequentially.
+%
+% So need regexs on each string to eliminate
+% multiples, going back through all the plan/6 facts.  Once these are cleaned, then
+% new code going forward should use the same regex ideas to avoid replication.
+%
+% Kazic, 14.7.2020
+
+
+% list with elements of the form TimeStamp-(Packet,Row,Crop,Plan,Comments)
+
+
+filter_prior_crop_data(_AllPriorCropData,_PriorCropData) :-
+%        pairs_values(AllPriorCropData,PerPacketData),
+	true.
 
 
 

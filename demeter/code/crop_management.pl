@@ -37,7 +37,8 @@
 %declarations%
 
 :-       module(crop_management,[
-                 all_mutant_rows_for_selfing/2,
+		 all_mutant_rows_for_selfing/2,
+		 all_rows_accounted_for/1,	
                  daily_status_report/2,
                  daily_status_report/3,
                  find_crossed_plants_to_photo/2,
@@ -58,6 +59,7 @@
                  harvested_early/2,
                  monitor_progress/2,
                  order_harvest/2,
+		 prefill_mutant_table/1,
                  repack_packets/3,
                  seed_planted/3,
                  tassel_watch/2,
@@ -68,9 +70,9 @@
 
 :-      use_module(demeter_tree('code/analyze_crop')),
         use_module(demeter_tree('code/genetic_utilities')),
-        use_module(demeter_tree('code/demeter_utilities')),
+        use_module(demeter_tree('code/demeter_utilities')).
 %        use_module(demeter_tree('code/clean_data')),    
-        use_module(demeter_tree('data/load_data')).
+%        use_module(demeter_tree('data/load_data')).
 
 
 
@@ -84,8 +86,23 @@
 
 
 
+all_rows_accounted_for(Crop) :-
+	findall(Ignorable,(planting_index(Ma,_,Crop,Ignorable),ignorable(Ma)),Ignorables),
+%        setof(SkippedRow,(planting_index(Ma,Ma,Crop,SkippedRow),skip(Ma)),Skips),
+%        setof(EliteRow,(planting_index(Pa,Pa,Crop,EliteRow),elite(Pa)),Elites),
+        findall(PlantedRow,planting_index(_,_,Crop,PlantedRow),Planted),
+	subtract(Planted,Ignorables,MutantsInbreds),
+        ensure_loaded(load_data:demeter_tree('data/priority_rows')),	
+	priority_rows(Crop,Rows),
+	remove_row_prefixes(Rows,Unpadded),
+	subtract(MutantsInbreds,Unpadded,Missing),
+        ( Missing == [] ->
+	        format('~n~nHooray! all inbred and mutant rows are in the list for tags.~n~n',[])
+	;
+                write_list(Missing)
+	).
 
-
+	
 
 
 
@@ -106,7 +123,7 @@
 %! generate_plant_tags_file(+Crop:atom,+GTypeFileStem:atom,+TagFileStem:atom) is semidet.
 
     
-% call is: generate_plant_tags_file('19R','fgenotype.pl','plant_list.csv').
+% call is: generate_plant_tags_file('20R','fgenotype.pl','plant_list.csv').
 
 generate_plant_tags_file(Crop,GTypeFileStem,TagFileStem) :-
         construct_crop_relative_dirs(Crop,_,MgmtDir,_),
@@ -342,6 +359,70 @@ compute_genotype(ParentA,ParentB,Offspring) :-
 
 
 
+
+
+
+
+
+% an experiment --- this may speed up collecting the mutant data, but
+% worried about introducing errors in data collection.
+%
+% Kazic, 17.8.2020
+
+prefill_mutant_table(Crop) :-
+        setof(PlainRow-(Obsv,ScoringDate,ScoringTime),Row^Phe^(scoring_date(Row,Phe,Obsv,ScoringDate,ScoringTime,Crop),remove_row_prefix(Row,PlainRow)),Rows),
+        prefill_mutant_data(Rows,Crop,PrefilledData),
+	build_output_filename(Crop,File),
+	output_data(File,muttable,PrefilledData).
+
+
+
+
+prefill_mutant_data(Rows,Crop,PrefilledData) :-
+	prefill_mutant_data(Rows,Crop,[],PrefilledData).
+
+
+
+
+
+prefill_mutant_data([],_,A,A).
+prefill_mutant_data([PlainRow-(Obsv,ScoringDate,ScoringTime)|Rows],Crop,Acc,PrefilledData) :-
+        ( row_members_index(Crop,PlainRow,RowMembers) ->
+	        prefill_row(RowMembers,Obsv,ScoringDate,ScoringTime,Prefilled),
+	        append(Acc,Prefilled,NewAcc)
+	;
+                format('Warning! no row_members_index/3 fact found for row ~d in crop ~w!~n',[PlainRow,Crop]),
+                NewAcc = Acc
+	),
+        prefill_mutant_data(Rows,Crop,NewAcc,PrefilledData).
+        
+
+
+
+
+
+
+% probably there is a niftier way to do this using maplist, but this instantiation should
+% still be plenty fast
+
+prefill_row([],_,_,_,[]).
+prefill_row([H|RowMembers],Obsv,ScoringDate,ScoringTime,[p(H,ScoringDate,ScoringTime,Obsv)|Prefilled]) :-
+        prefill_row(RowMembers,Obsv,ScoringDate,ScoringTime,Prefilled).
+
+
+
+
+
+
+
+
+
+
+
+build_output_filename(Crop,File) :-
+	dropbox_data_dir(Dropbox),
+        downcase_atom(Crop,LowerCrop),
+	atomic_list_concat([Dropbox,LowerCrop,'/proto_mutant.csv'],File).
 
 
 
