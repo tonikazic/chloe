@@ -75,6 +75,7 @@ if ( $lines[0] =~ /row_harvested/ ) {
 		
                 my ($crop) = &grab_crop_from_file($input_file);
                 my ($date,$time) = &convert_datetime($datetime);
+		$row = lc $row;
 		
 		
                 if ( $flag eq 'test' ) { print "row_harvested($row,$observer,$date,$time,'$crop').\n"; }

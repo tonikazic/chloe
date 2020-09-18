@@ -81,7 +81,7 @@ if ( $lines[0] =~ /planted/ ) {
 #                print "($packet,$row,$ft,$observer,$datetime)\n";
 		
                 
-		
+		$row = lc $row;
 		
                 my ($date,$time) = &convert_datetime($datetime);
 		

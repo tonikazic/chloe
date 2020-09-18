@@ -124,7 +124,7 @@ my @this_crops_rows = grep  { $_ =~ /${crop}/ && $_ =~ /^row_harvested/ && $_ !~
 
 foreach my $elt (@this_crops_rows) {
 	my ($row,$date,$time) = $elt =~ /^row_harvested\((${row_re}),\w+,(${prolog_date_re}),(${prolog_time_re}),/;
-	$row =~ s/[rR]//;
+	$row =~ lc $row;
 	$rowh{$row} = $date . "," . $time;
         } 
 

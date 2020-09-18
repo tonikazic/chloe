@@ -104,7 +104,7 @@ if ( $lines[0] =~ /row_status/ ) {
 
 #                print "$row,$num_emerged,$num_mutant,$num_dead,$ave_leaf_num,$datetime,$int_phenotype_list,$observer\n";
 
-		
+		$row = lc $row;		
 
 # need to parse and pool data, along the lines of NoteExpsn.pm
 
