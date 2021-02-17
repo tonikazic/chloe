@@ -1,5 +1,14 @@
 % this is ../c/maize/demeter/code/set_demeter_directory.pl
 %
+% this code assumes that this file and the files it calls are all in
+% the current directory in which the prolog process is started.  Starting
+% swipl in a directory outside the tree won't set the paths correctly.
+%
+% Kazic, 2.2.2021
+
+
+
+
 % adapted for swipl and more portability across platforms
 %
 % the key change is to check for the absolute path of the root, and
@@ -90,6 +99,13 @@ planning_directory('/planning/').
 management_directory('/management/').    
 tags_directory('/tags/').    
 dropbox_dir('~/Dropbox/corn/').
+
+
+% hard-wiring for Prolog can't seem to use ~ ; in dropbox_dir/1, that dir
+% is passed to the shell for resolution.
+%
+% Kazic, 17.8.2020
+dropbox_data_dir('../../../../../Dropbox/palm/raw_data_from_palms/').
 
 
     
