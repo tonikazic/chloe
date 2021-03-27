@@ -81,17 +81,24 @@ foreach my $palm ( @palms ) {
 #
 # Kazic, 24.4.2018
 
+
+# added 'incomplete' since I used it today and caused problems ;-)
+#
+# Kazic, 26.3.2021			
+			
                         if ( ( $file !~ /done\./ ) 
                              && ( $file !~ /csv\~$/ ) && ( $file !~ /zip$/ ) && ( $file !~ /org$/ ) 
                              && ( $file !~ /pdf$/ ) 
                              && ( $file !~ /raw\./ ) && ( $file !~ /check\./ ) && ( $file !~ /clean.*\./ ) 
-                             && ( $file !~ /correct.*\./ ) && ( $file !~ /safe\./ ) && ( $file !~ /patched\./ ) 
+                             && ( $file !~ /correct.*\./ ) && ( $file !~ /safe\./ ) && ( $file !~ /patched\./ )
+			     && ( $file !~ /incomplete\./ ) 
                              && ( $file !~ /bogus\./ ) && ( $file !~ /duped?\./ ) && ( $file !~ /^\d+\./ ) ) {
+#                                print "\nfile: :$file:\n";
 			        chomp($file);
 #			        my $first_two = `head -2 $file`;
                                 my $head = `head -1 $file`;
                                 chomp($head);
-
+#                                print "\n:$head:\n";
 
 # menu/spreadsheet name is always the last column, unlike datetime
 #
@@ -100,6 +107,8 @@ foreach my $palm ( @palms ) {
 				
 				 my ($menu) = $head =~ /[\w\d\s,\_]+,(\w+)/;
 
+
+#				print "\nmenu :$menu:\n";
 				
 # fixed to handle the mutanta case
 # 
