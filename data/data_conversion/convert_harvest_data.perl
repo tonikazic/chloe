@@ -87,6 +87,7 @@ my @lines;
 my ($crop) = &grab_crop_from_file($input_file);
 
 
+
 open my $crossfh, '<', $cross_file or die "sorry, can't open cross file $cross_file\n";
 my @this_crops_ears = grep  { $_ =~ /${crop}/ && $_ =~ /^cross\(\'(${num_gtype_re})\'/ && $_ !~ /\%/ } <$crossfh> ;
 
@@ -121,10 +122,17 @@ my @this_crops_rows = grep  { $_ =~ /${crop}/ && $_ =~ /^row_harvested/ && $_ !~
 # tested with new version of prolog_time_re and works
 #
 # Kazic, 16.11.2018
+#
+# added re to strip r prefix
+#
+# Kazic, 2.4.2021
 
 foreach my $elt (@this_crops_rows) {
 	my ($row,$date,$time) = $elt =~ /^row_harvested\((${row_re}),\w+,(${prolog_date_re}),(${prolog_time_re}),/;
-	$row =~ lc $row;
+	$row =~ lc $row;;
+
+        $row =~ s/r//;
+	
 	$rowh{$row} = $date . "," . $time;
         } 
 
@@ -187,7 +195,7 @@ if ( $lines[0] =~ /harvest/ ) {
                       my ($ma_plant,$pa_plant,$ok,$fuzzy_cl,$num_cl,$fungus,$polltn_note,$observer) = $lines[$i] =~ /\"?(${num_gtype_re})\"?,\"?(${num_gtype_re})\"?,\"?(${num_tf_re})\"?,\"?(${fuzzy_cl_re})\"?,\"?(${cl_re})\"?,\"?(${num_tf_re})\"?,\"?(${note_re})\"?,\"?(${observer_re})\"?,*/;
 	
 
-                        print "($ma_plant,$pa_plant,$ok,$fuzzy_cl,$num_cl,$fungus,$polltn_note,$observer)\n";
+#                     print "($ma_plant,$pa_plant,$ok,$fuzzy_cl,$num_cl,$fungus,$polltn_note,$observer)\n";
 
 
 		      
