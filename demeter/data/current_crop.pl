@@ -5,5 +5,6 @@
 %
 % Kazic, 29.3.2018    
 
+% current_crop(CropParticle).
 
-current_crop('18R').
+current_crop('21R').
