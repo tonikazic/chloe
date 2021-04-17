@@ -44,8 +44,8 @@
 # Kazic, 27.4.2018
 
 
-use strict;
-use warnings;
+# use strict;
+# use warnings;
 
 
 use Cwd 'getcwd';
@@ -73,8 +73,10 @@ my ($dir,$input_dir,$barcodes,$tags_dir) = &adjust_paths($crop,$local_dir);
 
 
 
-my $input_stem = "18r_harvest_tags_needed.csv";
-my $tags_stem = "18r_harvest_tags_needed";
+my $input_stem = "20r_tags_needed";
+my $tags_stem = $input_stem;
+
+# print "is: $input_stem\nts: $tags_stem\n";
 
 # $input_stem = "new_seed_labels.csv";
 # $tags_stem = "new_seed_labels";
@@ -92,9 +94,17 @@ open my $in, '<', $input_file or die "can't open $input_file\n";
 while (<$in>) {
 
    	if ( ( $_ !~ /^,/ ) && ( $_ !~ /^\#/ ) && ( $_ !~ /^\n/ ) ) {
-    
-                my ($correct_ma,$correct_pa,$old_ma) = $_ =~ /^\"?(${num_gtype_re})\"?,\"?(${num_gtype_re})\"?,\"?(${num_gtype_re})\"?,*/;
 
+		
+# simplified regex, since we usually don't have any bogus plantIDs any more
+#
+# Kazic, 17.4.2021
+#		
+#                my ($correct_ma,$correct_pa,$old_ma) = $_ =~ /^\"?(${num_gtype_re})\"?,\"?(${num_gtype_re})\"?,\"?(${num_gtype_re})\"?,*/;
+
+                my ($correct_ma,$correct_pa,$old_ma) = $_ =~ /^\"?(${num_gtype_re})\"?,\"?(${num_gtype_re})\"?,?\"?(.*)\"?,*/;
+
+		
 #               print "($correct_ma,$correct_pa,$old_ma)\n";
                 my $ma_barcode_out = &make_barcodes($barcodes,$correct_ma,$esuffix);
                 my $pa_barcode_out = &make_barcodes($barcodes,$correct_pa,$esuffix);
