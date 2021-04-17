@@ -66,43 +66,77 @@
 # call is ./make_inbred_bag_labels.perl i
 
 
-use Typesetting::DefaultOrgztn;
-use Typesetting::MaizeRegEx;
-use Typesetting::Utilities;
-use Typesetting::OrganizeData;
-use Typesetting::TypesetGenetics;
-use Typesetting::GenerateOutput;
+# ported to perl 5.26
+#
+# Kazic, 17.4.2021
+
+
+use strict;
+use warnings;
+
+
+use Cwd 'getcwd';
+
+
+
+use lib './Typesetting/';
+
+
+use DefaultOrgztn;
+use MaizeRegEx;
+use Utilities;
+use OrganizeData;
+use TypesetGenetics;
+use GenerateOutput;
+
+
+my $crop = $ARGV[0];
+my $local_dir = getcwd;
+my ($dir,$input_dir,$barcodes,$tags_dir) = &adjust_paths($crop,$local_dir);
 
 
 
 
-$input_stem = "maternal_inbred_lines.csv";
-$tags_stem = "inbred_seed_bag_labels";
+my $input_stem = "maternal_inbred_lines";
+my $tags_stem = "inbred_seed_bag_labels";
 
 
 
-$input_file = $input_dir . $input_stem;
-$output_file = $output_dir . $tags_stem . $tex_suffix;
+my $input_file = $input_dir . $input_stem;
+my $output_file = $tags_dir . $tags_stem . $tex_suffix;
 
 
-open(IN,"<$input_file") || die "can't open $input_file\n";
 
-while (<IN>) {
+# print "($local_dir,$input_file,$dir,$input_dir,$barcodes,$tags_dir,$output_file)\n";
+
+
+
+
+my %inbred_lines;
+my $num_extras = 0;
+
+
+
+
+
+open my $in, '<', $input_file  or die "can't open $input_file\n";
+
+while (<$in>) {
 
         if ( $_ !~ /^#/ ) {
 
-                ($crop,$family,$ma_num_gtype,$pa_num_gtype,$gtype,$num_extra_tags) = $_ =~ /\"?(${crop_re})\"?,\"?(${family_re})\"?,\"?(${num_gtype_re})\"?,\"?(${num_gtype_re})\"?,\"?(${gtype_re})\"?,\"?(${abs_leaf_num_re})\"?/;
+                my ($crop,$family,$ma_num_gtype,$pa_num_gtype,$gtype,$num_extra_tags) = $_ =~ /\"?(${crop_re})\"?,\"?(${family_re})\"?,\"?(${num_gtype_re})\"?,\"?(${num_gtype_re})\"?,\"?(${gtype_re})\"?,\"?(${abs_leaf_num_re})\"?/;
 
-                $female_out = &make_barcodes($barcodes,$ma_num_gtype,$esuffix);
-	        $male_out = &make_barcodes($barcodes,$pa_num_gtype,$esuffix);
+                my $female_out = &make_barcodes($barcodes,$ma_num_gtype,$esuffix);
+	        my $male_out = &make_barcodes($barcodes,$pa_num_gtype,$esuffix);
 
-                $record = $female_out . "::" . $male_out . "::" . $crop . "::" . $ma_num_gtype . "::" . $pa_num_gtype . "::" . $gtype . "::" . $num_extra_tags;
+                my $record = $female_out . "::" . $male_out . "::" . $crop . "::" . $ma_num_gtype . "::" . $pa_num_gtype . "::" . $gtype . "::" . $num_extra_tags;
                 $inbred_lines{$family} = $record;
                 $num_extras += $num_extra_tags;
 	        }
         }
 
-close(IN);
+
 
 
 
@@ -111,6 +145,6 @@ close(IN);
 # now have to make the latex files for the labels, moving over %inbred_lines
 
 &make_inbred_seed_bag_labels($output_file,$num_extras,%inbred_lines);
-&generate_pdf($output_dir,$tags_stem,$ps_suffix,$pdf_suffix);
+&generate_pdf($tags_dir,$tags_stem,$ps_suffix,$pdf_suffix);
 
 
