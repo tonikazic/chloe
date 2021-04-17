@@ -176,6 +176,7 @@ sub expand_note {
                 $note =~ s/\bpopt\b/popped tassel/g;
                 $note =~ s/\bct\b/cut tassel/g;
                 $note =~ s/\bglas\b/glassine bag/g;
+                $note =~ s/\bgl\b/glassine bag/g;
                 $note =~ s/\bunk\b/unknown/g;
                 $note =~ s/\bbw\b/what is bw/g;
                 $note =~ s/\bcont\b/what is cont/g;		
