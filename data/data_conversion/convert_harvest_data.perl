@@ -127,11 +127,14 @@ my @this_crops_rows = grep  { $_ =~ /${crop}/ && $_ =~ /^row_harvested/ && $_ !~
 #
 # Kazic, 2.4.2021
 
+# used the right regex for the row ;-)
+#
+# Kazic, 17.4.2021
+
 foreach my $elt (@this_crops_rows) {
-	my ($row,$date,$time) = $elt =~ /^row_harvested\((${row_re}),\w+,(${prolog_date_re}),(${prolog_time_re}),/;
+	my ($row,$date,$time) = $elt =~ /^row_harvested\(r(${padded_row_re}),\w+,(${prolog_date_re}),(${prolog_time_re}),/;	
 	$row =~ lc $row;;
 
-        $row =~ s/r//;
 	
 	$rowh{$row} = $date . "," . $time;
         } 
