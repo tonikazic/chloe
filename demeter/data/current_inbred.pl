@@ -10,6 +10,29 @@
 % current_inbred(Crop,MaFamily,PaFamily,InbredFamily,StdPacketNum).
 
 
+% 21r
+
+current_inbred('20R',201,201,205,p00001).
+current_inbred('20R',301,301,305,p00002).
+current_inbred('20R',401,401,405,p00003).
+current_inbred('20R',504,504,505,p00004).
+current_inbred('20R',889,889,889,p00005).
+current_inbred('20R',000,000,000,p00000).
+
+
+
+
+% 20r
+
+current_inbred('20R',201,201,205,p00001).
+current_inbred('20R',301,301,305,p00002).
+current_inbred('20R',401,401,405,p00003).
+current_inbred('20R',504,504,505,p00004).
+current_inbred('20R',889,889,889,p00005).
+current_inbred('20R',000,000,000,p00000).
+
+
+
 
 
 
