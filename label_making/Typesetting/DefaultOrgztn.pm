@@ -326,20 +326,43 @@ $max_row_length = 5;
 #
 # Kazic, 1.9.2020
 
+# %bags = (
+#         'S' => 'red::red::Mo20W females',
+#         'W' => 'red::blue::W23 females',
+#         'M' => 'green::red::M14 females',
+#         'B' => 'purple::yellow::B73 females',
+#         'U' => 'orange::red::mutant bulking',
+#         '@' => 'orange::blue::back-crossed selves',
+#         'D' => 'orange::red::double mutants',
+#         'P' => 'green::yellow::fun, test, and open pollinated corn');
+
+
+
+
+@ear_order = ("@","U","S","W","M","B","D","P");
+
+
+
+# for 21r, bag selves and bulks together!  Otherwise we end up shuffling
+# corn in the seed room shelling and filing.
+#
+# Kazic, 17.4.2021
+
+# proposed 21r
+#
+# Kazic, 17.4.2021
+
 %bags = (
         'S' => 'red::red::Mo20W females',
         'W' => 'red::blue::W23 females',
         'M' => 'green::red::M14 females',
         'B' => 'purple::yellow::B73 females',
         'U' => 'orange::red::mutant bulking',
-        '@' => 'orange::blue::back-crossed selves',
+        '@' => 'orange::red::back-crossed selves',
         'D' => 'orange::red::double mutants',
         'P' => 'green::yellow::fun, test, and open pollinated corn');
 
 
-
-
-@ear_order = ("@","U","S","W","M","B","D","P");
 
 
 
