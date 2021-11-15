@@ -1711,13 +1711,20 @@ sub print_plant_tags {
 
 
 # start the page
-        
+
+
+# $stack is the page number
+#
+# Kazic, 13.7.2020
+
+	 
         if ( $rem == 0 ) {
 
                 if ( $i != 0 ) { print $filehandle "\\newpage\n"; }
 
                 &begin_big_picture($filehandle);
-                &print_big_stack($filehandle,$stack);
+
+		&print_centered_page_num($filehandle);
                 &print_perforation_guides_plant_tags($filehandle);		
 #                &print_plant_tag_guide_boxes($filehandle);
                 }
@@ -3167,7 +3174,15 @@ sub print_new_seed_label_aux {
         print $filehandle "\\put($pa_x,$barcode_y){\\rotatebox{90}{\\scalebox{$text}{\\textbf{$pa}}}}\n";
 
 
-        print $filehandle "\\put($substn_x,$substn_y){\\rotatebox{90}{\\begin{tabular}{c}replaced ma \\\\\\large{$old_ma}\\\\ on $today \\end{tabular}}}\n";
+#        print $filehandle "\\put($substn_x,$substn_y){\\rotatebox{90}{\\begin{tabular}{c}replaced ma \\\\\\large{$old_ma}\\\\ on $today \\end{tabular}}}\n";
+
+# for 21r only, since we never tagged the plants
+#
+# Kazic, 14.11.2021
+
+        print $filehandle "\\put($substn_x,$substn_y){\\rotatebox{90}{\\begin{tabular}{c}see inside for\\\\contemporaneous\\\\record \\end{tabular}}}\n";	
+
+
         }
 
 
