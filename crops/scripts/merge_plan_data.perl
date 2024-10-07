@@ -284,7 +284,7 @@ elsif ( $operation eq "sequence" ) {
                         my ($front,$middle,$end) = $_ =~ /^(packing_plan\()(,.+)(,\d{1,3},\d{1,3}\)\.)$/;
 #                        print "$i :$front: :$middle: :$end:\n";
                         print $out $front . $i . $middle . ",'" . $current_crop_string . "'" . $end . "\n";
->>>>>>> 2f415dfbd1a250fed7b4362bfffb9520d04a0c98
+
                         $i++;
                         }
 
