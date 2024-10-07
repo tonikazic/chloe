@@ -10,6 +10,15 @@
 
 
 
+# WARNING! TERMINATION CONDITION INCORRECT????
+#
+# a single sheet with a single sticker isn't generated, even though it's in
+# the seed_packet list.
+#
+# Kazic, 19.5.2024
+
+
+
 # this now includes packet number barcodes; ma and pa numerical genotypes;
 # sleeve number for the ear; num cl; ft.  Omitted symbolic genotypes for
 # now.
@@ -41,6 +50,11 @@
 # Kazic, 2.6.2019
 
 
+# works, but still need to fix directory handling nicely.  Haven't turned
+# strict and warnings back on yet.
+#
+# Kazic, 26.5.2020
+
 
 # use strict;
 # use warnings;
@@ -58,21 +72,24 @@ use GenerateOutput;
 
 
 
-# my $input_file = "../crops/19r/management/seed_packet_labels.csv";
-my $input_file = "../crops/19r/management/sep_seed_packet_labels";
+# adjust directories here, use incremental search and replace
 
-# my $file_stem = "packet_labels";
-my $file_stem = "sep_packet_labels";
+my $input_file = "../crops/24g/management/seed_packet_labels.csv";
+# my $input_file = "../crops/21r/management/fun_corn_packet_labels.csv";
+
+
+my $file_stem = "packet_labels";
+# my $file_stem = "fun_corn_packet_labels";
 
 
 
 my $input = $input_dir . $input_file;
-my $output_dir = "../crops/19r/tags/";
+my $output_dir = "../crops/24g/tags/";
 my $output = $output_dir . $file_stem . $tex_suffix;
 
-my $barcodes = "../barcodes/19r/";
+my $barcodes = "../barcodes/24g/";
 
-# print "i: $input\no: $output\nb: $barcodes\n";
+print "i: $input\no: $output\nb: $barcodes\n";
 
 my $num_gtype_re = qr/[\w\:\.\-\s\;\?]*/;
 my $in_btwn_re = qr/[\w\*\-\+\.\/\s\{\}\|\;\(\)\?\^\,]*/;
@@ -132,7 +149,7 @@ while (<$in>) {
 	       ($packet,$family,$ma_num_gtype,$pa_num_gtype,$cl,$ft,$sleeve,$num_packets_needed,$rowseqnum,$plntg) = $_ =~ /^,*(${packet_num_re}),(${family_re}),(${wierd_gtype_re}),(${wierd_gtype_re}),(${cl_re}),(${ft_re}),(${locatn_re}),(${cl_re}),(${family_re}),(${ft_re})$/;
 
 
-#               print "($packet,$family,$ma_num_gtype,$pa_num_gtype,$cl,$ft,$sleeve,$num_packets_needed,$rowseqnum,$plntg)\n";
+               print "($packet,$family,$ma_num_gtype,$pa_num_gtype,$cl,$ft,$sleeve,$num_packets_needed,$rowseqnum,$plntg)\n";
 
 
 

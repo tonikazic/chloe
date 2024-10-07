@@ -19,7 +19,7 @@
 
 
 
-    
+% sleeve_bdry/6    
 
 % sleeve_bdry(FirstMaInSleeve,LastMaInSleeve,Sleeve,Observer,Date,Time).    
 
@@ -163,8 +163,8 @@ sleeve_bdry('11N305:W0031401','11N305:W0032911',v00111,mason,date(05,06,2018),ti
 sleeve_bdry('11N305:W0039209','11N305:W0041007',v00115,mason,date(05,06,2018),time(16,52,16)).
 sleeve_bdry('11N305:W0041008','11N405:M0032101',v00116,mason,date(05,06,2018),time(16,52,30)).
 sleeve_bdry('11N405:M0032104','11N405:M0034009',v00117,mason,date(05,06,2018),time(16,52,41)).
-sleeve_bdry('11N405:M0034609','11N405:M0038407',v00118,mason,date(05,06,2018),time(17,10,01)).
-sleeve_bdry('11N405:M0038409','12R3528:0015415',v00119,mason,date(05,06,2018),time(17,10,15)).
+% sleeve_bdry('11N405:M0034609','11N405:M0038407',v00118,mason,date(05,06,2018),time(17,10,01)).
+% sleeve_bdry('11N405:M0038409','12R3528:0015415',v00119,mason,date(05,06,2018),time(17,10,15)).
 sleeve_bdry('12R3529:0015501','12R3539:0016504',v00120,mason,date(05,06,2018),time(17,11,09)).
 sleeve_bdry('12R3539:0016505','12R3546:0017414',v00121,mason,date(05,06,2018),time(17,16,37)).
 sleeve_bdry('12R3547:0017502','12R3591:0023612',v00122,mason,date(05,06,2018),time(17,16,51)).
@@ -279,9 +279,7 @@ sleeve_bdry('17R305:W0003920','17R405:M0002309',v00207,mason,date(18,06,2018),ti
 %
 % Kazic, 22.11.2018
 
-
-    
-sleeve_bdry('06R200:S00I4806','06R300:W000I219',v00007,toni,date(19,11,2018),time(15,09,12)).
+sleeve_bdry('06R200:S00I4806','06R300:W00I0219',v00007,toni,date(19,11,2018),time(15,09,12)).
 sleeve_bdry('06R300:W00I0514','06R300:W00I6005',v00008,toni,date(19,11,2018),time(15,09,38)).
 sleeve_bdry('06R300:W00I6008','06R400:M00I0607',v00009,toni,date(19,11,2018),time(15,10,05)).
 sleeve_bdry('11N305:W0033202','11N305:W0035305',v00112,toni,date(19,11,2018),time(15,11,41)).
@@ -366,4 +364,292 @@ sleeve_bdry('18R305:W0001810','18R305:W0002017',v00216,toni,date(20,05,2019),tim
 sleeve_bdry('18R305:W0002018','18R405:M0004114',v00217,toni,date(20,05,2019),time(14,32,00)).
 sleeve_bdry('18R405:M0004202','18R505:B0005617',v00218,toni,date(20,05,2019),time(14,32,00)).
 sleeve_bdry('18R505:B0005705','18R505:B0006113',v00219,toni,date(20,05,2019),time(14,32,00)).
-sleeve_bdry('18R505:B0006202','18R505:B0006314',v00220,toni,date(20,05,2019),time(14,33,16)).
+
+
+% commented out as rescanned on 6.5.2020
+%
+% sleeve_bdry('18R505:B0006202','18R505:B0006314',v00220,toni,date(20,05,2019),time(14,33,16)).
+
+
+
+
+
+% 19r
+
+% data added from ../../data../palm/raw_data_from_palms/19r/eta/3.6/sleeve_bdry.csv on Tue Jun  4 06:57:42 CDT 2019
+% by data/data_conversion/convert_sleeve_bdry_data.perl
+% called from data/data_conversion/convert_data.perl
+
+sleeve_bdry('11N405:S0034503','11N405:M0037308',v00118,toni,date(03,06,2019),time(17,03,42)).
+sleeve_bdry('11N405:M0037603','12R3528:0015415',v00119,toni,date(03,06,2019),time(17,03,40)).
+
+
+
+
+% data added from ../../data../palm/raw_data_from_palms/19r/eta/6.5/sleeve_bdry.csv on Tue May 12 17:06:57 CDT 2020
+% by data/data_conversion/convert_sleeve_bdry_data.perl
+% called from data/data_conversion/convert_data.perl
+
+sleeve_bdry('19R4753:0002308','19R4225:0003403',v00220,toni,date(06,05,2020),time(11,06,15)).
+sleeve_bdry('19R4225:0003405','19R4656:0005407',v00221,toni,date(06,05,2020),time(11,07,28)).
+sleeve_bdry('19R4656:0005408','19R4766:0007603',v00222,toni,date(06,05,2020),time(11,08,56)).
+sleeve_bdry('19R4766:0007607','19R4267:0009810',v00223,toni,date(06,05,2020),time(11,10,59)).
+sleeve_bdry('19R4267:0009814','19R4671:0010912',v00224,toni,date(06,05,2020),time(11,12,10)).
+sleeve_bdry('19R4671:0010914','19R305:W0000604',v00225,toni,date(06,05,2020),time(11,12,48)).
+% sleeve_bdry('19R305:W0000606','19R505:B0002012',v00226,toni,date(06,05,2020),time(11,13,13)).
+% sleeve_bdry('19R505:B0002014','19R505:B0002207',v00227,toni,date(06,05,2020),time(11,13,34)).
+
+
+
+
+
+
+% 20r
+
+
+% data added from ../../data../palm/raw_data_from_palms/20r/zeta/9.4/sleeve_bdry.csv on Fri Apr  9 18:07:58 CDT 2021
+% by data/data_conversion/convert_sleeve_bdry_data.perl
+% called from data/data_conversion/convert_data.perl
+
+% commented out, see below
+
+% sleeve_bdry('19R305:W0000606','19R505:B0002012',v00226,toni,date(09,04,2021),time(15,30,00)).
+% sleeve_bdry('19R505:B0002014','20R4660:0008206',v00227,toni,date(09,04,2021),time(15,30,00)).
+% sleeve_bdry('20R4443:0008301','20R4670:0010810',v00228,toni,date(09,04,2021),time(15,30,00)).
+% sleeve_bdry('20R4795:0011003','20R4456:0012209',v00229,toni,date(09,04,2021),time(15,30,00)).
+% sleeve_bdry('20R4270:0012302','20R205:S0000418',v00230,toni,date(09,04,2021),time(15,30,00)).
+% sleeve_bdry('20R205:S0000501','20R205:S0001003',v00231,toni,date(09,04,2021),time(15,30,00)).
+
+
+
+
+% data added from ../../data../palm/raw_data_from_palms/20r/zeta/16.4/sleeve_bdry.csv on Sat Apr 17 07:09:28 CDT 2021
+% by data/data_conversion/convert_sleeve_bdry_data.perl
+% called from data/data_conversion/convert_data.perl
+
+
+% commented out as we re-scootched and re-scanned on 29.3.2023
+%
+% Kazic, 31.3.2023
+
+% sleeve_bdry('19R305:W0000606','19R505:B0002012',v00226,dewi,date(16,04,2021),time(18,59,01)).
+% sleeve_bdry('19R505:B0002014','20R4791:0006115',v00227,dewi,date(16,04,2021),time(19,03,39)).
+% sleeve_bdry('20R4792:0006202','20R4112:0009013',v00228,dewi,date(16,04,2021),time(19,03,54)).
+% sleeve_bdry('20R4112:0009104','20R4796:0011205',v00229,dewi,date(16,04,2021),time(19,09,41)).
+% sleeve_bdry('20R4796:0011207','20R4799:0013101',v00230,dewi,date(16,04,2021),time(19,09,57)).
+% sleeve_bdry('20R4799:0013102','20R205:S0000302',v00231,dewi,date(16,04,2021),time(19,18,43)).
+% sleeve_bdry('20R205:S0000303','20R205:S0000707',v00232,dewi,date(16,04,2021),time(19,18,57)).
+% sleeve_bdry('20R205:S0000708','20R305:W0001509',v00233,dewi,date(16,04,2021),time(19,19,09)).
+% sleeve_bdry('20R305:W0001506','20R405:M0002104',v00234,dewi,date(16,04,2021),time(19,19,18)).
+
+% commented out per corrections below
+%
+% Kazic, 25.1.2022
+
+% sleeve_bdry('20R405:M0002105','20R405:M0002412',v00235,dewi,date(16,04,2021),time(19,19,29)).
+
+% sleeve_bdry('20R405:M0002413','20R505:B0003806',v00236,dewi,date(16,04,2021),time(19,19,39)).
+% sleeve_bdry('20R505:B0003901','20R505:B0004110',v00237,dewi,date(16,04,2021),time(19,19,56)).
+
+
+
+% 21r
+
+% corrected from photographs in ../../images/21r/fon/2.6/*JPG
+% taken during packing the 21r crop
+%
+% Kazic, 25.1.2022
+
+
+% commented out as we re-scootched and re-scanned on 29.3.2023
+%
+% Kazic, 31.3.2023
+
+% sleeve_bdry('20R405:M0002105','20R405:M0002806',v00235,toni,date(2,6,2021),time(12,00,00)).
+
+
+% data added based on images in ../../images/22r/fon/1.2/*
+%
+% 235/236 filing incorrect, must fix
+%
+% Kazic, 3.2.2022
+
+% sleeve_bdry('20R405:M0002413','20R505:B0003806',v00236,toni,date(1,2,2022),time(15,04,00)).
+
+% commented out as we re-scootched and re-scanned on 29.3.2023
+%
+% Kazic, 31.3.2023
+
+
+% sleeve_bdry('20R505:B0003901','21R4889:0003113',v00237,toni,date(1,2,2022),time(15,04,00)).
+
+
+% corrected boundaries of sleeve v00236 per images in ../../images/22r/fon/6.2/*
+% boundaries of sleeve v00235 correct
+%
+% Kazic, 6.2.2022
+
+
+
+% commented out as we re-scootched and re-scanned on 29.3.2023
+%
+% Kazic, 31.3.2023
+
+% sleeve_bdry('20R405:M0002902','20R505:B0003806',v00236,toni,date(6,2,2022),time(14,09,00)).
+
+
+
+% data added from ../../data../palm/raw_data_from_palms/21r/zeta/23.11/sleeve_bdry.csv on Tue Jan 25 11:38:28 CST 2022
+% by data/data_conversion/convert_sleeve_bdry_data.perl
+% called from data/data_conversion/convert_data.perl
+
+% commented out as we re-scootched and re-scanned on 29.3.2023
+%
+% Kazic, 31.3.2023
+
+
+% sleeve_bdry('21R4890:0003201','21R4861:0004007',v00238,dewi,date(24,11,2021),time(16,29,46)).
+% sleeve_bdry('21R4861:0004009','21R4673:0006504',v00239,dewi,date(24,11,2021),time(16,30,27)).
+% sleeve_bdry('21R205:S0000109','21R305:W0001103',v00240,dewi,date(24,11,2021),time(16,31,27)).
+% sleeve_bdry('21R305:W0001104','21R405:M0002602',v00241,dewi,date(24,11,2021),time(16,33,07)).
+% sleeve_bdry('21R405:M0002605','21R505:B0001913',v00242,dewi,date(24,11,2021),time(16,33,20)).
+
+
+
+
+
+
+% data confirmed by images in ../../images/22r/fon/1.2/*
+% these match the contemporaneous data above
+%
+% Kazic, 3.2.2022
+%
+% sleeve_bdry('21R4890:0003201','21R4861:0004007',v00238,toni,date(1,2,2022),time(15,04,00)).
+% sleeve_bdry('21R4861:0004009','21R4673:0006504',v00239,toni,date(1,2,2022),time(15,04,00)).
+% sleeve_bdry('21R205:S0000109','21R305:W0001103',v00240,toni,date(1,2,2022),time(15,04,00)).
+% sleeve_bdry('21R305:W0001104','21R405:M0002602',v00241,toni,date(1,2,2022),time(15,04,00)).
+% sleeve_bdry('21R405:M0002605','21R505:B0001913',v00242,toni,date(1,2,2022),time(15,04,00)).
+
+
+
+
+% data added from ../../data../palm/raw_data_from_palms/22r/zeta/29.3/sleeve_bdry.csv on Fri Mar 31 09:53:33 CDT 2023
+% by data/data_conversion/convert_sleeve_bdry_data.perl
+% called from data/data_conversion/convert_data.perl
+
+sleeve_bdry('19R305:W0000606','19R505:B0002207',v00226,dewi,date(29,03,2023),time(15,08,44)).
+sleeve_bdry('20R4786:0005404','20R4792:0006210',v00227,dewi,date(29,03,2023),time(15,09,10)).
+sleeve_bdry('20R4792:0006305','20R4438:0009401',v00228,dewi,date(29,03,2023),time(15,09,46)).
+sleeve_bdry('20R4438:0009402','20R4796:0011211',v00229,dewi,date(29,03,2023),time(15,10,11)).
+sleeve_bdry('20R4796:0011212','20R4799:0013104',v00230,dewi,date(29,03,2023),time(15,10,30)).
+sleeve_bdry('20R4800:0013210','20R205:S0000405',v00231,dewi,date(29,03,2023),time(15,10,47)).
+sleeve_bdry('20R205:S0000409','20R205:S0000811',v00232,dewi,date(29,03,2023),time(15,11,05)).
+sleeve_bdry('20R205:S0000903','20R305:W0001611',v00233,dewi,date(29,03,2023),time(15,11,20)).
+sleeve_bdry('20R305:W0001612','20R405:M0002204',v00234,dewi,date(29,03,2023),time(15,11,36)).
+sleeve_bdry('20R405:M0002205','20R405:M0005005',v00235,dewi,date(29,03,2023),time(15,11,59)).
+sleeve_bdry('20R405:M0005008','20R505:B0003909',v00236,dewi,date(29,03,2023),time(15,12,28)).
+sleeve_bdry('20R505:B0003910','21R4891:0003312',v00237,dewi,date(29,03,2023),time(15,12,59)).
+sleeve_bdry('21R4891:0003314','21R4861:0004204',v00238,dewi,date(29,03,2023),time(15,12,59)).
+sleeve_bdry('21R4862:0004307','21R205:S0000216',v00239,dewi,date(29,03,2023),time(15,13,19)).
+sleeve_bdry('21R205:S0000312','21R305:W0002203',v00240,dewi,date(29,03,2023),time(15,27,33)).
+sleeve_bdry('21R305:W0002210','22R4898:0003109',v00241,dewi,date(29,03,2023),time(15,27,51)).
+sleeve_bdry('22R4899:0003208','22R4927:0007014',v00242,dewi,date(29,03,2023),time(15,28,12)).
+sleeve_bdry('22R4927:0007015','22R4930:0012404',v00243,dewi,date(29,03,2023),time(15,28,27)).
+sleeve_bdry('22R4930:0012408','22R205:S0015507',v00244,dewi,date(29,03,2023),time(15,28,50)).
+sleeve_bdry('22R205:S0015508','22R305:W0015809',v00245,dewi,date(29,03,2023),time(15,29,03)).
+sleeve_bdry('22R305:W0015810','22R405:M0016301',v00246,dewi,date(29,03,2023),time(15,29,16)).
+sleeve_bdry('22R405:M0016303','22R505:B0016808',v00247,dewi,date(29,03,2023),time(15,29,28)).
+sleeve_bdry('22R505:B0016810','22R505:B0017016',v00248,dewi,date(29,03,2023),time(15,29,43)).
+
+
+
+% 23r
+
+% this fact was manually constructed for Addie Thompson's corn, since
+% I am shipping them off to MSU via Sherry.  Hence, the honorably descended
+% sleeve v99999.
+%
+% Kazic, 16.9.2023
+%
+% now commented out since Addie picked up the corn last fall
+%
+% Kazic, 19.3.2024
+%
+% sleeve_bdry('23R705:F0013101','23R707:H0013605',v99999,toni,date(15,09,2023),time(10,00,00)).
+
+
+
+
+% data added from ../../data../palm/raw_data_from_palms/23r/eta/15.3/sleeve_bdry.csv on Mon Mar 18 19:33:19 CDT 2024
+% by data/data_conversion/convert_sleeve_bdry_data.perl
+% called from data/data_conversion/convert_data.perl
+
+sleeve_bdry('22R405:M0016303','22R505:B0016808',v00247,toni,date(15,03,2024),time(16,27,48)).
+sleeve_bdry('22R505:B0016810','23R4987:0014712',v00248,toni,date(15,03,2024),time(16,28,22)).
+sleeve_bdry('23R4987:0014707','23R5003:0016612',v00249,toni,date(15,03,2024),time(16,29,03)).
+sleeve_bdry('23R5002:0016501','23R4984:0021106',v00250,toni,date(15,03,2024),time(16,37,40)).
+sleeve_bdry('23R4984:0021112','23R205:S0005902',v00251,toni,date(15,03,2024),time(16,38,09)).
+sleeve_bdry('23R205:S0005905','23R305:W0006916',v00252,toni,date(15,03,2024),time(16,38,42)).
+sleeve_bdry('23R305:W0006917','23R405:M0008610',v00253,toni,date(15,03,2024),time(16,39,02)).
+sleeve_bdry('23R405:M0008612','23R505:B0011710',v00254,toni,date(15,03,2024),time(16,39,39)).
+sleeve_bdry('23R505:B0011713','23R505:B0013013',v00255,toni,date(15,03,2024),time(16,40,00)).
+%
+%
+% temporary lodging for long-lost 12N corn
+%
+% sleeve is really v00258
+%
+% Kazic, 19.3.2024
+%
+% sleeve_bdry('12N305:W0035601','12N305:W0035910',v00258,toni,date(15,03,2024),time(16,45,29)).
+
+
+
+
+
+% 24r
+
+
+% we are compressing the boxes once again and scootching the packets
+%
+% also installing new dividers
+%
+% Kazic, 15.9.2024
+
+
+
+% data added from ../../data../palm/raw_data_from_palms/24r/eta/15.9/sleeve_bdry.csv on Sun Sep 15 20:20:34 CDT 2024
+% by data/data_conversion/convert_sleeve_bdry_data.perl
+% called from data/data_conversion/convert_data.perl
+
+sleeve_bdry('06R0001:0000108','06R0013:0001306',v00001,evie,date(15,09,2024),time(13,48,39)).
+sleeve_bdry('06R0013:0001315','06R0023:0002305',v00002,evie,date(15,09,2024),time(13,49,18)).
+sleeve_bdry('06R0023:0002306','06R0035:0003502',v00003,evie,date(15,09,2024),time(13,50,20)).
+sleeve_bdry('06R0035:0003505','06R0055:0005508',v00004,evie,date(15,09,2024),time(14,19,56)).
+sleeve_bdry('06R0056:0005605','06R0091:0009105',v00005,evie,date(15,09,2024),time(14,23,22)).
+sleeve_bdry('06R0091:0009112','06R200:S0004806',v00006,evie,date(15,09,2024),time(14,25,10)).
+sleeve_bdry('06R200:S0005508','06R300:W0000515',v00007,evie,date(15,09,2024),time(14,55,06)).
+sleeve_bdry('06R300:W0000518','06R300:W0006009',v00008,evie,date(15,09,2024),time(14,56,06)).
+sleeve_bdry('06R300:W0006010','06R400:M0000502',v00009,evie,date(15,09,2024),time(14,57,17)).
+sleeve_bdry('06R400:M0001801','06R400:M0000851',v00010,evie,date(15,09,2024),time(15,07,00)).
+sleeve_bdry('06R400:M0008503','06N1050:0002813',v00011,evie,date(15,09,2024),time(15,08,07)).
+sleeve_bdry('06N1051:0002902','06N201:S0005905',v00012,evie,date(15,09,2024),time(15,10,53)).
+sleeve_bdry('06N201:S0005906','06N201:S0009207',v00013,evie,date(15,09,2024),time(15,19,11)).
+sleeve_bdry('06N201:S0009210','06N201:S0013308',v00014,evie,date(15,09,2024),time(15,19,45)).
+sleeve_bdry('06N201:S0013310','06N201:S0029201',v00015,evie,date(15,09,2024),time(15,20,24)).
+sleeve_bdry('06N201:S0029203','06N301:W0005109',v00016,evie,date(15,09,2024),time(15,37,19)).
+sleeve_bdry('06N301:W0005110','06N301:W0006607',v00017,evie,date(15,09,2024),time(15,38,07)).
+sleeve_bdry('06N301:W0006609','06N301:W0008105',v00018,evie,date(15,09,2024),time(15,38,55)).
+sleeve_bdry('06N301:W0008106','06N301:W0009310',v00019,evie,date(15,09,2024),time(16,02,13)).
+sleeve_bdry('06N301:W0009312','06N301:W0010804',v00020,evie,date(15,09,2024),time(16,02,34)).
+sleeve_bdry('06N301:W0010805','06N301:W0025704',v00021,evie,date(15,09,2024),time(16,02,53)).
+sleeve_bdry('06N301:W0025705','06N301:W0029001',v00022,evie,date(15,09,2024),time(16,10,10)).
+sleeve_bdry('06N301:W0029003','06N301:W0033202',v00023,evie,date(15,09,2024),time(16,10,32)).
+sleeve_bdry('06N301:W0033205','06N301:W0036202',v00024,evie,date(15,09,2024),time(16,10,52)).
+sleeve_bdry('06N301:W0036204','06N401:M0006404',v00025,evie,date(15,09,2024),time(16,24,48)).
+sleeve_bdry('06N401:M0006701','06N401:M0010907',v00026,evie,date(15,09,2024),time(16,25,13)).
+sleeve_bdry('06N401:M0011201','06N401:M0013003',v00027,evie,date(15,09,2024),time(16,25,56)).
+sleeve_bdry('06N401:M0013005','07R1627:0077602',v00028,evie,date(15,09,2024),time(16,43,39)).
+sleeve_bdry('07R1627:0077605','07R201:S0003610',v00029,evie,date(15,09,2024),time(16,44,41)).
+sleeve_bdry('07R201:S0004801','07R201:S0022203',v00030,evie,date(15,09,2024),time(16,45,08)).
+

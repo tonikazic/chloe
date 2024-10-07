@@ -1594,3 +1594,63 @@ tassel('12R3614:0026704',[exhausted],toni,date(24,07,2012),time(09,30,00)).
 
     
 
+% 24r
+
+% cut off tassel 26.6.2024
+tassel('24R5032:0030069',[center_spike],toni,date(26,06,2024),time(14,30,00)).
+
+tassel('24R5032:0030011',[proud],toni,date(9,07,2024),time(14,30,00)).
+tassel('24R5032:0030019',[center_spike],toni,date(9,07,2024),time(14,30,00)).
+tassel('24R5032:0030026',[center_spike],toni,date(9,07,2024),time(14,30,00)).
+tassel('24R5032:0030032',[do_NOW],toni,date(9,07,2024),time(14,30,00)).
+tassel('24R5032:0030038',[center_spike],toni,date(9,07,2024),time(14,30,00)).
+tassel('24R5032:0030032',[do_NOW],toni,date(11,07,2024),time(14,30,00)).
+
+
+
+% bagged tassel 9.7.2024
+tassel('24R4915:0030164',[center_spike],toni,date(9,07,2024),time(14,30,00)).
+
+% leaves around tassel haven't lowered yet
+tassel('24R4915:0030141',[center_spike],toni,date(9,07,2024),time(14,30,00)).
+
+
+tassel('24R4915:0030117',[],toni,date(9,07,2024),time(14,30,00)).
+tassel('24R4915:0030119',[],toni,date(9,07,2024),time(14,30,00)).
+tassel('24R4915:0030133',[center_spike],toni,date(9,07,2024),time(14,30,00)).
+tassel('24R4915:0030134',[],toni,date(9,07,2024),time(14,30,00)).
+
+
+tassel('24R305:W0023207',[mid_branches],toni,date(11,07,2024),time(09,30,00)).
+
+
+
+% 24g
+
+% manually added
+%
+% Kazic, 9.9.2024
+
+tassel('24G4218:0030224',[center_spike],toni,date(09,09,2024),time(11,00,00)).
+tassel('24G4218:0030216',[center_spike],toni,date(09,09,2024),time(11,00,00)).
+tassel('24G4218:0030210',[center_spike],toni,date(09,09,2024),time(11,00,00)).
+
+
+
+% manually added
+%
+% Kazic, 13.9.2024
+
+tassel('24G4218:0030268',[center_spike],toni,date(13,09,2024),time(13,00,00)).
+tassel('24G4218:0030249',[],toni,date(13,09,2024),time(13,00,00)).
+
+
+% manually added
+%
+% Kazic, 30.9.2024
+
+tassel('24G4916:0030307',[shedding],toni,date(29,09,2024),time(18,00,00)).
+tassel('24G4916:0030324',[shedding],toni,date(29,09,2024),time(18,00,00)).
+tassel('24G4916:0030336',[shedding],toni,date(29,09,2024),time(18,00,00)).
+tassel('24G4916:0030352',[shedding],toni,date(29,09,2024),time(18,00,00)).
+

@@ -1,7 +1,14 @@
 #!/usr/local/bin/perl
 
-# this is . . . /maize/demeter/data/make_harvest_plan.perl
+# this is .../maize/label_making/make_harvest_plan.perl
+
+# WARNING!  this script is obsolete!  See ../crops/scripts/make_harvest_plan.perl
+# for the current version.
 #
+# Kazic, 3.9.2021
+
+
+
 # for all pollinations, determine which rows should be harvested when, 
 # allowing 40 days after the last pollination in each row
 #
@@ -120,9 +127,13 @@ while (<CRS>) {
 #
 # Kazic, 27.9.2015
 
-                ($ma,$pa,$date) = $_ =~ /^cross\(\'(${num_gtype_re})\',\'(${num_gtype_re})\',.+,false,.+,(${prolog_date_re})/;
+		print $_;
+#                ($ma,$pa,$date) = $_ =~ /^cross\(\'(${num_gtype_re})\',/; # \'(${num_gtype_re})\',ear(\d),false,.+,(${prolog_date_re})/;
+
+                ($ma,$pa,$date) = $_ =~ /^cross\(\'(\w+:\w+)\',\'(\w+:\w+)\',ear\(\d\),false,.+,(${prolog_date_re})/;		
                 chop($date);
- 
+
+		print("($ma,$pa,$date)\n");
 
 # modified type selection scheme so that rows don't have to be kludged in
 # need to store a row's types, one ear at a time

@@ -27,6 +27,7 @@ use Exporter;
 
 our @ISA = qw(Exporter);
 our @EXPORT = qw(print_big_label_guide_boxes
+             print_leaf_label_guide_lines
              print_seed_packet_guide_boxes
              print_business_card_guide_boxes
              print_business_card_guide_lines
@@ -438,6 +439,26 @@ sub print_pan_guide_box {
 
 
 
+
+# for the temporary plant tags, so we can photograph leaves much earlier
+#
+# Kazic, 8.7.2022
+
+sub print_leaf_label_guide_lines {
+        ($filehandle) = @_;
+
+	print $filehandle "\\put(102,0){\\line(0,1){290}}\n";
+        print $filehandle "\\put(-5,285){\\line(1,0){210}}\n";
+
+        print $filehandle "\\put(-5,255){\\line(1,0){210}}\n";
+        print $filehandle "\\put(-5,220){\\line(1,0){210}}\n";
+        print $filehandle "\\put(-5,185){\\line(1,0){210}}\n";
+        print $filehandle "\\put(-5,150){\\line(1,0){210}}\n";
+        print $filehandle "\\put(-5,115){\\line(1,0){210}}\n";
+        print $filehandle "\\put(-5,80){\\line(1,0){210}}\n";
+        print $filehandle "\\put(-5,45){\\line(1,0){210}}\n";
+
+        }
 
 
 

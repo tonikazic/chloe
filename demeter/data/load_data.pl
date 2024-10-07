@@ -15,25 +15,48 @@
 % Kazic, 22.6.2010
 
 
-
+% fun_corn/1 now defined in genetic_utilties:fun_corn/1
+% seems easier to maintain the lists and logic there
+%
+% Kazic, 8.3.2022
 
 
     
 :-      module(load_data, [
+%                barcode_index/7,
+%                crop_rowplant_index/4,
+%		 decon_planting_index/6,
+% 		 decon_harvest_index/8,		       
+%                frpc_index/4,
+%		 frpc_inv_index/5,
+%                planting_index/4,
+%                row_members_index/3,
+%                fun_corn/1,
+%
+
                 barcode_index/7,
+                crop_rowplant_index/4,
+	        decon_planting_index/10,
+		decon_harvest_index/8,
+		decon_inventory_index/8,
+                frpc_index/4,
+		frpc_inv_index/5,
+                planting_index/4,
+                row_members_index/3,
+%                fun_corn/1,
+
+
+
 		branch_status/11,
                 box/5,
                 contaminant/5,
                 crop/7,
-                crop_rowplant_index/4,
                 cross/8,
                 cross_prep/5,
                 current_crop/1,
                 current_inbred/5,
                 ear/5,
                 family_prefix/2,
-                frpc_index/4,
-                fun_corn/1,
                 gene_type/4,
                 genotype/11,
                 harvest/7,
@@ -51,13 +74,12 @@
                 plant_anatomy/8,
                 plant_fate/5,
                 planted/8,
-                planting_index/4,
                 pot/2,
                 priority_rows/2,
-                row_members_index/3,
                 row_harvested/5,
                 row_status/7,
                 sample/7,
+		scoring_date/6,
                 sleeve_bdry/6,
                 source/7,
          	tassel/5
@@ -68,20 +90,41 @@
 
 
 :-
+%	ensure_loaded(barcode_index),
+%	ensure_loaded(crop_rowplant_index),
+%	ensure_loaded(decon_planting_index),	
+%	ensure_loaded(decon_harvest_index),	
+%	ensure_loaded(frpc_index),
+%	ensure_loaded(frpc_inv_index),
+%	ensure_loaded(planting_index),
+%	ensure_loaded(row_members_index),
+%%	ensure_loaded(fun_corn),
+%
+%
+
 	ensure_loaded(barcode_index),
+	ensure_loaded(crop_rowplant_index),
+	ensure_loaded(decon_planting_index),
+	ensure_loaded(decon_harvest_index),		
+	ensure_loaded(decon_inventory_index),		
+	ensure_loaded(frpc_index),
+	ensure_loaded(frpc_inv_index),
+	ensure_loaded(planting_index),
+	ensure_loaded(row_members_index),
+%	ensure_loaded(fun_corn),
+
+
+	
 	ensure_loaded(branch_status),
 	ensure_loaded(box),	
 	ensure_loaded(contaminant),
 	ensure_loaded(crop),
-	ensure_loaded(crop_rowplant_index),
 	ensure_loaded(cross),
 	ensure_loaded(cross_prep),
 	ensure_loaded(current_crop),
 	ensure_loaded(current_inbred),
 	ensure_loaded(ear),
 	ensure_loaded(family_prefix),
-	ensure_loaded(frpc_index),
-	ensure_loaded(fun_corn),
 	ensure_loaded(gene_type),
 	ensure_loaded(genotype),
 	ensure_loaded(harvest),
@@ -99,12 +142,11 @@
 	ensure_loaded(plant_anatomy),
 	ensure_loaded(plant_fate),
 	ensure_loaded(planted),
-	ensure_loaded(planting_index),
 	ensure_loaded(pot),
 	ensure_loaded(priority_rows),
-	ensure_loaded(row_members_index),
 	ensure_loaded(row_harvested),
 	ensure_loaded(row_status),
+	ensure_loaded(scoring_date),
 	ensure_loaded(sleeve_bdry),
 	ensure_loaded(source),
 	ensure_loaded(tassel),

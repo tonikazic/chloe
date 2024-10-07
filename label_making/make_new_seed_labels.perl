@@ -73,20 +73,19 @@ my ($dir,$input_dir,$barcodes,$tags_dir) = &adjust_paths($crop,$local_dir);
 
 
 
-my $input_stem = "20r_tags_needed";
+my $input_stem = "22r_tags_needed";
 my $tags_stem = $input_stem;
 
 # print "is: $input_stem\nts: $tags_stem\n";
 
-# $input_stem = "new_seed_labels.csv";
-# $tags_stem = "new_seed_labels";
+
 
 
 my $input_file = $input_dir . $input_stem;
 my $output_file = $tags_dir . $tags_stem . $tex_suffix;
 my @labels;
 
-# print "ts: $tex_suffix\nof: $output_file\n";
+# print "tsuff: $tex_suffix\nof: $output_file\n";
 
 
 open my $in, '<', $input_file or die "can't open $input_file\n";
@@ -101,9 +100,18 @@ while (<$in>) {
 # Kazic, 17.4.2021
 #		
 #                my ($correct_ma,$correct_pa,$old_ma) = $_ =~ /^\"?(${num_gtype_re})\"?,\"?(${num_gtype_re})\"?,\"?(${num_gtype_re})\"?,*/;
+#
+#                my ($correct_ma,$correct_pa,$old_ma) = $_ =~ /^[\'\"]?(${num_gtype_re})[\'\"]?,[\'\"]?(${num_gtype_re})[\'\"]?,?[\'\"]?(.*)[\'\"]?,*/;
 
-                my ($correct_ma,$correct_pa,$old_ma) = $_ =~ /^\"?(${num_gtype_re})\"?,\"?(${num_gtype_re})\"?,?\"?(.*)\"?,*/;
 
+		
+# shifted to pre-cleaning the line, rather than in the refex
+#
+# Kazic, 14.11.2021		
+
+		
+		$_ =~ s/[\'\"]//g;
+                my ($correct_ma,$correct_pa,$old_ma) = $_ =~ /^(${num_gtype_re}),(${num_gtype_re}),?(.*),*/;		
 		
 #               print "($correct_ma,$correct_pa,$old_ma)\n";
                 my $ma_barcode_out = &make_barcodes($barcodes,$correct_ma,$esuffix);
@@ -133,5 +141,7 @@ while (<$in>) {
 
 &make_new_seed_labels($output_file,$today,$#labels,\@labels);
 &generate_pdf($tags_dir,$tags_stem,$ps_suffix,$pdf_suffix);
+
+
 
 

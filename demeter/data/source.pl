@@ -3,6 +3,8 @@
 
 % lines that people send, with original names or numerical genotypes if available
 
+% source/7
+
 % source(MyFamilyNum,Name,DonorsMaNumGtype,DonorsPaNumGtype,CropFirstPlanted,SourceOfLine,DateAcquired).
 %
 % where DateAcquired is in the form
@@ -447,25 +449,44 @@ source(686,'15R0686:0000000','111F','Les20','15R','MGCSC',date(15,5,2015)).
 
 % Candy Gardner doubled haploid lines for 16r
 
-source(687,'16R0687:0000000','15SGEM:BGEM:13397','(ALTIPLANO BOV903/PHZ51)/PHZ51','#002-(2n)-003-001-001-B','Candy Gardner',date(2,6,2016)).
-source(688,'16R0688:0000000','14SGEM:BGEM:17314','(ANCASHINO ANC102/PHB47)/PHB47','#002-(2n)-001-002-B','Candy Gardner',date(2,6,2016)).
-source(689,'16R0689:0000000','14SGEM:BGEM:12345','(BOFO DGO123/PHB47)/PHB47','#002-(2n)-003-001-B','Candy Gardner',date(2,6,2016)).
-source(690,'16R0690:0000000','14SGEM:BGEM:19336','(CON NORT ZAC161/PHB47)/PHB47','#005-(2n)-001-001-B','Candy Gardner',date(2,6,2016)).
-source(691,'16R0691:0000000','14SGEM:BGEM:08337','(CRISTALINO AMAR AR21004/PHB47)/PHB47','#001-(2n)-002-001-B','Candy Gardner',date(2,6,2016)).
-source(692,'16R0692:0000000','14SGEM:BGEM:04349','(CRISTALINO AMAR AR21004/PHB47)/PHB47','#005-(2n)-003-001-B','Candy Gardner',date(2,6,2016)).
-source(693,'16R0693:0000000','14SGEM:BGEM:08361','(CUZCO CUZ217/PHZ51)/PHZ51','#002-(2n)-001-001-B','Candy Gardner',date(2,6,2016)).
-source(694,'16R0694:0000000','14SGEM:BGEM:13350','(ONAVENO SON24/PHB47)/PHB47','#004-(2n)-001-001-B','Candy Gardner',date(2,6,2016)).
-source(695,'16R0695:0000000','14SGEM:BGEM:25341','(PATILLO GRANDE BOV649/PHZ51)/PHZ51','#006-(2n)-003-001-B','Candy Gardner',date(2,6,2016)).
-source(696,'16R0696:0000000','14SGEM:BGEM:11338','(PATILLO GRANDE BOV649/PHB47)/PHB47','#006-(2n)-001-001-B','Candy Gardner',date(2,6,2016)).
-source(697,'16R0697:0000000','14SGEM:BGEM:08313','BR105:N(PHZ51)(PHZ51)-(2n)-003-001-B','','Candy Gardner',date(2,6,2016)).
-source(698,'16R0698:0000000','14SGEM:BGEM:15346','((Tehua - CHS29/PHB47 B)/PHB47)-(2n)-003-001-B','','Candy Gardner',date(2,6,2016)).
-source(699,'16R0699:0000000','15SGEM:BGEM:14378','(YUCATAN TOL389 ICA/PHZ51)/PHZ51','#005-(2n)-002-001-001-B','Candy Gardner',date(2,6,2016)).
-source(700,'16R0700:0000000','13SGEM:06-N3:4962','(YUNGUENO BOV362/PHZ51)/PHZ51','#005-(2n)-002','Candy Gardner',date(2,6,2016)).
-source(701,'16R0701:0000000','14SGEM:BGEM:06313','(YUNGUENO BOV362/PHZ51)/PHZ51','#006-(2n)-002-001-B','Candy Gardner',date(2,6,2016)).
-source(702,'16R0702:0000000','14SGEM:BGEM:23344','((Cateto Nortista - GIN I/PHB47 B)/PHB47)-(2n)-002-001-B','','Candy Gardner',date(2,6,2016)).
+source(687,'15SGEM:BGEM:13397','(ALTIPLANO BOV903/PHZ51)/PHZ51 #002-(2n)-003-001-001-B','16R0687:0000000','16R','Candy Gardner',date(2,6,2016)).
+source(688,'14SGEM:BGEM:17314','(ANCASHINO ANC102/PHB47)/PHB47 #002-(2n)-001-002-B','16R0688:0000000','16R','Candy Gardner',date(2,6,2016)).
+source(689,'14SGEM:BGEM:12345','(BOFO DGO123/PHB47)/PHB47 #002-(2n)-003-001-B','16R0689:0000000','16R','Candy Gardner',date(2,6,2016)).
+source(690,'14SGEM:BGEM:19336','#005-(2n)-001-001-B (CON NORT ZAC161/PHB47)/PHB47','16R0690:0000000','16R','Candy Gardner',date(2,6,2016)).
+source(691,'14SGEM:BGEM:08337','(CRISTALINO AMAR AR21004/PHB47)/PHB47 #001-(2n)-002-001-B','16R0691:0000000','16R','Candy Gardner',date(2,6,2016)).
+source(692,'14SGEM:BGEM:04349','(CRISTALINO AMAR AR21004/PHB47)/PHB47 #005-(2n)-003-001-B','16R0692:0000000','16R','Candy Gardner',date(2,6,2016)).
+source(693,'14SGEM:BGEM:08361','(CUZCO CUZ217/PHZ51)/PHZ51 #002-(2n)-001-001-B','16R0693:0000000','16R','Candy Gardner',date(2,6,2016)).
+source(694,'14SGEM:BGEM:13350','(ONAVENO SON24/PHB47)/PHB47 #004-(2n)-001-001-B','16R0694:0000000','16R','Candy Gardner',date(2,6,2016)).
+source(695,'14SGEM:BGEM:25341','(PATILLO GRANDE BOV649/PHZ51)/PHZ51 #006-(2n)-003-001-B','16R0695:0000000','16R','Candy Gardner',date(2,6,2016)).
+source(696,'14SGEM:BGEM:11338','(PATILLO GRANDE BOV649/PHB47)/PHB47 #006-(2n)-001-001-B','16R0696:0000000','16R','Candy Gardner',date(2,6,2016)).
+source(697,'14SGEM:BGEM:08313','BR105:N(PHZ51) (PHZ51)-(2n)-003-001-B','16R0697:0000000','16R','Candy Gardner',date(2,6,2016)).
+source(698,'14SGEM:BGEM:15346','((Tehua - CHS29/PHB47 B)/PHB47)-(2n)-003-001-B (2n)-003-001-B','16R0698:0000000','16R','Candy Gardner',date(2,6,2016)).
+source(699,'15SGEM:BGEM:14378','(YUCATAN TOL389 ICA/PHZ51)/PHZ51 #005-(2n)-002-001-001-B','16R0699:0000000','16R','Candy Gardner',date(2,6,2016)).
+source(700,'13SGEM:06-N3:4962','(YUNGUENO BOV362/PHZ51)/PHZ51 #005-(2n)-002','16R0700:0000000','16R','Candy Gardner',date(2,6,2016)).
+source(701,'14SGEM:BGEM:06313','(YUNGUENO BOV362/PHZ51)/PHZ51 #006-(2n)-002-001-B','16R0701:0000000','16R','Candy Gardner',date(2,6,2016)).
+source(702,'14SGEM:BGEM:23344','((Cateto Nortista - GIN I/PHB47 B)/PHB47)-(2n)-002-001-B','16R0702:0000000','16R','Candy Gardner',date(2,6,2016)).
 
 
 
+% the dominant Les*-tks that arose in les23 lines
+
+source(703,'Les*-tk1','15R305:W0000908','15R4373:0007409','15R','spontaneous dominant in les23',date(1,8,2015)).
+source(704,'Les*-tk2','17R205:S0001102','17R0704:0015704','17R','spontaneous dominant in les23',date(1,8,2017)).
+
+
+
+
+% inbreds from Addie Thompson for her seed terroir experiment
+%
+% Kazic, 16.5.2023
+
+source(705,'LH145','23R705:F0000000','23R705:F0000000','23R','female for Addie',date(16,5,2023)).
+source(706,'LH195','23R706:G0000000','23R706:G0000000','23R','female for Addie',date(16,5,2023)).
+source(707,'PHB47','23R707:H0000000','23R707:H0000000','23R','female for Addie',date(16,5,2023)).
+	      			  
+source(708,'PH207','23R708:X0000000','23R708:X0000000','23R','male for Addie',date(16,5,2023)).
+source(709,'PHG47','23R709:Y0000000','23R709:Y0000000','23R','male for Addie',date(16,5,2023)).
+source(710,'PHK76','23R710:Z0000000','23R710:Z0000000','23R','male for Addie',date(16,5,2023)).
 
 
 
@@ -474,11 +495,14 @@ source(702,'16R0702:0000000','14SGEM:BGEM:23344','((Cateto Nortista - GIN I/PHB4
 
 source(890,'16R890:L0xxxxxx','16R890:L0xxxxxx','16R890:L0xxxxxx','16R','unknown MFA elite',date(1,5,2016)).
 source(891,'17R891:L0xxxxxx','17R891:L0xxxxxx','17R891:L0xxxxxx','17R','MFA elite',date(1,5,2017)).
-
+source(889,'20R889:L0xxxxxx','20R889:L0xxxxxx','20R889:L0xxxxxx','20R','mfa elite, green',date(27,5,2020)).
 
     
 
 % popcorn lines
+
+source(984,'21R984:P0glagem','21R984:P0glagem','21R984:P0glagem','21R','Glass Gem, 110--120 days, Territorial Seed Co',date(20,5,2021)).
+source(985,'21R985:P0dakbla','21R985:P0dakbla','21R985:P0dakbla','21R','Dakota Black, 95 days, Territorial Seed Co',date(20,5,2021)).
 
 
 source(992,'07R992:P0mawhyl','07R992:P0mawhyl','07R992:P0mawhyl','07R','yellow/white, pointed kernel strawberry popcorn bought by Bill from Whole Foods, Amherst',date(30,11,2007)).
@@ -507,6 +531,11 @@ source(914,'10R914:P0000000','10R914:P0000000','10R914:P0000000','10R','Weiler e
 
 % sweet corn; purchased as needed
 
+source(887,'21R886:E0ptedmt','21R886:E0ptedmt','21R886:E0ptedmt','21R','Painted Mt parching/hominy, 70--90 days, Territorial Seed Co',date(20,5,2021)).
+
+source(887,'21R887:E0hooker','21R887:E0hooker','21R887:E0hooker','21R','Hookers Indian sweet, 70 days, Snake River Seed Coop',date(20,5,2021)).
+source(888,'21R888:E0smanna','21R888:E0hooker','21R888:E0hooker','21R','Starburst Manna parching, 85 days, Snake River Seed Coop',date(20,5,2021)).
+
 
 source(892,'11R892:E0serend','11R892:E0serend','11R892:E0serend','11R','serendipity, Rogers/Syngenta bicolor triple sweet, 82 days, from little Westlake',date(6,5,2011)).
 source(893,'08R893:E0earsun','08R893:E0earsun','08R893:E0earsun','07R','early sunglow, 63--68 days, from Lilly Miller',date(22,5,2008)).
@@ -518,3 +547,5 @@ source(898,'08R898:E0bodcus','08R898:E0bodcus','08R898:E0bodcus','07R','bodaciou
 source(899,'08R899:E0bnjour','08R899:E0bnjour','08R899:E0bnjour','07R','bon jour, bicolor, 70 days,  from Renee''s Garden',date(22,5,2008)).
 source(990,'08R990:E0casino','08R990:E0casino','08R990:E0casino','07R','casino, 70 days, from Renee''s Garden',date(1,4,2008)).
 source(991,'08R991:E0golban','08R991:E0golban','08R991:E0golban','07R','Burpee''s golden bantam, 70--80 days, from Burpee',date(1,4,2008)).
+
+

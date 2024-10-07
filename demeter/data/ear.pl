@@ -26,3 +26,25 @@ ear('09R1120:0009315',silking,toni,date(16,7,2009),time(10,0,0)).
 ear('09R0152:0055301',exhausted,toni,date(11,8,2009),time(17,00,00)).
 ear('09R0155:0055103',exhausted,toni,date(11,8,2009),time(17,00,00)).
 ear('09R0155:0055107',exhausted,toni,date(11,8,2009),time(17,00,00)).
+
+
+
+% 24g
+
+% manually added
+%
+% Kazic, 9.9.2024
+
+ear('24G4218:0030224',silking,toni,date(09,09,2024),time(11,00,00)).
+ear('24G4218:0030216',shoot,toni,date(09,09,2024),time(11,00,00)).
+ear('24G4218:0030210',silking,toni,date(09,09,2024),time(11,00,00)).
+
+
+
+% manually added
+%
+% Kazic, 30.9.2024
+
+ear('24G4916:0030336',silking,toni,date(29,09,2024),time(18,00,00)).
+ear('24G4916:0030352',silking,toni,date(29,09,2024),time(18,00,00)).
+

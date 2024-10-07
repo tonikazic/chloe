@@ -1,24 +1,29 @@
 #!/usr/local/bin/perl
 
 
-# this is ../c/maize/demeter/data/make_harvest_plan.perl
+# this is ../c/maize/crops/scripts/make_harvest_plan.perl
 #
 # for all pollinations, determine which rows should be harvested when, 
 # allowing 40 days after the last pollination in each row
 #
 # Kazic, 22.8.2012
 
+# THIS IS THE CURRENT VERSION!  Ignore ../../label_making/make_harvest_plan.perl
+#
+# Kazic, 3.9.2021
 
 
 
 
 # call is: perl ./make_harvest_plan.perl CROP DAYS_TO_HARVEST_DATE FLAG
-#
-# where FLAG is one of {q,test,go}
+#-lt 
+# where CROP is the lower-case version and FLAG is one of {q,test,go}
 
 
 # modify harvestdoy instructions as needed for special components of the crop, such as
 # popcorn, double mutants, and sibs.  Modify bag scheme as needed, too.
+#
+# Bag scheme is in ../../label_making/Typesetting/DefaultOrgztn.pm
 
 
 # converted to run in perl 5.26 and improved
@@ -126,7 +131,7 @@ if ( ( $flag eq 'test' ) || ( $flag eq 'go' ) ) {
 % sure to insert a shoot bag with the harvest date on it in each onion bag!
 %
 %
-% \t                Bag Color Coding Table\n% 
+% \t                Bag Color Coding Table\n%  
 % code \t\t onion bag \t mesh bag \t description
 % ---- \t\t --------- \t -------- \t -----------\n";
 
@@ -159,7 +164,7 @@ my @foo = <$cross_fh>;
 my @crosses = grep { /${crop_str}/ && !/% / } @foo; 
 
 
-# if ( $flag eq 'test') { foreach my $cross (@crosses) { print "$cross"; } }
+if ( $flag eq 'test') { foreach my $cross (@crosses) { print "$cross"; } }
 
 
 
@@ -180,7 +185,11 @@ foreach my $cross ( @crosses ) {
 	
 # the inbreds are easy to pick off
 
-        if ( $ma =~ /\:[SWMB]/ ) { ($cross_type,$marow,$maplant) = $ma =~ /\:(\w)?(\d{3,5})(\d{2})/; }
+# added addie's corn
+#
+# Kazic, 29.8.2023	
+
+        if ( $ma =~ /\:[SWMBFGHXYZ]/ ) { ($cross_type,$marow,$maplant) = $ma =~ /\:(\w)?(\d{3,5})(\d{2})/; }
 
 
 # now sort through inter-mutant crosses
@@ -436,9 +445,14 @@ foreach $harvestdoy ( sort { $a <=> $b } ( keys %harvest ) ) {
                         else { $ears_harvested = 0; }
 
 
-                        if ( $ears_harvested <= $plants ) { 
+                        if ( $ears_harvested <= $plants ) {
 
-			        my $colors = $bags{$row_type};
+#				print "$bags{$row_type}\n";
+
+			        my $colors_bag = $bags{$row_type};
+				my ($onion,$mesh) = split(/::/,$colors_bag);
+				my $colors = $onion . '::' . $mesh;
+#				print "$colors\n";
                                 my $diff = $harvestdoy - $exphardoy;
 
                                 my $hinfo = $plants . "::" . $colors . "::" . $diff;
@@ -494,7 +508,9 @@ foreach my $row_type (@ear_order) {
                 if ( !exists $harv{$marow} ) { 
 
                         my $hinfo = $todayswork{$row_type}{$marow};
-                        my ($plants,$onion,$mesh,$anon,$diff) = split(/::/,$hinfo);
+#			print "$hinfo\n";
+			
+                        my ($plants,$onion,$mesh,$diff) = split(/::/,$hinfo);
                         $total_ears += $plants;
                         $total_rows += 1;
 		        

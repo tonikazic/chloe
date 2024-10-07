@@ -33,8 +33,9 @@ our @EXPORT = qw(begin_latex_file
              begin_row_stake_picture
              end_picture
              make_crop
+             print_higher_stack
              print_stack
-             print_big_stack
+             print_centered_page_num
              print_page_num
              pad_row
              easy_row
@@ -96,11 +97,14 @@ sub begin_latex_plant_tags_file {
 
 
 
+# added stackengine for easier vertical typesetting of row numbers
+#
+# Kazic, 15.5.2024
 
 sub begin_row_stake_latex_file {
         ($filehandle) = @_;
 
-        print $filehandle "\\documentclass[12pt]{article}\n\\usepackage{graphics,graphicx,graphpap,amsmath,multirow}\n\\usepackage{row_stake_margins}\n\\pagestyle{empty}\n\\thispagestyle{empty}\n\\DeclareMathSizes{12}{30}{13}{9}\n\\begin{document}\n\n";
+        print $filehandle "\\documentclass[12pt]{article}\n\\usepackage{graphics,graphicx,graphpap,amsmath,multirow,stackengine}\n\\usepackage{row_stake_margins}\n\\pagestyle{empty}\n\\thispagestyle{empty}\n\\DeclareMathSizes{12}{30}{13}{9}\n\\begin{document}\n\n";
         }
 
 
@@ -172,6 +176,8 @@ sub make_crop {
 
 
 
+
+
 # the stack numbers at the top of each half of the Avery stock; 
 # good for any Avery label material
 
@@ -181,15 +187,50 @@ sub print_stack {
         if ( ( $side eq "left" ) || ( $side eq 0 ) ) { print $filehandle "\\put(52,276){$stack}\n"; }
         elsif ( ( $side eq "middle" ) || ( $side eq 1 ) ) { print $filehandle "\\put(102,276){$stack}\n"; }
         elsif ( ( $side eq "right" ) || ( $side eq 2 ) ) { print $filehandle "\\put(152,276){$stack}\n"; }
+
+# new for bifocal-friendly row stakes
+#
+# Kazic, 15.5.2024
+
+	elsif ( $side > 2 ) { print $filehandle "\\put(102,276){$stack}\n"; }
+  
+}
+
+
+
+
+
+
+
+
+
+# scootch those numbers up above the guide line and clear space in the tag
+#
+# Kazic, 9.7.2022
+
+sub print_higher_stack {
+        ($filehandle,$side,$stack) = @_;
+
+        if ( ( $side eq "0" ) || ( $side eq 0 ) ) { print $filehandle "\\put(52,285){$stack}\n"; }
+        elsif ( ( $side eq "1" ) || ( $side eq 2 ) ) { print $filehandle "\\put(152,285){$stack}\n"; }
         }
 
 
 
-sub print_big_stack {
-        ($filehandle,$stack) = @_;
 
-        print $filehandle "\\put(108,350){$stack}\n";
+
+# it could be red, but then there would be an extra printing charge
+#
+# empirical placement based on ../c/maize/crops/20r/tags/fake_prioritized_tags.tex
+#
+# Kazic, 13.7.2020
+
+sub print_centered_page_num {
+        ($filehandle) = @_;
+
+        print $filehandle "\\put(100,335){\\Huge{\\textbf{\\thepage}}}\n";
         }
+
 
 
 

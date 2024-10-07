@@ -68,20 +68,33 @@ sub generate_pdfl {
 
 
 
-# dvipdf works ok on athe
+
 
 
 
 # use just dvips -t legal, NOT dvips -t landscape -t legal, despite what everyone says!
 # at least with the plant_tags margins.
 #
-# Kazic, 6.1.07
+# Kazic, 6.1.2007
+#
+# since the Mac's Preview no longer supports conversion of postscript to pdf, do it here
+# directly, using the switches described in
+#
+#    https://web.mit.edu/ghostscript/www/Ps2pdf.htm
+#
+# and
+#
+#    https://files.lfpp.csa.canon.com/media/Assets/PDFs/TSS/external/DPS400/Distillerpdfguide_v1_m56577569830529783.pdf
+#
+# Kazic, 9.7.2024
 
 sub generate_plant_tags {
 	($output_dir,$tags_stem)= @_;
 
         chdir($output_dir);
         system("latex $tags_stem ; dvips -t legal $tags_stem");
+	system("ps2pdf -dProcessColorModel=/DeviceGray -dPDFSETTINGS=/prepress -dAutoRotatePages=/All $tags_stem.ps $tags_stem.pdf");
+	system("rm $tags_stem.ps");
         }
 
 

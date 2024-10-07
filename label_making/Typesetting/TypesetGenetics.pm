@@ -772,6 +772,11 @@ sub print_old_vertical_row_stake_label_aux_aux {
 #
 # Kazic, 15.5.2020
 
+# added a guide line on the right edge of the right-most tag, just under
+# the stack number, for the bifocal-friendly tags.
+#
+# Kazic, 15.5.2024
+
 sub print_vertical_row_stake_label {
 
 #        ($filehandle,$barcode_out_upper,$row_upper,$i,$num_rows) = @_;
@@ -786,11 +791,24 @@ sub print_vertical_row_stake_label {
         $barcode_file = $barcode_rel_dir . $barcode_out;
 
 
-        $rem = $i % 20;
+# parameters for non-bifocal-friendly row stake labels
+	
+#        $rem = $i % 20;
+#        $stack = int($i / 10);
+#        $side = $stack % 2;
+#        $step = $rem % 10;
+
+
+# parameters for bifocal-friendly row stake labels
+#
+# Kazic, 15.5.2024	
+	
+        $rem = $i % 10;
         $stack = int($i / 10);
-        $side = $stack % 2;
+        $side = $stack;
         $step = $rem % 10;
 
+	
 
 # guides x are 0, 105; setting the $left_x to 0 gives a nice margin on the 
 # left edge for stapling
@@ -799,8 +817,16 @@ sub print_vertical_row_stake_label {
         $left_x = 0;
         $right_x = $left_x + $delta_x; 
 
+
+
+	
+# still ok for bifocal row stakes
+	
         $y = 250 - 25.5 * $step;      
 
+
+        print "num_rows: $num_rows i: $i rem: $rem y: $y\n";
+	
 
         if ( $rem == 0 )  {
 
@@ -808,11 +834,42 @@ sub print_vertical_row_stake_label {
 
                 &begin_picture($filehandle);
                 &print_stack($filehandle,$side,$stack);
-#		&print_vertical_row_stake_label_guide_boxes($filehandle);
+                &print_bifocal_vertical_row_stake_label_guidelines($filehandle,$left_x,$y);
+		
                 &print_vertical_row_stake_label_aux($filehandle,$left_x,$y,$barcode_out_upper,$row_upper,$num_cutting,$material);
 	        }
 
 
+
+# bifocal-friendly variation of the movement; still 10 tags/stack, but now
+# tags fill the page vertically, with small margins at the top and bottom
+#
+# old version with two stacks/page needed the $rem == 9 conditn to switch
+# sides and print the stack; obsolete in new version
+#
+# Kazic, 15.5.2024
+	
+         elsif ( $rem > 0 ) {
+#		 if ( $rem == 9 ) {
+#			 &print_stack($filehandle,$side,$stack);
+#		         }
+
+                 &print_vertical_row_stake_label_aux($filehandle,$left_x,$y,$barcode_out_upper,$row_upper,$num_cutting,$material);
+                 if ( ( $rem == 9 ) && ( $i != $num_rows ) ) { &end_picture($filehandle); }
+
+	         }
+
+	
+
+        if ( $i == $num_rows ) { &end_picture($filehandle); }
+        }
+	
+
+
+
+=pod
+
+# old layout, non-bifocal-friendly for print_vertical_row_stake_label
 
 # what's the right condition for the 21st label? $rem is 1, $i = $num_rows
 
@@ -834,14 +891,67 @@ sub print_vertical_row_stake_label {
 		        }
 
 	        }
+
+
+
 # finish the page
 
         if ( ( $rem == 19 ) || ( $i == $num_rows - 1 ) ) { &end_picture($filehandle); }
+
+
         }
 
+=cut
 
 
 
+
+
+
+
+
+
+# cutting guide lines for bifocal-friendly row stakes
+#
+# Kazic, 15.5.2024	
+
+sub print_bifocal_vertical_row_stake_label_guidelines { 
+
+        ($filehandle,$x,$y) = @_;
+	
+
+	
+# on the right edge of the page	
+	
+        $right_edge_x = $x - 5;
+	$right_edge_y = $y + 26; # + 276
+
+	
+# at top
+
+	$top_edge_x = $x - 2;
+	$top_edge_y = $y - 240;
+
+	
+# at bottom
+
+        $bottom_edge_x = $x + 200;	
+
+
+
+        print $filehandle "\\put($right_edge_x,$right_edge_y){\\rule{210mm}{0.1mm}}\n";
+        print $filehandle "\\put($top_edge_x,$top_edge_y){\\rule{0.1mm}{275mm}}\n";
+        print $filehandle "\\put($bottom_edge_x,$top_edge_y){\\rule{0.1mm}{275mm}}\n";		
+	}
+
+
+
+
+
+
+
+
+	
 
 # $row_* is the position of the row number and the start of the rules
 # for three-digit row numbers, $row_y = $y + 3, $rule_y = $row_y - 4 is right.
@@ -857,13 +967,19 @@ sub print_vertical_row_stake_label {
 sub print_vertical_row_stake_label_aux { 
         ($filehandle,$x,$y,$barcode_out_upper,$row_upper,$num_cutting,$material) = @_;
 
-        $row_x = $x + 14; 
-        $row_y = $y + 3;  
 
-        $barcode_x = $x + 35;
-        $barcode_y = $y + 1;
+# old, non-bifocal-friendly
+	
+#        $row_x = $x + 14; 
+#        $row_y = $y + 3;  
 
-	&print_vertical_row_stake_label_aux_aux($filehandle,$barcode_x,$barcode_y,$barcode_out_upper,$row_x,$row_y,$row_upper,$num_cutting,$material);
+#        $barcode_x = $x + 35;
+#        $barcode_y = $y + 1;
+
+#	&print_vertical_row_stake_label_aux_aux($filehandle,$barcode_x,$barcode_y,$barcode_out_upper,$row_x,$row_y,$row_upper,$num_cutting,$material);
+
+	
+	&print_bifocal_vertical_row_stake_label_aux_aux($filehandle,$barcode_out_upper,$x,$y,$row_upper,$num_cutting,$material);
         }
 
 
@@ -873,7 +989,67 @@ sub print_vertical_row_stake_label_aux {
 
 
 
-# include the line for cutting the excess label right on it!
+
+
+
+
+
+# this uses the latex stackengine package, which is great!
+#
+# tested using 2, 3, and 4 digit row numbers (last 8888)
+#
+# Kazic, 15.5.2024
+
+sub print_bifocal_vertical_row_stake_label_aux_aux {
+
+        my ($filehandle,$barcode_file,$x,$y,$row,$crop_id,$material) = @_;
+
+
+# parameters for 1.0 scale barcode
+	
+        $barcode_x = $x;
+        $barcode_y = $y - 1;
+	
+
+
+	my $row_stack_x = $x + 75;
+	my $row_stack_y = $y + 3;
+
+        $crop_id_x = $x + 195;
+	$crop_id_y = $y + 2;
+	$material_y = $y + 10;	
+
+
+	$left_edge_x = $x - 5;
+
+
+	print $filehandle "\\put($barcode_x,$barcode_y){\\rotatebox{0}{\\scalebox{1}{\\includegraphics{$barcode_file}}}}\n";
+
+
+	my @row_num = split(//,$row);
+	my $spaced_num =  join(" ", @row_num);
+	my $latex_stack = "\\Shortstack[r]{$spaced_num}";
+#	print "$latex_stack\n";
+	
+	print $filehandle "\\put($row_stack_x,$row_stack_y){\\rotatebox{90}{\\scalebox{8}{\\textbf{$latex_stack}}}}\n";
+
+	
+        print $filehandle "\\put($crop_id_x,$crop_id_y){\\rotatebox{90}{\\scalebox{0.75}{\\large{\\textbf{$crop_id}}}}}\n";
+	print $filehandle "\\put($crop_id_x,$material_y){\\rotatebox{90}{\\scalebox{0.75}{\\large{\\textbf{$material}}}}}\n";
+	print $filehandle "\\put($left_edge_x,$y){\\rule{210mm}{0.1mm}}\n";	
+        }
+
+
+
+
+
+
+
+
+
+
+
+# old, non-bifocal-friendly version
 
 sub print_vertical_row_stake_label_aux_aux {
 
@@ -925,77 +1101,71 @@ sub print_vertical_row_stake_label_aux_aux {
 
 
 
-####### for make_leaf_tags
-
+####### for make_leaf_labels
+#
+# Kazic, 9.7.2022
 
 
 sub print_leaf_tag_label {
 
-        ($filehandle,$barcode_out,$row,$pplant,$i,$#labels) = @_;
-        $barcode_file = $barcode_rel_dir . $barcode_out;
+        ($filehandle,$barcode_file,$i,$#labels) = @_;
+
+        $rem = $i % 16;
+        $stack = int($i / 8);
+        $side = $stack % 2;
+        $step = $rem % 8;
 
 
-        $rem = $i % 30;
-        $stack = int($i / 10);
-        $side = $stack % 3;
-        $step = $rem % 10;
+#        print "rem: $rem  stack: $stack  side: $side  step: $step\n";
+	
 
+        $delta_x = 110;
+        $left_x = -10;
+        $rt_x = $left_x + $delta_x;
 
-# guides x are 0, 70, 140
-
-        $delta_x = 70;
-        $left_x = -2;
-        $mid_x = $left_x + $delta_x; 
-        $rt_x = $left_x + 2*$delta_x;
-
-        $y = 253 - 25.3 * $step;      
+        $y = 270 - 35 * $step;      
 
 
         if ( ( $rem == 0 ) && ( $i == 0 ) ) {
                 &begin_picture($filehandle);
-                &print_stack($filehandle,$side,$stack);
-                &print_seed_packet_guide_boxes($filehandle);
-                &print_leaf_tag_label_aux($filehandle,$left_x,$y,$barcode_file,$row,$pplant);
+                &print_higher_stack($filehandle,$side,$stack);
+                &print_leaf_label_guide_lines($filehandle);
+                &print_leaf_tag_label_aux($filehandle,$left_x,$y,$barcode_file);
                 }
 
 
         elsif ( ( $rem == 0 ) && ( $i != 0 ) ) {
                 print $filehandle "\\newpage\n";
                 &begin_picture($filehandle);
-                &print_stack($filehandle,$side,$stack);
-                &print_seed_packet_guide_boxes($filehandle);
-                &print_leaf_tag_label_aux($filehandle,$left_x,$y,$barcode_file,$row,$pplant);
+                &print_higher_stack($filehandle,$side,$stack);
+                &print_leaf_label_guide_lines($filehandle);
+                &print_leaf_tag_label_aux($filehandle,$left_x,$y,$barcode_file);
                 }
 
 
         elsif ( $rem > 0 ) { 
 
-                if ( ( $rem == 10 ) || ( $rem == 20 ) ) { &print_stack($filehandle,$side,$stack); }
+                if ( ( $rem == 8 ) || ( $rem == 16 ) ) { &print_higher_stack($filehandle,$side,$stack); }
 
 # left side
 
                 if ( $side == 0 ) {
-                        &print_leaf_tag_label_aux($filehandle,$left_x,$y,$barcode_file,$row,$pplant);
+                        &print_leaf_tag_label_aux($filehandle,$left_x,$y,$barcode_file);
                         }
-
-
-# middle
-
-                elsif ( $side == 1 ) {
-                        &print_leaf_tag_label_aux($filehandle,$mid_x,$y,$barcode_file,$row,$pplant);
-		        }
 
 
 # right side
 
-                elsif ( $side == 2 ) {
-                        &print_leaf_tag_label_aux($filehandle,$rt_x,$y,$barcode_file,$row,$pplant);
+                elsif ( $side == 1 ) {
+                        &print_leaf_tag_label_aux($filehandle,$rt_x,$y,$barcode_file);
 		        }
+
+
 
 
 # finish the page
 
-                if ( ( $rem == 29 ) || ( $i == $#labels ) ) { &end_picture($filehandle); }
+                if ( ( $rem == 15 ) || ( $i == $#labels ) ) { &end_picture($filehandle); }
 	        }
         }
 
@@ -1004,31 +1174,31 @@ sub print_leaf_tag_label {
 
 
 
-
+# good enough for now
+#
+# Kazic, 9.7.2022
 
 sub print_leaf_tag_label_aux {
-        ($filehandle,$x,$y,$barcode_file,$row,$pplant) = @_;
+        ($filehandle,$x,$y,$barcode_file) = @_;
 
-        $ma_x = $x + 5;
-        $ma_y = $y - 6;
-        $packet_x = $x + 40;
-        $packet_y = $y - 4.5;
+        $barcode_x = $x + 37;
+        $barcode_y = $y - 15;
+        $leaf_x = $x + 20;
+        $leaf_y = $y - 2;
 
 
 # need to diminish intercolumn padding to make a slightly larger table;
 # barcode was 0.5. 0.55 is the limit without this diminution.
 
-# for the 07g experiments, start the table at leaf 7
-#
-# Kazic, 6.11.07
 
-        print $filehandle "\\put($x,$y){\\scalebox{0.63}{\\includegraphics{$barcode_file}}}
-                   \\put($ma_x,$ma_y){\\scalebox{1.3}{\\textbf{$row} \\hspace{0.4cm} \\textbf{$pplant}}}\n";
-#
-#                   \\put($packet_x,$packet_y){\\setlength{\\tabcolsep}{0.5mm}\\renewcommand{\\arraystretch}{0.85}\\begin{tabular}{|l|p{7mm}|l|p{7mm}|} \\hline
-#                   13 & \\rule{7mm}{0mm} & 16 &  \\rule{7mm}{0mm} \\\\ \\hline
-#                   14 & & 17 &  \\\\ \\hline
-#                   15 & & 18 &  \\\\ \\hline  \\end{tabular}}\n";
+
+        print $filehandle "\\put($barcode_x,$barcode_y){\\scalebox{1.1}{\\includegraphics{$barcode_file}}}
+                           \\put($leaf_x,$leaf_y){\\scalebox{0.9}{\\begin{tabular}{l}
+	                   \$\\mathbf{b_0}\$  \\\\ 
+	                   \$\\mathbf{b_1}\$  \\\\ 
+	                   \$\\mathbf{b_2}\$  \\\\ 
+	                   \$\\mathbf{b_3}\$  \\\\ 
+                           \\end{tabular}}}\n";
         }                             
 
 
@@ -1711,14 +1881,27 @@ sub print_plant_tags {
 
 
 # start the page
-        
+
+
+# $stack is the page number
+#
+# Kazic, 13.7.2020
+
+
+# no more need for perforation guides since we now buy pre-perforated paper
+# from MU printing services
+#
+# Kazic, 5.6.2023	 
+	 
+	 
         if ( $rem == 0 ) {
 
                 if ( $i != 0 ) { print $filehandle "\\newpage\n"; }
 
                 &begin_big_picture($filehandle);
-                &print_big_stack($filehandle,$stack);
-                &print_perforation_guides_plant_tags($filehandle);		
+
+		&print_centered_page_num($filehandle);
+#                &print_perforation_guides_plant_tags($filehandle);		
 #                &print_plant_tag_guide_boxes($filehandle);
                 }
 
@@ -3167,7 +3350,15 @@ sub print_new_seed_label_aux {
         print $filehandle "\\put($pa_x,$barcode_y){\\rotatebox{90}{\\scalebox{$text}{\\textbf{$pa}}}}\n";
 
 
-        print $filehandle "\\put($substn_x,$substn_y){\\rotatebox{90}{\\begin{tabular}{c}replaced ma \\\\\\large{$old_ma}\\\\ on $today \\end{tabular}}}\n";
+#        print $filehandle "\\put($substn_x,$substn_y){\\rotatebox{90}{\\begin{tabular}{c}replaced ma \\\\\\large{$old_ma}\\\\ on $today \\end{tabular}}}\n";
+
+# for 21r only, since we never tagged the plants
+#
+# Kazic, 14.11.2021
+
+        print $filehandle "\\put($substn_x,$substn_y){\\rotatebox{90}{\\begin{tabular}{c}see inside for\\\\contemporaneous\\\\record \\end{tabular}}}\n";	
+
+
         }
 
 

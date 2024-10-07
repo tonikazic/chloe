@@ -19,23 +19,29 @@
 
 
 
+
+
+
 %declarations%
 
 
 
 :-      module(pedigrees, [
-               build_pedigrees/2,
-	       check_pedigrees/2,
-	       check_status_branches/3,
-               construct_pedigrees/1,
+%               build_pedigrees/2,
+               build_pedigrees/3,              
+               check_pedigrees/2,
+               check_status_branches/3,
+               compute_pedigrees/2,
+               compute_pedigree/4,
+               construct_pedigrees/2,
+	       decode_list_image_refs/3,
                find_imaged_ancestors/1,
                find_plants_offspring/2,
-	       grab_founders/1,
+               grab_founders/1,
                grab_offspring/3,
-               test_pedigrees/2,
-%	       test_n_check_pedigrees/3,
-               compute_pedigree/3,
-               compute_pedigrees/1
+               grab_offspring_dpid/3,          
+%              test_n_check_pedigrees/3,
+               test_pedigrees/3
                ]).
 
 
@@ -207,18 +213,18 @@
 
 
 
-% call is: compute_pedigrees('19r').
+% call is: compute_pedigrees(dpid,'23r').
 
 
 
-%! compute_pedigrees(+PlanningCrop:atom) is nondet.
+%! compute_pedigrees(+Switch:atom,+PlanningCrop:atom) is nondet.
 
-compute_pedigrees(PlanningCrop) :-
-        construct_pedigrees(Trees),
+compute_pedigrees(Switch,PlanningCrop) :-
+        construct_pedigrees(Switch,Trees),
 	check_pedigrees(Trees,Checked),	
         make_output_dir(PlanningCrop,ASCIIDir,LowerCaseCrop),
 %        output_pedigrees(ASCIIDir,LowerCaseCrop,ped,Trees).
-        output_pedigrees(ASCIIDir,LowerCaseCrop,ped,Checked).	
+        output_pedigrees(ASCIIDir,LowerCaseCrop,ped,Switch,Checked).	
 
 
 
@@ -243,13 +249,13 @@ compute_pedigrees(PlanningCrop) :-
 
 %! test_pedigrees(+Families:list,+PlanningCrop:atom) is nondet.
 
-test_pedigrees(Families,PlanningCrop) :-
+test_pedigrees(Families,PlanningCrop,Switch) :-
         grab_founders(Families,Parents),
-        build_pedigrees(Parents,Trees),
+        build_pedigrees(Switch,Parents,Trees),
 	check_pedigrees(Trees,Checked),	
         make_output_dir(PlanningCrop,ASCIIDir,LowerCaseCrop),
 %        output_pedigrees(ASCIIDir,LowerCaseCrop,ped,Trees).
-        output_pedigrees(ASCIIDir,LowerCaseCrop,ped,Checked).
+        output_pedigrees(ASCIIDir,LowerCaseCrop,ped,Switch,Checked).
 
 
 
@@ -282,12 +288,15 @@ test_pedigrees(Families,PlanningCrop) :-
 % compute_pedigree('11R0199:0000000','11R0199:0000000','19r').
 
 
-compute_pedigree(Ma,Pa,PlanningCrop) :-
-        build_pedigrees([(Ma,Pa)],Trees),
+compute_pedigree(Switch,Ma,Pa,PlanningCrop) :-
+        build_pedigrees(Switch,[(Ma,Pa)],Trees),
 	check_pedigrees(Trees,Checked),
         make_output_dir(PlanningCrop,ASCIIDir,LowerCaseCrop),
 %        output_pedigrees(ASCIIDir,LowerCaseCrop,ped,Trees).
-        output_pedigrees(ASCIIDir,LowerCaseCrop,ped,Checked).	
+        output_pedigrees(ASCIIDir,LowerCaseCrop,ped,Switch,Checked).	
+
+
+
 
 
 
@@ -308,20 +317,57 @@ compute_pedigree(Ma,Pa,PlanningCrop) :-
 %
 % Kazic, 24.5.2020
 
+% some time, loop over the back-crosses with a vector of thresholds and append these???
+%
+% or, just set the threshold to 5 and look at the output!
+%
+% Kazic, 28.5.2021
+
+
+
+% old predicate assumes strict order of arguments in list and string
+%
+% revision relaxes list order requirement, but not string
+%
+% TEST!
+%
+% Kazic, 8.3.2022
+
 
 %! check_status_branches(+PlanningCrop:atom,+BCThreshold:integer,+File:atom) is semidet.
 
-% call is: check_status_branches('20r',3,'status_branches.org').
+% call is: check_status_branches('23r',5,'status_branches.org').
 
 check_status_branches(PlanningCrop,BCThreshold,File) :-
 
         make_planning_output_file(PlanningCrop,File,OutputFile),
-	
-        findall(Gene-K-Inbred,(branch_status(Gene,K,Inbred,[inc,'B'],'infertile ear',_,_,_,_,_,_);
-			       branch_status(Gene,K,Inbred,[inc,'B'],'no ear',_,_,_,_,_,_);
-			       branch_status(Gene,K,Inbred,[inc,'B',self],_,_,_,_,_,_,_)),FinishedBranches),
+
+% FinishedBranches not robust to permutation of arguments in list or string
+% must test the fix below
+%
+% Kazic, 8.3.2022	
+%
+%        findall(Gene-K-Inbred,(branch_status(Gene,K,Inbred,[inc,'B'],'infertile ear',_,_,_,_,_,_);
+%			       branch_status(Gene,K,Inbred,[inc,'B'],'no ear',_,_,_,_,_,_);
+%			       branch_status(Gene,K,Inbred,[inc,'B',self],_,_,_,_,_,_,_)),FinishedBranches),
         
-        findall(Gene-K-Inbred-(ToDos,Ma,Pa),(branch_status(Gene,K,Inbred,Done,Ear,_,Ma,Pa,_,_,_),
+        findall(Gene-K-Inbred,(branch_status(Gene,K,Inbred,SoFar,EarRemark,_,_,_,_,_,_),
+                               SoFar \== [],
+		               length(SoFar,SoFarLen),
+			       ( SoFarLen =:= 3
+			       ;
+			         SoFarLen =:= 2,
+			         ( sub_string(EarRemark,_,_,_,'no ear')
+				 ;
+				   sub_string(EarRemark,_,_,_,'infertile ear')
+			         )
+			       )),FinishedBranches),
+        
+
+
+
+
+	findall(Gene-K-Inbred-(ToDos,Ma,Pa),(branch_status(Gene,K,Inbred,Done,Ear,_,Ma,Pa,_,_,_),
 			       ( sub_string(Ear,0,3,_,'6th')
 			       ;
                                  sub_string(Ear,_,_,_,'check ear')
@@ -362,6 +408,11 @@ check_status_branches(PlanningCrop,BCThreshold,File) :-
 
 
 
+
+
+
+
+
     
 %%%%%%%%%%%%%%%%%%%%% pedigree construction %%%%%%%%%%%%%%%%%%%%%%
 
@@ -369,9 +420,9 @@ check_status_branches(PlanningCrop,BCThreshold,File) :-
     
 %! construct_pedigrees(-Trees:list) is semidet.
 
-construct_pedigrees(Trees) :-
+construct_pedigrees(Switch,Trees) :-
         setof((MN,PN),F^MG1^MG2^PG1^PG2^Gs^K^founder(F,MN,PN,MG1,MG2,PG1,PG2,Gs,K),Founders),
-        build_pedigrees(Founders,Trees).
+        build_pedigrees(Switch,Founders,Trees).
 
 
 
@@ -430,28 +481,54 @@ construct_pedigrees(Trees) :-
     
 
 %! build_pedigrees(+Founders:list,-Trees:list) is semidet.    
+
+
     
-    
-build_pedigrees(Founders,Trees) :-
-        build_pedigrees(Founders,[],UnorderedTrees),
+build_pedigrees(Switch,Founders,Trees) :-
+        build_pedigrees(Switch,Founders,[],UnorderedTrees),
         list_to_ord_set(UnorderedTrees,Trees).
 
 
-    
 
-build_pedigrees([],A,A).
-build_pedigrees([(MN,PN)|Founders],Acc,Trees) :-
-        ( grab_offspring(MN,PN,Descendants) ->
-                append(Acc,[(MN,PN)-Descendants],NewAcc)
-        ;
-                NewAcc = Acc
+
+
+
+
+
+
+% going to try to build pedigrees from dissociated plantIDs, per
+% ../data/discordance_warnings.org
+%
+% Kazic, 3.5.2022
+
+build_pedigrees(_,[],A,A).
+build_pedigrees(Switch,[(MN,PN)|Founders],Acc,Trees) :-
+        ( Switch == dpid ->
+                ( grab_offspring_dpid(MN,PN,Descendants) ->
+		        append(Acc,[(MN,PN)-Descendants],NewAcc)
+		;
+		        NewAcc = Acc,
+		        format('Warning! pedigree building for ~w x ~w via deconstructed pas fails~n',[MN,PN])
+		)
+	;
+	        ( Switch == numg ->
+                        ( grab_offspring(MN,PN,Descendants) ->
+				append(Acc,[(MN,PN)-Descendants],NewAcc)
+			;
+		                NewAcc = Acc,			
+		                format('Warning! pedigree building for ~w x ~w via numerical genotype fails~n',[MN,PN])
+			)
+		;
+		        NewAcc = Acc,		
+		        format('Warning! unconsidered case in build_pedigrees/4 for ~w x ~w~n',[MN,PN])
+		)
         ),
-        build_pedigrees(Founders,NewAcc,Trees).
+        build_pedigrees(Switch,Founders,NewAcc,Trees).
 
 
 
 
-
+	%        ( 
 
 
 
@@ -480,6 +557,8 @@ grab_offspring(MN,PN,Descendants) :-
 
 
 
+
+
     
 
 % kernels from an ear may be planted in more than one crop, or in
@@ -497,6 +576,9 @@ find_planted(Ma,Pa,PlantList) :-
 	 ;
                  false
          ).
+
+
+
 
 
 
@@ -632,7 +714,7 @@ find_offspring_aux([(DescMN,DescPN)|NextGens],[(DescMN,DescPN)-Tree|Trees]) :-
 
 
 % added test to match by plantIDs without families, and 
-% issue a warning if this is done.  Untested.
+% issue a warning if this is done.  Untested and so commented out.
 %
 % Kazic, 23.5.2018
 
@@ -640,6 +722,10 @@ find_offspring_aux([(DescMN,DescPN)|NextGens],[(DescMN,DescPN)-Tree|Trees]) :-
 % stopped here
 
 
+
+% not all offspring have harvest/7 facts, therefore inventory/7 facts are included
+%
+% Kazic, 5.5.2022
 
 
 descendant(Plant,DescMN,DescPN) :-
@@ -696,6 +782,122 @@ match_excluding_family_nums(Plant1ID,Plant2ID) :-
         remove_family(Plant1ID,Plant1SansFam),
         remove_family(Plant2ID,Plant2SansFam),
         Plant1SansFam == Plant2SansFam.
+
+
+
+
+
+
+
+%%%%%%%%%%%%% find offspring using dissociated plantIDs (that is, plantIDs without families) %%%%%%%%%%%%%%%%%%%%%%
+%
+% since families --- especially 06N families --- were migrated by hand,
+% errors seem to have crept into genotypes and pedigrees.  So this code
+% rebuilds pedigrees by repeating the manual processing of tracing through
+% rows and crops, rather than simply matching plantIDs.
+%
+% This approach is therefore robust to errors in family assignments and
+% incomplete plantID family migrations in the data.  The other field data
+% will have to be fixed later, probably by a script.
+%
+% Kazic, 5.5.2022
+
+
+
+% test further
+
+grab_offspring_dpid(MN,PN,Descendants) :-
+         ( find_planted_dpid(MN,PN,CropRows) ->
+                ( find_offspring_dpid(CropRows,ListDescendants) ->
+                        flatten(ListDescendants,Flattened),
+                        list_to_ord_set(Flattened,Descendants)
+                        
+		;
+                        Descendants = []
+                )
+        ;
+                Descendants = []
+        ).        
+
+
+
+
+
+% must trace through both Ma and Pa to ensure unique offspring
+%
+% Kazic, 4.5.2022
+
+find_planted_dpid(Ma,Pa,CropRows) :-
+         ( founder(_,Ma,Pa,_,_,_,_,_G,_K) ->
+		 setof((Crop,Row),planting_index(Ma,Pa,Crop,Row),CropRows)
+%                 get_row_members(CropRows,PlantList)
+	 ;
+                 deconstruct_plantID(Pa,PaCrop,_,PaRow,_),
+		 get_rowplant(Pa,PaRowPlant),
+                 deconstruct_plantID(Ma,PaCrop,_,MaRow,_),
+		 get_rowplant(Ma,MaRowPlant),
+%		 remove_padding(PaPaddedRow,PaRow),
+
+		 
+% where was that Ma x Pa planted later?		 
+		 setof((NextCrop,NextRow),decon_planting_index(PaRowPlant,PaCrop,PaRow,NominalPa,MaRowPlant,PaCrop,MaRow,NominalMa,NextCrop,NextRow),CropRows),
+
+                 ( ( NominalPa \== Pa
+		   ; NominalMa \== Ma ) ->
+	                 format('Warning!  shift in plantID from ~w to ~w OR ~w to ~w in find_planted_dpid/3~n',[Pa,NominalPa,Ma,NominalMa])
+	         ;
+	                 true
+		 )
+         ).
+	 
+
+
+
+find_offspring_dpid(CropRows,Trees) :-
+        find_offspring_dpid(CropRows,[],Trees).
+
+
+
+
+
+% how to find descendants of a crop and a row?  use the
+% decon_harvest_index/8 and decon_inventory_index/8 instead of descendant
+%
+% Kazic, 5.5.2022
+
+find_offspring_dpid([],A,A).
+find_offspring_dpid([(Crop,Row)|CropRows],Acc,Trees) :-
+        ( setof((DescMN,DescPN),find_deconstructed_offspring_dpid(Crop,Row,DescMN,DescPN),NextGen) ->
+                find_offspring_aux_dpid(NextGen,Tree),
+                append(Acc,Tree,NewAcc)
+        ;
+                NewAcc = Acc
+        ),
+        find_offspring_dpid(CropRows,NewAcc,Trees).
+
+
+
+
+find_deconstructed_offspring_dpid(Crop,Row,DescMN,DescPN) :-
+	( decon_harvest_index(Row,Crop,_PaRowPlant,DescPN,_MaRow,Crop,_MaRowPlant,DescMN)
+	;
+	  decon_inventory_index(Row,Crop,_PaRowPlant,DescPN,_MaRow,Crop,_MaRowPlant,DescMN)
+        ).
+
+
+
+
+
+% for each cross, find its tree
+
+find_offspring_aux_dpid([],[]).
+find_offspring_aux_dpid([(DescMN,DescPN)|NextGens],[(DescMN,DescPN)-Tree|Trees]) :-
+        grab_offspring_dpid(DescMN,DescPN,Tree),
+        find_offspring_aux_dpid(NextGens,Trees).
+
+
+
+
 
 
 
@@ -1167,12 +1369,12 @@ make_pedigree_index(SubDir,[H|T]) :-
 
 
 
-%! output_pedigrees(+ASCIIDir:atom,+LowerCaseCrop:atom,+Switch:atom,+Trees:list) is det.
+%! output_pedigrees(+ASCIIDir:atom,+LowerCaseCrop:atom,+Switch:atom,+ConstSwitch:atom,+Trees:list) is det.
 
-output_pedigrees(ASCIIDir,LowerCaseCrop,Switch,Trees) :-
+output_pedigrees(ASCIIDir,LowerCaseCrop,Switch,ConstSwitch,Trees) :-
 	working_directory(ThisDir,ThisDir),
 	pedigree_scripts_directory(ScriptDir),
-        pretty_pedigrees(ASCIIDir,0,5,Switch,Trees),
+        pretty_pedigrees(ASCIIDir,0,5,Switch,ConstSwitch,Trees),
 	cd(ScriptDir),
         atomic_list_concat(['./make_pdf_pedigrees.perl ',LowerCaseCrop,' go'],Cmd),       
         format('shell cmd is: ~w~nnow entering make_pdf_pedigrees.perl!~n~n',[Cmd]),
@@ -1208,10 +1410,14 @@ output_pedigrees(ASCIIDir,LowerCaseCrop,Switch,Trees) :-
 
 
 
-pretty_pedigrees(_,_,_,_,[]).
-pretty_pedigrees(ASCIIDir,Increment,Indentn,Switch,[Tree|Trees]) :-
-        pretty_pedigrees_aux(ASCIIDir,Increment,Indentn,Switch,Tree),
-        pretty_pedigrees(ASCIIDir,Increment,Indentn,Switch,Trees).
+pretty_pedigrees(_,_,_,_,_,[]).
+pretty_pedigrees(ASCIIDir,Increment,Indentn,Switch,ConstSwitch,[Tree|Trees]) :-
+        ( pretty_pedigrees_aux(ASCIIDir,Increment,Indentn,Switch,ConstSwitch,Tree) ->
+	        true
+	;
+	        format('pretty_pedigrees_aux/5 fails for ~q~n',[Tree])
+        ),
+        pretty_pedigrees(ASCIIDir,Increment,Indentn,Switch,ConstSwitch,Trees).
 
 
 
@@ -1235,9 +1441,11 @@ pretty_pedigrees(ASCIIDir,Increment,Indentn,Switch,[Tree|Trees]) :-
 %
 % Kazic, 5.3.2019
 
+% and what about those Checks?
+%
+% Kazic, 1.6.2021
 
-
-pretty_pedigrees_aux(PlanningCrop,Increment,Indentn,Switch,(FounderMa,FounderPa)-Tree-Checks) :-
+pretty_pedigrees_aux(PlanningCrop,Increment,Indentn,Switch,ConstSwitch,(FounderMa,FounderPa)-Tree-_Checks) :-
         ( ( atom(FounderMa),
             atom(FounderPa) ) ->
                 genotype(_,_,FounderMa,_,FounderPa,MG,_,_,_,[Mut],K)
@@ -1249,28 +1457,21 @@ pretty_pedigrees_aux(PlanningCrop,Increment,Indentn,Switch,(FounderMa,FounderPa)
         atomic_list_concat([Mut,'-',K],SpecificMut),
         build_pedigree_file_name(PlanningCrop,MG,SpecificMut,Switch,File),
         open(File,write,Stream),
-        pedigree_header(Stream,File,Switch,MG,SpecificMut),
+        pedigree_header(Stream,File,Switch,ConstSwitch,MG,SpecificMut),
         ( Switch == ped ->
                 pretty_pedigree(Stream,Increment,Indentn,[(FounderMa,FounderPa)-Tree])
         ;
                 imaged_pedigree(Stream,Increment,Indentn,[(FounderMa,FounderPa)-Tree])
         ),
-
-	output_checks(Stream,Checks),
         close(Stream).
 
 
 
 
 
-
-
-
-
-
-
-
-
+%%%%%%%%%% copied from safe.pedigrees.pl
+%
+% Kazic, 15.2.2022
 
 
 % exploits new demeter_utilities:letter/2
@@ -1309,9 +1510,26 @@ build_file_name(PlanningCrop,MG,SpecificMut,Switch,File) :-
 % Very convenient!
 
 
+% output ascii versions as org files so that the images can become
+% clickable links.  On the Mac, if no raw image file reader is installed,
+% clicking on the link in the org file will trigger Preview to view the NEF
+% file.  This is nicer than viewing the file in emacs itself (though this
+% works on my emacs installation, 27.1).
+%
+% Kazic, 15.2.2022
+
+% hmmmm, check for funny file names that clobber enscript isn't working?
+%
+% Kazic, 15.2.2022
+
 build_pedigree_file_name(PlanningCrop,MG,SpecificMut,Switch,File) :-
         remove_silly_characters([MG,SpecificMut],[NiceMG,NiceSpecificMut]),
         string_lower(NiceSpecificMut,LowSpecificMut),
+	( memberchk(LowSpecificMut,['-','-k99999']) ->
+	        format('~n~ncheck this funny mutant ~w/~w~n~n',[MG,SpecificMut])
+	;
+	        true
+	),
         ( NiceMG \== '?' ->
                  string_lower(NiceMG,LowMG)
         ;
@@ -1324,11 +1542,13 @@ build_pedigree_file_name(PlanningCrop,MG,SpecificMut,Switch,File) :-
         ;
                 SubDir = classify
         ),
+	
         atomic_list_concat([PlanningCrop,SubDir,'/',MutantFile],Tmp),
         ( Switch == ped ->
-                File = Tmp
+%                File = Tmp
+	        atomic_list_concat([Tmp,'.org'],File)
         ;
-                atomic_list_concat([Tmp,'_',imaged],File)
+                atomic_list_concat([Tmp,'_imaged.org'],File)
         ).
 
 
@@ -1379,17 +1599,17 @@ remove_silly_characters(Atom,Acc,Unsilly) :-
 
 
 
-pedigree_header(Stream,File,Switch,MG,Mut) :-
+pedigree_header(Stream,File,Switch,ConstSwitch,MG,Mut) :-
         format(Stream,'% this is ~w~n',[File]),
         utc_timestamp_n_date(TimeStamp,UTCDate),
         ( Switch == ped ->
-                format(Stream,'% generated ~w (=~w) by compute_pedigrees/1.~n~n',[UTCDate,TimeStamp]),
+                format(Stream,'% generated ~w (=~w) by compute_pedigrees/2 using ~w.~n~n',[UTCDate,TimeStamp,ConstSwitch]),
                 format(Stream,'% Horizontal pedigrees, generations at same indentation.  S: Mo20W; W: W23; M: M14; B: B73.~n',[]),
-                format(Stream,'% !!! => cross was not by Toni; references to image locations on right.~n',[])
+                format(Stream,'% !!! => cross was not by Toni; links to images on right.~n',[])
         ;
                 format(Stream,'% generated ~w (=~w) by find_imaged_ancestors/1.~n~n',[UTCDate,TimeStamp]),
                 format(Stream,'% Horizontal pedigrees ONLY of those branches that have at least one image.~n',[]),
-                format(Stream,'% Image pointers are next to each PlantID.~n',[]),
+                format(Stream,'% Image links are next to each PlantID.~n',[]),
                 format(Stream,'% Generations are at same indentation.  S: Mo20W; W: W23; M: M14; B: B73.~n',[])
         ),
         format(Stream,'~n% ~w/~w~n~n',[MG,Mut]).
@@ -1435,7 +1655,6 @@ pretty_pedigree(Stream,Increment,Indentn,[(Ma,Pa)-H|T]) :-
                 pretty_pedigree(Stream,TreeInc,Indentn,H)
         ),
         pretty_pedigree(Stream,Increment,Indentn,T).
-
 
 
 
@@ -1557,14 +1776,23 @@ make_list_cmd(Increment,Cmd) :-
 
 
 
-
+% make clickable org link here on the Grouped images
+% prefix is ../../../../../images/
+%
+% Exit: (25) pedigrees:group_images(['12r/aleph/8.8'-1934], ['12r/aleph/8.8'-[1934]])
+%
+% infix is DSC_
+% suffix is .NEF
 
 decode_image_refs(Plant,Images,Decoded) :-
         get_crop(Plant,Crop),
 	convert_crop(Crop,LowLoctn),
         decode_image_refs_aux(LowLoctn,Images,StemmedImages),
         group_images(StemmedImages,Grouped),
-        sort(Grouped,Decoded).
+	make_org_link(Grouped,Orged),
+%        sort(Grouped,Decoded).
+	flatten(Orged,FlattenedOrged),
+        sort(FlattenedOrged,Decoded).
 
 
 
@@ -1594,6 +1822,71 @@ group_images([Stem-Num|Stemmed],Acc,Decoded) :-
                 append(Acc,[Stem-[Num]],NewAcc)
         ),
         group_images(Stemmed,NewAcc,Decoded).
+
+
+
+
+
+% make clickable org links on the Grouped images
+% prefix is ../../../../../images/
+%
+% Exit: (25) pedigrees:group_images(['12r/aleph/8.8'-1934], ['12r/aleph/8.8'-[1934]])
+%
+% infix is DSC_
+% suffix is .NEF
+%
+% Kazic, 15.2.2022
+
+%! make_org_link(+ImageList:list,-ListOrgLinks:list) is det.
+
+make_org_link([],[]).
+make_org_link([Prefix-ImageList|T],[OrgLink|OrgLinks]) :-
+	make_org_link_aux(Prefix,ImageList,OrgLink),
+        make_org_link(T,OrgLinks).
+
+
+make_org_link_aux(_,[],[]).
+make_org_link_aux(Prefix,[H|T],[SuffixedImage|SuffixedImages]) :-
+	pad(H,4,PaddedH),
+	atomic_list_concat(['[[../../../../../images/',Prefix,'/DSC_',PaddedH,'.NEF][',Prefix,'/',PaddedH,']]'],SuffixedImage),
+	make_org_link_aux(Prefix,T,SuffixedImages).
+
+
+
+
+
+
+%! decode_list_image_refs(+List:list,+ErrorFile:atom,-Decoded:list) is semidet.
+
+% generate the expanded path to each image file and test for that file's
+% existence, writing any errors to a separate file
+%
+% Kazic, 31.8.2022
+
+decode_list_image_refs(ImageRefs,ErrorFile,DecodedImageRefs) :-
+	open(ErrorFile,write,Stream),
+        decode_list_image_refs(ImageRefs,Stream,[],DecodedImageRefs),
+	close(Stream).
+
+
+decode_list_image_refs([],_,A,A).
+decode_list_image_refs([LowCrop-(_,_,_,Image,_Leaf,_Sectn,Camera,date(Day,Month,_))|Refs],Stream,Acc,Decoded) :-
+        atomic_list_concat([LowCrop,'/',Camera,'/',Day,'.',Month],Stem),
+        pad(Image,4,PaddedImage),
+	atomic_list_concat([Stem,'/DSC_',PaddedImage,'.NEF'],ImageRef),
+	atom_concat('../../images/',ImageRef,RelativeImageRef),
+        ( exists_file(RelativeImageRef) ->
+	        append(Acc,[ImageRef],NewAcc)
+	;
+	        format(Stream,'Warning!  File ~w does not exist, appending anyway~n',RelativeImageRef),
+		append(Acc,[ImageRef],NewAcc)
+	),
+	decode_list_image_refs(Refs,Stream,NewAcc,Decoded).
+
+
+
+
+
 
 
 
@@ -1819,6 +2112,25 @@ identify_line(FoundingMale,Locus,KNum) :-
 % to output nontrivial pedigree checking results 
 %
 % Kazic, 5.3.2019
+
+
+% back-tracking error; why?
+%
+% who calls this?  grep only shows these definitions, not the call
+%
+% figure out an exception trap, maybe for non-existent Stream:
+%
+%% ERROR: stream `<stream>(0x7fc604414590)' does not exist
+%% ERROR: In:
+%% ERROR:  [274] format(<stream>(0x7fc604414590),'~n~n~n~nCheck:~n~n~n',[])
+%% ERROR:  [273] pedigrees:output_checks(<stream>(0x7fc604414590),[]) at /Users/toni/me/c/maize/demeter/code/pedigrees.pl:1824
+%% ERROR:  [272] pedigrees:pretty_pedigrees_aux('../../crops/21r/planning/current_pedigrees/',0,5,ped,... - ... - []) at /Users/toni/me/c/maize/demeter/code/pedigrees.pl:1240
+%% ERROR:  [271] pedigrees:pretty_pedigrees('../../crops/21r/planning/current_pedigrees/',0,5,ped,[... - [],...]) at /Users/toni/me/c/maize/demeter/code/pedigrees.pl:1213
+%
+%
+% Kazic, 17.4.2021
+
+
 
 output_checks(_,[]).
 output_checks(Stream,Checks) :-

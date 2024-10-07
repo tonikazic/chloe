@@ -61,16 +61,178 @@
 % Kazic, 1.6.2019
 
 
+
+% added done, abandoned, and fix_data
+%
+% Kazic, 19.2.2022
+
+
+
+
+% total good ones: 60, 32 unique prefixes
+%
+% Kazic, 19.5.2022
+
+
+
+% 24; 16 unique prefixes
+
+pedigree_tree(primary_dominants,[
+'les-tk1-k70309_w23',
+'les2-k0200_mo20w',
+'les2-n845a-k5500_les2-n845a',
+'les4-k2100_w23',
+'les6-k0400_mo20w',
+'les7-k0500_mo20w',
+'les8-k0600_mo20w',
+'les9-k0700_mo20w',
+'les10-k0800_mo20w',
+'les10-k2600_w23',
+'les12-k1000_mo20w',
+'les12-k2700_w23',
+'les13-k1100_mo20w',
+'les13-k2800_w23',
+'les15-n2007-k6700_w23',
+'les17-k3000_w23',
+'les18-k1400_mo20w',
+'les18-k3100_w23',
+'les19-k3200_w23',
+'les20-n2457-k7100_w23',
+'les20-n2459-k68600_w23',
+'les21-k3300_w23']).
+
+
+
+% 8
+
+pedigree_tree(secondary_dominants,[
+'les-n2320-k8100_b73ht1',
+'les-n2397-k8400_+',
+'les-n2420-k13900_b73',
+'les-na7145-k9100_b73ht1',
+'les-tk2-k70404_mo20w',
+'les101-k11800_i-54',
+'les102-k12000_i-52',
+'lls1-nk-k17800_'
+]).
+
+
+
+
+% 9; 5 unique prefixes
+
+pedigree_tree(primary_recessives,[
+'les23-k16300_',
+'les23-k1800_mo20w',
+'les23-k3500_w23',
+'les3-gj-k11900_+',
+'les5-k11600_',
+'lls1-k10600_+',
+'lls1-k1700_mo20w',
+'lls1121d-k3400_w23',
+'lls1121d-k5300_lls1121d']).
+
+
+
+% 7
+
+pedigree_tree(secondary_recessives,[
+'les-74-1873-9-k9300_+',
+'les-n1395c-k7500_les-n1395c',
+'les-n1450-k7600_+',
+'les-n2012-k7700_+',
+'les-na467-k9000_les-na467',
+'lesla-k17300_lesla'
+	      ]).
+
+
+
+
+
+
+
+
+
+% 0
+
+pedigree_tree(fix_data,[]).
+
+
+
+
+
+% all three inbreds done for all desired K
+
+% 12; 11 unique prefixes
+
+pedigree_tree(done,[
+'les1-k1900_w23',
+'les2-k2000_w23',
+'les4-k0300_mo20w',
+'les6-k2200_w23',
+'les7-k2300_w23',
+'les8-k2400_w23',
+'les9-k2500_w23',
+'les11-k0900_mo20w',
+'les17-k1300_mo20w',
+'les19-k1500_mo20w',
+'les21-n1442-k7200_b73ht1',
+'les-mi1-k12200_mop1',
+'les-n1378-k7400_cm105',
+'les-n2418-k8500_b73ag32'
+	      ]).
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%% miscellany for which there is no time or patience or phenotype %%%%%%%%%%%%%%%
+%
+% lists may not be in ls order
+%
+% Kazic, 15.9.2022
+
+
+
+% lines that initially had phenotype, but can't be seen despite repeated
+% attempts as introgressions proceeded
+%
+% Kazic, 6.3.2022
+
+% 13
+
+pedigree_tree(abandoned,[
+'cpc1-n2284b-k9600_+',
+'csp1-k11500_',
+'les-b1-k62805_b73',
+'les-n2013-k7800_les-n2013',
+'les-n2290a-k8000_mo20w',
+'les-n2333a-k8200_(b73ag32)',
+'les-n2363a-k8300_+',
+'les-n2502-k8700_les-n2502',
+'les-pi262474-k13700_+',
+'les-tilling1-k17400_',
+'les28-k16400_',
+'nec2-8147-k15300_+',
+'spc1-n1376-k10900_w23',
+'nec*-6853',
+'nec-6853-k10700_+'
+]).
+
+
+
+
+
+pedigree_tree(classify,[]).
+
+
+
+
+
 pedigree_tree(balint_kurti,[
 'les-r1-1-k66700_cml333',
-'les-r2-1-k66800_cml333',
-'les-r3-1-k66900_cml333',
-'les-r4-1-k67000_cml333',
-'les-r5-1-k67100_ki11',
-'les-r6-1-k67200_ki11',
-'les-r7-2-k67300_mo18w',
-'les-r8-2-k67400_nc350',
-'les-r9-2-k67500_tzi8',
 'les-r10-2-k67600_tzi8',
 'les-r11-2-k67700_tzi8',
 'les-r168-1-k67800_nc262',
@@ -79,8 +241,16 @@ pedigree_tree(balint_kurti,[
 'les-r170-1-k68100_nc262oh7bbc3f45entry155',
 'les-r171-1-k68200_nc262oh7bbc3f45entry155',
 'les-r171-3-k68300_nc262oh7bbc3f45entry155',
-'les-r172-1-k68400_nc262oh7bbc3f45entry155']).
-
+'les-r172-1-k68400_nc262oh7bbc3f45entry155',
+'les-r2-1-k66800_cml333',
+'les-r3-1-k66900_cml333',
+'les-r4-1-k67000_cml333',
+'les-r5-1-k67100_ki11',
+'les-r6-1-k67200_ki11',
+'les-r7-2-k67300_mo18w',
+'les-r8-2-k67400_nc350',
+'les-r9-2-k67500_tzi8'
+]).
 
 
 
@@ -105,15 +275,6 @@ pedigree_tree(braun,[
 'unk-k64509_',
 'unk-k64613_',
 'unk-k64703_']).
-
-
-
-
-
-
-
-pedigree_tree(classify,[]).
-
 
 
 
@@ -146,31 +307,25 @@ pedigree_tree(crop_improvement,[
 
 
 
-
-
-
-
-
-
 pedigree_tree(exp_nonexp,[
+'les10exp-k4400_les10nonexp',
+'les11exp-k4500_les11nonexp',
+'les12exp-k4600_les12nonexp',
+'les15exp-k4700_les15nonexp',
 'les17exp-k4800_les17',
+'les18exp-k4900_les18nonexp',
+'les19exp-k5000_les19nonexp',
 'les1exp-k3600_les1nonexp',
+'les20exp-k5100_les20nonexp',
+'les21exp-k5200_les21nonexp',
 'les2exp-k3700_les2nonexp',
 'les4exp-k3800_les4nonexp',
 'les5exp-k3900_les5exp',
 'les6exp-k4000_les6nonexp',
 'les7exp-k4100_les7nonexp',
 'les8exp-k4200_les8nonexp',
-'les9exp-k4300_les9nonexp',
-'les10exp-k4400_les10nonexp',
-'les11exp-k4500_les11nonexp',
-'les12exp-k4600_les12nonexp',
-'les15exp-k4700_les15nonexp',
-'les18exp-k4900_les18nonexp',
-'les19exp-k5000_les19nonexp',
-'les20exp-k5100_les20nonexp',
-'les21exp-k5200_les21nonexp']).
-
+'les9exp-k4300_les9nonexp'
+]).
 
 
 
@@ -181,12 +336,13 @@ pedigree_tree(exp_nonexp,[
 
 
 pedigree_tree(gardner,[
+'(2n)-003-001-b-k69800_tehua-chs29',
 '001-(2n)-002-001-b-k69100_cristalinoamarar21004',
 '002-(2n)-001-001-b-k69300_cuzcocuz217',
 '002-(2n)-001-002-b-k68800_ancashinoanc102',
 '006-(2n)-001-001-b-k69600_patillograndebov649',
-'006-(2n)-002-001-b-k70100_yunguenobov362',
-'(2n)-003-001-b-k69800_tehua-chs29']).
+'006-(2n)-002-001-b-k70100_yunguenobov362'
+	      ]).
 
 
     
@@ -210,11 +366,11 @@ pedigree_tree(gerrys_martys_babies,[
 'les-na853-k15100_w23b77',
 'll-264-k12500_mo20yw23',
 'll-n264-k15200_+',
+'nec-1521a-k13100_mo20w',
+'nec-1613-k13200_ahornj',
 'nec-490a-k12600_acr',
 'nec-490a-k15700_acr',
 'nec-831a-k12700_+',
-'nec-1521a-k13100_mo20w',
-'nec-1613-k13200_ahornj',
 'nec-n1613-k15400_+',
 'nec-n490a-k15500_+',
 'spt-1320c-k12900_+']).
@@ -265,6 +421,7 @@ pedigree_tree(nam_fndrs,[
 
 
 pedigree_tree(not_useful,[
+'les1-k0104_mo20w',
 'd10-k14500_d10',
 'idfbpl-k19200_idfbpl',
 'idfbplsib-k19300_idfbpl',
@@ -357,78 +514,12 @@ pedigree_tree(not_useful,[
 'les-74-1820-6-k14900_b73ht1mo17',
 'camocf0-2-k19101_b73',
 'camocf0-1-k19002_b73',
-'lls1-K17700_'
-	      ]).
+'lls1-K17700_']).
 
 
 
 
 
-
-
-
-
-
-
-
-pedigree_tree(primary_dominants,[
-'les-tk1-k70309_w23',
-'les1-k0104_mo20w',
-'les1-k1900_w23',
-'les2-k0200_mo20w',
-'les2-k2000_w23',
-'les2-n845a-k5500_les2-n845a',
-'les4-k0300_mo20w',
-'les4-k2100_w23',
-'les6-k0400_mo20w',
-'les6-k2200_w23',
-'les7-k0500_mo20w',
-'les7-k2300_w23',
-'les8-k0600_mo20w',
-'les8-k2400_w23',
-'les9-k0700_mo20w',
-'les9-k2500_w23',
-'les10-k0800_mo20w',
-'les10-k2600_w23',
-'les11-k0900_mo20w',
-'les12-k1000_mo20w',
-'les12-k2700_w23',
-'les13-k1100_mo20w',
-'les13-k2800_w23',
-'les15-n2007-k6700_w23',
-'les17-k1300_mo20w',
-'les17-k3000_w23',
-'les18-k1400_mo20w',
-'les18-k3100_w23',
-'les19-k1500_mo20w',
-'les19-k3200_w23',
-'les20-n2457-k7100_w23',
-'les20-n2459-k68600_w23',
-'les21-k3300_w23',
-'les21-n1442-k7200_b73ht1']).
-
-
-
-
-
-
-
-
-
-
-
-pedigree_tree(primary_recessives,[
-'les3-gj-k11900_+',
-'les5-k11600_',
-'les23-k1800_mo20w',
-'les23-k3500_w23',
-'les23-k16300_',
-'lls1-k1700_mo20w',
-'lls1-k10600_+',
-'lls1121d-k3400_w23',
-'lls1121d-k5300_lls1121d',
-'les-tk2-k70404_mo20w'
-	      ]).
 
 
 
@@ -440,8 +531,8 @@ pedigree_tree(primary_recessives,[
 
 
 pedigree_tree(puzzles,[
-'lls1-n501b-k10500_+',
 'les22-zebra-k16200_',
+'lls1-n501b-k10500_+',
 'rm1-k18200_rm1']).
 
 
@@ -450,61 +541,6 @@ pedigree_tree(puzzles,[
 
 
 
-
-
-
-
-pedigree_tree(secondary_dominants,[
-'les-mi1-k12200_mop1',
-'les-n1378-k7400_cm105',
-'les-n2320-k8100_b73ht1',
-'les-n2397-k8400_+',
-'les-n2418-k8500_b73ag32',
-'les-n2420-k13900_b73',
-'les-na7145-k9100_b73ht1',
-'les101-k11800_i-54',
-'les102-k12000_i-52',
-'lls1-nk-k17800_']).
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-pedigree_tree(secondary_recessives,[
-'cpc1-n2284b-k9600_+',
-'csp1-k11500_',
-'-k7500_les-n1395c',
-'les-74-1873-9-k9300_+',
-'les-b1-k62805_b73',
-'les-n1395c-k7500_les-n1395c',
-'les-n2012-k7700_+',
-'les-n2013-k7800_les-n2013',
-'les-n2290a-k8000_mo20w',
-'les-n2333a-k8200_(b73ag32)',
-'les-n2363a-k8300_+',
-'les-n2502-k8700_les-n2502',
-'les-na467-k9000_les-na467',
-'les-pi262474-k13700_+',
-'les-tilling1-k17400_',
-'les28-k16400_',
-'lesla-k17300_lesla',
-'nec-6853-k10700_+',
-'nec2-8147-k15300_+',
-'spc1-n1376-k10900_w23',
-'les-n1450-k7600_+']).
 
 
 

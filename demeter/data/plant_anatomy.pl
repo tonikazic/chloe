@@ -5456,3 +5456,67 @@ plant_anatomy('17R405:M0002213',cm(134.62),_,_,_,toni,date(11,08,2017),time(14,3
 plant_anatomy('17R405:M0002214',cm(149.86),_,_,_,toni,date(11,08,2017),time(14,30,00)).
 plant_anatomy('17R405:M0002215',cm(133.858),_,_,_,toni,date(11,08,2017),time(14,30,00)).
 plant_anatomy('17R405:M0002216',cm(129.54),_,_,_,toni,date(11,08,2017),time(14,30,00)).
+
+
+
+
+
+% manually added for our lab-grown W23/{lls1, lls1 121D}
+%
+% msed in inches and converted
+%
+% source image is ../../images/24r/dewis_fon/8.8/IMG_2246.jpg
+%
+% table of calculations is in ../../../../e/lls_rehab_inside/notes/lls_rehabbing.org::w23_hts
+%
+% I have manually rounded to one decimal place.
+%
+% Kazic, 13.8.2024
+
+
+plant_anatomy('24R4915:0030117',cm(44.5),_,_,_,dewi,date(08,08,2024),time(15,40,00)).
+plant_anatomy('24R4915:0030119',cm(61.0),_,_,_,dewi,date(08,08,2024),time(15,40,00)).
+plant_anatomy('24R4915:0030133',cm(50.8),_,_,_,dewi,date(08,08,2024),time(15,40,00)).
+plant_anatomy('24R4915:0030134',cm(35.6),_,_,_,dewi,date(08,08,2024),time(15,40,00)).
+plant_anatomy('24R4915:0030141',cm(119.4),_,_,_,dewi,date(08,08,2024),time(15,40,00)).
+plant_anatomy('24R4915:0030164',cm(120.7),_,_,_,dewi,date(08,08,2024),time(15,40,00)).
+
+plant_anatomy('24R5032:0030011',cm(52.1),_,_,_,dewi,date(08,08,2024),time(15,40,00)).
+plant_anatomy('24R5032:0030019',cm(61.0),_,_,_,dewi,date(08,08,2024),time(15,40,00)).
+plant_anatomy('24R5032:0030026',cm(74.3),_,_,_,dewi,date(08,08,2024),time(15,40,00)).
+plant_anatomy('24R5032:0030032',cm(78.7),_,_,_,dewi,date(08,08,2024),time(15,40,00)).
+plant_anatomy('24R5032:0030038',cm(40.6),_,_,_,dewi,date(08,08,2024),time(15,40,00)).
+plant_anatomy('24R5032:0030069',cm(99.1),_,_,_,dewi,date(08,08,2024),time(15,40,00)).
+
+
+
+% manually added
+%
+% Kazic, 9.9.2024
+
+plant_anatomy('24G4218:0030224',cm(80.0),_,_,_,toni,date(09,09,2024),time(11,00,00)).
+plant_anatomy('24G4218:0030216',cm(59.7),_,_,_,toni,date(09,09,2024),time(11,00,00)).
+plant_anatomy('24G4218:0030210',cm(62.2),_,_,_,toni,date(09,09,2024),time(11,00,00)).
+
+
+% manually added
+%
+% Kazic, 13.9.2024
+
+plant_anatomy('24G4218:0030268',cm(54.6),_,_,_,toni,date(13,09,2024),time(13,00,00)).
+
+
+
+% manually added
+%
+% Kazic, 30.9.2024
+
+plant_anatomy('24G4218:0030249',cm(48.9),_,_,_,toni,date(29,09,2024),time(18,00,00)).
+plant_anatomy('24G4218:0030264',cm(72.4),_,_,_,toni,date(29,09,2024),time(18,00,00)).
+plant_anatomy('24G4916:0030307',cm(68.0),_,_,_,toni,date(29,09,2024),time(18,00,00)).
+plant_anatomy('24G4916:0030314',cm(62.2),_,_,_,toni,date(29,09,2024),time(18,00,00)).
+plant_anatomy('24G4916:0030324',cm(54.6),_,_,_,toni,date(29,09,2024),time(18,00,00)).
+plant_anatomy('24G4916:0030336',cm(49.5),_,_,_,toni,date(29,09,2024),time(18,00,00)).
+plant_anatomy('24G4916:0030350',cm(25.4),_,_,_,toni,date(29,09,2024),time(18,00,00)).
+plant_anatomy('24G4916:0030352',cm(43.2),_,_,_,toni,date(29,09,2024),time(18,00,00)).
+

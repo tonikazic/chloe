@@ -26,7 +26,7 @@
 # The last few seasons, the tags have been printed at Fedex on their
 # cardboard stock, which they perforate using a knife with approximately
 # 1mm spacing between the teeth for the tear-off tags after printing.  The
-# paper is CC4 matte cardstock (100 lb), 11 x 17 inches, and then cut to
+# paper is CC4 matte cardstock (80 or 100 lb), 11 x 17 inches, and then cut to
 # legal size so that all edges of each tag are visible.  Printing, cutting,
 # and perforating take about three days.  Each perforation must be manually
 # cut, which is the slow step.
@@ -43,6 +43,10 @@
 #
 # Kazic, 24.7.2018
 
+
+# added output of the full plantID to a separate file for easier reuse
+#
+# Kazic, 18.8.2021
 
 
 # call is ./make_plant_tags CROP FLAG
@@ -86,21 +90,21 @@ my ($dir,$input_dir,$barcodes,$tags_dir) = &adjust_paths($crop,$local_dir);
 $demeter_dir =~ s/^\.\.\///;
 
 
-my $input_stem = "plant_list";
-my $tags_stem = "prioritized_tags";
+my $input_stem = "manual.plant_list";
+my $tags_stem = "manual.prioritized_tags";
 my $input_file = $input_dir . $input_stem . $csv_suffix;
 my $output_file = $tags_dir . $tags_stem . $tex_suffix;
 my $plant_fate_file = $demeter_dir . "plant_fate.pl";
+my $barcode_file = $input_dir . "barcode_list";
 
-
-# print "b: $barcodes\nif: $input_file\nof: $output_file\npf: $plant_fate_file\n";
+# print "b: $barcodes\nif: $input_file\nof: $output_file\npf: $plant_fate_file \nbc: $barcode_file\n";
 
 
 my @tags;
 my @pruned;
 my %gone;
 my @columnar;
-
+my @bcs;
 
 my $uc_crop = uc($crop);
 
@@ -109,11 +113,48 @@ open my $in, '<', $input_file  or die "can't open $input_file\n";
 my (@lines) = grep { $_ !~ /%/ && $_ !~ /^\n/ && $_ !~ /\#/ } <$in>;
 
 
+
+# now accomodates an initial field that gives the priority number of the
+# row for tagging.  This is to help any manual data entry from drone
+# imagery processed by DMC.
+#
+# Kazic, 7.6.2023
+#
+# nah, deleted the initial field; easier to confect directly in row_status.pl
+#
+# Kazic, 11.7.2023
+
+
+
 for ( my $i = 0; $i <= $#lines; $i++ ) {
 
-        my ($barcode_elts,$row,$max_plants,$family,$ma_family,$ma_num_gtype,$pa_family,$pa_num_gtype,$ma_gma_gtype,$marker,$quasi_allele) = $lines[$i] =~ /^\'?(${barcode_elts_re})\'?,(${plain_row_re}),(${ft_re}),(${family_re}),(${family_re}),\'?(${num_gtype_re})\'?,(${family_re}),\'?(${num_gtype_re})\'?,\'?(${gtype_re})\'?,\[\'?(${marker_re})\'?\],\'?([K\d]*)\'?,*/;
+#        my ($foo,$barcode_elts,$row,$max_plants,$family,$ma_family,$ma_num_gtype,$pa_family,$pa_num_gtype,$ma_gma_gtype,$marker,$quasi_allele) = $lines[$i] =~ /^(${plain_row_re}),\'?(${barcode_elts_re})\'?,(${plain_row_re}),(${ft_re}),(${family_re}),(${family_re}),\'?(${num_gtype_re})\'?,(${family_re}),\'?(${num_gtype_re})\'?,\'?(${gtype_re})\'?,\[\'?(${marker_re})\'?\],\'?([K\d]*)\'?,*/;
 
-#        print "($barcode_elts,$row,$max_plants,$family,$ma_family,$ma_num_gtype,$pa_family,$pa_num_gtype,$ma_gma_gtype,$marker,$quasi_allele)\n";
+#        my ($barcode_elts,$row,$max_plants,$family,$ma_family,$ma_num_gtype,$pa_family,$pa_num_gtype,$ma_gma_gtype,$marker,$quasi_allele) = $lines[$i] =~ /^\'?(${barcode_elts_re})\'?,(${plain_row_re}),(${ft_re}),(${family_re}),(${family_re}),\'?(${num_gtype_re})\'?,(${family_re}),\'?(${num_gtype_re})\'?,\'?(${gtype_re})\'?,\[\'?(${marker_re})\'?\],\'?([K\d]*|\'\')\'?,*/;
+
+
+# modified:
+#	knum_re (this now grabs an uninstantiated Knum, e.g. for our inbreds)
+#       barcode_elts_re
+#       num_gtype_re	
+#       inbred_prefix_re
+#	
+# to accommodate Addie Thompson's lines.
+#
+# Kazic, 11.7.2023	
+
+	
+	        my ($barcode_elts,$row,$max_plants,$family,$ma_family,$ma_num_gtype,$pa_family,$pa_num_gtype,$ma_gma_gtype,$marker,$quasi_allele) = $lines[$i] =~ /^\'?(${barcode_elts_re})\'?,(${plain_row_re}),(${ft_re}),(${family_re}),(${family_re}),\'?(${num_gtype_re})\'?,(${family_re}),\'?(${num_gtype_re})\'?,\'?(${gtype_re})\'?,\[\'?(${marker_re})\'?\],\'?(${knum_re})\'?,*/;
+
+#	print "$lines[$i]\n";
+
+
+#	if ( $quasi_allele eq '' ) { print "empty $quasi_allele \n"; }
+
+
+        print "($barcode_elts,$row,$max_plants,$family,$ma_family,$ma_num_gtype,$pa_family,$pa_num_gtype,$ma_gma_gtype,$marker,$quasi_allele)\n";
+
+
 
 	
         my $prow = pad_row($row,5);
@@ -160,12 +201,24 @@ for ( my $i = 0; $i <= $#lines; $i++ ) {
 
 #               print "main: $record\n";
 
-                push(@tags,$record); 
+                push(@tags,$record);
+                push(@bcs,$new_barcode_elts);
 		}
         }
 
 
 
+
+
+# we often need just the barcodes for other purposes, like prefilling the
+# mutant table and generating harvest tags.  So here they are, in a more
+# convenient form.
+#
+# Kazic, 18.8.2021
+
+open my $barcode_fh, '>', $barcode_file or die "can't open $barcode_file\n";
+foreach my $bc (@bcs) { print $barcode_fh "$bc\n"; }
+close($barcode_fh);
 
 
 
@@ -205,24 +258,29 @@ if ( scalar @fates > 0 ) {
 
 # hmmm, think the warning is due to an error of autovivification in if?????
 #
-# Use of uninitialized value in pattern match (m//) at ./make_plant_tags.perl line 203, <$fate> line 1378.
-# Use of uninitialized value $plant in exists at ./make_plant_tags.perl line 204, <$fate> line 1378.
+# Use of uninitialized value in pattern match (m//) at ./make_plant_tags.perl line 223, <$fate> line 1378.
+# Use of uninitialized value $plant in exists at ./make_plant_tags.perl line 224, <$fate> line 1378.
 #
 # there seems to be disagreement on whether autovivification happens in
 # testing the first layer in the HoH
 #
-# otherwise works fine
+# otherwise works fine; have commented out the conditional for now
+# 
 #
 # stopped here, must return and figure this out some time
 #
-# Kazic, 25.7.2018
+# Kazic, 18.8.2021
 
 for ( my $i = 0; $i <= $#tags + 1; $i++ ) {
-    #        print "$tags[$i]\n";
+#        print "$tags[$i]\n";
 
         my ($plant,$rest) = $tags[$i] =~ /(${num_gtype_re})::(.+)$/;
-        if ( exists $gone{$plant} ) { }
-        else { push(@pruned,$rest); }
+
+#        print "$rest\n";     
+	push(@pruned,$rest);
+
+#        if ( exists $gone{$plant} ) { }
+#        else { push(@pruned,$rest); }
         }
 
 
@@ -322,10 +380,13 @@ for ( my $l = 0; $l <= $#seventh; $l++ ) {
 #
 # Kazic, 8.11.2007
 
+# typeset the tags
 
 if ( $flag eq 'q' ) { }
 elsif ( ( $flag eq 'test' ) || ( $flag eq 'go' ) ) { &make_plant_tags($output_file,$#columnar,\@columnar); }
 
+
+# now print them out
 
 if ( ( $flag eq 'q' ) || ( $flag eq 'test' ) ) { }
 elsif ( $flag eq 'go' ) { &generate_plant_tags($tags_dir,$tags_stem); }

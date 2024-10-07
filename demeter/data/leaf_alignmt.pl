@@ -509,3 +509,7 @@ leaf_alignmt('15R0678:0022212',b0_leaf('e0'),marker_leaf('e0'),avi,date(26,08,20
 leaf_alignmt('15R0679:0022303',b0_leaf('e-3'),marker_leaf('e0'),avi,date(26,08,2015),time(10,02,02)).
 leaf_alignmt('15R0679:0022304',b0_leaf('e-2'),marker_leaf('e0'),avi,date(26,08,2015),time(10,02,02)).
 leaf_alignmt('15R0680:0022410',b0_leaf('e-3'),marker_leaf('e0'),avi,date(26,08,2015),time(10,02,02)).
+
+
+% 22r
+

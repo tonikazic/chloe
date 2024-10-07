@@ -125,6 +125,10 @@ print $outfh "% this is ../c/maize/demeter$pretty_fn\n
 
 
 # now pick it apart
+#
+# added letters for Addie Thompson's lines here and in the MaizeRegEx
+#
+# 4.8.2023
 
 foreach my $barcode (@barcodes) { 
 
@@ -135,7 +139,7 @@ foreach my $barcode (@barcodes) {
     	        my ($crop,$family) = $barcode =~ /(${crop_re})(${family_re}):/;
                 $family =~ s/^0//;
                 my ($suffix) = $barcode =~ /(:.+)$/;
-                my ($rowplant) = $suffix =~ /:[SWMB]?(.+)$/;
+                my ($rowplant) = $suffix =~ /:[SWMBFGHXYZ]?(.+)$/;
                 my ($prow,$plant) = $rowplant =~ /(.+)((\d{2}|xx|yy|xy|yx))$/;
                 my ($row) = $prow;
                 $row =~ s/^0{1,4}//;

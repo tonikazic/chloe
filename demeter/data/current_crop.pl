@@ -7,4 +7,4 @@
 
 % current_crop(CropParticle).
 
-current_crop('21R').
+current_crop('24G').

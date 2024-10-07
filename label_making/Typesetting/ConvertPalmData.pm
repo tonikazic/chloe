@@ -9,13 +9,19 @@
 
 package ConvertPalmData;
 
+use Cwd 'getcwd';
+use Storable;
+use Exporter;
+
+
 use MaizeRegEx;
 use NoteExpsn;
+use DefaultOrgztn;
 
 
 
 
-use Exporter;
+
 
 our @ISA = qw(Exporter);
 
@@ -25,6 +31,7 @@ our @EXPORT = qw(
              check_false
              check_null
              concat_notes
+             convert_abbrv_date
              convert_cl
              convert_cross_plan
              convert_datetime
@@ -38,15 +45,18 @@ our @EXPORT = qw(
              convert_photo_plant
              convert_pollination_results
              convert_pollination_results2
+             convert_raw_row
              convert_south_farms_datetime
              convert_sleeve
              expand_phenotypes
+             grab_barcode_hash
              grab_crop_from_file
              string_cl
              tidy_list
              );
 
 
+#             convert_rowplant_to_plantID
 
 
 
@@ -605,6 +615,8 @@ sub pad_digits {
 
 
 
+
+
 # both Prolog and R run their clocks from 00 to 23; ignore time zone since
 # South Farms assumes DST
 #
@@ -630,6 +642,32 @@ sub convert_south_farms_datetime {
         $Rdatetime = $Rdate . " " . $Rtime;
 
         return ($date,$time,$Rdatetime);
+        }
+
+
+
+
+
+
+# convert my standard (European) dates, sans year, to full dates and times
+# assume we are always in the 21st century ;-)
+#
+# Kazic, 17.8.2020
+
+sub convert_abbrv_date {
+        ($abbrv_date,$crop) = @_;
+
+
+        my ($day,$month) = split(/\./,$abbrv_date);
+	($day,$month) = pad_digits($day,$month);
+        my ($year) = $crop =~ /^(\d{2})/;
+        $year = "20" . $year;
+	
+        $date = "date($day,$month,$year)";
+        $time = "time(12,00,00)";
+
+
+        return ($date,$time);
         }
 
 
@@ -821,6 +859,59 @@ sub convert_pollination_results2 {
 
 
 
+
+
+
+
+
+
+# convert a manually entered row number to the full row
+#
+# I thought I had this already in Perl, but evidently not
+#
+# Kazic, 18.9.2021
+
+sub convert_raw_row {
+        ($raw) = @_;
+
+	my $needed_digits = 5 - length($raw);
+        my $padding = 0 x $needed_digits;
+        my $row = "r" . $padding . $raw;
+
+	return $row;
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# sub convert_rowplant_to_plantID {
+#   ($dezeroed_rowplant) = @_;
+
+#        return $plantID;
+#	}
+
+
+
+
+
+
 sub convert_sleeve {
         ($sleeve) = @_;
 
@@ -840,7 +931,95 @@ sub convert_sleeve {
         }
 
 
+
+
+
+# existence test for barcode hash in crop/management dir
+# if none, build and write there
+#
+# otherwise load; use de-leading-zero-ed plantIDs as keys	
+#
+# Kazic, 19.8.2021
+
+
+sub grab_barcode_hash {
+        ($crop_str) = @_;
+
+        my $prefix = uc($crop_str);
+        my $barcode_stem = getcwd;
+
+	$barcode_stem =~ s/\/data\/data_conversion//;
+	$barcode_stem .= "/crops/$crop_str/management";
+
+	my $barcode_file = $barcode_stem . "/barcode_list";
+#	print "bcf: $barcode_file\n";
+
+
+        my $barcode_hash_file = $barcode_stem . "/barcode_hash.perl";
+#        print "pre: $prefix\nbs: $barcode_stem\nbhf: $barcode_hash_file\n";
+	my %barcode_hash;
+
+
+
 	
+        if ( !-e $barcode_file ) {
+		my $barcode_dir = $barcode_stem;
+		$barcode_dir =~ s/crops/barcodes/;
+		$barcode_dir =~ s/management//;
+#		print "bcd: $barcode_dir\n";
+
+                my $search = $barcode_dir . $prefix . "*.eps";
+#		print "s: $search\n";
+                my @tmp = glob $search;
+
+		
+                open my $bc_fh, '>', $barcode_file or die "can't open $barcode_file\n";
+		foreach (@tmp) { my ($b) = $_ =~ /(${num_gtype_re})\.eps$/; print $bc_fh "$b\n"; }
+                close $bc_fh;
+	        }
+
+
+
+	
+	
+
+        if ( -e $barcode_hash_file ) {
+		%barcode_hash = %{retrieve($barcode_hash_file)};
+	        } else {
+
+			
+# oops, this is where we MAKE the barcode file!  If it doesn't exist,
+# we can't read it and get a die.  File made in the loop above.
+#
+# Kazic, 6.8.2022
+
+
+
+                        open my $bc_fh, '<', $barcode_file or die "can't open $barcode_file\n";
+                        while ( $_ = <$bc_fh> ) {
+				chomp $_;
+
+# should be last 7 digits, just in case
+#
+# Kazic, 28.7.2022			
+				my ($dezeroed_rowplant) = $_ =~ /(\d{6}$)/;
+				$dezeroed_rowplant =~ s/^0+//;
+				$barcode_hash{$dezeroed_rowplant} = $_;
+#				print "dr: $dezeroed_rowplant v: $barcode_hash{$dezeroed_rowplant}\n";
+				}
+			store \%barcode_hash, $barcode_hash_file;
+
+	        }
+
+
+        return %barcode_hash;
+	}
+
+	
+
+
+
+
 
 
 	

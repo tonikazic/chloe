@@ -3,6 +3,168 @@
 % crop(CropID,Location,FieldID,Planting,PlantingDate,HarvestStartDate,HarvestEndDate).
 
 
+
+% field 22 south is n rows x 3 ranges in east-west orientation (usually north-south); start south side
+%
+% field 26 (Ed's field, my first field) is 32 rows across and ca. 13 20' ranges; start in NW corner
+% 
+% field 27 is n rows across and ca. 11 20' ranges; start in NW corner after rill
+% 
+% field 30 is n rows x ca. m ranges; start just beyond rill on west side, north end
+%
+% field 31 is n rows x ca. m ranges
+%
+% field 32 is n rows x ca. m ranges
+%
+% field 33 is 19 rows x 11 ranges with no east or west border; start just beyond rill on west side, north end
+%
+% field 34 is 39 rows x ca. 8 ranges, but two western-most ranges are only 25 rows each; this is 1 row border on each side
+%
+% field 32 is m rows x ca. 2--2.5 ranges, 1 row border on each side
+
+
+
+% 24g
+
+% two locations --- north half Sears module 110 and lab
+
+% M14/llses and first planting M14 in gh
+crop('24G',missouri,lab,1,date(28,06,2024),date(12,31,2024),date(12,31,2024)).
+crop('24G',missouri,sears110,2,date(14,08,2024),date(12,31,2024),date(12,31,2024)).
+
+% replanting M14 seed
+crop('24G',missouri,sears110,3,date(25,08,2024),date(12,31,2024),date(12,31,2024)).
+
+% first planting Mo20W
+crop('24G',missouri,sears110,4,date(25,08,2024),date(12,31,2024),date(12,31,2024)).
+
+
+% Mo20W/{lls1,lls1 121D}, second planting Mo20W, and W23/llses for selfing
+crop('24G',missouri,lab,5,date(02,09,2024),date(12,31,2024),date(12,31,2024)).
+
+
+% third planting Mo20W
+crop('24G',missouri,sears110,6,date(09,09,2024),date(12,31,2024),date(12,31,2024)).
+
+
+
+
+
+
+
+
+
+
+
+
+% 24r
+
+% we had 32 rows across and room for both the nursery and tiling; tiling
+% has spatiotemporal phasing
+%   8 ranges, beginning with a 4' alley
+%   central file skipped
+%   planning on 2 rows border north side, 1 row border south side, and
+%      maybe a border row on the west side, but ONLY around the nursery,
+%      not the 20' skip or the tiling
+%   20' skip
+%   about 150' of tiling
+
+
+% first planting of the nursery; includes the transplants of the W23 in the
+% west half of row 232 from the lls rehab experiment in
+% ../../../../e/lls_rehab_inside/notes/lls_rehabbing.org::w23
+%
+% Kazic, 22.5.2024
+crop('24R',missouri,field26,1,date(20,05,2024),date(2,9,2024),date(16,09,2024)).
+
+% first planting tiling and chimdi's
+crop('24R',missouri,field26,1.5,date(21,05,2024),date(2,9,2024),date(16,09,2024)).
+
+
+% official second planting of the nursery
+crop('24R',missouri,field26,2,date(25,05,2024),date(9,9,2024),date(23,09,2024)).
+
+% fixing packing error and planting into r00230
+crop('24R',missouri,field26,2.5,date(2,06,2024),date(9,9,2024),date(23,09,2024)).
+
+
+% second planting dewi's tiling and chimdi's; confected so far
+crop('24R',missouri,field26,6,date(21,06,2024),date(9,9,2024),date(23,09,2024)).
+
+
+
+% nursery delays, planting 3
+crop('24R',missouri,field26,3,date(18,06,2024),date(9,9,2024),date(23,09,2024)).
+
+
+% nursery delays, plantings 4--5; confected so far
+crop('24R',missouri,field26,4,date(01,07,2024),date(9,9,2024),date(23,09,2024)).
+crop('24R',missouri,field26,5,date(15,07,2024),date(9,9,2024),date(23,09,2024)).
+
+
+
+
+
+
+
+
+
+% 23r
+
+crop('23R',missouri,field30,1,date(22,05,2023),date(31,08,2023),date(8,09,2023)).
+crop('23R',missouri,field33,1,date(22,05,2023),date(31,08,2023),date(8,09,2023)).
+crop('23R',missouri,field27,1,date(22,05,2023),date(31,08,2023),date(8,09,2023)).
+crop('23R',missouri,field27,1,date(23,05,2023),date(31,08,2023),date(8,09,2023)).
+crop('23R',missouri,field27,2,date(29,05,2023),date(31,08,2023),date(8,09,2023)).
+crop('23R',missouri,field27,3,date(03,06,2023),date(31,08,2023),date(8,09,2023)).
+
+
+
+
+
+
+% 22r
+
+crop('22R',missouri,field26,1,date(30,05,2022),date(12,9,2022),date(26,09,2022)).
+crop('22R',missouri,field26,2,date(04,06,2022),date(12,9,2022),date(26,09,2022)).
+
+
+
+
+% 21r
+
+crop('21R',missouri,field33,1,date(01,06,2021),date(12,9,2021),date(26,09,2021)).
+crop('21R',missouri,field30,2,date(02,06,2021),date(12,9,2021),date(26,09,2021)).
+
+
+% 20r
+
+crop('20R',missouri,field32,1,date(02,06,2020),date(17,9,2020),date(27,09,2020)).
+crop('20R',missouri,field34,1,date(02,06,2019),date(17,9,2020),date(27,09,2020)).
+crop('20R',missouri,field34,2,date(03,06,2020),date(17,9,2020),date(27,09,2020)).
+crop('20R',missouri,field32,3,date(16,06,2020),date(17,9,2020),date(27,09,2020)).
+crop('20R',missouri,field34,3,date(16,06,2020),date(17,9,2020),date(27,09,2020)).
+
+
+
+
+
+% 19r
+
+crop('19R',missouri,field33,1,date(05,06,2019),date(17,9,2019),date(24,09,2019)).
+crop('19R',missouri,field33,2,date(10,06,2019),date(17,9,2019),date(24,09,2019)).
+crop('19R',missouri,field22,3,date(12,09,2019),date(25,12,2019),date(25,12,2019)).
+%
+% Chris's machine-planted sweet corn that we imaged
+%
+crop('19R',missouri,field30,4,date(01,07,2019),date(7,10,2019),date(7,10,2019)).
+
+
+
+
+
+
+
 % 18r
 
 crop('18R',missouri,field34,1,date(06,06,2018),date(19,9,2018),date(12,10,2018)).
@@ -30,7 +192,7 @@ crop('17R',missouri,field33,3,date(21,06,2017),date(24,9,2017),date(25,10,2017))
 
 
     
-% 16r
+% 16r probably really field 34
 
 crop('16R',missouri,field32,1,date(24,05,2016),date(23,9,2016),date(23,9,2016)).
 crop('16R',missouri,field32,2,date(29,05,2016),date(23,9,2016),date(23,9,2016)).

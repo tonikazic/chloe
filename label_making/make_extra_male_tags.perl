@@ -51,8 +51,8 @@ my ($dir,$input_dir,$barcodes,$tags_dir) = &adjust_paths($crop,$local_dir);
 
 
 
-my $input_stem = "lls_tags";
-my $tags_stem = "extra_tags";
+my $input_stem = "lab_lls_males";
+my $tags_stem = "lab_lls_males_tags";
 
 
 my $input_file = $input_dir . $input_stem;

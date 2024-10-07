@@ -10,14 +10,62 @@
 % current_inbred(Crop,MaFamily,PaFamily,InbredFamily,StdPacketNum).
 
 
+
+% 24g
+
+current_inbred('24G',201,201,205,p00001).
+current_inbred('24G',301,301,305,p00002).
+current_inbred('24G',401,401,405,p00003).
+
+
+
+% 24r
+
+current_inbred('24R',201,201,205,p00001).
+current_inbred('24R',301,301,305,p00002).
+current_inbred('24R',401,401,405,p00003).
+current_inbred('24R',504,504,505,p00004).
+current_inbred('24R',889,889,889,p00005).
+current_inbred('24R',000,000,000,p00000).
+
+
+
+
+
+% 23r
+
+current_inbred('23R',201,201,205,p00001).
+current_inbred('23R',301,301,305,p00002).
+current_inbred('23R',401,401,405,p00003).
+current_inbred('23R',504,504,505,p00004).
+current_inbred('23R',889,889,889,p00005).
+current_inbred('23R',000,000,000,p00000).
+
+
+
+% 22r
+
+current_inbred('22R',201,201,205,p00001).
+current_inbred('22R',301,301,305,p00002).
+current_inbred('22R',401,401,405,p00003).
+current_inbred('22R',504,504,505,p00004).
+current_inbred('22R',889,889,889,p00005).
+current_inbred('22R',000,000,000,p00000).
+
+
+
+
+
+
+
 % 21r
 
-current_inbred('20R',201,201,205,p00001).
-current_inbred('20R',301,301,305,p00002).
-current_inbred('20R',401,401,405,p00003).
-current_inbred('20R',504,504,505,p00004).
-current_inbred('20R',889,889,889,p00005).
-current_inbred('20R',000,000,000,p00000).
+current_inbred('21R',201,201,205,p00001).
+current_inbred('21R',301,301,305,p00002).
+current_inbred('21R',401,401,405,p00003).
+current_inbred('21R',504,504,505,p00004).
+current_inbred('21R',889,889,889,p00005).
+current_inbred('21R',000,000,000,p00000).
 
 
 
@@ -227,7 +275,13 @@ current_inbred('07G',400,400,401,p00003).
 current_inbred('07R',200,200,201,p00001).
 current_inbred('07R',300,300,301,p00002).
 current_inbred('07R',400,400,401,p00003).
-    
+
+
+
+% I think the current_inbred/5 facts for 06n and 06g are correct.  I must
+% have made the *01 families in 06r, per the genotype/11 and
+% packed_packet/7 facts.
+
 
 
 % 06g

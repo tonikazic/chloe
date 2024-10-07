@@ -22,7 +22,7 @@
 %declarations%
 
 :-       module(demeter_utilities,[
-		check_slash/2,
+	        check_slash/2,
 		construct_date/2,
 		construct_dates/2,
                 construct_time/2,
@@ -42,6 +42,8 @@
 		our_to_swi_date/2,
                 remove_singletons/3,
 		row_length/2,
+		split_at/4,
+		split_gter/4,
 		split_at_key/4,
 		split_at_key_op/5,
 		swi_date/1,
@@ -467,6 +469,64 @@ nice_date(DateTime,NiceDate) :-
 
 
 
+
+
+% different ways to split a list at a particular element
+%
+% for sanity, most times one will want to pass in an ordset, so I have
+% hard-wired this
+%
+% adapted from the first answer at
+% https://stackoverflow.com/questions/49971144/split-list-at-element
+%
+% Kazic, 8.3.2022
+
+
+% split at a given element, including it in the right-hand list
+%
+% this is the original
+
+%! split_at(+AtomOrNumber,+OrdSet,-LeftOrdSet,-RightOrdSet) is det.
+
+split_at(Elem,List,Left,[Elem|Right]) :-
+        ( is_ordset(List) ->
+	        OrdSet = List
+	;
+	        list_to_ord_set(List,OrdSet)
+        ),
+	append(Left,[Elem|Right],OrdSet).
+
+
+
+
+% split at a given element, leaving it in neither list
+
+%! split_gter(+AtomOrNumber,+OrdSet,-LeftOrdSet,-RightOrdSet) is det.
+
+split_gter(Elem,List,Left,Right) :-
+        ( is_ordset(List) ->
+	        OrdSet = List
+	;
+	        list_to_ord_set(List,OrdSet)
+        ),
+	append(Left,[Elem|Right],OrdSet).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 % Doesn''t feel like index-finding will be any faster in Prolog.
 %
 %
@@ -644,6 +704,7 @@ remove_singletons(Bag,[H|T],Remainder) :-
                 NewAcc = Bag
         ),
         remove_singletons(NewAcc,T,Remainder).       
+
 
 
 

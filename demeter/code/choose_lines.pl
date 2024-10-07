@@ -65,6 +65,11 @@
 % never been planted is '0000' by default; idiosyncratic
 
 
+% included fun_corn/2 constraint to exclude elite lines
+%
+% Kazic, 14.7.2020
+
+
 choose_lines(_,[],[]).
 choose_lines(WarningStream,[p(Row,NumPackets,CrossAlternatives,Plntg,Plan,Comments,K,Crop,Cl,Ft)|T],
 	     [Locatn-(Row,NumPackets,MaNumGtype,PaNumGtype,
@@ -76,23 +81,45 @@ choose_lines(WarningStream,[p(Row,NumPackets,CrossAlternatives,Plntg,Plan,Commen
 	        Alternatives = CrossAlternatives
         ),
 
-	choose_line(Crop,Alternatives,WarningStream,Locatn,MaNumGtype,PaNumGtype,Family,OldCropData),
-        ( ( Family == '0000' ; skip(MaNumGtype) ; inbred(Family,_) ) ->
+	choose_line(Crop,Alternatives,WarningStream,Locatn,MaNumGtype,PaNumGtype,Family,_OldCropData),
+        ( ( Family == '0000' ; skip(MaNumGtype) ; inbred(Family,_) ; addies_corn(Family,_) ; fun_corn(Family,_) ; other_peoples_corn(Family) ) ->
                 FinalComments = Comments
         ;
-	        merge_plans_n_comments(OldCropData,PreviousPlan,PreviousComments),
-	        ( PreviousPlan == '' ->
-		        PriorPlans = ''
-                ;
-                        atom_concat('.  PREVIOUS PLANS:  ',PreviousPlan,PriorPlans)
-		),
-                ( PreviousComments == '' ->
-		        PriorComments = ''
-                ;
-                        atom_concat('   PREVIOUS COMMENTS:  ',PreviousComments,PriorComments)
-                ),
+
+	
+% shut off merging for now to avoid concatenation on cleaned 20r plan/6 facts
+%
+% Kazic, 14.7.2020
+
+	
+%	        merge_plans_n_comments(OldCropData,PreviousPlan,PreviousComments),
+
+%               PreviousPlan = '',
+%        	PreviousComments = '',
+
+	        %% ( PreviousPlan == '' ->
+		%%         PriorPlans = ''
+                %% ;
+                %%         atom_concat('.  PREVIOUS PLANS:  ',PreviousPlan,PriorPlans)
+		%% ),
+                %% ( PreviousComments == '' ->
+		%%         PriorComments = ''
+                %% ;
+                %%         atom_concat('   PREVIOUS COMMENTS:  ',PreviousComments,PriorComments)
+                %% ),
+
+	
+% kludgey fix for now, since I'm writing the plans de novo now each crop
+%
+% Kazic, 17.5.2023	
+	
+	        PriorPlans = '',
+	        PriorComments = '',
 	        atomic_list_concat([Comments,PriorPlans,PriorComments],FinalComments)
-        ),   
+
+        ;
+	        format('choose_lines/3 failing for ~w x ~w~n',[MaNumGtype,PaNumGtype])
+	),   
         choose_lines(WarningStream,T,Chosen).
 
 
@@ -192,7 +219,11 @@ check_lines([(Ma,Pa)|T],Acc,Checked) :-
                         ( inbred(PaFamily,_) ->
                                 append(Acc,[2000-(Ma,Pa,a00001)],NewAcc)	
                         ;
-                                NewAcc = Acc
+                                ( addies_corn(PaFamily,_) ->
+				        append(Acc,[1000-(Ma,Pa,v00000)],NewAcc)
+			        ;
+                                        NewAcc = Acc
+				)
 			)
 		)
 	),
@@ -235,6 +266,14 @@ pick_best([NumCl-(MaNumGtype,PaNumGtype,Locatn)|T],RNum-(Ma,Pa,SoFarLocatn),Best
 
 
 
+
+
+% ugh!
+%
+% Endless concatenation.  Cleaned plan/6 facts for 20r manually while I
+% figure out corrections.
+%
+% Kazic, 14.7.2020
 
 
 

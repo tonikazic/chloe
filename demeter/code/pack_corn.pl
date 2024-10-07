@@ -38,7 +38,7 @@
 
 
 
-% call is: pack_corn('20R').
+% call is: pack_corn('24R').
 
 
 
@@ -55,6 +55,7 @@
 		make_pnp_facts/3,
                 pack_corn/1,
 		packed_not_planted/3,
+		planned_vs_packed/1,
 		replace_packet_nums/3
                 ]).
 
@@ -71,11 +72,10 @@
 
 
 :-      use_module(demeter_tree('code/genetic_utilities')),
-        use_module(demeter_tree('code/demeter_utilities')),
-%        use_module(demeter_tree('data/load_data')).
-        true.
+        use_module(demeter_tree('code/demeter_utilities')).
 
 
+:-      use_module(library(process)).
 %end%
 
 
@@ -101,6 +101,8 @@ pack_corn(Crop) :-
         setof(p(Row,NumPackets,Alternatives,Plntg,Plan,Comments,K,Crop,Cl,Ft),
 	      packing_plan(Row,NumPackets,Alternatives,Plntg,Plan,Comments,K,Crop,Cl,Ft),Choices),
 
+%	write_list(Choices),
+	
 	open_planning_warning_file(Crop,LCrop,TimeStamp,UTCDate,WarningStream),
 	choose_lines(WarningStream,Choices,Chosen),
 	close(WarningStream),
@@ -301,7 +303,48 @@ construct_keys([Locatn-(Row,NumPackets,MaNumGtype,PaNumGtype,Family,Plntg,Plan,C
 
 
 
+% call is planned_vs_packed('24R',Flag) where
+% Flag would have been one of {go,q,test}.
+%
+% I can't get this to execute the perl script cleanly, not sure why.  So just run
+% ../../crops/scripts/make_prolog_packet_facts.perl CROP go in that directory for now.
+%
+% Kazic, 2.6.2024
+%
+% call is planned_vs_packed('24R').
 
+planned_vs_packed(Crop) :-
+        crop(Crop,_,_,_,date(_,_,Year),_,_),
+        findall(Packet-(Ma,Pa),
+		(packed_packet(Packet,Ma,Pa,_,_,date(_,_,Year),_),\+ ignorable_by_packetID(Packet)),
+		 PackedPkts),
+        list_to_ord_set(PackedPkts,OrdPackedPkts),
+	downcase_atom(Crop,LowerCrop),
+	
+
+%	pedigree_scripts_directory(ScriptDir),
+%	atomic_list_concat([ScriptDir,'make_prolog_packet_facts.perl ',LowerCrop,' ',Flag],Cmd),
+%	shell(Cmd),
+
+
+	management_directory(MgmtDir),
+	atomic_list_concat(['../../crops/',LowerCrop,MgmtDir,'seed_packet_labels.pl'],PktLabelsPrologFile),
+	ensure_loaded(PktLabelsPrologFile),
+        
+        findall(PPacket-(PMa,PPa),planned_packet(PPacket,PMa,PPa),PlannedPkts),
+        list_to_ord_set(PlannedPkts,OrdPlannedPkts),
+        ord_symdiff(OrdPlannedPkts,OrdPackedPkts,ChangedPkts),
+        ( ChangedPkts == [] ->
+	        format('all packets packed as planned~n',[])
+	;
+	        show_differences(ChangedPkts)
+	).
+
+
+
+show_differences(ChangedPkts) :-
+        format('for each pair of packets, the first is what was packed and the second is what was planned~n',[]),
+        write_list(ChangedPkts).    
 
 
 
@@ -405,8 +448,9 @@ output_packet_label_file(LCrop,TimeStamp,UTCDate,InventoryOrder) :-
 % p00003 = M14
 % p00004 = B73
 % p00005 = any elite line, this can vary by crop
+% p99999 = any unknown line, for example when data were not recorded at planting
 %
-% Kazic, 16.6.2019
+% Kazic, 3.6.2023
 
 
 output_packets(_,_,[]).

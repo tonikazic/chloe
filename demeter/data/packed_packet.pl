@@ -1,6 +1,8 @@
 % this is ..c/maize/demeter/data/packed_packet.pl
 
-% packed_packet(PacketNum,MaNumGtype,PaNumGtype,Cl,Packer,Date,Time).
+% packed_packet/7
+
+% packed_packet(PacketNum,MaNumGtype,PaNumGtype,Kernels,Packer,Date,Time).
 
 
 
@@ -15,6 +17,9 @@
 
 
 
+
+
+
 %%%%%%%%%%%%%%%%%%%% generated facts for 06r, 06n, 06g, 07r, 07g, 08g %%%%%%%%%%%%%%%%%%%%%
 %
 % generated on Thursday, November 26, 2009 at 1:7:18 UTC (= 1259219238) by clean_data:planting_to_planted/1
@@ -26,20 +31,35 @@
 packed_packet(p00001,'06R200:S0Ixxxxx','06R200:S0Ixxxxx',20,toni,date(15,4,2006),time(12,0,0)).
 packed_packet(p00002,'06R300:W0Ixxxxx','06R300:W0Ixxxxx',20,toni,date(15,4,2006),time(12,0,0)).
 packed_packet(p00003,'06R400:M0Ixxxxx','06R400:M0Ixxxxx',20,toni,date(15,4,2006),time(12,0,0)).
-packed_packet(p00001,'06R200:S0Ixxxxx','06R200:S0Ixxxxx',20,toni,date(15,5,2008),time(12,0,0)).
-packed_packet(p00002,'06R300:W0Ixxxxx','06R300:W0Ixxxxx',20,toni,date(15,5,2008),time(12,0,0)).
-packed_packet(p00003,'07R401:M0xxxxxx','07R401:M0xxxxxx',20,toni,date(15,5,2008),time(12,0,0)).
+
+% oops!  I didn't edit these confected data correctly, just commented out these facts.
+%
+% Kazic, 20.3.2022
+%
+%% packed_packet(p00001,'06R200:S0Ixxxxx','06R200:S0Ixxxxx',20,toni,date(15,5,2008),time(12,0,0)).
+%% packed_packet(p00002,'06R300:W0Ixxxxx','06R300:W0Ixxxxx',20,toni,date(15,5,2008),time(12,0,0)).
+%% packed_packet(p00003,'07R401:M0xxxxxx','07R401:M0xxxxxx',20,toni,date(15,5,2008),time(12,0,0)).
 
 packed_packet(p00001,'06R200:S0Ixxxxx','06R200:S0Ixxxxx',20,toni,date(8,4,2006),time(12,0,0)).
 packed_packet(p00002,'06R300:W0Ixxxxx','06R300:W0Ixxxxx',20,toni,date(8,4,2006),time(12,0,0)).
 packed_packet(p00003,'06R400:M0Ixxxxx','06R400:M0Ixxxxx',20,toni,date(8,4,2006),time(12,0,0)).
 
-% fixed to prevent collisions with B73
+
+
+
+
+
+% fixed to prevent collisions with B73 
 %    
 % Kazic, 22.5.2018
+%
+% and the elite packets of later crops
+%
+% Kazic, 20.3.2022
 
 packed_packet(p10004,'06R0001:0000000','06R0001:0000000',12,toni,date(8,4,2006),time(12,0,0)).
-packed_packet(p00005,'06R0100:0000000','06R0100:0000000',15,toni,date(8,4,2006),time(12,0,0)).
+% packed_packet(p00005,'06R0100:0000000','06R0100:0000000',15,toni,date(8,4,2006),time(12,0,0)).
+packed_packet(p10005,'06R0100:0000000','06R0100:0000000',15,toni,date(8,4,2006),time(12,0,0)).
 packed_packet(p00006,'06R0101:0000000','06R0101:0000000',15,toni,date(8,4,2006),time(12,0,0)).
 packed_packet(p00007,'06R0102:0000000','06R0102:0000000',15,toni,date(8,4,2006),time(12,0,0)).
 packed_packet(p00008,'06R0103:0000000','06R0103:0000000',15,toni,date(8,4,2006),time(12,0,0)).
@@ -157,9 +177,36 @@ packed_packet(p00115,'06R0015:0000000','06R0015:0000000',15,toni,date(8,4,2006),
 
 % 06n
 
-packed_packet(p00001,'06R200:S0Ixxxxx','06R200:S0Ixxxxx',13,toni,date(2,11,2006),time(12,0,0)).
-packed_packet(p00002,'06R300:W0Ixxxxx','06R300:W0Ixxxxx',13,toni,date(2,11,2006),time(12,0,0)).
-packed_packet(p00003,'06R400:M0Ixxxxx','06R400:M0Ixxxxx',13,toni,date(2,11,2006),time(12,0,0)).
+% amended these to families 201, 301, 401 because that's what the other
+% data say for these families.
+%
+% I assume I made families 201, 301, and 401 in 06r, based on what the
+% cross etc data say for 06N and 06G (none of the following produced any
+% results).  In particular, this is consistent with current_inbred/5.
+%
+%% bash-3.2$ g 06N200 *.pl |  gv % | gv safe | g S | gv binv | gv index | s
+%% bash-3.2$ g 06N300 *.pl |  gv % | gv safe | g S | gv binv | gv index | s
+%% bash-3.2$ g 06N400 *.pl |  gv % | gv safe | g S | gv binv | gv index | s
+%% bash-3.2$ g 06G400 *.pl |  gv % | gv safe | g S | gv binv | gv index | s
+%% bash-3.2$ g 06G300 *.pl |  gv % | gv safe | g S | gv binv | gv index | s
+%% bash-3.2$ g 06G200 *.pl |  gv % | gv safe | g S | gv binv | gv index | s
+%% bash-3.2$ g 07R200 *.pl |  gv % | gv safe | g S | gv binv | gv index | s
+%% bash-3.2$ g 07R300 *.pl |  gv % | gv safe | g S | gv binv | gv index | s
+%% bash-3.2$ g 07R400 *.pl |  gv % | gv safe | g S | gv binv | gv index | s
+%
+% Kazic, 5.4.2022
+
+%% packed_packet(p00001,'06R200:S0Ixxxxx','06R200:S0Ixxxxx',13,toni,date(2,11,2006),time(12,0,0)).
+%% packed_packet(p00002,'06R300:W0Ixxxxx','06R300:W0Ixxxxx',13,toni,date(2,11,2006),time(12,0,0)).
+%% packed_packet(p00003,'06R400:M0Ixxxxx','06R400:M0Ixxxxx',13,toni,date(2,11,2006),time(12,0,0)).
+
+
+packed_packet(p00001,'06R201:S0xxxxxx','06R201:S0xxxxxx',13,toni,date(2,11,2006),time(12,0,0)).
+packed_packet(p00002,'06R301:W0xxxxxx','06R301:W0xxxxxx',13,toni,date(2,11,2006),time(12,0,0)).
+packed_packet(p00003,'06R401:M0xxxxxx','06R401:M0xxxxxx',13,toni,date(2,11,2006),time(12,0,0)).
+
+
+
 packed_packet(p00947,'06R0020:0002007','06R0020:0002003',13,toni,date(2,11,2006),time(12,0,0)).
 packed_packet(p00948,'06R0020:0002006','06R0020:0002002',13,toni,date(2,11,2006),time(12,0,0)).
 packed_packet(p00949,'06R0020:0002008','06R0020:0002011',13,toni,date(2,11,2006),time(12,0,0)).
@@ -237,9 +284,37 @@ packed_packet(p01030,'06R400:M00I0914','06R0076:0007611',13,toni,date(2,11,2006)
 packed_packet(p01031,'06R400:M00I0910','06R0076:0007609',13,toni,date(2,11,2006),time(12,0,0)).
 packed_packet(p01032,'06R400:M00I2905','06R0084:0008414',13,toni,date(2,11,2006),time(12,0,0)).
 
-packed_packet(p00001,'06R200:S0Ixxxxx','06R200:S0Ixxxxx',13,toni,date(26,10,2006),time(12,0,0)).
-packed_packet(p00002,'06R300:W0Ixxxxx','06R300:W0Ixxxxx',13,toni,date(26,10,2006),time(12,0,0)).
-packed_packet(p00003,'06R400:M0Ixxxxx','06R400:M0Ixxxxx',13,toni,date(26,10,2006),time(12,0,0)).
+
+
+% amended these to families 201, 301, 401 because that's what the other
+% data say for these families.
+%
+% I assume I made families 201, 301, and 401 in 06r, based on what the
+% cross etc data say for 06N and 06G (none of the following produced any
+% results).  In particular, this is consistent with current_inbred/5.
+%
+%% bash-3.2$ g 06N200 *.pl |  gv % | gv safe | g S | gv binv | gv index | s
+%% bash-3.2$ g 06N300 *.pl |  gv % | gv safe | g S | gv binv | gv index | s
+%% bash-3.2$ g 06N400 *.pl |  gv % | gv safe | g S | gv binv | gv index | s
+%% bash-3.2$ g 06G400 *.pl |  gv % | gv safe | g S | gv binv | gv index | s
+%% bash-3.2$ g 06G300 *.pl |  gv % | gv safe | g S | gv binv | gv index | s
+%% bash-3.2$ g 06G200 *.pl |  gv % | gv safe | g S | gv binv | gv index | s
+%% bash-3.2$ g 07R200 *.pl |  gv % | gv safe | g S | gv binv | gv index | s
+%% bash-3.2$ g 07R300 *.pl |  gv % | gv safe | g S | gv binv | gv index | s
+%% bash-3.2$ g 07R400 *.pl |  gv % | gv safe | g S | gv binv | gv index | s
+%
+% Kazic, 5.4.2022
+
+%% packed_packet(p00001,'06R200:S0Ixxxxx','06R200:S0Ixxxxx',13,toni,date(26,10,2006),time(12,0,0)).
+%% packed_packet(p00002,'06R300:W0Ixxxxx','06R300:W0Ixxxxx',13,toni,date(26,10,2006),time(12,0,0)).
+%% packed_packet(p00003,'06R400:M0Ixxxxx','06R400:M0Ixxxxx',13,toni,date(26,10,2006),time(12,0,0)).
+
+packed_packet(p00001,'06R201:S0xxxxxx','06R201:S0xxxxxx',13,toni,date(26,10,2006),time(12,0,0)).
+packed_packet(p00002,'06R301:W0xxxxxx','06R301:W0xxxxxx',13,toni,date(26,10,2006),time(12,0,0)).
+packed_packet(p00003,'06R401:M0xxxxxx','06R401:M0xxxxxx',13,toni,date(26,10,2006),time(12,0,0)).
+
+
+
 packed_packet(p00941,'06R0001:0000108','06R0001:0000106',13,toni,date(26,10,2006),time(12,0,0)).
 packed_packet(p00942,'06R0006:0000613','06R0006:0000601',13,toni,date(26,10,2006),time(12,0,0)).
 packed_packet(p00943,'06R0007:0000711','06R0007:0000709',13,toni,date(26,10,2006),time(12,0,0)).
@@ -280,9 +355,12 @@ packed_packet(p01053,'06R0006:0000606','06R0006:0000609',13,toni,date(26,10,2006
 
 
 
-% 06g missing? or did we do one?  don''t think so.   
+% 06g missing? or did we do one?  don''t think so. not sure.
+% The first greenhouse crop was the first batch of guys.
 %
-% Kazic, 22.5.2018
+% Kazic, 20.3.2022
+
+
 
     
 
@@ -705,7 +783,7 @@ packed_packet(p00721,'06N401:M0004908','06N1615:0020602',15,toni,date(21,4,2007)
 
 
 
-% 07r
+
 
 packed_packet(p00124,'06N201:S0013504','06N1706:0021712',15,toni,date(29,4,2007),time(12,0,0)).
 packed_packet(p00125,'06R400:M00I2112','06R0004:0000405',15,toni,date(29,4,2007),time(12,0,0)).
@@ -1140,6 +1218,24 @@ packed_packet(p00939,'06R300:W00I2016','06R0004:0000403',15,toni,date(29,4,2007)
 packed_packet(p00940,'06R0022:0002205','06R0022:0002202',15,toni,date(29,4,2007),time(12,0,0)).
 
 
+% amended these to families 201, 301, 401 because that's what the other
+% data say for these families.
+%
+% I assume I made families 201, 301, and 401 in 06r, based on what the
+% cross etc data say for 06N and 06G (none of the following produced any
+% results).  In particular, this is consistent with current_inbred/5.
+%
+%% bash-3.2$ g 06N200 *.pl |  gv % | gv safe | g S | gv binv | gv index | s
+%% bash-3.2$ g 06N300 *.pl |  gv % | gv safe | g S | gv binv | gv index | s
+%% bash-3.2$ g 06N400 *.pl |  gv % | gv safe | g S | gv binv | gv index | s
+%% bash-3.2$ g 06G400 *.pl |  gv % | gv safe | g S | gv binv | gv index | s
+%% bash-3.2$ g 06G300 *.pl |  gv % | gv safe | g S | gv binv | gv index | s
+%% bash-3.2$ g 06G200 *.pl |  gv % | gv safe | g S | gv binv | gv index | s
+%% bash-3.2$ g 07R200 *.pl |  gv % | gv safe | g S | gv binv | gv index | s
+%% bash-3.2$ g 07R300 *.pl |  gv % | gv safe | g S | gv binv | gv index | s
+%% bash-3.2$ g 07R400 *.pl |  gv % | gv safe | g S | gv binv | gv index | s
+%
+% Kazic, 5.4.2022
 
 
 
@@ -1183,12 +1279,44 @@ packed_packet(p01088,'08G0123:0000000','08G0123:0000000',1,toni,date(14,1,2009),
 
 % 07g
 
-packed_packet(p00001,'06R200:S0Ixxxxx','06R200:S0Ixxxxx',2,toni,date(14,10,2007),time(12,0,0)).
-packed_packet(p00002,'06R300:W0Ixxxxx','06R300:W0Ixxxxx',2,toni,date(14,10,2007),time(12,0,0)).
-packed_packet(p00003,'06R400:M0Ixxxxx','06R400:M0Ixxxxx',2,toni,date(14,10,2007),time(12,0,0)).
-packed_packet(p00001,'06R200:S0Ixxxxx','06R200:S0Ixxxxx',2,toni,date(15,12,2007),time(12,0,0)).
-packed_packet(p00002,'06R300:W0Ixxxxx','06R300:W0Ixxxxx',2,toni,date(15,12,2007),time(12,0,0)).
-packed_packet(p00003,'06R400:M0Ixxxxx','06R400:M0Ixxxxx',2,toni,date(15,12,2007),time(12,0,0)).
+% amended these to families 201, 301, 401 because that's what the other
+% data say for these families.
+%
+% I assume I made families 201, 301, and 401 in 06r, based on what the
+% cross etc data say for 06N and 06G (none of the following produced any
+% results).  In particular, this is consistent with current_inbred/5.
+%
+%% bash-3.2$ g 06N200 *.pl |  gv % | gv safe | g S | gv binv | gv index | s
+%% bash-3.2$ g 06N300 *.pl |  gv % | gv safe | g S | gv binv | gv index | s
+%% bash-3.2$ g 06N400 *.pl |  gv % | gv safe | g S | gv binv | gv index | s
+%% bash-3.2$ g 06G400 *.pl |  gv % | gv safe | g S | gv binv | gv index | s
+%% bash-3.2$ g 06G300 *.pl |  gv % | gv safe | g S | gv binv | gv index | s
+%% bash-3.2$ g 06G200 *.pl |  gv % | gv safe | g S | gv binv | gv index | s
+%% bash-3.2$ g 07R200 *.pl |  gv % | gv safe | g S | gv binv | gv index | s
+%% bash-3.2$ g 07R300 *.pl |  gv % | gv safe | g S | gv binv | gv index | s
+%% bash-3.2$ g 07R400 *.pl |  gv % | gv safe | g S | gv binv | gv index | s
+%
+% Kazic, 5.4.2022
+
+
+
+%% packed_packet(p00001,'06R200:S0Ixxxxx','06R200:S0Ixxxxx',2,toni,date(14,10,2007),time(12,0,0)).
+%% packed_packet(p00002,'06R300:W0Ixxxxx','06R300:W0Ixxxxx',2,toni,date(14,10,2007),time(12,0,0)).
+%% packed_packet(p00003,'06R400:M0Ixxxxx','06R400:M0Ixxxxx',2,toni,date(14,10,2007),time(12,0,0)).
+%% packed_packet(p00001,'06R200:S0Ixxxxx','06R200:S0Ixxxxx',2,toni,date(15,12,2007),time(12,0,0)).
+%% packed_packet(p00002,'06R300:W0Ixxxxx','06R300:W0Ixxxxx',2,toni,date(15,12,2007),time(12,0,0)).
+%% packed_packet(p00003,'06R400:M0Ixxxxx','06R400:M0Ixxxxx',2,toni,date(15,12,2007),time(12,0,0)).
+
+
+packed_packet(p00001,'06R201:S0xxxxxx','06R201:S0xxxxxx',2,toni,date(14,10,2007),time(12,0,0)).
+packed_packet(p00002,'06R301:W0xxxxxx','06R301:W0xxxxxx',2,toni,date(14,10,2007),time(12,0,0)).
+packed_packet(p00003,'06R401:M0xxxxxx','06R401:M0xxxxxx',2,toni,date(14,10,2007),time(12,0,0)).
+packed_packet(p00001,'06R201:S0xxxxxx','06R201:S0xxxxxx',2,toni,date(15,12,2007),time(12,0,0)).
+packed_packet(p00002,'06R301:W0xxxxxx','06R301:W0xxxxxx',2,toni,date(15,12,2007),time(12,0,0)).
+packed_packet(p00003,'06R401:M0xxxxxx','06R401:M0xxxxxx',2,toni,date(15,12,2007),time(12,0,0)).
+
+
+
 packed_packet(p00116,'06R300:W00I8010','06R0022:0002210',1,toni,date(15,12,2007),time(12,0,0)).
 packed_packet(p00117,'06R0002:0000208','06R0002:0000207',1,toni,date(15,12,2007),time(12,0,0)).
 packed_packet(p00118,'06R400:M00I7810','06R0021:0002101',1,toni,date(15,12,2007),time(12,0,0)).
@@ -1223,9 +1351,34 @@ packed_packet(p00102,'06R0009:0000000','06R0009:0000000',9,toni,date(8,4,2006),t
 
 % inbreds --- need packet number kludge in order_packets.pl for 09r only
 
-packed_packet(p00001,'06R200:S0Ixxxxx','06R200:S0Ixxxxx',20,matt,date(1,5,2007),time(12,0,0)).
-packed_packet(p00002,'06R300:W0Ixxxxx','06R300:W0Ixxxxx',20,clay,date(1,5,2007),time(12,0,0)).
-packed_packet(p00003,'06R400:M0Ixxxxx','06R400:M0Ixxxxx',20,dylan,date(1,5,2007),time(12,0,0)).
+% amended these to families 201, 301, 401 because that's what the other
+% data say for these families.
+%
+% I assume I made families 201, 301, and 401 in 06r, based on what the
+% cross etc data say for 06N and 06G (none of the following produced any
+% results).  In particular, this is consistent with current_inbred/5.
+%
+%% bash-3.2$ g 06N200 *.pl |  gv % | gv safe | g S | gv binv | gv index | s
+%% bash-3.2$ g 06N300 *.pl |  gv % | gv safe | g S | gv binv | gv index | s
+%% bash-3.2$ g 06N400 *.pl |  gv % | gv safe | g S | gv binv | gv index | s
+%% bash-3.2$ g 06G400 *.pl |  gv % | gv safe | g S | gv binv | gv index | s
+%% bash-3.2$ g 06G300 *.pl |  gv % | gv safe | g S | gv binv | gv index | s
+%% bash-3.2$ g 06G200 *.pl |  gv % | gv safe | g S | gv binv | gv index | s
+%% bash-3.2$ g 07R200 *.pl |  gv % | gv safe | g S | gv binv | gv index | s
+%% bash-3.2$ g 07R300 *.pl |  gv % | gv safe | g S | gv binv | gv index | s
+%% bash-3.2$ g 07R400 *.pl |  gv % | gv safe | g S | gv binv | gv index | s
+%
+% Kazic, 5.4.2022
+
+
+
+%% packed_packet(p00001,'06R200:S0Ixxxxx','06R200:S0Ixxxxx',20,matt,date(1,5,2007),time(12,0,0)).
+%% packed_packet(p00002,'06R300:W0Ixxxxx','06R300:W0Ixxxxx',20,clay,date(1,5,2007),time(12,0,0)).
+%% packed_packet(p00003,'06R400:M0Ixxxxx','06R400:M0Ixxxxx',20,dylan,date(1,5,2007),time(12,0,0)).
+
+packed_packet(p00001,'06R201:S0xxxxxx','06R201:S0xxxxxx',20,matt,date(1,5,2007),time(12,0,0)).
+packed_packet(p00002,'06R301:W0xxxxxx','06R301:W0xxxxxx',20,clay,date(1,5,2007),time(12,0,0)).
+packed_packet(p00003,'06R401:M0xxxxxx','06R401:M0xxxxxx',20,dylan,date(1,5,2007),time(12,0,0)).
 
 
 
@@ -1483,11 +1636,18 @@ packed_packet(p03000,'07R0116:0000000','07R0116:0000000',15,toni,date(17,5,2009)
 % fixed to prevent collisions with B73
 %    
 % Kazic, 22.5.2018
+% and the elite packets of later crops
+%
+% Kazic, 20.3.2022
 
 
     
 packed_packet(p10004,'07R0117:0000000','07R0117:0000000',15,toni,date(17,5,2009),time(13,14,07)).
-packed_packet(p00005,'07R0118:0000000','07R0118:0000000',15,toni,date(17,5,2009),time(13,16,14)).
+
+% packed_packet(p00005,'07R0118:0000000','07R0118:0000000',15,toni,date(17,5,2009),time(13,16,14)).
+packed_packet(p10005,'07R0118:0000000','07R0118:0000000',15,toni,date(17,5,2009),time(13,16,14)).
+
+
 packed_packet(p00006,'07R0119:0000000','07R0119:0000000',15,toni,date(17,5,2009),time(13,19,15)).
 packed_packet(p00007,'07R0120:0000000','07R0120:0000000',15,toni,date(17,5,2009),time(13,21,17)).
 packed_packet(p00252,'07R1136:0088009','07R1136:0088009',15,toni,date(19,5,2009),time(17,38,50)).
@@ -1896,16 +2056,20 @@ packed_packet(p00009,'06R300:W00I6908','06R0078:0007801',7,toni,date(29,05,2010)
 packed_packet(p00008,'06R0023:0002306','06R0023:0002312',15,toni,date(29,05,2010),time(05,59,59)).
 packed_packet(p00008,'06R0023:0002306','06R0023:0002312',15,toni,date(29,05,2010),time(05,56,08)).
 packed_packet(p00006,'06R0002:0000209','06R0002:0000203',15,toni,date(29,05,2010),time(05,54,31)).
-packed_packet(p00005,'06R0002:0000208','06R0002:0000207',15,toni,date(29,05,2010),time(05,52,10)).
+
 
 
 % fixed to prevent collisions with B73
 %    
 % Kazic, 22.5.2018
-
+%
+% and the elite packets of later crops
+%
+% Kazic, 20.3.2022
 
 packed_packet(p10004,'06R0002:0000204','06R0002:0000202',15,toni,date(29,05,2010),time(05,51,55)).
-
+% packed_packet(p00005,'06R0002:0000208','06R0002:0000207',15,toni,date(29,05,2010),time(05,52,10)).
+packed_packet(p10005,'06R0002:0000208','06R0002:0000207',15,toni,date(29,05,2010),time(05,52,10)).
 
 
 
@@ -6873,8 +7037,8 @@ packed_packet(p00170,'16R4462:0003803','16R4462:0003803',25,toni,date(05,06,2018
 packed_packet(p00171,'16R4463:0003902','16R4463:0003902',25,toni,date(05,06,2018),time(17,03,30)).
 packed_packet(p00172,'16R4465:0004111','16R4465:0004111',15,toni,date(05,06,2018),time(17,05,12)).
 packed_packet(p00173,'16R4466:0004206','16R4466:0004206',15,toni,date(05,06,2018),time(17,07,13)).
-packed_packet(p00174,'17R205:S0001102','17R4626:0015704',15,toni,date(05,06,2018),time(17,10,52)).
-packed_packet(p00175,'17R205:S0001102','17R4626:0015704',15,toni,date(05,06,2018),time(17,12,38)).
+packed_packet(p00174,'17R205:S0001102','17R0704:0015704',15,toni,date(05,06,2018),time(17,10,52)).
+packed_packet(p00175,'17R205:S0001102','17R0704:0015704',15,toni,date(05,06,2018),time(17,12,38)).
 packed_packet(p00176,'17R205:S0001112','17R4543:0017914',20,toni,date(05,06,2018),time(17,14,32)).
 packed_packet(p00177,'17R205:S0001117','17R4543:0017901',20,toni,date(05,06,2018),time(17,16,11)).
 packed_packet(p00178,'17R205:S0001204','17R4545:0018105',15,toni,date(05,06,2018),time(17,17,50)).
@@ -6889,10 +7053,26 @@ packed_packet(p00186,'17R205:S0003317','17R4419:0011132',25,toni,date(05,06,2018
 packed_packet(p00187,'17R205:S0003505','17R4419:0011108',25,toni,date(05,06,2018),time(17,35,58)).
 packed_packet(p00188,'17R205:S0003704','17R4625:0015808',15,toni,date(05,06,2018),time(17,37,51)).
 packed_packet(p00189,'17R205:S0003715','17R4548:0011508',25,toni,date(05,06,2018),time(17,39,26)).
-packed_packet(p00190,'17R305:W0001708','17R4553:0013510',15,toni,date(05,06,2018),time(17,41,24)).
-packed_packet(p00191,'17R305:W0001708','17R4553:0013510',15,toni,date(05,06,2018),time(17,42,46)).
-packed_packet(p00192,'17R305:W0001813','17R4552:0013415',15,toni,date(05,06,2018),time(17,44,27)).
-packed_packet(p00193,'17R305:W0001813','17R4552:0013415',15,toni,date(05,06,2018),time(17,45,50)).
+%
+% family number migrated
+%
+% Kazic, 19.6.2019
+% packed_packet(p00190,'17R305:W0001708','17R4553:0013510',15,toni,date(05,06,2018),time(17,41,24)).
+% packed_packet(p00191,'17R305:W0001708','17R4553:0013510',15,toni,date(05,06,2018),time(17,42,46)).
+%
+packed_packet(p00190,'17R305:W0001708','17R4642:0013510',15,toni,date(05,06,2018),time(17,41,24)).
+packed_packet(p00191,'17R305:W0001708','17R4642:0013510',15,toni,date(05,06,2018),time(17,42,46)).
+%
+% family number migrated
+%
+% Kazic, 19.6.2019
+%
+% packed_packet(p00192,'17R305:W0001813','17R4552:0013415',15,toni,date(05,06,2018),time(17,44,27)).
+% packed_packet(p00193,'17R305:W0001813','17R4552:0013415',15,toni,date(05,06,2018),time(17,45,50)).
+%
+packed_packet(p00192,'17R305:W0001813','17R4641:0013415',15,toni,date(05,06,2018),time(17,44,27)).
+packed_packet(p00193,'17R305:W0001813','17R4641:0013415',15,toni,date(05,06,2018),time(17,45,50)).
+%
 packed_packet(p00194,'17R305:W0001902','17R4546:0018201',15,toni,date(05,06,2018),time(17,47,38)).
 packed_packet(p00195,'17R305:W0002003','17R4557:0016502',15,toni,date(05,06,2018),time(17,49,06)).
 packed_packet(p00196,'17R305:W0003807','17R0703:0016208',15,toni,date(05,06,2018),time(17,50,41)).
@@ -6905,14 +7085,32 @@ packed_packet(p00202,'17R305:W0004016','17R4548:0011508',25,toni,date(05,06,2018
 packed_packet(p00203,'17R305:W0005401','17R4569:0018709',15,toni,date(05,06,2018),time(18,09,57)).
 packed_packet(p00204,'17R405:M0002111','17R4509:0017712',15,toni,date(05,06,2018),time(18,11,23)).
 packed_packet(p00205,'17R405:M0002113','17R4564:0016707',20,toni,date(05,06,2018),time(18,12,51)).
-packed_packet(p00206,'17R405:M0002201','17R4554:0013613',15,toni,date(05,06,2018),time(18,14,26)).
-packed_packet(p00207,'17R405:M0002201','17R4554:0013613',15,toni,date(05,06,2018),time(18,15,27)).
+%
+% family number migrated
+%
+% Kazic, 19.6.2019
+%
+% packed_packet(p00206,'17R405:M0002201','17R4554:0013613',15,toni,date(05,06,2018),time(18,14,26)).
+% packed_packet(p00207,'17R405:M0002201','17R4554:0013613',15,toni,date(05,06,2018),time(18,15,27)).
+%
+packed_packet(p00206,'17R405:M0002201','17R4643:0013613',15,toni,date(05,06,2018),time(18,14,26)).
+packed_packet(p00207,'17R405:M0002201','17R4643:0013613',15,toni,date(05,06,2018),time(18,15,27)).
+%
 packed_packet(p00208,'17R405:M0002203','17R4540:0017604',15,toni,date(05,06,2018),time(18,16,42)).
 packed_packet(p00209,'17R405:M0002206','17R4546:0018201',15,toni,date(05,06,2018),time(18,17,55)).
 packed_packet(p00210,'17R405:M0002216','17R4474:0016104',15,toni,date(05,06,2018),time(18,19,51)).
 packed_packet(p00211,'17R405:M0002306','17R4578:0017406',20,toni,date(05,06,2018),time(18,21,09)).
-packed_packet(p00212,'17R405:M0002509','17R4555:0013708',15,toni,date(05,06,2018),time(18,22,33)).
-packed_packet(p00213,'17R405:M0002509','17R4555:0013708',15,toni,date(05,06,2018),time(18,23,49)).
+%
+% family number migrated
+%
+% Kazic, 19.6.2019
+%
+% packed_packet(p00212,'17R405:M0002509','17R4555:0013708',15,toni,date(05,06,2018),time(18,22,33)).
+% packed_packet(p00213,'17R405:M0002509','17R4555:0013708',15,toni,date(05,06,2018),time(18,23,49)).
+%
+packed_packet(p00212,'17R405:M0002509','17R4644:0013708',15,toni,date(05,06,2018),time(18,22,33)).
+packed_packet(p00213,'17R405:M0002509','17R4644:0013708',15,toni,date(05,06,2018),time(18,23,49)).
+%
 packed_packet(p00214,'17R405:M0004208','17R4548:0011508',25,toni,date(05,06,2018),time(18,25,13)).
 packed_packet(p00215,'17R405:M0004413','17R4518:0018408',20,toni,date(05,06,2018),time(18,26,45)).
 packed_packet(p00216,'17R405:M0004414','17R4550:0012019',25,toni,date(05,06,2018),time(18,28,10)).
@@ -6956,3 +7154,2439 @@ packed_packet(p00003,'09R401:M0xxxxxx','09R401:M0xxxxxx',20,toni,date(19,06,2018
 packed_packet(p00003,'09R401:M0xxxxxx','09R401:M0xxxxxx',20,toni,date(19,06,2018),time(10,27,07)).
 packed_packet(p00003,'09R401:M0xxxxxx','09R401:M0xxxxxx',20,toni,date(19,06,2018),time(10,27,11)).
 packed_packet(p00003,'09R401:M0xxxxxx','09R401:M0xxxxxx',20,toni,date(19,06,2018),time(10,27,13)).
+
+
+
+
+
+% 19r
+
+% data added from ../../data../palm/raw_data_from_palms/19r/eta/3.6/packed_packet.csv on Tue Jun  4 06:57:42 CDT 2019
+% by data/data_conversion/convert_packed_packet_data.perl
+% called from data/data_conversion/convert_data.perl
+
+packed_packet(p00010,'18R405:M0004812','18R4728:0029704',20,toni,date(03,06,2019),time(16,27,30)).
+packed_packet(p00011,'18R205:S0001316','18R4469:0029309',20,toni,date(03,06,2019),time(15,35,03)).
+packed_packet(p00012,'18R405:M0004914','18R4727:0029611',20,toni,date(03,06,2019),time(16,28,47)).
+packed_packet(p00013,'18R305:W0001806','18R4730:0029907',20,toni,date(03,06,2019),time(15,43,33)).
+packed_packet(p00014,'18R405:M0004113','18R4733:0030202',20,toni,date(03,06,2019),time(16,18,03)).
+packed_packet(p00015,'18R205:S0001309','18R4720:0026903',20,toni,date(03,06,2019),time(15,32,30)).
+packed_packet(p00016,'18R305:W0001812','18R4722:0027102',20,toni,date(03,06,2019),time(15,45,19)).
+packed_packet(p00017,'18R405:M0004112','18R4725:0027408',20,toni,date(03,06,2019),time(16,16,49)).
+packed_packet(p00018,'15R305:W0003016','15R4217:0005818',20,toni,date(03,06,2019),time(09,20,38)).
+packed_packet(p00019,'15R405:M0003510','15R4334:0005405',20,toni,date(03,06,2019),time(09,39,32)).
+packed_packet(p00020,'13R405:M0002504','13R4079:0004909',20,toni,date(02,06,2019),time(16,55,44)).
+packed_packet(p00021,'13R405:M0002504','13R4079:0004909',20,toni,date(02,06,2019),time(16,55,52)).
+packed_packet(p00022,'13R405:M0002602','13R4081:0005403',20,toni,date(02,06,2019),time(16,57,39)).
+packed_packet(p00023,'13R205:S0000507','13R4145:0018815',20,toni,date(02,06,2019),time(16,48,53)).
+packed_packet(p00024,'14R305:W0000905','14R4273:0020102',20,toni,date(03,06,2019),time(10,14,42)).
+packed_packet(p00025,'17R405:M0002113','17R4564:0016707',20,toni,date(03,06,2019),time(12,06,39)).
+packed_packet(p00026,'13R205:S0002207','13R4082:0005502',20,toni,date(02,06,2019),time(16,50,29)).
+packed_packet(p00027,'12R405:M0000310','12R3587:0023110',20,toni,date(03,06,2019),time(17,25,25)).
+packed_packet(p00028,'12N305:W0038310','12N3949:0017706',20,toni,date(03,06,2019),time(17,54,39)).
+packed_packet(p00029,'15R405:M0001101','15R4353:0011002',20,toni,date(03,06,2019),time(09,22,08)).
+packed_packet(p00030,'13R4087:0006905','13R4087:0006903',20,toni,date(03,06,2019),time(18,37,44)).
+packed_packet(p00031,'15R405:M0001205','15R4355:0011403',20,toni,date(03,06,2019),time(09,24,17)).
+packed_packet(p00032,'12N205:S0041602','12N3970:0021101',20,toni,date(03,06,2019),time(17,52,19)).
+packed_packet(p00033,'16R405:M0001811','16R4356:0010005',20,toni,date(03,06,2019),time(10,41,39)).
+%
+% oops, this was clearly a scan error!
+%
+% packed_packet(p00034,'12N205:S0037911','12N205:S0037911',20,toni,date(03,06,2019),time(17,45,53)).
+%
+% Kazic, 14.6.2019
+%
+packed_packet(p00034,'12N205:S0037911','12N3973:0021509',20,toni,date(03,06,2019),time(17,45,53)).
+packed_packet(p00035,'16R305:W0001610','16R4279:0010511',20,toni,date(03,06,2019),time(10,34,46)).
+packed_packet(p00036,'16R305:W0002914','16R4279:0010511',20,toni,date(03,06,2019),time(10,37,45)).
+packed_packet(p00037,'16R305:W0002915','16R4279:0010511',20,toni,date(03,06,2019),time(10,38,59)).
+packed_packet(p00038,'12N3975:0022008','12N3975:0022006',20,toni,date(03,06,2019),time(17,31,03)).
+packed_packet(p00039,'15R305:W0000707','15R4360:0012608',20,toni,date(03,06,2019),time(09,15,40)).
+packed_packet(p00040,'14R405:M0001212','14R4282:0021303',20,toni,date(03,06,2019),time(10,23,02)).
+packed_packet(p00041,'14R205:S0000107','14R4284:0021509',20,toni,date(03,06,2019),time(10,01,12)).
+packed_packet(p00042,'14R405:M0001103','14R4285:0021603',20,toni,date(03,06,2019),time(10,19,05)).
+packed_packet(p00043,'11N205:S0036710','11N3445:0015105',20,toni,date(03,06,2019),time(16,56,40)).
+packed_packet(p00044,'13R4093:0008004','13R4093:0008006',20,toni,date(02,06,2019),time(16,09,57)).
+packed_packet(p00045,'12N405:M0035703','12N3993:0024910',20,toni,date(03,06,2019),time(17,56,05)).
+packed_packet(p00046,'18R205:S0001206','18R4505:0025311',20,toni,date(03,06,2019),time(15,30,06)).
+packed_packet(p00047,'12R305:W0002901','12R3620:0027307',20,toni,date(03,06,2019),time(17,22,17)).
+packed_packet(p00048,'17R405:M0002306','17R4578:0017406',20,toni,date(03,06,2019),time(12,09,05)).
+packed_packet(p00049,'14R205:S0000307','14R4160:0022114',20,toni,date(03,06,2019),time(10,08,29)).
+packed_packet(p00050,'17R205:S0001307','17R4539:0017501',20,toni,date(03,06,2019),time(11,42,07)).
+packed_packet(p00051,'14R205:S0000415','14R4291:0022711',20,toni,date(03,06,2019),time(10,12,57)).
+packed_packet(p00052,'12R305:W0002602','12R3627:0028208',20,toni,date(03,06,2019),time(17,21,05)).
+packed_packet(p00053,'16R405:M0003206','16R4511:0011304',20,toni,date(03,06,2019),time(10,44,07)).
+packed_packet(p00054,'17R205:S0001112','17R4543:0017914',20,toni,date(03,06,2019),time(11,36,44)).
+packed_packet(p00055,'17R205:S0001117','17R4543:0017901',20,toni,date(03,06,2019),time(11,38,00)).
+packed_packet(p00056,'13R405:M0032901','13R4010:0025802',20,toni,date(02,06,2019),time(17,10,08)).
+packed_packet(p00057,'12R305:W0011317','12R3632:0028810',20,toni,date(03,06,2019),time(17,23,36)).
+packed_packet(p00058,'12R405:M0003302','12R3633:0028909',20,toni,date(03,06,2019),time(17,26,45)).
+packed_packet(p00059,'12N205:S0037905','12N4017:0028311',20,toni,date(03,06,2019),time(17,43,40)).
+packed_packet(p00060,'12N205:S0041605','12N4017:0028305',20,toni,date(03,06,2019),time(17,53,31)).
+packed_packet(p00061,'18R305:W0001917','18R4714:0025801',20,toni,date(03,06,2019),time(15,48,25)).
+packed_packet(p00062,'13R205:S0003402','13R4167:0026602',20,toni,date(02,06,2019),time(16,52,00)).
+packed_packet(p00063,'17R305:W0004012','17R4548:0011508',20,toni,date(03,06,2019),time(12,01,08)).
+packed_packet(p00064,'14R405:M0001808','14R4296:0024014',20,toni,date(03,06,2019),time(08,57,12)).
+packed_packet(p00065,'14R405:M0001808','14R4296:0024014',20,toni,date(03,06,2019),time(08,59,04)).
+packed_packet(p00066,'14R405:M0001808','14R4296:0024014',20,toni,date(03,06,2019),time(08,59,12)).
+packed_packet(p00067,'12N3460:0029708','12N3460:0029706',20,toni,date(03,06,2019),time(17,32,18)).
+%
+% commented out as repacked after first planting was contaminated
+%
+% Kazic, 14.6.2019
+%
+% put back in as otherwise plan/6 is not retrieved for that row.
+%
+% Kazic, 29.7.2019
+%
+packed_packet(p00068,'16R405:M0003312','16R4027:0012203',20,toni,date(03,06,2019),time(10,46,00)).
+%
+packed_packet(p00069,'16R405:M0003312','16R4027:0012203',20,toni,date(03,06,2019),time(10,46,07)).
+packed_packet(p00070,'14R305:W0001006','14R4299:0024502',20,toni,date(03,06,2019),time(10,15,48)).
+packed_packet(p00071,'16R405:M0002208','16R4300:0012606',20,toni,date(03,06,2019),time(10,42,56)).
+packed_packet(p00072,'14R205:S0000204','14R4301:0024705',20,toni,date(03,06,2019),time(10,03,16)).
+packed_packet(p00073,'14R205:S0000204','14R4301:0024705',20,toni,date(03,06,2019),time(10,04,23)).
+packed_packet(p00074,'14R405:M0001209','14R4302:0024808',20,toni,date(03,06,2019),time(10,20,45)).
+packed_packet(p00075,'14R405:M0001209','14R4302:0024808',20,toni,date(03,06,2019),time(10,20,53)).
+packed_packet(p00076,'14R205:S0000405','14R4303:0024904',20,toni,date(03,06,2019),time(10,10,19)).
+packed_packet(p00077,'14R205:S0000405','14R4303:0024904',20,toni,date(03,06,2019),time(10,10,29)).
+packed_packet(p00078,'12N405:M0039608','12N4037:0031503',20,toni,date(03,06,2019),time(17,57,16)).
+packed_packet(p00079,'13R205:S0003403','13R4176:0028502',20,toni,date(02,06,2019),time(16,53,25)).
+%
+% another scan error on my part
+%
+% packed_packet(p00080,'17R405:M0004413','17R405:M0004413',20,toni,date(03,06,2019),time(12,14,20)).
+%
+% Kazic, 14.6.2019
+%
+packed_packet(p00080,'17R405:M0004413','17R4518:0018408',20,toni,date(03,06,2019),time(12,14,20)).
+packed_packet(p00081,'17R405:M0004413','17R4518:0018408',20,toni,date(03,06,2019),time(12,14,28)).
+packed_packet(p00082,'17R405:M0004416','17R4570:0019003',20,toni,date(03,06,2019),time(12,16,07)).
+packed_packet(p00083,'14R205:S0000208','14R4308:0026010',20,toni,date(03,06,2019),time(10,06,55)).
+packed_packet(p00084,'15R205:S0000101','15R4183:0017105',20,toni,date(03,06,2019),time(09,09,08)).
+packed_packet(p00085,'15R305:W0000701','15R4363:0017408',20,toni,date(03,06,2019),time(09,14,10)).
+packed_packet(p00086,'13R405:M0003608','13R4184:0030002',20,toni,date(02,06,2019),time(16,59,08)).
+packed_packet(p00087,'13R405:M0003608','13R4184:0030002',20,toni,date(02,06,2019),time(16,59,19)).
+packed_packet(p00088,'17R4618:0012502','17R4618:0012502',20,toni,date(03,06,2019),time(11,26,43)).
+packed_packet(p00089,'16R205:S0001303','16R4537:0014611',20,toni,date(03,06,2019),time(10,31,55)).
+packed_packet(p00090,'14R305:W0001007','14R4186:0026908',20,toni,date(03,06,2019),time(10,17,10)).
+packed_packet(p00091,'14R405:M0001509','14R4313:0027007',20,toni,date(03,06,2019),time(10,25,50)).
+packed_packet(p00092,'14R205:S0000101','14R4314:0027101',20,toni,date(03,06,2019),time(09,59,20)).
+packed_packet(p00093,'14R405:M0001512','14R4315:0027205',20,toni,date(03,06,2019),time(10,27,08)).
+packed_packet(p00094,'11N205:S0031513','11N3490:0023809',20,toni,date(03,06,2019),time(16,55,25)).
+packed_packet(p00095,'15R405:M0001414','15R4365:0019903',20,toni,date(03,06,2019),time(09,37,33)).
+packed_packet(p00096,'17R205:S0003715','17R4548:0011508',20,toni,date(03,06,2019),time(11,53,04)).
+packed_packet(p00097,'18R205:S0001205','18R4675:0015308',20,toni,date(03,06,2019),time(15,28,53)).
+packed_packet(p00098,'18R205:S0001314','18R4678:0015903',20,toni,date(03,06,2019),time(15,33,51)).
+packed_packet(p00099,'12R205:S0008815','12R3270:0014314',20,toni,date(03,06,2019),time(17,18,01)).
+packed_packet(p00100,'12R205:S0009109','12R3270:0014314',20,toni,date(03,06,2019),time(17,15,12)).
+packed_packet(p00101,'18R405:M0004510','18R4679:0016514',20,toni,date(03,06,2019),time(16,24,10)).
+packed_packet(p00102,'18R405:M0004402','18R4680:0016708',20,toni,date(03,06,2019),time(16,21,11)).
+packed_packet(p00103,'15R205:S0002302','15R4403:0015507',20,toni,date(03,06,2019),time(09,10,51)).
+packed_packet(p00104,'15R205:S0002306','15R4403:0015507',20,toni,date(03,06,2019),time(09,12,12)).
+packed_packet(p00105,'15R305:W0002904','15R3654:0016401',20,toni,date(03,06,2019),time(09,16,52)).
+packed_packet(p00106,'15R305:W0002907','15R3654:0016401',20,toni,date(03,06,2019),time(09,18,06)).
+packed_packet(p00107,'15R305:W0002908','15R3654:0016406',20,toni,date(03,06,2019),time(09,19,14)).
+packed_packet(p00108,'17R305:W0003817','17R4569:0018711',20,toni,date(03,06,2019),time(11,57,41)).
+packed_packet(p00109,'17R305:W0005401','17R4569:0018709',20,toni,date(03,06,2019),time(12,02,33)).
+packed_packet(p00110,'17R205:S0003414','17R4522:0019419',20,toni,date(03,06,2019),time(11,43,26)).
+packed_packet(p00111,'16R205:S0002715','16R4519:0012802',20,toni,date(03,06,2019),time(10,33,23)).
+packed_packet(p00112,'17R305:W0003918','17R4566:0019209',20,toni,date(03,06,2019),time(11,59,48)).
+packed_packet(p00113,'17R405:M0004408','17R4566:0019209',20,toni,date(03,06,2019),time(12,13,00)).
+packed_packet(p00114,'17R405:M0004405','17R4566:0019215',20,toni,date(03,06,2019),time(12,11,49)).
+packed_packet(p00115,'13R4057:0013913','13R4057:0013913',20,toni,date(02,06,2019),time(16,43,18)).
+packed_packet(p00116,'16R4460:0003604','16R4460:0003604',20,toni,date(03,06,2019),time(09,42,30)).
+packed_packet(p00117,'15R4335:0006104','15R4335:0006104',20,toni,date(03,06,2019),time(09,02,43)).
+packed_packet(p00118,'15R4336:0006204','15R4336:0006204',20,toni,date(03,06,2019),time(09,04,10)).
+packed_packet(p00119,'14R4197:0015402','14R4197:0015402',20,toni,date(03,06,2019),time(08,47,33)).
+packed_packet(p00120,'14R4198:0015503','14R4198:0015503',20,toni,date(03,06,2019),time(08,49,14)).
+packed_packet(p00121,'16R4460:0003609','16R4460:0003609',20,toni,date(03,06,2019),time(09,43,53)).
+packed_packet(p00122,'18R4700:0022402','18R4700:0022402',20,toni,date(03,06,2019),time(15,17,19)).
+packed_packet(p00123,'15R4337:0006301','15R4337:0006301',20,toni,date(03,06,2019),time(09,06,43)).
+packed_packet(p00124,'16R4463:0003902','16R4463:0003902',20,toni,date(03,06,2019),time(09,47,15)).
+packed_packet(p00125,'16R4464:0004002','16R4464:0004002',20,toni,date(03,06,2019),time(09,48,23)).
+packed_packet(p00126,'12N3890:0004911','12N3890:0004911',20,toni,date(02,06,2019),time(15,52,50)).
+packed_packet(p00127,'18R4699:0022310','18R4699:0022310',20,toni,date(03,06,2019),time(15,05,03)).
+packed_packet(p00128,'13R4059:0014102','13R4059:0014102',20,toni,date(02,06,2019),time(16,44,39)).
+packed_packet(p00129,'18R205:S0001208','18R0704:0020704',20,toni,date(03,06,2019),time(15,31,25)).
+packed_packet(p00130,'17R205:S0003704','17R4625:0015808',20,toni,date(03,06,2019),time(11,51,53)).
+packed_packet(p00131,'18R205:S0001405','18R0703:0028604',20,toni,date(03,06,2019),time(15,39,03)).
+%
+% need to correct tag on seed; male parents were shifted to families 4641 -- 4644, in sequence,
+% to reflect descent from K703xx, Les*-tk1.
+%
+% Kazic, 15.6.2019
+%
+% packed_packet(p00132,'17R305:W0001808','17R4552:0013415',20,toni,date(03,06,2019),time(11,56,14)).
+% packed_packet(p00133,'17R305:W0001702','17R4553:0013505',20,toni,date(03,06,2019),time(11,55,03)).
+% packed_packet(p00134,'17R405:M0002215','17R4554:0013608',20,toni,date(03,06,2019),time(12,07,56)).
+% packed_packet(p00135,'17R405:M0002510','17R4555:0013703',20,toni,date(03,06,2019),time(12,10,37)).
+%
+%
+packed_packet(p00132,'17R305:W0001808','17R4641:0013415',20,toni,date(03,06,2019),time(11,56,14)).
+packed_packet(p00133,'17R305:W0001702','17R4642:0013505',20,toni,date(03,06,2019),time(11,55,03)).
+packed_packet(p00134,'17R405:M0002215','17R4643:0013608',20,toni,date(03,06,2019),time(12,07,56)).
+packed_packet(p00135,'17R405:M0002510','17R4644:0013703',20,toni,date(03,06,2019),time(12,10,37)).
+
+
+packed_packet(p00136,'12N3899:0005901','12N3899:0005901',20,toni,date(02,06,2019),time(15,54,49)).
+packed_packet(p00137,'12N205:S0036411','12N3899:0005903',20,toni,date(03,06,2019),time(17,35,20)).
+packed_packet(p00138,'12R305:W0001416','12R3551:0017902',20,toni,date(03,06,2019),time(17,19,29)).
+packed_packet(p00139,'12R405:M0011112','12R3552:0018003',20,toni,date(03,06,2019),time(17,28,13)).
+packed_packet(p00140,'11N205:S0039107','11N3399:0007703',20,toni,date(03,06,2019),time(16,58,29)).
+packed_packet(p00141,'18R305:W0002106','18R4706:0023205',20,toni,date(03,06,2019),time(16,10,10)).
+packed_packet(p00142,'11N405:M0038409','11N3401:0007903',20,toni,date(03,06,2019),time(17,04,40)).
+packed_packet(p00143,'18R305:W0001801','18R4709:0023802',20,toni,date(03,06,2019),time(15,41,59)).
+packed_packet(p00144,'18R205:S0001402','18R2433:0024102',20,toni,date(03,06,2019),time(15,36,15)).
+packed_packet(p00145,'18R305:W0002010','18R2442:0024204',20,toni,date(03,06,2019),time(15,51,31)).
+packed_packet(p00146,'18R405:M0004202','18R2437:0024304',20,toni,date(03,06,2019),time(16,19,29)).
+packed_packet(p00147,'18R205:S0000210','18R2468:0024406',20,toni,date(03,06,2019),time(15,27,23)).
+packed_packet(p00148,'06N301:W0006009','06N1020:0000909',20,toni,date(03,06,2019),time(16,53,09)).
+packed_packet(p00149,'06N401:M0007003','06N1241:0000903',20,toni,date(03,06,2019),time(16,37,38)).
+packed_packet(p00150,'06N201:S0005606','06N1612:0020507',20,toni,date(03,06,2019),time(16,31,35)).
+packed_packet(p00151,'06N201:S0006501','06N1612:0020508',20,toni,date(03,06,2019),time(16,33,06)).
+packed_packet(p00152,'18R305:W0002004','18R1563:0024812',20,toni,date(03,06,2019),time(15,50,06)).
+packed_packet(p00153,'06N401:M0008804','06N1612:0020505',20,toni,date(03,06,2019),time(16,39,03)).
+packed_packet(p00154,'06N401:M0010303','06N1612:0020512',20,toni,date(03,06,2019),time(16,40,39)).
+packed_packet(p00155,'18R205:S0001508','18R2490:0025003',20,toni,date(03,06,2019),time(15,40,19)).
+packed_packet(p00156,'06N301:W0035901','06N1611:0020404',20,toni,date(03,06,2019),time(16,36,01)).
+packed_packet(p00157,'18R405:M0004502','18R2030:0025205',20,toni,date(03,06,2019),time(16,22,27)).
+packed_packet(p00158,'18R405:M0004011','18R3998:0025405',20,toni,date(03,06,2019),time(16,14,22)).
+packed_packet(p00159,'17R405:M0002111','17R4509:0017712',20,toni,date(03,06,2019),time(12,04,30)).
+packed_packet(p00160,'17R405:M0002111','17R4509:0017712',20,toni,date(03,06,2019),time(12,04,37)).
+packed_packet(p00161,'17R205:S0001204','17R4545:0018105',20,toni,date(03,06,2019),time(11,39,06)).
+packed_packet(p00162,'17R205:S0001208','17R4545:0018105',20,toni,date(03,06,2019),time(11,40,13)).
+packed_packet(p00163,'18R405:M0004611','18R4739:0026008',20,toni,date(03,06,2019),time(16,26,01)).
+packed_packet(p00164,'14R405:M0001412','14R4166:0023701',20,toni,date(03,06,2019),time(10,24,27)).
+packed_packet(p00165,'18R305:W0001905','18R4740:0026108',20,toni,date(03,06,2019),time(15,47,05)).
+packed_packet(p00166,'18R405:M0004111','18R4716:0026206',20,toni,date(03,06,2019),time(16,15,36)).
+packed_packet(p00167,'13R405:M0003613','13R3295:0026801',20,toni,date(02,06,2019),time(17,01,33)).
+packed_packet(p00168,'14R405:M0001610','14R4048:0026106',20,toni,date(03,06,2019),time(10,28,25)).
+packed_packet(p00169,'18R405:M0003611','18R4408:0026810',20,toni,date(03,06,2019),time(16,11,37)).
+packed_packet(p00170,'18R405:M0003611','18R4408:0026810',20,toni,date(03,06,2019),time(16,12,50)).
+packed_packet(p00171,'17R4628:0014005','17R4628:0014005',20,toni,date(03,06,2019),time(11,34,34)).
+packed_packet(p00172,'13R4134:0016701','13R4134:0016701',20,toni,date(02,06,2019),time(16,47,38)).
+packed_packet(p00173,'16R4465:0004112','16R4465:0004112',20,toni,date(03,06,2019),time(09,49,34)).
+packed_packet(p00174,'16R4465:0004113','16R4465:0004113',20,toni,date(03,06,2019),time(09,51,08)).
+packed_packet(p00175,'17R4622:0012610','17R4622:0012610',20,toni,date(03,06,2019),time(11,27,53)).
+packed_packet(p00176,'17R4619:0012702','17R4619:0012702',20,toni,date(03,06,2019),time(11,29,07)).
+packed_packet(p00177,'17R4616:0012904','17R4616:0012904',20,toni,date(03,06,2019),time(11,30,43)).
+packed_packet(p00178,'17R4624:0013104','17R4624:0013104',20,toni,date(03,06,2019),time(11,32,02)).
+packed_packet(p00179,'18R4686:0020801','18R4686:0020801',20,toni,date(03,06,2019),time(13,11,15)).
+packed_packet(p00180,'18R4687:0020904','18R4687:0020904',20,toni,date(03,06,2019),time(15,02,10)).
+packed_packet(p00181,'18R4688:0021002','18R4688:0021002',20,toni,date(03,06,2019),time(15,03,50)).
+packed_packet(p00182,'17R4617:0013208','17R4617:0013208',20,toni,date(03,06,2019),time(11,33,22)).
+packed_packet(p00183,'18R4529:0026502','18R9998:0000000',20,toni,date(03,06,2019),time(15,19,23)).
+packed_packet(p00184,'18R4529:0026502','18R9998:0000000',20,toni,date(03,06,2019),time(15,20,44)).
+packed_packet(p00185,'18R4529:0026505','18R9998:0000000',20,toni,date(03,06,2019),time(15,21,56)).
+packed_packet(p00186,'18R4529:0026506','18R9998:0000000',20,toni,date(03,06,2019),time(15,23,15)).
+packed_packet(p00187,'18R4718:0026613','18R9998:0000000',20,toni,date(03,06,2019),time(15,25,00)).
+packed_packet(p00188,'18R4720:0026910','18R9998:0000000',20,toni,date(03,06,2019),time(15,26,08)).
+packed_packet(p00189,'18R4440:0008106','18R4440:0008113',200,toni,date(03,06,2019),time(12,18,04)).
+packed_packet(p00190,'14R3556:0010704','14R3556:0010712',200,toni,date(02,06,2019),time(17,54,39)).
+packed_packet(p00191,'14R3908:0010817','14R3908:0010815',200,toni,date(02,06,2019),time(18,03,14)).
+packed_packet(p00192,'14R4078:0007506','14R4078:0007502',200,toni,date(02,06,2019),time(17,12,05)).
+packed_packet(p00193,'13R4080:0005013','13R4080:0005014',200,toni,date(02,06,2019),time(15,32,14)).
+packed_packet(p00194,'12N3571:0012506','12N3571:0012503',200,toni,date(02,06,2019),time(15,22,29)).
+packed_packet(p00195,'18R4226:0008302','18R4226:0008302',200,toni,date(03,06,2019),time(12,24,11)).
+packed_packet(p00196,'14R4258:0010910','14R4258:0010901',191,toni,date(02,06,2019),time(18,09,02)).
+packed_packet(p00197,'14R3656:0014813','14R3656:0014806',200,toni,date(03,06,2019),time(08,34,44)).
+packed_packet(p00198,'17R4534:0010401','17R4534:0010403',200,toni,date(03,06,2019),time(11,14,13)).
+packed_packet(p00199,'17R4535:0010602','17R4535:0010604',200,toni,date(03,06,2019),time(11,19,57)).
+packed_packet(p00200,'14R4227:0009216','14R4227:0009211',200,toni,date(02,06,2019),time(17,18,29)).
+packed_packet(p00201,'17R4228:0006410','17R4228:0006415',200,toni,date(03,06,2019),time(10,49,36)).
+packed_packet(p00202,'13R3584:0005703','13R3584:0005713',200,toni,date(02,06,2019),time(15,40,53)).
+packed_packet(p00203,'18R4441:0008718','18R4441:0008717',200,toni,date(03,06,2019),time(12,30,58)).
+packed_packet(p00204,'14R3943:0009802','14R3943:0009801',180,toni,date(02,06,2019),time(17,26,23)).
+packed_packet(p00205,'17R4085:0007117','17R4085:0007109',200,toni,date(03,06,2019),time(11,01,36)).
+packed_packet(p00206,'14R4086:0010103','14R4086:0010116',200,toni,date(02,06,2019),time(17,33,41)).
+packed_packet(p00207,'14R3590:0010203','14R3590:0010209',200,toni,date(02,06,2019),time(17,41,21)).
+packed_packet(p00208,'14R4195:0010317','14R4195:0010306',200,toni,date(02,06,2019),time(17,48,11)).
+packed_packet(p00209,'17R4491:0007606','17R4491:0007611',200,toni,date(03,06,2019),time(11,08,25)).
+packed_packet(p00210,'18R4492:0008807','18R4492:0008816',200,toni,date(03,06,2019),time(12,39,08)).
+packed_packet(p00211,'18R4260:0008904','18R4260:0008917',110,toni,date(03,06,2019),time(12,50,40)).
+packed_packet(p00212,'18R4106:0009003','18R4106:0009017',200,toni,date(03,06,2019),time(12,57,29)).
+packed_packet(p00213,'14R4088:0011403','14R4088:0011401',200,toni,date(02,06,2019),time(18,18,02)).
+packed_packet(p00214,'14R3966:0011502','14R3966:0011503',200,toni,date(02,06,2019),time(18,23,44)).
+packed_packet(p00215,'14R4089:0011608','14R4089:0011616',200,toni,date(02,06,2019),time(18,31,00)).
+packed_packet(p00216,'14R4090:0011701','14R4090:0011711',200,toni,date(02,06,2019),time(18,37,12)).
+packed_packet(p00217,'13R4099:0009105','13R4099:0009112',200,toni,date(02,06,2019),time(15,57,30)).
+packed_packet(p00218,'14R3975:0011905','14R3975:0011906',200,toni,date(02,06,2019),time(18,44,37)).
+packed_packet(p00219,'18R4654:0009701','18R4654:0009710',200,toni,date(03,06,2019),time(13,12,55)).
+packed_packet(p00220,'18R4656:0009904','18R4656:0009907',200,toni,date(03,06,2019),time(13,18,33)).
+packed_packet(p00221,'14R4092:0012209','14R4092:0012205',200,toni,date(02,06,2019),time(18,51,11)).
+packed_packet(p00222,'14R3616:0012308','14R3616:0012311',190,toni,date(02,06,2019),time(19,04,46)).
+packed_packet(p00223,'14R4262:0012501','14R4262:0012509',180,toni,date(02,06,2019),time(19,12,38)).
+packed_packet(p00224,'14R4263:0012811','14R4263:0012810',200,toni,date(02,06,2019),time(19,22,09)).
+packed_packet(p00225,'14R4000:0012904','14R4000:0012902',200,toni,date(02,06,2019),time(19,27,55)).
+packed_packet(p00226,'14R4095:0013103','14R4095:0013111',200,toni,date(02,06,2019),time(19,33,47)).
+packed_packet(p00227,'14R4098:0013815','14R4098:0013801',200,toni,date(02,06,2019),time(19,40,59)).
+packed_packet(p00228,'13R4099:0009105','13R4099:0009112',75,toni,date(02,06,2019),time(16,12,57)).
+packed_packet(p00229,'14R4023:0014003','14R4023:0014009',200,toni,date(02,06,2019),time(19,46,58)).
+packed_packet(p00230,'13R4100:0009411','13R4100:0009414',200,toni,date(02,06,2019),time(16,18,04)).
+packed_packet(p00231,'14R3647:0014302','14R3647:0014316',200,toni,date(02,06,2019),time(19,53,40)).
+packed_packet(p00232,'14R4036:0014401','14R4036:0014408',200,toni,date(03,06,2019),time(08,18,16)).
+packed_packet(p00233,'14R4038:0014703','14R4038:0014713',200,toni,date(03,06,2019),time(08,28,27)).
+packed_packet(p00234,'14R4269:0015001','14R4269:0015007',200,toni,date(03,06,2019),time(08,40,29)).
+packed_packet(p00235,'13R4102:0010102','13R4102:0010107',200,toni,date(02,06,2019),time(16,26,21)).
+packed_packet(p00236,'18R4440:0008106','18R4440:0008113',46,toni,date(03,06,2019),time(12,18,11)).
+packed_packet(p00237,'14R3556:0010704','14R3556:0010712',50,toni,date(02,06,2019),time(17,54,52)).
+packed_packet(p00238,'14R3908:0010817','14R3908:0010815',50,toni,date(02,06,2019),time(18,03,24)).
+packed_packet(p00239,'14R4078:0007506','14R4078:0007502',50,toni,date(02,06,2019),time(17,12,14)).
+packed_packet(p00240,'13R4080:0005013','13R4080:0005014',50,toni,date(02,06,2019),time(15,32,24)).
+packed_packet(p00241,'12N3571:0012506','12N3571:0012503',50,toni,date(02,06,2019),time(15,23,03)).
+packed_packet(p00242,'18R4226:0008302','18R4226:0008302',50,toni,date(03,06,2019),time(12,24,20)).
+packed_packet(p00243,'14R4258:0010910','14R4258:0010901',50,toni,date(02,06,2019),time(18,09,12)).
+packed_packet(p00244,'14R3656:0014813','14R3656:0014806',50,toni,date(03,06,2019),time(08,34,54)).
+packed_packet(p00245,'17R4534:0010401','17R4534:0010403',50,toni,date(03,06,2019),time(11,14,21)).
+packed_packet(p00246,'17R4535:0010602','17R4535:0010604',50,toni,date(03,06,2019),time(11,20,05)).
+packed_packet(p00247,'14R4227:0009216','14R4227:0009211',50,toni,date(02,06,2019),time(17,18,40)).
+packed_packet(p00248,'17R4228:0006410','17R4228:0006415',50,toni,date(03,06,2019),time(10,49,44)).
+packed_packet(p00249,'13R3584:0005703','13R3584:0005713',50,toni,date(02,06,2019),time(15,41,02)).
+packed_packet(p00250,'18R4441:0008718','18R4441:0008717',50,toni,date(03,06,2019),time(12,31,09)).
+packed_packet(p00251,'14R3943:0009802','14R3943:0009801',36,toni,date(02,06,2019),time(17,26,35)).
+packed_packet(p00252,'17R4085:0007117','17R4085:0007109',50,toni,date(03,06,2019),time(11,01,43)).
+packed_packet(p00253,'14R4086:0010103','14R4086:0010116',50,toni,date(02,06,2019),time(17,33,51)).
+packed_packet(p00254,'14R3590:0010203','14R3590:0010209',50,toni,date(02,06,2019),time(17,41,31)).
+packed_packet(p00255,'14R4195:0010317','14R4195:0010306',50,toni,date(02,06,2019),time(17,49,04)).
+packed_packet(p00256,'17R4491:0007606','17R4491:0007611',50,toni,date(03,06,2019),time(11,08,32)).
+packed_packet(p00257,'18R4492:0008807','18R4492:0008816',50,toni,date(03,06,2019),time(12,39,16)).
+packed_packet(p00258,'18R4260:0008904','18R4260:0008917',25,toni,date(03,06,2019),time(12,50,46)).
+packed_packet(p00259,'18R4106:0009003','18R4106:0009017',50,toni,date(03,06,2019),time(12,57,36)).
+packed_packet(p00260,'14R4088:0011403','14R4088:0011401',50,toni,date(02,06,2019),time(18,18,10)).
+packed_packet(p00261,'14R3966:0011502','14R3966:0011503',50,toni,date(02,06,2019),time(18,23,52)).
+packed_packet(p00262,'14R4089:0011608','14R4089:0011616',50,toni,date(02,06,2019),time(18,31,16)).
+packed_packet(p00263,'14R4090:0011701','14R4090:0011711',50,toni,date(02,06,2019),time(18,37,23)).
+packed_packet(p00264,'13R4099:0009105','13R4099:0009112',50,toni,date(02,06,2019),time(15,58,15)).
+packed_packet(p00265,'14R3975:0011905','14R3975:0011906',49,toni,date(02,06,2019),time(18,44,50)).
+packed_packet(p00266,'18R4654:0009701','18R4654:0009710',50,toni,date(03,06,2019),time(13,13,03)).
+packed_packet(p00267,'18R4656:0009904','18R4656:0009907',50,toni,date(03,06,2019),time(13,18,40)).
+packed_packet(p00268,'14R4092:0012209','14R4092:0012205',50,toni,date(02,06,2019),time(18,51,21)).
+packed_packet(p00269,'14R3616:0012308','14R3616:0012311',40,toni,date(02,06,2019),time(19,04,56)).
+packed_packet(p00270,'14R4262:0012501','14R4262:0012509',38,toni,date(02,06,2019),time(19,12,49)).
+packed_packet(p00271,'14R4263:0012811','14R4263:0012810',50,toni,date(02,06,2019),time(19,22,33)).
+packed_packet(p00272,'14R4000:0012904','14R4000:0012902',50,toni,date(02,06,2019),time(19,28,04)).
+packed_packet(p00273,'14R4095:0013103','14R4095:0013111',50,toni,date(02,06,2019),time(19,33,54)).
+packed_packet(p00274,'14R4098:0013815','14R4098:0013801',46,toni,date(02,06,2019),time(19,41,10)).
+packed_packet(p00275,'13R4099:0009105','13R4099:0009112',25,toni,date(02,06,2019),time(16,13,12)).
+packed_packet(p00276,'14R4023:0014003','14R4023:0014009',50,toni,date(02,06,2019),time(19,47,12)).
+packed_packet(p00277,'13R4100:0009411','13R4100:0009414',50,toni,date(02,06,2019),time(16,18,16)).
+packed_packet(p00278,'14R3647:0014302','14R3647:0014316',50,toni,date(02,06,2019),time(19,53,48)).
+packed_packet(p00279,'14R4036:0014401','14R4036:0014408',50,toni,date(03,06,2019),time(08,18,24)).
+packed_packet(p00280,'14R4038:0014703','14R4038:0014713',50,toni,date(03,06,2019),time(08,28,36)).
+packed_packet(p00281,'14R4269:0015001','14R4269:0015007',45,toni,date(03,06,2019),time(08,40,38)).
+packed_packet(p00282,'13R4102:0010102','13R4102:0010107',50,toni,date(02,06,2019),time(16,26,29)).
+packed_packet(p00001,'09R201:S0xxxxxx','09R201:S0xxxxxx',20,toni,date(03,06,2019),time(18,30,00)).
+packed_packet(p00001,'09R201:S0xxxxxx','09R201:S0xxxxxx',20,toni,date(03,06,2019),time(18,30,00)).
+packed_packet(p00001,'09R201:S0xxxxxx','09R201:S0xxxxxx',20,toni,date(03,06,2019),time(18,30,00)).
+packed_packet(p00001,'09R201:S0xxxxxx','09R201:S0xxxxxx',20,toni,date(03,06,2019),time(18,30,00)).
+packed_packet(p00002,'09R301:W0xxxxxx','09R301:W0xxxxxx',20,toni,date(03,06,2019),time(18,30,00)).
+packed_packet(p00002,'09R301:W0xxxxxx','09R301:W0xxxxxx',20,toni,date(03,06,2019),time(18,30,00)).
+packed_packet(p00002,'09R301:W0xxxxxx','09R301:W0xxxxxx',20,toni,date(03,06,2019),time(18,30,00)).
+packed_packet(p00003,'09R401:M0xxxxxx','09R401:M0xxxxxx',20,toni,date(03,06,2019),time(18,30,00)).
+packed_packet(p00003,'09R401:M0xxxxxx','09R401:M0xxxxxx',20,toni,date(03,06,2019),time(18,30,00)).
+packed_packet(p00003,'09R401:M0xxxxxx','09R401:M0xxxxxx',20,toni,date(03,06,2019),time(18,30,00)).
+packed_packet(p00003,'09R401:M0xxxxxx','09R401:M0xxxxxx',20,toni,date(03,06,2019),time(18,30,00)).
+packed_packet(p00003,'09R401:M0xxxxxx','09R401:M0xxxxxx',20,toni,date(03,06,2019),time(18,30,00)).
+packed_packet(p00003,'09R401:M0xxxxxx','09R401:M0xxxxxx',20,toni,date(03,06,2019),time(18,30,00)).
+packed_packet(p00004,'13R504:B0xxxxxx','13R504:B0xxxxxx',20,toni,date(03,06,2019),time(18,30,00)).
+packed_packet(p00004,'13R504:B0xxxxxx','13R504:B0xxxxxx',20,toni,date(03,06,2019),time(18,30,00)).
+packed_packet(p00004,'13R504:B0xxxxxx','13R504:B0xxxxxx',20,toni,date(03,06,2019),time(18,30,00)).
+packed_packet(p00004,'13R504:B0xxxxxx','13R504:B0xxxxxx',20,toni,date(03,06,2019),time(18,30,00)).
+packed_packet(p00004,'13R504:B0xxxxxx','13R504:B0xxxxxx',20,toni,date(03,06,2019),time(18,30,00)).
+packed_packet(p00004,'13R504:B0xxxxxx','13R504:B0xxxxxx',20,toni,date(03,06,2019),time(18,30,00)).
+packed_packet(p00004,'13R504:B0xxxxxx','13R504:B0xxxxxx',20,toni,date(03,06,2019),time(18,30,00)).
+packed_packet(p00004,'13R504:B0xxxxxx','13R504:B0xxxxxx',20,toni,date(03,06,2019),time(18,30,00)).
+packed_packet(p00005,'17R891:L0xxxxxx','17R891:L0xxxxxx',30,toni,date(05,06,2019),time(12,00,00)).
+packed_packet(p00005,'17R891:L0xxxxxx','17R891:L0xxxxxx',30,toni,date(05,06,2019),time(12,00,00)).
+packed_packet(p00005,'17R891:L0xxxxxx','17R891:L0xxxxxx',30,toni,date(05,06,2019),time(12,00,00)).
+packed_packet(p00005,'17R891:L0xxxxxx','17R891:L0xxxxxx',30,toni,date(05,06,2019),time(12,00,00)).
+packed_packet(p00005,'17R891:L0xxxxxx','17R891:L0xxxxxx',30,toni,date(05,06,2019),time(12,00,00)).
+packed_packet(p00005,'17R891:L0xxxxxx','17R891:L0xxxxxx',30,toni,date(05,06,2019),time(12,00,00)).
+packed_packet(p00005,'17R891:L0xxxxxx','17R891:L0xxxxxx',30,toni,date(05,06,2019),time(12,00,00)).
+packed_packet(p00005,'17R891:L0xxxxxx','17R891:L0xxxxxx',30,toni,date(05,06,2019),time(12,00,00)).
+packed_packet(p00005,'17R891:L0xxxxxx','17R891:L0xxxxxx',30,toni,date(05,06,2019),time(12,00,00)).
+packed_packet(p00005,'17R891:L0xxxxxx','17R891:L0xxxxxx',30,toni,date(05,06,2019),time(12,00,00)).
+packed_packet(p00005,'17R891:L0xxxxxx','17R891:L0xxxxxx',30,toni,date(05,06,2019),time(12,00,00)).
+packed_packet(p00005,'17R891:L0xxxxxx','17R891:L0xxxxxx',30,toni,date(05,06,2019),time(12,00,00)).
+packed_packet(p00005,'17R891:L0xxxxxx','17R891:L0xxxxxx',30,toni,date(05,06,2019),time(12,00,00)).
+packed_packet(p00005,'17R891:L0xxxxxx','17R891:L0xxxxxx',30,toni,date(05,06,2019),time(12,00,00)).
+packed_packet(p00005,'17R891:L0xxxxxx','17R891:L0xxxxxx',30,toni,date(05,06,2019),time(12,00,00)).
+packed_packet(p00005,'17R891:L0xxxxxx','17R891:L0xxxxxx',30,toni,date(05,06,2019),time(12,00,00)).
+packed_packet(p00005,'17R891:L0xxxxxx','17R891:L0xxxxxx',30,toni,date(05,06,2019),time(12,00,00)).
+packed_packet(p00005,'17R891:L0xxxxxx','17R891:L0xxxxxx',30,toni,date(05,06,2019),time(12,00,00)).
+packed_packet(p00005,'17R891:L0xxxxxx','17R891:L0xxxxxx',30,toni,date(05,06,2019),time(12,00,00)).
+packed_packet(p00005,'17R891:L0xxxxxx','17R891:L0xxxxxx',30,toni,date(05,06,2019),time(12,00,00)).
+packed_packet(p00005,'17R891:L0xxxxxx','17R891:L0xxxxxx',30,toni,date(05,06,2019),time(12,00,00)).
+packed_packet(p00005,'17R891:L0xxxxxx','17R891:L0xxxxxx',30,toni,date(05,06,2019),time(12,00,00)).
+packed_packet(p00005,'17R891:L0xxxxxx','17R891:L0xxxxxx',30,toni,date(05,06,2019),time(12,00,00)).
+packed_packet(p00005,'17R891:L0xxxxxx','17R891:L0xxxxxx',30,toni,date(05,06,2019),time(12,00,00)).
+packed_packet(p00005,'17R891:L0xxxxxx','17R891:L0xxxxxx',30,toni,date(05,06,2019),time(12,00,00)).
+packed_packet(p00005,'17R891:L0xxxxxx','17R891:L0xxxxxx',30,toni,date(05,06,2019),time(12,00,00)).
+packed_packet(p00005,'17R891:L0xxxxxx','17R891:L0xxxxxx',30,toni,date(05,06,2019),time(12,00,00)).
+packed_packet(p00005,'17R891:L0xxxxxx','17R891:L0xxxxxx',30,toni,date(05,06,2019),time(12,00,00)).
+packed_packet(p00005,'17R891:L0xxxxxx','17R891:L0xxxxxx',30,toni,date(05,06,2019),time(12,00,00)).
+packed_packet(p00005,'17R891:L0xxxxxx','17R891:L0xxxxxx',30,toni,date(05,06,2019),time(12,00,00)).
+packed_packet(p00005,'17R891:L0xxxxxx','17R891:L0xxxxxx',30,toni,date(05,06,2019),time(12,00,00)).
+packed_packet(p00005,'17R891:L0xxxxxx','17R891:L0xxxxxx',30,toni,date(05,06,2019),time(12,00,00)).
+packed_packet(p00005,'17R891:L0xxxxxx','17R891:L0xxxxxx',30,toni,date(05,06,2019),time(12,00,00)).
+packed_packet(p00005,'17R891:L0xxxxxx','17R891:L0xxxxxx',30,toni,date(05,06,2019),time(12,00,00)).
+packed_packet(p00005,'17R891:L0xxxxxx','17R891:L0xxxxxx',30,toni,date(05,06,2019),time(12,00,00)).
+packed_packet(p00005,'17R891:L0xxxxxx','17R891:L0xxxxxx',30,toni,date(05,06,2019),time(12,00,00)).
+packed_packet(p00005,'17R891:L0xxxxxx','17R891:L0xxxxxx',30,toni,date(05,06,2019),time(12,00,00)).
+packed_packet(p00005,'17R891:L0xxxxxx','17R891:L0xxxxxx',30,toni,date(05,06,2019),time(12,00,00)).
+packed_packet(p00005,'17R891:L0xxxxxx','17R891:L0xxxxxx',30,toni,date(05,06,2019),time(12,00,00)).
+packed_packet(p00005,'17R891:L0xxxxxx','17R891:L0xxxxxx',30,toni,date(05,06,2019),time(12,00,00)).
+packed_packet(p00005,'17R891:L0xxxxxx','17R891:L0xxxxxx',30,toni,date(05,06,2019),time(12,00,00)).
+%
+% didn't plant these, so I really didn't pack them in the confected data for the Jang planting
+%
+% Kazic, 14.6.2019
+%
+% packed_packet(p00005,'17R891:L0xxxxxx','17R891:L0xxxxxx',30,toni,date(05,06,2019),time(12,00,00)).
+% packed_packet(p00005,'17R891:L0xxxxxx','17R891:L0xxxxxx',30,toni,date(05,06,2019),time(12,00,00)).
+% packed_packet(p00005,'17R891:L0xxxxxx','17R891:L0xxxxxx',30,toni,date(05,06,2019),time(12,00,00)).
+% packed_packet(p00005,'17R891:L0xxxxxx','17R891:L0xxxxxx',30,toni,date(05,06,2019),time(12,00,00)).
+% packed_packet(p00005,'17R891:L0xxxxxx','17R891:L0xxxxxx',30,toni,date(05,06,2019),time(12,00,00)).
+% packed_packet(p00005,'17R891:L0xxxxxx','17R891:L0xxxxxx',30,toni,date(05,06,2019),time(12,00,00)).
+% packed_packet(p00005,'17R891:L0xxxxxx','17R891:L0xxxxxx',30,toni,date(05,06,2019),time(12,00,00)).
+% packed_packet(p00005,'17R891:L0xxxxxx','17R891:L0xxxxxx',30,toni,date(05,06,2019),time(12,00,00)).
+% packed_packet(p00005,'17R891:L0xxxxxx','17R891:L0xxxxxx',30,toni,date(05,06,2019),time(12,00,00)).
+%
+% probably a data transfer error:  identical packet is above, so commented out
+%
+% Kazic, 14.6.2019
+%
+% packed_packet(p00025,'17R405:M0002113','17R4564:0016707',20,toni,date(04,06,2019),time(12,00,00)).
+
+
+
+
+% data added from ../../data../palm/raw_data_from_palms/19r/eta/7.6/packed_packet.csv on Sun Jun  9 07:15:04 CDT 2019
+% by data/data_conversion/convert_packed_packet_data.perl
+% called from data/data_conversion/convert_data.perl
+
+packed_packet(p00001,'09R201:S0xxxxxx','09R201:S0xxxxxx',20,toni,date(07,06,2019),time(15,00,00)).
+packed_packet(p00001,'09R201:S0xxxxxx','09R201:S0xxxxxx',20,toni,date(07,06,2019),time(15,00,00)).
+packed_packet(p00001,'09R201:S0xxxxxx','09R201:S0xxxxxx',20,toni,date(07,06,2019),time(15,00,00)).
+packed_packet(p00001,'09R201:S0xxxxxx','09R201:S0xxxxxx',20,toni,date(07,06,2019),time(15,00,00)).
+packed_packet(p00067,'12N3460:0029708','12N3460:0029706',20,toni,date(07,06,2019),time(15,00,00)).
+packed_packet(p00077,'14R205:S0000405','14R4303:0024904',20,toni,date(07,06,2019),time(15,00,00)).
+packed_packet(p00090,'14R305:W0001007','14R4186:0026908',20,toni,date(07,06,2019),time(15,00,00)).
+packed_packet(p00064,'14R405:M0001808','14R4296:0024014',20,toni,date(07,06,2019),time(15,00,00)).
+packed_packet(p00065,'14R405:M0001808','14R4296:0024014',20,toni,date(07,06,2019),time(15,00,00)).
+packed_packet(p00066,'14R405:M0001808','14R4296:0024014',20,toni,date(07,06,2019),time(15,00,00)).
+packed_packet(p00068,'16R405:M0003312','16R4027:0012203',10,toni,date(07,06,2019),time(15,00,00)).
+
+
+
+% manually added the "packed packet" for the 11 skipped rows
+%
+% Kazic, 14.6.2019
+
+packed_packet(p00000,'06R0000:0000000','06R0000:0000000',0,toni,date(03,06,2019),time(17,00,00)).
+packed_packet(p00000,'06R0000:0000000','06R0000:0000000',0,toni,date(03,06,2019),time(17,00,00)).
+packed_packet(p00000,'06R0000:0000000','06R0000:0000000',0,toni,date(03,06,2019),time(17,00,00)).
+packed_packet(p00000,'06R0000:0000000','06R0000:0000000',0,toni,date(03,06,2019),time(17,00,00)).
+packed_packet(p00000,'06R0000:0000000','06R0000:0000000',0,toni,date(03,06,2019),time(17,00,00)).
+packed_packet(p00000,'06R0000:0000000','06R0000:0000000',0,toni,date(03,06,2019),time(17,00,00)).
+packed_packet(p00000,'06R0000:0000000','06R0000:0000000',0,toni,date(03,06,2019),time(17,00,00)).
+packed_packet(p00000,'06R0000:0000000','06R0000:0000000',0,toni,date(03,06,2019),time(17,00,00)).
+packed_packet(p00000,'06R0000:0000000','06R0000:0000000',0,toni,date(03,06,2019),time(17,00,00)).
+packed_packet(p00000,'06R0000:0000000','06R0000:0000000',0,toni,date(03,06,2019),time(17,00,00)).
+packed_packet(p00000,'06R0000:0000000','06R0000:0000000',0,toni,date(03,06,2019),time(17,00,00)).
+
+
+
+
+% data added from ../../data../palm/raw_data_from_palms/19r/eta/11.9/packed_packet.csv on Tue Sep 17 17:29:08 CDT 2019
+% by data/data_conversion/convert_packed_packet_data.perl
+% called from data/data_conversion/convert_data.perl
+
+packed_packet(p00001,'09R201:S0xxxxxx','09R201:S0xxxxxx',20,toni,date(11,09,2019),time(17,36,08)).
+packed_packet(p00001,'09R201:S0xxxxxx','09R201:S0xxxxxx',20,toni,date(11,09,2019),time(17,36,08)).
+packed_packet(p00001,'09R201:S0xxxxxx','09R201:S0xxxxxx',20,toni,date(11,09,2019),time(17,36,08)).
+packed_packet(p00001,'09R201:S0xxxxxx','09R201:S0xxxxxx',20,toni,date(11,09,2019),time(17,36,08)).
+packed_packet(p00001,'09R201:S0xxxxxx','09R201:S0xxxxxx',20,toni,date(11,09,2019),time(17,36,08)).
+packed_packet(p00001,'09R201:S0xxxxxx','09R201:S0xxxxxx',20,toni,date(11,09,2019),time(17,36,08)).
+packed_packet(p00001,'09R201:S0xxxxxx','09R201:S0xxxxxx',20,toni,date(11,09,2019),time(17,36,08)).
+packed_packet(p00001,'09R201:S0xxxxxx','09R201:S0xxxxxx',20,toni,date(11,09,2019),time(17,36,08)).
+packed_packet(p00001,'09R201:S0xxxxxx','09R201:S0xxxxxx',20,toni,date(11,09,2019),time(17,36,08)).
+packed_packet(p00001,'09R201:S0xxxxxx','09R201:S0xxxxxx',20,toni,date(11,09,2019),time(17,36,08)).
+packed_packet(p00001,'09R201:S0xxxxxx','09R201:S0xxxxxx',15,toni,date(11,09,2019),time(17,42,53)).
+packed_packet(p00001,'09R201:S0xxxxxx','09R201:S0xxxxxx',15,toni,date(11,09,2019),time(17,42,53)).
+packed_packet(p00001,'09R201:S0xxxxxx','09R201:S0xxxxxx',15,toni,date(11,09,2019),time(17,42,53)).
+packed_packet(p00001,'09R201:S0xxxxxx','09R201:S0xxxxxx',15,toni,date(11,09,2019),time(17,42,53)).
+packed_packet(p00001,'09R201:S0xxxxxx','09R201:S0xxxxxx',15,toni,date(11,09,2019),time(17,42,53)).
+packed_packet(p00001,'09R201:S0xxxxxx','09R201:S0xxxxxx',15,toni,date(11,09,2019),time(17,42,53)).
+packed_packet(p00002,'09R301:W0xxxxxx','09R301:W0xxxxxx',20,toni,date(11,09,2019),time(17,52,12)).
+packed_packet(p00002,'09R301:W0xxxxxx','09R301:W0xxxxxx',20,toni,date(11,09,2019),time(17,52,12)).
+packed_packet(p00002,'09R301:W0xxxxxx','09R301:W0xxxxxx',20,toni,date(11,09,2019),time(17,52,12)).
+packed_packet(p00002,'09R301:W0xxxxxx','09R301:W0xxxxxx',20,toni,date(11,09,2019),time(17,52,12)).
+packed_packet(p00002,'09R301:W0xxxxxx','09R301:W0xxxxxx',20,toni,date(11,09,2019),time(17,52,12)).
+packed_packet(p00002,'09R301:W0xxxxxx','09R301:W0xxxxxx',20,toni,date(11,09,2019),time(17,52,12)).
+packed_packet(p00002,'09R301:W0xxxxxx','09R301:W0xxxxxx',20,toni,date(11,09,2019),time(17,52,12)).
+packed_packet(p00002,'09R301:W0xxxxxx','09R301:W0xxxxxx',20,toni,date(11,09,2019),time(17,52,12)).
+packed_packet(p00002,'09R301:W0xxxxxx','09R301:W0xxxxxx',20,toni,date(11,09,2019),time(17,52,12)).
+packed_packet(p00002,'09R301:W0xxxxxx','09R301:W0xxxxxx',20,toni,date(11,09,2019),time(17,52,12)).
+packed_packet(p00002,'09R301:W0xxxxxx','09R301:W0xxxxxx',15,toni,date(11,09,2019),time(17,56,56)).
+packed_packet(p00002,'09R301:W0xxxxxx','09R301:W0xxxxxx',15,toni,date(11,09,2019),time(17,56,56)).
+packed_packet(p00002,'09R301:W0xxxxxx','09R301:W0xxxxxx',15,toni,date(11,09,2019),time(17,56,56)).
+packed_packet(p00002,'09R301:W0xxxxxx','09R301:W0xxxxxx',15,toni,date(11,09,2019),time(17,56,56)).
+packed_packet(p00002,'09R301:W0xxxxxx','09R301:W0xxxxxx',15,toni,date(11,09,2019),time(17,56,56)).
+packed_packet(p00002,'09R301:W0xxxxxx','09R301:W0xxxxxx',15,toni,date(11,09,2019),time(17,56,56)).
+packed_packet(p00003,'09R401:M0xxxxxx','09R401:M0xxxxxx',20,toni,date(11,09,2019),time(18,04,23)).
+packed_packet(p00003,'09R401:M0xxxxxx','09R401:M0xxxxxx',20,toni,date(11,09,2019),time(18,04,23)).
+packed_packet(p00003,'09R401:M0xxxxxx','09R401:M0xxxxxx',20,toni,date(11,09,2019),time(18,04,23)).
+packed_packet(p00003,'09R401:M0xxxxxx','09R401:M0xxxxxx',20,toni,date(11,09,2019),time(18,04,23)).
+packed_packet(p00003,'09R401:M0xxxxxx','09R401:M0xxxxxx',20,toni,date(11,09,2019),time(18,04,23)).
+packed_packet(p00003,'09R401:M0xxxxxx','09R401:M0xxxxxx',20,toni,date(11,09,2019),time(18,04,23)).
+packed_packet(p00003,'09R401:M0xxxxxx','09R401:M0xxxxxx',20,toni,date(11,09,2019),time(18,04,23)).
+packed_packet(p00003,'09R401:M0xxxxxx','09R401:M0xxxxxx',20,toni,date(11,09,2019),time(18,04,23)).
+packed_packet(p00003,'09R401:M0xxxxxx','09R401:M0xxxxxx',20,toni,date(11,09,2019),time(18,04,23)).
+packed_packet(p00003,'09R401:M0xxxxxx','09R401:M0xxxxxx',20,toni,date(11,09,2019),time(18,04,23)).
+packed_packet(p00003,'09R401:M0xxxxxx','09R401:M0xxxxxx',15,toni,date(11,09,2019),time(18,14,14)).
+packed_packet(p00003,'09R401:M0xxxxxx','09R401:M0xxxxxx',15,toni,date(11,09,2019),time(18,14,14)).
+packed_packet(p00003,'09R401:M0xxxxxx','09R401:M0xxxxxx',15,toni,date(11,09,2019),time(18,14,14)).
+packed_packet(p00003,'09R401:M0xxxxxx','09R401:M0xxxxxx',15,toni,date(11,09,2019),time(18,14,14)).
+packed_packet(p00003,'09R401:M0xxxxxx','09R401:M0xxxxxx',15,toni,date(11,09,2019),time(18,14,14)).
+packed_packet(p00003,'09R401:M0xxxxxx','09R401:M0xxxxxx',15,toni,date(11,09,2019),time(18,14,14)).
+packed_packet(p00004,'13R504:B0xxxxxx','13R504:B0xxxxxx',20,toni,date(11,09,2019),time(18,17,24)).
+packed_packet(p00004,'13R504:B0xxxxxx','13R504:B0xxxxxx',20,toni,date(11,09,2019),time(18,17,24)).
+packed_packet(p00004,'13R504:B0xxxxxx','13R504:B0xxxxxx',20,toni,date(11,09,2019),time(18,17,24)).
+packed_packet(p00004,'13R504:B0xxxxxx','13R504:B0xxxxxx',20,toni,date(11,09,2019),time(18,17,24)).
+packed_packet(p00004,'13R504:B0xxxxxx','13R504:B0xxxxxx',20,toni,date(11,09,2019),time(18,17,24)).
+packed_packet(p00004,'13R504:B0xxxxxx','13R504:B0xxxxxx',20,toni,date(11,09,2019),time(18,17,24)).
+packed_packet(p00004,'13R504:B0xxxxxx','13R504:B0xxxxxx',20,toni,date(11,09,2019),time(18,17,24)).
+packed_packet(p00004,'13R504:B0xxxxxx','13R504:B0xxxxxx',20,toni,date(11,09,2019),time(18,17,24)).
+packed_packet(p00004,'13R504:B0xxxxxx','13R504:B0xxxxxx',20,toni,date(11,09,2019),time(18,17,24)).
+packed_packet(p00004,'13R504:B0xxxxxx','13R504:B0xxxxxx',20,toni,date(11,09,2019),time(18,17,24)).
+packed_packet(p00004,'13R504:B0xxxxxx','13R504:B0xxxxxx',15,toni,date(11,09,2019),time(18,29,30)).
+packed_packet(p00004,'13R504:B0xxxxxx','13R504:B0xxxxxx',15,toni,date(11,09,2019),time(18,29,30)).
+packed_packet(p00004,'13R504:B0xxxxxx','13R504:B0xxxxxx',15,toni,date(11,09,2019),time(18,29,30)).
+packed_packet(p00004,'13R504:B0xxxxxx','13R504:B0xxxxxx',15,toni,date(11,09,2019),time(18,29,30)).
+packed_packet(p00004,'13R504:B0xxxxxx','13R504:B0xxxxxx',15,toni,date(11,09,2019),time(18,29,30)).
+packed_packet(p00004,'13R504:B0xxxxxx','13R504:B0xxxxxx',15,toni,date(11,09,2019),time(18,29,30)).
+packed_packet(p00005,'17R891:L0xxxxxx','17R891:L0xxxxxx',20,toni,date(11,09,2019),time(18,34,35)).
+packed_packet(p00005,'17R891:L0xxxxxx','17R891:L0xxxxxx',20,toni,date(11,09,2019),time(18,34,35)).
+packed_packet(p00005,'17R891:L0xxxxxx','17R891:L0xxxxxx',20,toni,date(11,09,2019),time(18,34,35)).
+packed_packet(p00005,'17R891:L0xxxxxx','17R891:L0xxxxxx',20,toni,date(11,09,2019),time(18,34,35)).
+packed_packet(p00005,'17R891:L0xxxxxx','17R891:L0xxxxxx',20,toni,date(11,09,2019),time(18,34,35)).
+packed_packet(p00005,'17R891:L0xxxxxx','17R891:L0xxxxxx',20,toni,date(11,09,2019),time(18,34,35)).
+packed_packet(p00005,'17R891:L0xxxxxx','17R891:L0xxxxxx',20,toni,date(11,09,2019),time(18,34,35)).
+packed_packet(p00005,'17R891:L0xxxxxx','17R891:L0xxxxxx',20,toni,date(11,09,2019),time(18,34,35)).
+packed_packet(p00005,'17R891:L0xxxxxx','17R891:L0xxxxxx',20,toni,date(11,09,2019),time(18,34,35)).
+packed_packet(p00005,'17R891:L0xxxxxx','17R891:L0xxxxxx',20,toni,date(11,09,2019),time(18,34,35)).
+packed_packet(p00005,'17R891:L0xxxxxx','17R891:L0xxxxxx',15,toni,date(11,09,2019),time(18,43,10)).
+packed_packet(p00005,'17R891:L0xxxxxx','17R891:L0xxxxxx',15,toni,date(11,09,2019),time(18,43,10)).
+packed_packet(p00005,'17R891:L0xxxxxx','17R891:L0xxxxxx',15,toni,date(11,09,2019),time(18,43,10)).
+packed_packet(p00005,'17R891:L0xxxxxx','17R891:L0xxxxxx',15,toni,date(11,09,2019),time(18,43,10)).
+packed_packet(p00005,'17R891:L0xxxxxx','17R891:L0xxxxxx',15,toni,date(11,09,2019),time(18,43,10)).
+packed_packet(p00005,'17R891:L0xxxxxx','17R891:L0xxxxxx',15,toni,date(11,09,2019),time(18,43,10)).
+packed_packet(p00000,'06R0000:0000000','06R0000:0000000',0,toni,date(11,09,2019),time(18,34,35)).
+packed_packet(p00000,'06R0000:0000000','06R0000:0000000',0,toni,date(11,09,2019),time(18,34,35)).
+packed_packet(p00000,'06R0000:0000000','06R0000:0000000',0,toni,date(11,09,2019),time(18,34,35)).
+
+
+
+
+% data added from ../../data../palm/raw_data_from_palms/19r/zeta/7.10/packed_packet.csv on Tue Oct  8 05:55:29 CDT 2019
+% by data/data_conversion/convert_packed_packet_data.perl
+% called from data/data_conversion/convert_data.perl
+
+% this is the sweet corn patch Chris planted in field 30, to our north.
+% we used this patch for stand count imaging.  Date approximate.  I don't know the line,
+% but serendipity seemed quite appropriate.  Data confected.
+%
+% Kazic, 8.10.2019
+
+
+packed_packet(p01000,'11R892:E0serend','11R892:E0serend',60,toni,date(01,07,2019),time(12,00,00)).
+packed_packet(p01000,'11R892:E0serend','11R892:E0serend',60,toni,date(01,07,2019),time(12,00,00)).
+packed_packet(p01000,'11R892:E0serend','11R892:E0serend',60,toni,date(01,07,2019),time(12,00,00)).
+packed_packet(p01000,'11R892:E0serend','11R892:E0serend',60,toni,date(01,07,2019),time(12,00,00)).
+packed_packet(p01000,'11R892:E0serend','11R892:E0serend',60,toni,date(01,07,2019),time(12,00,00)).
+packed_packet(p01000,'11R892:E0serend','11R892:E0serend',60,toni,date(01,07,2019),time(12,00,00)).
+
+
+
+
+
+
+
+% 20r
+
+% data added from ../../data../palm/raw_data_from_palms/20r/eta/28.5/packed_packet.csv on Mon Jun  1 15:35:32 CDT 2020
+% by data/data_conversion/convert_packed_packet_data.perl
+% called from data/data_conversion/convert_data.perl
+
+packed_packet(p10010,'11N3473:0021202','11N3473:0021202',20,toni,date(28,05,2020),time(11,41,19)).
+packed_packet(p10011,'11N3512:0028402','11N3512:0028402',20,toni,date(28,05,2020),time(11,43,49)).
+packed_packet(p10012,'11N205:S0030711','11N3120:0029008',20,toni,date(28,05,2020),time(11,46,11)).
+packed_packet(p10013,'11N205:S0037510','11N3083:0021706',20,toni,date(28,05,2020),time(11,52,47)).
+packed_packet(p10014,'11N305:W0031708','11N3120:0029008',20,toni,date(28,05,2020),time(11,55,09)).
+packed_packet(p10015,'11N305:W0035901','11N3485:0023203',20,toni,date(28,05,2020),time(11,56,52)).
+packed_packet(p10016,'11N305:W0039211','11N3488:0023605',20,toni,date(28,05,2020),time(11,58,58)).
+packed_packet(p10018,'11N305:W0040702','11N3140:0029407',20,toni,date(28,05,2020),time(12,01,28)).
+packed_packet(p10019,'11N305:W0040703','11N3083:0021706',20,toni,date(28,05,2020),time(12,02,59)).
+packed_packet(p10020,'11N405:M0031209','11N3120:0029008',20,toni,date(28,05,2020),time(12,04,45)).
+packed_packet(p10021,'11N405:M0031307','11N3172:0021805',20,toni,date(28,05,2020),time(12,06,16)).
+packed_packet(p10022,'11N405:M0032101','11N3060:0023312',20,toni,date(28,05,2020),time(12,07,49)).
+packed_packet(p10023,'11N405:M0037303','11N3489:0023703',20,toni,date(28,05,2020),time(12,09,48)).
+packed_packet(p10024,'11N405:M0037303','11N3489:0023703',20,toni,date(28,05,2020),time(12,09,57)).
+packed_packet(p10025,'12R3533:0015906','12R3533:0015906',20,toni,date(28,05,2020),time(12,12,57)).
+packed_packet(p10026,'12R3540:0016604','12R3540:0016604',20,toni,date(28,05,2020),time(12,19,25)).
+packed_packet(p10027,'12R205:S0002510','12R3297:0031504',20,toni,date(28,05,2020),time(12,21,13)).
+packed_packet(p10028,'12R205:S0002510','12R3297:0031504',20,toni,date(28,05,2020),time(12,23,13)).
+packed_packet(p10029,'12R3775:0048004','12R3775:0048004',20,toni,date(28,05,2020),time(12,24,51)).
+packed_packet(p10030,'12R205:S0003416','12R3532:0015807',20,toni,date(28,05,2020),time(12,26,38)).
+packed_packet(p10031,'12R205:S0003416','12R3532:0015807',20,toni,date(28,05,2020),time(12,26,47)).
+packed_packet(p10032,'12R205:S0011208','12R3321:0037407',20,toni,date(28,05,2020),time(12,29,22)).
+packed_packet(p10033,'12R205:S0011213','12R3062:0037114',20,toni,date(28,05,2020),time(12,30,54)).
+packed_packet(p10035,'12R305:W0004107','12R3717:0039306',20,toni,date(28,05,2020),time(12,33,27)).
+packed_packet(p10036,'12R305:W0009201','12R3665:0033103',20,toni,date(28,05,2020),time(12,35,03)).
+packed_packet(p10037,'12R305:W0011013','12R3703:0037208',20,toni,date(28,05,2020),time(12,37,16)).
+packed_packet(p10038,'12R405:M0009304','12R3323:0037602',20,toni,date(28,05,2020),time(12,38,58)).
+packed_packet(p10040,'12N3890:0004911','12N3890:0004911',20,toni,date(28,05,2020),time(12,47,24)).
+packed_packet(p10041,'12N3891:0005011','12N3891:0005011',20,toni,date(28,05,2020),time(12,49,20)).
+packed_packet(p10042,'12N3891:0005011','12N3891:0005011',20,toni,date(28,05,2020),time(12,49,29)).
+packed_packet(p10043,'12N3460:0029708','12N3460:0029706',20,toni,date(28,05,2020),time(12,52,30)).
+packed_packet(p10044,'12N3460:0029708','12N3460:0029706',20,toni,date(28,05,2020),time(12,52,38)).
+packed_packet(p10045,'12N205:S0037903','12N4019:0028805',20,toni,date(28,05,2020),time(12,56,24)).
+packed_packet(p10046,'12N205:S0037903','12N4019:0028805',20,toni,date(28,05,2020),time(12,56,33)).
+packed_packet(p10047,'12N205:S0038201','12N4019:0028812',20,toni,date(28,05,2020),time(12,59,17)).
+packed_packet(p10048,'12N205:S0038201','12N4019:0028812',20,toni,date(28,05,2020),time(12,59,27)).
+packed_packet(p10049,'12N405:M0039608','12N4037:0031503',20,toni,date(28,05,2020),time(13,03,29)).
+packed_packet(p10050,'12N405:M0039608','12N4037:0031503',20,toni,date(28,05,2020),time(13,03,39)).
+packed_packet(p10051,'13R205:S0002205','13R4082:0005502',20,toni,date(28,05,2020),time(13,48,46)).
+packed_packet(p10052,'13R205:S0003402','13R4167:0026602',20,toni,date(28,05,2020),time(13,50,10)).
+packed_packet(p10053,'13R205:S0003402','13R4167:0026602',20,toni,date(28,05,2020),time(13,50,19)).
+packed_packet(p10054,'13R305:W0003502','13R4188:0030801',20,toni,date(28,05,2020),time(13,52,27)).
+packed_packet(p10055,'13R405:M0002504','13R4079:0004909',20,toni,date(28,05,2020),time(13,54,25)).
+packed_packet(p10056,'13R405:M0002504','13R4079:0004909',20,toni,date(28,05,2020),time(13,55,47)).
+packed_packet(p10057,'13R405:M0002504','13R4079:0004909',20,toni,date(28,05,2020),time(13,55,55)).
+packed_packet(p10058,'13R405:M0002610','13R4142:0018308',20,toni,date(28,05,2020),time(14,00,01)).
+packed_packet(p10059,'13R405:M0002610','13R4142:0018308',20,toni,date(28,05,2020),time(14,00,09)).
+packed_packet(p10060,'14R4102:0015303','14R4102:0015305',20,toni,date(28,05,2020),time(14,13,37)).
+packed_packet(p10062,'14R4197:0015402','14R4197:0015402',20,toni,date(28,05,2020),time(14,15,48)).
+packed_packet(p10064,'14R4198:0015503','14R4198:0015503',20,toni,date(28,05,2020),time(14,17,41)).
+packed_packet(p10065,'14R4199:0016211','14R4199:0016211',20,toni,date(28,05,2020),time(14,19,24)).
+packed_packet(p10066,'14R205:S0000101','14R4314:0027101',20,toni,date(28,05,2020),time(14,21,51)).
+packed_packet(p10067,'14R205:S0000101','14R4314:0027101',20,toni,date(28,05,2020),time(14,22,01)).
+packed_packet(p10068,'14R205:S0000107','14R4284:0021509',20,toni,date(28,05,2020),time(14,24,13)).
+packed_packet(p10069,'14R205:S0000107','14R4284:0021509',20,toni,date(28,05,2020),time(14,24,22)).
+packed_packet(p10070,'14R205:S0000204','14R4301:0024705',20,toni,date(28,05,2020),time(14,27,19)).
+packed_packet(p10071,'14R205:S0000204','14R4301:0024705',20,toni,date(28,05,2020),time(14,27,50)).
+packed_packet(p10072,'14R205:S0000307','14R4160:0022114',20,toni,date(28,05,2020),time(14,31,19)).
+packed_packet(p10073,'14R205:S0000307','14R4160:0022114',20,toni,date(28,05,2020),time(14,31,28)).
+packed_packet(p10074,'14R205:S0000415','14R4291:0022711',20,toni,date(28,05,2020),time(14,34,48)).
+packed_packet(p10075,'14R205:S0000415','14R4291:0022711',20,toni,date(28,05,2020),time(14,34,57)).
+packed_packet(p10076,'14R305:W0000712','14R4191:0027713',20,toni,date(28,05,2020),time(14,37,18)).
+packed_packet(p10077,'14R305:W0000712','14R4191:0027713',20,toni,date(28,05,2020),time(14,37,27)).
+packed_packet(p10078,'14R305:W0000905','14R4273:0020102',20,toni,date(28,05,2020),time(14,39,34)).
+packed_packet(p10079,'14R305:W0000905','14R4273:0020102',20,toni,date(28,05,2020),time(14,39,44)).
+packed_packet(p10080,'14R305:W0001007','14R4186:0026908',20,toni,date(28,05,2020),time(14,41,44)).
+packed_packet(p10081,'14R405:M0001209','14R4302:0024808',20,toni,date(28,05,2020),time(14,43,52)).
+packed_packet(p10082,'14R405:M0001209','14R4302:0024808',20,toni,date(28,05,2020),time(14,44,03)).
+packed_packet(p10083,'14R405:M0001212','14R4282:0021303',20,toni,date(28,05,2020),time(14,46,18)).
+packed_packet(p10084,'14R405:M0001212','14R4282:0021303',20,toni,date(28,05,2020),time(14,46,27)).
+packed_packet(p10085,'14R405:M0001509','14R4313:0027007',20,toni,date(28,05,2020),time(14,48,49)).
+packed_packet(p10086,'14R405:M0001509','14R4313:0027007',20,toni,date(28,05,2020),time(14,51,17)).
+packed_packet(p10087,'14R405:M0001512','14R4315:0027205',20,toni,date(28,05,2020),time(14,52,38)).
+packed_packet(p10088,'14R405:M0001512','14R4315:0027205',20,toni,date(28,05,2020),time(14,52,46)).
+packed_packet(p10089,'14R405:M0001803','14R4166:0023701',20,toni,date(28,05,2020),time(14,54,49)).
+packed_packet(p10091,'15R4335:0006104','15R4335:0006104',20,toni,date(28,05,2020),time(15,10,48)).
+packed_packet(p10093,'15R4336:0006204','15R4336:0006204',20,toni,date(28,05,2020),time(15,14,33)).
+packed_packet(p10095,'15R4337:0006301','15R4337:0006301',20,toni,date(28,05,2020),time(15,16,29)).
+packed_packet(p10096,'15R4378:0008107','15R4378:0008107',20,toni,date(28,05,2020),time(15,18,38)).
+packed_packet(p10097,'15R4347:0008301','15R4347:0008301',20,toni,date(28,05,2020),time(15,20,50)).
+packed_packet(p10098,'15R4381:0008601','15R4381:0008601',20,toni,date(28,05,2020),time(15,22,29)).
+packed_packet(p10099,'15R4349:0008708','15R4349:0008708',20,toni,date(28,05,2020),time(15,23,42)).
+packed_packet(p10100,'15R4382:0008814','15R4382:0008814',20,toni,date(28,05,2020),time(15,25,14)).
+packed_packet(p10101,'15R4383:0008901','15R4383:0008901',20,toni,date(28,05,2020),time(15,26,59)).
+packed_packet(p10102,'15R205:S0000508','15R4415:0018707',20,toni,date(28,05,2020),time(15,28,44)).
+packed_packet(p10103,'15R205:S0002306','15R4403:0015507',20,toni,date(28,05,2020),time(15,30,50)).
+packed_packet(p10105,'15R305:W0002705','15R4414:0018310',20,toni,date(28,05,2020),time(15,33,45)).
+packed_packet(p10106,'15R305:W0002705','15R4414:0018310',20,toni,date(28,05,2020),time(15,33,54)).
+packed_packet(p10107,'15R305:W0002904','15R3654:0016401',20,toni,date(28,05,2020),time(15,36,38)).
+packed_packet(p10108,'15R305:W0002904','15R3654:0016401',20,toni,date(28,05,2020),time(15,36,46)).
+packed_packet(p10109,'15R405:M0001414','15R4365:0019903',20,toni,date(28,05,2020),time(15,39,13)).
+packed_packet(p10110,'15R405:M0001414','15R4365:0019903',20,toni,date(28,05,2020),time(15,39,22)).
+packed_packet(p10112,'15R405:M0003604','15R0676:0022011',20,toni,date(28,05,2020),time(15,43,20)).
+packed_packet(p10113,'16R4461:0003709','16R4461:0003709',20,toni,date(28,05,2020),time(15,45,55)).
+packed_packet(p10114,'16R4461:0003709','16R4461:0003709',20,toni,date(28,05,2020),time(15,46,11)).
+packed_packet(p10115,'16R4462:0003803','16R4462:0003803',20,toni,date(28,05,2020),time(15,49,08)).
+packed_packet(p10116,'16R4462:0003803','16R4462:0003803',20,toni,date(28,05,2020),time(15,49,16)).
+packed_packet(p10118,'16R4463:0003902','16R4463:0003902',20,toni,date(28,05,2020),time(15,52,06)).
+packed_packet(p10120,'16R4464:0004002','16R4464:0004002',20,toni,date(28,05,2020),time(15,54,16)).
+packed_packet(p10121,'16R4465:0004109','16R4465:0004109',20,toni,date(28,05,2020),time(15,56,20)).
+packed_packet(p10123,'16R205:S0001303','16R4537:0014611',20,toni,date(28,05,2020),time(16,05,32)).
+packed_packet(p10124,'16R205:S0001310','16R4534:0014307',20,toni,date(28,05,2020),time(16,07,11)).
+packed_packet(p10125,'16R205:S0001310','16R4534:0014307',20,toni,date(28,05,2020),time(16,07,20)).
+packed_packet(p10126,'16R305:W0001610','16R4279:0010511',20,toni,date(28,05,2020),time(16,09,57)).
+packed_packet(p10127,'16R305:W0001610','16R4279:0010511',20,toni,date(28,05,2020),time(16,10,05)).
+packed_packet(p10128,'16R405:M0002208','16R4300:0012606',20,toni,date(28,05,2020),time(16,12,44)).
+packed_packet(p10129,'16R405:M0002208','16R4300:0012606',20,toni,date(28,05,2020),time(16,12,51)).
+packed_packet(p10130,'16R405:M0003206','16R4511:0011304',20,toni,date(28,05,2020),time(16,15,23)).
+packed_packet(p10131,'16R405:M0003206','16R4511:0011304',20,toni,date(28,05,2020),time(16,15,30)).
+% packed_packet(p10137,'17R205:S0001102','17R4626:0015704',20,toni,date(28,05,2020),time(16,25,55)).
+packed_packet(p10137,'17R205:S0001102','17R0704:0015704',20,toni,date(28,05,2020),time(16,25,55)).
+packed_packet(p00161,'17R205:S0001204','17R4545:0018105',20,toni,date(28,05,2020),time(16,27,30)).
+packed_packet(p10139,'17R205:S0003704','17R4625:0015808',20,toni,date(28,05,2020),time(16,28,58)).
+% packed_packet(p00133,'17R305:W0001702','17R4553:0013505',20,toni,date(28,05,2020),time(16,30,17)).
+packed_packet(p00133,'17R305:W0001702','17R4642:0013505',20,toni,date(28,05,2020),time(16,30,17)).
+% packed_packet(p10141,'17R305:W0001808','17R4552:0013415',20,toni,date(28,05,2020),time(16,31,33)).
+packed_packet(p10141,'17R305:W0001808','17R4641:0013415',20,toni,date(28,05,2020),time(16,31,33)).
+packed_packet(p10142,'17R305:W0003805','17R4567:0019510',20,toni,date(28,05,2020),time(16,33,23)).
+packed_packet(p10143,'17R305:W0003805','17R4567:0019510',20,toni,date(28,05,2020),time(16,33,30)).
+packed_packet(p10144,'17R305:W0004012','17R4548:0011508',20,toni,date(28,05,2020),time(16,35,27)).
+packed_packet(p10145,'17R405:M0002113','17R4564:0016707',20,toni,date(28,05,2020),time(16,36,56)).
+packed_packet(p10146,'17R405:M0002113','17R4564:0016707',20,toni,date(28,05,2020),time(16,37,04)).
+packed_packet(p10147,'17R405:M0002203','17R4540:0017604',20,toni,date(28,05,2020),time(16,38,51)).
+% packed_packet(p10148,'17R405:M0002215','17R4554:0013608',20,toni,date(28,05,2020),time(16,40,12)).
+packed_packet(p10148,'17R405:M0002215','17R4643:0013608',20,toni,date(28,05,2020),time(16,40,12)).
+% packed_packet(p00135,'17R405:M0002510','17R4555:0013703',20,toni,date(28,05,2020),time(16,41,41)).
+packed_packet(p00135,'17R405:M0002510','17R4644:0013703',20,toni,date(28,05,2020),time(16,41,41)).
+packed_packet(p10150,'17R405:M0004310','17R4524:0019603',20,toni,date(28,05,2020),time(16,43,22)).
+packed_packet(p10151,'17R405:M0004310','17R4524:0019603',20,toni,date(28,05,2020),time(16,43,29)).
+packed_packet(p10152,'17R405:M0004413','17R4518:0018408',20,toni,date(28,05,2020),time(16,46,36)).
+packed_packet(p10153,'17R405:M0004413','17R4518:0018408',20,toni,date(28,05,2020),time(16,46,44)).
+packed_packet(p10154,'17R405:M0004416','17R4570:0019003',20,toni,date(28,05,2020),time(16,49,01)).
+packed_packet(p10155,'17R405:M0004416','17R4570:0019003',20,toni,date(28,05,2020),time(16,49,10)).
+packed_packet(p10156,'17R405:M0004701','17R4509:0017701',20,toni,date(28,05,2020),time(16,51,42)).
+
+
+
+
+% data added from ../../data../palm/raw_data_from_palms/20r/eta/29.5/packed_packet.csv on Mon Jun  1 15:37:47 CDT 2020
+% by data/data_conversion/convert_packed_packet_data.perl
+% called from data/data_conversion/convert_data.perl
+
+packed_packet(p10161,'18R4699:0022310','18R4699:0022310',20,toni,date(29,05,2020),time(10,19,47)).
+packed_packet(p10163,'18R4700:0022402','18R4700:0022402',20,toni,date(29,05,2020),time(10,21,47)).
+packed_packet(p10164,'18R4525:0026402','18R9998:0000000',20,toni,date(29,05,2020),time(10,23,06)).
+packed_packet(p10170,'18R205:S0001206','18R4505:0025311',20,toni,date(29,05,2020),time(10,28,43)).
+packed_packet(p10171,'18R205:S0001206','18R4505:0025311',20,toni,date(29,05,2020),time(10,28,52)).
+% packed_packet(p10172,'18R205:S0001208','18R4685:0020704',20,toni,date(29,05,2020),time(10,30,53)).
+packed_packet(p10172,'18R205:S0001208','18R0704:0020704',20,toni,date(29,05,2020),time(10,30,53)).
+packed_packet(p10173,'18R205:S0001316','18R4469:0029309',20,toni,date(29,05,2020),time(10,32,13)).
+packed_packet(p10175,'18R205:S0001405','18R0703:0028604',20,toni,date(29,05,2020),time(10,33,29)).
+packed_packet(p10176,'18R205:S0001613','18R4745:0027901',20,toni,date(29,05,2020),time(10,34,53)).
+packed_packet(p10182,'18R405:M0004105','18R4745:0027901',20,toni,date(29,05,2020),time(10,36,34)).
+packed_packet(p10184,'18R405:M0004111','18R4716:0026206',20,toni,date(29,05,2020),time(10,37,58)).
+packed_packet(p10187,'19R4753:0002308','19R4753:0002308',20,toni,date(29,05,2020),time(10,50,30)).
+packed_packet(p10188,'19R4753:0002308','19R4753:0002308',20,toni,date(29,05,2020),time(10,50,39)).
+packed_packet(p10189,'19R4754:0002403','19R4754:0002403',20,toni,date(29,05,2020),time(10,52,18)).
+packed_packet(p10190,'19R4755:0002504','19R4755:0002504',20,toni,date(29,05,2020),time(10,53,57)).
+packed_packet(p10191,'19R4756:0002707','19R4756:0002707',20,toni,date(29,05,2020),time(10,55,09)).
+packed_packet(p10192,'19R4756:0002707','19R4756:0002707',20,toni,date(29,05,2020),time(10,56,36)).
+packed_packet(p10193,'19R4758:0002901','19R4758:0002901',20,toni,date(29,05,2020),time(10,57,58)).
+packed_packet(p10194,'19R4759:0003001','19R4759:0003001',20,toni,date(29,05,2020),time(10,59,21)).
+packed_packet(p10195,'19R4760:0003101','19R4760:0003101',20,toni,date(29,05,2020),time(11,00,42)).
+packed_packet(p10196,'19R205:S0000111','19R4781:0016617',20,toni,date(29,05,2020),time(11,14,24)).
+packed_packet(p10197,'19R205:S0000111','19R4781:0016617',20,toni,date(29,05,2020),time(11,14,31)).
+packed_packet(p10198,'19R205:S0000402','19R4774:0012602',20,toni,date(29,05,2020),time(11,16,42)).
+packed_packet(p10199,'19R205:S0000402','19R4774:0012602',20,toni,date(29,05,2020),time(11,16,49)).
+packed_packet(p10200,'19R205:S0000405','19R4774:0012602',20,toni,date(29,05,2020),time(11,20,02)).
+packed_packet(p10201,'19R205:S0000405','19R4774:0012602',20,toni,date(29,05,2020),time(11,20,09)).
+packed_packet(p10202,'19R305:W0000601','19R4782:0017708',20,toni,date(29,05,2020),time(11,22,22)).
+packed_packet(p10203,'19R305:W0000601','19R4782:0017708',20,toni,date(29,05,2020),time(11,22,31)).
+packed_packet(p10204,'19R305:W0000704','19R4772:0018706',20,toni,date(29,05,2020),time(11,29,11)).
+packed_packet(p10205,'19R305:W0000704','19R4772:0018706',20,toni,date(29,05,2020),time(11,29,22)).
+packed_packet(p10206,'19R305:W0000705','19R4719:0016408',20,toni,date(29,05,2020),time(11,31,54)).
+packed_packet(p10207,'19R305:W0000705','19R4719:0016408',20,toni,date(29,05,2020),time(11,32,04)).
+packed_packet(p10208,'19R405:M0001002','19R4783:0018106',20,toni,date(29,05,2020),time(11,34,42)).
+packed_packet(p10209,'19R405:M0001002','19R4783:0018106',20,toni,date(29,05,2020),time(11,34,49)).
+packed_packet(p10210,'19R405:M0001013','19R4776:0014113',20,toni,date(29,05,2020),time(11,37,00)).
+packed_packet(p10211,'19R405:M0001013','19R4776:0014113',20,toni,date(29,05,2020),time(11,37,07)).
+packed_packet(p10212,'19R405:M0001015','19R4776:0014104',20,toni,date(29,05,2020),time(11,39,07)).
+packed_packet(p10213,'19R405:M0001015','19R4776:0014104',20,toni,date(29,05,2020),time(11,39,18)).
+packed_packet(p10132,'17R4618:0012502','17R4618:0012502',20,toni,date(29,05,2020),time(11,51,52)).
+packed_packet(p20001,'11N205:S0030712','11N3484:0023105',20,toni,date(29,05,2020),time(12,29,52)).
+packed_packet(p00001,'09R201:S0xxxxxx','09R201:S0xxxxxx',20,toni,date(29,05,2020),time(12,44,13)).
+packed_packet(p00001,'09R201:S0xxxxxx','09R201:S0xxxxxx',20,toni,date(29,05,2020),time(12,44,13)).
+packed_packet(p00001,'09R201:S0xxxxxx','09R201:S0xxxxxx',20,toni,date(29,05,2020),time(12,44,13)).
+packed_packet(p00001,'09R201:S0xxxxxx','09R201:S0xxxxxx',20,toni,date(29,05,2020),time(12,44,13)).
+packed_packet(p00001,'09R201:S0xxxxxx','09R201:S0xxxxxx',20,toni,date(29,05,2020),time(12,44,13)).
+packed_packet(p00001,'09R201:S0xxxxxx','09R201:S0xxxxxx',20,toni,date(29,05,2020),time(12,44,13)).
+packed_packet(p00001,'09R201:S0xxxxxx','09R201:S0xxxxxx',20,toni,date(29,05,2020),time(12,44,13)).
+packed_packet(p00002,'09R301:W0xxxxxx','09R301:W0xxxxxx',20,toni,date(29,05,2020),time(13,00,45)).
+packed_packet(p00002,'09R301:W0xxxxxx','09R301:W0xxxxxx',20,toni,date(29,05,2020),time(13,00,45)).
+packed_packet(p00002,'09R301:W0xxxxxx','09R301:W0xxxxxx',20,toni,date(29,05,2020),time(13,00,45)).
+packed_packet(p00002,'09R301:W0xxxxxx','09R301:W0xxxxxx',20,toni,date(29,05,2020),time(13,00,45)).
+packed_packet(p00002,'09R301:W0xxxxxx','09R301:W0xxxxxx',20,toni,date(29,05,2020),time(13,00,45)).
+packed_packet(p00002,'09R301:W0xxxxxx','09R301:W0xxxxxx',20,toni,date(29,05,2020),time(13,00,45)).
+packed_packet(p00002,'09R301:W0xxxxxx','09R301:W0xxxxxx',20,toni,date(29,05,2020),time(13,00,45)).
+packed_packet(p00002,'09R301:W0xxxxxx','09R301:W0xxxxxx',20,toni,date(29,05,2020),time(13,00,45)).
+packed_packet(p00002,'09R301:W0xxxxxx','09R301:W0xxxxxx',20,toni,date(29,05,2020),time(13,00,45)).
+packed_packet(p00002,'09R301:W0xxxxxx','09R301:W0xxxxxx',20,toni,date(29,05,2020),time(13,00,45)).
+packed_packet(p00002,'09R301:W0xxxxxx','09R301:W0xxxxxx',20,toni,date(29,05,2020),time(13,01,37)).
+packed_packet(p00003,'09R401:M0xxxxxx','09R401:M0xxxxxx',20,toni,date(29,05,2020),time(13,24,26)).
+packed_packet(p00003,'09R401:M0xxxxxx','09R401:M0xxxxxx',20,toni,date(29,05,2020),time(13,24,26)).
+packed_packet(p00003,'09R401:M0xxxxxx','09R401:M0xxxxxx',20,toni,date(29,05,2020),time(13,24,26)).
+packed_packet(p00003,'09R401:M0xxxxxx','09R401:M0xxxxxx',20,toni,date(29,05,2020),time(13,24,26)).
+packed_packet(p00003,'09R401:M0xxxxxx','09R401:M0xxxxxx',20,toni,date(29,05,2020),time(13,24,26)).
+packed_packet(p00003,'09R401:M0xxxxxx','09R401:M0xxxxxx',20,toni,date(29,05,2020),time(13,24,26)).
+packed_packet(p00003,'09R401:M0xxxxxx','09R401:M0xxxxxx',20,toni,date(29,05,2020),time(13,24,26)).
+packed_packet(p00003,'09R401:M0xxxxxx','09R401:M0xxxxxx',20,toni,date(29,05,2020),time(13,24,26)).
+packed_packet(p00003,'09R401:M0xxxxxx','09R401:M0xxxxxx',20,toni,date(29,05,2020),time(13,24,26)).
+packed_packet(p00003,'09R401:M0xxxxxx','09R401:M0xxxxxx',20,toni,date(29,05,2020),time(13,24,26)).
+packed_packet(p00003,'09R401:M0xxxxxx','09R401:M0xxxxxx',20,toni,date(29,05,2020),time(13,24,26)).
+packed_packet(p00003,'09R401:M0xxxxxx','09R401:M0xxxxxx',20,toni,date(29,05,2020),time(13,24,26)).
+packed_packet(p00003,'09R401:M0xxxxxx','09R401:M0xxxxxx',20,toni,date(29,05,2020),time(13,24,26)).
+packed_packet(p00003,'09R401:M0xxxxxx','09R401:M0xxxxxx',20,toni,date(29,05,2020),time(13,24,26)).
+packed_packet(p00003,'09R401:M0xxxxxx','09R401:M0xxxxxx',20,toni,date(29,05,2020),time(13,24,26)).
+packed_packet(p00003,'09R401:M0xxxxxx','09R401:M0xxxxxx',20,toni,date(29,05,2020),time(13,25,32)).
+packed_packet(p00003,'09R401:M0xxxxxx','09R401:M0xxxxxx',20,toni,date(29,05,2020),time(13,25,32)).
+packed_packet(p00004,'13R504:B0xxxxxx','13R504:B0xxxxxx',20,toni,date(29,05,2020),time(13,46,13)).
+packed_packet(p00004,'13R504:B0xxxxxx','13R504:B0xxxxxx',20,toni,date(29,05,2020),time(13,46,13)).
+packed_packet(p00004,'13R504:B0xxxxxx','13R504:B0xxxxxx',20,toni,date(29,05,2020),time(13,46,13)).
+packed_packet(p00004,'13R504:B0xxxxxx','13R504:B0xxxxxx',20,toni,date(29,05,2020),time(13,46,13)).
+packed_packet(p00004,'13R504:B0xxxxxx','13R504:B0xxxxxx',20,toni,date(29,05,2020),time(13,46,13)).
+packed_packet(p00004,'13R504:B0xxxxxx','13R504:B0xxxxxx',20,toni,date(29,05,2020),time(13,46,13)).
+packed_packet(p00004,'13R504:B0xxxxxx','13R504:B0xxxxxx',20,toni,date(29,05,2020),time(13,46,13)).
+packed_packet(p00004,'13R504:B0xxxxxx','13R504:B0xxxxxx',20,toni,date(29,05,2020),time(13,46,13)).
+packed_packet(p00004,'13R504:B0xxxxxx','13R504:B0xxxxxx',20,toni,date(29,05,2020),time(13,46,13)).
+
+
+% physically packed
+%
+% comment out if demeter confuses this corn with the virtually packed corn below
+%
+% Kazic, 3.6.2020
+
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',20,toni,date(29,05,2020),time(14,00,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',20,toni,date(29,05,2020),time(14,00,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',20,toni,date(29,05,2020),time(14,00,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',20,toni,date(29,05,2020),time(14,00,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',20,toni,date(29,05,2020),time(14,00,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',20,toni,date(29,05,2020),time(14,00,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',20,toni,date(29,05,2020),time(14,00,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',20,toni,date(29,05,2020),time(14,00,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',20,toni,date(29,05,2020),time(14,00,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',20,toni,date(29,05,2020),time(14,00,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',20,toni,date(29,05,2020),time(14,00,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',20,toni,date(29,05,2020),time(14,00,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',20,toni,date(29,05,2020),time(14,00,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',20,toni,date(29,05,2020),time(14,00,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',20,toni,date(29,05,2020),time(14,00,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',20,toni,date(29,05,2020),time(14,00,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',20,toni,date(29,05,2020),time(14,00,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',20,toni,date(29,05,2020),time(14,00,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',20,toni,date(29,05,2020),time(14,00,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',20,toni,date(29,05,2020),time(14,00,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',20,toni,date(29,05,2020),time(14,00,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',20,toni,date(29,05,2020),time(14,00,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',20,toni,date(29,05,2020),time(14,00,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',20,toni,date(29,05,2020),time(14,00,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',20,toni,date(29,05,2020),time(14,00,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',20,toni,date(29,05,2020),time(14,00,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',20,toni,date(29,05,2020),time(14,00,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',20,toni,date(29,05,2020),time(14,00,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',20,toni,date(29,05,2020),time(14,00,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',20,toni,date(29,05,2020),time(14,00,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',20,toni,date(29,05,2020),time(14,00,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',20,toni,date(29,05,2020),time(14,00,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',20,toni,date(29,05,2020),time(14,00,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',20,toni,date(29,05,2020),time(14,00,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',20,toni,date(29,05,2020),time(14,00,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',20,toni,date(29,05,2020),time(14,00,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',20,toni,date(29,05,2020),time(14,00,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',20,toni,date(29,05,2020),time(14,00,00)).
+
+
+
+
+% virtually packed, for planting with the jang
+%
+% Kazic, 3.6.2020
+
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',30,toni,date(03,06,2020),time(09,30,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',30,toni,date(03,06,2020),time(09,30,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',30,toni,date(03,06,2020),time(09,30,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',30,toni,date(03,06,2020),time(09,30,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',30,toni,date(03,06,2020),time(09,30,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',30,toni,date(03,06,2020),time(09,30,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',30,toni,date(03,06,2020),time(09,30,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',30,toni,date(03,06,2020),time(09,30,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',30,toni,date(03,06,2020),time(09,30,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',30,toni,date(03,06,2020),time(09,30,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',30,toni,date(03,06,2020),time(09,30,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',30,toni,date(03,06,2020),time(09,30,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',30,toni,date(03,06,2020),time(09,30,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',30,toni,date(03,06,2020),time(09,30,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',30,toni,date(03,06,2020),time(09,30,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',30,toni,date(03,06,2020),time(09,30,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',30,toni,date(03,06,2020),time(09,30,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',30,toni,date(03,06,2020),time(09,30,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',30,toni,date(03,06,2020),time(09,30,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',30,toni,date(03,06,2020),time(09,30,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',30,toni,date(03,06,2020),time(09,30,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',30,toni,date(03,06,2020),time(09,30,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',30,toni,date(03,06,2020),time(09,30,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',30,toni,date(03,06,2020),time(09,30,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',30,toni,date(03,06,2020),time(09,30,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',30,toni,date(03,06,2020),time(09,30,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',30,toni,date(03,06,2020),time(09,30,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',30,toni,date(03,06,2020),time(09,30,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',30,toni,date(03,06,2020),time(09,30,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',30,toni,date(03,06,2020),time(09,30,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',30,toni,date(03,06,2020),time(09,30,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',30,toni,date(03,06,2020),time(09,30,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',30,toni,date(03,06,2020),time(09,30,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',30,toni,date(03,06,2020),time(09,30,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',30,toni,date(03,06,2020),time(09,30,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',30,toni,date(03,06,2020),time(09,30,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',30,toni,date(03,06,2020),time(09,30,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',30,toni,date(03,06,2020),time(09,30,00)).
+
+
+
+% added manually, because we have the empty packets after the first planting
+%
+% Kazic, 6.6.2020
+
+packed_packet(p10017,'11N305:W0039211','11N3488:0023605',20,toni,date(28,05,2020),time(11,58,58)).
+
+packed_packet(p10214,'19R405:M0001104','19R4776:0014111',20,toni,date(29,05,2020),time(11,39,18)).
+packed_packet(p10215,'19R405:M0001104','19R4776:0014111',20,toni,date(29,05,2020),time(11,39,18)).
+
+packed_packet(p10104,'15R205:S0002302','15R4403:0015507',20,toni,date(28,05,2020),time(15,30,50)).
+
+packed_packet(p10034,'12R205:S0011515','12R3695:0036213',20,toni,date(28,05,2020),time(12,30,54)).
+
+
+
+
+% data added from ../../data../palm/raw_data_from_palms/20r/eta/16.6/packed_packet.csv on Tue Jun 16 21:41:23 CDT 2020
+% by data/data_conversion/convert_packed_packet_data.perl
+% called from data/data_conversion/convert_data.perl
+
+% note all p00005 really free-handed into those rows; not packed
+% p00003 was packed as specified
+%
+% Kazic, 16.6.2020
+
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',30,toni,date(16,06,2020),time(12,00,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',30,toni,date(16,06,2020),time(12,00,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',30,toni,date(16,06,2020),time(12,00,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',30,toni,date(16,06,2020),time(12,00,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',30,toni,date(16,06,2020),time(12,00,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',30,toni,date(16,06,2020),time(12,00,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',30,toni,date(16,06,2020),time(12,00,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',30,toni,date(16,06,2020),time(12,00,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',30,toni,date(16,06,2020),time(12,00,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',30,toni,date(16,06,2020),time(12,00,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',30,toni,date(16,06,2020),time(12,00,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',30,toni,date(16,06,2020),time(12,00,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',30,toni,date(16,06,2020),time(12,00,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',30,toni,date(16,06,2020),time(12,00,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',30,toni,date(16,06,2020),time(12,00,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',30,toni,date(16,06,2020),time(12,00,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',30,toni,date(16,06,2020),time(12,00,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',30,toni,date(16,06,2020),time(12,00,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',30,toni,date(16,06,2020),time(12,00,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',30,toni,date(16,06,2020),time(12,00,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',30,toni,date(16,06,2020),time(12,00,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',30,toni,date(16,06,2020),time(12,00,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',30,toni,date(16,06,2020),time(12,00,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',30,toni,date(16,06,2020),time(12,00,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',30,toni,date(16,06,2020),time(12,00,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',30,toni,date(16,06,2020),time(12,00,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',30,toni,date(16,06,2020),time(12,00,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',30,toni,date(16,06,2020),time(12,00,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',30,toni,date(16,06,2020),time(12,00,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',30,toni,date(16,06,2020),time(12,00,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',30,toni,date(16,06,2020),time(12,00,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',30,toni,date(16,06,2020),time(12,00,00)).
+packed_packet(p00003,'09R401:M0xxxxxx','09R401:M0xxxxxx',20,toni,date(16,06,2020),time(09,11,32)).
+packed_packet(p00003,'09R401:M0xxxxxx','09R401:M0xxxxxx',20,toni,date(16,06,2020),time(09,13,43)).
+packed_packet(p00003,'09R401:M0xxxxxx','09R401:M0xxxxxx',20,toni,date(16,06,2020),time(09,15,43)).
+packed_packet(p00003,'09R401:M0xxxxxx','09R401:M0xxxxxx',20,toni,date(16,06,2020),time(09,18,43)).
+
+
+
+% 21r
+
+
+
+% data added from ../../data../palm/raw_data_from_palms/21r/eta/26.5/packed_packet.csv on Thu Jun  3 06:34:52 CDT 2021
+% by data/data_conversion/convert_packed_packet_data.perl
+% called from data/data_conversion/convert_data.perl
+
+%% packed_packet(p00001,'09R201:S0xxxxxx','09R201:S0xxxxxx',35,toni,date(26,05,2021),time(14,51,22)).
+%% packed_packet(p00002,'09R301:W0xxxxxx','09R301:W0xxxxxx',50,toni,date(26,05,2021),time(14,52,23)).
+%% packed_packet(p00003,'09R401:M0xxxxxx','09R401:M0xxxxxx',75,toni,date(26,05,2021),time(14,58,10)).
+%% packed_packet(p00004,'13R504:B0xxxxxx','13R504:B0xxxxxx',30,toni,date(26,05,2021),time(14,58,12)).
+%% packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',30,toni,date(26,05,2021),time(14,58,14)).
+%% packed_packet(p00010,'14R4198:0015503','14R4198:0015503',60,toni,date(26,05,2021),time(15,30,00)).
+%% packed_packet(p00011,'15R4337:0006301','15R4337:0006301',60,toni,date(26,05,2021),time(15,32,00)).
+%% packed_packet(p00012,'16R4461:0003709','16R4461:0003709',60,toni,date(26,05,2021),time(15,35,00)).
+%% packed_packet(p00013,'16R4463:0003902','16R4463:0003902',60,toni,date(26,05,2021),time(15,37,00)).
+%% packed_packet(p00014,'16R4464:0004001','16R4464:0004001',60,toni,date(26,05,2021),time(15,39,00)).
+%% packed_packet(p00015,'16R4464:0004010','16R4464:0004010',60,toni,date(26,05,2021),time(15,41,00)).
+%% packed_packet(p00016,'19R205:S0000405','19R4774:0012602',60,toni,date(26,05,2021),time(15,06,00)).
+%% packed_packet(p00017,'20R405:M0002107','20R4817:0026103',70,toni,date(26,05,2021),time(15,09,00)).
+%% packed_packet(p00018,'20R405:M0002508','20R4807:0015202',60,toni,date(26,05,2021),time(15,11,00)).
+
+
+
+% seed for the transplants.  I've incremented the packet numbers by 300,
+% since I forgot to reset the packet counter before printing the regular
+% packets for the fields.  So packet numbers won't match the photographs.
+%
+% Kazic, 3.6.2021
+%
+% The inbred packets were labelled p0000{1,2,3,4,5} as usual, but I have
+% incremented the packet ids by 500 since the kernel count is different
+% from the usual 20.  These packet numbers will be reflected in the
+% retrospective planted.pl file for the transplants.
+%
+% Kazic, 21.6.2021
+
+packed_packet(p00501,'09R201:S0xxxxxx','09R201:S0xxxxxx',35,toni,date(26,05,2021),time(14,51,22)).
+packed_packet(p00502,'09R301:W0xxxxxx','09R301:W0xxxxxx',50,toni,date(26,05,2021),time(14,52,23)).
+packed_packet(p00503,'09R401:M0xxxxxx','09R401:M0xxxxxx',75,toni,date(26,05,2021),time(14,58,10)).
+packed_packet(p00504,'13R504:B0xxxxxx','13R504:B0xxxxxx',30,toni,date(26,05,2021),time(14,58,12)).
+packed_packet(p00505,'20R889:L0xxxxxx','20R889:L0xxxxxx',30,toni,date(26,05,2021),time(14,58,14)).
+
+packed_packet(p00310,'14R4198:0015503','14R4198:0015503',60,toni,date(26,05,2021),time(15,30,00)).
+packed_packet(p00311,'15R4337:0006301','15R4337:0006301',60,toni,date(26,05,2021),time(15,32,00)).
+packed_packet(p00312,'16R4461:0003709','16R4461:0003709',60,toni,date(26,05,2021),time(15,35,00)).
+packed_packet(p00313,'16R4463:0003902','16R4463:0003902',60,toni,date(26,05,2021),time(15,37,00)).
+packed_packet(p00314,'16R4464:0004001','16R4464:0004001',60,toni,date(26,05,2021),time(15,39,00)).
+packed_packet(p00315,'16R4464:0004010','16R4464:0004010',60,toni,date(26,05,2021),time(15,41,00)).
+packed_packet(p00316,'19R205:S0000405','19R4774:0012602',60,toni,date(26,05,2021),time(15,06,00)).
+packed_packet(p00317,'20R405:M0002107','20R4817:0026103',70,toni,date(26,05,2021),time(15,09,00)).
+packed_packet(p00318,'20R405:M0002508','20R4807:0015202',60,toni,date(26,05,2021),time(15,11,00)).
+
+
+
+
+
+
+% data added from ../../data../palm/raw_data_from_palms/21r/eta/2.6/packed_packet.csv on Thu Jun  3 06:52:19 CDT 2021
+% by data/data_conversion/convert_packed_packet_data.perl
+% called from data/data_conversion/convert_data.perl
+
+packed_packet(p00001,'09R201:S0xxxxxx','09R201:S0xxxxxx',20,toni,date(02,06,2021),time(18,25,06)).
+packed_packet(p00001,'09R201:S0xxxxxx','09R201:S0xxxxxx',20,toni,date(02,06,2021),time(18,25,06)).
+packed_packet(p00001,'09R201:S0xxxxxx','09R201:S0xxxxxx',20,toni,date(02,06,2021),time(18,25,06)).
+packed_packet(p00001,'09R201:S0xxxxxx','09R201:S0xxxxxx',20,toni,date(02,06,2021),time(18,25,06)).
+packed_packet(p00001,'09R201:S0xxxxxx','09R201:S0xxxxxx',20,toni,date(02,06,2021),time(18,25,06)).
+packed_packet(p00001,'09R201:S0xxxxxx','09R201:S0xxxxxx',20,toni,date(02,06,2021),time(18,25,06)).
+packed_packet(p00002,'09R301:W0xxxxxx','09R301:W0xxxxxx',20,toni,date(02,06,2021),time(18,11,42)).
+packed_packet(p00002,'09R301:W0xxxxxx','09R301:W0xxxxxx',20,toni,date(02,06,2021),time(18,11,42)).
+packed_packet(p00002,'09R301:W0xxxxxx','09R301:W0xxxxxx',20,toni,date(02,06,2021),time(18,11,42)).
+packed_packet(p00002,'09R301:W0xxxxxx','09R301:W0xxxxxx',20,toni,date(02,06,2021),time(18,11,42)).
+packed_packet(p00002,'09R301:W0xxxxxx','09R301:W0xxxxxx',20,toni,date(02,06,2021),time(18,11,42)).
+packed_packet(p00002,'09R301:W0xxxxxx','09R301:W0xxxxxx',20,toni,date(02,06,2021),time(18,11,42)).
+packed_packet(p00002,'09R301:W0xxxxxx','09R301:W0xxxxxx',20,toni,date(02,06,2021),time(18,11,42)).
+packed_packet(p00003,'09R401:M0xxxxxx','09R401:M0xxxxxx',20,toni,date(02,06,2021),time(18,34,46)).
+packed_packet(p00003,'09R401:M0xxxxxx','09R401:M0xxxxxx',20,toni,date(02,06,2021),time(18,34,46)).
+packed_packet(p00003,'09R401:M0xxxxxx','09R401:M0xxxxxx',20,toni,date(02,06,2021),time(18,34,46)).
+packed_packet(p00003,'09R401:M0xxxxxx','09R401:M0xxxxxx',20,toni,date(02,06,2021),time(18,34,46)).
+packed_packet(p00003,'09R401:M0xxxxxx','09R401:M0xxxxxx',20,toni,date(02,06,2021),time(18,34,46)).
+packed_packet(p00003,'09R401:M0xxxxxx','09R401:M0xxxxxx',20,toni,date(02,06,2021),time(18,34,46)).
+packed_packet(p00003,'09R401:M0xxxxxx','09R401:M0xxxxxx',20,toni,date(02,06,2021),time(18,34,46)).
+packed_packet(p00003,'09R401:M0xxxxxx','09R401:M0xxxxxx',20,toni,date(02,06,2021),time(18,34,46)).
+packed_packet(p00003,'09R401:M0xxxxxx','09R401:M0xxxxxx',20,toni,date(02,06,2021),time(18,34,46)).
+packed_packet(p00004,'13R504:B0xxxxxx','13R504:B0xxxxxx',20,toni,date(02,06,2021),time(18,41,02)).
+packed_packet(p00004,'13R504:B0xxxxxx','13R504:B0xxxxxx',20,toni,date(02,06,2021),time(18,41,02)).
+%
+% I ``packed'' these p00005s simply by relabelling packets from last spring
+% with the new packet labels.  Those packets were stored in the garage at
+% fluctuating room temperature since packing.  However, that seed
+% germinated well in tests, so I don't expect any problems.  The other
+% packets from last year are now back in the cold room.
+%
+% Kazic, 3.6.2021
+%
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',20,toni,date(02,06,2021),time(16,00,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',20,toni,date(02,06,2021),time(16,00,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',20,toni,date(02,06,2021),time(16,00,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',20,toni,date(02,06,2021),time(16,00,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',20,toni,date(02,06,2021),time(16,00,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',20,toni,date(02,06,2021),time(16,00,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',20,toni,date(02,06,2021),time(16,00,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',20,toni,date(02,06,2021),time(16,00,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',20,toni,date(02,06,2021),time(16,00,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',20,toni,date(02,06,2021),time(16,00,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',20,toni,date(02,06,2021),time(16,00,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',20,toni,date(02,06,2021),time(16,00,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',20,toni,date(02,06,2021),time(16,00,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',20,toni,date(02,06,2021),time(16,00,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',20,toni,date(02,06,2021),time(16,00,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',20,toni,date(02,06,2021),time(16,00,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',20,toni,date(02,06,2021),time(16,00,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',20,toni,date(02,06,2021),time(16,00,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',20,toni,date(02,06,2021),time(16,00,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',20,toni,date(02,06,2021),time(16,00,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',20,toni,date(02,06,2021),time(16,00,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',20,toni,date(02,06,2021),time(16,00,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',20,toni,date(02,06,2021),time(16,00,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',20,toni,date(02,06,2021),time(16,00,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',20,toni,date(02,06,2021),time(16,00,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',20,toni,date(02,06,2021),time(16,00,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',20,toni,date(02,06,2021),time(16,00,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',20,toni,date(02,06,2021),time(16,00,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',20,toni,date(02,06,2021),time(16,00,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',20,toni,date(02,06,2021),time(16,00,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',20,toni,date(02,06,2021),time(16,00,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',20,toni,date(02,06,2021),time(16,00,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',20,toni,date(02,06,2021),time(16,00,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',20,toni,date(02,06,2021),time(16,00,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',20,toni,date(02,06,2021),time(16,00,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',20,toni,date(02,06,2021),time(16,00,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',20,toni,date(02,06,2021),time(16,00,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',20,toni,date(02,06,2021),time(16,00,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',20,toni,date(02,06,2021),time(16,00,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',20,toni,date(02,06,2021),time(16,00,00)).
+packed_packet(p00034,'06N301:W0031407','06N1005:0003607',20,toni,date(02,06,2021),time(18,49,44)).
+packed_packet(p00035,'09R201:S0041415','09R0139:0030205',20,toni,date(02,06,2021),time(18,52,17)).
+packed_packet(p00036,'09R201:S0041415','09R0139:0030205',20,toni,date(02,06,2021),time(18,52,31)).
+packed_packet(p00037,'09R301:W0034708','09R2427:0019109',20,toni,date(02,06,2021),time(18,54,39)).
+packed_packet(p00038,'09R301:W0041307','09R0139:0030205',20,toni,date(02,06,2021),time(18,56,22)).
+packed_packet(p00039,'09R301:W0041307','09R0139:0030205',20,toni,date(02,06,2021),time(18,56,34)).
+packed_packet(p00040,'09R301:W0042810','09R2427:0019103',20,toni,date(02,06,2021),time(18,59,30)).
+packed_packet(p00041,'10R305:W0001502','10R1035:0021906',20,toni,date(02,06,2021),time(19,11,42)).
+packed_packet(p00042,'10R305:W0001511','10R1035:0021903',20,toni,date(02,06,2021),time(19,13,19)).
+packed_packet(p00043,'11N205:S0031513','11N3490:0023809',20,toni,date(02,06,2021),time(19,15,37)).
+packed_packet(p00044,'11N205:S0031513','11N3490:0023809',20,toni,date(02,06,2021),time(19,16,00)).
+packed_packet(p00045,'11N205:S0031905','11N1631:0008603',20,toni,date(02,06,2021),time(19,17,53)).
+packed_packet(p00046,'11N305:W0030810','11N3192:0013803',20,toni,date(02,06,2021),time(19,20,36)).
+packed_packet(p00047,'11N305:W0033501','11N3410:0009409',20,toni,date(02,06,2021),time(19,22,29)).
+packed_packet(p00048,'11N305:W0035901','11N3485:0023203',20,toni,date(02,06,2021),time(19,24,23)).
+packed_packet(p00049,'11N305:W0039501','11N3192:0013810',20,toni,date(02,06,2021),time(19,28,01)).
+packed_packet(p00050,'11N405:M0032101','11N3060:0023312',20,toni,date(02,06,2021),time(19,29,36)).
+packed_packet(p00051,'11N405:M0038409','11N3401:0007903',20,toni,date(02,06,2021),time(19,32,12)).
+packed_packet(p00052,'12R205:S0000711','12R3613:0026606',20,toni,date(02,06,2021),time(19,55,48)).
+packed_packet(p00053,'12R205:S0011515','12R3695:0036213',20,toni,date(02,06,2021),time(19,57,33)).
+packed_packet(p00054,'12R305:W0002601','12R3644:0030415',20,toni,date(02,06,2021),time(19,59,11)).
+packed_packet(p00055,'12R305:W0011013','12R3703:0037208',20,toni,date(02,06,2021),time(20,00,34)).
+packed_packet(p00056,'12N305:W0039207','12N3614:0024110',20,toni,date(02,06,2021),time(20,02,24)).
+packed_packet(p00057,'12N305:W0042004','12N3577:0013705',20,toni,date(02,06,2021),time(20,04,09)).
+packed_packet(p00058,'13R305:W0000803','13R3974:0021303',20,toni,date(02,06,2021),time(20,06,08)).
+packed_packet(p00062,'14R305:W0000712','14R4191:0027713',20,toni,date(02,06,2021),time(20,08,18)).
+packed_packet(p00063,'14R305:W0000712','14R4191:0027713',20,toni,date(02,06,2021),time(20,08,31)).
+packed_packet(p00064,'14R305:W0000905','14R4273:0020102',20,toni,date(02,06,2021),time(20,10,47)).
+packed_packet(p00065,'14R305:W0000905','14R4273:0020102',20,toni,date(02,06,2021),time(19,42,54)).
+packed_packet(p00066,'14R405:M0001209','14R4302:0024808',20,toni,date(02,06,2021),time(19,44,34)).
+packed_packet(p00067,'14R405:M0001209','14R4302:0024808',20,toni,date(02,06,2021),time(19,44,49)).
+packed_packet(p00068,'14R405:M0001302','14R4251:0018805',20,toni,date(02,06,2021),time(19,47,00)).
+packed_packet(p00069,'14R405:M0001509','14R4313:0027007',20,toni,date(02,06,2021),time(19,49,14)).
+packed_packet(p00070,'20R889:L0xxxxxx','20R889:L0xxxxxx',20,toni,date(02,06,2021),time(20,22,14)).
+packed_packet(p00071,'14R405:M0001510','14R4313:0027007',20,toni,date(02,06,2021),time(19,51,13)).
+packed_packet(p00072,'14R405:M0001510','14R4313:0027007',20,toni,date(02,06,2021),time(19,51,28)).
+packed_packet(p00073,'14R405:M0001515','14R4251:0018809',20,toni,date(02,06,2021),time(19,53,47)).
+packed_packet(p00074,'14R405:M0001815','14R4313:0027007',20,toni,date(02,06,2021),time(20,25,11)).
+packed_packet(p00075,'14R405:M0001815','14R4313:0027007',20,toni,date(02,06,2021),time(20,25,31)).
+packed_packet(p00079,'15R4378:0008107','15R4378:0008107',20,toni,date(02,06,2021),time(20,30,05)).
+packed_packet(p00080,'15R4380:0008511','15R4380:0008511',20,toni,date(02,06,2021),time(20,32,12)).
+packed_packet(p00081,'15R4380:0008511','15R4380:0008511',20,toni,date(02,06,2021),time(20,32,27)).
+packed_packet(p00082,'15R405:M0001414','15R4365:0019903',20,toni,date(02,06,2021),time(20,35,07)).
+packed_packet(p00083,'15R405:M0001414','15R4365:0019903',20,toni,date(02,06,2021),time(20,36,32)).
+packed_packet(p00096,'16R205:S0002715','16R4519:0012802',20,toni,date(02,06,2021),time(20,38,19)).
+packed_packet(p00097,'16R305:W0001610','16R4279:0010511',20,toni,date(02,06,2021),time(20,40,07)).
+packed_packet(p00098,'16R305:W0001610','16R4279:0010511',20,toni,date(02,06,2021),time(20,40,18)).
+packed_packet(p00099,'16R305:W0002915','16R4279:0010511',20,toni,date(02,06,2021),time(20,42,56)).
+packed_packet(p00100,'16R305:W0002915','16R4279:0010511',20,toni,date(02,06,2021),time(20,43,08)).
+packed_packet(p00101,'17R305:W0002003','17R4557:0016502',20,toni,date(02,06,2021),time(20,46,17)).
+packed_packet(p00102,'17R305:W0003805','17R4567:0019510',20,toni,date(02,06,2021),time(20,48,18)).
+packed_packet(p00103,'17R405:M0004310','17R4524:0019603',20,toni,date(02,06,2021),time(21,00,24)).
+packed_packet(p00104,'18R4686:0020801','18R4686:0020801',20,toni,date(02,06,2021),time(21,02,38)).
+packed_packet(p00105,'18R4687:0020909','18R4687:0020909',20,toni,date(02,06,2021),time(21,04,23)).
+packed_packet(p00106,'18R4688:0021002','18R4688:0021002',20,toni,date(02,06,2021),time(21,05,41)).
+packed_packet(p00107,'18R4689:0021208','18R4689:0021208',20,toni,date(02,06,2021),time(21,07,12)).
+packed_packet(p00108,'19R4754:0002403','19R4754:0002403',20,toni,date(02,06,2021),time(21,08,50)).
+packed_packet(p00109,'19R4759:0003001','19R4759:0003001',20,toni,date(02,06,2021),time(21,10,31)).
+packed_packet(p00110,'19R205:S0000111','19R4781:0016617',20,toni,date(02,06,2021),time(21,12,39)).
+packed_packet(p00111,'19R205:S0000207','19R4674:0012416',20,toni,date(02,06,2021),time(21,14,57)).
+packed_packet(p00115,'19R305:W0000601','19R4782:0017708',20,toni,date(02,06,2021),time(21,16,34)).
+packed_packet(p00116,'20R4788:0005601','20R4788:0005601',20,toni,date(02,06,2021),time(21,18,27)).
+packed_packet(p00117,'20R4791:0006102','20R4791:0006102',20,toni,date(02,06,2021),time(21,20,03)).
+packed_packet(p00118,'20R205:S0000102','20R4043:0016007',20,toni,date(02,06,2021),time(21,24,05)).
+packed_packet(p00119,'20R205:S0000102','20R4043:0016007',20,toni,date(02,06,2021),time(21,24,20)).
+packed_packet(p00120,'20R205:S0000109','20R4729:0030703',20,toni,date(02,06,2021),time(21,27,32)).
+packed_packet(p00121,'20R205:S0000209','20R4814:0025806',20,toni,date(02,06,2021),time(21,31,22)).
+packed_packet(p00122,'20R205:S0000412','20R4827:0028107',20,toni,date(02,06,2021),time(21,41,44)).
+packed_packet(p00123,'20R205:S0000505','20R4665:0008903',20,toni,date(02,06,2021),time(21,43,57)).
+packed_packet(p00124,'20R205:S0000602','20R4838:0030102',20,toni,date(02,06,2021),time(21,46,02)).
+packed_packet(p00125,'20R205:S0004412','20R4849:0031609',20,toni,date(02,06,2021),time(21,47,53)).
+packed_packet(p00126,'20R205:S0004415','20R4835:0029804',20,toni,date(02,06,2021),time(21,49,36)).
+packed_packet(p00127,'20R205:S0004418','20R4847:0031307',20,toni,date(02,06,2021),time(21,50,59)).
+packed_packet(p00128,'20R205:S0004501','20R4190:0028603',20,toni,date(02,06,2021),time(21,52,52)).
+packed_packet(p00129,'20R305:W0001507','20R4815:0025903',20,toni,date(02,06,2021),time(21,55,29)).
+packed_packet(p00130,'20R305:W0001608','20R4732:0031206',20,toni,date(02,06,2021),time(21,57,24)).
+packed_packet(p00131,'20R305:W0001610','20R4822:0027201',20,toni,date(02,06,2021),time(21,59,57)).
+packed_packet(p00132,'20R305:W0004713','20R4855:0032215',20,toni,date(02,06,2021),time(22,02,25)).
+packed_packet(p00133,'20R305:W0004813','20R4850:0031715',20,toni,date(02,06,2021),time(22,04,49)).
+packed_packet(p00134,'20R405:M0002102','20R4816:0026001',20,toni,date(02,06,2021),time(22,06,34)).
+packed_packet(p00135,'20R405:M0002107','20R4817:0026103',20,toni,date(02,06,2021),time(22,09,03)).
+packed_packet(p00142,'20R405:M0002202','20R4806:0014404',20,toni,date(02,06,2021),time(22,13,25)).
+packed_packet(p00143,'20R405:M0002205','20R4818:0026307',20,toni,date(02,06,2021),time(22,15,21)).
+packed_packet(p00144,'20R405:M0002211','20R4823:0027403',20,toni,date(02,06,2021),time(22,17,30)).
+packed_packet(p00145,'20R405:M0002403','20R3700:0028208',20,toni,date(02,06,2021),time(22,21,22)).
+packed_packet(p00146,'20R405:M0002403','20R3700:0028208',20,toni,date(02,06,2021),time(22,22,34)).
+packed_packet(p00150,'20R405:M0002508','20R4807:0015202',20,toni,date(02,06,2021),time(22,24,40)).
+packed_packet(p00151,'20R405:M0004903','20R4736:0023403',20,toni,date(02,06,2021),time(22,26,57)).
+packed_packet(p00152,'20R405:M0005005','20R4837:0030003',20,toni,date(02,06,2021),time(22,28,14)).
+packed_packet(p00153,'20R405:M0005009','20R4810:0017701',20,toni,date(02,06,2021),time(22,30,26)).
+
+
+% faked data for the fun corn.  This was planted directly from the vendors' packets.
+%
+% Note packet in row 170 had less than 20 k, but don't know how many.
+%
+% Kazic, 21.6.2021
+
+
+% dakota black
+%
+packed_packet(p00400,'21R985:P0dakbla','21R985:P0dakbla',20,dewi,date(11,06,2021),time(08,00,00)).
+packed_packet(p00400,'21R985:P0dakbla','21R985:P0dakbla',20,dewi,date(11,06,2021),time(08,00,00)).
+packed_packet(p00400,'21R985:P0dakbla','21R985:P0dakbla',20,dewi,date(11,06,2021),time(08,00,00)).
+packed_packet(p00400,'21R985:P0dakbla','21R985:P0dakbla',20,dewi,date(11,06,2021),time(08,00,00)).
+packed_packet(p00400,'21R985:P0dakbla','21R985:P0dakbla',20,dewi,date(11,06,2021),time(08,00,00)).
+
+% hooker's indian sweet; row 170 has less than 20
+%
+packed_packet(p00401,'21R887:E0hooker','21R887:E0hooker',20,dewi,date(11,06,2021),time(08,00,00)).
+packed_packet(p00401,'21R887:E0hooker','21R887:E0hooker',20,dewi,date(11,06,2021),time(08,00,00)).
+packed_packet(p00401,'21R887:E0hooker','21R887:E0hooker',20,dewi,date(11,06,2021),time(08,00,00)).
+packed_packet(p00401,'21R887:E0hooker','21R887:E0hooker',20,dewi,date(11,06,2021),time(08,00,00)).
+packed_packet(p00401,'21R887:E0hooker','21R887:E0hooker',20,dewi,date(11,06,2021),time(08,00,00)).
+
+% glass gem
+%
+packed_packet(p00402,'21R984:P0glagem','21R984:P0glagem',20,dewi,date(11,06,2021),time(08,00,00)).
+packed_packet(p00402,'21R984:P0glagem','21R984:P0glagem',20,dewi,date(11,06,2021),time(08,00,00)).
+packed_packet(p00402,'21R984:P0glagem','21R984:P0glagem',20,dewi,date(11,06,2021),time(08,00,00)).
+packed_packet(p00402,'21R984:P0glagem','21R984:P0glagem',20,dewi,date(11,06,2021),time(08,00,00)).
+packed_packet(p00402,'21R984:P0glagem','21R984:P0glagem',20,dewi,date(11,06,2021),time(08,00,00)).
+
+% starburst manna; row 180 had 10 k
+%
+packed_packet(p00403,'21R888:E0smanna','21R888:E0smanna',20,dewi,date(11,06,2021),time(08,00,00)).
+packed_packet(p00403,'21R888:E0smanna','21R888:E0smanna',20,dewi,date(11,06,2021),time(08,00,00)).
+packed_packet(p00403,'21R888:E0smanna','21R888:E0smanna',20,dewi,date(11,06,2021),time(08,00,00)).
+packed_packet(p00403,'21R888:E0smanna','21R888:E0smanna',20,dewi,date(11,06,2021),time(08,00,00)).
+packed_packet(p00403,'21R888:E0smanna','21R888:E0smanna',10,dewi,date(11,06,2021),time(08,00,00)).
+
+% painted mountain
+%
+packed_packet(p00404,'21R886:E0ptedmt','21R886:E0ptedmt',20,dewi,date(11,06,2021),time(08,00,00)).
+packed_packet(p00404,'21R886:E0ptedmt','21R886:E0ptedmt',20,dewi,date(11,06,2021),time(08,00,00)).
+packed_packet(p00404,'21R886:E0ptedmt','21R886:E0ptedmt',20,dewi,date(11,06,2021),time(08,00,00)).
+packed_packet(p00404,'21R886:E0ptedmt','21R886:E0ptedmt',20,dewi,date(11,06,2021),time(08,00,00)).
+
+
+
+
+
+% 22r
+
+
+% data added from ../../data../palm/raw_data_from_palms/22r/zeta/22.5/packed_packet.csv on Fri May 27 16:04:08 CDT 2022
+% by data/data_conversion/convert_packed_packet_data.perl
+% called from data/data_conversion/convert_data.perl
+
+packed_packet(p00001,'09R201:S0xxxxxx','09R201:S0xxxxxx',10,dewi,date(22,05,2022),time(14,38,48)).
+packed_packet(p00001,'09R201:S0xxxxxx','09R201:S0xxxxxx',20,dewi,date(22,05,2022),time(14,40,29)).
+packed_packet(p00001,'09R201:S0xxxxxx','09R201:S0xxxxxx',20,dewi,date(22,05,2022),time(14,40,54)).
+packed_packet(p00001,'09R201:S0xxxxxx','09R201:S0xxxxxx',20,dewi,date(22,05,2022),time(14,41,34)).
+packed_packet(p00001,'09R201:S0xxxxxx','09R201:S0xxxxxx',20,dewi,date(22,05,2022),time(14,41,58)).
+packed_packet(p00001,'09R201:S0xxxxxx','09R201:S0xxxxxx',20,dewi,date(22,05,2022),time(14,42,20)).
+packed_packet(p00001,'09R201:S0xxxxxx','09R201:S0xxxxxx',20,dewi,date(22,05,2022),time(14,43,01)).
+packed_packet(p00002,'09R301:W0xxxxxx','09R301:W0xxxxxx',10,dewi,date(22,05,2022),time(14,44,18)).
+packed_packet(p00002,'09R301:W0xxxxxx','09R301:W0xxxxxx',20,dewi,date(22,05,2022),time(14,44,34)).
+packed_packet(p00002,'09R301:W0xxxxxx','09R301:W0xxxxxx',20,dewi,date(22,05,2022),time(14,45,00)).
+packed_packet(p00002,'09R301:W0xxxxxx','09R301:W0xxxxxx',20,dewi,date(22,05,2022),time(14,45,22)).
+packed_packet(p00002,'09R301:W0xxxxxx','09R301:W0xxxxxx',20,dewi,date(22,05,2022),time(14,45,47)).
+packed_packet(p00002,'09R301:W0xxxxxx','09R301:W0xxxxxx',20,dewi,date(22,05,2022),time(14,47,00)).
+packed_packet(p00002,'09R301:W0xxxxxx','09R301:W0xxxxxx',20,dewi,date(22,05,2022),time(14,47,22)).
+packed_packet(p00003,'09R401:M0xxxxxx','09R401:M0xxxxxx',10,dewi,date(22,05,2022),time(14,50,10)).
+packed_packet(p00003,'09R401:M0xxxxxx','09R401:M0xxxxxx',20,dewi,date(22,05,2022),time(14,50,37)).
+packed_packet(p00003,'09R401:M0xxxxxx','09R401:M0xxxxxx',20,dewi,date(22,05,2022),time(14,50,40)).
+packed_packet(p00003,'09R401:M0xxxxxx','09R401:M0xxxxxx',20,dewi,date(22,05,2022),time(14,51,11)).
+packed_packet(p00003,'09R401:M0xxxxxx','09R401:M0xxxxxx',20,dewi,date(22,05,2022),time(14,51,37)).
+packed_packet(p00003,'09R401:M0xxxxxx','09R401:M0xxxxxx',20,dewi,date(22,05,2022),time(14,52,32)).
+packed_packet(p00003,'09R401:M0xxxxxx','09R401:M0xxxxxx',20,dewi,date(22,05,2022),time(14,52,32)).
+packed_packet(p00003,'09R401:M0xxxxxx','09R401:M0xxxxxx',20,dewi,date(22,05,2022),time(14,52,33)).
+packed_packet(p00004,'13R504:B0xxxxxx','13R504:B0xxxxxx',10,dewi,date(22,05,2022),time(14,54,06)).
+packed_packet(p00004,'13R504:B0xxxxxx','13R504:B0xxxxxx',20,dewi,date(22,05,2022),time(14,54,18)).
+packed_packet(p00004,'13R504:B0xxxxxx','13R504:B0xxxxxx',20,dewi,date(22,05,2022),time(14,54,55)).
+packed_packet(p00004,'13R504:B0xxxxxx','13R504:B0xxxxxx',20,dewi,date(22,05,2022),time(14,54,56)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',10,dewi,date(22,05,2022),time(15,04,00)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',20,dewi,date(22,05,2022),time(15,04,08)).
+packed_packet(p00010,'06N301:W0031407','06N1005:0003607',20,dewi,date(22,05,2022),time(15,06,13)).
+packed_packet(p00011,'09R1413:0008005','09R1413:0008005',30,dewi,date(22,05,2022),time(15,11,31)).
+packed_packet(p00012,'09R1413:0008005','09R1413:0008005',30,dewi,date(22,05,2022),time(15,11,46)).
+packed_packet(p00013,'09R1207:0010910','09R1207:0010910',20,dewi,date(22,05,2022),time(15,13,27)).
+packed_packet(p00014,'09R201:S0041415','09R0139:0030205',20,dewi,date(22,05,2022),time(15,17,05)).
+packed_packet(p00015,'09R301:W0042810','09R2427:0019103',20,dewi,date(22,05,2022),time(15,28,11)).
+packed_packet(p00016,'09R401:M0043807','09R0139:0030202',20,dewi,date(22,05,2022),time(15,28,56)).
+packed_packet(p00017,'10R205:S0001412','10R2265:0013305',30,dewi,date(22,05,2022),time(15,30,02)).
+packed_packet(p00018,'10R205:S0001412','10R2265:0013305',30,dewi,date(22,05,2022),time(15,30,48)).
+packed_packet(p00019,'10R305:W0001502','10R1035:0021906',20,dewi,date(22,05,2022),time(15,31,10)).
+packed_packet(p00020,'10R305:W0010501','10R3055:0035206',20,dewi,date(22,05,2022),time(15,32,23)).
+packed_packet(p00021,'11R3079:0005403','11R3079:0005403',20,dewi,date(22,05,2022),time(15,34,41)).
+packed_packet(p00022,'11N3098:0024703','11N3098:0024703',20,dewi,date(22,05,2022),time(15,45,32)).
+packed_packet(p00023,'11N3100:0024909','11N3100:0024909',20,dewi,date(22,05,2022),time(15,46,10)).
+packed_packet(p00024,'11N205:S0031506','11N3086:0021405',20,dewi,date(22,05,2022),time(15,47,14)).
+packed_packet(p00025,'11N305:W0030810','11N3192:0013803',20,dewi,date(22,05,2022),time(15,50,20)).
+packed_packet(p00026,'11N305:W0032605','11N3087:0021503',20,dewi,date(22,05,2022),time(15,50,32)).
+packed_packet(p00027,'11N305:W0039501','11N3192:0013810',20,dewi,date(22,05,2022),time(15,51,06)).
+packed_packet(p00028,'11N405:M0030910','11N3088:0021601',20,dewi,date(22,05,2022),time(15,51,48)).
+packed_packet(p00029,'12R3548:0017604','12R3548:0017604',20,dewi,date(22,05,2022),time(15,52,20)).
+packed_packet(p00030,'12R205:S0002807','12R3591:0023606',20,dewi,date(22,05,2022),time(16,04,55)).
+packed_packet(p00031,'12R205:S0003416','12R3532:0015807',20,dewi,date(22,05,2022),time(16,05,36)).
+packed_packet(p00032,'12R205:S0010608','12R3591:0023604',20,dewi,date(22,05,2022),time(16,06,30)).
+packed_packet(p00033,'12R205:S0011213','12R3062:0037114',30,dewi,date(22,05,2022),time(16,07,15)).
+packed_packet(p00034,'12R205:S0011505','12R3671:0033801',20,dewi,date(22,05,2022),time(16,08,03)).
+packed_packet(p00035,'12R205:S0011505','12R3671:0033801',20,dewi,date(22,05,2022),time(16,08,12)).
+packed_packet(p00036,'12R305:W0011013','12R3703:0037208',20,dewi,date(22,05,2022),time(16,09,12)).
+packed_packet(p00037,'12R305:W0011609','12R3690:0035709',20,dewi,date(22,05,2022),time(16,10,33)).
+packed_packet(p00038,'12R405:M0009304','12R3323:0037602',20,dewi,date(22,05,2022),time(16,12,01)).
+packed_packet(p00039,'12R405:M0009304','12R3323:0037602',20,dewi,date(22,05,2022),time(16,12,12)).
+packed_packet(p00040,'12R405:M0011402','12R3673:0034012',20,dewi,date(22,05,2022),time(16,13,12)).
+packed_packet(p00041,'12R405:M0011402','12R3673:0034012',20,dewi,date(22,05,2022),time(16,13,24)).
+packed_packet(p00042,'12N3890:0004911','12N3890:0004911',30,dewi,date(22,05,2022),time(16,14,31)).
+packed_packet(p00043,'12N3891:0005011','12N3891:0005011',30,dewi,date(22,05,2022),time(16,16,00)).
+packed_packet(p00044,'12N205:S0036112','12N3912:0008310',20,dewi,date(22,05,2022),time(16,16,51)).
+packed_packet(p00045,'12N205:S0036112','12N3912:0008310',20,dewi,date(22,05,2022),time(16,17,04)).
+packed_packet(p00046,'12N205:S0041605','12N4017:0028305',20,dewi,date(22,05,2022),time(16,29,21)).
+packed_packet(p00047,'12N205:S0041605','12N4017:0028305',20,dewi,date(22,05,2022),time(16,29,46)).
+packed_packet(p00048,'12N405:M0039608','12N4037:0031503',20,dewi,date(22,05,2022),time(16,30,48)).
+packed_packet(p00049,'12N405:M0039608','12N4037:0031503',20,dewi,date(22,05,2022),time(16,30,59)).
+packed_packet(p00050,'13R4057:0013901','13R4057:0013901',30,dewi,date(22,05,2022),time(16,33,42)).
+packed_packet(p00051,'13R4057:0013901','13R4057:0013901',30,dewi,date(22,05,2022),time(16,33,54)).
+packed_packet(p00052,'13R4059:0014102','13R4059:0014102',30,dewi,date(22,05,2022),time(16,35,12)).
+packed_packet(p00053,'13R305:W0000803','13R3974:0021303',20,dewi,date(22,05,2022),time(16,35,52)).
+packed_packet(p00054,'13R405:M0002101','13R4150:0019405',20,dewi,date(22,05,2022),time(16,37,25)).
+packed_packet(p00055,'13R405:M0002101','13R4150:0019405',20,dewi,date(22,05,2022),time(16,37,56)).
+packed_packet(p00056,'13R405:M0002504','13R4079:0004909',15,dewi,date(22,05,2022),time(16,38,39)).
+packed_packet(p00057,'13R405:M0002504','13R4079:0004909',15,dewi,date(22,05,2022),time(16,38,50)).
+packed_packet(p00058,'13R405:M0002610','13R4142:0018308',20,dewi,date(22,05,2022),time(16,41,50)).
+packed_packet(p00059,'13R405:M0003608','13R4184:0030002',20,dewi,date(22,05,2022),time(16,45,29)).
+packed_packet(p00060,'13R405:M0003608','13R4184:0030002',20,dewi,date(22,05,2022),time(16,45,47)).
+packed_packet(p00061,'13R405:M0032901','13R4010:0025802',10,dewi,date(22,05,2022),time(16,47,10)).
+packed_packet(p00062,'13R405:M0032901','13R4010:0025802',10,dewi,date(22,05,2022),time(16,47,21)).
+packed_packet(p00063,'14R4200:0016304','14R4200:0016304',20,dewi,date(22,05,2022),time(17,03,03)).
+packed_packet(p00064,'14R4201:0016405','14R4201:0016405',20,dewi,date(22,05,2022),time(17,03,39)).
+packed_packet(p00065,'14R305:W0000712','14R4191:0027713',20,dewi,date(22,05,2022),time(17,07,11)).
+packed_packet(p00066,'14R305:W0000712','14R4191:0027713',20,dewi,date(22,05,2022),time(17,07,29)).
+packed_packet(p00067,'14R305:W0000905','14R4273:0020102',20,dewi,date(22,05,2022),time(17,07,48)).
+packed_packet(p00068,'14R305:W0000905','14R4273:0020102',20,dewi,date(22,05,2022),time(17,07,59)).
+packed_packet(p00069,'14R305:W0001006','14R4299:0024502',20,dewi,date(22,05,2022),time(17,10,22)).
+packed_packet(p00070,'14R305:W0001006','14R4299:0024502',20,dewi,date(22,05,2022),time(17,10,36)).
+packed_packet(p00071,'14R405:M0001105','14R4283:0021405',20,dewi,date(22,05,2022),time(17,09,05)).
+packed_packet(p00072,'14R405:M0001105','14R4283:0021405',20,dewi,date(22,05,2022),time(17,13,01)).
+packed_packet(p00073,'14R405:M0001209','14R4302:0024808',7,dewi,date(22,05,2022),time(17,14,57)).
+packed_packet(p00074,'14R405:M0001209','14R4302:0024808',7,dewi,date(22,05,2022),time(17,15,07)).
+packed_packet(p00075,'14R405:M0001806','14R4077:0007406',20,dewi,date(22,05,2022),time(17,15,55)).
+packed_packet(p00076,'14R405:M0001806','14R4077:0007406',20,dewi,date(22,05,2022),time(17,16,05)).
+packed_packet(p00077,'15R4335:0006107','15R4335:0006107',30,dewi,date(22,05,2022),time(17,17,11)).
+packed_packet(p00078,'15R4335:0006107','15R4335:0006107',30,dewi,date(22,05,2022),time(17,17,33)).
+packed_packet(p00079,'15R4335:0006113','15R4335:0006113',30,dewi,date(22,05,2022),time(17,18,15)).
+packed_packet(p00080,'15R4335:0006113','15R4335:0006113',30,dewi,date(22,05,2022),time(17,18,34)).
+packed_packet(p00081,'15R4336:0006204','15R4336:0006204',30,dewi,date(22,05,2022),time(17,20,13)).
+packed_packet(p00082,'15R4336:0006204','15R4336:0006204',30,dewi,date(22,05,2022),time(17,20,23)).
+packed_packet(p00083,'15R4336:0006206','15R4336:0006206',30,dewi,date(22,05,2022),time(17,24,04)).
+packed_packet(p00084,'15R4336:0006206','15R4336:0006206',30,dewi,date(22,05,2022),time(17,24,23)).
+packed_packet(p00085,'15R4337:0006305','15R4337:0006305',30,dewi,date(22,05,2022),time(17,26,09)).
+packed_packet(p00086,'15R4337:0006305','15R4337:0006305',30,dewi,date(22,05,2022),time(17,26,25)).
+packed_packet(p00087,'15R4337:0006312','15R4337:0006312',30,dewi,date(22,05,2022),time(17,27,12)).
+packed_packet(p00088,'15R4337:0006312','15R4337:0006312',30,dewi,date(22,05,2022),time(17,27,23)).
+packed_packet(p00089,'15R4338:0006406','15R4338:0006406',30,dewi,date(22,05,2022),time(17,28,19)).
+packed_packet(p00090,'15R4338:0006411','15R4338:0006411',30,dewi,date(22,05,2022),time(17,28,58)).
+packed_packet(p00091,'15R4338:0006411','15R4338:0006411',30,dewi,date(22,05,2022),time(17,29,08)).
+packed_packet(p00092,'15R4382:0008814','15R4382:0008814',20,dewi,date(22,05,2022),time(17,30,03)).
+packed_packet(p00093,'15R4382:0008814','15R4382:0008814',20,dewi,date(22,05,2022),time(17,31,00)).
+packed_packet(p00094,'15R305:W0002705','15R4414:0018310',20,dewi,date(22,05,2022),time(17,31,43)).
+packed_packet(p00095,'15R405:M0001513','15R4367:0020401',20,dewi,date(22,05,2022),time(17,32,26)).
+packed_packet(p00096,'16R4460:0003604','16R4460:0003604',30,dewi,date(22,05,2022),time(17,33,01)).
+packed_packet(p00097,'16R4461:0003711','16R4461:0003711',30,dewi,date(22,05,2022),time(17,33,25)).
+packed_packet(p00098,'16R4461:0003713','16R4461:0003713',30,dewi,date(22,05,2022),time(17,34,02)).
+packed_packet(p00099,'16R4463:0003902','16R4463:0003902',30,dewi,date(22,05,2022),time(17,34,46)).
+packed_packet(p00100,'16R4463:0003902','16R4463:0003902',30,dewi,date(22,05,2022),time(17,34,57)).
+packed_packet(p00101,'16R4463:0003904','16R4463:0003904',30,dewi,date(22,05,2022),time(17,36,35)).
+packed_packet(p00102,'16R4463:0003904','16R4463:0003904',30,dewi,date(22,05,2022),time(17,36,58)).
+packed_packet(p00103,'16R4463:0003907','16R4463:0003907',30,dewi,date(22,05,2022),time(17,37,32)).
+packed_packet(p00104,'16R4463:0003907','16R4463:0003907',30,dewi,date(22,05,2022),time(17,37,41)).
+packed_packet(p00105,'16R4464:0004001','16R4464:0004001',30,dewi,date(22,05,2022),time(17,39,50)).
+packed_packet(p00106,'16R4464:0004001','16R4464:0004001',30,dewi,date(22,05,2022),time(17,40,00)).
+packed_packet(p00107,'16R4464:0004010','16R4464:0004010',30,dewi,date(22,05,2022),time(17,44,01)).
+packed_packet(p00108,'16R4464:0004010','16R4464:0004010',30,dewi,date(22,05,2022),time(17,44,12)).
+packed_packet(p00109,'16R205:S0002715','16R4519:0012802',30,dewi,date(22,05,2022),time(17,50,49)).
+packed_packet(p00110,'16R205:S0002715','16R4519:0012802',30,dewi,date(22,05,2022),time(17,51,00)).
+packed_packet(p00111,'16R305:W0001414','16R4393:0009904',20,dewi,date(22,05,2022),time(17,51,46)).
+packed_packet(p00112,'16R305:W0001607','16R3607:0010403',20,dewi,date(22,05,2022),time(17,53,00)).
+packed_packet(p00113,'16R305:W0001609','16R3607:0010402',20,dewi,date(22,05,2022),time(17,53,39)).
+packed_packet(p00114,'16R305:W0001610','16R4279:0010511',20,dewi,date(22,05,2022),time(17,54,15)).
+packed_packet(p00115,'16R305:W0001610','16R4279:0010511',20,dewi,date(22,05,2022),time(17,54,28)).
+packed_packet(p00116,'16R305:W0002915','16R4279:0010511',20,dewi,date(22,05,2022),time(17,55,57)).
+packed_packet(p00117,'16R305:W0002915','16R4279:0010511',20,dewi,date(22,05,2022),time(17,56,07)).
+packed_packet(p00118,'16R405:M0002208','16R4300:0012606',20,dewi,date(22,05,2022),time(17,56,52)).
+packed_packet(p00119,'16R405:M0002208','16R4300:0012606',20,dewi,date(22,05,2022),time(17,57,02)).
+packed_packet(p00120,'16R405:M0003112','16R4222:0009405',20,dewi,date(22,05,2022),time(17,57,39)).
+packed_packet(p00121,'16R405:M0003112','16R4222:0009405',20,dewi,date(22,05,2022),time(17,57,49)).
+packed_packet(p00122,'16R405:M0003202','16R4531:0014005',30,dewi,date(22,05,2022),time(17,59,39)).
+packed_packet(p00123,'16R405:M0003206','16R4511:0011304',20,dewi,date(22,05,2022),time(18,00,13)).
+packed_packet(p00124,'16R405:M0003206','16R4511:0011304',20,dewi,date(22,05,2022),time(18,00,34)).
+packed_packet(p00125,'17R205:S0001112','17R4543:0017914',20,dewi,date(22,05,2022),time(18,01,01)).
+packed_packet(p00126,'17R205:S0001112','17R4543:0017914',20,dewi,date(22,05,2022),time(18,01,11)).
+packed_packet(p00127,'17R205:S0001205','17R4562:0016808',20,dewi,date(22,05,2022),time(18,02,03)).
+packed_packet(p00128,'17R205:S0001205','17R4562:0016808',20,dewi,date(22,05,2022),time(18,02,15)).
+packed_packet(p00129,'17R405:M0004310','17R4524:0019603',30,dewi,date(22,05,2022),time(19,31,06)).
+packed_packet(p00130,'17R405:M0004310','17R4524:0019603',30,dewi,date(22,05,2022),time(19,31,21)).
+packed_packet(p00131,'17R405:M0004413','17R4518:0018408',20,dewi,date(22,05,2022),time(19,32,18)).
+packed_packet(p00132,'17R405:M0004413','17R4518:0018408',20,dewi,date(22,05,2022),time(19,32,50)).
+packed_packet(p00133,'18R4686:0020803','18R4686:0020803',20,dewi,date(22,05,2022),time(19,33,37)).
+packed_packet(p00134,'18R4699:0022310','18R4699:0022310',30,dewi,date(22,05,2022),time(19,34,17)).
+packed_packet(p00135,'18R4699:0022310','18R4699:0022310',30,dewi,date(22,05,2022),time(19,34,33)).
+packed_packet(p00136,'18R205:S0000304','18R4692:0021505',20,dewi,date(22,05,2022),time(19,35,10)).
+packed_packet(p00137,'18R205:S0000905','18R4690:0021310',20,dewi,date(22,05,2022),time(19,36,11)).
+packed_packet(p00138,'18R305:W0001918','18R4714:0025801',20,dewi,date(22,05,2022),time(19,36,26)).
+packed_packet(p00139,'18R305:W0001918','18R4714:0025801',20,dewi,date(22,05,2022),time(19,36,35)).
+packed_packet(p00140,'18R405:M0004110','18R4626:0029107',20,dewi,date(22,05,2022),time(19,37,24)).
+packed_packet(p00141,'18R405:M0004307','18R4698:0022208',20,dewi,date(22,05,2022),time(19,38,00)).
+packed_packet(p00142,'18R405:M0004505','18R4697:0022104',20,dewi,date(22,05,2022),time(19,38,29)).
+packed_packet(p00143,'19R4757:0002802','19R4757:0002802',20,dewi,date(22,05,2022),time(19,40,29)).
+packed_packet(p00144,'19R4759:0003001','19R4759:0003001',20,dewi,date(22,05,2022),time(19,40,55)).
+packed_packet(p00145,'19R205:S0000107','19R4768:0011611',20,dewi,date(22,05,2022),time(19,42,59)).
+packed_packet(p00146,'19R205:S0000107','19R4768:0011611',20,dewi,date(22,05,2022),time(19,43,00)).
+packed_packet(p00147,'19R205:S0000107','19R4768:0011611',20,dewi,date(22,05,2022),time(19,43,01)).
+packed_packet(p00148,'19R205:S0000405','19R4774:0012602',30,dewi,date(22,05,2022),time(19,44,32)).
+packed_packet(p00149,'19R205:S0000405','19R4774:0012602',30,dewi,date(22,05,2022),time(19,45,36)).
+packed_packet(p00150,'19R205:S0000405','19R4774:0012602',30,dewi,date(22,05,2022),time(19,46,38)).
+packed_packet(p00151,'19R305:W0000504','19R4770:0011910',20,dewi,date(22,05,2022),time(19,45,49)).
+packed_packet(p00152,'19R305:W0000702','19R4771:0018611',20,dewi,date(22,05,2022),time(19,46,47)).
+packed_packet(p00153,'19R305:W0000702','19R4771:0018611',20,dewi,date(22,05,2022),time(19,47,48)).
+packed_packet(p00154,'19R305:W0000705','19R4719:0016408',20,dewi,date(22,05,2022),time(19,47,59)).
+packed_packet(p00155,'19R305:W0000705','19R4719:0016408',20,dewi,date(22,05,2022),time(19,48,00)).
+packed_packet(p00156,'20R4786:0005404','20R4786:0005404',20,dewi,date(22,05,2022),time(19,48,50)).
+packed_packet(p00157,'20R4787:0005501','20R4787:0005501',20,dewi,date(22,05,2022),time(19,50,59)).
+packed_packet(p00158,'20R3805:0005710','20R3805:0005710',20,dewi,date(22,05,2022),time(19,51,36)).
+packed_packet(p00159,'20R3806:0005802','20R3806:0005802',20,dewi,date(22,05,2022),time(19,52,02)).
+packed_packet(p00160,'20R4789:0005902','20R4789:0005902',20,dewi,date(22,05,2022),time(19,52,26)).
+packed_packet(p00161,'20R4790:0006003','20R4790:0006003',20,dewi,date(22,05,2022),time(19,53,37)).
+packed_packet(p00162,'20R4791:0006102','20R4791:0006102',20,dewi,date(22,05,2022),time(19,54,24)).
+packed_packet(p00163,'20R4669:0010412','20R4669:0010401',20,dewi,date(22,05,2022),time(19,55,53)).
+packed_packet(p00164,'20R4669:0010412','20R4669:0010401',20,dewi,date(22,05,2022),time(19,56,03)).
+packed_packet(p00165,'20R205:S0000102','20R4043:0016007',30,dewi,date(22,05,2022),time(19,58,22)).
+packed_packet(p00166,'20R205:S0000102','20R4043:0016007',30,dewi,date(22,05,2022),time(19,58,58)).
+packed_packet(p00167,'20R205:S0000209','20R4814:0025806',20,dewi,date(22,05,2022),time(19,59,16)).
+packed_packet(p00168,'20R205:S0000209','20R4814:0025806',20,dewi,date(22,05,2022),time(19,59,23)).
+packed_packet(p00169,'20R205:S0000209','20R4814:0025806',20,dewi,date(22,05,2022),time(19,59,30)).
+packed_packet(p00170,'20R205:S0000211','20R4814:0025806',20,dewi,date(22,05,2022),time(20,00,56)).
+packed_packet(p00171,'20R205:S0000211','20R4814:0025806',20,dewi,date(22,05,2022),time(20,01,07)).
+packed_packet(p00172,'20R205:S0000213','20R4814:0025806',20,dewi,date(22,05,2022),time(20,02,39)).
+packed_packet(p00173,'20R205:S0000213','20R4814:0025806',20,dewi,date(22,05,2022),time(20,02,40)).
+packed_packet(p00174,'20R205:S0000302','20R4821:0027101',20,dewi,date(22,05,2022),time(20,04,01)).
+packed_packet(p00175,'20R205:S0000302','20R4821:0027101',20,dewi,date(22,05,2022),time(20,04,10)).
+packed_packet(p00176,'20R205:S0000405','20R4713:0026410',20,dewi,date(22,05,2022),time(20,05,14)).
+packed_packet(p00177,'20R205:S0000405','20R4713:0026410',20,dewi,date(22,05,2022),time(20,05,37)).
+packed_packet(p00178,'20R205:S0000503','20R4857:0032504',20,dewi,date(22,05,2022),time(20,06,55)).
+packed_packet(p00179,'20R205:S0000710','20R4839:0030205',20,dewi,date(22,05,2022),time(20,07,48)).
+packed_packet(p00180,'20R205:S0004501','20R4190:0028603',20,dewi,date(22,05,2022),time(20,08,15)).
+packed_packet(p00181,'20R205:S0004501','20R4190:0028603',20,dewi,date(22,05,2022),time(20,08,23)).
+packed_packet(p00182,'20R305:W0001703','20R4770:0029202',20,dewi,date(22,05,2022),time(20,10,12)).
+packed_packet(p00183,'20R305:W0001715','20R4726:0030502',20,dewi,date(22,05,2022),time(20,10,40)).
+packed_packet(p00184,'20R305:W0001303','20R4812:0018317',30,dewi,date(22,05,2022),time(20,11,24)).
+packed_packet(p00185,'20R305:W0001303','20R4812:0018317',30,dewi,date(22,05,2022),time(20,11,38)).
+packed_packet(p00186,'20R305:W0001412','20R3675:0028801',20,dewi,date(22,05,2022),time(20,12,22)).
+packed_packet(p00187,'20R405:M0002105','20R4362:0026603',20,dewi,date(22,05,2022),time(20,13,01)).
+packed_packet(p00188,'20R405:M0002105','20R4362:0026603',20,dewi,date(22,05,2022),time(20,13,24)).
+packed_packet(p00189,'20R405:M0002205','20R4818:0026307',20,dewi,date(22,05,2022),time(20,14,05)).
+packed_packet(p00190,'20R405:M0002308','20R4826:0028014',20,dewi,date(22,05,2022),time(20,15,03)).
+packed_packet(p00191,'20R405:M0002403','20R3700:0028208',20,dewi,date(22,05,2022),time(20,16,07)).
+packed_packet(p00192,'20R405:M0002403','20R3700:0028208',20,dewi,date(22,05,2022),time(20,18,13)).
+packed_packet(p00193,'20R405:M0002409','20R4773:0029402',20,dewi,date(22,05,2022),time(20,18,38)).
+packed_packet(p00194,'20R405:M0002410','20R4833:0029503',20,dewi,date(22,05,2022),time(20,19,31)).
+packed_packet(p00195,'20R405:M0002512','20R4810:0017508',30,dewi,date(22,05,2022),time(20,20,29)).
+packed_packet(p00196,'20R405:M0002512','20R4810:0017508',30,dewi,date(22,05,2022),time(20,20,42)).
+packed_packet(p00197,'20R405:M0002706','20R4824:0027502',20,dewi,date(22,05,2022),time(20,21,49)).
+packed_packet(p00198,'20R405:M0002706','20R4824:0027502',20,dewi,date(22,05,2022),time(20,22,06)).
+packed_packet(p00199,'20R405:M0002710','20R3676:0028901',20,dewi,date(22,05,2022),time(20,23,12)).
+packed_packet(p00200,'20R405:M0002710','20R3676:0028901',20,dewi,date(22,05,2022),time(20,23,13)).
+packed_packet(p00201,'20R405:M0002902','20R4841:0030605',20,dewi,date(22,05,2022),time(20,23,54)).
+packed_packet(p00202,'21R4887:0002903','21R4887:0002903',20,dewi,date(22,05,2022),time(20,26,36)).
+packed_packet(p00203,'21R4888:0003001','21R4888:0003001',20,dewi,date(22,05,2022),time(20,27,50)).
+packed_packet(p00204,'21R4890:0003201','21R4890:0003201',30,dewi,date(22,05,2022),time(20,31,10)).
+packed_packet(p00205,'21R4891:0003302','21R4891:0003302',20,dewi,date(22,05,2022),time(20,31,26)).
+packed_packet(p00206,'21R4892:0003404','21R4892:0003404',20,dewi,date(22,05,2022),time(20,33,01)).
+packed_packet(p00207,'21R4893:0003611','21R4893:0003611',20,dewi,date(22,05,2022),time(20,33,10)).
+packed_packet(p00208,'21R4894:0003703','21R4894:0003703',20,dewi,date(22,05,2022),time(20,34,08)).
+packed_packet(p00209,'21R4895:0003808','21R4895:0003808',20,dewi,date(22,05,2022),time(20,34,25)).
+packed_packet(p00210,'21R4896:0003902','21R4896:0003902',20,dewi,date(22,05,2022),time(20,34,41)).
+packed_packet(p00211,'21R4862:0004402','21R4862:0004401',20,dewi,date(22,05,2022),time(20,34,56)).
+packed_packet(p00212,'21R205:S0000109','21R4840:0014207',20,dewi,date(22,05,2022),time(20,35,54)).
+packed_packet(p00213,'21R205:S0000207','21R4825:0014802',20,dewi,date(22,05,2022),time(20,36,55)).
+packed_packet(p00214,'21R205:S0000207','21R4825:0014802',20,dewi,date(22,05,2022),time(20,37,57)).
+packed_packet(p00215,'21R205:S0000212','21R4854:0015702',20,dewi,date(22,05,2022),time(20,38,59)).
+packed_packet(p00216,'21R205:S0000409','21R4875:0012806',30,dewi,date(22,05,2022),time(20,39,00)).
+packed_packet(p00217,'21R205:S0000409','21R4875:0012806',30,dewi,date(22,05,2022),time(20,42,02)).
+packed_packet(p00218,'21R205:S0000409','21R4875:0012806',30,dewi,date(22,05,2022),time(20,43,22)).
+packed_packet(p00219,'21R205:S0000415','21R4329:0007706',20,dewi,date(22,05,2022),time(20,44,26)).
+packed_packet(p00220,'21R205:S0000515','21R4860:0002801',20,dewi,date(22,05,2022),time(20,45,32)).
+packed_packet(p00221,'21R205:S0002011','21R4811:0013802',30,dewi,date(22,05,2022),time(20,49,36)).
+packed_packet(p00222,'21R205:S0002011','21R4811:0013802',30,dewi,date(22,05,2022),time(20,50,18)).
+packed_packet(p00223,'21R205:S0002016','21R4882:0015104',20,dewi,date(22,05,2022),time(20,51,17)).
+packed_packet(p00224,'21R305:W0001105','21R4867:0011804',20,dewi,date(22,05,2022),time(20,55,40)).
+packed_packet(p00225,'21R305:W0001105','21R4867:0011804',20,dewi,date(22,05,2022),time(20,55,58)).
+packed_packet(p00226,'21R305:W0002216','21R4809:0013504',30,dewi,date(22,05,2022),time(20,56,49)).
+packed_packet(p00227,'21R305:W0002216','21R4809:0013504',30,dewi,date(22,05,2022),time(20,56,57)).
+packed_packet(p00228,'21R305:W0002315','21R3696:0014906',20,dewi,date(22,05,2022),time(20,57,43)).
+packed_packet(p00229,'21R405:M0001202','21R4813:0014003',20,dewi,date(22,05,2022),time(20,58,26)).
+packed_packet(p00230,'21R405:M0001202','21R4813:0014003',20,dewi,date(22,05,2022),time(20,58,38)).
+%
+% these kernels are completely, terribly crummy: small and probably with shrunken embryos
+% substituted the line below for these on 27.5.2022
+%
+% Kazic, 27.5.2022
+%
+% packed_packet(p00231,'21R405:M0001302','21R4873:0012603',10,dewi,date(22,05,2022),time(20,59,49)).
+% packed_packet(p00232,'21R405:M0001302','21R4873:0012603',10,dewi,date(22,05,2022),time(21,05,20)).
+% packed_packet(p00233,'21R405:M0001302','21R4873:0012603',10,dewi,date(22,05,2022),time(21,05,27)).
+% packed_packet(p00234,'21R405:M0001302','21R4873:0012603',20,dewi,date(22,05,2022),time(21,06,05)).
+% packed_packet(p00235,'21R405:M0001302','21R4873:0012603',20,dewi,date(22,05,2022),time(21,09,06)).
+%
+%
+packed_packet(p00236,'21R405:M0001313','21R4868:0011905',20,dewi,date(22,05,2022),time(21,07,27)).
+packed_packet(p00237,'21R405:M0001313','21R4868:0011905',20,dewi,date(22,05,2022),time(21,08,26)).
+packed_packet(p00238,'21R405:M0001406','21R4870:0023107',20,dewi,date(22,05,2022),time(21,08,35)).
+packed_packet(p00239,'21R405:M0001411','21R4879:0014303',20,dewi,date(22,05,2022),time(21,10,30)).
+packed_packet(p00240,'21R405:M0002506','21R4864:0007109',20,dewi,date(22,05,2022),time(21,11,03)).
+packed_packet(p00241,'21R405:M0002506','21R4864:0007109',30,dewi,date(22,05,2022),time(21,11,39)).
+packed_packet(p00242,'21R405:M0002606','21R4876:0012906',30,dewi,date(22,05,2022),time(21,14,59)).
+packed_packet(p00243,'21R405:M0002606','21R4876:0012906',30,dewi,date(22,05,2022),time(21,15,10)).
+packed_packet(p00244,'21R405:M0002706','21R4885:0015804',20,dewi,date(22,05,2022),time(21,15,21)).
+
+
+
+
+% data added from ../../data../palm/raw_data_from_palms/22r/eta/27.5/packed_packet.csv on Fri May 27 16:04:37 CDT 2022
+% by data/data_conversion/convert_packed_packet_data.perl
+% called from data/data_conversion/convert_data.perl
+
+packed_packet(p00231,'21R405:M0001314','21R4873:0012609',5,toni,date(27,05,2022),time(14,37,56)).
+packed_packet(p00232,'21R405:M0001314','21R4873:0012609',5,toni,date(27,05,2022),time(14,38,11)).
+packed_packet(p00233,'21R405:M0001314','21R4873:0012609',5,toni,date(27,05,2022),time(14,38,25)).
+packed_packet(p00234,'21R405:M0001314','21R4873:0012609',20,toni,date(27,05,2022),time(14,38,40)).
+packed_packet(p00235,'21R405:M0001314','21R4873:0012609',20,toni,date(27,05,2022),time(14,38,53)).
+
+
+% manually added
+%
+% to fill in the tiling for Dewi
+%
+% Kazic, 22.6.2022
+
+packed_packet(p01000,'21R305:W0001105','21R4867:0011804',24,toni,date(19,06,2022),time(18,00,00)).
+
+
+
+
+
+% 23r
+
+
+% data added from ../../data../palm/raw_data_from_palms/23r/eta/18.5/packed_packet.csv on Tue May 23 18:47:34 CDT 2023
+% by data/data_conversion/convert_packed_packet_data.perl
+% called from data/data_conversion/convert_data.perl
+
+packed_packet(p00010,'23R705:F0000000','23R705:F0000000',20,toni,date(18,05,2023),time(13,46,13)).
+packed_packet(p00011,'23R705:F0000000','23R705:F0000000',20,toni,date(18,05,2023),time(13,50,50)).
+packed_packet(p00012,'23R706:G0000000','23R706:G0000000',20,toni,date(18,05,2023),time(13,51,12)).
+packed_packet(p00013,'23R706:G0000000','23R706:G0000000',20,toni,date(18,05,2023),time(13,52,02)).
+packed_packet(p00014,'23R707:H0000000','23R707:H0000000',20,toni,date(18,05,2023),time(13,53,00)).
+packed_packet(p00015,'23R707:H0000000','23R707:H0000000',20,toni,date(18,05,2023),time(13,54,04)).
+packed_packet(p00016,'23R708:X0000000','23R708:X0000000',20,toni,date(18,05,2023),time(13,55,00)).
+packed_packet(p00017,'23R708:X0000000','23R708:X0000000',20,toni,date(18,05,2023),time(13,57,00)).
+packed_packet(p00018,'23R709:Y0000000','23R709:Y0000000',20,toni,date(18,05,2023),time(13,58,00)).
+packed_packet(p00019,'23R709:Y0000000','23R709:Y0000000',20,toni,date(18,05,2023),time(13,59,00)).
+packed_packet(p00020,'23R710:Z0000000','23R710:Z0000000',20,toni,date(18,05,2023),time(13,59,30)).
+packed_packet(p00021,'23R710:Z0000000','23R710:Z0000000',20,toni,date(18,05,2023),time(14,00,00)).
+% packet planned for 40, so think this datum erroneous
+%
+% Kazic, 3.6.2023
+%
+% packed_packet(p00022,'10R3076:0039205','10R3076:0039205',20,toni,date(18,05,2023),time(14,00,20)).
+
+packed_packet(p00022,'10R3076:0039205','10R3076:0039205',40,toni,date(18,05,2023),time(14,00,20)).
+
+packed_packet(p00023,'11N3100:0024910','11N3100:0024910',20,toni,date(18,05,2023),time(14,02,46)).
+
+
+% packet planned for 40, so think this datum erroneous
+%
+% Kazic, 3.6.2023
+%
+% packed_packet(p00024,'11N3512:0028402','11N3512:0028402',20,toni,date(18,05,2023),time(14,04,31)).
+
+packed_packet(p00024,'11N3512:0028402','11N3512:0028402',40,toni,date(18,05,2023),time(14,04,31)).
+packed_packet(p00025,'11N305:W0033202','11N3492:0024403',20,toni,date(18,05,2023),time(14,07,47)).
+packed_packet(p00026,'11N305:W0033202','11N3492:0024403',20,toni,date(18,05,2023),time(14,09,23)).
+packed_packet(p00027,'11N305:W0038605','11N3087:0021506',20,toni,date(18,05,2023),time(14,10,51)).
+packed_packet(p00028,'11N405:M0031607','11N3172:0021804',30,toni,date(18,05,2023),time(14,14,28)).
+packed_packet(p00029,'11N405:M0031607','11N3172:0021804',30,toni,date(18,05,2023),time(14,14,43)).
+packed_packet(p00030,'12R3533:0015906','12R3533:0015906',40,toni,date(18,05,2023),time(14,28,34)).
+packed_packet(p00031,'12R305:W0011013','12R3703:0037208',40,toni,date(18,05,2023),time(14,31,25)).
+packed_packet(p00034,'12N3891:0005011','12N3891:0005011',40,toni,date(18,05,2023),time(14,35,28)).
+packed_packet(p00035,'12N3891:0005011','12N3891:0005011',40,toni,date(18,05,2023),time(14,35,45)).
+packed_packet(p00036,'12N3891:0005011','12N3891:0005011',40,toni,date(18,05,2023),time(14,35,58)).
+packed_packet(p00037,'12N3891:0005011','12N3891:0005011',40,toni,date(18,05,2023),time(14,36,13)).
+packed_packet(p00038,'12N205:S0037911','12N3973:0021509',20,toni,date(18,05,2023),time(14,43,28)).
+packed_packet(p00039,'12N205:S0041605','12N4017:0028305',30,toni,date(18,05,2023),time(14,46,00)).
+packed_packet(p00040,'12N205:S0041605','12N4017:0028305',30,toni,date(18,05,2023),time(14,46,32)).
+packed_packet(p00032,'12R405:M0009304','12R3323:0037602',20,toni,date(18,05,2023),time(15,02,24)).
+packed_packet(p00033,'12R405:M0009304','12R3323:0037602',20,toni,date(18,05,2023),time(15,02,37)).
+packed_packet(p00042,'13R4059:0014102','13R4059:0014102',40,toni,date(18,05,2023),time(15,21,12)).
+packed_packet(p00043,'13R4059:0014102','13R4059:0014102',40,toni,date(18,05,2023),time(15,21,26)).
+packed_packet(p00044,'13R4059:0014102','13R4059:0014102',40,toni,date(18,05,2023),time(15,21,38)).
+packed_packet(p00045,'13R4059:0014102','13R4059:0014102',40,toni,date(18,05,2023),time(15,21,50)).
+packed_packet(p00046,'13R4065:0014705','13R4065:0014705',30,toni,date(18,05,2023),time(15,28,51)).
+packed_packet(p00047,'13R4065:0014707','13R4065:0014707',30,toni,date(18,05,2023),time(15,30,59)).
+packed_packet(p00048,'13R4065:0014710','13R4065:0014710',30,toni,date(18,05,2023),time(15,32,57)).
+packed_packet(p00049,'13R405:M0003608','13R4184:0030002',32,toni,date(18,05,2023),time(15,36,04)).
+packed_packet(p00050,'13R405:M0003608','13R4184:0030002',31,toni,date(18,05,2023),time(15,36,17)).
+
+% actually packed 25
+%
+% Kazic, 24.5.2023
+% packed_packet(p00053,'14R4088:0011403','14R4088:0011401',25,toni,date(18,05,2023),time(15,44,10)).
+
+packed_packet(p00053,'14R4088:0011403','14R4088:0011401',16,toni,date(18,05,2023),time(15,44,10)).
+packed_packet(p00054,'14R3975:0011909','14R3975:0011906',20,toni,date(18,05,2023),time(15,47,00)).
+
+% actually packed 25
+%
+% Kazic, 24.5.2023
+% 
+% packed_packet(p00055,'14R4092:0012212','14R4092:0012205',25,toni,date(18,05,2023),time(15,49,17)).
+
+packed_packet(p00055,'14R4092:0012212','14R4092:0012205',16,toni,date(18,05,2023),time(15,49,17)).
+packed_packet(p00056,'14R4264:0013211','14R4264:0013209',20,toni,date(18,05,2023),time(15,54,18)).
+packed_packet(p00057,'14R4264:0013211','14R4264:0013209',20,toni,date(18,05,2023),time(15,54,33)).
+packed_packet(p00058,'14R305:W0000712','14R4191:0027713',30,toni,date(18,05,2023),time(16,11,55)).
+packed_packet(p00059,'14R305:W0000712','14R4191:0027713',30,toni,date(18,05,2023),time(16,12,09)).
+packed_packet(p00060,'14R305:W0000905','14R4273:0020102',30,toni,date(18,05,2023),time(16,16,58)).
+packed_packet(p00061,'14R305:W0000905','14R4273:0020102',30,toni,date(18,05,2023),time(16,17,10)).
+packed_packet(p00062,'14R305:W0000905','14R4273:0020102',30,toni,date(18,05,2023),time(16,17,26)).
+packed_packet(p00063,'14R405:M0001806','14R4077:0007406',40,toni,date(18,05,2023),time(16,22,44)).
+packed_packet(p00064,'14R405:M0001806','14R4077:0007406',40,toni,date(18,05,2023),time(16,22,56)).
+packed_packet(p00065,'15R4335:0006107','15R4335:0006107',40,toni,date(18,05,2023),time(16,30,23)).
+packed_packet(p00066,'15R4335:0006107','15R4335:0006107',40,toni,date(18,05,2023),time(16,30,42)).
+packed_packet(p00067,'15R4335:0006107','15R4335:0006107',40,toni,date(18,05,2023),time(16,30,59)).
+packed_packet(p00068,'15R4335:0006107','15R4335:0006107',40,toni,date(18,05,2023),time(16,31,12)).
+packed_packet(p00069,'15R4336:0006204','15R4336:0006204',40,toni,date(18,05,2023),time(16,39,35)).
+packed_packet(p00070,'15R4336:0006204','15R4336:0006204',40,toni,date(18,05,2023),time(16,39,48)).
+packed_packet(p00071,'15R4336:0006204','15R4336:0006204',40,toni,date(18,05,2023),time(16,40,01)).
+packed_packet(p00072,'15R4336:0006204','15R4336:0006204',40,toni,date(18,05,2023),time(16,40,14)).
+packed_packet(p00073,'15R4338:0006406','15R4338:0006406',40,toni,date(18,05,2023),time(16,47,03)).
+packed_packet(p00074,'16R4460:0003604','16R4460:0003604',40,toni,date(18,05,2023),time(17,03,49)).
+packed_packet(p00075,'16R4460:0003604','16R4460:0003604',40,toni,date(18,05,2023),time(17,04,07)).
+packed_packet(p00076,'16R4460:0003604','16R4460:0003604',40,toni,date(18,05,2023),time(17,04,18)).
+packed_packet(p00077,'16R4460:0003604','16R4460:0003604',40,toni,date(18,05,2023),time(17,04,31)).
+packed_packet(p00078,'16R4461:0003711','16R4461:0003711',40,toni,date(18,05,2023),time(17,13,12)).
+packed_packet(p00079,'16R4463:0003902','16R4463:0003902',40,toni,date(18,05,2023),time(17,15,29)).
+packed_packet(p00080,'16R4463:0003904','16R4463:0003904',40,toni,date(18,05,2023),time(17,17,24)).
+packed_packet(p00081,'16R4463:0003907','16R4463:0003907',40,toni,date(18,05,2023),time(17,19,17)).
+packed_packet(p00082,'16R4464:0004002','16R4464:0004002',40,toni,date(18,05,2023),time(17,21,31)).
+packed_packet(p00083,'16R205:S0002715','16R4519:0012802',30,toni,date(18,05,2023),time(17,24,16)).
+packed_packet(p00084,'16R205:S0002715','16R4519:0012802',30,toni,date(18,05,2023),time(17,24,28)).
+packed_packet(p00085,'16R305:W0001414','16R4393:0009904',30,toni,date(18,05,2023),time(17,29,01)).
+packed_packet(p00086,'16R305:W0001610','16R4279:0010511',30,toni,date(18,05,2023),time(17,31,36)).
+packed_packet(p00087,'16R305:W0001610','16R4279:0010511',30,toni,date(18,05,2023),time(17,31,47)).
+packed_packet(p00088,'16R305:W0002915','16R4279:0010511',30,toni,date(18,05,2023),time(17,38,33)).
+packed_packet(p00089,'16R305:W0002915','16R4279:0010511',30,toni,date(18,05,2023),time(17,38,45)).
+
+% actually packed 25
+%
+% Kazic, 24.5.2023
+% 
+% packed_packet(p00092,'17R4494:0008607','17R4494:0008601',25,toni,date(18,05,2023),time(17,49,56)).
+packed_packet(p00092,'17R4494:0008607','17R4494:0008601',16,toni,date(18,05,2023),time(17,49,56)).
+
+
+
+
+% data added from ../../data../palm/raw_data_from_palms/23r/eta/19.5/packed_packet.csv on Tue May 23 18:48:05 CDT 2023
+% by data/data_conversion/convert_packed_packet_data.perl
+% called from data/data_conversion/convert_data.perl
+
+% actually packed 25
+%
+% Kazic, 24.5.2023
+% 
+% packed_packet(p00041,'12N3966:0020706','12N3966:0020701',25,toni,date(19,05,2023),time(12,24,31)).
+
+packed_packet(p00041,'12N3966:0020706','12N3966:0020701',16,toni,date(19,05,2023),time(12,24,31)).
+packed_packet(p00051,'14R4264:0013208','14R4264:0013209',30,toni,date(19,05,2023),time(12,29,07)).
+packed_packet(p00052,'14R4264:0013208','14R4264:0013209',30,toni,date(19,05,2023),time(12,29,46)).
+
+
+% hmmmm, 26 or 40 cl in p00090?  switched line, parents correct but packet says
+% 26 hand-written.  Think I changed my mind and it's really 40 cl of
+% 16R405:M0003211 x 16R4222:0009409.  The 26 cl of 3112 x 9405 were replaced.
+%
+% Kazic, 3.6.2023
+
+packed_packet(p00090,'16R405:M0003211','16R4222:0009409',40,toni,date(19,05,2023),time(12,34,46)).
+packed_packet(p00091,'16R405:M0003211','16R4222:0009409',40,toni,date(19,05,2023),time(12,35,01)).
+
+
+% actually packed 25
+%
+% Kazic, 24.5.2023
+% 
+% packed_packet(p00093,'17R4452:0009008','17R4452:0009007',25,toni,date(19,05,2023),time(12,41,21)).
+
+packed_packet(p00093,'17R4452:0009008','17R4452:0009007',16,toni,date(19,05,2023),time(12,41,21)).
+packed_packet(p00094,'17R205:S0001307','17R4539:0017501',30,toni,date(19,05,2023),time(12,59,20)).
+packed_packet(p00095,'17R205:S0001307','17R4539:0017501',30,toni,date(19,05,2023),time(12,59,51)).
+packed_packet(p00096,'17R405:M0004413','17R4518:0018408',15,toni,date(19,05,2023),time(13,03,53)).
+packed_packet(p00097,'17R405:M0004413','17R4518:0018408',15,toni,date(19,05,2023),time(13,04,05)).
+packed_packet(p00098,'17R405:M0004413','17R4518:0018408',10,toni,date(19,05,2023),time(13,04,19)).
+
+% actually packed 25
+%
+% Kazic, 24.5.2023
+% 
+% packed_packet(p00099,'18R4651:0009201','18R4651:0009203',25,toni,date(19,05,2023),time(13,10,16)).
+packed_packet(p00099,'18R4651:0009201','18R4651:0009203',16,toni,date(19,05,2023),time(13,10,16)).
+packed_packet(p00100,'18R405:M0004101','18R4626:0029107',20,toni,date(19,05,2023),time(13,19,17)).
+packed_packet(p00101,'19R4759:0003001','19R4759:0003001',20,toni,date(19,05,2023),time(13,32,36)).
+packed_packet(p00102,'19R4699:0003208','19R4699:0003208',40,toni,date(19,05,2023),time(13,34,58)).
+packed_packet(p00103,'19R4699:0003208','19R4699:0003208',40,toni,date(19,05,2023),time(13,35,09)).
+packed_packet(p00104,'19R4699:0003208','19R4699:0003208',40,toni,date(19,05,2023),time(13,35,21)).
+packed_packet(p00105,'19R4699:0003208','19R4699:0003208',40,toni,date(19,05,2023),time(13,35,35)).
+packed_packet(p00106,'19R205:S0000107','19R4768:0011611',40,toni,date(19,05,2023),time(13,45,05)).
+packed_packet(p00107,'19R205:S0000107','19R4768:0011611',40,toni,date(19,05,2023),time(13,45,47)).
+packed_packet(p00108,'19R205:S0000107','19R4768:0011611',40,toni,date(19,05,2023),time(13,46,01)).
+packed_packet(p00109,'20R4787:0005501','20R4787:0005501',20,toni,date(19,05,2023),time(14,18,53)).
+packed_packet(p00110,'20R4787:0005501','20R4787:0005501',20,toni,date(19,05,2023),time(14,19,07)).
+packed_packet(p00111,'20R4789:0005902','20R4789:0005902',20,toni,date(19,05,2023),time(14,22,26)).
+packed_packet(p00112,'20R4789:0005902','20R4789:0005902',20,toni,date(19,05,2023),time(14,22,39)).
+packed_packet(p00113,'20R4791:0006109','20R4791:0006109',40,toni,date(19,05,2023),time(14,25,01)).
+packed_packet(p00114,'20R4669:0010504','20R4669:0010401',20,toni,date(19,05,2023),time(14,29,06)).
+packed_packet(p00115,'20R4669:0010504','20R4669:0010401',20,toni,date(19,05,2023),time(14,29,18)).
+packed_packet(p00116,'20R205:S0000302','20R4821:0027101',30,toni,date(19,05,2023),time(14,39,17)).
+packed_packet(p00117,'20R205:S0000302','20R4821:0027101',30,toni,date(19,05,2023),time(14,39,29)).
+packed_packet(p00118,'20R205:S0000405','20R4713:0026410',15,toni,date(19,05,2023),time(14,44,03)).
+packed_packet(p00119,'20R205:S0000405','20R4713:0026410',15,toni,date(19,05,2023),time(14,44,11)).
+packed_packet(p00120,'20R205:S0000503','20R4857:0032504',30,toni,date(19,05,2023),time(14,55,10)).
+packed_packet(p00121,'20R205:S0000610','20R4825:0027703',40,toni,date(19,05,2023),time(14,58,24)).
+packed_packet(p00122,'20R205:S0000710','20R4839:0030205',20,toni,date(19,05,2023),time(15,01,36)).
+packed_packet(p00123,'20R205:S0001003','20R4043:0016001',30,toni,date(19,05,2023),time(15,07,10)).
+packed_packet(p00124,'20R205:S0001003','20R4043:0016001',30,toni,date(19,05,2023),time(15,07,22)).
+packed_packet(p00125,'20R205:S0004202','20R4810:0017701',30,toni,date(19,05,2023),time(15,10,44)).
+packed_packet(p00126,'20R205:S0004202','20R4810:0017701',30,toni,date(19,05,2023),time(15,10,56)).
+packed_packet(p00127,'20R205:S0004501','20R4190:0028603',20,toni,date(19,05,2023),time(15,15,12)).
+packed_packet(p00128,'20R205:S0004501','20R4190:0028603',20,toni,date(19,05,2023),time(15,15,23)).
+packed_packet(p00129,'20R305:W0001301','20R4812:0018301',30,toni,date(19,05,2023),time(15,19,18)).
+packed_packet(p00130,'20R305:W0001301','20R4812:0018301',30,toni,date(19,05,2023),time(15,19,30)).
+packed_packet(p00131,'20R305:W0001301','20R4812:0018301',30,toni,date(19,05,2023),time(15,19,43)).
+packed_packet(p00132,'20R305:W0001612','20R3696:0027907',30,toni,date(19,05,2023),time(15,27,04)).
+packed_packet(p00133,'20R405:M0002105','20R4362:0026603',30,toni,date(19,05,2023),time(15,30,39)).
+packed_packet(p00134,'20R405:M0002105','20R4362:0026603',30,toni,date(19,05,2023),time(15,31,04)).
+packed_packet(p00135,'20R405:M0002205','20R4818:0026307',40,toni,date(19,05,2023),time(15,37,15)).
+packed_packet(p00136,'20R405:M0002305','20R4826:0028005',30,toni,date(19,05,2023),time(15,41,33)).
+packed_packet(p00137,'20R405:M0002510','20R4817:0026101',20,toni,date(19,05,2023),time(15,46,37)).
+packed_packet(p00138,'20R405:M0002512','20R4810:0017508',30,toni,date(19,05,2023),time(15,48,30)).
+packed_packet(p00139,'20R405:M0002512','20R4810:0017508',30,toni,date(19,05,2023),time(15,48,52)).
+packed_packet(p00140,'20R405:M0002706','20R4824:0027502',40,toni,date(19,05,2023),time(15,55,50)).
+packed_packet(p00141,'20R405:M0002706','20R4824:0027502',40,toni,date(19,05,2023),time(15,55,56)).
+packed_packet(p00142,'21R4887:0002906','21R4887:0002906',30,toni,date(19,05,2023),time(16,04,42)).
+packed_packet(p00143,'21R4890:0003201','21R4890:0003201',40,toni,date(19,05,2023),time(16,07,34)).
+packed_packet(p00144,'21R4891:0003306','21R4891:0003306',20,toni,date(19,05,2023),time(16,13,08)).
+packed_packet(p00145,'21R4892:0003408','21R4892:0003408',20,toni,date(19,05,2023),time(16,16,26)).
+packed_packet(p00146,'21R4895:0003808','21R4895:0003808',20,toni,date(19,05,2023),time(16,20,20)).
+packed_packet(p00147,'21R4797:0004812','21R4797:0004704',20,toni,date(19,05,2023),time(16,24,02)).
+packed_packet(p00148,'21R4797:0004812','21R4797:0004704',20,toni,date(19,05,2023),time(16,24,14)).
+packed_packet(p00149,'21R205:S0000409','21R4875:0012806',20,toni,date(19,05,2023),time(16,26,50)).
+packed_packet(p00150,'21R205:S0000515','21R4860:0002801',30,toni,date(19,05,2023),time(16,31,38)).
+
+
+
+
+% data added from ../../data../palm/raw_data_from_palms/23r/zeta/19.5/packed_packet.csv on Tue May 23 18:48:05 CDT 2023
+% by data/data_conversion/convert_packed_packet_data.perl
+% called from data/data_conversion/convert_data.perl
+
+packed_packet(p00911,'09R201:S0xxxxxx','09R201:S0xxxxxx',5,chimdi,date(19,05,2023),time(14,32,47)).
+packed_packet(p00912,'09R201:S0xxxxxx','09R201:S0xxxxxx',10,chimdi,date(19,05,2023),time(14,35,02)).
+
+% actually packed 10
+%
+% Kazic, 24.5.2023
+%
+% packed_packet(p00901,'09R201:S0xxxxxx','09R201:S0xxxxxx',10,chimdi,date(19,05,2023),time(14,36,08)).
+
+packed_packet(p00901,'09R201:S0xxxxxx','09R201:S0xxxxxx',5,chimdi,date(19,05,2023),time(14,36,08)).
+
+
+packed_packet(p00001,'09R201:S0xxxxxx','09R201:S0xxxxxx',20,chimdi,date(19,05,2023),time(14,37,05)).
+packed_packet(p00001,'09R201:S0xxxxxx','09R201:S0xxxxxx',20,chimdi,date(19,05,2023),time(14,37,53)).
+packed_packet(p00001,'09R201:S0xxxxxx','09R201:S0xxxxxx',20,chimdi,date(19,05,2023),time(14,39,34)).
+packed_packet(p00001,'09R201:S0xxxxxx','09R201:S0xxxxxx',20,chimdi,date(19,05,2023),time(14,40,19)).
+packed_packet(p00001,'09R201:S0xxxxxx','09R201:S0xxxxxx',20,chimdi,date(19,05,2023),time(14,41,08)).
+packed_packet(p00001,'09R201:S0xxxxxx','09R201:S0xxxxxx',20,chimdi,date(19,05,2023),time(14,41,52)).
+packed_packet(p00001,'09R201:S0xxxxxx','09R201:S0xxxxxx',20,chimdi,date(19,05,2023),time(14,42,27)).
+packed_packet(p00001,'09R201:S0xxxxxx','09R201:S0xxxxxx',20,chimdi,date(19,05,2023),time(14,43,12)).
+packed_packet(p00001,'09R201:S0xxxxxx','09R201:S0xxxxxx',20,chimdi,date(19,05,2023),time(14,43,57)).
+packed_packet(p00001,'09R201:S0xxxxxx','09R201:S0xxxxxx',20,chimdi,date(19,05,2023),time(14,44,32)).
+packed_packet(p00001,'09R201:S0xxxxxx','09R201:S0xxxxxx',20,chimdi,date(19,05,2023),time(14,45,14)).
+packed_packet(p00001,'09R201:S0xxxxxx','09R201:S0xxxxxx',20,chimdi,date(19,05,2023),time(14,45,53)).
+packed_packet(p00001,'09R201:S0xxxxxx','09R201:S0xxxxxx',20,chimdi,date(19,05,2023),time(14,46,30)).
+packed_packet(p00001,'09R201:S0xxxxxx','09R201:S0xxxxxx',20,chimdi,date(19,05,2023),time(14,47,27)).
+packed_packet(p00001,'09R201:S0xxxxxx','09R201:S0xxxxxx',20,chimdi,date(19,05,2023),time(14,48,12)).
+packed_packet(p00001,'09R201:S0xxxxxx','09R201:S0xxxxxx',20,chimdi,date(19,05,2023),time(14,49,19)).
+
+% actually packed 10
+%
+% Kazic, 24.5.2023
+%
+% packed_packet(p00002,'09R301:W0xxxxxx','09R301:W0xxxxxx',10,chimdi,date(19,05,2023),time(14,57,19)).
+packed_packet(p00902,'09R301:W0xxxxxx','09R301:W0xxxxxx',5,chimdi,date(19,05,2023),time(14,57,19)).
+
+packed_packet(p00921,'09R301:W0xxxxxx','09R301:W0xxxxxx',5,chimdi,date(19,05,2023),time(14,58,12)).
+packed_packet(p00922,'09R301:W0xxxxxx','09R301:W0xxxxxx',10,chimdi,date(19,05,2023),time(14,58,28)).
+packed_packet(p00923,'09R301:W0xxxxxx','09R301:W0xxxxxx',10,chimdi,date(19,05,2023),time(14,59,23)).
+packed_packet(p00924,'09R301:W0xxxxxx','09R301:W0xxxxxx',5,chimdi,date(19,05,2023),time(14,59,44)).
+
+
+packed_packet(p00002,'09R301:W0xxxxxx','09R301:W0xxxxxx',20,chimdi,date(19,05,2023),time(15,00,59)).
+packed_packet(p00002,'09R301:W0xxxxxx','09R301:W0xxxxxx',20,chimdi,date(19,05,2023),time(15,01,42)).
+packed_packet(p00002,'09R301:W0xxxxxx','09R301:W0xxxxxx',20,chimdi,date(19,05,2023),time(15,02,17)).
+packed_packet(p00002,'09R301:W0xxxxxx','09R301:W0xxxxxx',20,chimdi,date(19,05,2023),time(15,03,00)).
+packed_packet(p00002,'09R301:W0xxxxxx','09R301:W0xxxxxx',20,chimdi,date(19,05,2023),time(15,04,02)).
+packed_packet(p00002,'09R301:W0xxxxxx','09R301:W0xxxxxx',20,chimdi,date(19,05,2023),time(15,04,45)).
+packed_packet(p00002,'09R301:W0xxxxxx','09R301:W0xxxxxx',20,chimdi,date(19,05,2023),time(15,05,22)).
+packed_packet(p00002,'09R301:W0xxxxxx','09R301:W0xxxxxx',20,chimdi,date(19,05,2023),time(15,05,54)).
+packed_packet(p00002,'09R301:W0xxxxxx','09R301:W0xxxxxx',20,chimdi,date(19,05,2023),time(15,06,30)).
+packed_packet(p00002,'09R301:W0xxxxxx','09R301:W0xxxxxx',20,chimdi,date(19,05,2023),time(15,07,24)).
+packed_packet(p00002,'09R301:W0xxxxxx','09R301:W0xxxxxx',20,chimdi,date(19,05,2023),time(15,08,26)).
+packed_packet(p00002,'09R301:W0xxxxxx','09R301:W0xxxxxx',20,chimdi,date(19,05,2023),time(15,09,11)).
+packed_packet(p00002,'09R301:W0xxxxxx','09R301:W0xxxxxx',20,chimdi,date(19,05,2023),time(15,09,46)).
+packed_packet(p00002,'09R301:W0xxxxxx','09R301:W0xxxxxx',20,chimdi,date(19,05,2023),time(15,10,29)).
+
+
+packed_packet(p00933,'09R401:M0xxxxxx','09R401:M0xxxxxx',5,chimdi,date(19,05,2023),time(15,14,23)).
+packed_packet(p00934,'09R401:M0xxxxxx','09R401:M0xxxxxx',10,chimdi,date(19,05,2023),time(15,17,42)).
+
+%%%%%%% ummm, not sure about where or if these were planted
+%
+% just wait until they germinate and sort these out
+%
+% Kazic, 24.5.2023
+
+packed_packet(p00003,'09R401:M0xxxxxx','09R401:M0xxxxxx',5,chimdi,date(19,05,2023),time(15,15,19)).
+packed_packet(p00003,'09R401:M0xxxxxx','09R401:M0xxxxxx',5,chimdi,date(19,05,2023),time(15,16,01)).
+
+
+% actually packed 10
+%
+% Kazic, 24.5.2023
+%
+% packed_packet(p00003,'09R401:M0xxxxxx','09R401:M0xxxxxx',10,chimdi,date(19,05,2023),time(15,16,57)).
+packed_packet(p00903,'09R401:M0xxxxxx','09R401:M0xxxxxx',5,chimdi,date(19,05,2023),time(15,16,57)).
+
+
+
+
+packed_packet(p00003,'09R401:M0xxxxxx','09R401:M0xxxxxx',20,chimdi,date(19,05,2023),time(15,18,27)).
+packed_packet(p00003,'09R401:M0xxxxxx','09R401:M0xxxxxx',20,chimdi,date(19,05,2023),time(15,19,06)).
+packed_packet(p00003,'09R401:M0xxxxxx','09R401:M0xxxxxx',20,chimdi,date(19,05,2023),time(15,19,38)).
+packed_packet(p00003,'09R401:M0xxxxxx','09R401:M0xxxxxx',20,chimdi,date(19,05,2023),time(15,20,10)).
+packed_packet(p00003,'09R401:M0xxxxxx','09R401:M0xxxxxx',20,chimdi,date(19,05,2023),time(15,20,54)).
+packed_packet(p00003,'09R401:M0xxxxxx','09R401:M0xxxxxx',20,chimdi,date(19,05,2023),time(15,23,06)).
+packed_packet(p00003,'09R401:M0xxxxxx','09R401:M0xxxxxx',20,chimdi,date(19,05,2023),time(15,23,38)).
+packed_packet(p00003,'09R401:M0xxxxxx','09R401:M0xxxxxx',20,chimdi,date(19,05,2023),time(15,24,12)).
+packed_packet(p00003,'09R401:M0xxxxxx','09R401:M0xxxxxx',20,chimdi,date(19,05,2023),time(15,24,40)).
+packed_packet(p00003,'09R401:M0xxxxxx','09R401:M0xxxxxx',20,chimdi,date(19,05,2023),time(15,25,15)).
+packed_packet(p00003,'09R401:M0xxxxxx','09R401:M0xxxxxx',20,chimdi,date(19,05,2023),time(15,25,52)).
+packed_packet(p00003,'09R401:M0xxxxxx','09R401:M0xxxxxx',20,chimdi,date(19,05,2023),time(15,26,20)).
+packed_packet(p00003,'09R401:M0xxxxxx','09R401:M0xxxxxx',20,chimdi,date(19,05,2023),time(15,26,56)).
+packed_packet(p00003,'09R401:M0xxxxxx','09R401:M0xxxxxx',20,chimdi,date(19,05,2023),time(15,27,30)).
+packed_packet(p00003,'09R401:M0xxxxxx','09R401:M0xxxxxx',20,chimdi,date(19,05,2023),time(15,28,02)).
+packed_packet(p00003,'09R401:M0xxxxxx','09R401:M0xxxxxx',20,chimdi,date(19,05,2023),time(15,28,34)).
+packed_packet(p00003,'09R401:M0xxxxxx','09R401:M0xxxxxx',20,chimdi,date(19,05,2023),time(15,29,04)).
+packed_packet(p00003,'09R401:M0xxxxxx','09R401:M0xxxxxx',20,chimdi,date(19,05,2023),time(15,29,38)).
+packed_packet(p00003,'09R401:M0xxxxxx','09R401:M0xxxxxx',20,chimdi,date(19,05,2023),time(15,30,14)).
+packed_packet(p00003,'09R401:M0xxxxxx','09R401:M0xxxxxx',20,chimdi,date(19,05,2023),time(15,30,49)).
+packed_packet(p00003,'09R401:M0xxxxxx','09R401:M0xxxxxx',20,chimdi,date(19,05,2023),time(15,31,17)).
+packed_packet(p00003,'09R401:M0xxxxxx','09R401:M0xxxxxx',20,chimdi,date(19,05,2023),time(15,31,47)).
+packed_packet(p00003,'09R401:M0xxxxxx','09R401:M0xxxxxx',20,chimdi,date(19,05,2023),time(15,32,17)).
+packed_packet(p00003,'09R401:M0xxxxxx','09R401:M0xxxxxx',20,chimdi,date(19,05,2023),time(15,32,46)).
+
+
+
+% actually packed 10
+%
+% Kazic, 24.5.2023
+%
+% packed_packet(p00004,'13R504:B0xxxxxx','13R504:B0xxxxxx',10,chimdi,date(19,05,2023),time(15,39,40)).
+
+packed_packet(p00904,'13R504:B0xxxxxx','13R504:B0xxxxxx',5,chimdi,date(19,05,2023),time(15,39,40)).
+
+packed_packet(p00942,'13R504:B0xxxxxx','13R504:B0xxxxxx',5,chimdi,date(19,05,2023),time(15,40,21)).
+packed_packet(p00943,'13R504:B0xxxxxx','13R504:B0xxxxxx',10,chimdi,date(19,05,2023),time(15,41,10)).
+packed_packet(p00004,'13R504:B0xxxxxx','13R504:B0xxxxxx',20,chimdi,date(19,05,2023),time(15,42,17)).
+packed_packet(p00004,'13R504:B0xxxxxx','13R504:B0xxxxxx',20,chimdi,date(19,05,2023),time(15,42,22)).
+packed_packet(p00004,'13R504:B0xxxxxx','13R504:B0xxxxxx',20,chimdi,date(19,05,2023),time(15,42,48)).
+packed_packet(p00004,'13R504:B0xxxxxx','13R504:B0xxxxxx',20,chimdi,date(19,05,2023),time(15,43,18)).
+packed_packet(p00004,'13R504:B0xxxxxx','13R504:B0xxxxxx',20,chimdi,date(19,05,2023),time(15,43,47)).
+packed_packet(p00004,'13R504:B0xxxxxx','13R504:B0xxxxxx',20,chimdi,date(19,05,2023),time(15,44,17)).
+packed_packet(p00004,'13R504:B0xxxxxx','13R504:B0xxxxxx',20,chimdi,date(19,05,2023),time(15,44,48)).
+packed_packet(p00004,'13R504:B0xxxxxx','13R504:B0xxxxxx',20,chimdi,date(19,05,2023),time(15,45,19)).
+packed_packet(p00004,'13R504:B0xxxxxx','13R504:B0xxxxxx',20,chimdi,date(19,05,2023),time(15,45,50)).
+packed_packet(p00004,'13R504:B0xxxxxx','13R504:B0xxxxxx',20,chimdi,date(19,05,2023),time(15,46,26)).
+packed_packet(p00004,'13R504:B0xxxxxx','13R504:B0xxxxxx',20,chimdi,date(19,05,2023),time(15,46,58)).
+packed_packet(p00004,'13R504:B0xxxxxx','13R504:B0xxxxxx',20,chimdi,date(19,05,2023),time(15,47,26)).
+
+% actually packed 10
+%
+% Kazic, 24.5.2023
+%
+% packed_packet(p00905,'20R889:L0xxxxxx','20R889:L0xxxxxx',10,chimdi,date(19,05,2023),time(15,48,00)).
+packed_packet(p00905,'20R889:L0xxxxxx','20R889:L0xxxxxx',6,chimdi,date(19,05,2023),time(15,48,00)).
+
+
+
+
+% data added from ../../data../palm/raw_data_from_palms/23r/eta/20.5/packed_packet.csv on Tue May 23 18:48:22 CDT 2023
+% by data/data_conversion/convert_packed_packet_data.perl
+% called from data/data_conversion/convert_data.perl
+
+packed_packet(p00151,'21R205:S0002011','21R4811:0013802',30,toni,date(20,05,2023),time(17,14,36)).
+packed_packet(p00152,'21R205:S0002011','21R4811:0013802',30,toni,date(20,05,2023),time(17,14,48)).
+packed_packet(p00153,'21R205:S0002011','21R4811:0013802',30,toni,date(20,05,2023),time(17,15,00)).
+packed_packet(p00154,'21R205:S0002015','21R4882:0015104',20,toni,date(20,05,2023),time(17,19,35)).
+packed_packet(p00155,'21R305:W0002216','21R4809:0013504',30,toni,date(20,05,2023),time(17,21,38)).
+packed_packet(p00156,'21R305:W0002216','21R4809:0013504',30,toni,date(20,05,2023),time(17,21,50)).
+packed_packet(p00157,'21R405:M0001202','21R4813:0014003',24,toni,date(20,05,2023),time(17,27,53)).
+packed_packet(p00158,'17R405:M0004310','17R4524:0019603',20,toni,date(20,05,2023),time(19,35,57)).
+packed_packet(p00159,'17R405:M0004310','17R4524:0019603',20,toni,date(20,05,2023),time(19,36,09)).
+packed_packet(p00160,'21R405:M0001311','21R4873:0012603',30,toni,date(20,05,2023),time(17,35,04)).
+packed_packet(p00161,'21R405:M0001311','21R4873:0012603',30,toni,date(20,05,2023),time(17,35,15)).
+packed_packet(p00162,'21R405:M0001313','21R4868:0011905',40,toni,date(20,05,2023),time(17,38,23)).
+packed_packet(p00163,'21R405:M0001313','21R4868:0011905',40,toni,date(20,05,2023),time(17,38,35)).
+packed_packet(p00164,'21R405:M0001315','21R4873:0012609',30,toni,date(20,05,2023),time(17,42,30)).
+packed_packet(p00165,'21R405:M0001315','21R4873:0012609',30,toni,date(20,05,2023),time(17,42,40)).
+
+% corrected male per packet --- same family
+%
+% Kazic, 3.6.2023
+packed_packet(p00166,'21R405:M0001406','21R4870:0023107',9,toni,date(20,05,2023),time(17,47,04)).
+packed_packet(p00167,'21R405:M0001409','21R4879:0014303',30,toni,date(20,05,2023),time(17,48,50)).
+
+% actually packed 25
+%
+% Kazic, 24.5.2023
+% 
+% packed_packet(p00168,'22R4898:0003106','22R4898:0003106',25,toni,date(20,05,2023),time(17,52,12)).
+packed_packet(p00168,'22R4898:0003106','22R4898:0003106',16,toni,date(20,05,2023),time(17,52,12)).
+packed_packet(p00169,'22R4898:0003106','22R4898:0003106',20,toni,date(20,05,2023),time(17,52,24)).
+
+% actually packed 25
+%
+% Kazic, 24.5.2023
+% 
+% packed_packet(p00170,'22R4899:0003208','22R4899:0003208',25,toni,date(20,05,2023),time(17,56,25)).
+packed_packet(p00170,'22R4899:0003208','22R4899:0003208',16,toni,date(20,05,2023),time(17,56,25)).
+
+packed_packet(p00171,'22R4899:0003208','22R4899:0003208',20,toni,date(20,05,2023),time(17,56,45)).
+packed_packet(p00172,'22R4899:0003208','22R4899:0003208',20,toni,date(20,05,2023),time(17,56,59)).
+
+
+% actually packed 25
+%
+% Kazic, 24.5.2023
+% 
+% packed_packet(p00173,'22R4900:0003309','22R4900:0003309',25,toni,date(20,05,2023),time(18,00,52)).
+packed_packet(p00173,'22R4900:0003309','22R4900:0003309',16,toni,date(20,05,2023),time(18,00,52)).
+
+packed_packet(p00174,'22R4900:0003309','22R4900:0003309',20,toni,date(20,05,2023),time(18,01,11)).
+packed_packet(p00175,'22R4900:0003309','22R4900:0003309',20,toni,date(20,05,2023),time(18,01,22)).
+packed_packet(p00176,'22R4902:0006001','22R4902:0006001',40,toni,date(20,05,2023),time(18,04,49)).
+packed_packet(p00177,'22R4904:0006501','22R4904:0006501',20,toni,date(20,05,2023),time(18,07,04)).
+packed_packet(p00178,'22R4905:0006604','22R4905:0006604',20,toni,date(20,05,2023),time(18,08,33)).
+packed_packet(p00179,'22R205:S0015401','22R4953:0021208',20,toni,date(20,05,2023),time(18,12,29)).
+packed_packet(p00180,'22R205:S0015401','22R4953:0021208',20,toni,date(20,05,2023),time(18,12,40)).
+packed_packet(p00181,'22R205:S0015402','22R4858:0006212',20,toni,date(20,05,2023),time(18,15,22)).
+packed_packet(p00182,'22R205:S0015402','22R4858:0006212',20,toni,date(20,05,2023),time(18,15,48)).
+packed_packet(p00183,'22R205:S0015412','22R4965:0023009',30,toni,date(20,05,2023),time(18,18,22)).
+packed_packet(p00184,'22R205:S0015606','22R4939:0018207',20,toni,date(20,05,2023),time(18,20,33)).
+packed_packet(p00185,'22R205:S0015606','22R4939:0018207',20,toni,date(20,05,2023),time(18,20,44)).
+packed_packet(p00186,'22R205:S0015612','22R4828:0009614',40,toni,date(20,05,2023),time(18,23,54)).
+packed_packet(p00187,'22R205:S0015612','22R4828:0009614',20,toni,date(20,05,2023),time(18,24,10)).
+packed_packet(p00188,'22R205:S0015706','22R4941:0019501',20,toni,date(20,05,2023),time(18,27,18)).
+packed_packet(p00189,'22R205:S0015708','22R4979:0026108',20,toni,date(20,05,2023),time(18,28,42)).
+packed_packet(p00190,'22R205:S0017106','22R4906:0003514',20,toni,date(20,05,2023),time(18,30,24)).
+packed_packet(p00191,'22R205:S0017111','22R3779:0025716',20,toni,date(20,05,2023),time(18,32,49)).
+packed_packet(p00192,'22R205:S0017115','22R4949:0020804',20,toni,date(20,05,2023),time(18,34,24)).
+packed_packet(p00193,'22R205:S0017117','22R4946:0020503',20,toni,date(20,05,2023),time(18,37,26)).
+packed_packet(p00194,'22R205:S0017212','22R4974:0025309',20,toni,date(20,05,2023),time(18,38,54)).
+packed_packet(p00195,'22R305:W0015809','22R4950:0020910',20,toni,date(20,05,2023),time(18,40,30)).
+packed_packet(p00196,'22R305:W0015813','22R4954:0021315',20,toni,date(20,05,2023),time(18,42,22)).
+packed_packet(p00197,'22R305:W0015813','22R4954:0021315',20,toni,date(20,05,2023),time(18,42,34)).
+packed_packet(p00198,'22R305:W0015901','22R4978:0025810',20,toni,date(20,05,2023),time(18,45,26)).
+packed_packet(p00199,'22R305:W0015903','22R4943:0020004',20,toni,date(20,05,2023),time(18,47,00)).
+packed_packet(p00200,'22R305:W0015909','22R4976:0025509',20,toni,date(20,05,2023),time(18,48,51)).
+packed_packet(p00201,'22R305:W0015915','22R4973:0025206',20,toni,date(20,05,2023),time(18,50,46)).
+packed_packet(p00202,'22R305:W0016104','22R4971:0024912',20,toni,date(20,05,2023),time(18,52,48)).
+packed_packet(p00203,'22R305:W0017313','22R4947:0020609',20,toni,date(20,05,2023),time(18,55,24)).
+packed_packet(p00204,'22R305:W0017407','22R4858:0006212',20,toni,date(20,05,2023),time(18,56,55)).
+packed_packet(p00205,'22R305:W0017413','22R4965:0023009',30,toni,date(20,05,2023),time(18,58,35)).
+packed_packet(p00206,'22R305:W0017414','22R4980:0026201',20,toni,date(20,05,2023),time(19,00,37)).
+packed_packet(p00207,'22R405:M0016303','22R4965:0023009',30,toni,date(20,05,2023),time(19,03,09)).
+packed_packet(p00208,'22R405:M0016401','22R4956:0021502',20,toni,date(20,05,2023),time(19,05,27)).
+packed_packet(p00209,'22R405:M0016401','22R4956:0021502',20,toni,date(20,05,2023),time(19,05,39)).
+packed_packet(p00210,'22R405:M0016405','22R4829:0022711',40,toni,date(20,05,2023),time(19,11,39)).
+packed_packet(p00211,'22R405:M0016505','22R4907:0004101',20,toni,date(20,05,2023),time(19,13,51)).
+packed_packet(p00212,'22R405:M0016505','22R4907:0004101',20,toni,date(20,05,2023),time(19,14,03)).
+packed_packet(p00213,'22R405:M0016508','22R3673:0024408',20,toni,date(20,05,2023),time(19,16,29)).
+packed_packet(p00214,'22R405:M0016710','22R4883:0023206',20,toni,date(20,05,2023),time(19,18,43)).
+packed_packet(p00215,'22R405:M0016710','22R4883:0023206',20,toni,date(20,05,2023),time(19,18,56)).
+packed_packet(p00216,'22R405:M0017508','22R4858:0006212',20,toni,date(20,05,2023),time(19,21,46)).
+packed_packet(p00217,'22R405:M0017508','22R4858:0006212',20,toni,date(20,05,2023),time(19,21,58)).
+packed_packet(p00218,'22R405:M0017603','22R4951:0021010',20,toni,date(20,05,2023),time(19,24,28)).
+packed_packet(p00219,'22R405:M0017611','22R4851:0026014',20,toni,date(20,05,2023),time(19,26,16)).
+
+
+
+
+% data added from ../../data../palm/raw_data_from_palms/23r/eta/2.6/packed_packet.csv on Fri Jun  2 18:21:53 CDT 2023
+% by data/data_conversion/convert_packed_packet_data.perl
+% called from data/data_conversion/convert_data.perl
+
+packed_packet(p00023,'11N3100:0024910','11N3100:0024910',20,toni,date(02,06,2023),time(13,47,13)).
+packed_packet(p00081,'16R4463:0003907','16R4463:0003907',40,toni,date(02,06,2023),time(13,48,40)).
+packed_packet(p00113,'20R4791:0006109','20R4791:0006109',40,toni,date(02,06,2023),time(13,50,39)).
+
+
+
+
+% added a dummy packet for rows with unknown corn
+%
+% in this crop, that's row 301
+%
+% Kazic, 6.6.2023
+
+packed_packet(p99999,'06R9999:0000000','06R9999:0000000',20,toni,date(03,06,2023),time(19,30,00)).
+
+
+
+
+
+% data added from ../../data../palm/raw_data_from_palms/23r/eta/23.7/packed_packet.csv on Sun Jul 23 22:52:49 CDT 2023
+% by data/data_conversion/convert_packed_packet_data.perl
+% called from data/data_conversion/convert_data.perl
+
+
+% missing packet p00388: it's not listed here.  Will check
+% physical packet.
+%
+% Kazic, 18.10.2023
+%
+% sorting through the physical packets, there is no packet p00388.  There
+% is a packet p00399 which was planted in row 11 as a repeat of packet
+% p00099 in row 9.  So I think there is reason to create a new fact.
+%
+% Kazic, 19.10.2023
+%
+% packed_packet(p00388,'','',32,toni,date(23,07,2023),time(20,25,00)).
+
+
+
+packed_packet(p00301,'09R201:S0xxxxxx','09R201:S0xxxxxx',10,toni,date(23,07,2023),time(20,42,56)).
+packed_packet(p00302,'09R301:W0xxxxxx','09R301:W0xxxxxx',10,toni,date(23,07,2023),time(20,44,09)).
+packed_packet(p00303,'09R401:M0xxxxxx','09R401:M0xxxxxx',10,toni,date(23,07,2023),time(20,45,47)).
+packed_packet(p00304,'13R504:B0xxxxxx','13R504:B0xxxxxx',10,toni,date(23,07,2023),time(20,47,23)).
+packed_packet(p00305,'20R889:L0xxxxxx','20R889:L0xxxxxx',10,toni,date(23,07,2023),time(20,48,52)).
+packed_packet(p00341,'13R4109:0011306','13R4111:0011911',32,toni,date(23,07,2023),time(20,20,51)).
+packed_packet(p00353,'14R4088:0011403','14R4088:0011401',32,toni,date(23,07,2023),time(20,22,35)).
+packed_packet(p00355,'14R4092:0012212','14R4092:0012205',32,toni,date(23,07,2023),time(20,24,09)).
+packed_packet(p00392,'17R4494:0008607','17R4494:0008601',32,toni,date(23,07,2023),time(20,26,10)).
+packed_packet(p00393,'17R4452:0009008','17R4452:0009007',32,toni,date(23,07,2023),time(20,31,19)).
+packed_packet(p00399,'18R4651:0009201','18R4651:0009203',32,toni,date(23,07,2023),time(20,33,26)).
+packed_packet(p00468,'22R4898:0003107','22R4898:0003107',32,toni,date(23,07,2023),time(20,35,56)).
+packed_packet(p00470,'22R4899:0003208','22R4899:0003208',32,toni,date(23,07,2023),time(20,37,48)).
+packed_packet(p00473,'22R4900:0003309','22R4900:0003309',32,toni,date(23,07,2023),time(20,39,25)).
+
+
+
+
+
+% 24r
+
+
+% these are the packets for the pilot lls flowering experiment
+%
+% details at ../../../../e/lls_rehab_inside/notes/lls_rehabbing.org
+%
+% Kazic, 26.4.2024
+
+% data added from ../../data../palm/raw_data_from_palms/24r/eta/26.4/packed_packet.csv on Fri Apr 26 21:43:45 CDT 2024
+% by data/data_conversion/convert_packed_packet_data.perl
+% called from data/data_conversion/convert_data.perl
+
+packed_packet(p20000,'16R4461:0003711','16R4461:0003711',75,toni,date(26,04,2024),time(18,50,41)).
+packed_packet(p10000,'19R4699:0003208','19R4699:0003208',75,toni,date(26,04,2024),time(18,47,18)).
+
+% p22222 are the W23 transplanted into row 232
+%
+% Kazic, 21.5.2024
+packed_packet(p22222,'09R301:W0xxxxxx','09R301:W0xxxxxx',10,toni,date(26,04,2024),time(19,06,42)).
+
+
+
+
+% data added from ../../data../palm/raw_data_from_palms/24r/eta/18.5/packed_packet.csv on Sat May 18 19:23:47 CDT 2024
+% by data/data_conversion/convert_packed_packet_data.perl
+% called from data/data_conversion/convert_data.perl
+
+packed_packet(p00010,'06R0035:0003513','06R0035:0003514',40,toni,date(18,05,2024),time(11,44,23)).
+packed_packet(p00011,'06N301:W0031407','06N1005:0003607',30,toni,date(18,05,2024),time(11,48,00)).
+packed_packet(p00012,'06N301:W0035005','06N1609:0020311',30,toni,date(18,05,2024),time(11,53,30)).
+packed_packet(p00013,'10R1008:0011702','10R1008:0011702',40,toni,date(18,05,2024),time(11,56,34)).
+packed_packet(p00014,'10R205:S0009812','10R2929:0034509',40,toni,date(18,05,2024),time(12,00,40)).
+packed_packet(p00015,'10R205:S0009812','10R2929:0034509',40,toni,date(18,05,2024),time(12,04,43)).
+packed_packet(p00016,'11N3098:0024703','11N3098:0024703',30,toni,date(18,05,2024),time(12,08,21)).
+packed_packet(p00017,'11N3100:0024910','11N3100:0024910',30,toni,date(18,05,2024),time(12,11,28)).
+packed_packet(p00018,'12R3533:0015906','12R3533:0015906',40,toni,date(18,05,2024),time(12,14,38)).
+packed_packet(p00019,'12R3533:0015911','12R3533:0015911',40,toni,date(18,05,2024),time(12,17,15)).
+packed_packet(p00020,'12R305:W0004106','12R3717:0039310',30,toni,date(18,05,2024),time(12,20,12)).
+packed_packet(p00021,'12N3895:0005406','12N3895:0005406',40,toni,date(18,05,2024),time(12,36,02)).
+packed_packet(p00022,'12N205:S0041605','12N4017:0028305',30,toni,date(18,05,2024),time(12,39,34)).
+packed_packet(p00023,'12N205:S0041605','12N4017:0028305',30,toni,date(18,05,2024),time(12,40,06)).
+packed_packet(p00024,'12N405:M0035703','12N3993:0024910',30,toni,date(18,05,2024),time(12,44,43)).
+packed_packet(p00025,'12N405:M0035703','12N3993:0024910',30,toni,date(18,05,2024),time(12,45,17)).
+packed_packet(p00026,'13R4087:0006905','13R4087:0006903',40,toni,date(18,05,2024),time(12,49,36)).
+packed_packet(p00027,'13R4087:0006905','13R4087:0006903',40,toni,date(18,05,2024),time(12,50,16)).
+packed_packet(p00028,'13R3975:0007509','13R3975:0007512',20,toni,date(18,05,2024),time(12,53,57)).
+packed_packet(p00029,'13R3975:0007509','13R3975:0007512',20,toni,date(18,05,2024),time(12,54,15)).
+packed_packet(p00030,'13R405:M0002503','13R4076:0004203',30,toni,date(18,05,2024),time(12,57,37)).
+packed_packet(p00031,'13R405:M0002608','13R4076:0004202',30,toni,date(18,05,2024),time(13,00,25)).
+packed_packet(p00032,'14R4226:0009012','14R4226:0009011',20,toni,date(18,05,2024),time(13,03,27)).
+packed_packet(p00033,'14R4226:0009012','14R4226:0009011',30,toni,date(18,05,2024),time(13,03,41)).
+packed_packet(p00034,'14R4227:0009208','14R4227:0009211',20,toni,date(18,05,2024),time(13,07,00)).
+packed_packet(p00035,'14R4227:0009208','14R4227:0009211',30,toni,date(18,05,2024),time(13,07,00)).
+packed_packet(p00036,'14R3908:0010817','14R3908:0010815',20,toni,date(18,05,2024),time(13,13,45)).
+packed_packet(p00037,'14R3908:0010817','14R3908:0010815',9,toni,date(18,05,2024),time(13,14,00)).
+packed_packet(p00038,'14R3975:0011909','14R3975:0011906',30,toni,date(18,05,2024),time(13,18,00)).
+
+
+% this was what was planned to pack --- prior contents dumped back into
+% their stock and packets repacked, since it's the 6th planting anyway
+%
+% Kazic, 2.6.2024
+%
+packed_packet(p00039,'14R4262:0012502','14R4262:0012509',20,toni,date(2,06,2024),time(18,27,00)).
+packed_packet(p00040,'14R4262:0012502','14R4262:0012509',30,toni,date(2,06,2024),time(18,27,00)).
+%
+% Kazic, 1.6.2024
+
+% this was packed the first time; seed dumped back into stock
+%
+% Kazic, 2.6.2024
+%
+% packed_packet(p00039,'14R3975:0011909','14R3975:0011906',20,toni,date(18,05,2024),time(13,20,05)).
+% packed_packet(p00040,'14R3975:0011909','14R3975:0011906',30,toni,date(18,05,2024),time(13,20,23)).
+
+
+% this was incorrectly packed and planted; Les*-NA7145, K9113
+%
+packed_packet(p00081,'20R205:S0004501','20R4190:0028603',40,toni,date(18,05,2024),time(16,03,46)).
+%
+%
+% so pack a new packet and figure out where to put it --- r00320
+%
+% Les102, K12008
+%
+% Kazic, 2.6.2024
+%
+packed_packet(p99998,'20R305:W0001412','20R3675:0028801',40,toni,date(2,06,2024),time(18,19,00)).
+
+
+packed_packet(p00041,'14R4264:0013207','14R4264:0013209',40,toni,date(18,05,2024),time(13,35,58)).
+packed_packet(p00042,'14R4264:0013207','14R4264:0013209',40,toni,date(18,05,2024),time(13,36,11)).
+packed_packet(p00043,'14R4264:0013208','14R4264:0013209',40,toni,date(18,05,2024),time(13,40,40)).
+packed_packet(p00044,'14R4264:0013208','14R4264:0013209',40,toni,date(18,05,2024),time(13,40,52)).
+packed_packet(p00045,'14R205:S0000415','14R4291:0022711',20,toni,date(18,05,2024),time(13,44,58)).
+packed_packet(p00046,'14R205:S0000415','14R4291:0022711',30,toni,date(18,05,2024),time(13,45,11)).
+packed_packet(p00047,'14R305:W0000712','14R4191:0027713',20,toni,date(18,05,2024),time(13,49,02)).
+packed_packet(p00048,'14R305:W0000712','14R4191:0027713',20,toni,date(18,05,2024),time(13,49,37)).
+packed_packet(p00049,'14R305:W0000905','14R4273:0020102',30,toni,date(18,05,2024),time(13,52,47)).
+packed_packet(p00050,'14R305:W0000905','14R4273:0020102',30,toni,date(18,05,2024),time(13,53,18)).
+packed_packet(p00051,'14R405:M0001512','14R4315:0027205',20,toni,date(18,05,2024),time(13,56,34)).
+packed_packet(p00052,'14R405:M0001512','14R4315:0027205',30,toni,date(18,05,2024),time(13,56,47)).
+packed_packet(p00053,'15R205:S0000512','15R3321:0020208',40,toni,date(18,05,2024),time(14,01,02)).
+packed_packet(p00054,'15R205:S0002302','15R4403:0015507',40,toni,date(18,05,2024),time(14,04,11)).
+packed_packet(p00055,'15R405:M0001503','15R4368:0020512',30,toni,date(18,05,2024),time(14,07,37)).
+packed_packet(p00056,'15R405:M0001513','15R4367:0020401',30,toni,date(18,05,2024),time(14,09,48)).
+packed_packet(p00057,'16R405:M0003211','16R4222:0009409',24,toni,date(18,05,2024),time(14,13,00)).
+packed_packet(p00058,'16R405:M0003211','16R4222:0009409',24,toni,date(18,05,2024),time(14,13,14)).
+packed_packet(p00059,'17R405:M0004202','17R4509:0017712',30,toni,date(18,05,2024),time(14,32,50)).
+packed_packet(p00060,'17R405:M0004701','17R4509:0017701',30,toni,date(18,05,2024),time(14,35,43)).
+packed_packet(p00061,'18R4106:0009003','18R4106:0009017',20,toni,date(18,05,2024),time(14,41,12)).
+packed_packet(p00062,'18R4106:0009003','18R4106:0009017',30,toni,date(18,05,2024),time(14,41,16)).
+packed_packet(p00064,'19R4753:0002308','19R4753:0002308',20,toni,date(18,05,2024),time(14,50,20)).
+packed_packet(p00065,'19R4753:0002308','19R4753:0002308',30,toni,date(18,05,2024),time(14,51,01)).
+packed_packet(p00066,'19R4429:0004504','19R4429:0004503',20,toni,date(18,05,2024),time(14,56,05)).
+packed_packet(p00067,'19R4429:0004504','19R4429:0004503',20,toni,date(18,05,2024),time(14,57,09)).
+packed_packet(p00068,'19R4091:0004910','19R4091:0004908',30,toni,date(18,05,2024),time(15,03,32)).
+packed_packet(p00069,'19R4223:0008504','19R4223:0008505',20,toni,date(18,05,2024),time(15,08,00)).
+packed_packet(p00070,'19R4223:0008504','19R4223:0008505',20,toni,date(18,05,2024),time(15,08,29)).
+packed_packet(p00071,'20R4789:0005902','20R4789:0005902',30,toni,date(18,05,2024),time(15,11,55)).
+packed_packet(p00072,'20R4668:0010108','20R4668:0010104',20,toni,date(18,05,2024),time(15,36,59)).
+packed_packet(p00073,'20R4668:0010108','20R4668:0010104',20,toni,date(18,05,2024),time(15,43,59)).
+packed_packet(p00074,'20R4794:0010615','20R4794:0010710',20,toni,date(18,05,2024),time(15,47,59)).
+packed_packet(p00075,'20R4794:0010615','20R4794:0010710',30,toni,date(18,05,2024),time(15,48,34)).
+packed_packet(p00076,'20R205:S0000402','20R4713:0026408',40,toni,date(18,05,2024),time(15,53,05)).
+packed_packet(p00077,'20R205:S0000402','20R4713:0026408',40,toni,date(18,05,2024),time(15,53,38)).
+packed_packet(p00078,'20R205:S0001003','20R4043:0016001',40,toni,date(18,05,2024),time(15,59,24)).
+packed_packet(p00079,'20R205:S0001003','20R4043:0016001',40,toni,date(18,05,2024),time(15,59,45)).
+packed_packet(p00080,'20R205:S0004501','20R4190:0028603',40,toni,date(18,05,2024),time(16,03,29)).
+packed_packet(p00081,'20R205:S0004501','20R4190:0028603',40,toni,date(18,05,2024),time(16,03,46)).
+packed_packet(p00082,'20R405:M0002105','20R4362:0026603',30,toni,date(18,05,2024),time(16,08,48)).
+packed_packet(p00083,'20R405:M0002105','20R4362:0026603',30,toni,date(18,05,2024),time(16,09,11)).
+packed_packet(p00084,'20R405:M0002107','20R4817:0026103',40,toni,date(18,05,2024),time(16,13,11)).
+packed_packet(p00085,'20R405:M0002107','20R4817:0026103',20,toni,date(18,05,2024),time(16,14,07)).
+packed_packet(p00086,'20R405:M0002107','20R4817:0026103',30,toni,date(18,05,2024),time(16,14,32)).
+packed_packet(p00087,'20R405:M0002110','20R4817:0026113',40,toni,date(18,05,2024),time(16,21,28)).
+packed_packet(p00088,'20R405:M0002205','20R4818:0026307',30,toni,date(18,05,2024),time(16,24,27)).
+packed_packet(p00089,'20R405:M0002706','20R4824:0027502',30,toni,date(18,05,2024),time(16,27,49)).
+packed_packet(p00090,'20R405:M0002706','20R4824:0027502',30,toni,date(18,05,2024),time(16,28,04)).
+packed_packet(p00091,'20R405:M0005001','20R4810:0017701',40,toni,date(18,05,2024),time(16,32,35)).
+packed_packet(p00092,'20R405:M0005013','20R4810:0017701',40,toni,date(18,05,2024),time(16,36,28)).
+packed_packet(p00093,'21R4887:0002906','21R4887:0002906',40,toni,date(18,05,2024),time(16,40,20)).
+packed_packet(p00094,'21R205:S0000404','21R4875:0012806',40,toni,date(18,05,2024),time(16,44,38)).
+packed_packet(p00095,'21R205:S0000407','21R4875:0012804',40,toni,date(18,05,2024),time(16,47,38)).
+packed_packet(p00096,'21R305:W0002216','21R4809:0013504',30,toni,date(18,05,2024),time(16,50,22)).
+packed_packet(p00097,'21R305:W0002216','21R4809:0013504',30,toni,date(18,05,2024),time(16,51,07)).
+packed_packet(p00098,'21R405:M0001311','21R4873:0012603',30,toni,date(18,05,2024),time(16,56,11)).
+packed_packet(p00099,'21R405:M0001311','21R4873:0012603',30,toni,date(18,05,2024),time(16,56,32)).
+
+
+
+
+% data added from ../../data../palm/raw_data_from_palms/24r/eta/19.5/packed_packet.csv on Sun May 19 22:38:56 CDT 2024
+% by data/data_conversion/convert_packed_packet_data.perl
+% called from data/data_conversion/convert_data.perl
+
+packed_packet(p00100,'21R405:M0001313','21R4868:0011905',40,toni,date(19,05,2024),time(09,22,39)).
+packed_packet(p00101,'22R4898:0003106','22R4898:0003106',40,toni,date(19,05,2024),time(09,25,21)).
+packed_packet(p00102,'22R4900:0003309','22R4900:0003309',30,toni,date(19,05,2024),time(09,28,43)).
+packed_packet(p00103,'22R4900:0003309','22R4900:0003309',30,toni,date(19,05,2024),time(09,29,00)).
+packed_packet(p00104,'22R4904:0006501','22R4904:0006501',30,toni,date(19,05,2024),time(09,32,46)).
+packed_packet(p00105,'22R4904:0006511','22R4904:0006511',30,toni,date(19,05,2024),time(09,34,47)).
+packed_packet(p00106,'22R4905:0006604','22R4905:0006604',20,toni,date(19,05,2024),time(09,37,42)).
+packed_packet(p00107,'22R4905:0006604','22R4905:0006604',30,toni,date(19,05,2024),time(09,38,03)).
+packed_packet(p00108,'22R4457:0007402','22R4457:0007404',40,toni,date(19,05,2024),time(09,41,45)).
+packed_packet(p00109,'22R4457:0007402','22R4457:0007404',40,toni,date(19,05,2024),time(09,42,06)).
+packed_packet(p00110,'22R205:S0015401','22R4953:0021208',30,toni,date(19,05,2024),time(09,47,18)).
+packed_packet(p00111,'22R205:S0015606','22R4939:0018207',30,toni,date(19,05,2024),time(09,49,49)).
+packed_packet(p00112,'22R205:S0015606','22R4939:0018207',30,toni,date(19,05,2024),time(09,50,12)).
+packed_packet(p00113,'22R205:S0015615','22R4968:0024102',30,toni,date(19,05,2024),time(09,53,30)).
+packed_packet(p00114,'22R405:M0016401','22R4956:0021502',30,toni,date(19,05,2024),time(09,56,08)).
+packed_packet(p00115,'22R405:M0016505','22R4907:0004101',40,toni,date(19,05,2024),time(09,58,40)).
+packed_packet(p00116,'22R405:M0016505','22R4907:0004101',40,toni,date(19,05,2024),time(09,58,57)).
+packed_packet(p00117,'22R405:M0016710','22R4883:0023206',30,toni,date(19,05,2024),time(10,03,43)).
+packed_packet(p00118,'22R405:M0016710','22R4883:0023206',30,toni,date(19,05,2024),time(10,04,01)).
+packed_packet(p00119,'22R405:M0016712','22R4858:0006202',20,toni,date(19,05,2024),time(10,07,26)).
+packed_packet(p00120,'23R4985:0014501','23R4985:0014501',30,toni,date(19,05,2024),time(10,09,33)).
+packed_packet(p00121,'23R4986:0014601','23R4986:0014601',20,toni,date(19,05,2024),time(10,11,51)).
+packed_packet(p00122,'23R4987:0014706','23R4987:0014706',20,toni,date(19,05,2024),time(10,14,15)).
+packed_packet(p00123,'23R4987:0014706','23R4987:0014706',20,toni,date(19,05,2024),time(10,14,33)).
+packed_packet(p00124,'23R5003:0016602','23R5003:0016602',40,toni,date(19,05,2024),time(10,17,39)).
+packed_packet(p00125,'23R4988:0014807','23R4988:0014807',20,toni,date(19,05,2024),time(10,21,29)).
+packed_packet(p00126,'23R4988:0014807','23R4988:0014807',20,toni,date(19,05,2024),time(10,22,15)).
+packed_packet(p00127,'23R4989:0014910','23R4989:0014910',20,toni,date(19,05,2024),time(10,25,31)).
+packed_packet(p00128,'23R4990:0015006','23R4990:0015006',20,toni,date(19,05,2024),time(10,28,23)).
+packed_packet(p00129,'23R4991:0015109','23R4991:0015109',20,toni,date(19,05,2024),time(10,30,14)).
+packed_packet(p00130,'23R4992:0015201','23R4992:0015201',20,toni,date(19,05,2024),time(10,32,13)).
+packed_packet(p00131,'23R4993:0015307','23R4993:0015307',20,toni,date(19,05,2024),time(10,34,03)).
+packed_packet(p00132,'23R4994:0015402','23R4994:0015402',20,toni,date(19,05,2024),time(10,36,26)).
+packed_packet(p00133,'23R4995:0015504','23R4995:0015504',20,toni,date(19,05,2024),time(10,38,25)).
+packed_packet(p00134,'23R5001:0016410','23R5001:0016410',30,toni,date(19,05,2024),time(10,43,16)).
+packed_packet(p00135,'23R5002:0016501','23R5002:0016501',30,toni,date(19,05,2024),time(10,46,45)).
+packed_packet(p00136,'23R205:S0005009','23R4997:0015705',30,toni,date(19,05,2024),time(10,50,24)).
+packed_packet(p00137,'23R205:S0005112','23R4912:0024630',40,toni,date(19,05,2024),time(10,53,05)).
+packed_packet(p00138,'23R205:S0005515','23R5029:0026708',40,toni,date(19,05,2024),time(10,55,55)).
+packed_packet(p00139,'23R205:S0005515','23R5029:0026708',20,toni,date(19,05,2024),time(10,56,11)).
+packed_packet(p00140,'23R205:S0005515','23R5029:0026708',30,toni,date(19,05,2024),time(10,56,48)).
+packed_packet(p00141,'23R205:S0005604','23R4975:0031114',20,toni,date(19,05,2024),time(11,02,00)).
+packed_packet(p00142,'23R205:S0005606','23R4970:0032809',30,toni,date(19,05,2024),time(11,04,09)).
+packed_packet(p00143,'23R205:S0005610','23R5034:0034213',20,toni,date(19,05,2024),time(11,06,33)).
+packed_packet(p00144,'23R205:S0005706','23R4960:0026409',20,toni,date(19,05,2024),time(11,09,16)).
+packed_packet(p00145,'23R205:S0005715','23R5026:0026202',20,toni,date(19,05,2024),time(11,11,11)).
+packed_packet(p00146,'23R205:S0005902','23R5017:0022706',20,toni,date(19,05,2024),time(19,12,08)).
+packed_packet(p00147,'23R205:S0006001','23R4998:0015810',30,toni,date(19,05,2024),time(11,15,27)).
+packed_packet(p00148,'23R205:S0012103','23R5040:0031610',20,toni,date(19,05,2024),time(11,17,35)).
+packed_packet(p00149,'23R205:S0012106','23R5037:0031311',40,toni,date(19,05,2024),time(11,19,35)).
+packed_packet(p00150,'23R205:S0012106','23R5037:0031311',40,toni,date(19,05,2024),time(11,19,56)).
+packed_packet(p00151,'23R205:S0012204','23R4230:0026123',20,toni,date(19,05,2024),time(11,24,12)).
+packed_packet(p00152,'23R205:S0012205','23R5024:0025608',20,toni,date(19,05,2024),time(11,26,04)).
+packed_packet(p00153,'23R205:S0012209','23R5022:0023908',40,toni,date(19,05,2024),time(11,27,29)).
+packed_packet(p00154,'23R205:S0012213','23R4565:0024119',32,toni,date(19,05,2024),time(11,29,49)).
+packed_packet(p00155,'23R305:W0006808','23R5018:0022811',20,toni,date(19,05,2024),time(11,33,06)).
+packed_packet(p00156,'23R305:W0006808','23R5018:0022811',20,toni,date(19,05,2024),time(11,35,30)).
+packed_packet(p00157,'23R305:W0006808','23R5018:0022811',20,toni,date(19,05,2024),time(11,37,35)).
+packed_packet(p00158,'23R305:W0006808','23R5018:0022811',30,toni,date(19,05,2024),time(11,37,51)).
+packed_packet(p00159,'23R305:W0006903','23R5023:0025006',30,toni,date(19,05,2024),time(11,40,52)).
+packed_packet(p00160,'23R305:W0006904','23R4936:0022312',20,toni,date(19,05,2024),time(11,43,00)).
+packed_packet(p00161,'23R305:W0006906','23R5030:0026802',30,toni,date(19,05,2024),time(11,45,00)).
+packed_packet(p00162,'23R305:W0006906','23R5030:0026802',30,toni,date(19,05,2024),time(11,45,25)).
+packed_packet(p00163,'23R305:W0006917','23R5041:0032604',20,toni,date(19,05,2024),time(11,49,42)).
+packed_packet(p00164,'23R305:W0007001','23R5036:0030507',20,toni,date(19,05,2024),time(11,51,30)).
+packed_packet(p00165,'23R305:W0007001','23R5036:0030507',20,toni,date(19,05,2024),time(11,51,49)).
+packed_packet(p00166,'23R305:W0007015','23R4836:0025718',20,toni,date(19,05,2024),time(11,54,07)).
+packed_packet(p00167,'23R305:W0007019','23R5038:0031405',30,toni,date(19,05,2024),time(11,55,40)).
+packed_packet(p00168,'23R305:W0012310','23R4829:0015909',30,toni,date(19,05,2024),time(11,59,00)).
+packed_packet(p00169,'23R305:W0012310','23R4829:0015909',20,toni,date(19,05,2024),time(11,59,34)).
+packed_packet(p00170,'23R305:W0012310','23R4829:0015909',30,toni,date(19,05,2024),time(11,59,57)).
+packed_packet(p00171,'23R305:W0012405','23R4999:0016214',30,toni,date(19,05,2024),time(12,04,32)).
+packed_packet(p00172,'23R405:M0008401','23R4813:0025507',40,toni,date(19,05,2024),time(12,06,52)).
+packed_packet(p00173,'23R405:M0008403','23R4996:0015602',20,toni,date(19,05,2024),time(12,09,35)).
+packed_packet(p00174,'23R405:M0008404','23R5025:0025807',20,toni,date(19,05,2024),time(12,11,17)).
+packed_packet(p00175,'23R405:M0008503','23R5000:0016315',30,toni,date(19,05,2024),time(12,13,30)).
+packed_packet(p00176,'23R405:M0008507','23R5035:0030721',20,toni,date(19,05,2024),time(12,15,43)).
+packed_packet(p00177,'23R405:M0008603','23R3777:0031002',20,toni,date(19,05,2024),time(12,17,53)).
+packed_packet(p00178,'23R405:M0008811','23R3690:0031220',20,toni,date(19,05,2024),time(12,19,36)).
+packed_packet(p00179,'23R405:M0008903','23R5042:0032710',30,toni,date(19,05,2024),time(12,21,04)).
+packed_packet(p00180,'23R405:M0009205','23R5047:0033906',20,toni,date(19,05,2024),time(12,22,51)).
+packed_packet(p00181,'23R405:M0010403','23R4947:0025906',20,toni,date(19,05,2024),time(12,24,38)).
+packed_packet(p00182,'23R405:M0010511','23R4684:0028017',20,toni,date(19,05,2024),time(12,26,38)).
+packed_packet(p00183,'23R405:M0010706','23R5044:0033007',30,toni,date(19,05,2024),time(12,28,16)).
+packed_packet(p00184,'23R405:M0012607','23R4752:0030208',20,toni,date(19,05,2024),time(12,30,17)).
+packed_packet(p00185,'23R405:M0012702','23R5039:0031515',30,toni,date(19,05,2024),time(12,31,51)).
+packed_packet(p00063,'18R405:M0004310','18R4698:0022208',30,toni,date(19,05,2024),time(19,15,40)).
+packed_packet(p99999,'23R405:M0012711','23R5046:0033401',20,toni,date(19,05,2024),time(19,24,38)).
+packed_packet(p00001,'09R201:S0xxxxxx','09R201:S0xxxxxx',20,toni,date(19,05,2024),time(19,35,05)).
+packed_packet(p00001,'09R201:S0xxxxxx','09R201:S0xxxxxx',20,toni,date(19,05,2024),time(19,36,00)).
+packed_packet(p00001,'09R201:S0xxxxxx','09R201:S0xxxxxx',20,toni,date(19,05,2024),time(19,36,00)).
+packed_packet(p00001,'09R201:S0xxxxxx','09R201:S0xxxxxx',20,toni,date(19,05,2024),time(19,37,00)).
+packed_packet(p00001,'09R201:S0xxxxxx','09R201:S0xxxxxx',20,toni,date(19,05,2024),time(19,37,00)).
+packed_packet(p00001,'09R201:S0xxxxxx','09R201:S0xxxxxx',20,toni,date(19,05,2024),time(19,38,00)).
+packed_packet(p00001,'09R201:S0xxxxxx','09R201:S0xxxxxx',20,toni,date(19,05,2024),time(19,38,00)).
+packed_packet(p00001,'09R201:S0xxxxxx','09R201:S0xxxxxx',20,toni,date(19,05,2024),time(19,39,00)).
+packed_packet(p00001,'09R201:S0xxxxxx','09R201:S0xxxxxx',20,toni,date(19,05,2024),time(19,40,00)).
+packed_packet(p00001,'09R201:S0xxxxxx','09R201:S0xxxxxx',20,toni,date(19,05,2024),time(19,41,00)).
+packed_packet(p00001,'09R201:S0xxxxxx','09R201:S0xxxxxx',20,toni,date(19,05,2024),time(19,42,00)).
+packed_packet(p00001,'09R201:S0xxxxxx','09R201:S0xxxxxx',20,toni,date(19,05,2024),time(19,43,00)).
+packed_packet(p00001,'09R201:S0xxxxxx','09R201:S0xxxxxx',20,toni,date(19,05,2024),time(19,44,00)).
+packed_packet(p00001,'09R201:S0xxxxxx','09R201:S0xxxxxx',20,toni,date(19,05,2024),time(19,45,00)).
+packed_packet(p00001,'09R201:S0xxxxxx','09R201:S0xxxxxx',20,toni,date(19,05,2024),time(19,46,00)).
+packed_packet(p00001,'09R201:S0xxxxxx','09R201:S0xxxxxx',20,toni,date(19,05,2024),time(19,47,00)).
+packed_packet(p00001,'09R201:S0xxxxxx','09R201:S0xxxxxx',20,toni,date(19,05,2024),time(19,48,00)).
+packed_packet(p00001,'09R201:S0xxxxxx','09R201:S0xxxxxx',20,toni,date(19,05,2024),time(19,49,00)).
+packed_packet(p00001,'09R201:S0xxxxxx','09R201:S0xxxxxx',10,toni,date(19,05,2024),time(19,50,36)).
+packed_packet(p00002,'09R301:W0xxxxxx','09R301:W0xxxxxx',10,toni,date(19,05,2024),time(19,56,28)).
+packed_packet(p00002,'09R301:W0xxxxxx','09R301:W0xxxxxx',20,toni,date(19,05,2024),time(19,56,00)).
+packed_packet(p00002,'09R301:W0xxxxxx','09R301:W0xxxxxx',20,toni,date(19,05,2024),time(19,56,00)).
+packed_packet(p00002,'09R301:W0xxxxxx','09R301:W0xxxxxx',20,toni,date(19,05,2024),time(19,57,00)).
+packed_packet(p00002,'09R301:W0xxxxxx','09R301:W0xxxxxx',20,toni,date(19,05,2024),time(19,57,00)).
+packed_packet(p00002,'09R301:W0xxxxxx','09R301:W0xxxxxx',20,toni,date(19,05,2024),time(19,58,00)).
+packed_packet(p00002,'09R301:W0xxxxxx','09R301:W0xxxxxx',20,toni,date(19,05,2024),time(19,58,00)).
+packed_packet(p00002,'09R301:W0xxxxxx','09R301:W0xxxxxx',20,toni,date(19,05,2024),time(19,59,00)).
+packed_packet(p00002,'09R301:W0xxxxxx','09R301:W0xxxxxx',20,toni,date(19,05,2024),time(19,59,00)).
+packed_packet(p00002,'09R301:W0xxxxxx','09R301:W0xxxxxx',20,toni,date(19,05,2024),time(20,00,00)).
+packed_packet(p00002,'09R301:W0xxxxxx','09R301:W0xxxxxx',20,toni,date(19,05,2024),time(20,01,00)).
+packed_packet(p00002,'09R301:W0xxxxxx','09R301:W0xxxxxx',20,toni,date(19,05,2024),time(20,02,00)).
+packed_packet(p00002,'09R301:W0xxxxxx','09R301:W0xxxxxx',20,toni,date(19,05,2024),time(20,03,00)).
+packed_packet(p00002,'09R301:W0xxxxxx','09R301:W0xxxxxx',20,toni,date(19,05,2024),time(20,04,00)).
+packed_packet(p00002,'09R301:W0xxxxxx','09R301:W0xxxxxx',10,toni,date(19,05,2024),time(20,06,35)).
+packed_packet(p00003,'09R401:M0xxxxxx','09R401:M0xxxxxx',20,toni,date(19,05,2024),time(20,12,30)).
+packed_packet(p00003,'09R401:M0xxxxxx','09R401:M0xxxxxx',20,toni,date(19,05,2024),time(20,13,00)).
+packed_packet(p00003,'09R401:M0xxxxxx','09R401:M0xxxxxx',20,toni,date(19,05,2024),time(20,13,00)).
+packed_packet(p00003,'09R401:M0xxxxxx','09R401:M0xxxxxx',20,toni,date(19,05,2024),time(20,14,00)).
+packed_packet(p00003,'09R401:M0xxxxxx','09R401:M0xxxxxx',20,toni,date(19,05,2024),time(20,14,00)).
+packed_packet(p00003,'09R401:M0xxxxxx','09R401:M0xxxxxx',20,toni,date(19,05,2024),time(20,15,00)).
+packed_packet(p00003,'09R401:M0xxxxxx','09R401:M0xxxxxx',20,toni,date(19,05,2024),time(20,15,00)).
+packed_packet(p00003,'09R401:M0xxxxxx','09R401:M0xxxxxx',20,toni,date(19,05,2024),time(20,16,00)).
+packed_packet(p00003,'09R401:M0xxxxxx','09R401:M0xxxxxx',20,toni,date(19,05,2024),time(20,16,00)).
+packed_packet(p00003,'09R401:M0xxxxxx','09R401:M0xxxxxx',20,toni,date(19,05,2024),time(20,17,00)).
+packed_packet(p00003,'09R401:M0xxxxxx','09R401:M0xxxxxx',20,toni,date(19,05,2024),time(20,17,00)).
+packed_packet(p00003,'09R401:M0xxxxxx','09R401:M0xxxxxx',20,toni,date(19,05,2024),time(20,18,00)).
+packed_packet(p00003,'09R401:M0xxxxxx','09R401:M0xxxxxx',20,toni,date(19,05,2024),time(20,19,00)).
+packed_packet(p00003,'09R401:M0xxxxxx','09R401:M0xxxxxx',20,toni,date(19,05,2024),time(20,10,00)).
+packed_packet(p00003,'09R401:M0xxxxxx','09R401:M0xxxxxx',20,toni,date(19,05,2024),time(20,21,00)).
+packed_packet(p00003,'09R401:M0xxxxxx','09R401:M0xxxxxx',10,toni,date(19,05,2024),time(20,23,20)).
+packed_packet(p00004,'13R504:B0xxxxxx','13R504:B0xxxxxx',20,toni,date(19,05,2024),time(20,29,19)).
+packed_packet(p00004,'13R504:B0xxxxxx','13R504:B0xxxxxx',20,toni,date(19,05,2024),time(20,30,00)).
+packed_packet(p00004,'13R504:B0xxxxxx','13R504:B0xxxxxx',20,toni,date(19,05,2024),time(20,31,00)).
+packed_packet(p00004,'13R504:B0xxxxxx','13R504:B0xxxxxx',20,toni,date(19,05,2024),time(20,32,00)).
+packed_packet(p00004,'13R504:B0xxxxxx','13R504:B0xxxxxx',20,toni,date(19,05,2024),time(20,33,00)).
+packed_packet(p00004,'13R504:B0xxxxxx','13R504:B0xxxxxx',20,toni,date(19,05,2024),time(20,34,00)).
+packed_packet(p00004,'13R504:B0xxxxxx','13R504:B0xxxxxx',20,toni,date(19,05,2024),time(20,35,00)).
+packed_packet(p00004,'13R504:B0xxxxxx','13R504:B0xxxxxx',20,toni,date(19,05,2024),time(20,36,00)).
+packed_packet(p00004,'13R504:B0xxxxxx','13R504:B0xxxxxx',20,toni,date(19,05,2024),time(20,37,00)).
+packed_packet(p00004,'13R504:B0xxxxxx','13R504:B0xxxxxx',20,toni,date(19,05,2024),time(20,37,00)).
+packed_packet(p00004,'13R504:B0xxxxxx','13R504:B0xxxxxx',20,toni,date(19,05,2024),time(20,38,00)).
+packed_packet(p00004,'13R504:B0xxxxxx','13R504:B0xxxxxx',10,toni,date(19,05,2024),time(20,38,14)).
+packed_packet(p00005,'20R889:L0xxxxxx','20R889:L0xxxxxx',10,toni,date(19,05,2024),time(20,40,21)).
+
+
+
+
+%%%%%%%%%%%%%% lls rehab experiment %%%%%%%%%%%
+%
+% facts commented out so as not to appear in the field book
+%
+% Kazic, 29.5.2024
+
+
+% manually added for the [[file:../../e/lls_rehab_inside/notes/lls_rehabbing.org][lls experiment]]
+%
+% Kazic, 29.5.202
+
+packed_packet(p10000,'19R4699:0003208','19R4699:0003208',75,toni,date(26,04,2024),time(18,47,18)).
+packed_packet(p20000,'16R4461:0003711','16R4461:0003711',75,toni,date(26,04,2024),time(18,50,41)).
+% packed_packet(p00002,'09R301:W0xxxxxx','09R301:W0xxxxxx',10,toni,date(26,04,2024),time(19,06,42)).
+
+
+
+
+
+% 24g --- lab and Sears 110 greenhouse
+
+% data added from ../../data../palm/raw_data_from_palms/24r/eta/27.5/packed_packet.csv on Wed May 29 19:02:12 CDT 2024
+% by data/data_conversion/convert_packed_packet_data.perl
+% called from data/data_conversion/convert_data.perl
+
+% these are the rest of the first pass packets for the
+% [[file:../../../../e/lls_rehab_inside/notes/lls_rehabbing.org][lls experiment]]
+%
+% Kazic, 29.5.2024
+
+
+packed_packet(p10001,'13R4059:0014102','13R4059:0014102',75,toni,date(29,05,2024),time(15,57,33)).
+packed_packet(p10002,'12N3891:0005011','12N3891:0005011',75,toni,date(29,05,2024),time(15,53,14)).
+packed_packet(p20001,'21R4890:0003201','21R4890:0003201',75,toni,date(29,05,2024),time(16,01,19)).
+packed_packet(p20002,'22R4902:0006001','22R4902:0006001',75,toni,date(29,05,2024),time(16,05,05)).
+
+
+
+
+
+packed_packet(p00003,'06R401:M0xxxxxx','06R401:M0xxxxxx',6,dewi,date(14,08,2024),time(15,30,00)).
+packed_packet(p00003,'06R401:M0xxxxxx','06R401:M0xxxxxx',6,dewi,date(21,08,2024),time(15,30,00)).
+
+packed_packet(p00001,'06R201:S0xxxxxx','06R201:S0xxxxxx',6,dewi,date(21,08,2024),time(12,0,0)).
+packed_packet(p00001,'06R201:S0xxxxxx','06R201:S0xxxxxx',6,dewi,date(28,08,2024),time(12,0,0)).
+packed_packet(p00001,'06R201:S0xxxxxx','06R201:S0xxxxxx',6,toni,date(28,08,2024),time(12,0,0)).
+
+
+
+
+% data added from ../../data../palm/raw_data_from_palms/24r/eta/2.9/packed_packet.csv on Mon Sep  2 21:10:51 CDT 2024
+% by data/data_conversion/convert_packed_packet_data.perl
+% called from data/data_conversion/convert_data.perl
+
+% these are the W23/llses for selfing in the gh
+
+packed_packet(p50001,'24R305:W0023207','24R5032:0030032',3,toni,date(02,09,2024),time(18,30,00)).
+packed_packet(p50002,'24R305:W0008408','24R4915:0030119',3,toni,date(02,09,2024),time(18,30,00)).

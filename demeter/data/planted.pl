@@ -1,5 +1,8 @@
 % this is ../c/maize/demeter/data/planted.pl
 
+
+% planted/8
+
 % planted(RowPotFlat,PacketNum,Ft,Planter,Date,Time,PlantingNotesOrSoilLevel,Crop).
 
 
@@ -125,7 +128,15 @@ planted(r00096,p00109,10,toni,date(8,5,2006),time(12,0,0),full,'06R').
 planted(r00097,p00110,10,toni,date(8,5,2006),time(12,0,0),full,'06R').
 planted(r00098,p00111,10,toni,date(8,5,2006),time(12,0,0),full,'06R').
 planted(r00099,p00112,10,toni,date(8,5,2006),time(12,0,0),full,'06R').
-planted(r00100,p00005,10,toni,date(8,5,2006),time(12,0,0),full,'06R').
+%
+% fixed to prevent collisions with the elite packets of later crops
+%
+% Kazic, 20.3.2022
+%
+% planted(r00100,p00005,10,toni,date(8,5,2006),time(12,0,0),full,'06R').
+
+planted(r00100,p10005,10,toni,date(8,5,2006),time(12,0,0),full,'06R').
+
 planted(r00101,p00006,10,toni,date(8,5,2006),time(12,0,0),full,'06R').
 planted(r00102,p00007,10,toni,date(8,5,2006),time(12,0,0),full,'06R').
 planted(r00103,p00008,10,toni,date(8,5,2006),time(12,0,0),full,'06R').
@@ -2339,7 +2350,15 @@ planted(r00279,p00203,10,dylan,date(01,06,2009),time(14,34,59),full,'09R').
 planted(r00280,p00057,10,dylan,date(01,06,2009),time(14,34,24),full,'09R').
 planted(r00281,p00098,10,dylan,date(01,06,2009),time(14,34,36),full,'09R').
 planted(r00282,p00170,10,dylan,date(01,06,2009),time(14,34,29),full,'09R').
-planted(r00286,p00005,10,toni,date(09,6,2009),time(13,50,56),full,'09R').
+
+% fixed to prevent collisions with the elite packets of later crops
+%
+% Kazic, 20.3.2022
+
+
+% planted(r00286,p00005,10,toni,date(09,6,2009),time(13,50,56),full,'09R').
+
+planted(r00286,p10005,10,toni,date(09,6,2009),time(13,50,56),full,'09R').
 planted(r00287,p00007,10,toni,date(09,6,2009),time(13,51,08),full,'09R').
 planted(r00288,p00025,10,toni,date(09,6,2009),time(13,50,37),full,'09R').
 
@@ -3007,11 +3026,16 @@ planted(r00160,p00012,15,toni,date(30,05,2010),time(15,26,57),full,'10R').
 % fixed to prevent collisions with B73
 %    
 % Kazic, 22.5.2018
-
+%
+% and the elite corn of later crops
+%
+% Kazic, 20.3.2022
 
 
 planted(r00165,p10004,15,toni,date(30,05,2010),time(15,26,46),full,'10R').
-planted(r00166,p00005,15,toni,date(30,05,2010),time(15,26,34),full,'10R').
+% planted(r00166,p00005,15,toni,date(30,05,2010),time(15,26,34),full,'10R').
+planted(r00166,p10005,15,toni,date(30,05,2010),time(15,26,34),full,'10R').
+
 planted(r00167,p00006,15,toni,date(30,05,2010),time(15,26,25),full,'10R').
 planted(r00168,p00035,15,toni,date(30,05,2010),time(16,04,42),full,'10R').
 planted(r00173,p00031,15,toni,date(30,05,2010),time(16,04,53),full,'10R').
@@ -6127,7 +6151,14 @@ planted(r00330,p00007,10,wade,date(24,05,2013),time(18,13,36),full,'13R').
 planted(r00329,p00007,10,wade,date(24,05,2013),time(18,13,34),full,'13R').
 planted(r00328,p00007,10,derek,date(24,05,2013),time(18,13,32),full,'13R').
 planted(r00327,p00007,10,wade,date(24,05,2013),time(18,13,31),full,'13R').
-planted(r00326,p00005,10,derek,date(24,05,2013),time(18,13,29),full,'13R').
+
+% huh? wtf is this? maybe p00006, 11N502:B0xxxxxx certainly not a skip!
+%
+% Kazic, 20.3.2022
+% planted(r00326,p00005,10,derek,date(24,05,2013),time(18,13,29),full,'13R').
+
+planted(r00326,p00006,10,derek,date(24,05,2013),time(18,13,29),full,'13R').
+
 planted(r00325,p00006,10,wade,date(24,05,2013),time(18,13,27),full,'13R').
 planted(r00324,p00006,10,derek,date(24,05,2013),time(18,00,58),full,'13R').
 planted(r00323,p00006,10,derek,date(24,05,2013),time(18,16,04),full,'13R').
@@ -8022,3 +8053,2605 @@ planted(r00078,p00003,20,mason,date(19,06,2018),time(11,35,43),full,'18R').
 planted(r00079,p00003,20,mason,date(19,06,2018),time(11,37,29),full,'18R').
 planted(r00080,p00003,20,mason,date(19,06,2018),time(11,39,03),full,'18R').
 planted(r00195,p01000,20,mason,date(19,06,2018),time(11,40,45),full,'18R').
+
+
+
+
+
+% 19r
+
+
+% data added from ../../data../palm/raw_data_from_palms/19r/eta/5.6/planted.csv on Sun Jun  9 07:14:41 CDT 2019
+% by data/data_conversion/convert_planted_data.perl
+% called from data/data_conversion/convert_data.perl
+
+
+% replanted these first four by hand five days later:  modified Jang didn't
+% perform well for Mo20W.  Excess corn was hoed out afterwards.
+%
+% Kazic, 27.7.2019
+%
+% planted(r00001,p00001,20,jang,date(05,06,2019),time(17,09,56),full,'19R').
+% planted(r00002,p00001,20,jang,date(05,06,2019),time(17,12,44),full,'19R').
+% planted(r00003,p00001,20,jang,date(05,06,2019),time(17,16,34),full,'19R').
+% planted(r00004,p00001,20,jang,date(05,06,2019),time(17,18,17),full,'19R').
+%
+planted(r00005,p00002,20,toni,date(05,06,2019),time(17,28,25),full,'19R').
+planted(r00006,p00002,20,toni,date(05,06,2019),time(17,58,02),full,'19R').
+planted(r00007,p00002,20,toni,date(05,06,2019),time(18,00,11),full,'19R').
+planted(r00008,p00003,20,toni,date(05,06,2019),time(18,01,05),full,'19R').
+planted(r00009,p00000,20,toni,date(05,06,2019),time(18,03,44),full,'19R').
+planted(r00010,p00003,20,toni,date(05,06,2019),time(18,04,24),full,'19R').
+planted(r00011,p00003,20,toni,date(05,06,2019),time(18,05,07),full,'19R').
+planted(r00012,p00003,20,toni,date(05,06,2019),time(18,06,18),full,'19R').
+planted(r00013,p00003,20,toni,date(05,06,2019),time(18,07,32),full,'19R').
+planted(r00014,p00003,20,toni,date(05,06,2019),time(18,08,49),full,'19R').
+planted(r00015,p00004,20,toni,date(05,06,2019),time(18,10,06),full,'19R').
+planted(r00016,p00004,20,toni,date(05,06,2019),time(18,11,16),full,'19R').
+planted(r00017,p00004,20,toni,date(05,06,2019),time(18,13,06),full,'19R').
+planted(r00018,p00004,20,toni,date(05,06,2019),time(18,15,14),full,'19R').
+planted(r00019,p00004,20,toni,date(05,06,2019),time(18,16,04),full,'19R').
+planted(r00020,p00004,20,toni,date(05,06,2019),time(18,17,20),full,'19R').
+planted(r00021,p00004,20,toni,date(05,06,2019),time(18,18,21),full,'19R').
+planted(r00022,p00004,20,toni,date(05,06,2019),time(18,19,51),full,'19R').
+planted(r00023,p00010,20,toni,date(05,06,2019),time(18,20,46),full,'19R').
+planted(r00024,p00011,20,dewi,date(05,06,2019),time(18,22,03),full,'19R').
+planted(r00025,p00012,20,dewi,date(05,06,2019),time(18,25,50),full,'19R').
+planted(r00026,p00000,20,dewi,date(05,06,2019),time(18,27,31),full,'19R').
+planted(r00027,p00013,20,dewi,date(05,06,2019),time(18,27,53),full,'19R').
+planted(r00028,p00014,20,dewi,date(05,06,2019),time(18,29,37),full,'19R').
+planted(r00029,p00015,20,dewi,date(05,06,2019),time(18,31,42),full,'19R').
+planted(r00030,p00016,20,dewi,date(05,06,2019),time(18,33,07),full,'19R').
+planted(r00031,p00017,20,toni,date(05,06,2019),time(18,35,07),full,'19R').
+planted(r00032,p00018,20,dewi,date(05,06,2019),time(18,37,02),full,'19R').
+planted(r00033,p00019,20,toni,date(05,06,2019),time(18,37,23),full,'19R').
+planted(r00034,p00020,20,toni,date(05,06,2019),time(18,38,00),full,'19R').
+planted(r00035,p00021,20,toni,date(05,06,2019),time(18,41,04),full,'19R').
+planted(r00036,p00022,20,toni,date(05,06,2019),time(18,42,43),full,'19R').
+planted(r00037,p00023,20,toni,date(05,06,2019),time(18,44,14),full,'19R').
+planted(r00038,p00024,20,toni,date(05,06,2019),time(18,47,33),full,'19R').
+planted(r00039,p00025,20,toni,date(05,06,2019),time(18,47,57),full,'19R').
+planted(r00040,p00026,20,toni,date(05,06,2019),time(18,48,00),full,'19R').
+planted(r00041,p00027,20,toni,date(05,06,2019),time(18,50,39),full,'19R').
+planted(r00042,p00028,20,toni,date(05,06,2019),time(18,50,52),full,'19R').
+planted(r00043,p00000,20,toni,date(05,06,2019),time(18,51,31),full,'19R').
+planted(r00044,p00029,20,toni,date(05,06,2019),time(18,52,08),full,'19R').
+planted(r00045,p00030,20,toni,date(05,06,2019),time(18,52,58),full,'19R').
+planted(r00046,p00031,20,toni,date(05,06,2019),time(18,53,15),full,'19R').
+planted(r00047,p00032,20,toni,date(05,06,2019),time(18,53,47),full,'19R').
+planted(r00048,p00033,20,toni,date(05,06,2019),time(18,55,20),full,'19R').
+planted(r00049,p00034,20,toni,date(05,06,2019),time(18,55,30),full,'19R').
+planted(r00050,p00035,20,toni,date(05,06,2019),time(18,56,23),full,'19R').
+planted(r00051,p00036,20,dewi,date(05,06,2019),time(18,56,34),full,'19R').
+planted(r00052,p00037,20,toni,date(05,06,2019),time(18,59,05),full,'19R').
+planted(r00053,p00038,20,toni,date(05,06,2019),time(18,59,31),full,'19R').
+planted(r00054,p00039,20,toni,date(05,06,2019),time(19,00,08),full,'19R').
+planted(r00055,p00040,20,toni,date(05,06,2019),time(19,00,33),full,'19R').
+planted(r00056,p00041,20,toni,date(05,06,2019),time(19,00,52),full,'19R').
+planted(r00057,p00042,20,dewi,date(05,06,2019),time(19,01,10),full,'19R').
+planted(r00058,p00043,20,dewi,date(05,06,2019),time(19,01,32),full,'19R').
+planted(r00059,p00044,20,toni,date(05,06,2019),time(19,04,16),full,'19R').
+planted(r00060,p00000,20,toni,date(05,06,2019),time(19,04,37),full,'19R').
+planted(r00061,p00045,20,toni,date(05,06,2019),time(19,05,05),full,'19R').
+planted(r00062,p00046,20,toni,date(05,06,2019),time(19,05,48),full,'19R').
+planted(r00063,p00047,20,toni,date(05,06,2019),time(19,06,44),full,'19R').
+planted(r00064,p00048,20,toni,date(05,06,2019),time(19,07,07),full,'19R').
+planted(r00065,p00049,20,toni,date(05,06,2019),time(19,07,36),full,'19R').
+planted(r00066,p00050,20,toni,date(05,06,2019),time(19,08,04),full,'19R').
+planted(r00067,p00051,20,toni,date(05,06,2019),time(19,08,32),full,'19R').
+planted(r00068,p00052,20,dewi,date(05,06,2019),time(19,08,52),full,'19R').
+planted(r00069,p00053,20,toni,date(05,06,2019),time(19,11,38),full,'19R').
+planted(r00070,p00054,20,toni,date(05,06,2019),time(19,11,55),full,'19R').
+planted(r00071,p00055,20,toni,date(05,06,2019),time(19,12,23),full,'19R').
+planted(r00072,p00056,20,toni,date(05,06,2019),time(19,12,48),full,'19R').
+planted(r00073,p00057,20,toni,date(05,06,2019),time(19,13,11),full,'19R').
+planted(r00074,p00058,20,toni,date(05,06,2019),time(19,14,23),full,'19R').
+planted(r00075,p00059,20,toni,date(05,06,2019),time(19,14,48),full,'19R').
+planted(r00076,p00060,20,toni,date(05,06,2019),time(19,15,14),full,'19R').
+planted(r00077,p00000,20,toni,date(05,06,2019),time(19,15,31),full,'19R').
+planted(r00078,p00061,20,toni,date(05,06,2019),time(19,15,54),full,'19R').
+planted(r00079,p00062,20,toni,date(05,06,2019),time(19,16,20),full,'19R').
+planted(r00080,p00063,20,toni,date(05,06,2019),time(19,16,37),full,'19R').
+planted(r00081,p00064,20,toni,date(05,06,2019),time(19,17,01),full,'19R').
+planted(r00082,p00065,20,toni,date(05,06,2019),time(19,17,29),full,'19R').
+planted(r00083,p00066,20,toni,date(05,06,2019),time(19,17,54),full,'19R').
+planted(r00084,p00067,20,toni,date(05,06,2019),time(19,18,19),full,'19R').
+planted(r00085,p00068,20,toni,date(05,06,2019),time(19,19,00),full,'19R').
+
+
+
+
+% data added from ../../data../palm/raw_data_from_palms/19r/eta/10.6/planted.csv on Tue Jun 11 13:47:31 CDT 2019
+% by data/data_conversion/convert_planted_data.perl
+% called from data/data_conversion/convert_data.perl
+
+planted(r00086,p00069,20,toni,date(10,06,2019),time(10,01,00),full,'19R').
+planted(r00088,p00071,20,toni,date(10,06,2019),time(10,01,00),full,'19R').
+planted(r00090,p00073,20,toni,date(10,06,2019),time(10,01,00),full,'19R').
+planted(r00092,p00075,20,toni,date(10,06,2019),time(10,02,00),full,'19R').
+planted(r00096,p00077,20,toni,date(10,06,2019),time(10,02,00),full,'19R').
+planted(r00097,p00078,20,toni,date(10,06,2019),time(10,02,00),full,'19R').
+planted(r00099,p00080,20,toni,date(10,06,2019),time(10,02,00),full,'19R').
+planted(r00101,p00082,20,toni,date(10,06,2019),time(10,02,00),full,'19R').
+planted(r00104,p00085,20,toni,date(10,06,2019),time(10,03,00),full,'19R').
+planted(r00106,p00087,20,toni,date(10,06,2019),time(10,03,00),full,'19R').
+planted(r00107,p00088,20,toni,date(10,06,2019),time(10,03,00),full,'19R').
+planted(r00109,p00090,20,toni,date(10,06,2019),time(10,03,00),full,'19R').
+planted(r00112,p00092,20,toni,date(10,06,2019),time(10,04,00),full,'19R').
+planted(r00114,p00094,20,toni,date(10,06,2019),time(10,04,00),full,'19R').
+planted(r00116,p00129,20,toni,date(10,06,2019),time(10,04,00),full,'19R').
+planted(r00120,p00005,20,jang,date(10,06,2019),time(09,01,00),full,'19R').
+planted(r00121,p00005,20,jang,date(10,06,2019),time(09,01,00),full,'19R').
+planted(r00123,p00005,20,jang,date(10,06,2019),time(09,01,00),full,'19R').
+planted(r00125,p00005,20,jang,date(10,06,2019),time(09,01,00),full,'19R').
+planted(r00127,p00005,20,jang,date(10,06,2019),time(09,01,00),full,'19R').
+planted(r00129,p00005,20,jang,date(10,06,2019),time(09,01,00),full,'19R').
+planted(r00131,p00005,20,jang,date(10,06,2019),time(09,00,00),full,'19R').
+planted(r00133,p00005,20,jang,date(10,06,2019),time(09,00,00),full,'19R').
+planted(r00135,p00005,20,jang,date(10,06,2019),time(09,00,00),full,'19R').
+planted(r00136,p00005,20,jang,date(10,06,2019),time(09,00,00),full,'19R').
+planted(r00137,p00005,20,jang,date(10,06,2019),time(09,02,00),full,'19R').
+planted(r00138,p00005,20,jang,date(10,06,2019),time(09,02,00),full,'19R').
+planted(r00139,p00005,20,jang,date(10,06,2019),time(09,02,00),full,'19R').
+planted(r00140,p00005,20,jang,date(10,06,2019),time(09,02,00),full,'19R').
+planted(r00142,p00005,20,jang,date(10,06,2019),time(09,01,00),full,'19R').
+planted(r00144,p00005,20,jang,date(10,06,2019),time(09,01,00),full,'19R').
+planted(r00146,p00005,20,jang,date(10,06,2019),time(09,01,00),full,'19R').
+planted(r00148,p00005,20,jang,date(10,06,2019),time(09,01,00),full,'19R').
+planted(r00150,p00005,20,jang,date(10,06,2019),time(09,01,00),full,'19R').
+planted(r00152,p00005,20,jang,date(10,06,2019),time(09,01,00),full,'19R').
+planted(r00153,p00005,20,jang,date(10,06,2019),time(09,01,00),full,'19R').
+planted(r00154,p00005,20,jang,date(10,06,2019),time(09,04,00),full,'19R').
+planted(r00155,p00005,20,jang,date(10,06,2019),time(09,04,00),full,'19R').
+planted(r00157,p00005,20,jang,date(10,06,2019),time(09,04,00),full,'19R').
+planted(r00159,p00005,20,jang,date(10,06,2019),time(09,04,00),full,'19R').
+planted(r00161,p00005,20,jang,date(10,06,2019),time(09,04,00),full,'19R').
+planted(r00163,p00005,20,jang,date(10,06,2019),time(09,04,00),full,'19R').
+planted(r00165,p00005,20,jang,date(10,06,2019),time(09,02,00),full,'19R').
+planted(r00167,p00005,20,jang,date(10,06,2019),time(09,02,00),full,'19R').
+planted(r00168,p00005,20,jang,date(10,06,2019),time(09,02,00),full,'19R').
+planted(r00169,p00005,20,jang,date(10,06,2019),time(09,02,00),full,'19R').
+planted(r00171,p00005,20,jang,date(10,06,2019),time(09,02,00),full,'19R').
+planted(r00172,p00005,20,jang,date(10,06,2019),time(09,02,00),full,'19R').
+planted(r00173,p00005,20,jang,date(10,06,2019),time(10,00,00),full,'19R').
+planted(r00174,p00005,20,jang,date(10,06,2019),time(09,02,00),full,'19R').
+planted(r00176,p00005,20,jang,date(10,06,2019),time(09,02,00),full,'19R').
+planted(r00178,p00005,20,jang,date(10,06,2019),time(09,04,00),full,'19R').
+planted(r00180,p00005,20,jang,date(10,06,2019),time(09,04,00),full,'19R').
+planted(r00182,p00005,20,jang,date(10,06,2019),time(09,04,00),full,'19R').
+planted(r00184,p00005,20,jang,date(10,06,2019),time(09,04,00),full,'19R').
+planted(r00185,p00005,20,jang,date(10,06,2019),time(09,04,00),full,'19R').
+%
+% nb: incomplete row number on scanning.  Concluded it must be row 118
+% because:
+%    Dewi and Toni planted side-by-side;
+%    there was a ca. 10' gap when Toni went to the truck to change
+%       scanners from rainbox to black (rainbow died);
+%    the time stamps are adjacent for adjacent rows;
+%    only row 118 was missing; and
+%    all rows in that area now accounted for.
+%
+% Kazic, 11.6.2019
+%
+planted(r00118,p00131,20,toni,date(10,06,2019),time(10,05,00),full,'19R').
+%
+%
+planted(r00126,p00097,20,toni,date(10,06,2019),time(11,00,00),full,'19R').
+planted(r00132,p00099,20,toni,date(10,06,2019),time(11,00,00),full,'19R').
+planted(r00141,p00101,20,toni,date(10,06,2019),time(11,01,00),full,'19R').
+planted(r00147,p00103,20,toni,date(10,06,2019),time(11,01,00),full,'19R').
+planted(r00151,p00105,20,toni,date(10,06,2019),time(11,01,00),full,'19R').
+planted(r00158,p00107,20,toni,date(10,06,2019),time(11,01,00),full,'19R').
+planted(r00164,p00109,20,toni,date(10,06,2019),time(11,02,00),full,'19R').
+planted(r00175,p00111,20,toni,date(10,06,2019),time(11,02,00),full,'19R').
+planted(r00181,p00113,20,toni,date(10,06,2019),time(11,03,00),full,'19R').
+planted(r00186,p00141,20,toni,date(10,06,2019),time(11,03,00),full,'19R').
+planted(r00001,p00001,20,toni,date(10,06,2019),time(11,03,00),full,'19R').
+planted(r00002,p00001,20,toni,date(10,06,2019),time(11,04,00),full,'19R').
+planted(r00003,p00001,20,toni,date(10,06,2019),time(11,04,00),full,'19R').
+planted(r00004,p00001,20,toni,date(10,06,2019),time(11,04,00),full,'19R').
+
+
+
+
+% data added from ../../data../palm/raw_data_from_palms/19r/zeta/10.6/planted.csv on Tue Jun 11 13:47:31 CDT 2019
+% by data/data_conversion/convert_planted_data.perl
+% called from data/data_conversion/convert_data.perl
+
+planted(r00087,p00070,20,dewi,date(10,06,2019),time(10,13,43),full,'19R').
+planted(r00089,p00072,20,dewi,date(10,06,2019),time(10,16,01),full,'19R').
+planted(r00091,p00074,20,dewi,date(10,06,2019),time(10,17,54),full,'19R').
+planted(r00093,p00076,20,dewi,date(10,06,2019),time(10,19,58),full,'19R').
+planted(r00094,p00000,20,dewi,date(10,06,2019),time(10,23,02),full,'19R').
+planted(r00095,p00077,20,dewi,date(10,06,2019),time(10,22,02),full,'19R').
+planted(r00098,p00079,20,dewi,date(10,06,2019),time(10,25,27),full,'19R').
+planted(r00100,p00081,20,dewi,date(10,06,2019),time(10,27,37),full,'19R').
+planted(r00102,p00083,20,dewi,date(10,06,2019),time(10,29,43),full,'19R').
+planted(r00103,p00084,20,dewi,date(10,06,2019),time(10,31,50),full,'19R').
+planted(r00105,p00086,20,dewi,date(10,06,2019),time(10,34,13),full,'19R').
+planted(r00108,p00089,20,dewi,date(10,06,2019),time(10,37,10),full,'19R').
+planted(r00110,p00091,20,dewi,date(10,06,2019),time(10,39,38),full,'19R').
+planted(r00111,p00000,20,dewi,date(10,06,2019),time(10,40,06),full,'19R').
+planted(r00113,p00093,20,dewi,date(10,06,2019),time(10,42,37),full,'19R').
+planted(r00115,p00095,20,dewi,date(10,06,2019),time(10,45,18),full,'19R').
+planted(r00117,p00130,20,dewi,date(10,06,2019),time(10,51,00),full,'19R').
+planted(r00119,p00132,20,dewi,date(10,06,2019),time(10,51,52),full,'19R').
+planted(r00122,p00134,20,dewi,date(10,06,2019),time(10,56,18),full,'19R').
+planted(r00124,p00096,20,dewi,date(10,06,2019),time(10,59,50),full,'19R').
+planted(r00128,p00000,20,dewi,date(10,06,2019),time(11,01,36),full,'19R').
+planted(r00130,p00098,20,dewi,date(10,06,2019),time(11,05,14),full,'19R').
+planted(r00134,p00100,20,dewi,date(10,06,2019),time(11,07,55),full,'19R').
+planted(r00143,p00102,20,dewi,date(10,06,2019),time(11,12,31),full,'19R').
+planted(r00145,p00000,20,dewi,date(10,06,2019),time(11,12,49),full,'19R').
+planted(r00149,p00104,20,dewi,date(10,06,2019),time(11,14,27),full,'19R').
+planted(r00156,p00106,20,dewi,date(10,06,2019),time(11,16,59),full,'19R').
+planted(r00160,p00108,20,dewi,date(10,06,2019),time(11,20,20),full,'19R').
+planted(r00162,p00000,20,dewi,date(10,06,2019),time(11,22,41),full,'19R').
+planted(r00166,p00110,20,dewi,date(10,06,2019),time(11,23,48),full,'19R').
+planted(r00177,p00112,20,dewi,date(10,06,2019),time(11,27,19),full,'19R').
+planted(r00179,p00000,20,dewi,date(10,06,2019),time(11,32,19),full,'19R').
+planted(r00183,p00114,20,dewi,date(10,06,2019),time(11,32,55),full,'19R').
+planted(r00187,p00143,20,dewi,date(10,06,2019),time(11,38,02),full,'19R').
+
+
+% no contemporaneous datum for row 170!  Conclude it is a Jang planted
+% elite as that's what rows 169 and 171 are, and rows 162 and 179 are the
+% surrounding skips.  I missed recording it, Dewi was driving the Jang.
+%
+% Kazic, 14.6.2019
+
+planted(r00170,p00005,20,jang,date(10,06,2019),time(09,02,00),full,'19R').
+
+
+
+
+% data added from ../../data../palm/raw_data_from_palms/19r/eta/12.9/planted.csv on Tue Sep 17 17:29:45 CDT 2019
+% by data/data_conversion/convert_planted_data.perl
+% called from data/data_conversion/convert_data.perl
+
+planted(r00200,p00001,20,jang,date(12,09,2019),time(10,10,37),full,'19R').
+planted(r00201,p00002,20,jang,date(12,09,2019),time(10,24,50),full,'19R').
+planted(r00202,p00003,20,jang,date(12,09,2019),time(10,25,49),full,'19R').
+planted(r00203,p00004,20,jang,date(12,09,2019),time(10,27,53),full,'19R').
+planted(r00204,p00005,20,jang,date(12,09,2019),time(10,30,56),full,'19R').
+planted(r00205,p00001,20,jang,date(12,09,2019),time(10,33,39),full,'19R').
+planted(r00206,p00002,20,jang,date(12,09,2019),time(10,38,24),full,'19R').
+planted(r00207,p00003,20,jang,date(12,09,2019),time(10,45,10),full,'19R').
+planted(r00208,p00004,20,jang,date(12,09,2019),time(10,46,36),full,'19R').
+planted(r00209,p00000,20,jang,date(12,09,2019),time(10,46,38),full,'19R').
+planted(r00210,p00005,20,jang,date(12,09,2019),time(10,47,24),full,'19R').
+planted(r00211,p00001,20,jang,date(12,09,2019),time(10,55,42),full,'19R').
+planted(r00212,p00002,20,jang,date(12,09,2019),time(10,57,42),full,'19R').
+planted(r00213,p00003,20,jang,date(12,09,2019),time(11,00,13),full,'19R').
+planted(r00214,p00004,20,jang,date(12,09,2019),time(11,04,48),full,'19R').
+planted(r00215,p00005,20,jang,date(12,09,2019),time(11,14,00),full,'19R').
+planted(r00216,p00001,20,harperees,date(12,09,2019),time(11,15,53),full,'19R').
+planted(r00217,p00002,20,harperees,date(12,09,2019),time(11,16,53),full,'19R').
+planted(r00218,p00003,20,harperees,date(12,09,2019),time(11,18,25),full,'19R').
+planted(r00219,p00004,20,harperees,date(12,09,2019),time(11,20,46),full,'19R').
+planted(r00220,p00005,20,harperees,date(12,09,2019),time(11,23,11),full,'19R').
+planted(r00221,p00001,20,harperees,date(12,09,2019),time(11,31,47),full,'19R').
+planted(r00222,p00002,20,harperees,date(12,09,2019),time(11,32,52),full,'19R').
+planted(r00223,p00003,20,harperees,date(12,09,2019),time(11,34,59),full,'19R').
+planted(r00224,p00004,20,harperees,date(12,09,2019),time(11,36,26),full,'19R').
+planted(r00225,p00005,20,harperees,date(12,09,2019),time(11,36,27),full,'19R').
+planted(r00226,p00001,20,harperees,date(12,09,2019),time(11,37,46),full,'19R').
+planted(r00227,p00002,20,harperees,date(12,09,2019),time(11,37,47),full,'19R').
+planted(r00228,p00000,20,harperees,date(12,09,2019),time(11,39,00),full,'19R').
+planted(r00229,p00003,20,harperees,date(12,09,2019),time(11,39,01),full,'19R').
+planted(r00230,p00004,20,harperees,date(12,09,2019),time(11,40,43),full,'19R').
+planted(r00231,p00005,20,harperees,date(12,09,2019),time(11,40,44),full,'19R').
+planted(r00232,p00001,20,harperees,date(12,09,2019),time(11,41,44),full,'19R').
+planted(r00233,p00002,20,harperees,date(12,09,2019),time(11,43,26),full,'19R').
+planted(r00234,p00003,20,harperees,date(12,09,2019),time(11,43,27),full,'19R').
+planted(r00235,p00004,20,harperees,date(12,09,2019),time(11,43,44),full,'19R').
+planted(r00236,p00005,20,harperees,date(12,09,2019),time(11,45,21),full,'19R').
+planted(r00237,p00001,20,harperees,date(12,09,2019),time(11,45,22),full,'19R').
+planted(r00238,p00002,20,harperees,date(12,09,2019),time(11,48,20),full,'19R').
+planted(r00239,p00003,20,harperees,date(12,09,2019),time(11,48,22),full,'19R').
+planted(r00240,p00004,20,harperees,date(12,09,2019),time(11,50,07),full,'19R').
+planted(r00241,p00005,20,harperees,date(12,09,2019),time(11,50,08),full,'19R').
+planted(r00242,p00001,20,harperees,date(12,09,2019),time(11,50,09),full,'19R').
+planted(r00243,p00002,20,harperees,date(12,09,2019),time(11,50,11),full,'19R').
+planted(r00244,p00003,20,harperees,date(12,09,2019),time(11,51,31),full,'19R').
+planted(r00245,p00004,20,harperees,date(12,09,2019),time(11,51,32),full,'19R').
+planted(r00246,p00005,20,harperees,date(12,09,2019),time(11,51,33),full,'19R').
+planted(r00247,p00000,20,harperees,date(12,09,2019),time(11,52,43),full,'19R').
+planted(r00248,p00001,20,harperees,date(12,09,2019),time(11,52,44),full,'19R').
+planted(r00249,p00002,20,harperees,date(12,09,2019),time(11,53,45),full,'19R').
+planted(r00250,p00003,20,harperees,date(12,09,2019),time(11,52,47),full,'19R').
+planted(r00251,p00004,20,harperees,date(12,09,2019),time(11,54,09),full,'19R').
+planted(r00252,p00005,20,harperees,date(12,09,2019),time(11,54,10),full,'19R').
+planted(r00253,p00005,20,harperees,date(12,09,2019),time(11,57,54),full,'19R').
+planted(r00254,p00005,20,harperees,date(12,09,2019),time(11,57,55),full,'19R').
+planted(r00255,p00005,20,harperees,date(12,09,2019),time(11,57,56),full,'19R').
+planted(r00256,p00005,20,harperees,date(12,09,2019),time(11,57,57),full,'19R').
+
+
+
+
+% data added from ../../data../palm/raw_data_from_palms/19r/zeta/7.10/planted.csv on Tue Oct  8 05:55:29 CDT 2019
+% by data/data_conversion/convert_planted_data.perl
+% called from data/data_conversion/convert_data.perl
+
+% this is the sweet corn patch Chris planted in field 30, to our north.
+% we used this patch for stand count imaging.  Date approximate.
+% Data confected.
+%
+% Kazic, 8.10.2019
+
+
+planted(r00400,p01000,40,chris,date(01,07,2019),time(12,00,00),full,'19R').
+planted(r00401,p01000,40,chris,date(01,07,2019),time(12,00,00),full,'19R').
+planted(r00402,p01000,40,chris,date(01,07,2019),time(12,00,00),full,'19R').
+planted(r00403,p01000,40,chris,date(01,07,2019),time(12,00,00),full,'19R').
+planted(r00404,p01000,40,chris,date(01,07,2019),time(12,00,00),full,'19R').
+planted(r00405,p01000,40,chris,date(01,07,2019),time(12,00,00),full,'19R').
+
+
+
+
+
+
+
+% 20r
+
+% data added from ../../data../palm/raw_data_from_palms/20r/eta/2.6/planted.csv on Thu Jun  4 08:26:58 CDT 2020
+% by data/data_conversion/convert_planted_data.perl
+% called from data/data_conversion/convert_data.perl
+
+
+
+planted(r00020,p00000,20,toni,date(02,06,2020),time(14,20,15),full,'20R').
+planted(r00026,p00003,20,toni,date(02,06,2020),time(14,31,01),full,'20R').
+planted(r00027,p00003,20,toni,date(02,06,2020),time(14,33,51),full,'20R').
+planted(r00028,p00003,20,toni,date(02,06,2020),time(14,35,46),full,'20R').
+planted(r00029,p00003,20,toni,date(02,06,2020),time(14,37,36),full,'20R').
+planted(r00030,p00003,20,toni,date(02,06,2020),time(14,39,16),full,'20R').
+planted(r00031,p00000,20,toni,date(02,06,2020),time(14,20,42),full,'20R').
+planted(r00032,p00003,20,toni,date(02,06,2020),time(14,41,19),full,'20R').
+planted(r00033,p00003,20,toni,date(02,06,2020),time(14,43,21),full,'20R').
+planted(r00034,p00004,20,toni,date(02,06,2020),time(14,45,16),full,'20R').
+planted(r00035,p00004,20,toni,date(02,06,2020),time(14,47,21),full,'20R').
+planted(r00036,p00004,20,toni,date(02,06,2020),time(14,49,18),full,'20R').
+planted(r00037,p00004,20,toni,date(02,06,2020),time(14,51,11),full,'20R').
+planted(r00038,p00004,20,toni,date(02,06,2020),time(14,52,59),full,'20R').
+planted(r00039,p00004,20,toni,date(02,06,2020),time(14,54,46),full,'20R').
+planted(r00040,p00004,20,toni,date(02,06,2020),time(14,56,30),full,'20R').
+planted(r00041,p00004,20,toni,date(02,06,2020),time(14,58,24),full,'20R').
+planted(r00053,p10137,20,toni,date(02,06,2020),time(15,01,52),full,'20R').
+planted(r00054,p10176,20,toni,date(02,06,2020),time(15,03,00),full,'20R').
+planted(r00055,p10182,20,toni,date(02,06,2020),time(15,05,42),full,'20R').
+planted(r00056,p10036,20,toni,date(02,06,2020),time(15,07,32),full,'20R').
+planted(r00057,p10012,20,toni,date(02,06,2020),time(15,09,26),full,'20R').
+planted(r00058,p10014,20,toni,date(02,06,2020),time(15,11,19),full,'20R').
+planted(r00059,p10020,20,toni,date(02,06,2020),time(15,13,28),full,'20R').
+planted(r00060,p10018,20,toni,date(02,06,2020),time(15,15,28),full,'20R').
+planted(r00061,p10035,20,toni,date(02,06,2020),time(15,22,06),full,'20R').
+planted(r00062,p10204,20,toni,date(02,06,2020),time(15,24,11),full,'20R').
+planted(r00063,p10205,20,toni,date(02,06,2020),time(15,26,11),full,'20R').
+planted(r00064,p10055,20,toni,date(02,06,2020),time(15,28,24),full,'20R').
+planted(r00065,p10056,20,toni,date(02,06,2020),time(15,30,05),full,'20R').
+planted(r00066,p10057,20,toni,date(02,06,2020),time(15,32,04),full,'20R').
+planted(r00067,p10078,20,toni,date(02,06,2020),time(15,34,12),full,'20R').
+planted(r00068,p10079,20,toni,date(02,06,2020),time(15,36,07),full,'20R').
+planted(r00069,p10145,20,toni,date(02,06,2020),time(15,38,11),full,'20R').
+planted(r00070,p00000,20,toni,date(02,06,2020),time(14,20,43),full,'20R').
+planted(r00071,p10146,20,toni,date(02,06,2020),time(15,40,30),full,'20R').
+planted(r00072,p10051,20,toni,date(02,06,2020),time(15,42,32),full,'20R').
+planted(r00073,p10126,20,toni,date(02,06,2020),time(15,44,22),full,'20R').
+planted(r00074,p10127,20,toni,date(02,06,2020),time(15,46,30),full,'20R').
+planted(r00075,p10083,20,toni,date(02,06,2020),time(15,48,34),full,'20R').
+planted(r00076,p10084,20,toni,date(02,06,2020),time(15,50,46),full,'20R').
+planted(r00077,p10068,20,toni,date(02,06,2020),time(15,52,37),full,'20R').
+planted(r00078,p10069,20,toni,date(02,06,2020),time(15,54,39),full,'20R').
+planted(r00079,p10170,20,toni,date(02,06,2020),time(15,56,58),full,'20R').
+planted(r00080,p10171,20,toni,date(02,06,2020),time(15,59,18),full,'20R').
+planted(r00081,p10072,20,toni,date(02,06,2020),time(16,01,34),full,'20R').
+planted(r00082,p10073,20,toni,date(02,06,2020),time(16,03,17),full,'20R').
+planted(r00083,p10074,20,toni,date(02,06,2020),time(16,05,33),full,'20R').
+planted(r00084,p10075,20,toni,date(02,06,2020),time(16,07,27),full,'20R').
+planted(r00085,p10130,20,toni,date(02,06,2020),time(16,09,27),full,'20R').
+planted(r00086,p10131,20,toni,date(02,06,2020),time(16,11,22),full,'20R').
+planted(r00087,p10052,20,toni,date(02,06,2020),time(16,13,26),full,'20R').
+planted(r00088,p10053,20,toni,date(02,06,2020),time(16,15,40),full,'20R').
+planted(r00089,p10144,20,toni,date(02,06,2020),time(16,17,34),full,'20R').
+planted(r00109,p00000,20,toni,date(02,06,2020),time(14,21,05),full,'20R').
+planted(r00129,p10077,20,toni,date(02,06,2020),time(17,08,48),full,'20R').
+planted(r00130,p10164,20,toni,date(02,06,2020),time(17,08,45),full,'20R').
+planted(r00131,p00183,20,toni,date(02,06,2020),time(17,11,34),full,'20R').
+planted(r00132,p00185,20,toni,date(02,06,2020),time(17,13,49),full,'20R').
+planted(r00133,p00186,20,toni,date(02,06,2020),time(17,15,48),full,'20R').
+planted(r00134,p00187,20,toni,date(02,06,2020),time(17,18,13),full,'20R').
+planted(r00135,p00188,20,toni,date(02,06,2020),time(17,20,08),full,'20R').
+planted(r00136,p10198,20,toni,date(02,06,2020),time(17,21,59),full,'20R').
+planted(r00137,p10199,20,toni,date(02,06,2020),time(17,23,56),full,'20R').
+planted(r00140,p10200,20,toni,date(02,06,2020),time(17,25,59),full,'20R').
+planted(r00142,p10201,20,toni,date(02,06,2020),time(17,28,00),full,'20R').
+planted(r00144,p10210,20,toni,date(02,06,2020),time(17,30,13),full,'20R').
+planted(r00146,p10211,20,toni,date(02,06,2020),time(17,32,19),full,'20R').
+planted(r00148,p00000,20,toni,date(02,06,2020),time(14,22,00),full,'20R').
+planted(r00150,p10212,20,toni,date(02,06,2020),time(17,35,07),full,'20R').
+planted(r00152,p10213,20,toni,date(02,06,2020),time(17,37,10),full,'20R').
+planted(r00154,p10214,20,toni,date(02,06,2020),time(17,39,21),full,'20R').
+planted(r00156,p10215,20,toni,date(02,06,2020),time(17,41,35),full,'20R').
+planted(r00158,p10027,20,toni,date(02,06,2020),time(17,44,04),full,'20R').
+planted(r00160,p10028,20,toni,date(02,06,2020),time(17,46,10),full,'20R').
+planted(r00162,p10103,20,toni,date(02,06,2020),time(17,48,21),full,'20R').
+planted(r00164,p10104,20,toni,date(02,06,2020),time(17,50,26),full,'20R').
+planted(r00166,p10107,20,toni,date(02,06,2020),time(17,52,54),full,'20R').
+planted(r00187,p00000,20,toni,date(02,06,2020),time(14,22,00),full,'20R').
+planted(r00226,p00000,20,toni,date(02,06,2020),time(14,22,00),full,'20R').
+planted(r00258,p00144,20,toni,date(02,06,2020),time(18,14,15),full,'20R').
+planted(r00259,p00145,20,toni,date(02,06,2020),time(18,12,01),full,'20R').
+planted(r00260,p00146,20,toni,date(02,06,2020),time(18,09,50),full,'20R').
+planted(r00261,p00158,20,toni,date(02,06,2020),time(18,07,46),full,'20R').
+planted(r00262,p10147,20,toni,date(02,06,2020),time(18,05,05),full,'20R').
+planted(r00263,p10156,20,toni,date(02,06,2020),time(18,00,09),full,'20R').
+planted(r00264,p00161,20,toni,date(02,06,2020),time(17,58,09),full,'20R').
+planted(r00265,p00000,20,toni,date(02,06,2020),time(14,22,37),full,'20R').
+planted(r00285,p10037,20,dewi,date(02,06,2020),time(19,39,58),full,'20R').
+planted(r00286,p10032,20,dewi,date(02,06,2020),time(19,41,16),full,'20R').
+planted(r00287,p10038,20,dewi,date(02,06,2020),time(19,43,44),full,'20R').
+planted(r00288,p10019,20,dewi,date(02,06,2020),time(19,45,14),full,'20R').
+planted(r00289,p10021,20,toni,date(02,06,2020),time(19,43,41),full,'20R').
+planted(r00290,p10139,20,toni,date(02,06,2020),time(19,41,40),full,'20R').
+planted(r00291,p10175,20,toni,date(02,06,2020),time(19,39,40),full,'20R').
+planted(r00292,p10141,20,toni,date(02,06,2020),time(19,37,02),full,'20R').
+planted(r00293,p00133,20,toni,date(02,06,2020),time(19,34,55),full,'20R').
+planted(r00294,p10148,20,toni,date(02,06,2020),time(19,15,11),full,'20R').
+planted(r00295,p00135,20,toni,date(02,06,2020),time(19,13,09),full,'20R').
+planted(r00296,p10173,20,toni,date(02,06,2020),time(19,10,01),full,'20R').
+planted(r00297,p10172,20,toni,date(02,06,2020),time(19,05,59),full,'20R').
+planted(r00298,p10193,20,toni,date(02,06,2020),time(19,03,43),full,'20R').
+planted(r00299,p10194,20,toni,date(02,06,2020),time(19,01,21),full,'20R').
+planted(r00300,p10195,20,toni,date(02,06,2020),time(18,58,25),full,'20R').
+planted(r00301,p10121,20,toni,date(02,06,2020),time(18,56,02),full,'20R').
+planted(r00302,p00173,20,toni,date(02,06,2020),time(18,53,36),full,'20R').
+planted(r00303,p10189,20,toni,date(02,06,2020),time(18,50,57),full,'20R').
+planted(r00304,p00000,20,toni,date(02,06,2020),time(12,00,00),full,'20R').
+planted(r00305,p00176,20,toni,date(02,06,2020),time(18,48,08),full,'20R').
+planted(r00306,p10190,20,toni,date(02,06,2020),time(18,45,37),full,'20R').
+planted(r00307,p00177,20,toni,date(02,06,2020),time(18,43,12),full,'20R').
+planted(r00308,p00178,20,toni,date(02,06,2020),time(18,40,59),full,'20R').
+planted(r00309,p00179,20,toni,date(02,06,2020),time(18,38,23),full,'20R').
+planted(r00310,p00180,20,toni,date(02,06,2020),time(18,35,48),full,'20R').
+planted(r00311,p00181,20,toni,date(02,06,2020),time(18,33,32),full,'20R').
+planted(r00312,p00182,20,toni,date(02,06,2020),time(18,30,36),full,'20R').
+%
+% I scanned the adjacent stake, but it was really row 341 that we didn't plant,
+% not 340.  We both checked this multiple times and there are no duplicate stakes
+% and of course the skips are all in a file between both fields.
+%
+% Kazic, 16.6.2020
+%
+% commented out only because Dewi re-recorded it below.
+%
+% Kazic, 24.2.2022
+%
+% planted(r00341,p00000,20,toni,date(02,06,2020),time(14,25,11),full,'20R').
+
+
+
+
+% data added from ../../data../palm/raw_data_from_palms/20r/zeta/2.6/planted.csv on Thu Jun  4 08:26:58 CDT 2020
+% by data/data_conversion/convert_planted_data.perl
+% called from data/data_conversion/convert_data.perl
+
+planted(r00001,p00001,20,dewi,date(02,06,2020),time(14,29,46),full,'20R').
+planted(r00002,p00001,20,dewi,date(02,06,2020),time(14,32,08),full,'20R').
+planted(r00003,p00001,20,dewi,date(02,06,2020),time(14,35,48),full,'20R').
+planted(r00004,p00001,20,dewi,date(02,06,2020),time(14,36,16),full,'20R').
+planted(r00005,p00001,20,dewi,date(02,06,2020),time(14,38,07),full,'20R').
+planted(r00006,p00001,20,dewi,date(02,06,2020),time(14,39,26),full,'20R').
+planted(r00007,p00001,20,dewi,date(02,06,2020),time(14,41,11),full,'20R').
+planted(r00008,p00001,20,dewi,date(02,06,2020),time(14,43,12),full,'20R').
+planted(r00009,p00001,20,dewi,date(02,06,2020),time(14,45,24),full,'20R').
+planted(r00010,p00001,20,dewi,date(02,06,2020),time(14,47,54),full,'20R').
+planted(r00011,p00001,20,dewi,date(02,06,2020),time(14,49,56),full,'20R').
+planted(r00012,p00001,20,dewi,date(02,06,2020),time(14,52,32),full,'20R').
+planted(r00013,p00002,20,dewi,date(02,06,2020),time(14,54,25),full,'20R').
+planted(r00014,p00002,20,dewi,date(02,06,2020),time(14,56,21),full,'20R').
+planted(r00015,p00002,20,dewi,date(02,06,2020),time(14,58,42),full,'20R').
+planted(r00016,p00002,20,dewi,date(02,06,2020),time(15,01,06),full,'20R').
+planted(r00017,p00002,20,dewi,date(02,06,2020),time(15,03,19),full,'20R').
+planted(r00018,p00002,20,dewi,date(02,06,2020),time(15,05,40),full,'20R').
+planted(r00019,p00002,20,dewi,date(02,06,2020),time(15,07,46),full,'20R').
+planted(r00021,p00003,20,dewi,date(02,06,2020),time(15,10,17),full,'20R').
+planted(r00022,p00003,20,dewi,date(02,06,2020),time(15,12,15),full,'20R').
+planted(r00023,p00003,20,dewi,date(02,06,2020),time(15,13,56),full,'20R').
+planted(r00024,p00003,20,dewi,date(02,06,2020),time(15,16,45),full,'20R').
+planted(r00025,p00003,20,dewi,date(02,06,2020),time(15,19,42),full,'20R').
+planted(r00090,p10043,20,dewi,date(02,06,2020),time(15,25,25),full,'20R').
+planted(r00091,p10044,20,dewi,date(02,06,2020),time(15,27,04),full,'20R').
+planted(r00092,p10128,20,dewi,date(02,06,2020),time(15,28,12),full,'20R').
+planted(r00093,p10129,20,dewi,date(02,06,2020),time(15,31,13),full,'20R').
+planted(r00094,p10070,20,dewi,date(02,06,2020),time(15,31,19),full,'20R').
+planted(r00095,p10071,20,dewi,date(02,06,2020),time(15,33,22),full,'20R').
+planted(r00096,p10081,20,dewi,date(02,06,2020),time(15,35,51),full,'20R').
+planted(r00097,p10082,20,dewi,date(02,06,2020),time(15,37,41),full,'20R').
+planted(r00098,p10049,20,dewi,date(02,06,2020),time(15,39,23),full,'20R').
+planted(r00099,p10050,20,dewi,date(02,06,2020),time(15,41,14),full,'20R').
+planted(r00100,p10152,20,dewi,date(02,06,2020),time(15,43,36),full,'20R').
+planted(r00101,p10153,20,dewi,date(02,06,2020),time(15,45,21),full,'20R').
+planted(r00102,p10206,20,dewi,date(02,06,2020),time(15,47,24),full,'20R').
+planted(r00103,p10207,20,dewi,date(02,06,2020),time(15,49,06),full,'20R').
+planted(r00104,p10154,20,dewi,date(02,06,2020),time(15,50,44),full,'20R').
+planted(r00105,p10155,20,dewi,date(02,06,2020),time(15,53,37),full,'20R').
+planted(r00106,p10124,20,dewi,date(02,06,2020),time(16,25,54),full,'20R').
+planted(r00107,p10125,20,dewi,date(02,06,2020),time(16,28,56),full,'20R').
+planted(r00108,p10132,20,dewi,date(02,06,2020),time(16,29,08),full,'20R').
+planted(r00110,p10187,20,dewi,date(02,06,2020),time(16,30,53),full,'20R').
+planted(r00111,p10188,20,dewi,date(02,06,2020),time(16,33,27),full,'20R').
+planted(r00112,p10191,20,dewi,date(02,06,2020),time(16,35,19),full,'20R').
+planted(r00113,p10192,20,dewi,date(02,06,2020),time(16,37,24),full,'20R').
+planted(r00114,p10123,20,dewi,date(02,06,2020),time(16,39,36),full,'20R').
+planted(r00115,p10080,20,dewi,date(02,06,2020),time(16,42,25),full,'20R').
+planted(r00118,p10066,20,dewi,date(02,06,2020),time(16,44,12),full,'20R').
+planted(r00119,p10067,20,dewi,date(02,06,2020),time(16,46,41),full,'20R').
+planted(r00120,p10054,20,dewi,date(02,06,2020),time(16,49,00),full,'20R').
+planted(r00121,p10087,20,dewi,date(02,06,2020),time(16,51,25),full,'20R').
+planted(r00122,p10088,20,dewi,date(02,06,2020),time(16,54,13),full,'20R').
+planted(r00123,p10016,20,dewi,date(02,06,2020),time(16,57,30),full,'20R').
+planted(r00124,p10017,20,dewi,date(02,06,2020),time(17,00,40),full,'20R').
+planted(r00125,p10060,20,dewi,date(02,06,2020),time(17,02,35),full,'20R').
+planted(r00126,p10109,20,dewi,date(02,06,2020),time(17,04,50),full,'20R').
+planted(r00127,p10110,20,dewi,date(02,06,2020),time(17,06,12),full,'20R').
+planted(r00128,p10076,20,dewi,date(02,06,2020),time(17,08,34),full,'20R').
+planted(r00169,p10108,20,dewi,date(02,06,2020),time(17,48,11),full,'20R').
+planted(r00171,p10202,20,dewi,date(02,06,2020),time(17,46,57),full,'20R').
+planted(r00173,p10203,20,dewi,date(02,06,2020),time(17,45,32),full,'20R').
+planted(r00175,p10208,20,dewi,date(02,06,2020),time(17,44,13),full,'20R').
+planted(r00177,p10209,20,dewi,date(02,06,2020),time(17,42,48),full,'20R').
+planted(r00179,p10196,20,dewi,date(02,06,2020),time(17,41,01),full,'20R').
+planted(r00181,p10197,20,dewi,date(02,06,2020),time(17,39,35),full,'20R').
+planted(r00183,p10142,20,dewi,date(02,06,2020),time(17,37,59),full,'20R').
+planted(r00185,p10143,20,dewi,date(02,06,2020),time(17,36,49),full,'20R').
+planted(r00189,p10150,20,dewi,date(02,06,2020),time(17,35,17),full,'20R').
+planted(r00191,p10151,20,dewi,date(02,06,2020),time(17,33,51),full,'20R').
+planted(r00266,p10089,20,dewi,date(02,06,2020),time(18,47,45),full,'20R').
+planted(r00267,p00163,20,dewi,date(02,06,2020),time(18,44,09),full,'20R').
+planted(r00268,p10045,20,dewi,date(02,06,2020),time(18,42,49),full,'20R').
+planted(r00269,p10046,20,dewi,date(02,06,2020),time(18,40,31),full,'20R').
+planted(r00270,p10047,20,dewi,date(02,06,2020),time(18,36,04),full,'20R').
+planted(r00271,p10048,20,dewi,date(02,06,2020),time(18,33,39),full,'20R').
+planted(r00272,p00165,20,dewi,date(02,06,2020),time(18,30,11),full,'20R').
+planted(r00273,p00166,20,dewi,date(02,06,2020),time(18,28,56),full,'20R').
+planted(r00274,p10184,20,dewi,date(02,06,2020),time(18,23,34),full,'20R').
+planted(r00275,p00169,20,dewi,date(02,06,2020),time(18,12,51),full,'20R').
+planted(r00276,p00170,20,dewi,date(02,06,2020),time(18,11,03),full,'20R').
+planted(r00277,p10034,20,dewi,date(02,06,2020),time(18,09,10),full,'20R').
+planted(r00278,p20001,20,dewi,date(02,06,2020),time(18,06,45),full,'20R').
+planted(r00279,p10015,20,dewi,date(02,06,2020),time(18,05,02),full,'20R').
+planted(r00280,p10022,20,dewi,date(02,06,2020),time(18,03,26),full,'20R').
+planted(r00281,p10102,20,dewi,date(02,06,2020),time(18,01,09),full,'20R').
+planted(r00282,p10023,20,dewi,date(02,06,2020),time(17,59,34),full,'20R').
+planted(r00283,p10024,20,dewi,date(02,06,2020),time(17,57,59),full,'20R').
+planted(r00284,p10033,20,dewi,date(02,06,2020),time(17,56,15),full,'20R').
+
+
+
+
+% data added from ../../data../palm/raw_data_from_palms/20r/zeta/3.6/planted.csv on Thu Jun  4 08:27:13 CDT 2020
+% by data/data_conversion/convert_planted_data.perl
+% called from data/data_conversion/convert_data.perl
+
+planted(r00138,p00005,20,jang,date(03,06,2020),time(11,12,21),full,'20R').
+planted(r00139,p00005,20,jang,date(03,06,2020),time(11,20,32),full,'20R').
+planted(r00141,p00005,20,jang,date(03,06,2020),time(11,21,57),full,'20R').
+planted(r00143,p00005,20,jang,date(03,06,2020),time(11,21,58),full,'20R').
+planted(r00145,p00005,20,jang,date(03,06,2020),time(11,24,12),full,'20R').
+planted(r00147,p00005,20,jang,date(03,06,2020),time(11,24,14),full,'20R').
+planted(r00149,p00005,20,jang,date(03,06,2020),time(11,26,48),full,'20R').
+planted(r00151,p00005,20,jang,date(03,06,2020),time(11,27,18),full,'20R').
+planted(r00153,p00005,20,jang,date(03,06,2020),time(11,30,22),full,'20R').
+planted(r00155,p00005,20,jang,date(03,06,2020),time(11,31,23),full,'20R').
+planted(r00157,p00005,20,jang,date(03,06,2020),time(11,36,30),full,'20R').
+planted(r00159,p00005,20,jang,date(03,06,2020),time(11,35,00),full,'20R').
+planted(r00161,p00005,20,jang,date(03,06,2020),time(11,35,00),full,'20R').
+planted(r00163,p00005,20,jang,date(03,06,2020),time(11,35,00),full,'20R').
+planted(r00165,p00005,20,jang,date(03,06,2020),time(11,35,00),full,'20R').
+planted(r00167,p00005,20,jang,date(03,06,2020),time(11,35,00),full,'20R').
+planted(r00168,p00005,20,jang,date(03,06,2020),time(11,35,00),full,'20R').
+planted(r00170,p00005,20,jang,date(03,06,2020),time(11,35,00),full,'20R').
+planted(r00174,p00005,20,jang,date(03,06,2020),time(11,35,00),full,'20R').
+planted(r00178,p00005,20,jang,date(03,06,2020),time(11,36,26),full,'20R').
+planted(r00180,p00005,20,jang,date(03,06,2020),time(11,31,30),full,'20R').
+planted(r00182,p00005,20,jang,date(03,06,2020),time(11,30,03),full,'20R').
+planted(r00184,p00005,20,jang,date(03,06,2020),time(11,28,15),full,'20R').
+planted(r00186,p00005,20,jang,date(03,06,2020),time(11,26,20),full,'20R').
+planted(r00188,p00005,20,jang,date(03,06,2020),time(11,24,09),full,'20R').
+planted(r00190,p00005,20,jang,date(03,06,2020),time(11,35,00),full,'20R').
+planted(r00192,p00005,20,jang,date(03,06,2020),time(11,35,00),full,'20R').
+planted(r00194,p00005,20,jang,date(03,06,2020),time(11,35,00),full,'20R').
+planted(r00196,p00005,20,jang,date(03,06,2020),time(11,13,49),full,'20R').
+planted(r00198,p00005,20,jang,date(03,06,2020),time(11,35,00),full,'20R').
+planted(r00200,p00005,20,jang,date(03,06,2020),time(11,35,00),full,'20R').
+planted(r00202,p00005,20,jang,date(03,06,2020),time(11,35,00),full,'20R').
+planted(r00204,p00005,20,jang,date(03,06,2020),time(11,35,00),full,'20R').
+planted(r00206,p00005,20,jang,date(03,06,2020),time(11,35,00),full,'20R').
+planted(r00207,p00005,20,jang,date(03,06,2020),time(11,35,00),full,'20R').
+planted(r00208,p00005,20,jang,date(03,06,2020),time(11,35,00),full,'20R').
+planted(r00210,p00005,20,jang,date(03,06,2020),time(11,35,00),full,'20R').
+planted(r00212,p00005,20,jang,date(03,06,2020),time(11,35,00),full,'20R').
+planted(r00214,p00005,20,jang,date(03,06,2020),time(11,35,00),full,'20R').
+planted(r00216,p00005,20,jang,date(03,06,2020),time(11,16,09),full,'20R').
+planted(r00218,p00005,20,jang,date(03,06,2020),time(11,17,09),full,'20R').
+planted(r00220,p00005,20,jang,date(03,06,2020),time(11,35,00),full,'20R').
+planted(r00222,p00005,20,jang,date(03,06,2020),time(11,35,00),full,'20R').
+planted(r00224,p00005,20,jang,date(03,06,2020),time(11,35,00),full,'20R').
+planted(r00225,p00005,20,jang,date(03,06,2020),time(11,24,46),full,'20R').
+planted(r00227,p00005,20,jang,date(03,06,2020),time(11,25,48),full,'20R').
+planted(r00229,p00005,20,jang,date(03,06,2020),time(11,28,29),full,'20R').
+planted(r00231,p00005,20,jang,date(03,06,2020),time(11,30,15),full,'20R').
+planted(r00233,p00005,20,jang,date(03,06,2020),time(11,33,48),full,'20R').
+planted(r00235,p00005,20,jang,date(03,06,2020),time(11,35,37),full,'20R').
+planted(r00237,p00005,20,jang,date(03,06,2020),time(11,35,00),full,'20R').
+planted(r00239,p00005,20,jang,date(03,06,2020),time(11,35,00),full,'20R').
+planted(r00241,p00005,20,jang,date(03,06,2020),time(11,35,00),full,'20R').
+planted(r00243,p00005,20,jang,date(03,06,2020),time(11,35,00),full,'20R').
+planted(r00245,p00005,20,jang,date(03,06,2020),time(11,35,00),full,'20R').
+planted(r00246,p00005,20,jang,date(03,06,2020),time(11,35,00),full,'20R').
+planted(r00248,p00005,20,jang,date(03,06,2020),time(11,35,00),full,'20R').
+planted(r00250,p00005,20,jang,date(03,06,2020),time(11,35,00),full,'20R').
+planted(r00252,p00005,20,jang,date(03,06,2020),time(11,35,00),full,'20R').
+planted(r00254,p00005,20,jang,date(03,06,2020),time(11,35,00),full,'20R').
+planted(r00256,p00005,20,jang,date(03,06,2020),time(11,35,53),full,'20R').
+planted(r00257,p00005,20,jang,date(03,06,2020),time(11,33,51),full,'20R').
+
+
+
+% added manually, because we have the empty packets after the first planting
+%
+% Kazic, 6.6.2020
+
+planted(r00116,p10085,20,dewi,date(02,06,2020),time(16,45,00),full,'20R').
+planted(r00117,p10086,20,dewi,date(02,06,2020),time(16,45,00),full,'20R').
+
+
+
+
+% data added from ../../data../palm/raw_data_from_palms/20r/eta/16.6/planted.csv on Tue Jun 16 21:41:23 CDT 2020
+% by data/data_conversion/convert_planted_data.perl
+% called from data/data_conversion/convert_data.perl
+
+planted(r00042,p00001,20,toni,date(16,06,2020),time(10,58,30),full,'20R').
+planted(r00043,p00001,20,toni,date(16,06,2020),time(11,00,38),full,'20R').
+planted(r00044,p00001,20,toni,date(16,06,2020),time(11,02,30),full,'20R').
+planted(r00045,p00001,20,toni,date(16,06,2020),time(11,04,21),full,'20R').
+planted(r00046,p00002,20,toni,date(16,06,2020),time(11,06,05),full,'20R').
+planted(r00047,p00002,20,toni,date(16,06,2020),time(11,08,07),full,'20R').
+planted(r00048,p00002,20,toni,date(16,06,2020),time(11,10,18),full,'20R').
+planted(r00049,p00003,20,toni,date(16,06,2020),time(11,12,27),full,'20R').
+planted(r00050,p00003,20,toni,date(16,06,2020),time(11,14,05),full,'20R').
+planted(r00051,p00003,20,toni,date(16,06,2020),time(11,16,05),full,'20R').
+planted(r00052,p00003,20,toni,date(16,06,2020),time(11,17,49),full,'20R').
+%
+% overplanted in error; commented out so we will get mutant tags for this row
+% see ../c/maize/crops/20r/management/warning_rows.org for evidence and rationale
+%
+% Kazic, 13.7.2020
+%
+% planted(r00136,p00005,20,toni,date(16,06,2020),time(13,30,00),full,'20R').
+% planted(r00137,p00005,20,toni,date(16,06,2020),time(13,30,00),full,'20R').
+
+
+% filled in these rows by hand because we weren't sure if they'd been planted
+% with the jang or not.
+%
+% They will trigger a doubly-planted row warning when computing the indices.
+%
+% Kazic, 24.2.2022
+
+planted(r00138,p00005,20,toni,date(16,06,2020),time(13,30,00),full,'20R').
+planted(r00139,p00005,20,toni,date(16,06,2020),time(13,30,00),full,'20R').
+planted(r00172,p00005,20,toni,date(16,06,2020),time(17,30,00),full,'20R').
+%
+% overplanted in error; commented out so we will get mutant tags for this row
+% see ../c/maize/crops/20r/management/warning_rows.org for evidence and rationale
+%
+% Kazic, 13.7.2020
+%
+% planted(r00175,p00005,20,toni,date(16,06,2020),time(13,30,00),full,'20R').
+planted(r00176,p00005,20,toni,date(16,06,2020),time(17,30,00),full,'20R').
+planted(r00178,p00005,20,toni,date(16,06,2020),time(17,30,00),full,'20R').
+planted(r00180,p00005,20,toni,date(16,06,2020),time(17,30,00),full,'20R').
+planted(r00233,p00005,20,toni,date(16,06,2020),time(12,17,30),full,'20R').
+planted(r00235,p00005,20,toni,date(16,06,2020),time(12,19,56),full,'20R').
+planted(r00237,p00005,20,toni,date(16,06,2020),time(12,22,10),full,'20R').
+planted(r00239,p00005,20,toni,date(16,06,2020),time(12,30,00),full,'20R').
+planted(r00241,p00005,20,toni,date(16,06,2020),time(12,30,00),full,'20R').
+planted(r00243,p00005,20,toni,date(16,06,2020),time(12,30,00),full,'20R').
+%
+% this is a blunder on my part --- dewi had already planted the mutant intended
+% for the row; then I, starting from the east end, planted half the row in
+% elite.  We're likely to see the difference when the corn is bigger, but it is still
+% annoying.
+%
+% Kazic, 16.6.2020
+%
+% planted(r00244,p00005,20,toni,date(16,06,2020),time(13,30,00),full,'20R').
+%
+planted(r00245,p00005,20,toni,date(16,06,2020),time(13,30,00),full,'20R').
+planted(r00246,p00005,20,toni,date(16,06,2020),time(12,30,00),full,'20R').
+planted(r00248,p00005,20,toni,date(16,06,2020),time(12,30,00),full,'20R').
+planted(r00250,p00005,20,toni,date(16,06,2020),time(12,30,00),full,'20R').
+planted(r00252,p00005,20,toni,date(16,06,2020),time(12,30,00),full,'20R').
+planted(r00254,p00005,20,toni,date(16,06,2020),time(12,30,00),full,'20R').
+planted(r00256,p00005,20,toni,date(16,06,2020),time(12,30,00),full,'20R').
+planted(r00257,p00005,20,toni,date(16,06,2020),time(13,30,00),full,'20R').
+planted(r00193,p00116,20,toni,date(16,06,2020),time(11,50,13),full,'20R').
+planted(r00197,p00117,20,toni,date(16,06,2020),time(11,39,18),full,'20R').
+planted(r00201,p00118,20,toni,date(16,06,2020),time(11,28,38),full,'20R').
+planted(r00219,p00119,20,toni,date(16,06,2020),time(11,43,13),full,'20R').
+planted(r00223,p00120,20,toni,date(16,06,2020),time(11,47,42),full,'20R').
+planted(r00205,p00126,20,toni,date(16,06,2020),time(11,20,46),full,'20R').
+planted(r00215,p00127,20,toni,date(16,06,2020),time(11,35,08),full,'20R').
+planted(r00209,p10040,20,toni,date(16,06,2020),time(11,22,36),full,'20R').
+planted(r00211,p10041,20,toni,date(16,06,2020),time(11,24,30),full,'20R').
+planted(r00213,p10042,20,toni,date(16,06,2020),time(11,30,48),full,'20R').
+planted(r00221,p10062,20,toni,date(16,06,2020),time(11,45,49),full,'20R').
+planted(r00228,p10064,20,toni,date(16,06,2020),time(11,52,09),full,'20R').
+planted(r00199,p10091,20,toni,date(16,06,2020),time(11,33,19),full,'20R').
+planted(r00203,p10093,20,toni,date(16,06,2020),time(11,26,38),full,'20R').
+planted(r00195,p10112,20,toni,date(16,06,2020),time(11,41,19),full,'20R').
+planted(r00230,p10113,20,toni,date(16,06,2020),time(11,54,17),full,'20R').
+planted(r00232,p10114,20,toni,date(16,06,2020),time(11,56,30),full,'20R').
+planted(r00234,p10115,20,toni,date(16,06,2020),time(11,58,15),full,'20R').
+planted(r00236,p10116,20,toni,date(16,06,2020),time(12,00,04),full,'20R').
+planted(r00217,p10161,20,toni,date(16,06,2020),time(11,37,09),full,'20R').
+
+
+
+
+% data added from ../../data../palm/raw_data_from_palms/20r/zeta/16.6/planted.csv on Tue Jun 16 21:41:23 CDT 2020
+% by data/data_conversion/convert_planted_data.perl
+% called from data/data_conversion/convert_data.perl
+
+planted(r00313,p10029,20,dewi,date(16,06,2020),time(10,53,58),full,'20R').
+planted(r00314,p10025,20,dewi,date(16,06,2020),time(11,05,09),full,'20R').
+planted(r00315,p10011,20,dewi,date(16,06,2020),time(11,08,48),full,'20R').
+planted(r00316,p10065,20,dewi,date(16,06,2020),time(11,10,26),full,'20R').
+planted(r00317,p10099,20,dewi,date(16,06,2020),time(11,12,31),full,'20R').
+planted(r00318,p10100,20,dewi,date(16,06,2020),time(11,14,44),full,'20R').
+planted(r00319,p10101,20,dewi,date(16,06,2020),time(11,16,37),full,'20R').
+planted(r00320,p10026,20,dewi,date(16,06,2020),time(11,17,52),full,'20R').
+planted(r00321,p10096,20,dewi,date(16,06,2020),time(11,19,46),full,'20R').
+planted(r00322,p10097,20,dewi,date(16,06,2020),time(11,21,08),full,'20R').
+planted(r00323,p10098,20,dewi,date(16,06,2020),time(11,22,33),full,'20R').
+planted(r00324,p10010,20,dewi,date(16,06,2020),time(11,24,33),full,'20R').
+planted(r00325,p10013,20,dewi,date(16,06,2020),time(11,26,22),full,'20R').
+planted(r00326,p00005,20,dewi,date(16,06,2020),time(11,30,00),full,'20R').
+planted(r00327,p00005,20,dewi,date(16,06,2020),time(11,30,00),full,'20R').
+planted(r00328,p10031,20,dewi,date(16,06,2020),time(11,28,05),full,'20R').
+planted(r00329,p00005,20,dewi,date(16,06,2020),time(11,30,00),full,'20R').
+planted(r00330,p10105,20,dewi,date(16,06,2020),time(11,29,55),full,'20R').
+planted(r00331,p00005,20,dewi,date(16,06,2020),time(11,30,00),full,'20R').
+planted(r00332,p10106,20,dewi,date(16,06,2020),time(11,31,34),full,'20R').
+planted(r00333,p00005,20,dewi,date(16,06,2020),time(11,32,00),full,'20R').
+planted(r00334,p10058,20,dewi,date(16,06,2020),time(11,33,13),full,'20R').
+planted(r00335,p00005,20,dewi,date(16,06,2020),time(11,34,00),full,'20R').
+planted(r00336,p10059,20,dewi,date(16,06,2020),time(11,36,25),full,'20R').
+planted(r00337,p00005,20,dewi,date(16,06,2020),time(11,35,00),full,'20R').
+planted(r00338,p00005,20,dewi,date(16,06,2020),time(11,36,00),full,'20R').
+planted(r00339,p00003,20,dewi,date(16,06,2020),time(11,37,33),full,'20R').
+planted(r00340,p00003,20,dewi,date(16,06,2020),time(11,39,35),full,'20R').
+planted(r00341,p00000,20,dewi,date(16,06,2020),time(11,40,00),full,'20R').
+planted(r00342,p00002,20,dewi,date(16,06,2020),time(11,40,55),full,'20R').
+planted(r00343,p00001,20,dewi,date(16,06,2020),time(11,41,00),full,'20R').
+
+
+
+
+% data added from ../../data../palm/raw_data_from_palms/20r/zeta/15.7/planted.csv on Wed Jul 15 16:50:03 CDT 2020
+% by data/data_conversion/convert_planted_data.perl
+% called from data/data_conversion/convert_data.perl
+
+planted(r00238,p00122,20,toni,date(16,06,2020),time(12,10,13),full,'20R').
+planted(r00240,p10163,20,toni,date(16,06,2020),time(12,11,35),full,'20R').
+planted(r00244,p10095,20,toni,date(16,06,2020),time(12,14,20),full,'20R').
+planted(r00247,p00124,20,toni,date(16,06,2020),time(12,02,42),full,'20R').
+planted(r00249,p10118,20,toni,date(16,06,2020),time(12,04,26),full,'20R').
+planted(r00251,p00125,20,toni,date(16,06,2020),time(12,05,37),full,'20R').
+planted(r00253,p10120,20,toni,date(16,06,2020),time(12,06,56),full,'20R').
+planted(r00255,p10030,20,toni,date(16,06,2020),time(12,08,32),full,'20R').
+planted(r00344,p00005,20,toni,date(16,06,2020),time(11,59,23),full,'20R').
+
+
+% manually added: not p10095, but the same line packed last year
+%
+% Kazic, 15.7.2020
+
+planted(r00242,p00123,20,toni,date(16,06,2020),time(12,00,00),full,'20R').
+
+
+
+
+% 21r
+
+% these first rows are really the kitchen bins used in the laundry room for
+% germinating seed for the kinetics and 3d imaging experiments.  I've
+% incremented the hand-writted packet numbers by 300 to avoid collisions
+% with the regularly packed seed packets, so these don't match the
+% photographs in ../../images/21r/fon/21.5.  Except for the inbreds, of
+% course.
+%
+% Kazic, 3.6.2021
+
+planted(t00001,p00001,35,toni,date(26,05,2021),time(15,00,22),full,'21R').
+planted(t00002,p00002,50,toni,date(26,05,2021),time(15,00,23),full,'21R').
+planted(t00003,p00003,75,toni,date(26,05,2021),time(15,00,10),full,'21R').
+planted(t00004,p00004,30,toni,date(26,05,2021),time(15,00,12),full,'21R').
+planted(t00005,p00005,30,toni,date(26,05,2021),time(15,00,14),full,'21R').
+planted(t00006,p00310,60,toni,date(26,05,2021),time(15,00,00),full,'21R').
+planted(t00007,p00311,60,toni,date(26,05,2021),time(15,00,00),full,'21R').
+planted(t00008,p00312,60,toni,date(26,05,2021),time(15,00,00),full,'21R').
+planted(t00009,p00313,60,toni,date(26,05,2021),time(15,00,00),full,'21R').
+planted(t00010,p00314,60,toni,date(26,05,2021),time(15,00,00),full,'21R').
+planted(t00011,p00315,60,toni,date(26,05,2021),time(15,00,00),full,'21R').
+planted(t00012,p00316,60,toni,date(26,05,2021),time(15,00,00),full,'21R').
+planted(t00013,p00317,70,toni,date(26,05,2021),time(15,00,00),full,'21R').
+planted(t00014,p00318,60,toni,date(31,05,2021),time(15,00,00),full,'21R').
+
+
+
+
+% data added from ../../data../palm/raw_data_from_palms/21r/eta/3.6/planted.csv on Thu Jun  3 23:29:15 CDT 2021
+% by data/data_conversion/convert_planted_data.perl
+% called from data/data_conversion/convert_data.perl
+
+planted(r00001,p00001,20,toni,date(03,06,2021),time(14,10,30),full,'21R').
+planted(r00002,p00001,20,toni,date(03,06,2021),time(14,13,19),full,'21R').
+planted(r00003,p00001,20,toni,date(03,06,2021),time(14,15,17),full,'21R').
+planted(r00004,p00001,20,toni,date(03,06,2021),time(14,17,26),full,'21R').
+planted(r00005,p00001,20,toni,date(03,06,2021),time(14,25,17),full,'21R').
+planted(r00006,p00002,20,toni,date(03,06,2021),time(14,35,25),full,'21R').
+planted(r00007,p00002,20,toni,date(03,06,2021),time(14,38,13),full,'21R').
+planted(r00008,p00002,20,toni,date(03,06,2021),time(14,46,05),full,'21R').
+planted(r00010,p00002,20,toni,date(03,06,2021),time(14,47,55),full,'21R').
+planted(r00011,p00002,20,toni,date(03,06,2021),time(14,49,51),full,'21R').
+planted(r00012,p00003,20,toni,date(03,06,2021),time(14,51,56),full,'21R').
+planted(r00013,p00003,20,toni,date(03,06,2021),time(14,54,07),full,'21R').
+planted(r00014,p00003,20,toni,date(03,06,2021),time(14,56,26),full,'21R').
+planted(r00015,p00003,20,toni,date(03,06,2021),time(15,02,36),full,'21R').
+planted(r00016,p00003,20,toni,date(03,06,2021),time(15,04,57),full,'21R').
+planted(r00017,p00003,20,toni,date(03,06,2021),time(15,06,54),full,'21R').
+planted(r00018,p00004,20,toni,date(03,06,2021),time(15,09,13),full,'21R').
+planted(r00019,p00004,20,toni,date(03,06,2021),time(15,11,09),full,'21R').
+planted(r00028,p00124,20,toni,date(03,06,2021),time(15,13,08),full,'21R').
+planted(r00029,p00120,20,toni,date(03,06,2021),time(15,15,05),full,'21R').
+planted(r00030,p00130,20,toni,date(03,06,2021),time(15,17,00),full,'21R').
+planted(r00031,p00073,20,toni,date(03,06,2021),time(15,18,59),full,'21R').
+planted(r00032,p00151,20,toni,date(03,06,2021),time(15,21,00),full,'21R').
+planted(r00033,p00126,20,toni,date(03,06,2021),time(13,57,50),full,'21R').
+planted(r00034,p00152,20,toni,date(03,06,2021),time(14,01,53),full,'21R').
+planted(r00035,p00068,20,toni,date(03,06,2021),time(14,04,28),full,'21R').
+planted(r00036,p00132,20,toni,date(03,06,2021),time(14,08,01),full,'21R').
+planted(r00037,p00127,20,toni,date(03,06,2021),time(14,11,07),full,'21R').
+planted(r00038,p00125,20,toni,date(03,06,2021),time(14,13,30),full,'21R').
+planted(r00039,p00133,20,toni,date(03,06,2021),time(14,15,02),full,'21R').
+planted(r00040,p00035,20,toni,date(03,06,2021),time(14,18,55),full,'21R').
+planted(r00042,p00036,20,toni,date(03,06,2021),time(14,21,01),full,'21R').
+planted(r00043,p00038,20,toni,date(03,06,2021),time(14,22,36),full,'21R').
+planted(r00125,p00131,20,toni,date(03,06,2021),time(15,46,43),full,'21R').
+planted(r00126,p00144,20,toni,date(03,06,2021),time(15,39,52),full,'21R').
+planted(r00127,p00123,20,toni,date(03,06,2021),time(15,37,27),full,'21R').
+planted(r00128,p00111,20,toni,date(03,06,2021),time(15,23,48),full,'21R').
+planted(r00129,p00142,20,toni,date(03,06,2021),time(15,25,48),full,'21R').
+planted(r00130,p00150,20,toni,date(03,06,2021),time(15,32,07),full,'21R').
+planted(r00131,p00054,20,toni,date(03,06,2021),time(15,41,40),full,'21R').
+planted(r00132,p00118,20,toni,date(03,06,2021),time(15,48,38),full,'21R').
+planted(r00133,p00119,20,toni,date(03,06,2021),time(15,55,06),full,'21R').
+planted(r00134,p00096,20,toni,date(03,06,2021),time(15,59,26),full,'21R').
+planted(r00135,p00115,20,toni,date(03,06,2021),time(16,03,58),full,'21R').
+planted(r00136,p00153,20,toni,date(03,06,2021),time(16,08,49),full,'21R').
+planted(r00138,p00110,20,toni,date(03,06,2021),time(16,13,40),full,'21R').
+planted(r00139,p00102,20,toni,date(03,06,2021),time(16,16,23),full,'21R').
+planted(r00140,p00103,20,toni,date(03,06,2021),time(16,18,48),full,'21R').
+planted(r00141,p00109,20,toni,date(03,06,2021),time(16,21,45),full,'21R').
+planted(r00142,p00108,20,toni,date(03,06,2021),time(16,25,07),full,'21R').
+planted(r00143,p00107,20,toni,date(03,06,2021),time(16,27,58),full,'21R').
+planted(r00144,p00104,20,toni,date(03,06,2021),time(16,30,18),full,'21R').
+planted(r00153,p00145,20,toni,date(03,06,2021),time(16,11,03),full,'21R').
+planted(r00154,p00146,20,toni,date(03,06,2021),time(16,06,15),full,'21R').
+planted(r00155,p00055,20,toni,date(03,06,2021),time(16,01,38),full,'21R').
+planted(r00156,p00128,20,toni,date(03,06,2021),time(15,57,16),full,'21R').
+planted(r00157,p00079,20,toni,date(03,06,2021),time(15,50,42),full,'21R').
+planted(r00158,p00080,20,toni,date(03,06,2021),time(15,43,49),full,'21R').
+planted(r00159,p00081,20,toni,date(03,06,2021),time(15,34,07),full,'21R').
+planted(r00160,p00117,20,toni,date(03,06,2021),time(15,27,53),full,'21R').
+
+
+
+
+% data added from ../../data../palm/raw_data_from_palms/21r/zeta/3.6/planted.csv on Thu Jun  3 23:29:15 CDT 2021
+% by data/data_conversion/convert_planted_data.perl
+% called from data/data_conversion/convert_data.perl
+
+% Dewi recorded these twice, so commented out these later duplicates.
+%
+% Kazic, 24.2.2022
+%
+%% planted(r00033,p00126,20,dewi,date(03,06,2021),time(13,57,50),full,'21R').
+%% planted(r00034,p00152,20,dewi,date(03,06,2021),time(14,01,53),full,'21R').
+%% planted(r00035,p00068,20,dewi,date(03,06,2021),time(14,04,28),full,'21R').
+%% planted(r00036,p00132,20,dewi,date(03,06,2021),time(14,08,01),full,'21R').
+%% planted(r00037,p00127,20,dewi,date(03,06,2021),time(14,11,07),full,'21R').
+%% planted(r00038,p00125,20,dewi,date(03,06,2021),time(14,13,30),full,'21R').
+%% planted(r00039,p00133,20,dewi,date(03,06,2021),time(14,15,02),full,'21R').
+%% planted(r00040,p00035,20,dewi,date(03,06,2021),time(14,18,55),full,'21R').
+%% planted(r00042,p00036,20,dewi,date(03,06,2021),time(14,21,01),full,'21R').
+%% planted(r00043,p00038,20,dewi,date(03,06,2021),time(14,22,36),full,'21R').
+
+planted(r00044,p00039,20,dewi,date(03,06,2021),time(14,24,27),full,'21R').
+planted(r00045,p00043,20,dewi,date(03,06,2021),time(14,26,02),full,'21R').
+planted(r00046,p00044,20,dewi,date(03,06,2021),time(14,27,42),full,'21R').
+planted(r00047,p00062,20,dewi,date(03,06,2021),time(14,30,39),full,'21R').
+planted(r00048,p00063,20,dewi,date(03,06,2021),time(14,32,35),full,'21R').
+planted(r00049,p00064,20,dewi,date(03,06,2021),time(14,43,14),full,'21R').
+planted(r00050,p00065,20,dewi,date(03,06,2021),time(14,44,56),full,'21R').
+planted(r00051,p00097,20,dewi,date(03,06,2021),time(14,46,50),full,'21R').
+planted(r00052,p00098,20,dewi,date(03,06,2021),time(14,48,12),full,'21R').
+planted(r00053,p00099,20,dewi,date(03,06,2021),time(14,49,25),full,'21R').
+planted(r00054,p00100,20,dewi,date(03,06,2021),time(14,50,52),full,'21R').
+planted(r00055,p00066,20,dewi,date(03,06,2021),time(14,52,31),full,'21R').
+planted(r00057,p00067,20,dewi,date(03,06,2021),time(14,54,36),full,'21R').
+planted(r00058,p00069,20,dewi,date(03,06,2021),time(14,56,07),full,'21R').
+planted(r00059,p00070,20,dewi,date(03,06,2021),time(14,58,11),full,'21R').
+planted(r00060,p00071,20,dewi,date(03,06,2021),time(15,02,18),full,'21R').
+planted(r00061,p00072,20,dewi,date(03,06,2021),time(15,03,53),full,'21R').
+planted(r00062,p00074,20,dewi,date(03,06,2021),time(15,05,44),full,'21R').
+planted(r00063,p00075,20,dewi,date(03,06,2021),time(15,06,57),full,'21R').
+planted(r00064,p00082,20,dewi,date(03,06,2021),time(15,08,28),full,'21R').
+planted(r00065,p00083,20,dewi,date(03,06,2021),time(15,09,38),full,'21R').
+planted(r00066,p00005,20,dewi,date(03,06,2021),time(15,10,55),full,'21R').
+planted(r00070,p00005,20,dewi,date(03,06,2021),time(15,12,29),full,'21R').
+planted(r00072,p00005,20,dewi,date(03,06,2021),time(15,13,56),full,'21R').
+planted(r00074,p00005,20,dewi,date(03,06,2021),time(12,00,00),full,'21R').
+planted(r00078,p00005,20,dewi,date(03,06,2021),time(15,16,36),full,'21R').
+planted(r00084,p00005,20,dewi,date(03,06,2021),time(15,17,49),full,'21R').
+planted(r00087,p00005,20,dewi,date(03,06,2021),time(15,19,22),full,'21R').
+planted(r00089,p00005,20,dewi,date(03,06,2021),time(15,21,18),full,'21R').
+planted(r00093,p00005,20,dewi,date(03,06,2021),time(15,27,00),full,'21R').
+planted(r00100,p00005,20,dewi,date(03,06,2021),time(15,31,28),full,'21R').
+planted(r00102,p00005,20,dewi,date(03,06,2021),time(15,33,05),full,'21R').
+planted(r00103,p00051,20,dewi,date(03,06,2021),time(15,34,41),full,'21R').
+planted(r00104,p00045,20,dewi,date(03,06,2021),time(15,36,05),full,'21R').
+planted(r00106,p00101,20,dewi,date(03,06,2021),time(15,38,30),full,'21R').
+planted(r00107,p00047,20,dewi,date(03,06,2021),time(15,40,34),full,'21R').
+planted(r00108,p00057,20,dewi,date(03,06,2021),time(15,42,22),full,'21R').
+planted(r00109,p00034,20,dewi,date(03,06,2021),time(15,44,25),full,'21R').
+planted(r00110,p00040,20,dewi,date(03,06,2021),time(15,45,52),full,'21R').
+planted(r00111,p00037,20,dewi,date(03,06,2021),time(15,47,31),full,'21R').
+planted(r00112,p00041,20,dewi,date(03,06,2021),time(15,49,05),full,'21R').
+planted(r00113,p00042,20,dewi,date(03,06,2021),time(15,50,29),full,'21R').
+planted(r00114,p00046,20,dewi,date(03,06,2021),time(15,51,51),full,'21R').
+planted(r00115,p00049,20,dewi,date(03,06,2021),time(15,54,56),full,'21R').
+planted(r00116,p00058,20,dewi,date(03,06,2021),time(15,58,00),full,'21R').
+planted(r00117,p00121,20,dewi,date(03,06,2021),time(15,59,37),full,'21R').
+planted(r00118,p00129,20,dewi,date(03,06,2021),time(16,01,25),full,'21R').
+planted(r00119,p00134,20,dewi,date(03,06,2021),time(16,02,54),full,'21R').
+planted(r00121,p00052,20,dewi,date(03,06,2021),time(16,05,13),full,'21R').
+planted(r00122,p00056,20,dewi,date(03,06,2021),time(16,06,46),full,'21R').
+planted(r00123,p00135,20,dewi,date(03,06,2021),time(16,08,31),full,'21R').
+planted(r00124,p00143,20,dewi,date(03,06,2021),time(16,10,41),full,'21R').
+planted(r00145,p00105,20,dewi,date(03,06,2021),time(16,14,52),full,'21R').
+planted(r00146,p00106,20,dewi,date(03,06,2021),time(16,17,03),full,'21R').
+planted(r00147,p00116,20,dewi,date(03,06,2021),time(16,19,30),full,'21R').
+planted(r00148,p00053,20,dewi,date(03,06,2021),time(16,21,26),full,'21R').
+planted(r00149,p00048,20,dewi,date(03,06,2021),time(16,22,58),full,'21R').
+planted(r00150,p00050,20,dewi,date(03,06,2021),time(16,25,25),full,'21R').
+planted(r00151,p00122,20,dewi,date(03,06,2021),time(16,27,16),full,'21R').
+
+
+
+
+% manually added these skips
+%
+% Kazic, 16.8.2021
+
+% field 33
+planted(r00009,p00000,20,dewi,date(03,06,2021),time(16,27,16),full,'21R').
+planted(r00024,p00000,20,dewi,date(03,06,2021),time(16,27,16),full,'21R').
+planted(r00041,p00000,20,dewi,date(03,06,2021),time(16,27,16),full,'21R').
+planted(r00056,p00000,20,dewi,date(03,06,2021),time(16,27,16),full,'21R').
+planted(r00073,p00000,20,dewi,date(03,06,2021),time(16,27,16),full,'21R').
+planted(r00088,p00000,20,dewi,date(03,06,2021),time(16,27,16),full,'21R').
+planted(r00101,p00000,20,dewi,date(03,06,2021),time(16,27,16),full,'21R').
+planted(r00105,p00000,20,dewi,date(03,06,2021),time(16,27,16),full,'21R').
+planted(r00120,p00000,20,dewi,date(03,06,2021),time(16,27,16),full,'21R').
+planted(r00137,p00000,20,dewi,date(03,06,2021),time(16,27,16),full,'21R').
+planted(r00152,p00000,20,dewi,date(03,06,2021),time(16,27,16),full,'21R').
+
+
+% field 30
+
+planted(r00209,p00000,200,dewi,date(03,06,2021),time(16,27,16),full,'21R').
+planted(r00210,p00000,200,dewi,date(03,06,2021),time(16,27,16),full,'21R').
+planted(r00211,p00000,200,dewi,date(03,06,2021),time(16,27,16),full,'21R').
+planted(r00213,p00000,200,dewi,date(03,06,2021),time(16,27,16),full,'21R').
+planted(r00214,p00000,200,dewi,date(03,06,2021),time(16,27,16),full,'21R').
+planted(r00215,p00000,200,dewi,date(03,06,2021),time(16,27,16),full,'21R').
+planted(r00217,p00000,200,dewi,date(03,06,2021),time(16,27,16),full,'21R').
+planted(r00218,p00000,200,dewi,date(03,06,2021),time(16,27,16),full,'21R').
+planted(r00219,p00000,200,dewi,date(03,06,2021),time(16,27,16),full,'21R').
+planted(r00220,p00000,200,dewi,date(03,06,2021),time(16,27,16),full,'21R').
+planted(r00222,p00000,200,dewi,date(03,06,2021),time(16,27,16),full,'21R').
+planted(r00223,p00000,200,dewi,date(03,06,2021),time(16,27,16),full,'21R').
+planted(r00225,p00000,200,dewi,date(03,06,2021),time(16,27,16),full,'21R').
+planted(r00226,p00000,200,dewi,date(03,06,2021),time(16,27,16),full,'21R').
+planted(r00227,p00000,200,dewi,date(03,06,2021),time(16,27,16),full,'21R').
+planted(r00229,p00000,200,dewi,date(03,06,2021),time(16,27,16),full,'21R').
+planted(r00230,p00000,200,dewi,date(03,06,2021),time(16,27,16),full,'21R').
+planted(r00231,p00000,200,dewi,date(03,06,2021),time(16,27,16),full,'21R').
+planted(r00233,p00000,200,dewi,date(03,06,2021),time(16,27,16),full,'21R').
+planted(r00234,p00000,200,dewi,date(03,06,2021),time(16,27,16),full,'21R').
+planted(r00235,p00000,200,dewi,date(03,06,2021),time(16,27,16),full,'21R').
+planted(r00236,p00000,200,dewi,date(03,06,2021),time(16,27,16),full,'21R').
+planted(r00237,p00000,200,dewi,date(03,06,2021),time(16,27,16),full,'21R').
+planted(r00238,p00000,200,dewi,date(03,06,2021),time(16,27,16),full,'21R').
+planted(r00240,p00000,200,dewi,date(03,06,2021),time(16,27,16),full,'21R').
+planted(r00241,p00000,50,dewi,date(03,06,2021),time(16,27,16),full,'21R').
+planted(r00242,p00000,50,dewi,date(03,06,2021),time(16,27,16),full,'21R').
+planted(r00244,p00000,50,dewi,date(03,06,2021),time(16,27,16),full,'21R').
+planted(r00245,p00000,50,dewi,date(03,06,2021),time(16,27,16),full,'21R').
+planted(r00246,p00000,50,dewi,date(03,06,2021),time(16,27,16),full,'21R').
+planted(r00248,p00000,50,dewi,date(03,06,2021),time(16,27,16),full,'21R').
+planted(r00249,p00000,50,dewi,date(03,06,2021),time(16,27,16),full,'21R').
+planted(r00250,p00000,50,dewi,date(03,06,2021),time(16,27,16),full,'21R').
+planted(r00252,p00000,50,dewi,date(03,06,2021),time(16,27,16),full,'21R').
+planted(r00253,p00000,50,dewi,date(03,06,2021),time(16,27,16),full,'21R').
+planted(r00254,p00000,50,dewi,date(03,06,2021),time(16,27,16),full,'21R').
+planted(r00256,p00000,50,dewi,date(03,06,2021),time(16,27,16),full,'21R').
+planted(r00257,p00000,50,dewi,date(03,06,2021),time(16,27,16),full,'21R').
+planted(r00258,p00000,50,dewi,date(03,06,2021),time(16,27,16),full,'21R').
+
+
+
+
+
+
+
+
+% data added from ../../data../palm/raw_data_from_palms/21r/eta/21.6/planted.csv on Mon Aug 16 18:35:16 CDT 2021
+% by data/data_conversion/convert_planted_data.perl
+% called from data/data_conversion/convert_data.perl
+
+planted(r00020,p00001,20,toni,date(10,06,2021),time(10,32,57),full,'21R').
+planted(r00021,p00001,20,toni,date(10,06,2021),time(10,34,58),full,'21R').
+planted(r00022,p00002,20,toni,date(10,06,2021),time(10,37,59),full,'21R').
+planted(r00023,p00002,20,toni,date(10,06,2021),time(10,39,36),full,'21R').
+planted(r00025,p00003,20,toni,date(10,06,2021),time(10,41,19),full,'21R').
+planted(r00026,p00003,20,toni,date(10,06,2021),time(10,43,05),full,'21R').
+planted(r00027,p00003,20,toni,date(10,06,2021),time(10,45,00),full,'21R').
+
+
+% from ....../zeta/11.6/raw.planted.csv
+
+planted(r00161,p00400,20,dewi,date(11,06,2021),time(08,47,06),full,'21R').
+planted(r00162,p00400,20,dewi,date(11,06,2021),time(08,50,04),full,'21R').
+planted(r00163,p00400,20,dewi,date(11,06,2021),time(08,51,32),full,'21R').
+planted(r00164,p00400,20,dewi,date(11,06,2021),time(08,53,13),full,'21R').
+planted(r00165,p00400,20,dewi,date(11,06,2021),time(08,54,31),full,'21R').
+planted(r00166,p00401,20,dewi,date(11,06,2021),time(09,01,48),full,'21R').
+planted(r00167,p00401,20,dewi,date(11,06,2021),time(09,05,05),full,'21R').
+planted(r00168,p00401,20,dewi,date(11,06,2021),time(09,08,22),full,'21R').
+planted(r00169,p00401,20,dewi,date(11,06,2021),time(09,08,53),full,'21R').
+planted(r00170,p00401,20,dewi,date(11,06,2021),time(09,10,20),full,'21R').
+planted(r00171,p00402,20,dewi,date(11,06,2021),time(09,12,22),full,'21R').
+planted(r00172,p00402,20,dewi,date(11,06,2021),time(09,14,30),full,'21R').
+planted(r00173,p00402,20,dewi,date(11,06,2021),time(09,14,49),full,'21R').
+planted(r00174,p00402,20,dewi,date(11,06,2021),time(09,17,06),full,'21R').
+planted(r00175,p00402,20,dewi,date(11,06,2021),time(09,18,36),full,'21R').
+planted(r00176,p00403,20,dewi,date(11,06,2021),time(09,19,11),full,'21R').
+planted(r00177,p00403,20,dewi,date(11,06,2021),time(09,22,14),full,'21R').
+planted(r00178,p00403,20,dewi,date(11,06,2021),time(09,22,19),full,'21R').
+planted(r00179,p00403,20,dewi,date(11,06,2021),time(09,24,22),full,'21R').
+planted(r00180,p00403,20,dewi,date(11,06,2021),time(09,25,28),full,'21R').
+planted(r00181,p00404,20,dewi,date(11,06,2021),time(09,25,54),full,'21R').
+planted(r00182,p00404,20,dewi,date(11,06,2021),time(09,27,09),full,'21R').
+planted(r00183,p00404,20,dewi,date(11,06,2021),time(09,28,14),full,'21R').
+planted(r00184,p00404,20,dewi,date(11,06,2021),time(09,30,00),full,'21R').
+
+
+planted(r00185,p00005,20,dewi,date(11,06,2021),time(09,34,54),full,'21R').
+planted(r00186,p00005,20,dewi,date(11,06,2021),time(09,36,33),full,'21R').
+planted(r00187,p00005,20,dewi,date(11,06,2021),time(09,37,29),full,'21R').
+planted(r00188,p00005,20,dewi,date(11,06,2021),time(09,38,38),full,'21R').
+planted(r00189,p00005,20,dewi,date(11,06,2021),time(09,39,48),full,'21R').
+planted(r00190,p00005,20,dewi,date(11,06,2021),time(09,41,05),full,'21R').
+planted(r00191,p00005,20,dewi,date(11,06,2021),time(09,42,26),full,'21R').
+planted(r00192,p00005,20,dewi,date(11,06,2021),time(09,47,06),full,'21R').
+planted(r00193,p00005,20,dewi,date(11,06,2021),time(09,48,10),full,'21R').
+planted(r00194,p00005,20,dewi,date(11,06,2021),time(09,50,17),full,'21R').
+planted(r00195,p00005,20,dewi,date(11,06,2021),time(09,52,20),full,'21R').
+planted(r00196,p00005,20,dewi,date(11,06,2021),time(09,54,24),full,'21R').
+planted(r00197,p00005,20,dewi,date(11,06,2021),time(09,56,48),full,'21R').
+planted(r00198,p00005,20,dewi,date(11,06,2021),time(09,57,32),full,'21R').
+planted(r00199,p00005,20,dewi,date(11,06,2021),time(10,00,39),full,'21R').
+planted(r00200,p00005,20,dewi,date(11,06,2021),time(10,00,51),full,'21R').
+planted(r00201,p00005,20,dewi,date(11,06,2021),time(10,01,56),full,'21R').
+planted(r00202,p00005,20,dewi,date(11,06,2021),time(10,02,35),full,'21R').
+planted(r00203,p00005,20,dewi,date(11,06,2021),time(10,03,42),full,'21R').
+planted(r00204,p00005,20,dewi,date(11,06,2021),time(10,04,56),full,'21R').
+planted(r00205,p00005,20,dewi,date(11,06,2021),time(10,06,04),full,'21R').
+planted(r00206,p00005,20,dewi,date(11,06,2021),time(10,07,16),full,'21R').
+planted(r00207,p00005,20,dewi,date(11,06,2021),time(10,08,25),full,'21R').
+planted(r00208,p00005,20,dewi,date(11,06,2021),time(10,10,33),full,'21R').
+planted(r00212,p00501,200,toni,date(11,06,2021),time(10,18,08),full,'21R').
+planted(r00216,p00502,200,toni,date(11,06,2021),time(10,20,57),full,'21R').
+planted(r00221,p00503,200,toni,date(11,06,2021),time(10,21,42),full,'21R').
+planted(r00224,p00504,200,toni,date(11,06,2021),time(10,23,52),full,'21R').
+planted(r00228,p00505,200,toni,date(11,06,2021),time(10,25,36),full,'21R').
+planted(r00232,p00317,200,toni,date(11,06,2021),time(10,26,22),full,'21R').
+planted(r00239,p00317,50,toni,date(11,06,2021),time(10,36,01),full,'21R').
+planted(r00243,p00317,50,toni,date(11,06,2021),time(10,39,41),full,'21R').
+planted(r00247,p00317,50,toni,date(11,06,2021),time(10,41,24),full,'21R').
+planted(r00251,p00317,50,toni,date(11,06,2021),time(10,44,06),full,'21R').
+planted(r00255,p00317,50,toni,date(11,06,2021),time(10,46,52),full,'21R').
+planted(r00259,p00317,50,toni,date(11,06,2021),time(10,47,36),full,'21R').
+planted(r00067,p00316,20,toni,date(11,06,2021),time(08,46,45),full,'21R').
+planted(r00068,p00316,20,toni,date(11,06,2021),time(08,46,53),full,'21R').
+planted(r00069,p00316,20,toni,date(11,06,2021),time(10,18,51),full,'21R').
+planted(r00071,p00318,20,toni,date(11,06,2021),time(10,19,58),full,'21R').
+planted(r00075,p00318,20,toni,date(11,06,2021),time(11,00,00),full,'21R').
+planted(r00076,p00318,20,toni,date(11,06,2021),time(11,35,00),full,'21R').
+planted(r00077,p00310,20,toni,date(11,06,2021),time(11,36,34),full,'21R').
+planted(r00079,p00310,20,toni,date(11,06,2021),time(12,00,00),full,'21R').
+planted(r00080,p00312,20,toni,date(11,06,2021),time(12,24,00),full,'21R').
+planted(r00081,p00312,20,toni,date(13,06,2021),time(12,36,45),full,'21R').
+planted(r00082,p00312,20,toni,date(13,06,2021),time(12,45,00),full,'21R').
+planted(r00083,p00311,4,toni,date(13,06,2021),time(13,18,26),full,'21R').
+planted(r00085,p00311,20,toni,date(13,06,2021),time(13,16,16),full,'21R').
+planted(r00086,p00311,20,toni,date(13,06,2021),time(14,40,07),full,'21R').
+planted(r00090,p00311,13,toni,date(13,06,2021),time(15,02,28),full,'21R').
+planted(r00091,p00315,20,toni,date(13,06,2021),time(15,06,47),full,'21R').
+planted(r00092,p00315,20,toni,date(13,06,2021),time(15,30,00),full,'21R').
+planted(r00094,p00315,18,toni,date(13,06,2021),time(16,22,22),full,'21R').
+planted(r00095,p00313,20,toni,date(16,06,2021),time(10,57,49),full,'21R').
+planted(r00098,p00313,20,toni,date(16,06,2021),time(11,00,00),full,'21R').
+planted(r00099,p00313,8,toni,date(16,06,2021),time(11,55,00),full,'21R').
+planted(r00096,p00005,20,toni,date(16,06,2021),time(12,09,15),full,'21R').
+planted(r00097,p00005,20,toni,date(16,06,2021),time(12,09,16),full,'21R').
+
+
+
+
+% 22r
+
+% data added from ../../data../palm/raw_data_from_palms/22r/eta/30.5/planted.csv on Wed Jun  1 18:27:25 CDT 2022
+% by data/data_conversion/convert_planted_data.perl
+% called from data/data_conversion/convert_data.perl
+
+planted(r00030,p00179,20,toni,date(30,05,2022),time(18,06,51),full,'22R').
+planted(r00031,p00212,20,toni,date(30,05,2022),time(18,08,33),full,'22R').
+planted(r00032,p00183,20,toni,date(30,05,2022),time(18,10,24),full,'22R').
+planted(r00033,p00201,20,toni,date(30,05,2022),time(18,12,04),full,'22R').
+planted(r00034,p00216,20,toni,date(30,05,2022),time(18,13,54),full,'22R').
+planted(r00035,p00217,20,toni,date(30,05,2022),time(18,16,26),full,'22R').
+planted(r00036,p00218,20,toni,date(30,05,2022),time(18,21,46),full,'22R').
+planted(r00037,p00148,20,toni,date(30,05,2022),time(18,24,32),full,'22R').
+planted(r00038,p00149,20,toni,date(30,05,2022),time(18,27,04),full,'22R').
+planted(r00039,p00150,20,toni,date(30,05,2022),time(18,29,39),full,'22R').
+planted(r00040,p00240,20,toni,date(30,05,2022),time(18,32,12),full,'22R').
+planted(r00041,p00241,20,toni,date(30,05,2022),time(18,34,48),full,'22R').
+planted(r00042,p00242,20,toni,date(30,05,2022),time(18,37,11),full,'22R').
+planted(r00043,p00243,20,toni,date(30,05,2022),time(18,39,40),full,'22R').
+planted(r00044,p00165,20,toni,date(30,05,2022),time(18,43,25),full,'22R').
+planted(r00045,p00166,20,toni,date(30,05,2022),time(18,45,53),full,'22R').
+planted(r00046,p00122,20,toni,date(30,05,2022),time(18,48,33),full,'22R').
+planted(r00047,p00109,20,toni,date(30,05,2022),time(18,50,41),full,'22R').
+planted(r00048,p00110,20,toni,date(30,05,2022),time(18,53,18),full,'22R').
+planted(r00049,p00226,20,toni,date(30,05,2022),time(18,55,48),full,'22R').
+planted(r00050,p00227,20,toni,date(30,05,2022),time(18,58,11),full,'22R').
+planted(r00051,p00195,20,toni,date(30,05,2022),time(19,00,29),full,'22R').
+planted(r00052,p00196,20,toni,date(30,05,2022),time(19,03,48),full,'22R').
+planted(r00053,p00221,20,toni,date(30,05,2022),time(19,06,07),full,'22R').
+%
+% from row 54 onward, the rows are from packets due to dead phone; times correct
+%
+% Kazic, 1.6.2022
+%
+planted(r00054,p00222,20,toni,date(30,05,2022),time(19,12,00),full,'22R').
+planted(r00055,p00184,20,toni,date(30,05,2022),time(19,17,00),full,'22R').
+planted(r00056,p00185,20,toni,date(30,05,2022),time(19,19,00),full,'22R').
+planted(r00057,p00129,20,toni,date(30,05,2022),time(19,21,00),full,'22R').
+planted(r00058,p00130,20,toni,date(30,05,2022),time(19,23,00),full,'22R').
+planted(r00059,p00239,20,toni,date(30,05,2022),time(19,25,00),full,'22R').
+planted(r00060,p00219,20,toni,date(30,05,2022),time(19,27,00),full,'22R').
+planted(r00061,p00031,20,toni,date(30,05,2022),time(19,29,00),full,'22R').
+planted(r00062,p00094,20,toni,date(30,05,2022),time(19,30,00),full,'22R').
+planted(r00063,p00058,20,toni,date(30,05,2022),time(19,34,00),full,'22R').
+planted(r00064,p00037,20,toni,date(30,05,2022),time(19,35,00),full,'22R').
+planted(r00065,p00215,20,toni,date(30,05,2022),time(19,37,00),full,'22R').
+planted(r00066,p00244,20,toni,date(30,05,2022),time(19,38,00),full,'22R').
+planted(r00067,p00044,20,toni,date(30,05,2022),time(19,41,00),full,'22R').
+planted(r00068,p00045,20,toni,date(30,05,2022),time(19,43,00),full,'22R').
+planted(r00069,p00152,20,toni,date(30,05,2022),time(19,44,00),full,'22R').
+planted(r00070,p00153,20,toni,date(30,05,2022),time(19,46,00),full,'22R').
+planted(r00071,p00120,20,toni,date(30,05,2022),time(19,47,00),full,'22R').
+planted(r00072,p00121,20,toni,date(30,05,2022),time(19,49,00),full,'22R').
+planted(r00073,p00075,20,toni,date(30,05,2022),time(19,51,00),full,'22R').
+
+
+
+
+% data added from ../../data../palm/raw_data_from_palms/22r/zeta/30.5/planted.csv on Wed Jun  1 18:27:25 CDT 2022
+% by data/data_conversion/convert_planted_data.perl
+% called from data/data_conversion/convert_data.perl
+
+planted(r00001,p00001,75,dewi,date(30,05,2022),time(16,13,51),full,'22R').
+planted(r00002,p00000,0,dewi,date(30,05,2022),time(16,17,00),full,'22R').
+planted(r00003,p00000,0,dewi,date(30,05,2022),time(16,17,00),full,'22R').
+planted(r00004,p00000,0,dewi,date(30,05,2022),time(16,17,00),full,'22R').
+planted(r00005,p00002,75,dewi,date(30,05,2022),time(16,20,12),full,'22R').
+planted(r00006,p00000,0,dewi,date(30,05,2022),time(16,17,00),full,'22R').
+planted(r00007,p00000,0,dewi,date(30,05,2022),time(16,17,00),full,'22R').
+planted(r00008,p00000,0,dewi,date(30,05,2022),time(16,17,00),full,'22R').
+planted(r00009,p00003,75,dewi,date(30,05,2022),time(16,24,42),full,'22R').
+planted(r00010,p00000,0,dewi,date(30,05,2022),time(16,17,00),full,'22R').
+planted(r00011,p00000,0,dewi,date(30,05,2022),time(16,17,00),full,'22R').
+planted(r00012,p00000,0,dewi,date(30,05,2022),time(16,17,00),full,'22R').
+planted(r00013,p00004,75,dewi,date(30,05,2022),time(16,29,19),full,'22R').
+planted(r00014,p00000,0,dewi,date(30,05,2022),time(16,17,00),full,'22R').
+planted(r00015,p00000,0,dewi,date(30,05,2022),time(16,17,00),full,'22R').
+planted(r00016,p00000,0,dewi,date(30,05,2022),time(16,17,00),full,'22R').
+planted(r00017,p00005,75,dewi,date(30,05,2022),time(16,54,59),full,'22R').
+planted(r00018,p00000,0,dewi,date(30,05,2022),time(16,17,00),full,'22R').
+planted(r00019,p00000,0,dewi,date(30,05,2022),time(16,17,00),full,'22R').
+planted(r00020,p00000,0,dewi,date(30,05,2022),time(16,17,00),full,'22R').
+planted(r00021,p00231,75,dewi,date(30,05,2022),time(16,59,20),full,'22R').
+planted(r00022,p00000,0,dewi,date(30,05,2022),time(16,17,00),full,'22R').
+planted(r00023,p00000,0,dewi,date(30,05,2022),time(16,17,00),full,'22R').
+planted(r00024,p00000,0,dewi,date(30,05,2022),time(16,17,00),full,'22R').
+planted(r00025,p00232,75,dewi,date(30,05,2022),time(17,03,50),full,'22R').
+planted(r00026,p00000,0,dewi,date(30,05,2022),time(16,17,00),full,'22R').
+planted(r00027,p00000,0,dewi,date(30,05,2022),time(16,17,00),full,'22R').
+planted(r00028,p00000,0,dewi,date(30,05,2022),time(16,17,00),full,'22R').
+planted(r00029,p00233,75,dewi,date(30,05,2022),time(17,07,12),full,'22R').
+planted(r00154,p00001,20,dewi,date(30,05,2022),time(17,54,53),full,'22R').
+planted(r00155,p00001,20,chimdi,date(30,05,2022),time(17,58,05),full,'22R').
+planted(r00156,p00001,20,chimdi,date(30,05,2022),time(18,01,32),full,'22R').
+planted(r00157,p00001,20,dewi,date(30,05,2022),time(18,08,56),full,'22R').
+planted(r00158,p00002,20,chimdi,date(30,05,2022),time(18,10,37),full,'22R').
+planted(r00159,p00002,20,chimdi,date(30,05,2022),time(18,11,48),full,'22R').
+planted(r00161,p00002,20,chimdi,date(30,05,2022),time(18,14,41),full,'22R').
+planted(r00162,p00002,20,chimdi,date(30,05,2022),time(18,17,50),full,'22R').
+planted(r00163,p00003,20,chimdi,date(30,05,2022),time(18,19,27),full,'22R').
+planted(r00164,p00003,20,chimdi,date(30,05,2022),time(18,21,03),full,'22R').
+planted(r00165,p00003,20,chimdi,date(30,05,2022),time(18,23,21),full,'22R').
+planted(r00166,p00003,20,chimdi,date(30,05,2022),time(18,25,56),full,'22R').
+planted(r00167,p00003,20,chimdi,date(30,05,2022),time(18,28,52),full,'22R').
+planted(r00168,p00004,20,chimdi,date(30,05,2022),time(18,31,23),full,'22R').
+planted(r00169,p00004,20,chimdi,date(30,05,2022),time(18,33,24),full,'22R').
+planted(r00170,p00004,20,chimdi,date(30,05,2022),time(18,36,38),full,'22R').
+planted(r00177,p00111,20,chimdi,date(30,05,2022),time(18,41,20),full,'22R').
+planted(r00178,p00205,20,chimdi,date(30,05,2022),time(18,43,40),full,'22R').
+planted(r00179,p00144,20,chimdi,date(30,05,2022),time(18,46,23),full,'22R').
+planted(r00180,p00206,20,chimdi,date(30,05,2022),time(18,48,10),full,'22R').
+planted(r00181,p00032,20,chimdi,date(30,05,2022),time(18,49,36),full,'22R').
+planted(r00182,p00030,20,chimdi,date(30,05,2022),time(18,51,10),full,'22R').
+planted(r00183,p00010,20,chimdi,date(30,05,2022),time(18,52,13),full,'22R').
+planted(r00184,p00015,20,chimdi,date(30,05,2022),time(18,53,44),full,'22R').
+planted(r00185,p00019,20,chimdi,date(30,05,2022),time(18,55,42),full,'22R').
+planted(r00186,p00025,20,dewi,date(30,05,2022),time(18,58,17),full,'22R').
+planted(r00187,p00027,20,dewi,date(30,05,2022),time(19,00,12),full,'22R').
+planted(r00188,p00053,20,dewi,date(30,05,2022),time(19,01,44),full,'22R').
+planted(r00190,p00112,20,dewi,date(30,05,2022),time(19,03,41),full,'22R').
+planted(r00191,p00113,20,chimdi,date(30,05,2022),time(19,05,30),full,'22R').
+planted(r00192,p00167,20,chimdi,date(30,05,2022),time(19,07,13),full,'22R').
+planted(r00193,p00168,20,chimdi,date(30,05,2022),time(19,09,45),full,'22R').
+planted(r00194,p00169,20,chimdi,date(30,05,2022),time(19,12,29),full,'22R').
+planted(r00195,p00170,20,chimdi,date(30,05,2022),time(19,14,02),full,'22R').
+planted(r00196,p00171,20,dewi,date(30,05,2022),time(19,20,09),full,'22R').
+planted(r00197,p00172,20,dewi,date(30,05,2022),time(19,21,48),full,'22R').
+planted(r00198,p00173,20,dewi,date(30,05,2022),time(19,23,21),full,'22R').
+planted(r00199,p00224,20,dewi,date(30,05,2022),time(19,24,44),full,'22R').
+planted(r00200,p00225,20,dewi,date(30,05,2022),time(19,26,18),full,'22R').
+planted(r00201,p00236,20,chimdi,date(30,05,2022),time(19,29,18),full,'22R').
+planted(r00202,p00237,20,chimdi,date(30,05,2022),time(19,30,21),full,'22R').
+planted(r00203,p00238,20,chimdi,date(30,05,2022),time(19,33,14),full,'22R').
+planted(r00204,p00189,20,chimdi,date(30,05,2022),time(19,35,48),full,'22R').
+planted(r00207,p00202,20,chimdi,date(30,05,2022),time(19,36,27),full,'22R').
+planted(r00208,p00133,20,chimdi,date(30,05,2022),time(19,39,18),full,'22R').
+planted(r00209,p00203,20,chimdi,date(30,05,2022),time(19,40,42),full,'22R').
+planted(r00210,p00143,20,chimdi,date(30,05,2022),time(19,43,59),full,'22R').
+planted(r00211,p00136,20,chimdi,date(30,05,2022),time(19,45,41),full,'22R').
+planted(r00212,p00137,20,chimdi,date(30,05,2022),time(19,46,52),full,'22R').
+planted(r00213,p00151,20,chimdi,date(30,05,2022),time(19,48,03),full,'22R').
+planted(r00074,p00076,20,chimdi,date(30,05,2022),time(19,58,11),full,'22R').
+planted(r00075,p00056,20,chimdi,date(30,05,2022),time(20,00,07),full,'22R').
+planted(r00076,p00057,20,chimdi,date(30,05,2022),time(20,02,05),full,'22R').
+planted(r00077,p00127,20,chimdi,date(30,05,2022),time(20,02,55),full,'22R').
+planted(r00078,p00128,20,chimdi,date(30,05,2022),time(20,04,23),full,'22R').
+planted(r00079,p00067,20,chimdi,date(30,05,2022),time(20,05,42),full,'22R').
+planted(r00080,p00068,20,chimdi,date(30,05,2022),time(20,07,41),full,'22R').
+planted(r00081,p00054,20,chimdi,date(30,05,2022),time(20,08,29),full,'22R').
+planted(r00082,p00055,20,chimdi,date(30,05,2022),time(20,09,53),full,'22R').
+planted(r00083,p00114,20,chimdi,date(30,05,2022),time(20,11,34),full,'22R').
+planted(r00084,p00115,20,chimdi,date(30,05,2022),time(20,12,46),full,'22R').
+planted(r00085,p00116,20,chimdi,date(30,05,2022),time(20,14,13),full,'22R').
+planted(r00086,p00117,20,chimdi,date(30,05,2022),time(20,14,24),full,'22R').
+planted(r00087,p00005,20,toni,date(30,05,2022),time(20,18,24),full,'22R').
+
+
+
+
+% data added from ../../data../palm/raw_data_from_palms/22r/eta/31.5/planted.csv on Wed Jun  1 18:29:31 CDT 2022
+% by data/data_conversion/convert_planted_data.perl
+% called from data/data_conversion/convert_data.perl
+
+planted(r00088,p00071,20,toni,date(31,05,2022),time(07,35,05),full,'22R').
+planted(r00089,p00072,20,toni,date(31,05,2022),time(07,36,58),full,'22R').
+planted(r00090,p00123,20,toni,date(31,05,2022),time(07,38,56),full,'22R').
+planted(r00091,p00124,20,toni,date(31,05,2022),time(07,40,52),full,'22R').
+planted(r00092,p00125,20,toni,date(31,05,2022),time(07,42,40),full,'22R').
+planted(r00093,p00126,20,toni,date(31,05,2022),time(07,44,22),full,'22R').
+planted(r00094,p00229,20,toni,date(31,05,2022),time(07,46,45),full,'22R').
+planted(r00095,p00230,20,toni,date(31,05,2022),time(07,48,29),full,'22R').
+planted(r00096,p00033,20,toni,date(31,05,2022),time(07,50,15),full,'22R').
+planted(r00097,p00098,20,toni,date(31,05,2022),time(07,53,02),full,'22R').
+planted(r00098,p00097,20,toni,date(31,05,2022),time(07,55,28),full,'22R').
+planted(r00099,p00204,20,toni,date(31,05,2022),time(07,57,49),full,'22R').
+planted(r00100,p00087,20,toni,date(31,05,2022),time(08,00,28),full,'22R').
+planted(r00102,p00085,20,toni,date(31,05,2022),time(08,03,52),full,'22R').
+planted(r00104,p00089,20,toni,date(31,05,2022),time(08,06,29),full,'22R').
+planted(r00106,p00091,20,toni,date(31,05,2022),time(08,08,55),full,'22R').
+planted(r00107,p00103,20,toni,date(31,05,2022),time(08,15,22),full,'22R').
+planted(r00109,p00101,20,toni,date(31,05,2022),time(08,17,22),full,'22R').
+planted(r00111,p00099,20,toni,date(31,05,2022),time(08,20,26),full,'22R').
+planted(r00113,p00107,20,toni,date(31,05,2022),time(08,22,50),full,'22R').
+planted(r00115,p00105,20,toni,date(31,05,2022),time(08,25,41),full,'22R').
+planted(r00117,p00061,20,toni,date(31,05,2022),time(08,28,04),full,'22R').
+planted(r00118,p00062,20,toni,date(31,05,2022),time(08,29,04),full,'22R').
+planted(r00119,p00176,20,toni,date(31,05,2022),time(08,30,45),full,'22R').
+planted(r00120,p00177,20,toni,date(31,05,2022),time(08,33,12),full,'22R').
+planted(r00121,p00046,20,toni,date(29,05,2022),time(08,35,04),full,'22R').
+planted(r00122,p00047,20,toni,date(31,05,2022),time(08,36,45),full,'22R').
+planted(r00123,p00138,20,toni,date(31,05,2022),time(08,39,00),full,'22R').
+planted(r00124,p00139,20,toni,date(31,05,2022),time(08,40,34),full,'22R').
+planted(r00125,p00187,20,toni,date(31,05,2022),time(08,42,23),full,'22R').
+planted(r00126,p00188,20,toni,date(31,05,2022),time(08,44,31),full,'22R').
+planted(r00127,p00174,20,toni,date(31,05,2022),time(08,46,18),full,'22R').
+planted(r00128,p00175,20,toni,date(31,05,2022),time(08,48,12),full,'22R').
+planted(r00129,p00234,20,toni,date(31,05,2022),time(08,50,02),full,'22R').
+planted(r00130,p00235,20,toni,date(31,05,2022),time(08,53,36),full,'22R').
+planted(r00132,p00069,20,toni,date(31,05,2022),time(08,55,57),full,'22R').
+planted(r00133,p00070,20,toni,date(31,05,2022),time(08,57,54),full,'22R').
+planted(r00134,p00118,20,toni,date(31,05,2022),time(09,00,14),full,'22R').
+planted(r00135,p00119,20,toni,date(31,05,2022),time(09,02,02),full,'22R').
+planted(r00136,p00073,20,toni,date(31,05,2022),time(09,04,52),full,'22R').
+planted(r00137,p00074,20,toni,date(31,05,2022),time(09,05,59),full,'22R').
+planted(r00138,p00048,20,toni,date(31,05,2022),time(09,07,17),full,'22R').
+planted(r00139,p00049,20,toni,date(31,05,2022),time(09,10,52),full,'22R').
+planted(r00141,p00132,20,toni,date(31,05,2022),time(09,14,18),full,'22R').
+planted(r00142,p00154,20,toni,date(31,05,2022),time(09,16,11),full,'22R').
+
+
+
+
+% data added from ../../data../palm/raw_data_from_palms/22r/zeta/31.5/planted.csv on Wed Jun  1 18:29:31 CDT 2022
+% by data/data_conversion/convert_planted_data.perl
+% called from data/data_conversion/convert_data.perl
+
+planted(r00131,p00000,20,dewi,date(31,05,2022),time(09,15,00),full,'22R').
+planted(r00143,p00155,20,chimdi,date(31,05,2022),time(08,59,20),full,'22R').
+planted(r00144,p00163,20,chimdi,date(31,05,2022),time(09,01,27),full,'22R').
+planted(r00145,p00164,20,chimdi,date(31,05,2022),time(09,02,55),full,'22R').
+planted(r00146,p00197,20,chimdi,date(31,05,2022),time(09,04,51),full,'22R').
+planted(r00147,p00198,20,chimdi,date(31,05,2022),time(09,05,03),full,'22R').
+planted(r00148,p00059,20,chimdi,date(31,05,2022),time(09,05,58),full,'22R').
+planted(r00149,p00060,20,chimdi,date(31,05,2022),time(09,07,22),full,'22R').
+planted(r00150,p00065,20,chimdi,date(31,05,2022),time(09,08,52),full,'22R').
+planted(r00151,p00066,20,chimdi,date(31,05,2022),time(09,10,33),full,'22R').
+planted(r00152,p00145,20,chimdi,date(31,05,2022),time(09,12,26),full,'22R').
+planted(r00153,p00146,20,chimdi,date(31,05,2022),time(09,12,37),full,'22R').
+planted(r00160,p00000,20,dewi,date(31,05,2022),time(09,15,00),full,'22R').
+planted(r00189,p00000,20,dewi,date(31,05,2022),time(09,15,00),full,'22R').
+planted(r00214,p00182,20,chimdi,date(31,05,2022),time(07,34,44),full,'22R').
+planted(r00215,p00141,20,chimdi,date(31,05,2022),time(07,37,20),full,'22R').
+planted(r00216,p00142,20,chimdi,date(31,05,2022),time(07,39,27),full,'22R').
+planted(r00217,p00193,20,chimdi,date(31,05,2022),time(07,41,31),full,'22R').
+planted(r00218,p00000,20,dewi,date(31,05,2022),time(09,15,00),full,'22R').
+planted(r00219,p00194,20,chimdi,date(31,05,2022),time(07,43,35),full,'22R').
+planted(r00220,p00220,20,chimdi,date(31,05,2022),time(07,43,47),full,'22R').
+planted(r00221,p00147,20,chimdi,date(31,05,2022),time(07,46,27),full,'22R').
+planted(r00223,p00213,20,chimdi,date(31,05,2022),time(07,49,12),full,'22R').
+planted(r00224,p00214,20,chimdi,date(31,05,2022),time(07,50,05),full,'22R').
+planted(r00225,p00228,20,chimdi,date(31,05,2022),time(07,53,07),full,'22R').
+planted(r00226,p00190,20,chimdi,date(31,05,2022),time(07,54,34),full,'22R').
+planted(r00227,p00036,20,chimdi,date(31,05,2022),time(07,55,41),full,'22R').
+planted(r00228,p00016,20,chimdi,date(31,05,2022),time(07,57,10),full,'22R').
+planted(r00231,p00223,20,chimdi,date(31,05,2022),time(07,59,22),full,'22R').
+planted(r00232,p00191,20,chimdi,date(31,05,2022),time(08,00,43),full,'22R').
+planted(r00233,p00192,20,chimdi,date(31,05,2022),time(08,08,21),full,'22R').
+planted(r00234,p00180,20,chimdi,date(31,05,2022),time(08,09,56),full,'22R').
+planted(r00235,p00181,20,chimdi,date(31,05,2022),time(08,10,56),full,'22R').
+planted(r00236,p00095,20,chimdi,date(31,05,2022),time(08,12,43),full,'22R').
+planted(r00237,p00038,20,chimdi,date(31,05,2022),time(08,14,19),full,'22R').
+planted(r00238,p00039,20,chimdi,date(31,05,2022),time(08,16,07),full,'22R').
+planted(r00239,p00024,20,chimdi,date(31,05,2022),time(08,17,32),full,'22R').
+planted(r00240,p00034,20,chimdi,date(31,05,2022),time(08,20,39),full,'22R').
+planted(r00241,p00035,20,chimdi,date(31,05,2022),time(08,21,16),full,'22R').
+planted(r00242,p00020,20,chimdi,date(31,05,2022),time(08,24,31),full,'22R').
+planted(r00243,p00026,20,chimdi,date(31,05,2022),time(08,27,08),full,'22R').
+planted(r00244,p00028,20,chimdi,date(31,05,2022),time(08,28,38),full,'22R').
+planted(r00245,p00040,20,chimdi,date(31,05,2022),time(08,29,55),full,'22R').
+planted(r00246,p00041,20,chimdi,date(31,05,2022),time(08,31,29),full,'22R').
+planted(r00247,p00000,20,chimdi,date(31,05,2022),time(09,15,00),full,'22R').
+planted(r00248,p00178,20,chimdi,date(31,05,2022),time(08,32,30),full,'22R').
+planted(r00249,p00186,20,chimdi,date(31,05,2022),time(08,33,58),full,'22R').
+planted(r00250,p00199,20,chimdi,date(31,05,2022),time(08,35,19),full,'22R').
+planted(r00251,p00200,20,chimdi,date(31,05,2022),time(08,36,57),full,'22R').
+planted(r00252,p00207,20,chimdi,date(31,05,2022),time(08,39,46),full,'22R').
+planted(r00253,p00208,20,chimdi,date(31,05,2022),time(08,40,08),full,'22R').
+planted(r00254,p00209,20,chimdi,date(31,05,2022),time(08,41,43),full,'22R').
+planted(r00258,p00210,20,chimdi,date(31,05,2022),time(08,43,19),full,'22R').
+planted(r00259,p00092,20,chimdi,date(31,05,2022),time(08,45,17),full,'22R').
+planted(r00260,p00093,20,chimdi,date(31,05,2022),time(08,46,21),full,'22R').
+planted(r00261,p00158,20,chimdi,date(31,05,2022),time(08,49,42),full,'22R').
+planted(r00265,p00162,20,chimdi,date(31,05,2022),time(08,50,53),full,'22R').
+planted(r00268,p00161,20,chimdi,date(31,05,2022),time(08,51,44),full,'22R').
+planted(r00276,p00000,20,chimdi,date(31,05,2022),time(09,15,00),full,'22R').
+
+
+
+
+% data added from ../../data../palm/raw_data_from_palms/22r/eta/4.6/planted.csv on Sun Jun  5 15:07:13 CDT 2022
+% by data/data_conversion/convert_planted_data.perl
+% called from data/data_conversion/convert_data.perl
+
+planted(r00171,p00001,20,toni,date(04,06,2022),time(18,27,44),full,'22R').
+planted(r00172,p00001,20,toni,date(04,06,2022),time(18,29,25),full,'22R').
+planted(r00173,p00002,20,toni,date(04,06,2022),time(18,31,30),full,'22R').
+planted(r00174,p00002,20,toni,date(04,06,2022),time(18,33,21),full,'22R').
+planted(r00175,p00003,20,toni,date(04,06,2022),time(18,35,29),full,'22R').
+planted(r00176,p00003,20,toni,date(04,06,2022),time(18,37,06),full,'22R').
+planted(r00229,p00014,20,toni,date(04,06,2022),time(18,46,34),full,'22R').
+planted(r00257,p00021,20,toni,date(04,06,2022),time(18,54,33),full,'22R').
+planted(r00286,p00042,20,toni,date(04,06,2022),time(19,10,54),full,'22R').
+planted(r00287,p00043,20,toni,date(04,06,2022),time(19,07,17),full,'22R').
+planted(r00290,p00052,20,toni,date(04,06,2022),time(18,57,45),full,'22R').
+planted(r00255,p00063,20,toni,date(04,06,2022),time(18,50,45),full,'22R').
+planted(r00256,p00064,20,toni,date(04,06,2022),time(18,52,16),full,'22R').
+planted(r00278,p00077,20,toni,date(04,06,2022),time(19,35,40),full,'22R').
+planted(r00279,p00078,20,toni,date(04,06,2022),time(19,32,11),full,'22R').
+planted(r00280,p00079,20,toni,date(04,06,2022),time(19,28,55),full,'22R').
+planted(r00281,p00080,20,toni,date(04,06,2022),time(19,25,44),full,'22R').
+planted(r00282,p00081,20,toni,date(04,06,2022),time(19,22,59),full,'22R').
+planted(r00283,p00082,20,toni,date(04,06,2022),time(19,20,11),full,'22R').
+planted(r00284,p00083,20,toni,date(04,06,2022),time(19,16,22),full,'22R').
+planted(r00285,p00084,20,toni,date(04,06,2022),time(19,14,05),full,'22R').
+planted(r00103,p00086,20,toni,date(04,06,2022),time(18,04,00),full,'22R').
+planted(r00108,p00088,20,toni,date(04,06,2022),time(18,06,52),full,'22R').
+planted(r00105,p00090,20,toni,date(04,06,2022),time(17,58,34),full,'22R').
+planted(r00112,p00100,20,toni,date(04,06,2022),time(18,19,51),full,'22R').
+planted(r00101,p00104,20,toni,date(04,06,2022),time(17,55,35),full,'22R').
+planted(r00116,p00106,20,toni,date(04,06,2022),time(18,24,34),full,'22R').
+planted(r00114,p00108,20,toni,date(04,06,2022),time(18,22,12),full,'22R').
+planted(r00288,p00134,20,toni,date(04,06,2022),time(19,03,41),full,'22R').
+planted(r00289,p00135,20,toni,date(04,06,2022),time(19,00,08),full,'22R').
+planted(r00222,p00140,20,toni,date(04,06,2022),time(18,44,21),full,'22R').
+planted(r00205,p00156,20,toni,date(04,06,2022),time(18,39,37),full,'22R').
+planted(r00206,p00157,20,toni,date(04,06,2022),time(18,41,59),full,'22R').
+planted(r00230,p00211,20,toni,date(04,06,2022),time(18,48,27),full,'22R').
+planted(r00277,p00096,20,toni,date(04,06,2022),time(19,37,16),full,'22R').
+planted(r00110,p00102,20,toni,date(04,06,2022),time(18,17,30),full,'22R').
+planted(r00275,p00051,20,toni,date(05,06,2022),time(12,02,53),full,'22R').
+planted(r00274,p00050,20,toni,date(05,06,2022),time(12,06,34),full,'22R').
+planted(r00273,p00018,20,toni,date(05,06,2022),time(12,09,45),full,'22R').
+planted(r00272,p00017,20,toni,date(05,06,2022),time(12,13,22),full,'22R').
+planted(r00271,p00012,20,toni,date(05,06,2022),time(12,16,50),full,'22R').
+planted(r00270,p00011,20,toni,date(05,06,2022),time(12,20,20),full,'22R').
+planted(r00269,p00029,20,toni,date(05,06,2022),time(12,23,45),full,'22R').
+planted(r00267,p00013,20,toni,date(05,06,2022),time(12,26,54),full,'22R').
+planted(r00266,p00023,20,toni,date(05,06,2022),time(12,30,13),full,'22R').
+planted(r00264,p00022,20,toni,date(05,06,2022),time(12,33,15),full,'22R').
+planted(r00263,p00160,20,toni,date(05,06,2022),time(12,35,37),full,'22R').
+planted(r00262,p00159,20,toni,date(05,06,2022),time(12,39,11),full,'22R').
+
+
+
+% manually added, somehow I didn't scan it
+%
+% Kazic, 5.7.2022
+
+planted(r00140,p00131,20,toni,date(31,05,2022),time(12,00,00),full,'22R').
+
+
+
+% manually added
+%
+% to fill in the tiling for Dewi; these will be transplanted into rows 21, 25, and 29
+%
+% Kazic, 22.6.2022
+
+planted(t00001,p01000,12,toni,date(19,06,2022),time(20,00,00),full,'22R').
+
+
+
+
+
+
+
+
+% 23r
+
+% data added from ../../data../palm/raw_data_from_palms/23r/eta/22.5/planted.csv on Tue May 23 18:50:20 CDT 2023
+% by data/data_conversion/convert_planted_data.perl
+% called from data/data_conversion/convert_data.perl
+
+planted(r00050,p00001,20,toni,date(22,05,2023),time(15,23,52),full,'23R').
+planted(r00051,p00001,20,toni,date(22,05,2023),time(15,27,30),full,'23R').
+planted(r00052,p00001,20,toni,date(22,05,2023),time(15,29,30),full,'23R').
+planted(r00053,p00001,20,toni,date(22,05,2023),time(15,31,32),full,'23R').
+planted(r00054,p00001,20,toni,date(22,05,2023),time(15,33,30),full,'23R').
+planted(r00055,p00001,20,toni,date(22,05,2023),time(15,35,36),full,'23R').
+planted(r00056,p00001,20,toni,date(22,05,2023),time(15,39,21),full,'23R').
+planted(r00057,p00001,20,toni,date(22,05,2023),time(15,41,41),full,'23R').
+planted(r00058,p00001,20,toni,date(22,05,2023),time(15,43,55),full,'23R').
+planted(r00059,p00001,20,toni,date(22,05,2023),time(15,46,53),full,'23R').
+planted(r00060,p00001,20,toni,date(22,05,2023),time(15,49,28),full,'23R').
+planted(r00061,p00001,20,toni,date(22,05,2023),time(15,51,33),full,'23R').
+planted(r00062,p00001,20,toni,date(22,05,2023),time(15,53,49),full,'23R').
+planted(r00063,p00000,20,toni,date(22,05,2023),time(15,55,31),full,'23R').
+planted(r00064,p00001,20,toni,date(22,05,2023),time(15,56,25),full,'23R').
+planted(r00065,p00912,20,toni,date(22,05,2023),time(15,59,35),full,'23R').
+planted(r00066,p00911,20,toni,date(22,05,2023),time(16,02,13),full,'23R').
+planted(r00067,p00921,20,toni,date(22,05,2023),time(16,03,52),full,'23R').
+planted(r00068,p00922,20,toni,date(22,05,2023),time(16,06,04),full,'23R').
+planted(r00069,p00002,20,toni,date(22,05,2023),time(16,08,08),full,'23R').
+planted(r00070,p00002,20,toni,date(22,05,2023),time(16,24,05),full,'23R').
+planted(r00071,p00002,20,toni,date(22,05,2023),time(16,26,13),full,'23R').
+planted(r00072,p00002,20,toni,date(22,05,2023),time(16,28,19),full,'23R').
+planted(r00073,p00002,20,toni,date(22,05,2023),time(16,30,52),full,'23R').
+planted(r00074,p00002,20,toni,date(22,05,2023),time(16,33,22),full,'23R').
+planted(r00075,p00002,20,toni,date(22,05,2023),time(16,35,28),full,'23R').
+planted(r00076,p00002,20,toni,date(22,05,2023),time(16,37,56),full,'23R').
+planted(r00077,p00002,20,toni,date(22,05,2023),time(16,40,12),full,'23R').
+planted(r00078,p00002,20,toni,date(22,05,2023),time(16,42,14),full,'23R').
+planted(r00079,p00002,20,toni,date(22,05,2023),time(16,44,21),full,'23R').
+planted(r00080,p00002,20,toni,date(22,05,2023),time(16,46,26),full,'23R').
+planted(r00081,p00002,20,toni,date(22,05,2023),time(16,49,01),full,'23R').
+
+
+% ummm, some confusion here about how the gradient was planted
+%
+% just wait until they germinate and sort these out
+%
+% Kazic, 24.5.2023
+
+planted(r00082,p00922,20,toni,date(22,05,2023),time(16,50,57),full,'23R').
+planted(r00083,p00923,20,toni,date(22,05,2023),time(16,53,01),full,'23R').
+planted(r00084,p00933,20,toni,date(22,05,2023),time(16,54,36),full,'23R').
+planted(r00085,p00934,20,toni,date(22,05,2023),time(17,06,19),full,'23R').
+planted(r00086,p00003,20,toni,date(22,05,2023),time(17,10,36),full,'23R').
+planted(r00088,p00003,20,toni,date(22,05,2023),time(17,13,11),full,'23R').
+planted(r00090,p00000,20,toni,date(22,05,2023),time(17,15,10),full,'23R').
+planted(r00133,p00012,20,toni,date(22,05,2023),time(18,04,57),full,'23R').
+planted(r00135,p00014,20,toni,date(22,05,2023),time(18,06,58),full,'23R').
+planted(r00139,p00018,20,toni,date(22,05,2023),time(18,13,12),full,'23R').
+planted(r00141,p00020,20,toni,date(22,05,2023),time(18,15,27),full,'23R').
+planted(r00143,p00122,20,toni,date(22,05,2023),time(18,21,20),full,'23R').
+planted(r00144,p00000,20,toni,date(22,05,2023),time(18,30,00),full,'23R').
+planted(r00145,p00167,20,toni,date(22,05,2023),time(18,24,03),full,'23R').
+planted(r00146,p00192,20,toni,date(22,05,2023),time(18,27,27),full,'23R').
+
+
+
+
+% data added from ../../data../palm/raw_data_from_palms/23r/theta/22.5/planted.csv on Tue May 23 18:50:20 CDT 2023
+% by data/data_conversion/convert_planted_data.perl
+% called from data/data_conversion/convert_data.perl
+
+planted(r00091,p00003,20,chimdi,date(22,05,2023),time(17,33,01),full,'23R').
+planted(r00092,p00003,20,chimdi,date(22,05,2023),time(17,33,05),full,'23R').
+planted(r00093,p00003,20,chimdi,date(22,05,2023),time(17,37,28),full,'23R').
+planted(r00094,p00003,20,chimdi,date(22,05,2023),time(17,44,40),full,'23R').
+
+
+
+
+% data added from ../../data../palm/raw_data_from_palms/23r/zeta/22.5/planted.csv on Tue May 23 18:50:20 CDT 2023
+% by data/data_conversion/convert_planted_data.perl
+% called from data/data_conversion/convert_data.perl
+
+
+% tiling, fields 30 and 33
+
+planted(r00001,p00053,240,dewi,date(22,05,2023),time(15,14,32),full,'23R').
+planted(r00002,p00000,240,dewi,date(22,05,2023),time(15,14,32),full,'23R').
+
+
+% we planted corn in the skipped rows on 24.7 to compensate for the hail
+% damage of the leaves.  I have commented out these skipped rows so that
+% the field book will compute properly.
+%
+% I will have to amend the field book computation to take the most recently
+% planted value if that row was previously skipped.
+%
+% Kazic, 18.10.2023    
+
+% planted(r00003,p00000,240,dewi,date(22,05,2023),time(15,14,32),full,'23R').
+% planted(r00007,p00000,240,dewi,date(22,05,2023),time(15,14,32),full,'23R').
+% planted(r00011,p00000,240,dewi,date(22,05,2023),time(15,41,03),full,'23R').
+% planted(r00015,p00000,240,dewi,date(22,05,2023),time(15,41,03),full,'23R').
+% planted(r00023,p00000,240,dewi,date(22,05,2023),time(16,00,50),full,'23R').
+% planted(r00027,p00000,240,dewi,date(22,05,2023),time(16,10,14),full,'23R').    
+% planted(r00031,p00000,240,dewi,date(22,05,2023),time(16,10,14),full,'23R').
+% planted(r00035,p00000,240,dewi,date(22,05,2023),time(16,32,28),full,'23R').
+% planted(r00040,p00000,75,dewi,date(22,05,2023),time(16,32,28),full,'23R').
+% planted(r00041,p00000,75,dewi,date(22,05,2023),time(16,32,28),full,'23R').
+% planted(r00045,p00000,240,dewi,date(22,05,2023),time(16,54,19),full,'23R').
+% planted(r00046,p00000,240,dewi,date(22,05,2023),time(16,54,19),full,'23R').
+     
+     
+ 
+planted(r00004,p00000,240,dewi,date(22,05,2023),time(15,14,32),full,'23R').
+planted(r00005,p00041,240,dewi,date(22,05,2023),time(15,30,10),full,'23R').
+planted(r00006,p00000,240,dewi,date(22,05,2023),time(15,14,32),full,'23R').
+planted(r00008,p00000,240,dewi,date(22,05,2023),time(15,14,32),full,'23R').
+planted(r00009,p00099,240,dewi,date(22,05,2023),time(15,41,03),full,'23R').
+planted(r00010,p00000,240,dewi,date(22,05,2023),time(15,41,03),full,'23R').
+planted(r00012,p00000,240,dewi,date(22,05,2023),time(15,41,03),full,'23R').
+planted(r00013,p00092,240,dewi,date(22,05,2023),time(15,50,55),full,'23R').
+planted(r00014,p00000,240,dewi,date(22,05,2023),time(15,41,03),full,'23R').
+planted(r00016,p00000,240,dewi,date(22,05,2023),time(15,41,03),full,'23R').
+planted(r00017,p00055,240,dewi,date(22,05,2023),time(15,51,44),full,'23R').
+planted(r00018,p00000,240,dewi,date(22,05,2023),time(15,41,03),full,'23R').
+planted(r00019,p00000,240,dewi,date(22,05,2023),time(15,41,03),full,'23R').
+planted(r00020,p00000,240,dewi,date(22,05,2023),time(15,41,03),full,'23R').
+planted(r00021,p00093,240,dewi,date(22,05,2023),time(16,00,50),full,'23R').
+planted(r00022,p00000,240,dewi,date(22,05,2023),time(16,00,50),full,'23R').
+planted(r00024,p00000,240,dewi,date(22,05,2023),time(16,00,50),full,'23R').
+planted(r00025,p00168,240,dewi,date(22,05,2023),time(16,10,14),full,'23R').
+planted(r00026,p00000,240,dewi,date(22,05,2023),time(16,10,14),full,'23R').
+planted(r00028,p00000,240,dewi,date(22,05,2023),time(16,10,14),full,'23R').
+planted(r00029,p00170,240,dewi,date(22,05,2023),time(16,23,41),full,'23R').
+planted(r00030,p00000,240,dewi,date(22,05,2023),time(16,10,14),full,'23R').
+planted(r00032,p00000,240,dewi,date(22,05,2023),time(16,10,14),full,'23R').
+planted(r00033,p00173,240,dewi,date(22,05,2023),time(16,32,28),full,'23R').
+planted(r00034,p00000,240,dewi,date(22,05,2023),time(16,32,28),full,'23R').
+planted(r00036,p00000,240,dewi,date(22,05,2023),time(16,32,28),full,'23R').
+planted(r00037,p00901,75,dewi,date(22,05,2023),time(16,44,35),full,'23R').
+planted(r00038,p00902,75,dewi,date(22,05,2023),time(16,47,41),full,'23R').
+planted(r00039,p00000,75,dewi,date(22,05,2023),time(16,32,28),full,'23R').
+planted(r00042,p00903,75,dewi,date(22,05,2023),time(16,51,00),full,'23R').
+planted(r00043,p00904,75,dewi,date(22,05,2023),time(16,54,19),full,'23R').
+
+% huh?
+% field 33 big skip? ask
+%
+% Kazic, 24.5.2023
+
+planted(r00044,p00000,240,dewi,date(22,05,2023),time(16,54,19),full,'23R').
+planted(r00047,p00905,90,dewi,date(22,05,2023),time(17,00,36),full,'23R').
+planted(r00048,p00000,240,dewi,date(22,05,2023),time(17,00,36),full,'23R').
+planted(r00049,p00000,240,dewi,date(22,05,2023),time(17,00,36),full,'23R').
+
+
+planted(r00087,p00003,20,dewi,date(22,05,2023),time(17,09,50),full,'23R').
+planted(r00089,p00003,20,dewi,date(22,05,2023),time(17,13,10),full,'23R').
+planted(r00095,p00003,20,dewi,date(22,05,2023),time(17,25,04),full,'23R').
+planted(r00096,p00003,20,dewi,date(22,05,2023),time(17,30,26),full,'23R').
+planted(r00097,p00003,20,dewi,date(22,05,2023),time(17,32,11),full,'23R').
+planted(r00098,p00003,20,dewi,date(22,05,2023),time(17,33,51),full,'23R').
+planted(r00099,p00003,20,dewi,date(22,05,2023),time(17,35,37),full,'23R').
+planted(r00100,p00003,20,dewi,date(22,05,2023),time(17,37,09),full,'23R').
+planted(r00101,p00003,20,dewi,date(22,05,2023),time(17,39,14),full,'23R').
+planted(r00102,p00003,20,dewi,date(22,05,2023),time(17,41,18),full,'23R').
+planted(r00103,p00003,20,dewi,date(22,05,2023),time(17,42,56),full,'23R').
+
+
+planted(r00147,p00195,20,dewi,date(22,05,2023),time(18,25,49),full,'23R').
+planted(r00148,p00218,20,dewi,date(22,05,2023),time(18,23,47),full,'23R').
+planted(r00149,p00193,20,dewi,date(22,05,2023),time(18,22,19),full,'23R').
+planted(r00150,p00203,20,dewi,date(22,05,2023),time(18,20,45),full,'23R').
+planted(r00151,p00194,20,dewi,date(22,05,2023),time(18,19,23),full,'23R').
+planted(r00152,p00200,20,dewi,date(22,05,2023),time(18,16,14),full,'23R').
+planted(r00153,p00191,20,dewi,date(22,05,2023),time(18,14,21),full,'23R').
+planted(r00154,p00198,20,dewi,date(22,05,2023),time(18,13,05),full,'23R').
+planted(r00155,p00219,20,dewi,date(22,05,2023),time(18,11,45),full,'23R').
+planted(r00156,p00210,40,dewi,date(22,05,2023),time(18,05,30),full,'23R').
+planted(r00157,p00183,30,dewi,date(22,05,2023),time(18,03,15),full,'23R').
+
+
+
+
+% data added from ../../data../palm/raw_data_from_palms/23r/eta/23.5/planted.csv on Tue May 23 18:50:47 CDT 2023
+% by data/data_conversion/convert_planted_data.perl
+% called from data/data_conversion/convert_data.perl
+
+planted(r00185,p00056,20,toni,date(23,05,2023),time(13,34,05),full,'23R').
+planted(r00186,p00057,20,toni,date(23,05,2023),time(13,31,36),full,'23R').
+planted(r00187,p00118,20,toni,date(23,05,2023),time(13,29,26),full,'23R').
+planted(r00188,p00119,20,toni,date(23,05,2023),time(13,27,26),full,'23R').
+planted(r00189,p00039,20,toni,date(23,05,2023),time(13,23,58),full,'23R').
+planted(r00190,p00040,20,toni,date(23,05,2023),time(13,20,49),full,'23R').
+planted(r00191,p00133,20,toni,date(23,05,2023),time(13,17,32),full,'23R').
+planted(r00192,p00134,20,toni,date(23,05,2023),time(13,14,12),full,'23R').
+planted(r00193,p00116,20,toni,date(23,05,2023),time(13,10,44),full,'23R').
+planted(r00194,p00117,20,toni,date(23,05,2023),time(13,07,36),full,'23R').
+planted(r00195,p00160,20,toni,date(23,05,2023),time(13,04,51),full,'23R').
+planted(r00196,p00161,20,toni,date(23,05,2023),time(13,01,44),full,'23R').
+planted(r00197,p00164,20,toni,date(23,05,2023),time(12,58,21),full,'23R').
+planted(r00198,p00000,20,toni,date(23,05,2023),time(13,00,00),full,'23R').
+planted(r00199,p00165,20,toni,date(23,05,2023),time(11,54,39),full,'23R').
+planted(r00200,p00211,20,toni,date(23,05,2023),time(11,51,25),full,'23R').
+planted(r00201,p00212,20,toni,date(23,05,2023),time(11,48,18),full,'23R').
+planted(r00202,p00096,20,toni,date(23,05,2023),time(11,46,13),full,'23R').
+planted(r00203,p00097,20,toni,date(23,05,2023),time(11,43,43),full,'23R').
+planted(r00204,p00098,20,toni,date(23,05,2023),time(11,41,54),full,'23R').
+planted(r00205,p00114,20,toni,date(23,05,2023),time(11,39,45),full,'23R').
+planted(r00206,p00115,20,toni,date(23,05,2023),time(11,36,44),full,'23R').
+planted(r00207,p00140,20,toni,date(23,05,2023),time(11,32,53),full,'23R').
+planted(r00208,p00141,20,toni,date(23,05,2023),time(11,28,43),full,'23R').
+planted(r00209,p00049,20,toni,date(23,05,2023),time(11,26,02),full,'23R').
+planted(r00210,p00050,20,toni,date(23,05,2023),time(11,23,30),full,'23R').
+planted(r00211,p00106,20,toni,date(23,05,2023),time(11,19,25),full,'23R').
+planted(r00240,p00083,20,toni,date(23,05,2023),time(13,40,42),full,'23R').
+planted(r00242,p00155,20,toni,date(23,05,2023),time(13,45,19),full,'23R').
+planted(r00243,p00156,20,toni,date(23,05,2023),time(13,48,36),full,'23R').
+planted(r00244,p00138,20,toni,date(23,05,2023),time(13,51,43),full,'23R').
+planted(r00245,p00139,20,toni,date(23,05,2023),time(13,56,24),full,'23R').
+planted(r00246,p00151,20,toni,date(23,05,2023),time(13,59,31),full,'23R').
+planted(r00247,p00152,20,toni,date(23,05,2023),time(14,03,30),full,'23R').
+
+
+
+
+% data added from ../../data../palm/raw_data_from_palms/23r/theta/23.5/planted.csv on Tue May 23 18:50:47 CDT 2023
+% by data/data_conversion/convert_planted_data.perl
+% called from data/data_conversion/convert_data.perl
+
+planted(r00158,p00186,20,chimdi,date(23,05,2023),time(11,18,06),full,'23R').
+planted(r00159,p00031,20,chimdi,date(23,05,2023),time(11,28,28),full,'23R').
+planted(r00162,p00205,20,chimdi,date(23,05,2023),time(11,34,25),full,'23R').
+planted(r00163,p00207,20,chimdi,date(23,05,2023),time(11,38,30),full,'23R').
+planted(r00164,p00189,20,chimdi,date(23,05,2023),time(11,42,19),full,'23R').
+planted(r00165,p00206,20,chimdi,date(23,05,2023),time(11,45,10),full,'23R').
+planted(r00166,p00201,20,chimdi,date(23,05,2023),time(11,48,14),full,'23R').
+planted(r00167,p00090,20,chimdi,date(23,05,2023),time(11,50,40),full,'23R').
+planted(r00168,p00091,20,chimdi,date(23,05,2023),time(12,02,43),full,'23R').
+planted(r00169,p00063,20,chimdi,date(23,05,2023),time(12,57,48),full,'23R').
+planted(r00170,p00064,20,chimdi,date(23,05,2023),time(13,01,34),full,'23R').
+planted(r00171,p00000,20,chimdi,date(23,05,2023),time(13,00,00),full,'23R').
+planted(r00172,p00060,20,chimdi,date(23,05,2023),time(13,05,30),full,'23R').
+planted(r00173,p00061,20,chimdi,date(23,05,2023),time(13,09,22),full,'23R').
+planted(r00174,p00062,20,chimdi,date(23,05,2023),time(13,12,25),full,'23R').
+planted(r00175,p00184,20,chimdi,date(23,05,2023),time(13,15,51),full,'23R').
+planted(r00176,p00185,20,chimdi,date(23,05,2023),time(13,17,53),full,'23R').
+planted(r00177,p00086,20,chimdi,date(23,05,2023),time(13,21,02),full,'23R').
+planted(r00178,p00087,20,chimdi,date(23,05,2023),time(13,23,47),full,'23R').
+planted(r00179,p00088,20,chimdi,date(23,05,2023),time(13,26,02),full,'23R').
+planted(r00180,p00089,20,chimdi,date(23,05,2023),time(13,28,21),full,'23R').
+planted(r00181,p00094,20,chimdi,date(23,05,2023),time(13,30,30),full,'23R').
+planted(r00182,p00095,20,chimdi,date(23,05,2023),time(13,32,31),full,'23R').
+planted(r00183,p00051,20,chimdi,date(23,05,2023),time(13,34,43),full,'23R').
+planted(r00184,p00052,20,chimdi,date(23,05,2023),time(13,37,04),full,'23R').
+planted(r00295,p00176,20,chimdi,date(23,05,2023),time(13,40,31),full,'23R').
+planted(r00296,p00078,20,chimdi,date(23,05,2023),time(13,44,37),full,'23R').
+planted(r00297,p00143,20,chimdi,date(23,05,2023),time(13,47,53),full,'23R').
+planted(r00298,p00073,20,chimdi,date(23,05,2023),time(13,51,08),full,'23R').
+planted(r00299,p00079,20,chimdi,date(23,05,2023),time(13,58,37),full,'23R').
+planted(r00300,p00080,20,chimdi,date(23,05,2023),time(13,58,43),full,'23R').
+planted(r00302,p00082,20,chimdi,date(23,05,2023),time(14,06,19),full,'23R').
+planted(r00303,p00181,20,chimdi,date(23,05,2023),time(14,10,16),full,'23R').
+planted(r00305,p00204,20,chimdi,date(23,05,2023),time(14,12,34),full,'23R').
+planted(r00307,p00216,20,chimdi,date(23,05,2023),time(14,14,19),full,'23R').
+planted(r00309,p00030,20,chimdi,date(23,05,2023),time(14,16,17),full,'23R').
+planted(r00310,p00024,20,chimdi,date(23,05,2023),time(14,19,32),full,'23R').
+planted(r00311,p00146,20,chimdi,date(23,05,2023),time(14,22,27),full,'23R').
+planted(r00312,p00022,20,chimdi,date(23,05,2023),time(14,24,53),full,'23R').
+planted(r00313,p00121,20,chimdi,date(23,05,2023),time(14,31,58),full,'23R').
+planted(r00314,p00132,20,chimdi,date(23,05,2023),time(14,34,49),full,'23R').
+planted(r00315,p00136,20,chimdi,date(23,05,2023),time(14,37,07),full,'23R').
+planted(r00316,p00154,20,chimdi,date(23,05,2023),time(14,39,09),full,'23R').
+planted(r00317,p00111,20,chimdi,date(23,05,2023),time(14,41,10),full,'23R').
+planted(r00319,p00127,20,chimdi,date(23,05,2023),time(14,42,47),full,'23R').
+planted(r00320,p00128,20,chimdi,date(23,05,2023),time(14,55,39),full,'23R').
+planted(r00321,p00025,20,chimdi,date(23,05,2023),time(14,57,57),full,'23R').
+planted(r00323,p00032,20,chimdi,date(23,05,2023),time(15,00,25),full,'23R').
+planted(r00324,p00033,20,chimdi,date(23,05,2023),time(15,02,14),full,'23R').
+planted(r00325,p00187,20,chimdi,date(23,05,2023),time(15,03,56),full,'23R').
+planted(r00326,p00027,20,chimdi,date(23,05,2023),time(15,05,42),full,'23R').
+planted(r00327,p00213,20,chimdi,date(23,05,2023),time(15,07,39),full,'23R').
+planted(r00328,p00120,20,chimdi,date(23,05,2023),time(15,09,15),full,'23R').
+planted(r00329,p00202,20,chimdi,date(23,05,2023),time(15,11,16),full,'23R').
+planted(r00330,p00028,20,chimdi,date(23,05,2023),time(15,13,16),full,'23R').
+planted(r00331,p00029,20,chimdi,date(23,05,2023),time(15,15,44),full,'23R').
+planted(r00332,p00177,20,chimdi,date(23,05,2023),time(15,18,21),full,'23R').
+planted(r00334,p00178,20,chimdi,date(23,05,2023),time(15,20,30),full,'23R').
+planted(r00335,p00180,20,chimdi,date(23,05,2023),time(15,22,20),full,'23R').
+planted(r00336,p00197,20,chimdi,date(23,05,2023),time(15,24,15),full,'23R').
+planted(r00337,p00209,20,chimdi,date(23,05,2023),time(15,25,55),full,'23R').
+planted(r00338,p00108,20,chimdi,date(23,05,2023),time(15,27,18),full,'23R').
+planted(r00339,p00100,20,chimdi,date(23,05,2023),time(15,29,30),full,'23R').
+
+
+
+
+% data added from ../../data../palm/raw_data_from_palms/23r/zeta/23.5/planted.csv on Tue May 23 18:50:47 CDT 2023
+% by data/data_conversion/convert_planted_data.perl
+% called from data/data_conversion/convert_data.perl
+
+planted(r00104,p00003,20,dewi,date(23,05,2023),time(11,07,21),full,'23R').
+planted(r00105,p00003,20,dewi,date(23,05,2023),time(11,09,05),full,'23R').
+planted(r00106,p00003,20,dewi,date(23,05,2023),time(11,12,10),full,'23R').
+%
+% 10 cl r00107 and r00110
+% 5 cl r00108 and r00109
+planted(r00107,p00934,20,dewi,date(23,05,2023),time(11,14,55),full,'23R').
+planted(r00108,p00933,20,dewi,date(23,05,2023),time(11,16,45),full,'23R').
+planted(r00109,p00942,20,dewi,date(23,05,2023),time(11,18,08),full,'23R').
+planted(r00110,p00943,20,dewi,date(23,05,2023),time(11,19,28),full,'23R').
+planted(r00111,p00004,20,dewi,date(23,05,2023),time(11,21,58),full,'23R').
+planted(r00112,p00004,20,dewi,date(23,05,2023),time(11,23,54),full,'23R').
+planted(r00113,p00004,20,dewi,date(23,05,2023),time(11,27,19),full,'23R').
+planted(r00114,p00004,20,dewi,date(23,05,2023),time(11,29,44),full,'23R').
+planted(r00115,p00004,20,dewi,date(23,05,2023),time(11,31,19),full,'23R').
+planted(r00116,p00004,20,dewi,date(23,05,2023),time(11,35,30),full,'23R').
+planted(r00117,p00004,20,dewi,date(23,05,2023),time(11,37,12),full,'23R').
+planted(r00118,p00004,20,dewi,date(23,05,2023),time(11,39,00),full,'23R').
+planted(r00119,p00004,20,dewi,date(23,05,2023),time(11,40,30),full,'23R').
+planted(r00120,p00004,20,dewi,date(23,05,2023),time(11,42,05),full,'23R').
+planted(r00212,p00107,20,dewi,date(23,05,2023),time(11,44,34),full,'23R').
+planted(r00213,p00171,20,dewi,date(23,05,2023),time(11,46,40),full,'23R').
+planted(r00214,p00172,20,dewi,date(23,05,2023),time(11,48,19),full,'23R').
+planted(r00215,p00174,20,dewi,date(23,05,2023),time(11,50,00),full,'23R').
+planted(r00216,p00175,20,dewi,date(23,05,2023),time(11,51,46),full,'23R').
+planted(r00217,p00214,20,dewi,date(23,05,2023),time(11,53,26),full,'23R').
+planted(r00218,p00215,20,dewi,date(23,05,2023),time(11,55,15),full,'23R').
+planted(r00219,p00058,20,dewi,date(23,05,2023),time(13,01,02),full,'23R').
+planted(r00220,p00059,20,dewi,date(23,05,2023),time(13,03,43),full,'23R').
+planted(r00221,p00147,20,dewi,date(23,05,2023),time(13,05,29),full,'23R').
+planted(r00222,p00148,20,dewi,date(23,05,2023),time(13,07,50),full,'23R').
+planted(r00223,p00085,20,dewi,date(23,05,2023),time(13,10,01),full,'23R').
+planted(r00224,p00038,20,dewi,date(23,05,2023),time(13,12,44),full,'23R').
+planted(r00225,p00000,20,dewi,date(23,05,2023),time(13,14,09),full,'23R').
+planted(r00226,p00054,20,dewi,date(23,05,2023),time(13,14,29),full,'23R').
+planted(r00227,p00188,20,dewi,date(23,05,2023),time(13,16,15),full,'23R').
+planted(r00228,p00199,20,dewi,date(23,05,2023),time(13,17,54),full,'23R').
+planted(r00229,p00162,20,dewi,date(23,05,2023),time(13,19,21),full,'23R').
+planted(r00230,p00163,20,dewi,date(23,05,2023),time(13,21,51),full,'23R').
+planted(r00231,p00137,20,dewi,date(23,05,2023),time(13,25,12),full,'23R').
+%
+% 9 cl r00232
+%
+planted(r00232,p00166,20,dewi,date(23,05,2023),time(13,25,28),full,'23R').
+planted(r00233,p00135,20,dewi,date(23,05,2023),time(13,26,35),full,'23R').
+planted(r00234,p00149,20,dewi,date(23,05,2023),time(13,29,35),full,'23R').
+planted(r00235,p00190,20,dewi,date(23,05,2023),time(13,31,09),full,'23R').
+planted(r00236,p00123,20,dewi,date(23,05,2023),time(13,32,28),full,'23R').
+planted(r00237,p00124,20,dewi,date(23,05,2023),time(13,34,28),full,'23R').
+planted(r00238,p00125,20,dewi,date(23,05,2023),time(13,36,44),full,'23R').
+planted(r00292,p00043,20,dewi,date(23,05,2023),time(13,44,40),full,'23R').
+planted(r00291,p00042,20,dewi,date(23,05,2023),time(13,47,09),full,'23R').
+planted(r00288,p00103,20,dewi,date(23,05,2023),time(13,49,41),full,'23R').
+planted(r00287,p00102,20,dewi,date(23,05,2023),time(13,52,41),full,'23R').
+planted(r00284,p00035,20,dewi,date(23,05,2023),time(13,55,26),full,'23R').
+planted(r00283,p00034,20,dewi,date(23,05,2023),time(13,58,09),full,'23R').
+planted(r00280,p00070,20,dewi,date(23,05,2023),time(14,01,27),full,'23R').
+planted(r00279,p00000,20,dewi,date(23,05,2023),time(14,04,18),full,'23R').
+planted(r00278,p00069,20,dewi,date(23,05,2023),time(14,04,39),full,'23R').
+planted(r00275,p00066,20,dewi,date(23,05,2023),time(14,17,20),full,'23R').
+planted(r00274,p00065,20,dewi,date(23,05,2023),time(14,20,03),full,'23R').
+planted(r00271,p00075,20,dewi,date(23,05,2023),time(14,22,43),full,'23R').
+planted(r00270,p00074,20,dewi,date(23,05,2023),time(14,26,57),full,'23R').
+planted(r00269,p00208,20,dewi,date(23,05,2023),time(14,29,27),full,'23R').
+planted(r00268,p00196,20,dewi,date(23,05,2023),time(14,31,03),full,'23R').
+planted(r00267,p00179,20,dewi,date(23,05,2023),time(14,33,27),full,'23R').
+planted(r00266,p00142,20,dewi,date(23,05,2023),time(14,35,24),full,'23R').
+planted(r00265,p00169,20,dewi,date(23,05,2023),time(14,39,15),full,'23R').
+planted(r00264,p00150,20,dewi,date(23,05,2023),time(14,41,41),full,'23R').
+planted(r00263,p00047,20,dewi,date(23,05,2023),time(14,45,04),full,'23R').
+planted(r00262,p00048,20,dewi,date(23,05,2023),time(14,47,03),full,'23R').
+planted(r00261,p00046,20,dewi,date(23,05,2023),time(14,49,17),full,'23R').
+planted(r00259,p00109,20,dewi,date(23,05,2023),time(14,59,35),full,'23R').
+planted(r00258,p00145,20,dewi,date(23,05,2023),time(15,02,31),full,'23R').
+planted(r00257,p00101,20,dewi,date(23,05,2023),time(15,04,10),full,'23R').
+planted(r00256,p00144,20,dewi,date(23,05,2023),time(15,06,33),full,'23R').
+planted(r00255,p00159,20,dewi,date(23,05,2023),time(15,08,47),full,'23R').
+planted(r00254,p00158,20,dewi,date(23,05,2023),time(15,10,26),full,'23R').
+%
+% 24 cl r00253
+planted(r00253,p00157,20,dewi,date(23,05,2023),time(15,12,59),full,'23R').
+planted(r00252,p00000,20,dewi,date(23,05,2023),time(15,16,23),full,'23R').
+planted(r00251,p00131,20,dewi,date(23,05,2023),time(15,17,14),full,'23R').
+planted(r00250,p00130,20,dewi,date(23,05,2023),time(15,19,28),full,'23R').
+planted(r00249,p00129,20,dewi,date(23,05,2023),time(15,21,24),full,'23R').
+planted(r00248,p00153,20,dewi,date(23,05,2023),time(15,22,53),full,'23R').
+
+
+
+
+% data added from ../../data../palm/raw_data_from_palms/23r/eta/29.5/planted.csv on Mon May 29 11:16:20 CDT 2023
+% by data/data_conversion/convert_planted_data.perl
+% called from data/data_conversion/convert_data.perl
+
+planted(r00121,p00001,20,toni,date(29,05,2023),time(09,49,49),full,'23R').
+planted(r00122,p00001,20,toni,date(29,05,2023),time(09,52,42),full,'23R').
+planted(r00123,p00002,20,toni,date(29,05,2023),time(09,54,46),full,'23R').
+planted(r00124,p00002,20,toni,date(29,05,2023),time(09,57,20),full,'23R').
+planted(r00125,p00003,20,toni,date(29,05,2023),time(09,59,59),full,'23R').
+planted(r00126,p00003,20,toni,date(29,05,2023),time(10,02,12),full,'23R').
+planted(r00127,p00003,20,toni,date(29,05,2023),time(10,04,13),full,'23R').
+planted(r00128,p00003,20,toni,date(29,05,2023),time(10,06,24),full,'23R').
+planted(r00129,p00004,20,toni,date(29,05,2023),time(10,12,30),full,'23R').
+planted(r00130,p00004,20,toni,date(29,05,2023),time(10,14,44),full,'23R').
+planted(r00131,p00010,20,toni,date(29,05,2023),time(10,16,39),full,'23R').
+planted(r00134,p00013,20,toni,date(29,05,2023),time(10,24,35),full,'23R').
+planted(r00136,p00015,20,toni,date(29,05,2023),time(10,26,43),full,'23R').
+planted(r00137,p00016,20,toni,date(29,05,2023),time(10,28,45),full,'23R').
+planted(r00140,p00019,20,toni,date(29,05,2023),time(10,31,05),full,'23R').
+planted(r00142,p00021,20,toni,date(29,05,2023),time(10,33,28),full,'23R').
+planted(r00160,p00000,20,toni,date(29,05,2023),time(10,40,54),full,'23R').
+planted(r00161,p00000,20,toni,date(29,05,2023),time(10,41,11),full,'23R').
+
+
+
+
+% data added from ../../data../palm/raw_data_from_palms/23r/theta/29.5/planted.csv on Mon May 29 11:16:20 CDT 2023
+% by data/data_conversion/convert_planted_data.perl
+% called from data/data_conversion/convert_data.perl
+
+planted(r00260,p00110,20,chimdi,date(29,05,2023),time(10,20,26),full,'23R').
+planted(r00241,p00084,20,chimdi,date(29,05,2023),time(10,23,45),full,'23R').
+planted(r00239,p00126,20,chimdi,date(29,05,2023),time(10,27,42),full,'23R').
+planted(r00290,p00105,20,chimdi,date(29,05,2023),time(10,30,34),full,'23R').
+planted(r00289,p00104,20,chimdi,date(29,05,2023),time(10,35,16),full,'23R').
+planted(r00286,p00037,20,chimdi,date(29,05,2023),time(10,39,01),full,'23R').
+planted(r00285,p00036,20,chimdi,date(29,05,2023),time(10,43,02),full,'23R').
+planted(r00282,p00072,20,chimdi,date(29,05,2023),time(10,47,07),full,'23R').
+planted(r00281,p00071,20,chimdi,date(29,05,2023),time(10,50,59),full,'23R').
+
+
+
+
+% data added from ../../data../palm/raw_data_from_palms/23r/zeta/29.5/planted.csv on Mon May 29 11:16:20 CDT 2023
+% by data/data_conversion/convert_planted_data.perl
+% called from data/data_conversion/convert_data.perl
+
+planted(r00293,p00044,40,dewi,date(29,05,2023),time(10,24,50),full,'23R').
+planted(r00294,p00045,40,dewi,date(29,05,2023),time(10,27,35),full,'23R').
+planted(r00304,p00217,20,dewi,date(29,05,2023),time(10,30,29),full,'23R').
+planted(r00318,p00112,20,dewi,date(29,05,2023),time(10,32,41),full,'23R').
+planted(r00322,p00026,20,dewi,date(29,05,2023),time(10,34,30),full,'23R').
+planted(r00342,p00182,20,dewi,date(29,05,2023),time(10,37,14),full,'23R').
+planted(r00272,p00076,40,dewi,date(29,05,2023),time(10,39,42),full,'23R').
+planted(r00273,p00077,40,dewi,date(29,05,2023),time(10,42,27),full,'23R').
+planted(r00276,p00067,40,dewi,date(29,05,2023),time(10,45,04),full,'23R').
+planted(r00277,p00068,40,dewi,date(29,05,2023),time(10,47,35),full,'23R').
+
+
+
+
+% data added from ../../data../palm/raw_data_from_palms/23r/eta/3.6/planted.csv on Sat Jun  3 11:46:36 CDT 2023
+% by data/data_conversion/convert_planted_data.perl
+% called from data/data_conversion/convert_data.perl
+
+planted(r00343,p00081,20,toni,date(03,06,2023),time(07,57,19),full,'23R').
+planted(r00344,p00023,20,toni,date(03,06,2023),time(08,00,39),full,'23R').
+planted(r00345,p00113,20,toni,date(03,06,2023),time(08,02,58),full,'23R').
+planted(r00132,p00011,20,toni,date(03,06,2023),time(08,17,45),full,'23R').
+planted(r00138,p00017,20,toni,date(03,06,2023),time(08,19,57),full,'23R').
+
+
+% rows 301, 340, and 341 planted, but contemporaneous scans not made, so
+% don't trust them:  made up a dummy packet, let's see how that works.
+%
+% row 308 definitely not planted
+%
+% Kazic, 3.6.2023
+
+planted(r00308,p00000,20,toni,date(23,05,2023),time(09,00,00),full,'23R').
+
+
+% r00301 should have been p00182; p00182 got planted in r00342 by dewi, so I don't know
+% what's in r00301
+%
+% Kazic, 3.6.2023
+
+planted(r00301,p99999,20,toni,date(23,05,2023),time(09,00,00),full,'23R').
+
+
+
+% planted(r00340,p99999,20,toni,date(03,06,2023),time(09,00,00),full,'23R').
+
+
+% photo! ../../images/23r/fon/23.5/r00341_planted.HEIC
+%
+% Kazic, 3.6.2023
+
+planted(r00341,p00023,20,chimdi,date(23,05,2023),time(14,58,00),full,'23R').
+
+% therefore inferred that r00340 had packet p00113!
+%
+% however, don''t trust it!
+%
+% Kazic, 3.6.2023
+
+planted(r00340,p99999,20,chimdi,date(23,05,2023),time(14,59,00),full,'23R').
+
+
+
+
+% data added from ../../data../palm/raw_data_from_palms/23r/zeta/24.7/planted.csv on Wed Oct 18 08:30:06 CDT 2023
+% by data/data_conversion/convert_planted_data.perl
+% called from data/data_conversion/convert_data.perl
+
+planted(r00007,p00341,32,dewi,date(24,07,2023),time(12,40,21),full,'23R').
+planted(r00003,p00353,32,chimdi,date(24,07,2023),time(12,40,10),full,'23R').
+planted(r00019,p00355,32,dewi,date(24,07,2023),time(12,59,18),full,'23R').
+
+
+% NO idea what packet p00388: it's not listed in packed_packet.  Will check
+% physical packet.
+%
+% Kazic, 18.10.2023
+%
+% physical packet planted in row 11 was p00399.  This was a repeat of row
+% 9, which was packet p00099. So I think this is typo, since they probably
+% had to correct the barcode manually.
+%
+% Kazic, 19.10.2023
+%
+% planted(r00011,p00388,32,dewi,date(24,07,2023),time(12,56,35),full,'23R').
+
+planted(r00011,p00399,32,dewi,date(24,07,2023),time(12,56,35),full,'23R').
+
+planted(r00015,p00392,32,chimdi,date(24,07,2023),time(12,59,15),full,'23R').
+planted(r00023,p00393,32,dewi,date(24,07,2023),time(13,05,09),full,'23R').
+planted(r00027,p00468,32,dewi,date(24,07,2023),time(13,15,20),full,'23R').
+planted(r00031,p00470,32,chimdi,date(24,07,2023),time(13,19,21),full,'23R').
+planted(r00035,p00473,32,chimdi,date(24,07,2023),time(13,39,11),full,'23R').
+planted(r00040,p00301,10,dewi,date(24,07,2023),time(13,38,12),full,'23R').
+planted(r00041,p00302,10,dewi,date(24,07,2023),time(13,42,37),full,'23R').
+planted(r00045,p00303,10,dewi,date(24,07,2023),time(13,45,40),full,'23R').
+planted(r00046,p00304,10,dewi,date(24,07,2023),time(13,52,45),full,'23R').
+planted(r00049,p00305,10,chimdi,date(24,07,2023),time(13,50,47),full,'23R').
+
+
+
+
+
+% 24r
+
+% data added from ../../data../palm/raw_data_from_palms/24r/eta/20.5/planted.csv on Tue May 21 09:48:47 CDT 2024
+% by data/data_conversion/convert_planted_data.perl
+% called from data/data_conversion/convert_data.perl
+
+planted(r00001,p00182,20,toni,date(20,05,2024),time(12,57,55),full,'24R').
+planted(r00002,p00184,20,toni,date(20,05,2024),time(13,01,21),full,'24R').
+planted(r00003,p00145,20,toni,date(20,05,2024),time(13,03,41),full,'24R').
+planted(r00004,p00151,20,toni,date(20,05,2024),time(13,05,00),full,'24R').
+planted(r00005,p00152,20,toni,date(20,05,2024),time(13,08,16),full,'24R').
+planted(r00006,p00166,20,toni,date(20,05,2024),time(13,10,25),full,'24R').
+planted(r00007,p00174,20,toni,date(20,05,2024),time(13,12,49),full,'24R').
+planted(r00008,p00181,20,toni,date(20,05,2024),time(13,14,49),full,'24R').
+planted(r00009,p99999,20,toni,date(20,05,2024),time(13,17,19),full,'24R').
+planted(r00010,p00177,20,toni,date(20,05,2024),time(13,19,47),full,'24R').
+planted(r00011,p00141,20,toni,date(20,05,2024),time(13,22,03),full,'24R').
+planted(r00012,p00178,20,toni,date(20,05,2024),time(13,24,54),full,'24R').
+planted(r00013,p00020,20,toni,date(20,05,2024),time(13,27,13),full,'24R').
+planted(r00014,p00000,20,toni,date(20,05,2024),time(13,39,26),full,'24R').
+planted(r00015,p00049,20,toni,date(20,05,2024),time(13,40,27),full,'24R').
+planted(r00016,p00050,20,toni,date(20,05,2024),time(13,43,26),full,'24R').
+planted(r00017,p00057,20,toni,date(20,05,2024),time(13,46,47),full,'24R').
+planted(r00018,p00058,20,toni,date(20,05,2024),time(13,49,32),full,'24R').
+planted(r00019,p00108,20,toni,date(20,05,2024),time(13,53,05),full,'24R').
+planted(r00020,p00109,20,toni,date(20,05,2024),time(13,58,02),full,'24R').
+planted(r00021,p00111,20,toni,date(20,05,2024),time(14,02,32),full,'24R').
+planted(r00022,p00112,20,toni,date(20,05,2024),time(14,06,58),full,'24R').
+planted(r00023,p00026,20,toni,date(20,05,2024),time(14,11,55),full,'24R').
+planted(r00024,p00027,20,toni,date(20,05,2024),time(14,16,21),full,'24R').
+planted(r00025,p00066,20,toni,date(20,05,2024),time(14,23,27),full,'24R').
+planted(r00026,p00067,20,toni,date(20,05,2024),time(14,28,23),full,'24R').
+planted(r00028,p00155,20,toni,date(20,05,2024),time(14,30,43),full,'24R').
+planted(r00027,p00156,20,toni,date(20,05,2024),time(14,34,05),full,'24R').
+planted(r00029,p00024,20,toni,date(20,05,2024),time(14,36,37),full,'24R').
+planted(r00059,p00162,20,toni,date(20,05,2024),time(16,09,57),full,'24R').
+planted(r00060,p00164,20,toni,date(20,05,2024),time(16,15,42),full,'24R').
+planted(r00061,p00165,20,toni,date(20,05,2024),time(16,18,10),full,'24R').
+planted(r00062,p00149,20,toni,date(20,05,2024),time(16,20,16),full,'24R').
+planted(r00063,p00150,20,toni,date(20,05,2024),time(16,24,25),full,'24R').
+planted(r00064,p00117,20,toni,date(20,05,2024),time(16,28,00),full,'24R').
+planted(r00065,p00118,20,toni,date(20,05,2024),time(16,30,56),full,'24R').
+planted(r00066,p00047,20,toni,date(20,05,2024),time(16,33,52),full,'24R').
+planted(r00067,p00048,20,toni,date(20,05,2024),time(16,36,01),full,'24R').
+planted(r00068,p00001,20,toni,date(20,05,2024),time(16,38,31),full,'24R').
+planted(r00069,p00001,20,toni,date(20,05,2024),time(16,40,53),full,'24R').
+planted(r00070,p00001,20,toni,date(20,05,2024),time(16,43,28),full,'24R').
+planted(r00071,p00001,20,toni,date(20,05,2024),time(16,46,02),full,'24R').
+planted(r00072,p00000,20,toni,date(20,05,2024),time(16,48,49),full,'24R').
+planted(r00073,p00001,20,toni,date(20,05,2024),time(16,50,34),full,'24R').
+planted(r00074,p00001,20,toni,date(20,05,2024),time(16,52,59),full,'24R').
+planted(r00075,p00001,20,toni,date(20,05,2024),time(16,55,16),full,'24R').
+planted(r00076,p00001,20,toni,date(20,05,2024),time(17,01,30),full,'24R').
+planted(r00077,p00001,20,toni,date(20,05,2024),time(17,03,36),full,'24R').
+planted(r00078,p00001,20,toni,date(20,05,2024),time(17,06,03),full,'24R').
+planted(r00079,p00001,20,toni,date(20,05,2024),time(17,08,35),full,'24R').
+planted(r00080,p00001,20,toni,date(20,05,2024),time(17,11,32),full,'24R').
+planted(r00167,p00093,20,toni,date(20,05,2024),time(17,38,45),full,'24R').
+planted(r00168,p00120,20,toni,date(20,05,2024),time(17,42,49),full,'24R').
+planted(r00169,p00121,20,toni,date(20,05,2024),time(17,46,19),full,'24R').
+planted(r00170,p00144,20,toni,date(20,05,2024),time(17,48,41),full,'24R').
+planted(r00171,p00180,20,toni,date(20,05,2024),time(17,51,03),full,'24R').
+planted(r00172,p00110,20,toni,date(20,05,2024),time(17,53,10),full,'24R').
+planted(r00173,p00138,20,toni,date(20,05,2024),time(17,55,58),full,'24R').
+planted(r00174,p00063,20,toni,date(20,05,2024),time(17,59,58),full,'24R').
+planted(r00166,p00021,20,toni,date(20,05,2024),time(18,03,32),full,'24R').
+planted(r00163,p00101,20,toni,date(20,05,2024),time(18,07,34),full,'24R').
+planted(r00175,p00114,20,toni,date(20,05,2024),time(18,13,04),full,'24R').
+planted(r00176,p00143,20,toni,date(20,05,2024),time(18,17,22),full,'24R').
+planted(r00178,p00176,20,toni,date(20,05,2024),time(18,20,45),full,'24R').
+planted(r00179,p00134,20,toni,date(20,05,2024),time(18,23,41),full,'24R').
+planted(r00180,p00135,20,toni,date(20,05,2024),time(18,26,52),full,'24R').
+
+
+% these are really the W23 transplants from the lls rehab experiment
+%
+% see ../e/lls_rehab_inside/notes/lls_rehabbing.org::w23
+%
+% Kazic, 21.5.2024
+planted(r00232,p22222,10,toni,date(20,05,2024),time(15,00,00),half,'24R').
+
+
+
+
+% data added from ../../data../palm/raw_data_from_palms/24r/theta/20.5/planted.csv on Tue May 21 09:48:47 CDT 2024
+% by data/data_conversion/convert_planted_data.perl
+% called from data/data_conversion/convert_data.perl
+
+planted(r00081,p00001,20,chimdi,date(20,05,2024),time(14,29,26),full,'24R').
+planted(r00082,p00002,20,chimdi,date(20,05,2024),time(14,33,05),full,'24R').
+planted(r00083,p00002,20,chimdi,date(20,05,2024),time(14,44,23),full,'24R').
+planted(r00084,p00002,20,chimdi,date(20,05,2024),time(14,47,17),full,'24R').
+planted(r00085,p00002,20,chimdi,date(20,05,2024),time(14,50,36),full,'24R').
+planted(r00086,p00002,20,chimdi,date(20,05,2024),time(14,54,49),full,'24R').
+planted(r00087,p00002,20,chimdi,date(20,05,2024),time(14,58,25),full,'24R').
+planted(r00088,p00002,20,chimdi,date(20,05,2024),time(15,02,46),full,'24R').
+planted(r00089,p00002,20,chimdi,date(20,05,2024),time(15,05,33),full,'24R').
+planted(r00090,p00003,20,chimdi,date(20,05,2024),time(15,16,21),full,'24R').
+planted(r00091,p00003,20,chimdi,date(20,05,2024),time(15,16,55),full,'24R').
+planted(r00092,p00003,20,chimdi,date(20,05,2024),time(15,19,41),full,'24R').
+planted(r00093,p00003,20,chimdi,date(20,05,2024),time(15,22,56),full,'24R').
+planted(r00094,p00003,20,chimdi,date(20,05,2024),time(15,26,44),full,'24R').
+planted(r00095,p00003,20,chimdi,date(20,05,2024),time(15,30,12),full,'24R').
+planted(r00096,p00003,20,chimdi,date(20,05,2024),time(15,34,02),full,'24R').
+planted(r00097,p00003,20,chimdi,date(20,05,2024),time(15,36,30),full,'24R').
+planted(r00098,p00003,20,chimdi,date(20,05,2024),time(15,39,00),full,'24R').
+planted(r00099,p00004,20,chimdi,date(20,05,2024),time(15,41,36),full,'24R').
+planted(r00100,p00004,20,chimdi,date(20,05,2024),time(15,44,56),full,'24R').
+planted(r00101,p00004,20,chimdi,date(20,05,2024),time(15,50,14),full,'24R').
+planted(r00102,p00004,20,chimdi,date(20,05,2024),time(15,52,57),full,'24R').
+planted(r00103,p00000,20,chimdi,date(20,05,2024),time(15,56,00),full,'24R').
+planted(r00104,p00004,20,chimdi,date(20,05,2024),time(15,56,48),full,'24R').
+planted(r00105,p00004,20,chimdi,date(20,05,2024),time(16,00,07),full,'24R').
+planted(r00106,p00004,20,chimdi,date(20,05,2024),time(16,02,36),full,'24R').
+planted(r00131,p00030,20,chimdi,date(20,05,2024),time(16,06,49),full,'24R').
+planted(r00132,p00160,20,chimdi,date(20,05,2024),time(16,10,30),full,'24R').
+planted(r00133,p00127,20,chimdi,date(20,05,2024),time(16,13,34),full,'24R').
+planted(r00135,p00068,20,chimdi,date(20,05,2024),time(16,16,43),full,'24R').
+planted(r00138,p00038,20,chimdi,date(20,05,2024),time(16,20,20),full,'24R').
+planted(r00139,p00146,20,chimdi,date(20,05,2024),time(16,23,01),full,'24R').
+planted(r00129,p00031,20,chimdi,date(20,05,2024),time(16,25,45),full,'24R').
+planted(r00130,p00000,20,chimdi,date(20,05,2024),time(16,26,00),full,'24R').
+planted(r00140,p00100,20,chimdi,date(20,05,2024),time(16,28,56),full,'24R').
+planted(r00141,p00084,20,chimdi,date(20,05,2024),time(16,32,34),full,'24R').
+planted(r00142,p00087,20,chimdi,date(20,05,2024),time(16,35,48),full,'24R').
+planted(r00143,p00059,20,chimdi,date(20,05,2024),time(16,38,45),full,'24R').
+planted(r00144,p00060,20,chimdi,date(20,05,2024),time(16,41,10),full,'24R').
+planted(r00145,p00088,20,chimdi,date(20,05,2024),time(16,43,57),full,'24R').
+planted(r00146,p00094,20,chimdi,date(20,05,2024),time(17,07,07),full,'24R').
+planted(r00147,p00095,20,chimdi,date(20,05,2024),time(17,11,12),full,'24R').
+planted(r00148,p00014,20,chimdi,date(20,05,2024),time(17,15,01),full,'24R').
+planted(r00149,p00015,20,chimdi,date(20,05,2024),time(17,18,51),full,'24R').
+planted(r00150,p00054,20,chimdi,date(20,05,2024),time(17,23,56),full,'24R').
+planted(r00151,p00078,20,chimdi,date(20,05,2024),time(17,27,50),full,'24R').
+planted(r00152,p00079,20,chimdi,date(20,05,2024),time(17,34,10),full,'24R').
+planted(r00153,p00153,20,chimdi,date(20,05,2024),time(17,39,15),full,'24R').
+planted(r00154,p00154,20,chimdi,date(20,05,2024),time(17,44,32),full,'24R').
+planted(r00155,p00096,20,chimdi,date(20,05,2024),time(17,48,32),full,'24R').
+planted(r00156,p00097,20,chimdi,date(20,05,2024),time(17,51,44),full,'24R').
+planted(r00157,p00092,20,chimdi,date(20,05,2024),time(17,54,25),full,'24R').
+planted(r00158,p00091,20,chimdi,date(20,05,2024),time(17,57,19),full,'24R').
+planted(r00159,p00137,20,chimdi,date(20,05,2024),time(18,01,26),full,'24R').
+planted(r00160,p00159,20,chimdi,date(20,05,2024),time(18,04,47),full,'24R').
+planted(r00161,p00000,20,chimdi,date(20,05,2024),time(18,06,00),full,'24R').
+planted(r00162,p00172,20,chimdi,date(20,05,2024),time(18,09,35),full,'24R').
+planted(r00181,p00071,20,chimdi,date(20,05,2024),time(18,30,54),full,'24R').
+planted(r00182,p00129,20,chimdi,date(20,05,2024),time(18,34,00),full,'24R').
+planted(r00183,p00018,20,chimdi,date(20,05,2024),time(18,36,14),full,'24R').
+
+
+
+
+% data added from ../../data../palm/raw_data_from_palms/24r/zeta/20.5/planted.csv on Tue May 21 09:48:47 CDT 2024
+% by data/data_conversion/convert_planted_data.perl
+% called from data/data_conversion/convert_data.perl
+
+planted(r00030,p00025,20,dewi,date(20,05,2024),time(14,32,03),full,'24R').
+planted(r00031,p00043,20,dewi,date(20,05,2024),time(14,35,56),full,'24R').
+planted(r00032,p00044,20,dewi,date(20,05,2024),time(14,39,29),full,'24R').
+planted(r00033,p00041,20,dewi,date(20,05,2024),time(14,44,59),full,'24R').
+planted(r00034,p00042,20,dewi,date(20,05,2024),time(14,47,54),full,'24R').
+planted(r00035,p00076,20,dewi,date(20,05,2024),time(14,51,28),full,'24R').
+planted(r00036,p00077,20,dewi,date(20,05,2024),time(14,54,10),full,'24R').
+planted(r00037,p00022,20,dewi,date(20,05,2024),time(14,57,05),full,'24R').
+planted(r00038,p00023,20,dewi,date(20,05,2024),time(14,59,04),full,'24R').
+planted(r00039,p00082,20,dewi,date(20,05,2024),time(15,01,28),full,'24R').
+planted(r00040,p00083,20,dewi,date(20,05,2024),time(15,04,28),full,'24R').
+planted(r00041,p00098,20,dewi,date(20,05,2024),time(15,28,03),full,'24R').
+planted(r00042,p00099,20,dewi,date(20,05,2024),time(15,31,18),full,'24R').
+planted(r00043,p00115,20,dewi,date(20,05,2024),time(15,35,52),full,'24R').
+planted(r00044,p00116,20,dewi,date(20,05,2024),time(15,40,24),full,'24R').
+planted(r00045,p00000,20,dewi,date(20,05,2024),time(15,43,25),full,'24R').
+planted(r00046,p00069,20,dewi,date(20,05,2024),time(15,44,10),full,'24R').
+planted(r00047,p00070,20,dewi,date(20,05,2024),time(15,46,26),full,'24R').
+planted(r00048,p00072,20,dewi,date(20,05,2024),time(15,47,55),full,'24R').
+planted(r00049,p00073,20,dewi,date(20,05,2024),time(15,51,08),full,'24R').
+planted(r00050,p00089,20,dewi,date(20,05,2024),time(15,53,15),full,'24R').
+planted(r00051,p00090,20,dewi,date(20,05,2024),time(15,58,21),full,'24R').
+planted(r00052,p00102,20,dewi,date(20,05,2024),time(16,00,46),full,'24R').
+planted(r00053,p00103,20,dewi,date(20,05,2024),time(16,05,46),full,'24R').
+planted(r00054,p00122,20,dewi,date(20,05,2024),time(16,08,10),full,'24R').
+planted(r00055,p00123,20,dewi,date(20,05,2024),time(16,09,52),full,'24R').
+planted(r00056,p00125,20,dewi,date(20,05,2024),time(16,11,51),full,'24R').
+planted(r00057,p00126,20,dewi,date(20,05,2024),time(16,16,15),full,'24R').
+planted(r00058,p00161,20,dewi,date(20,05,2024),time(16,18,03),full,'24R').
+planted(r00191,p00185,20,dewi,date(20,05,2024),time(17,03,14),full,'24R').
+planted(r00192,p00148,20,dewi,date(20,05,2024),time(17,05,54),full,'24R').
+planted(r00193,p00147,20,dewi,date(20,05,2024),time(17,07,37),full,'24R').
+planted(r00194,p00168,20,dewi,date(20,05,2024),time(17,11,20),full,'24R').
+planted(r00195,p00173,20,dewi,date(20,05,2024),time(17,12,29),full,'24R').
+planted(r00196,p00136,20,dewi,date(20,05,2024),time(17,15,29),full,'24R').
+planted(r00197,p00171,20,dewi,date(20,05,2024),time(17,17,30),full,'24R').
+planted(r00198,p00175,20,dewi,date(20,05,2024),time(17,20,37),full,'24R').
+planted(r00199,p00053,20,dewi,date(20,05,2024),time(17,24,23),full,'24R').
+planted(r00200,p00080,20,dewi,date(20,05,2024),time(17,26,58),full,'24R').
+planted(r00201,p00056,20,dewi,date(20,05,2024),time(17,32,38),full,'24R').
+planted(r00202,p00055,20,dewi,date(20,05,2024),time(17,35,20),full,'24R').
+planted(r00203,p00113,20,dewi,date(20,05,2024),time(17,37,50),full,'24R').
+planted(r00204,p00163,20,dewi,date(20,05,2024),time(17,39,40),full,'24R').
+planted(r00205,p00179,20,dewi,date(20,05,2024),time(17,41,51),full,'24R').
+planted(r00206,p00142,20,dewi,date(20,05,2024),time(17,43,58),full,'24R').
+planted(r00207,p00081,20,dewi,date(20,05,2024),time(17,46,01),full,'24R').
+planted(r00208,p00183,20,dewi,date(20,05,2024),time(17,48,18),full,'24R').
+planted(r00211,p00104,20,dewi,date(20,05,2024),time(17,50,40),full,'24R').
+planted(r00212,p00105,20,dewi,date(20,05,2024),time(17,52,44),full,'24R').
+planted(r00213,p00124,20,dewi,date(20,05,2024),time(17,55,56),full,'24R').
+planted(r00184,p00019,20,dewi,date(20,05,2024),time(18,23,55),full,'24R').
+planted(r00185,p00130,20,dewi,date(20,05,2024),time(18,26,59),full,'24R').
+planted(r00186,p00131,20,dewi,date(20,05,2024),time(18,29,26),full,'24R').
+planted(r00187,p00132,20,dewi,date(20,05,2024),time(18,31,03),full,'24R').
+planted(r00188,p00000,20,dewi,date(20,05,2024),time(18,32,58),full,'24R').
+planted(r00189,p00133,20,dewi,date(20,05,2024),time(18,33,17),full,'24R').
+planted(r00190,p00167,20,dewi,date(20,05,2024),time(18,34,56),full,'24R').
+
+
+
+
+% data added from ../../data../palm/raw_data_from_palms/24r/theta/21.5/planted.csv on Wed May 22 10:44:27 CDT 2024
+% by data/data_conversion/convert_planted_data.perl
+% called from data/data_conversion/convert_data.perl
+
+planted(r00215,p00032,20,chimdi,date(21,05,2024),time(11,24,31),full,'24R').
+planted(r00217,p00061,20,chimdi,date(21,05,2024),time(11,28,47),full,'24R').
+planted(r00219,p00000,20,chimdi,date(21,05,2024),time(11,29,33),full,'24R').
+planted(r00220,p00157,20,chimdi,date(21,05,2024),time(11,30,37),full,'24R').
+planted(r00222,p00085,20,chimdi,date(21,05,2024),time(11,45,50),full,'24R').
+planted(r00224,p00074,20,chimdi,date(21,05,2024),time(11,50,20),full,'24R').
+planted(r00226,p00051,20,chimdi,date(21,05,2024),time(11,54,09),full,'24R').
+planted(r00228,p00139,20,chimdi,date(21,05,2024),time(11,57,23),full,'24R').
+
+
+
+
+
+
+% data added from ../../data../palm/raw_data_from_palms/24r/zeta/21.5/planted.csv on Wed May 22 10:44:27 CDT 2024
+% by data/data_conversion/convert_planted_data.perl
+% called from data/data_conversion/convert_data.perl
+
+planted(r00234,p00001,150,dewi,date(21,05,2024),time(11,15,25),full,'24R').
+planted(r00235,p00002,150,dewi,date(21,05,2024),time(11,18,54),full,'24R').
+planted(r00236,p00003,150,dewi,date(21,05,2024),time(11,26,58),full,'24R').
+planted(r00242,p00033,150,dewi,date(21,05,2024),time(11,37,17),full,'24R').
+planted(r00246,p00062,150,dewi,date(21,05,2024),time(11,51,55),full,'24R').
+planted(r00250,p00158,150,dewi,date(21,05,2024),time(12,11,07),full,'24R').
+planted(r00254,p00086,150,dewi,date(21,05,2024),time(12,13,30),full,'24R').
+planted(r00258,p00075,150,dewi,date(21,05,2024),time(12,21,07),full,'24R').
+planted(r00262,p00052,150,dewi,date(21,05,2024),time(12,25,52),full,'24R').
+planted(r00266,p00140,150,dewi,date(21,05,2024),time(12,38,05),full,'24R').
+
+
+
+% manually added lingering skips
+%
+% Kazic, 22.5.2024
+
+% used this row
+%
+% Kazic, 2.6.2024
+%
+% planted(r00230,p00000,20,toni,date(20,05,2024),time(11,00,00),full,'24R').
+
+planted(r00231,p00000,20,toni,date(20,05,2024),time(11,00,00),full,'24R').
+planted(r00233,p00000,20,toni,date(20,05,2024),time(11,00,00),full,'24R').
+planted(r00237,p00000,150,toni,date(20,05,2024),time(11,00,00),full,'24R').
+
+% this was staked
+%
+% Kazic, 25.5.2024
+planted(r00241,p00000,150,toni,date(20,05,2024),time(11,00,00),full,'24R').
+
+planted(r00243,p00000,150,toni,date(20,05,2024),time(11,00,00),full,'24R').
+planted(r00245,p00000,150,toni,date(20,05,2024),time(11,00,00),full,'24R').
+planted(r00247,p00000,150,toni,date(20,05,2024),time(11,00,00),full,'24R').
+planted(r00249,p00000,150,toni,date(20,05,2024),time(11,00,00),full,'24R').
+planted(r00251,p00000,150,toni,date(20,05,2024),time(11,00,00),full,'24R').
+planted(r00253,p00000,150,toni,date(20,05,2024),time(11,00,00),full,'24R').
+planted(r00255,p00000,150,toni,date(20,05,2024),time(11,00,00),full,'24R').
+planted(r00257,p00000,150,toni,date(20,05,2024),time(11,00,00),full,'24R').
+planted(r00259,p00000,150,toni,date(20,05,2024),time(11,00,00),full,'24R').
+planted(r00261,p00000,150,toni,date(20,05,2024),time(11,00,00),full,'24R').
+planted(r00263,p00000,150,toni,date(20,05,2024),time(11,00,00),full,'24R').
+planted(r00265,p00000,150,toni,date(20,05,2024),time(11,00,00),full,'24R').
+planted(r00267,p00000,150,toni,date(20,05,2024),time(11,00,00),full,'24R').
+
+
+
+
+
+
+
+
+% data added from ../../data../palm/raw_data_from_palms/24r/eta/25.5/planted.csv on Sun May 26 11:22:48 CDT 2024
+% by data/data_conversion/convert_planted_data.perl
+% called from data/data_conversion/convert_data.perl
+
+planted(r00107,p00001,20,toni,date(25,05,2024),time(18,53,04),full,'24R').
+planted(r00108,p00001,20,toni,date(25,05,2024),time(18,56,12),full,'24R').
+planted(r00109,p00002,20,toni,date(25,05,2024),time(18,58,45),full,'24R').
+planted(r00110,p00002,20,toni,date(25,05,2024),time(19,01,06),full,'24R').
+planted(r00111,p00003,20,toni,date(25,05,2024),time(19,03,18),full,'24R').
+planted(r00112,p00003,20,toni,date(25,05,2024),time(12,00,00),full,'24R').
+planted(r00113,p00004,20,toni,date(25,05,2024),time(19,08,35),full,'24R').
+planted(r00114,p00004,20,toni,date(25,05,2024),time(19,10,55),full,'24R').
+planted(r00134,p00128,20,toni,date(25,05,2024),time(19,13,54),full,'24R').
+planted(r00136,p00011,20,toni,date(25,05,2024),time(19,16,56),full,'24R').
+planted(r00137,p00012,20,toni,date(25,05,2024),time(19,19,45),full,'24R').
+planted(r00164,p00010,20,toni,date(25,05,2024),time(19,23,45),full,'24R').
+planted(r00165,p00013,20,toni,date(25,05,2024),time(19,27,59),full,'24R').
+planted(r00177,p00119,20,toni,date(25,05,2024),time(19,32,04),full,'24R').
+planted(r00209,p00016,20,toni,date(25,05,2024),time(19,35,36),full,'24R').
+planted(r00210,p00017,20,toni,date(25,05,2024),time(19,38,29),full,'24R').
+
+
+
+% added by hand to fix error in packing p00081
+%
+% Kazic, 2.6.2024
+
+planted(r00230,p99998,20,toni,date(2,06,2024),time(19,05,00),full,'24R').
+
+
+
+
+
+% data added from ../../data../palm/raw_data_from_palms/24r/eta/18.6/planted.csv on Fri Jun 28 15:44:26 CDT 2024
+% by data/data_conversion/convert_planted_data.perl
+% called from data/data_conversion/convert_data.perl
+
+planted(r00115,p00001,20,toni,date(18,06,2024),time(08,07,29),full,'24R').
+planted(r00116,p00001,20,toni,date(18,06,2024),time(08,09,51),full,'24R').
+planted(r00117,p00002,20,toni,date(18,06,2024),time(08,12,16),full,'24R').
+planted(r00118,p00002,20,toni,date(18,06,2024),time(08,15,09),full,'24R').
+planted(r00119,p00003,20,toni,date(18,06,2024),time(08,17,31),full,'24R').
+planted(r00120,p00003,20,toni,date(18,06,2024),time(08,20,43),full,'24R').
+planted(r00121,p00004,20,toni,date(18,06,2024),time(08,23,05),full,'24R').
+planted(r00122,p00004,20,toni,date(18,06,2024),time(08,26,34),full,'24R').
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%% 24r temporary confected data %%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% need to confect planting data for second planting of tiling and chimdi's
+% in order to compute the field book (also the stand count data)
+%
+% Kazic, 22.5.2024
+
+
+% these are confected facts to get the genotype facts generated for the
+% field book.  They will be commented out when we really plant, count, and
+% the save state recompiled.
+%
+% Kazic, 28.5.2024
+
+
+% fourth -- fifth planting inbreds
+
+
+
+% fourth and fifth together
+%
+% timestamped via images in ../../images/24r/fon/16.7/*HEIC
+%
+% Kazic, 17.7.2024
+
+planted(r00123,p00001,20,toni,date(17,07,2024),time(07,42,00),full,'24R').
+planted(r00124,p00002,20,toni,date(17,07,2024),time(07,42,00),full,'24R').
+planted(r00125,p00003,20,toni,date(17,07,2024),time(07,42,00),full,'24R').
+
+
+planted(r00126,p00001,20,toni,date(17,07,2024),time(07,42,00),full,'24R').
+planted(r00127,p00002,20,toni,date(17,07,2024),time(07,42,00),full,'24R').
+planted(r00128,p00003,20,toni,date(17,07,2024),time(07,42,00),full,'24R').
+
+
+
+
+
+% late chimdi, nominal 6th, expected
+
+planted(r00214,p00036,20,chimdi,date(01,08,2024),time(08,00,00),full,'24R').
+planted(r00216,p00034,20,chimdi,date(01,08,2024),time(08,00,00),full,'24R').
+planted(r00218,p00028,20,chimdi,date(01,08,2024),time(08,00,00),full,'24R').
+planted(r00221,p00039,20,chimdi,date(01,08,2024),time(08,00,00),full,'24R').
+planted(r00223,p00045,20,chimdi,date(01,08,2024),time(08,00,00),full,'24R').
+planted(r00225,p00064,20,chimdi,date(01,08,2024),time(08,00,00),full,'24R').
+planted(r00227,p00106,20,chimdi,date(01,08,2024),time(08,00,00),full,'24R').
+
+% definitely not planted yet!
+%
+% Kazic, 2.6.2024
+planted(r00229,p00169,20,chimdi,date(01,08,2024),time(12,00,00),full,'24R').
+
+
+% late dewi, nominal 6th, expected
+
+planted(r00238,p00004,20,dewi,date(02,08,2024),time(08,00,00),full,'24R').
+planted(r00239,p00005,20,dewi,date(02,08,2024),time(08,00,00),full,'24R').
+planted(r00240,p00170,110,dewi,date(02,08,2024),time(08,00,00),full,'24R').
+planted(r00244,p00035,150,dewi,date(02,08,2024),time(08,00,00),full,'24R').
+planted(r00248,p00029,150,dewi,date(02,08,2024),time(08,00,00),full,'24R').
+planted(r00252,p00040,150,dewi,date(02,08,2024),time(08,00,00),full,'24R').
+planted(r00256,p00046,150,dewi,date(02,08,2024),time(08,00,00),full,'24R').
+planted(r00260,p00065,150,dewi,date(02,08,2024),time(08,00,00),full,'24R').
+planted(r00264,p00107,150,dewi,date(02,08,2024),time(08,00,00),full,'24R').
+planted(r00268,p00037,150,dewi,date(02,08,2024),time(08,00,00),full,'24R').
+
+
+
+
+
+%%%%%%%%%%%%%% lls rehab experiment %%%%%%%%%%%
+%
+% facts commented out so as not to appear in the field book
+%
+% Kazic, 29.5.2024
+
+
+% data added from ../../data../palm/raw_data_from_palms/24r/eta/27.5/planted.csv on Wed May 29 19:02:12 CDT 2024
+% by data/data_conversion/convert_planted_data.perl
+% called from data/data_conversion/convert_data.perl
+
+% these are the transplanted mutants for the
+% [[file:../../../../e/lls_rehab_inside/notes/lls_rehabbing.org][lls experiment]]
+%
+% Kazic, 29.5.2024
+
+planted(r00300,p10000,6,toni,date(28,05,2024),time(12,16,00),pot,'24R').
+planted(r00301,p20000,6,toni,date(28,05,2024),time(12,16,00),pot,'24R').
+
+
+% confected, since I don't know exactly when the mutants will go into the big planters
+%
+% Kazic, 8.7.2024
+
+planted(r00302,p10001,6,toni,date(28,07,2024),time(12,16,00),pot,'24R').
+planted(r00303,p20001,6,toni,date(28,07,2024),time(12,16,00),pot,'24R').
+
+planted(r00304,p10002,6,toni,date(28,08,2024),time(12,16,00),pot,'24R').
+planted(r00305,p20002,6,toni,date(28,08,2024),time(12,16,00),pot,'24R').
+
+
+
+
+
+
+% data added from ../../data../palm/raw_data_from_palms/24r/theta/1.8/planted.csv on Fri Aug  2 20:55:24 CDT 2024
+% by data/data_conversion/convert_planted_data.perl
+% called from data/data_conversion/convert_data.perl
+
+planted(r00214,p00036,20,chimdi,date(01,08,2024),time(07,45,48),full,'24R').
+planted(r00216,p00034,20,chimdi,date(01,08,2024),time(07,50,32),full,'24R').
+planted(r00218,p00028,20,chimdi,date(01,08,2024),time(07,57,10),full,'24R').
+planted(r00221,p00039,20,chimdi,date(01,08,2024),time(08,01,47),full,'24R').
+planted(r00223,p00045,20,chimdi,date(01,08,2024),time(08,10,59),full,'24R').
+planted(r00225,p00064,20,chimdi,date(01,08,2024),time(08,14,23),full,'24R').
+planted(r00227,p00106,20,chimdi,date(01,08,2024),time(08,19,41),full,'24R').
+planted(r00229,p00169,20,chimdi,date(01,08,2024),time(08,53,30),full,'24R').
+
+
+
+
+% data added from ../../data../palm/raw_data_from_palms/24r/zeta/2.8/planted.csv on Fri Aug  2 20:56:26 CDT 2024
+% by data/data_conversion/convert_planted_data.perl
+% called from data/data_conversion/convert_data.perl
+
+planted(r00238,p00004,8,dewi,date(02,08,2024),time(09,51,02),full,'24R').
+planted(r00239,p00005,9,dewi,date(02,08,2024),time(09,56,33),full,'24R').
+planted(r00240,p00170,12,dewi,date(02,08,2024),time(09,59,03),full,'24R').
+planted(r00244,p00035,30,dewi,date(02,08,2024),time(10,02,30),full,'24R').
+planted(r00248,p00029,30,dewi,date(02,08,2024),time(10,06,45),full,'24R').
+planted(r00252,p00040,30,dewi,date(02,08,2024),time(10,11,19),full,'24R').
+planted(r00256,p00046,30,dewi,date(02,08,2024),time(13,26,56),full,'24R').
+planted(r00260,p00065,30,dewi,date(02,08,2024),time(13,35,22),full,'24R').
+planted(r00264,p00107,30,dewi,date(02,08,2024),time(13,35,45),full,'24R').
+planted(r00268,p00037,9,dewi,date(02,08,2024),time(13,44,27),full,'24R').
+
+
+
+
+
+
+
+% 24g --- lab and Sears 110 greenhouse
+
+% manual data --- these are flats in 110 Sears in the greenhouse
+%
+% we'll transplant them to pots when they're bigger
+%
+% Kazic, 13.8.2024
+
+
+% these are the M14/{lls1,lls1 121D} plants grown in 4" pots and transplanted
+%
+% Kazic, 26.8.2024
+
+planted(r00302,p10001,6,dewi,date(26,08,2024),time(16,00,00),full,'24G').
+planted(r00303,p20001,6,toni,date(26,08,2024),time(16,00,00),full,'24G').
+
+
+planted(r00400,p00003,6,dewi,date(14,08,2024),time(13,44,27),full,'24G').
+planted(r00400,p00003,1,toni,date(25,08,2024),time(17,20,00),full,'24G').
+
+
+
+
+planted(r00401,p00001,6,toni,date(25,08,2024),time(17,20,00),full,'24G').
+planted(r00402,p00001,6,toni,date(01,09,2024),time(12,00,00),full,'24G').
+planted(r00403,p00001,6,toni,date(09,09,2024),time(17,00,00),full,'24G').
+
+
+
+
+% data added from ../../data../palm/raw_data_from_palms/24r/eta/2.9/planted.csv on Mon Sep  2 21:10:51 CDT 2024
+% by data/data_conversion/convert_planted_data.perl
+% called from data/data_conversion/convert_data.perl
+
+planted(r00304,p10002,75,toni,date(02,09,2024),time(17,36,47),full,'24G').
+planted(r00305,p20002,75,toni,date(02,09,2024),time(17,36,49),full,'24G').
+
+planted(r00402,p00001,6,toni,date(02,09,2024),time(18,45,00),full,'24G').
+
+planted(r00501,p50001,3,toni,date(02,09,2024),time(18,45,00),full,'24G').
+planted(r00502,p50002,3,toni,date(02,09,2024),time(18,45,00),full,'24G').
+
+
+
+% manually added
+%
+% Kazic, 9.9.2024
+
+planted(r00403,p00001,6,toni,date(09,09,2024),time(19,45,00),full,'24G').

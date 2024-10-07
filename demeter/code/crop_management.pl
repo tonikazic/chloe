@@ -60,6 +60,7 @@
                  monitor_progress/2,
                  order_harvest/2,
 		 prefill_mutant_table/1,
+		 prefill_mutant_table/3,
                  repack_packets/3,
                  seed_planted/3,
                  tassel_watch/2,
@@ -123,7 +124,7 @@ all_rows_accounted_for(Crop) :-
 %! generate_plant_tags_file(+Crop:atom,+GTypeFileStem:atom,+TagFileStem:atom) is semidet.
 
     
-% call is: generate_plant_tags_file('20R','fgenotype.pl','plant_list.csv').
+% call is: generate_plant_tags_file('23R','fgenotype.pl','plant_list.csv').
 
 generate_plant_tags_file(Crop,GTypeFileStem,TagFileStem) :-
         construct_crop_relative_dirs(Crop,_,MgmtDir,_),
@@ -146,14 +147,20 @@ generate_plant_tags_file(Crop,GTypeFileStem,TagFileStem) :-
 %
 % Kazic, 19.6.2014
 %
-% tentative genotype facts appended to ../data/genotype.pl with
+% tentative genotype facts appended to ../data/fgenotype.pl with
 % distinctive header and functor (fgenotype).
 %
 % Kazic, 24.7.2018
-    
+
+
+%! generate_plant_tags_file_aux(+Crop:atom,+GTypeFile:atom,-TagData:list) is semidet?
+
+% hangs loading priority_rows on trace, but file is compiled and data are present
+%
+% Kazic, 5.7.2022
 
 generate_plant_tags_file_aux(Crop,GTypeFile,TagData) :-
-        ensure_loaded(load_data:demeter_tree('data/priority_rows')),
+%        ensure_loaded(load_data:demeter_tree('data/priority_rows')),
         priority_rows(Crop,Rows),
         setof(N,M^P^MN^PN^G1^G2^G3^G4^ML^K^(genotype(N,M,MN,P,PN,G1,G2,G3,G4,ML,K), N > 999, N < 9998),Nums),
         last(Nums,LastFamilyNum),
@@ -188,6 +195,14 @@ generate_plant_tags_file_aux(Crop,GTypeFile,TagData) :-
 
 
 
+% seems it doesn't terminate unless spied on and then skipped --- why?  Then it succeeds.
+%
+% maybe a problem with the subsequent output predicates?????
+%
+% Kazic, 16.8.2021
+
+
+
 %! get_tag_data(+Crop:atom,+Rows:list,+LastFamilyNum:int,-GtypeData:list,-TagData:list) is semidet.
 
     
@@ -200,10 +215,16 @@ get_tag_data(Crop,Rows,LastFamilyNum,GtypeData,TagData) :-
 %! get_tag_data(+Crop:atom,+Rows:list,+LastFamilyNum:int,+GtypeAcc:list,
 %!                         -GtypeData:list,+TagAcc:list,-TagData:list) is semidet.
 
-    
+
+
+% need to debug this, something screwy
+%
+% Kazic, 4.7.2022
+
 get_tag_data(_,[],_,A,A,B,B).
 get_tag_data(Crop,[Row|Rows],LastFamilyNum,GtypeAcc,GtypeData,TagAcc,TagData) :-
 
+	
        ( identify_row(Crop,Row,Row-(PRow,Family,Ma,Pa,MaGma,_MaGpa,_PaGma,_PaMutant,Marker,Quasi)) ->
                get_family(Ma,MaFam),
                get_family(Pa,PaFam),
@@ -367,10 +388,72 @@ compute_genotype(ParentA,ParentB,Offspring) :-
 % an experiment --- this may speed up collecting the mutant data, but
 % worried about introducing errors in data collection.
 %
+% Note that the saved_data must be rebuilt to ensure scoring_date/6 is
+% present.
+%
+% actually, it reduced errors by minimizing manual entry ;-)
+%
 % Kazic, 17.8.2020
+%
+% Observer is omitted to exploit the Numbers drop-down menu.
+%
+% see also ../c/maize/crops/scripts/prefill_mutant_scoring_table.perl for a
+% Perl version (I forgot I had done this!).
+%
+% Kazic, 4.8.2023
+
+
+
+% ummm, want all the plants, whether or not they've been scored
+%
+% Kazic, 13.8.2023
+
+
+% call is: prefill_mutant_table('23R',131,345).
+
+
+prefill_mutant_table(Crop,StartRow,EndRow) :-
+        setof(PlainRow-(ScoringDate,ScoringTime),rows_to_collect(Crop,StartRow,EndRow,PlainRow,ScoringDate,ScoringTime),Rows),
+        prefill_mutant_data(Rows,Crop,PrefilledData),
+	build_output_filename(Crop,File),
+	output_data(File,muttable,PrefilledData).
+
+
+
+
+rows_to_collect(Crop,StartRow,EndRow,PlainRow,ScoringDate,ScoringTime) :-
+        planted(Row,Packet,_,_,_,_,_,Crop),
+	\+ ignorable_by_packetID(Packet),
+	row_status(Row,num_emerged(Num),_,_,_,_,Crop),
+        Num > 0,
+	remove_row_prefix(Row,PlainRow),
+	PlainRow >= StartRow,
+	PlainRow =< EndRow,
+        ( scoring_date(Row,_,_,ScoringDate,ScoringTime,Crop) ->
+                true
+	;
+	        ScoringDate = date(0,0,0),
+		ScoringTime = time(0,0,0)
+	).
+
+
+
+
+
+
+
+
+
+
+% get only what's been scored --- so this omits selves
+%
+% Kazic, 4.8.2023
+
+
+% call is prefill_mutant_table('23R').
 
 prefill_mutant_table(Crop) :-
-        setof(PlainRow-(Obsv,ScoringDate,ScoringTime),Row^Phe^(scoring_date(Row,Phe,Obsv,ScoringDate,ScoringTime,Crop),remove_row_prefix(Row,PlainRow)),Rows),
+        setof(PlainRow-(ScoringDate,ScoringTime),Row^Obsv^Phe^(scoring_date(Row,Obsv,Phe,ScoringDate,ScoringTime,Crop),remove_row_prefix(Row,PlainRow)),Rows),
         prefill_mutant_data(Rows,Crop,PrefilledData),
 	build_output_filename(Crop,File),
 	output_data(File,muttable,PrefilledData).
@@ -386,9 +469,9 @@ prefill_mutant_data(Rows,Crop,PrefilledData) :-
 
 
 prefill_mutant_data([],_,A,A).
-prefill_mutant_data([PlainRow-(Obsv,ScoringDate,ScoringTime)|Rows],Crop,Acc,PrefilledData) :-
+prefill_mutant_data([PlainRow-(ScoringDate,ScoringTime)|Rows],Crop,Acc,PrefilledData) :-
         ( row_members_index(Crop,PlainRow,RowMembers) ->
-	        prefill_row(RowMembers,Obsv,ScoringDate,ScoringTime,Prefilled),
+	        prefill_row(RowMembers,ScoringDate,ScoringTime,Prefilled),
 	        append(Acc,Prefilled,NewAcc)
 	;
                 format('Warning! no row_members_index/3 fact found for row ~d in crop ~w!~n',[PlainRow,Crop]),
@@ -405,9 +488,9 @@ prefill_mutant_data([PlainRow-(Obsv,ScoringDate,ScoringTime)|Rows],Crop,Acc,Pref
 % probably there is a niftier way to do this using maplist, but this instantiation should
 % still be plenty fast
 
-prefill_row([],_,_,_,[]).
-prefill_row([H|RowMembers],Obsv,ScoringDate,ScoringTime,[p(H,ScoringDate,ScoringTime,Obsv)|Prefilled]) :-
-        prefill_row(RowMembers,Obsv,ScoringDate,ScoringTime,Prefilled).
+prefill_row([],_,_,[]).
+prefill_row([H|RowMembers],ScoringDate,ScoringTime,[p(H,ScoringDate,ScoringTime)|Prefilled]) :-
+        prefill_row(RowMembers,ScoringDate,ScoringTime,Prefilled).
 
 
 
@@ -1223,6 +1306,8 @@ reindex([_-_-(Packet,Ma,Pa,ExtraCl,Row,Seq)|T],[Row-(Packet,Seq,Ma,Pa,ExtraCl)|T
 % must use track_transplants in some form as some mutants were transplanted (Gerry, Marty).
 
 
+% call is find_rows_to_score('24R','../../crops/24r/management/rows_to_score').
+
 find_rows_to_score(Crop,File) :-
         find_rows_to_score(Crop,_,File).
 
@@ -1234,21 +1319,30 @@ find_rows_to_score(Crop,File) :-
 
 % the second half finds plants in scored rows that were missed during scoring, and appends
 % these to the scoring file
+%
+% the second half only makes sense to run once we have mutant data
+%
+% Kazic, 9.7.2024
+
+
 
 find_rows_to_score(Crop,Lines,File) :-
         identify_rows(Crop,Lines),
         mutant_rows(Crop,Lines,MutantRows),
         scored_rows(Crop,Scored),
+	length(Scored,NumScored),
         subtract(MutantRows,Scored,UnScoredRows),
-        output_data(File,scor,UnScoredRows),
+	length(UnScoredRows,NumUnScored),	
+	format('~n~n~d rows scored so far~n~d rows still to score~n~n',[NumScored,NumUnScored]),
+        output_data(File,scor,UnScoredRows).
 
-        find_unscored_plants(Crop,Scored,UnScoredPlants),
-        open(File,append,Stream),
-        format(Stream,'~n~n~n************* unscored plants *************~n~n',[]),
-        length(UnScoredPlants,Num),
-        format(Stream,'% there are ~d unscored plants in the following list.~n~n~n% PlantToScore~n~n~n',[Num]),
-        write_list_facts_w_skips(Stream,UnScoredPlants),
-        close(Stream).
+%        find_unscored_plants(Crop,Scored,UnScoredPlants),
+%        open(File,append,Stream),
+%        format(Stream,'~n~n~n************* unscored plants *************~n~n',[]),
+%        length(UnScoredPlants,Num),
+%        format(Stream,'% there are ~d unscored plants in the following list.~n~n~n% Plants To Score~n~n~n',[Num]),
+%        write_list_facts_w_skips(Stream,UnScoredPlants),
+%        close(Stream).
 
 
 
@@ -1294,9 +1388,16 @@ find_unscored_plants(Crop,ScoredRows,UnScoredPlants) :-
 %
 % Kazic, 12.4.2018
 
+% revised to use the row_members_index/3 and test for input row syntax
+
 find_unscored_plants(_,[],A,A).
-find_unscored_plants(Crop,[Row|Rows],Acc,UnScoredPlants) :-
-        row_members(Crop,Row,RowMembers),
+find_unscored_plants(Crop,[InputRow|Rows],Acc,UnScoredPlants) :-
+        ( integer(InputRow) ->
+	        Row = InputRow
+	;
+	        extract_row(InputRow,Row)
+	),    
+        row_members_index(Crop,Row,RowMembers),
 
 
 % occasionally I score an inbred, especially if it has a mutant phenotype
@@ -1503,6 +1604,7 @@ count_inbred_crosses_to_do_by_male(NumInbredsNeeded,Inbreds,[PlantID|T],Acc,Inbr
         
 
 
+% warning thrown here: Singleton variable in branch: Prefix
 
 find_inbred_crosses_for_male(_,[],[]).
 find_inbred_crosses_for_male(PlantID,[Inbred|T],[Inbred-Num|T2]) :-
@@ -1613,6 +1715,7 @@ find_crossed_plants_to_photo(Date,File) :-
 
 
 
+% warning thrown here: Singleton variable in branch: ScoringDate
 
 photo_plant(Date,Plant,Row) :-
         cross(Ma,Plant,_,_,_,_,CrossDate,_),
@@ -2112,6 +2215,8 @@ check_status_aux(List,self,Plan,Status) :-
 %
 % inbred letter will be the 7th character of the plantID, starting from 0 at left
 
+
+% warning thrown here: Singleton variable in branch: Inbred
 
 check_status_aux(List,cross,Plan,Status) :-
         ( ( memberchk(Inbred,Plan) 

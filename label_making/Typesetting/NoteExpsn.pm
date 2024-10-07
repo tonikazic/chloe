@@ -81,6 +81,14 @@ sub expand_note {
                 $note =~ s/mxd\b/mixed/g;
                 $note =~ s/sl\b/stem lesions/g;
 
+                $note =~ s/\bdlr\b/drought-induced_leaf_roll/g;
+                $note =~ s/\b(lr|rl)\b/leaf_roll/g;
+                $note =~ s/\bnl\b/narrow_leaves/g;
+
+		
+
+
+		
                 $note =~ s/ n / and /g;
 #                $note =~ s/ 2 / to /g;
 
@@ -114,6 +122,7 @@ sub expand_note {
                 $note =~ s/s7\b/shorter_by_7_feet/g;
 
                 $note =~ s/anthoc*y*n*/anthocyanin/g;
+
 
                 $note =~ s/\bsm\b/small /g;
                 $note =~ s/\bexp var\b/expression variable/g;

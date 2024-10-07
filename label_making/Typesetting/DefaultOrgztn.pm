@@ -113,9 +113,13 @@ sub adjust_paths {
 	my $rel_step;
         if ( $local_dir =~ /label_making/ ) { $rel_step = "../"; }
 	elsif ($local_dir =~ /scripts/ ) { $rel_step = "../../"; }
+	elsif ($local_dir =~ /data_conversion/ ) { $rel_step = "../../"; }	
+
+
 	
-        if ( $crop =~ /${crop_re}/ ) {
-                $dir = "$rel_step" . "crops/$crop";
+        if ( $crop =~ /${crop_re}$/ ) {
+#		print "foo\n";
+                $dir = $rel_step . "crops/$crop";
                 $input_dir = "$dir/management/";
                 $tags_dir = "$dir/tags/";
                 $barcodes = "$rel_step" . "barcodes/$crop/";
@@ -126,8 +130,9 @@ sub adjust_paths {
 #
 # Kazic, 24.11.2018
 	
-        elsif ( $crop =~ /i/ ) {
-                $dir = "$rel_step" . "crops/inventory";
+        elsif ( $crop =~ /^i$/ ) {
+#		print "bar\n";		
+                $dir = $rel_step . "crops/inventory";
                 $input_dir = "$dir/management/";
                 $tags_dir = "$dir/tags/";
 #                $input_dir = "$dir/crops/inventory/management/";
@@ -136,6 +141,22 @@ sub adjust_paths {
                 }
 
 
+# added to handle the watch_list spreadsheet developped in 22r:  tracking
+# leaves that need to be photographed and males that need watching without tags
+#
+# Kazic, 8.7.2022	
+	
+
+        elsif ( $crop =~ /watch_list/ ) {
+#		print "foobar\n";		
+		($crop) = split(/::/,$crop);
+                $dir = $rel_step . "crops/$crop";
+                $input_dir = "$dir/management/";
+                $tags_dir = "$dir/tags/";
+                $barcodes = "../barcodes/$crop/";
+                }
+	
+#        print "c: $crop\nl: $local_dir\nr: $rel_step\nd: $dir\ni: $input_dir\nb: $barcodes\nt: $tags_dir\n\n";
 #        print "($dir,$input_dir,$barcodes,$tags_dir)\n";
 	
 	return ($dir,$input_dir,$barcodes,$tags_dir);
@@ -260,7 +281,7 @@ $max_row_length = 5;
 
 # @palms = ("alpha","beta","gamma","delta","epsilon","zeta");
 # @palms = ("zeta","eta","theta","dalet");
-@palms = ("zeta","eta");
+@palms = ("eta","zeta","theta","red");
 
 @cameras = ("aleph","bet","gimmel","dalet");
 
@@ -288,39 +309,74 @@ $max_row_length = 5;
 
 # onion bag :: mesh bag colors for types of ears
 
-# next year, use yellow mesh bags for S and red mesh bags for W,
-# permute onion bag colors accordingly
+# 23r, which included ears for Addie Thompson
 #
-# Kazic, 22.9.2018
+# Kazic, 30.8.2023
 
-# old
+
+# 24r, Sherry says no more purple onion bags and no Addie in 24r
+#
+# Kazic, 30.8.2024
+
+
+# @ear_order = ("@","U","S","W","M","B","F","G","H");
+@ear_order = ("@","U","S","W","M","B","D");
+
+%bags = (
+        'S' => 'green::red::Mo20W females',
+        'W' => 'red::blue::W23 females',
+        'M' => 'green::blue::M14 females',
+        'B' => 'red::yellow::B73 females',
+        'U' => 'red::red::mutant bulking',
+        '@' => 'green::yellow::back-crossed selves',
+        'D' => 'blue::blue::silly lab double or cross-row same family bulking');
+#        'F' => 'green::green::addies',
+#        'G' => 'green::green::addies',
+#        'H' => 'green::green::addies');
+
+
+
+
+
+
+# for 21r, bag selves and bulks together!  Otherwise we end up shuffling
+# corn in the seed room shelling and filing.
+#
+# Kazic, 17.4.2021
+
+
+
+
+# 22r
+#
+# Kazic, 8.9.2022
+#
+# @ear_order = ("@","U","S","W","M","B","D","P");
 #
 # %bags = (
-#         'S' => 'purple::red::Mo20W females',
-#         'W' => 'green::yellow::W23 females',
-#         'M' => 'red::red::M14 females',
-#         'B' => 'orange::red::B73 females',
-#         'U' => 'purple::yellow::mutant bulking',
-#         '@' => 'green::red::back-crossed selves',
-#         'D' => 'red::yellow::double mutants',
-#         'P' => 'green::green::fun, test, and open pollinated corn');
-
-
-# permuted for 19r
-#
-# Kazic, 11.6.2019
-
-# %bags = (
-#         'S' => 'purple::blue::Mo20W females',
-#         'W' => 'green::blue::W23 females',
-#         'M' => 'red::blue::M14 females',
-#         'B' => 'white::blue::B73 females',
-#         'U' => 'white::red::mutant bulking',
-#         '@' => 'green::red::back-crossed selves',
-#         'D' => 'red::yellow::double mutants',
+#         'S' => 'red::red::Mo20W females',
+#         'W' => 'red::blue::W23 females',
+#         'M' => 'green::red::M14 females',
+#         'B' => 'purple::yellow::B73 females',
+#         'U' => 'purple::red::mutant bulking',
+#         '@' => 'orange::red::back-crossed selves',
+#         'D' => 'orange::blue::double mutants',
 #         'P' => 'green::yellow::fun, test, and open pollinated corn');
 
 
+# proposed 21r
+#
+# Kazic, 17.4.2021
+#
+# %bags = (
+#         'S' => 'red::red::Mo20W females',
+#         'W' => 'red::blue::W23 females',
+#         'M' => 'green::red::M14 females',
+#         'B' => 'purple::yellow::B73 females',
+#         'U' => 'orange::red::mutant bulking',
+#         '@' => 'orange::red::back-crossed selves',
+#         'D' => 'orange::red::double mutants',
+#         'P' => 'green::yellow::fun, test, and open pollinated corn');
 
 # proposed 20r
 #
@@ -339,30 +395,37 @@ $max_row_length = 5;
 
 
 
-@ear_order = ("@","U","S","W","M","B","D","P");
-
-
-
-# for 21r, bag selves and bulks together!  Otherwise we end up shuffling
-# corn in the seed room shelling and filing.
+# permuted for 19r
 #
-# Kazic, 17.4.2021
+# Kazic, 11.6.2019
 
-# proposed 21r
+# %bags = (
+#         'S' => 'purple::blue::Mo20W females',
+#         'W' => 'green::blue::W23 females',
+#         'M' => 'red::blue::M14 females',
+#         'B' => 'white::blue::B73 females',
+#         'U' => 'white::red::mutant bulking',
+#         '@' => 'green::red::back-crossed selves',
+#         'D' => 'red::yellow::double mutants',
+#         'P' => 'green::yellow::fun, test, and open pollinated corn');
+
+
+# next year, use yellow mesh bags for S and red mesh bags for W,
+# permute onion bag colors accordingly
 #
-# Kazic, 17.4.2021
+# Kazic, 22.9.2018
 
-%bags = (
-        'S' => 'red::red::Mo20W females',
-        'W' => 'red::blue::W23 females',
-        'M' => 'green::red::M14 females',
-        'B' => 'purple::yellow::B73 females',
-        'U' => 'orange::red::mutant bulking',
-        '@' => 'orange::red::back-crossed selves',
-        'D' => 'orange::red::double mutants',
-        'P' => 'green::yellow::fun, test, and open pollinated corn');
-
-
+# old
+#
+# %bags = (
+#         'S' => 'purple::red::Mo20W females',
+#         'W' => 'green::yellow::W23 females',
+#         'M' => 'red::red::M14 females',
+#         'B' => 'orange::red::B73 females',
+#         'U' => 'purple::yellow::mutant bulking',
+#         '@' => 'green::red::back-crossed selves',
+#         'D' => 'red::yellow::double mutants',
+#         'P' => 'green::green::fun, test, and open pollinated corn');
 
 
 

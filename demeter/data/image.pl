@@ -784,6 +784,11 @@ image('07R0117:0087102',0402,13,stem,bet,'ambient reflected, field',james,date(1
 % by data/data_conversion/convert_image_data.perl
 % called from data/data_conversion/convert_data.perl
 
+% at least one image number,  bet/12.9/DSC_0405.NEF, is incorrect
+%
+% Kazic, 24.2.2022
+
+
 image('09R1828:0021408',0300,'t-5',middle,bet,'ambient reflected, field',clay,date(03,09,2009),time(17,03,48)).
 image('09R1828:0021401',0295,'t-5',middle,bet,'ambient reflected, field',clay,date(03,09,2009),time(16,59,56)).
 image('09R1828:0021410',0290,e0,middle,bet,'ambient reflected, field',clay,date(03,09,2009),time(16,58,43)).
@@ -1089,7 +1094,14 @@ image('09R2897:0026806',0446,e0,middle,bet,'ambient reflected, field',clay,date(
 image('09R1040:0026509',0445,e0,middle,bet,'ambient reflected, field',clay,date(12,09,2009),time(14,40,16)).
 image('09R1040:0026510',0440,e0,middle,bet,'ambient reflected, field',clay,date(12,09,2009),time(14,03,42)).
 image('09R1818:0026314',0438,'t-3',middle,bet,'ambient reflected, field',clay,date(12,09,2009),time(14,01,16)).
-image('09R1818:0026305',0433,'t-3',middle,bet,'ambient reflected, field',clay,date(12,09,2009),time(13,55,55)).
+
+% nope! this isn't that file, and 09r/bet/8.7/DSC_0433.NEF (closest match) isn't this
+% so wrong file name
+%
+% Kazic, 28.2.2022
+%
+% image('09R1818:0026305',0433,'t-3',middle,bet,'ambient reflected, field',clay,date(12,09,2009),time(13,55,55)).
+
 image('09R2578:0026102',0430,e2,middle,bet,'ambient reflected, field',clay,date(12,09,2009),time(13,52,52)).
 image('09R1539:0023606',0427,e0,middle,bet,'ambient reflected, field',clay,date(12,09,2009),time(13,51,25)).
 image('09R1539:0023603',0425,e0,middle,bet,'ambient reflected, field',clay,date(12,09,2009),time(13,48,43)).
@@ -4366,91 +4378,100 @@ image('13R4105:0010503',1780,e1,'middle',bet,'shed, new photo jig',derek,date(06
 % by data/data_conversion/convert_image_data.perl
 % called from data/data_conversion/convert_data.perl
 
-image('14R1012:0007713',2181,'t-5','middle',bet,'ex situ ambient reflected, field',avi,date(17,08,2014),time(17,24,41)).
-image('14R4079:0008309',2180,e2,'middle',bet,'ex situ ambient reflected, field',avi,date(17,08,2014),time(17,24,41)).
-image('14R1012:0007616',2179,'e-1','middle',bet,'ex situ ambient reflected, field',avi,date(17,08,2014),time(17,24,41)).
-image('14R1012:0007617',2178,'e-1','middle',bet,'ex situ ambient reflected, field',avi,date(17,08,2014),time(17,24,41)).
-image('14R4079:0008310',2177,e1,'tip',bet,'ex situ ambient reflected, field',avi,date(17,08,2014),time(17,24,41)).
-image('14R1012:0007612',2176,'e-1','middle',bet,'ex situ ambient reflected, field',avi,date(17,08,2014),time(17,24,41)).
-image('14R1012:0007613',2175,'e-1','middle',bet,'ex situ ambient reflected, field',avi,date(17,08,2014),time(17,24,41)).
-image('14R1012:0007717',2174,'e-2','tip',bet,'ex situ ambient reflected, field',avi,date(17,08,2014),time(17,24,41)).
-image('14R1012:0007707',2173,'t-5','middle',bet,'ex situ ambient reflected, field',avi,date(17,08,2014),time(17,24,41)).
-image('14R4080:0008507',2172,'e-4','middle',bet,'ex situ ambient reflected, field',avi,date(17,08,2014),time(17,24,41)).
-image('14R4079:0008308',2171,'e-1','middle',bet,'ex situ ambient reflected, field',avi,date(17,08,2014),time(17,24,41)).
-image('14R4079:0008306',2170,'e-1','middle',bet,'ex situ ambient reflected, field',avi,date(17,08,2014),time(17,24,41)).
-image('14R3571:0008616',2169,e1,'middle',bet,'ex situ ambient reflected, field',avi,date(17,08,2014),time(17,24,41)).
-image('14R4226:0009011',2168,'e-1','middle',bet,'ex situ ambient reflected, field',avi,date(17,08,2014),time(17,24,41)).
-image('14R3575:0008707',2167,'e-1','middle',bet,'ex situ ambient reflected, field',avi,date(17,08,2014),time(17,24,41)).
-image('14R3571:0008606',2166,e1,'tip',bet,'ex situ ambient reflected, field',avi,date(17,08,2014),time(17,24,41)).
-image('14R4080:0008511',2165,'e-3','tip',bet,'ex situ ambient reflected, field',avi,date(17,08,2014),time(17,24,41)).
-image('14R3571:0008613',2164,e1,'tip',bet,'ex situ ambient reflected, field',avi,date(17,08,2014),time(17,24,41)).
-image('14R1012:0007712',2163,'t-5','middle',bet,'ex situ ambient reflected, field',avi,date(17,08,2014),time(17,24,41)).
-image('14R4080:0008505',2162,'e-3','middle',bet,'ex situ ambient reflected, field',avi,date(17,08,2014),time(17,24,41)).
-image('14R3575:0008704',2161,'e-1','tip',bet,'ex situ ambient reflected, field',avi,date(17,08,2014),time(17,24,41)).
-image('14R4079:0008305',2160,e1,'tip',bet,'ex situ ambient reflected, field',avi,date(17,08,2014),time(17,24,41)).
-image('14R3561:0007206',2159,'e-2','tip',bet,'ex situ ambient reflected, field',avi,date(17,08,2014),time(17,24,41)).
-image('14R4078:0007507',2158,'e-1','tip',bet,'ex situ ambient reflected, field',avi,date(17,08,2014),time(17,24,41)).
-image('14R4077:0007406',2157,e2,'stem',bet,'ex situ ambient reflected, field',avi,date(17,08,2014),time(17,24,41)).
-image('14R3915:0007309',2156,e1,'tip',bet,'ex situ ambient reflected, field',avi,date(17,08,2014),time(17,24,41)).
-image('14R4221:0006911',2155,e2,'tip',bet,'ex situ ambient reflected, field',avi,date(17,08,2014),time(17,24,41)).
-image('14R4077:0007405',2154,e0,'tip',bet,'ex situ ambient reflected, field',avi,date(17,08,2014),time(17,24,41)).
-image('14R3915:0007311',2153,e1,'middle',bet,'ex situ ambient reflected, field',avi,date(17,08,2014),time(17,24,41)).
-image('14R4078:0007503',2152,'e-3','middle',bet,'ex situ ambient reflected, field',avi,date(17,08,2014),time(17,24,41)).
-image('14R4078:0007505',2151,e1,'middle',bet,'ex situ ambient reflected, field',avi,date(17,08,2014),time(17,24,41)).
-image('14R4078:0007511',2150,'e-3','tip',bet,'ex situ ambient reflected, field',avi,date(17,08,2014),time(17,24,41)).
-image('14R4077:0007414',2149,e1,'tip',bet,'ex situ ambient reflected, field',avi,date(17,08,2014),time(17,24,41)).
-image('14R3561:0007208',2148,'e-3','tip',bet,'ex situ ambient reflected, field',avi,date(17,08,2014),time(17,24,41)).
-image('14R4078:0007502',2147,'e-4','tip',bet,'ex situ ambient reflected, field',avi,date(17,08,2014),time(17,24,41)).
-image('14R4078:0007510',2146,'e-4','tip',bet,'ex situ ambient reflected, field',avi,date(17,08,2014),time(17,24,41)).
-image('14R4078:0007502',2145,e1,'tip',bet,'ex situ ambient reflected, field',avi,date(17,08,2014),time(17,24,41)).
-image('14R4078:0007503',2144,e1,'tip',bet,'ex situ ambient reflected, field',avi,date(17,08,2014),time(17,24,41)).
-image('14R4221:0006901',2143,e2,'tip',bet,'ex situ ambient reflected, field',avi,date(17,08,2014),time(17,24,41)).
-image('14R4078:0007505',2142,'e-3','middle',bet,'ex situ ambient reflected, field',avi,date(17,08,2014),time(17,24,41)).
-image('14R4221:0006909',2141,e1,'tip',bet,'ex situ ambient reflected, field',avi,date(17,08,2014),time(17,24,41)).
-image('14R4076:0007001',2140,'e-2','tip',bet,'ex situ ambient reflected, field',avi,date(17,08,2014),time(17,24,41)).
-image('14R4221:0006910',2139,e1,'tip',bet,'ex situ ambient reflected, field',avi,date(17,08,2014),time(17,24,41)).
-image('14R4221:0006918',2138,e2,'tip',bet,'ex situ ambient reflected, field',avi,date(17,08,2014),time(17,24,41)).
-image('14R4076:0007007',2137,e1,'tip',bet,'ex situ ambient reflected, field',avi,date(17,08,2014),time(17,24,41)).
-image('14R4076:0007010',2136,e1,'stem',bet,'ex situ ambient reflected, field',avi,date(17,08,2014),time(17,24,41)).
-image('14R3915:0007305',2135,e1,'tip',bet,'ex situ ambient reflected, field',avi,date(17,08,2014),time(17,24,41)).
-image('14R4076:0007004',2134,'e-1','tip',bet,'ex situ ambient reflected, field',avi,date(17,08,2014),time(17,24,41)).
-image('14R4221:0006915',2133,e2,'tip',bet,'ex situ ambient reflected, field',avi,date(17,08,2014),time(17,24,41)).
-image('14R4221:0006907',2132,e2,'tip',bet,'ex situ ambient reflected, field',avi,date(17,08,2014),time(17,24,41)).
-image('14R3561:0007208',2131,e1,'middle',bet,'ex situ ambient reflected, field',avi,date(17,08,2014),time(17,24,41)).
-image('14R3561:0007207',2130,'e-3','tip',bet,'ex situ ambient reflected, field',avi,date(17,08,2014),time(17,24,41)).
-image('14R4076:0007003',2129,e2,'stem',bet,'ex situ ambient reflected, field',avi,date(17,08,2014),time(17,24,41)).
-image('14R3561:0007203',2128,e2,'middle',bet,'ex situ ambient reflected, field',avi,date(17,08,2014),time(17,24,41)).
-image('14R4076:0007006',2127,e2,'tip',bet,'ex situ ambient reflected, field',avi,date(17,08,2014),time(17,24,41)).
-image('14R4221:0006904',2126,e1,'tip',bet,'ex situ ambient reflected, field',avi,date(17,08,2014),time(17,24,41)).
-image('14R3561:0007205',2125,'e-1','tip',bet,'ex situ ambient reflected, field',avi,date(17,08,2014),time(17,24,41)).
-image('14R3561:0007206',2124,e1,'tip',bet,'ex situ ambient reflected, field',avi,date(17,08,2014),time(17,24,41)).
-image('14R3561:0007209',2123,'e-3','middle',bet,'ex situ ambient reflected, field',avi,date(17,08,2014),time(17,24,41)).
-image('14R4078:0007515',2122,'e-2','tip',bet,'ex situ ambient reflected, field',avi,date(17,08,2014),time(17,24,41)).
-image('14R3561:0007210',2121,'e-2','tip',bet,'ex situ ambient reflected, field',avi,date(17,08,2014),time(17,24,41)).
-image('14R4076:0007013',2120,e0,'tip',bet,'ex situ ambient reflected, field',avi,date(17,08,2014),time(17,24,41)).
-image('14R3915:0007307',2119,e1,'tip',bet,'ex situ ambient reflected, field',avi,date(17,08,2014),time(17,24,41)).
-image('14R3915:0007304',2118,e1,'tip',bet,'ex situ ambient reflected, field',avi,date(17,08,2014),time(17,24,41)).
-image('14R3915:0007306',2117,e1,'tip',bet,'ex situ ambient reflected, field',avi,date(17,08,2014),time(17,24,41)).
-image('14R4220:0006811',2116,e2,'tip',bet,'ex situ ambient reflected, field',avi,date(17,08,2014),time(17,24,41)).
-image('14R4074:0006604',2115,'e-2','middle',bet,'ex situ ambient reflected, field',avi,date(17,08,2014),time(17,24,41)).
-image('14R4220:0006805',2114,e2,'tip',bet,'ex situ ambient reflected, field',avi,date(17,08,2014),time(17,24,41)).
-image('14R4074:0006602',2113,e0,'middle',bet,'ex situ ambient reflected, field',avi,date(17,08,2014),time(17,24,41)).
-image('14R4220:0006819',2112,e0,'tip',bet,'ex situ ambient reflected, field',avi,date(17,08,2014),time(17,24,41)).
-image('14R4074:0006606',2111,'e-1','middle',bet,'ex situ ambient reflected, field',avi,date(17,08,2014),time(17,24,41)).
-image('14R4137:0004215',2110,e1,'tip',bet,'ex situ ambient reflected, field',avi,date(17,08,2014),time(17,24,41)).
-image('14R4204:0004614',2109,'t-1','stem',bet,'ex situ ambient reflected, field',avi,date(17,08,2014),time(17,24,41)).
-image('14R4205:0004713',2108,'t-3','stem',bet,'ex situ ambient reflected, field',avi,date(17,08,2014),time(17,24,41)).
-image('14R4074:0006611',2107,e2,'tip',bet,'ex situ ambient reflected, field',avi,date(17,08,2014),time(17,24,41)).
-image('14R4074:0006613',2106,'e-2','stem',bet,'ex situ ambient reflected, field',avi,date(17,08,2014),time(17,24,41)).
-image('14R4074:0006614',2105,e0,'middle',bet,'ex situ ambient reflected, field',avi,date(17,08,2014),time(17,24,41)).
-image('14R4074:0006608',2104,e0,'middle',bet,'ex situ ambient reflected, field',avi,date(17,08,2014),time(17,24,41)).
-image('14R4220:0006812',2103,e0,'middle',bet,'ex situ ambient reflected, field',avi,date(17,08,2014),time(17,24,41)).
-image('14R4074:0006615',2102,'e-1','tip',bet,'ex situ ambient reflected, field',avi,date(17,08,2014),time(17,24,41)).
-image('14R4074:0006616',2101,'e-2','middle',bet,'ex situ ambient reflected, field',avi,date(17,08,2014),time(17,24,41)).
-image('14R4074:0006611',2100,'e-2','tip',bet,'ex situ ambient reflected, field',avi,date(17,08,2014),time(17,24,41)).
-image('14R4074:0006618',2099,e1,'tip',bet,'ex situ ambient reflected, field',avi,date(17,08,2014),time(17,24,41)).
-image('14R3742:0004917',2098,'t-2','middle',bet,'ex situ ambient reflected, field',avi,date(17,08,2014),time(17,24,41)).
-image('14R3742:0004905',2097,'t-3','middle',bet,'ex situ ambient reflected, field',avi,date(17,08,2014),time(17,24,41)).
+
+%%%%%%%%%%%%%%%%% wrong locale!  should be shed, new photo jig pretty much from here forward
+%
+% corrected locale from 'ex situ ambient reflected, field'
+% to 'shed, new photo jig'
+% after checking the images directly.
+%
+% Kazic, 18.2.2022
+
+image('14R1012:0007713',2181,'t-5','middle',bet,'shed, new photo jig',avi,date(17,08,2014),time(17,24,41)).
+image('14R4079:0008309',2180,e2,'middle',bet,'shed, new photo jig',avi,date(17,08,2014),time(17,24,41)).
+image('14R1012:0007616',2179,'e-1','middle',bet,'shed, new photo jig',avi,date(17,08,2014),time(17,24,41)).
+image('14R1012:0007617',2178,'e-1','middle',bet,'shed, new photo jig',avi,date(17,08,2014),time(17,24,41)).
+image('14R4079:0008310',2177,e1,'tip',bet,'shed, new photo jig',avi,date(17,08,2014),time(17,24,41)).
+image('14R1012:0007612',2176,'e-1','middle',bet,'shed, new photo jig',avi,date(17,08,2014),time(17,24,41)).
+image('14R1012:0007613',2175,'e-1','middle',bet,'shed, new photo jig',avi,date(17,08,2014),time(17,24,41)).
+image('14R1012:0007717',2174,'e-2','tip',bet,'shed, new photo jig',avi,date(17,08,2014),time(17,24,41)).
+image('14R1012:0007707',2173,'t-5','middle',bet,'shed, new photo jig',avi,date(17,08,2014),time(17,24,41)).
+image('14R4080:0008507',2172,'e-4','middle',bet,'shed, new photo jig',avi,date(17,08,2014),time(17,24,41)).
+image('14R4079:0008308',2171,'e-1','middle',bet,'shed, new photo jig',avi,date(17,08,2014),time(17,24,41)).
+image('14R4079:0008306',2170,'e-1','middle',bet,'shed, new photo jig',avi,date(17,08,2014),time(17,24,41)).
+image('14R3571:0008616',2169,e1,'middle',bet,'shed, new photo jig',avi,date(17,08,2014),time(17,24,41)).
+image('14R4226:0009011',2168,'e-1','middle',bet,'shed, new photo jig',avi,date(17,08,2014),time(17,24,41)).
+image('14R3575:0008707',2167,'e-1','middle',bet,'shed, new photo jig',avi,date(17,08,2014),time(17,24,41)).
+image('14R3571:0008606',2166,e1,'tip',bet,'shed, new photo jig',avi,date(17,08,2014),time(17,24,41)).
+image('14R4080:0008511',2165,'e-3','tip',bet,'shed, new photo jig',avi,date(17,08,2014),time(17,24,41)).
+image('14R3571:0008613',2164,e1,'tip',bet,'shed, new photo jig',avi,date(17,08,2014),time(17,24,41)).
+image('14R1012:0007712',2163,'t-5','middle',bet,'shed, new photo jig',avi,date(17,08,2014),time(17,24,41)).
+image('14R4080:0008505',2162,'e-3','middle',bet,'shed, new photo jig',avi,date(17,08,2014),time(17,24,41)).
+image('14R3575:0008704',2161,'e-1','tip',bet,'shed, new photo jig',avi,date(17,08,2014),time(17,24,41)).
+image('14R4079:0008305',2160,e1,'tip',bet,'shed, new photo jig',avi,date(17,08,2014),time(17,24,41)).
+image('14R3561:0007206',2159,'e-2','tip',bet,'shed, new photo jig',avi,date(17,08,2014),time(17,24,41)).
+image('14R4078:0007507',2158,'e-1','tip',bet,'shed, new photo jig',avi,date(17,08,2014),time(17,24,41)).
+image('14R4077:0007406',2157,e2,'stem',bet,'shed, new photo jig',avi,date(17,08,2014),time(17,24,41)).
+image('14R3915:0007309',2156,e1,'tip',bet,'shed, new photo jig',avi,date(17,08,2014),time(17,24,41)).
+image('14R4221:0006911',2155,e2,'tip',bet,'shed, new photo jig',avi,date(17,08,2014),time(17,24,41)).
+image('14R4077:0007405',2154,e0,'tip',bet,'shed, new photo jig',avi,date(17,08,2014),time(17,24,41)).
+image('14R3915:0007311',2153,e1,'middle',bet,'shed, new photo jig',avi,date(17,08,2014),time(17,24,41)).
+image('14R4078:0007503',2152,'e-3','middle',bet,'shed, new photo jig',avi,date(17,08,2014),time(17,24,41)).
+image('14R4078:0007505',2151,e1,'middle',bet,'shed, new photo jig',avi,date(17,08,2014),time(17,24,41)).
+image('14R4078:0007511',2150,'e-3','tip',bet,'shed, new photo jig',avi,date(17,08,2014),time(17,24,41)).
+image('14R4077:0007414',2149,e1,'tip',bet,'shed, new photo jig',avi,date(17,08,2014),time(17,24,41)).
+image('14R3561:0007208',2148,'e-3','tip',bet,'shed, new photo jig',avi,date(17,08,2014),time(17,24,41)).
+image('14R4078:0007502',2147,'e-4','tip',bet,'shed, new photo jig',avi,date(17,08,2014),time(17,24,41)).
+image('14R4078:0007510',2146,'e-4','tip',bet,'shed, new photo jig',avi,date(17,08,2014),time(17,24,41)).
+image('14R4078:0007502',2145,e1,'tip',bet,'shed, new photo jig',avi,date(17,08,2014),time(17,24,41)).
+image('14R4078:0007503',2144,e1,'tip',bet,'shed, new photo jig',avi,date(17,08,2014),time(17,24,41)).
+image('14R4221:0006901',2143,e2,'tip',bet,'shed, new photo jig',avi,date(17,08,2014),time(17,24,41)).
+image('14R4078:0007505',2142,'e-3','middle',bet,'shed, new photo jig',avi,date(17,08,2014),time(17,24,41)).
+image('14R4221:0006909',2141,e1,'tip',bet,'shed, new photo jig',avi,date(17,08,2014),time(17,24,41)).
+image('14R4076:0007001',2140,'e-2','tip',bet,'shed, new photo jig',avi,date(17,08,2014),time(17,24,41)).
+image('14R4221:0006910',2139,e1,'tip',bet,'shed, new photo jig',avi,date(17,08,2014),time(17,24,41)).
+image('14R4221:0006918',2138,e2,'tip',bet,'shed, new photo jig',avi,date(17,08,2014),time(17,24,41)).
+image('14R4076:0007007',2137,e1,'tip',bet,'shed, new photo jig',avi,date(17,08,2014),time(17,24,41)).
+image('14R4076:0007010',2136,e1,'stem',bet,'shed, new photo jig',avi,date(17,08,2014),time(17,24,41)).
+image('14R3915:0007305',2135,e1,'tip',bet,'shed, new photo jig',avi,date(17,08,2014),time(17,24,41)).
+image('14R4076:0007004',2134,'e-1','tip',bet,'shed, new photo jig',avi,date(17,08,2014),time(17,24,41)).
+image('14R4221:0006915',2133,e2,'tip',bet,'shed, new photo jig',avi,date(17,08,2014),time(17,24,41)).
+image('14R4221:0006907',2132,e2,'tip',bet,'shed, new photo jig',avi,date(17,08,2014),time(17,24,41)).
+image('14R3561:0007208',2131,e1,'middle',bet,'shed, new photo jig',avi,date(17,08,2014),time(17,24,41)).
+image('14R3561:0007207',2130,'e-3','tip',bet,'shed, new photo jig',avi,date(17,08,2014),time(17,24,41)).
+image('14R4076:0007003',2129,e2,'stem',bet,'shed, new photo jig',avi,date(17,08,2014),time(17,24,41)).
+image('14R3561:0007203',2128,e2,'middle',bet,'shed, new photo jig',avi,date(17,08,2014),time(17,24,41)).
+image('14R4076:0007006',2127,e2,'tip',bet,'shed, new photo jig',avi,date(17,08,2014),time(17,24,41)).
+image('14R4221:0006904',2126,e1,'tip',bet,'shed, new photo jig',avi,date(17,08,2014),time(17,24,41)).
+image('14R3561:0007205',2125,'e-1','tip',bet,'shed, new photo jig',avi,date(17,08,2014),time(17,24,41)).
+image('14R3561:0007206',2124,e1,'tip',bet,'shed, new photo jig',avi,date(17,08,2014),time(17,24,41)).
+image('14R3561:0007209',2123,'e-3','middle',bet,'shed, new photo jig',avi,date(17,08,2014),time(17,24,41)).
+image('14R4078:0007515',2122,'e-2','tip',bet,'shed, new photo jig',avi,date(17,08,2014),time(17,24,41)).
+image('14R3561:0007210',2121,'e-2','tip',bet,'shed, new photo jig',avi,date(17,08,2014),time(17,24,41)).
+image('14R4076:0007013',2120,e0,'tip',bet,'shed, new photo jig',avi,date(17,08,2014),time(17,24,41)).
+image('14R3915:0007307',2119,e1,'tip',bet,'shed, new photo jig',avi,date(17,08,2014),time(17,24,41)).
+image('14R3915:0007304',2118,e1,'tip',bet,'shed, new photo jig',avi,date(17,08,2014),time(17,24,41)).
+image('14R3915:0007306',2117,e1,'tip',bet,'shed, new photo jig',avi,date(17,08,2014),time(17,24,41)).
+image('14R4220:0006811',2116,e2,'tip',bet,'shed, new photo jig',avi,date(17,08,2014),time(17,24,41)).
+image('14R4074:0006604',2115,'e-2','middle',bet,'shed, new photo jig',avi,date(17,08,2014),time(17,24,41)).
+image('14R4220:0006805',2114,e2,'tip',bet,'shed, new photo jig',avi,date(17,08,2014),time(17,24,41)).
+image('14R4074:0006602',2113,e0,'middle',bet,'shed, new photo jig',avi,date(17,08,2014),time(17,24,41)).
+image('14R4220:0006819',2112,e0,'tip',bet,'shed, new photo jig',avi,date(17,08,2014),time(17,24,41)).
+image('14R4074:0006606',2111,'e-1','middle',bet,'shed, new photo jig',avi,date(17,08,2014),time(17,24,41)).
+image('14R4137:0004215',2110,e1,'tip',bet,'shed, new photo jig',avi,date(17,08,2014),time(17,24,41)).
+image('14R4204:0004614',2109,'t-1','stem',bet,'shed, new photo jig',avi,date(17,08,2014),time(17,24,41)).
+image('14R4205:0004713',2108,'t-3','stem',bet,'shed, new photo jig',avi,date(17,08,2014),time(17,24,41)).
+image('14R4074:0006611',2107,e2,'tip',bet,'shed, new photo jig',avi,date(17,08,2014),time(17,24,41)).
+image('14R4074:0006613',2106,'e-2','stem',bet,'shed, new photo jig',avi,date(17,08,2014),time(17,24,41)).
+image('14R4074:0006614',2105,e0,'middle',bet,'shed, new photo jig',avi,date(17,08,2014),time(17,24,41)).
+image('14R4074:0006608',2104,e0,'middle',bet,'shed, new photo jig',avi,date(17,08,2014),time(17,24,41)).
+image('14R4220:0006812',2103,e0,'middle',bet,'shed, new photo jig',avi,date(17,08,2014),time(17,24,41)).
+image('14R4074:0006615',2102,'e-1','tip',bet,'shed, new photo jig',avi,date(17,08,2014),time(17,24,41)).
+image('14R4074:0006616',2101,'e-2','middle',bet,'shed, new photo jig',avi,date(17,08,2014),time(17,24,41)).
+image('14R4074:0006611',2100,'e-2','tip',bet,'shed, new photo jig',avi,date(17,08,2014),time(17,24,41)).
+image('14R4074:0006618',2099,e1,'tip',bet,'shed, new photo jig',avi,date(17,08,2014),time(17,24,41)).
+image('14R3742:0004917',2098,'t-2','middle',bet,'shed, new photo jig',avi,date(17,08,2014),time(17,24,41)).
+image('14R3742:0004905',2097,'t-3','middle',bet,'shed, new photo jig',avi,date(17,08,2014),time(17,24,41)).
 
 
 
@@ -4459,38 +4480,38 @@ image('14R3742:0004905',2097,'t-3','middle',bet,'ex situ ambient reflected, fiel
 % by data/data_conversion/convert_image_data.perl
 % called from data/data_conversion/convert_data.perl
 
-image('14R3959:0010509',2213,'t-1','middle',bet,'ex situ ambient reflected, field',avi,date(18,08,2014),time(19,27,33)).
-image('14R4195:0010306',2212,e0,'middle',bet,'ex situ ambient reflected, field',avi,date(18,08,2014),time(15,33,54)).
-image('14R3962:0011206',2211,e2,'middle',bet,'ex situ ambient reflected, field',avi,date(18,08,2014),time(15,33,54)).
-image('14R3556:0010712',2210,e2,'middle',bet,'ex situ ambient reflected, field',avi,date(18,08,2014),time(15,33,54)).
-image('14R3908:0010815',2209,e1,'middle',bet,'ex situ ambient reflected, field',avi,date(18,08,2014),time(15,33,54)).
-image('14R3959:0010509',2208,e2,'middle',bet,'ex situ ambient reflected, field',avi,date(18,08,2014),time(15,33,54)).
-image('14R3590:0010209',2207,e2,'tip',bet,'ex situ ambient reflected, field',avi,date(18,08,2014),time(15,33,54)).
-image('14R4086:0010116',2206,e1,'tip',bet,'ex situ ambient reflected, field',avi,date(18,08,2014),time(15,33,54)).
-image('14R4260:0011111',2205,'t-3','stem',bet,'ex situ ambient reflected, field',avi,date(18,08,2014),time(15,33,54)).
-image('14R4259:0011001',2204,e2,'tip',bet,'ex situ ambient reflected, field',avi,date(18,08,2014),time(15,33,54)).
-image('14R3958:0010412',2203,e2,'middle',bet,'ex situ ambient reflected, field',avi,date(18,08,2014),time(15,33,54)).
-image('14R4258:0010901',2202,e2,'middle',bet,'ex situ ambient reflected, field',avi,date(18,08,2014),time(15,33,54)).
-image('14R4229:0009711',2201,e2,'stem',bet,'ex situ ambient reflected, field',avi,date(18,08,2014),time(15,33,54)).
-image('14R4227:0009211',2200,e4,'stem',bet,'ex situ ambient reflected, field',avi,date(18,08,2014),time(15,33,54)).
-image('14R4227:0009215',2199,e4,'middle',bet,'ex situ ambient reflected, field',avi,date(18,08,2014),time(15,33,54)).
-image('14R4084:0009609',2198,e0,'tip',bet,'ex situ ambient reflected, field',avi,date(18,08,2014),time(17,49,56)).
-image('14R4082:0009117',2197,e4,'middle',bet,'ex situ ambient reflected, field',avi,date(18,08,2014),time(17,49,56)).
-image('14R4228:0009404',2196,e2,'middle',bet,'ex situ ambient reflected, field',avi,date(18,08,2014),time(17,49,56)).
-image('14R4082:0009103',2195,e2,'tip',bet,'ex situ ambient reflected, field',avi,date(18,08,2014),time(17,49,56)).
-image('14R3946:0009904',2194,e0,'middle',bet,'ex situ ambient reflected, field',avi,date(18,08,2014),time(17,49,56)).
-image('14R4227:0009211',2193,e4,'stem',bet,'ex situ ambient reflected, field',avi,date(18,08,2014),time(17,49,56)).
-image('14R4229:0009708',2192,e2,'stem',bet,'ex situ ambient reflected, field',avi,date(18,08,2014),time(17,49,56)).
-image('14R4082:0009101',2191,e1,'middle',bet,'ex situ ambient reflected, field',avi,date(18,08,2014),time(17,49,56)).
-image('14R4082:0009111',2190,'t-5','middle',bet,'ex situ ambient reflected, field',avi,date(18,08,2014),time(17,49,56)).
-image('14R3943:0009801',2189,e2,'tip',bet,'ex situ ambient reflected, field',avi,date(18,08,2014),time(17,49,56)).
-image('14R4082:0009109',2188,'t-5','tip',bet,'ex situ ambient reflected, field',avi,date(18,08,2014),time(15,33,54)).
-image('14R3584:0009506',2187,e2,'tip',bet,'ex situ ambient reflected, field',avi,date(18,08,2014),time(15,33,54)).
-image('14R4082:0009105',2186,e1,'middle',bet,'ex situ ambient reflected, field',avi,date(18,08,2014),time(15,33,54)).
-image('14R4083:0009307',2185,e2,'tip',bet,'ex situ ambient reflected, field',avi,date(18,08,2014),time(15,33,54)).
-image('14R4082:0009110',2184,e4,'middle',bet,'ex situ ambient reflected, field',avi,date(18,08,2014),time(15,33,54)).
-image('14R4085:0010011',2183,e2,'tip',bet,'ex situ ambient reflected, field',avi,date(18,08,2014),time(15,33,54)).
-image('14R4082:0009102',2182,e1,'tip',bet,'ex situ ambient reflected, field',avi,date(18,08,2014),time(17,17,12)).
+image('14R3959:0010509',2213,'t-1','middle',bet,'shed, new photo jig',avi,date(18,08,2014),time(19,27,33)).
+image('14R4195:0010306',2212,e0,'middle',bet,'shed, new photo jig',avi,date(18,08,2014),time(15,33,54)).
+image('14R3962:0011206',2211,e2,'middle',bet,'shed, new photo jig',avi,date(18,08,2014),time(15,33,54)).
+image('14R3556:0010712',2210,e2,'middle',bet,'shed, new photo jig',avi,date(18,08,2014),time(15,33,54)).
+image('14R3908:0010815',2209,e1,'middle',bet,'shed, new photo jig',avi,date(18,08,2014),time(15,33,54)).
+image('14R3959:0010509',2208,e2,'middle',bet,'shed, new photo jig',avi,date(18,08,2014),time(15,33,54)).
+image('14R3590:0010209',2207,e2,'tip',bet,'shed, new photo jig',avi,date(18,08,2014),time(15,33,54)).
+image('14R4086:0010116',2206,e1,'tip',bet,'shed, new photo jig',avi,date(18,08,2014),time(15,33,54)).
+image('14R4260:0011111',2205,'t-3','stem',bet,'shed, new photo jig',avi,date(18,08,2014),time(15,33,54)).
+image('14R4259:0011001',2204,e2,'tip',bet,'shed, new photo jig',avi,date(18,08,2014),time(15,33,54)).
+image('14R3958:0010412',2203,e2,'middle',bet,'shed, new photo jig',avi,date(18,08,2014),time(15,33,54)).
+image('14R4258:0010901',2202,e2,'middle',bet,'shed, new photo jig',avi,date(18,08,2014),time(15,33,54)).
+image('14R4229:0009711',2201,e2,'stem',bet,'shed, new photo jig',avi,date(18,08,2014),time(15,33,54)).
+image('14R4227:0009211',2200,e4,'stem',bet,'shed, new photo jig',avi,date(18,08,2014),time(15,33,54)).
+image('14R4227:0009215',2199,e4,'middle',bet,'shed, new photo jig',avi,date(18,08,2014),time(15,33,54)).
+image('14R4084:0009609',2198,e0,'tip',bet,'shed, new photo jig',avi,date(18,08,2014),time(17,49,56)).
+image('14R4082:0009117',2197,e4,'middle',bet,'shed, new photo jig',avi,date(18,08,2014),time(17,49,56)).
+image('14R4228:0009404',2196,e2,'middle',bet,'shed, new photo jig',avi,date(18,08,2014),time(17,49,56)).
+image('14R4082:0009103',2195,e2,'tip',bet,'shed, new photo jig',avi,date(18,08,2014),time(17,49,56)).
+image('14R3946:0009904',2194,e0,'middle',bet,'shed, new photo jig',avi,date(18,08,2014),time(17,49,56)).
+image('14R4227:0009211',2193,e4,'stem',bet,'shed, new photo jig',avi,date(18,08,2014),time(17,49,56)).
+image('14R4229:0009708',2192,e2,'stem',bet,'shed, new photo jig',avi,date(18,08,2014),time(17,49,56)).
+image('14R4082:0009101',2191,e1,'middle',bet,'shed, new photo jig',avi,date(18,08,2014),time(17,49,56)).
+image('14R4082:0009111',2190,'t-5','middle',bet,'shed, new photo jig',avi,date(18,08,2014),time(17,49,56)).
+image('14R3943:0009801',2189,e2,'tip',bet,'shed, new photo jig',avi,date(18,08,2014),time(17,49,56)).
+image('14R4082:0009109',2188,'t-5','tip',bet,'shed, new photo jig',avi,date(18,08,2014),time(15,33,54)).
+image('14R3584:0009506',2187,e2,'tip',bet,'shed, new photo jig',avi,date(18,08,2014),time(15,33,54)).
+image('14R4082:0009105',2186,e1,'middle',bet,'shed, new photo jig',avi,date(18,08,2014),time(15,33,54)).
+image('14R4083:0009307',2185,e2,'tip',bet,'shed, new photo jig',avi,date(18,08,2014),time(15,33,54)).
+image('14R4082:0009110',2184,e4,'middle',bet,'shed, new photo jig',avi,date(18,08,2014),time(15,33,54)).
+image('14R4085:0010011',2183,e2,'tip',bet,'shed, new photo jig',avi,date(18,08,2014),time(15,33,54)).
+image('14R4082:0009102',2182,e1,'tip',bet,'shed, new photo jig',avi,date(18,08,2014),time(17,17,12)).
 
 
 
@@ -4499,32 +4520,32 @@ image('14R4082:0009102',2182,e1,'tip',bet,'ex situ ambient reflected, field',avi
 % by data/data_conversion/convert_image_data.perl
 % called from data/data_conversion/convert_data.perl
 
-image('14R4263:0012810',2239,'t-3','middle',bet,'ex situ ambient reflected, field',avi,date(20,08,2014),time(19,46,25)).
-image('14R3647:0014316',2238,e1,'tip',bet,'ex situ ambient reflected, field',avi,date(20,08,2014),time(19,44,15)).
-image('14R4090:0011711',2237,'e-1','middle',bet,'ex situ ambient reflected, field',avi,date(20,08,2014),time(19,41,12)).
-image('14R3983:0012115',2236,e0,'middle',bet,'ex situ ambient reflected, field',avi,date(20,08,2014),time(19,39,01)).
-image('14R4012:0013317',2235,'t-2','middle',bet,'ex situ ambient reflected, field',avi,date(20,08,2014),time(19,36,51)).
-image('14R3966:0011503',2234,e2,'middle',bet,'ex situ ambient reflected, field',avi,date(20,08,2014),time(19,35,00)).
-image('14R4091:0011806',2233,e3,'middle',bet,'ex situ ambient reflected, field',avi,date(20,08,2014),time(19,31,53)).
-image('14R4261:0012412',2232,e1,'stem',bet,'ex situ ambient reflected, field',avi,date(20,08,2014),time(19,28,32)).
-image('14R3460:0014112',2231,e1,'tip',bet,'ex situ ambient reflected, field',avi,date(20,08,2014),time(19,25,44)).
-image('14R4089:0011616',2230,'t-3','stem',bet,'ex situ ambient reflected, field',avi,date(20,08,2014),time(19,23,49)).
-image('14R4262:0012509',2229,e3,'middle',bet,'ex situ ambient reflected, field',avi,date(20,08,2014),time(19,21,50)).
-image('14R4095:0013111',2228,'t-2','middle',bet,'ex situ ambient reflected, field',avi,date(20,08,2014),time(19,20,31)).
-image('14R3647:0014316',2227,e1,'tip',bet,'ex situ ambient reflected, field',avi,date(20,08,2014),time(19,19,10)).
-image('14R4088:0011401',2226,'t-5','stem',bet,'ex situ ambient reflected, field',avi,date(20,08,2014),time(19,15,18)).
-image('14R4094:0012606',2225,e3,'middle',bet,'ex situ ambient reflected, field',avi,date(20,08,2014),time(19,13,39)).
-image('14R4100:0014205',2224,'e-3','middle',bet,'ex situ ambient reflected, field',avi,date(20,08,2014),time(19,11,22)).
-image('14R4100:0014210',2223,'e-4','middle',bet,'ex situ ambient reflected, field',avi,date(20,08,2014),time(19,09,12)).
-image('14R4000:0012902',2222,'t-3','middle',bet,'ex situ ambient reflected, field',avi,date(20,08,2014),time(19,07,21)).
-image('14R4002:0013012',2221,e1,'middle',bet,'ex situ ambient reflected, field',avi,date(20,08,2014),time(19,05,35)).
-image('14R4264:0013209',2220,'t-1','stem',bet,'ex situ ambient reflected, field',avi,date(20,08,2014),time(19,04,00)).
-image('14R3616:0012311',2219,e3,'middle',bet,'ex situ ambient reflected, field',avi,date(20,08,2014),time(19,02,11)).
-image('14R3995:0012708',2218,e3,'tip',bet,'ex situ ambient reflected, field',avi,date(20,08,2014),time(18,59,13)).
-image('14R4100:0014210',2217,'e-4','stem',bet,'ex situ ambient reflected, field',avi,date(20,08,2014),time(18,56,04)).
-image('14R3460:0014103',2216,e1,'tip',bet,'ex situ ambient reflected, field',avi,date(20,08,2014),time(18,53,39)).
-image('14R3975:0011906',2215,e2,'tip',bet,'ex situ ambient reflected, field',avi,date(20,08,2014),time(18,51,15)).
-image('14R4023:0014009',2214,'t-3','stem',bet,'ex situ ambient reflected, field',avi,date(20,08,2014),time(18,49,31)).
+image('14R4263:0012810',2239,'t-3','middle',bet,'shed, new photo jig',avi,date(20,08,2014),time(19,46,25)).
+image('14R3647:0014316',2238,e1,'tip',bet,'shed, new photo jig',avi,date(20,08,2014),time(19,44,15)).
+image('14R4090:0011711',2237,'e-1','middle',bet,'shed, new photo jig',avi,date(20,08,2014),time(19,41,12)).
+image('14R3983:0012115',2236,e0,'middle',bet,'shed, new photo jig',avi,date(20,08,2014),time(19,39,01)).
+image('14R4012:0013317',2235,'t-2','middle',bet,'shed, new photo jig',avi,date(20,08,2014),time(19,36,51)).
+image('14R3966:0011503',2234,e2,'middle',bet,'shed, new photo jig',avi,date(20,08,2014),time(19,35,00)).
+image('14R4091:0011806',2233,e3,'middle',bet,'shed, new photo jig',avi,date(20,08,2014),time(19,31,53)).
+image('14R4261:0012412',2232,e1,'stem',bet,'shed, new photo jig',avi,date(20,08,2014),time(19,28,32)).
+image('14R3460:0014112',2231,e1,'tip',bet,'shed, new photo jig',avi,date(20,08,2014),time(19,25,44)).
+image('14R4089:0011616',2230,'t-3','stem',bet,'shed, new photo jig',avi,date(20,08,2014),time(19,23,49)).
+image('14R4262:0012509',2229,e3,'middle',bet,'shed, new photo jig',avi,date(20,08,2014),time(19,21,50)).
+image('14R4095:0013111',2228,'t-2','middle',bet,'shed, new photo jig',avi,date(20,08,2014),time(19,20,31)).
+image('14R3647:0014316',2227,e1,'tip',bet,'shed, new photo jig',avi,date(20,08,2014),time(19,19,10)).
+image('14R4088:0011401',2226,'t-5','stem',bet,'shed, new photo jig',avi,date(20,08,2014),time(19,15,18)).
+image('14R4094:0012606',2225,e3,'middle',bet,'shed, new photo jig',avi,date(20,08,2014),time(19,13,39)).
+image('14R4100:0014205',2224,'e-3','middle',bet,'shed, new photo jig',avi,date(20,08,2014),time(19,11,22)).
+image('14R4100:0014210',2223,'e-4','middle',bet,'shed, new photo jig',avi,date(20,08,2014),time(19,09,12)).
+image('14R4000:0012902',2222,'t-3','middle',bet,'shed, new photo jig',avi,date(20,08,2014),time(19,07,21)).
+image('14R4002:0013012',2221,e1,'middle',bet,'shed, new photo jig',avi,date(20,08,2014),time(19,05,35)).
+image('14R4264:0013209',2220,'t-1','stem',bet,'shed, new photo jig',avi,date(20,08,2014),time(19,04,00)).
+image('14R3616:0012311',2219,e3,'middle',bet,'shed, new photo jig',avi,date(20,08,2014),time(19,02,11)).
+image('14R3995:0012708',2218,e3,'tip',bet,'shed, new photo jig',avi,date(20,08,2014),time(18,59,13)).
+image('14R4100:0014210',2217,'e-4','stem',bet,'shed, new photo jig',avi,date(20,08,2014),time(18,56,04)).
+image('14R3460:0014103',2216,e1,'tip',bet,'shed, new photo jig',avi,date(20,08,2014),time(18,53,39)).
+image('14R3975:0011906',2215,e2,'tip',bet,'shed, new photo jig',avi,date(20,08,2014),time(18,51,15)).
+image('14R4023:0014009',2214,'t-3','stem',bet,'shed, new photo jig',avi,date(20,08,2014),time(18,49,31)).
 
 
 
@@ -4534,67 +4555,67 @@ image('14R4023:0014009',2214,'t-3','stem',bet,'ex situ ambient reflected, field'
 % called from data/data_conversion/convert_data.perl
 
 
-image('14R4253:0019013',2300,e2,'middle',bet,'ex situ ambient reflected, field',avi,date(22,08,2014),time(21,57,57)).
-image('14R4249:0018609',2299,e2,'tip',bet,'ex situ ambient reflected, field',avi,date(22,08,2014),time(21,56,26)).
-image('14R4251:0018809',2298,'t-2','middle',bet,'ex situ ambient reflected, field',avi,date(22,08,2014),time(21,55,11)).
-image('14R4248:0018506',2297,e2,'tip',bet,'ex situ ambient reflected, field',avi,date(22,08,2014),time(21,53,42)).
-image('14R4245:0018208',2296,'t-2','stem',bet,'ex situ ambient reflected, field',avi,date(22,08,2014),time(21,51,58)).
-image('14R4236:0017202',2295,t0,'whole',bet,'ex situ ambient reflected, field',avi,date(22,08,2014),time(21,50,28)).
-image('14R4253:0019009',2294,e2,'middle',bet,'ex situ ambient reflected, field',avi,date(22,08,2014),time(21,48,40)).
-image('14R4249:0018605',2293,'e-2','stem',bet,'ex situ ambient reflected, field',avi,date(22,08,2014),time(21,47,25)).
-image('14R4252:0018906',2292,e2,'middle',bet,'ex situ ambient reflected, field',avi,date(22,08,2014),time(21,44,32)).
-image('14R4247:0018414',2291,e2,'middle',bet,'ex situ ambient reflected, field',avi,date(22,08,2014),time(21,42,55)).
-image('14R4013:0013402',2290,'t-2','stem',bet,'ex situ ambient reflected, field',avi,date(22,08,2014),time(21,41,21)).
-image('14R4102:0015305',2289,e3,'middle',bet,'ex situ ambient reflected, field',avi,date(22,08,2014),time(21,39,40)).
-image('14R4013:0013410',2288,'t-2','stem',bet,'ex situ ambient reflected, field',avi,date(22,08,2014),time(21,38,15)).
-image('14R4268:0014904',2287,'t-2','stem',bet,'ex situ ambient reflected, field',avi,date(22,08,2014),time(21,35,44)).
-image('14R4023:0014009',2286,'t-3','stem',bet,'ex situ ambient reflected, field',avi,date(22,08,2014),time(21,34,13)).
-image('14R4096:0013501',2285,'t-1','stem',bet,'ex situ ambient reflected, field',avi,date(22,08,2014),time(21,33,05)).
-image('14R4124:0016902',2284,'t-3','stem',bet,'ex situ ambient reflected, field',avi,date(22,08,2014),time(21,31,36)).
-image('14R4096:0013506',2283,e2,'stem',bet,'ex situ ambient reflected, field',avi,date(22,08,2014),time(21,29,57)).
-image('14R4265:0013606',2282,'t-3','stem',bet,'ex situ ambient reflected, field',avi,date(22,08,2014),time(21,28,49)).
-image('14R4097:0013705',2281,e1,'middle',bet,'ex situ ambient reflected, field',avi,date(22,08,2014),time(21,26,41)).
-image('14R4013:0013416',2280,'t-2','middle',bet,'ex situ ambient reflected, field',avi,date(22,08,2014),time(21,25,10)).
-image('14R4270:0015106',2279,e2,'tip',bet,'ex situ ambient reflected, field',avi,date(22,08,2014),time(21,23,36)).
-image('14R3701:0015209',2278,e2,'middle',bet,'ex situ ambient reflected, field',avi,date(22,08,2014),time(21,22,06)).
-image('14R4247:0018409',2277,'t-1','middle',bet,'ex situ ambient reflected, field',avi,date(22,08,2014),time(21,20,35)).
-image('14R4097:0013717',2276,e1,'tip',bet,'ex situ ambient reflected, field',avi,date(22,08,2014),time(21,18,17)).
-image('14R4251:0018805',2275,'t-2','middle',bet,'ex situ ambient reflected, field',avi,date(22,08,2014),time(21,16,15)).
-image('14R4269:0015007',2274,e2,'tip',bet,'ex situ ambient reflected, field',avi,date(22,08,2014),time(21,14,17)).
-image('14R4253:0019006',2273,e0,'middle',bet,'ex situ ambient reflected, field',avi,date(22,08,2014),time(21,12,08)).
-image('14R4098:0013801',2272,e4,'middle',bet,'ex situ ambient reflected, field',avi,date(22,08,2014),time(21,09,11)).
-image('14R4038:0014706',2271,e2,'tip',bet,'ex situ ambient reflected, field',avi,date(22,08,2014),time(21,07,04)).
-image('14R4102:0015302',2270,e3,'middle',bet,'ex situ ambient reflected, field',avi,date(22,08,2014),time(21,05,15)).
-image('14R4098:0013809',2269,'t-2','stem',bet,'ex situ ambient reflected, field',avi,date(22,08,2014),time(21,02,12)).
-image('14R3460:0014112',2268,e0,'middle',bet,'ex situ ambient reflected, field',avi,date(22,08,2014),time(21,00,20)).
-image('14R3460:0014103',2267,e0,'middle',bet,'ex situ ambient reflected, field',avi,date(22,08,2014),time(20,58,20)).
-image('14R4268:0014901',2266,'t-2','middle',bet,'ex situ ambient reflected, field',avi,date(22,08,2014),time(20,56,04)).
-image('14R4038:0014713',2265,e2,'middle',bet,'ex situ ambient reflected, field',avi,date(22,08,2014),time(20,54,45)).
-image('14R4099:0013914',2264,e3,'middle',bet,'ex situ ambient reflected, field',avi,date(22,08,2014),time(20,53,05)).
-image('14R3656:0014811',2263,e1,'middle',bet,'ex situ ambient reflected, field',avi,date(22,08,2014),time(20,51,17)).
-image('14R4036:0014408',2262,e3,'tip',bet,'ex situ ambient reflected, field',avi,date(22,08,2014),time(20,48,55)).
-image('14R4243:0018001',2261,'t-3','middle',bet,'ex situ ambient reflected, field',avi,date(22,08,2014),time(20,47,17)).
-image('14R4233:0016808',2260,e2,'tip',bet,'ex situ ambient reflected, field',avi,date(22,08,2014),time(20,46,03)).
-image('14R4267:0014611',2259,'e-2','middle',bet,'ex situ ambient reflected, field',avi,date(22,08,2014),time(20,44,59)).
-image('14R4124:0016907',2258,'t-3','middle',bet,'ex situ ambient reflected, field',avi,date(22,08,2014),time(20,43,24)).
-image('14R4232:0016704',2257,e3,'tip',bet,'ex situ ambient reflected, field',avi,date(22,08,2014),time(20,42,22)).
-image('14R4237:0017302',2256,e2,'middle',bet,'ex situ ambient reflected, field',avi,date(22,08,2014),time(20,40,40)).
-image('14R4232:0016701',2255,e2,'middle',bet,'ex situ ambient reflected, field',avi,date(22,08,2014),time(20,38,42)).
-image('14R4236:0017206',2254,e2,'tip',bet,'ex situ ambient reflected, field',avi,date(22,08,2014),time(20,36,30)).
-image('14R4243:0018003',2253,e2,'tip',bet,'ex situ ambient reflected, field',avi,date(22,08,2014),time(20,33,09)).
-image('14R4126:0017701',2252,e2,'middle',bet,'ex situ ambient reflected, field',avi,date(22,08,2014),time(20,31,22)).
-image('14R4236:0017207',2251,e2,'tip',bet,'ex situ ambient reflected, field',avi,date(22,08,2014),time(20,29,03)).
-image('14R4241:0017803',2250,e2,'middle',bet,'ex situ ambient reflected, field',avi,date(22,08,2014),time(20,27,02)).
-image('14R4243:0018004',2249,e2,'tip',bet,'ex situ ambient reflected, field',avi,date(22,08,2014),time(20,25,18)).
-image('14R4244:0018105',2248,'t-2','tip',bet,'ex situ ambient reflected, field',avi,date(22,08,2014),time(20,23,39)).
-image('14R4237:0017306',2247,'t-2','stem',bet,'ex situ ambient reflected, field',avi,date(22,08,2014),time(20,21,57)).
-image('14R3656:0014806',2246,e1,'middle',bet,'ex situ ambient reflected, field',avi,date(22,08,2014),time(20,19,41)).
-image('14R4242:0017910',2245,'t-1','stem',bet,'ex situ ambient reflected, field',avi,date(22,08,2014),time(20,17,17)).
-image('14R4237:0017312',2244,'t-3','stem',bet,'ex situ ambient reflected, field',avi,date(22,08,2014),time(20,15,30)).
-image('14R4236:0017204',2243,'t-1','stem',bet,'ex situ ambient reflected, field',avi,date(22,08,2014),time(20,14,02)).
-image('14R4124:0016906',2242,'t-3','tip',bet,'ex situ ambient reflected, field',avi,date(22,08,2014),time(20,12,17)).
-image('14R4240:0017606',2241,'t-1','stem',bet,'ex situ ambient reflected, field',avi,date(22,08,2014),time(20,11,03)).
-image('14R4240:0017605',2240,'t-1','stem',bet,'ex situ ambient reflected, field',avi,date(22,08,2014),time(20,09,00)).
+image('14R4253:0019013',2300,e2,'middle',bet,'shed, new photo jig',avi,date(22,08,2014),time(21,57,57)).
+image('14R4249:0018609',2299,e2,'tip',bet,'shed, new photo jig',avi,date(22,08,2014),time(21,56,26)).
+image('14R4251:0018809',2298,'t-2','middle',bet,'shed, new photo jig',avi,date(22,08,2014),time(21,55,11)).
+image('14R4248:0018506',2297,e2,'tip',bet,'shed, new photo jig',avi,date(22,08,2014),time(21,53,42)).
+image('14R4245:0018208',2296,'t-2','stem',bet,'shed, new photo jig',avi,date(22,08,2014),time(21,51,58)).
+image('14R4236:0017202',2295,t0,'whole',bet,'shed, new photo jig',avi,date(22,08,2014),time(21,50,28)).
+image('14R4253:0019009',2294,e2,'middle',bet,'shed, new photo jig',avi,date(22,08,2014),time(21,48,40)).
+image('14R4249:0018605',2293,'e-2','stem',bet,'shed, new photo jig',avi,date(22,08,2014),time(21,47,25)).
+image('14R4252:0018906',2292,e2,'middle',bet,'shed, new photo jig',avi,date(22,08,2014),time(21,44,32)).
+image('14R4247:0018414',2291,e2,'middle',bet,'shed, new photo jig',avi,date(22,08,2014),time(21,42,55)).
+image('14R4013:0013402',2290,'t-2','stem',bet,'shed, new photo jig',avi,date(22,08,2014),time(21,41,21)).
+image('14R4102:0015305',2289,e3,'middle',bet,'shed, new photo jig',avi,date(22,08,2014),time(21,39,40)).
+image('14R4013:0013410',2288,'t-2','stem',bet,'shed, new photo jig',avi,date(22,08,2014),time(21,38,15)).
+image('14R4268:0014904',2287,'t-2','stem',bet,'shed, new photo jig',avi,date(22,08,2014),time(21,35,44)).
+image('14R4023:0014009',2286,'t-3','stem',bet,'shed, new photo jig',avi,date(22,08,2014),time(21,34,13)).
+image('14R4096:0013501',2285,'t-1','stem',bet,'shed, new photo jig',avi,date(22,08,2014),time(21,33,05)).
+image('14R4124:0016902',2284,'t-3','stem',bet,'shed, new photo jig',avi,date(22,08,2014),time(21,31,36)).
+image('14R4096:0013506',2283,e2,'stem',bet,'shed, new photo jig',avi,date(22,08,2014),time(21,29,57)).
+image('14R4265:0013606',2282,'t-3','stem',bet,'shed, new photo jig',avi,date(22,08,2014),time(21,28,49)).
+image('14R4097:0013705',2281,e1,'middle',bet,'shed, new photo jig',avi,date(22,08,2014),time(21,26,41)).
+image('14R4013:0013416',2280,'t-2','middle',bet,'shed, new photo jig',avi,date(22,08,2014),time(21,25,10)).
+image('14R4270:0015106',2279,e2,'tip',bet,'shed, new photo jig',avi,date(22,08,2014),time(21,23,36)).
+image('14R3701:0015209',2278,e2,'middle',bet,'shed, new photo jig',avi,date(22,08,2014),time(21,22,06)).
+image('14R4247:0018409',2277,'t-1','middle',bet,'shed, new photo jig',avi,date(22,08,2014),time(21,20,35)).
+image('14R4097:0013717',2276,e1,'tip',bet,'shed, new photo jig',avi,date(22,08,2014),time(21,18,17)).
+image('14R4251:0018805',2275,'t-2','middle',bet,'shed, new photo jig',avi,date(22,08,2014),time(21,16,15)).
+image('14R4269:0015007',2274,e2,'tip',bet,'shed, new photo jig',avi,date(22,08,2014),time(21,14,17)).
+image('14R4253:0019006',2273,e0,'middle',bet,'shed, new photo jig',avi,date(22,08,2014),time(21,12,08)).
+image('14R4098:0013801',2272,e4,'middle',bet,'shed, new photo jig',avi,date(22,08,2014),time(21,09,11)).
+image('14R4038:0014706',2271,e2,'tip',bet,'shed, new photo jig',avi,date(22,08,2014),time(21,07,04)).
+image('14R4102:0015302',2270,e3,'middle',bet,'shed, new photo jig',avi,date(22,08,2014),time(21,05,15)).
+image('14R4098:0013809',2269,'t-2','stem',bet,'shed, new photo jig',avi,date(22,08,2014),time(21,02,12)).
+image('14R3460:0014112',2268,e0,'middle',bet,'shed, new photo jig',avi,date(22,08,2014),time(21,00,20)).
+image('14R3460:0014103',2267,e0,'middle',bet,'shed, new photo jig',avi,date(22,08,2014),time(20,58,20)).
+image('14R4268:0014901',2266,'t-2','middle',bet,'shed, new photo jig',avi,date(22,08,2014),time(20,56,04)).
+image('14R4038:0014713',2265,e2,'middle',bet,'shed, new photo jig',avi,date(22,08,2014),time(20,54,45)).
+image('14R4099:0013914',2264,e3,'middle',bet,'shed, new photo jig',avi,date(22,08,2014),time(20,53,05)).
+image('14R3656:0014811',2263,e1,'middle',bet,'shed, new photo jig',avi,date(22,08,2014),time(20,51,17)).
+image('14R4036:0014408',2262,e3,'tip',bet,'shed, new photo jig',avi,date(22,08,2014),time(20,48,55)).
+image('14R4243:0018001',2261,'t-3','middle',bet,'shed, new photo jig',avi,date(22,08,2014),time(20,47,17)).
+image('14R4233:0016808',2260,e2,'tip',bet,'shed, new photo jig',avi,date(22,08,2014),time(20,46,03)).
+image('14R4267:0014611',2259,'e-2','middle',bet,'shed, new photo jig',avi,date(22,08,2014),time(20,44,59)).
+image('14R4124:0016907',2258,'t-3','middle',bet,'shed, new photo jig',avi,date(22,08,2014),time(20,43,24)).
+image('14R4232:0016704',2257,e3,'tip',bet,'shed, new photo jig',avi,date(22,08,2014),time(20,42,22)).
+image('14R4237:0017302',2256,e2,'middle',bet,'shed, new photo jig',avi,date(22,08,2014),time(20,40,40)).
+image('14R4232:0016701',2255,e2,'middle',bet,'shed, new photo jig',avi,date(22,08,2014),time(20,38,42)).
+image('14R4236:0017206',2254,e2,'tip',bet,'shed, new photo jig',avi,date(22,08,2014),time(20,36,30)).
+image('14R4243:0018003',2253,e2,'tip',bet,'shed, new photo jig',avi,date(22,08,2014),time(20,33,09)).
+image('14R4126:0017701',2252,e2,'middle',bet,'shed, new photo jig',avi,date(22,08,2014),time(20,31,22)).
+image('14R4236:0017207',2251,e2,'tip',bet,'shed, new photo jig',avi,date(22,08,2014),time(20,29,03)).
+image('14R4241:0017803',2250,e2,'middle',bet,'shed, new photo jig',avi,date(22,08,2014),time(20,27,02)).
+image('14R4243:0018004',2249,e2,'tip',bet,'shed, new photo jig',avi,date(22,08,2014),time(20,25,18)).
+image('14R4244:0018105',2248,'t-2','tip',bet,'shed, new photo jig',avi,date(22,08,2014),time(20,23,39)).
+image('14R4237:0017306',2247,'t-2','stem',bet,'shed, new photo jig',avi,date(22,08,2014),time(20,21,57)).
+image('14R3656:0014806',2246,e1,'middle',bet,'shed, new photo jig',avi,date(22,08,2014),time(20,19,41)).
+image('14R4242:0017910',2245,'t-1','stem',bet,'shed, new photo jig',avi,date(22,08,2014),time(20,17,17)).
+image('14R4237:0017312',2244,'t-3','stem',bet,'shed, new photo jig',avi,date(22,08,2014),time(20,15,30)).
+image('14R4236:0017204',2243,'t-1','stem',bet,'shed, new photo jig',avi,date(22,08,2014),time(20,14,02)).
+image('14R4124:0016906',2242,'t-3','tip',bet,'shed, new photo jig',avi,date(22,08,2014),time(20,12,17)).
+image('14R4240:0017606',2241,'t-1','stem',bet,'shed, new photo jig',avi,date(22,08,2014),time(20,11,03)).
+image('14R4240:0017605',2240,'t-1','stem',bet,'shed, new photo jig',avi,date(22,08,2014),time(20,09,00)).
 
 
 
@@ -4604,121 +4625,121 @@ image('14R4240:0017605',2240,'t-1','stem',bet,'ex situ ambient reflected, field'
 % called from data/data_conversion/convert_data.perl
 
 
-image('14R4310:0026411',2415,e3,'middle',bet,'ex situ ambient reflected, field',avi,date(23,08,2014),time(15,03,22)).
-image('14R4166:0023707',2414,e2,'stem',bet,'ex situ ambient reflected, field',avi,date(23,08,2014),time(15,02,06)).
-image('14R4292:0022802',2413,'e-4','tip',bet,'ex situ ambient reflected, field',avi,date(23,08,2014),time(15,00,32)).
-image('14R4166:0023701',2412,e2,'tip',bet,'ex situ ambient reflected, field',avi,date(23,08,2014),time(14,59,14)).
-image('14R4292:0022812',2411,'e-4','middle',bet,'ex situ ambient reflected, field',avi,date(23,08,2014),time(14,58,04)).
-image('14R4291:0022711',2410,'e-3','middle',bet,'ex situ ambient reflected, field',avi,date(23,08,2014),time(14,56,52)).
-image('14R4299:0024504',2409,e2,'middle',bet,'ex situ ambient reflected, field',avi,date(23,08,2014),time(14,55,35)).
-image('14R4293:0023005',2408,'e-2','tip',bet,'ex situ ambient reflected, field',avi,date(23,08,2014),time(14,54,26)).
-image('14R4311:0026603',2407,e1,'middle',bet,'ex situ ambient reflected, field',avi,date(23,08,2014),time(14,52,25)).
-image('14R4299:0024502',2406,e2,'middle',bet,'ex situ ambient reflected, field',avi,date(23,08,2014),time(14,51,03)).
-image('14R4315:0027203',2405,'t-1','stem',bet,'ex situ ambient reflected, field',avi,date(23,08,2014),time(14,49,46)).
-image('14R4296:0024014',2404,'t-2','stem',bet,'ex situ ambient reflected, field',avi,date(23,08,2014),time(14,48,02)).
-image('14R4295:0023802',2403,'t-1','stem',bet,'ex situ ambient reflected, field',avi,date(23,08,2014),time(14,46,50)).
-image('14R4007:0023204',2402,'t-2','whole',bet,'ex situ ambient reflected, field',avi,date(23,08,2014),time(14,45,25)).
-image('14R4314:0027109',2401,e5,'middle',bet,'ex situ ambient reflected, field',avi,date(23,08,2014),time(14,42,43)).
-image('14R3722:0026802',2400,e5,'middle',bet,'ex situ ambient reflected, field',avi,date(23,08,2014),time(14,41,11)).
-image('14R4191:0027704',2399,e2,'middle',bet,'ex situ ambient reflected, field',avi,date(23,08,2014),time(14,40,10)).
-image('14R4311:0026605',2398,'t-3','stem',bet,'ex situ ambient reflected, field',avi,date(23,08,2014),time(14,39,01)).
-image('14R3279:0027501',2397,e4,'middle',bet,'ex situ ambient reflected, field',avi,date(23,08,2014),time(14,37,26)).
-image('14R4190:0027607',2396,'t-3','stem',bet,'ex situ ambient reflected, field',avi,date(23,08,2014),time(14,36,19)).
-image('14R4313:0027007',2395,e3,'middle',bet,'ex situ ambient reflected, field',avi,date(23,08,2014),time(14,35,07)).
-image('14R4186:0026902',2394,e2,'middle',bet,'ex situ ambient reflected, field',avi,date(23,08,2014),time(14,33,56)).
-image('14R4301:0024708',2393,'e-1','tip',bet,'ex situ ambient reflected, field',avi,date(23,08,2014),time(14,33,00)).
-image('14R4190:0027604',2392,'t-3','middle',bet,'ex situ ambient reflected, field',avi,date(23,08,2014),time(14,31,15)).
-image('14R4315:0027205',2391,t0,'whole',bet,'ex situ ambient reflected, field',avi,date(23,08,2014),time(14,29,54)).
-image('14R4191:0027713',2390,e3,'tip',bet,'ex situ ambient reflected, field',avi,date(23,08,2014),time(14,28,26)).
-image('14R4302:0024808',2389,e1,'middle',bet,'ex situ ambient reflected, field',avi,date(23,08,2014),time(14,26,45)).
-image('14R4186:0026908',2388,e2,'middle',bet,'ex situ ambient reflected, field',avi,date(23,08,2014),time(14,25,29)).
-image('14R4301:0024703',2387,'e-1','middle',bet,'ex situ ambient reflected, field',avi,date(23,08,2014),time(14,24,13)).
-image('14R4301:0024705',2386,e1,'middle',bet,'ex situ ambient reflected, field',avi,date(23,08,2014),time(14,23,09)).
-image('14R4314:0027105',2385,e5,'middle',bet,'ex situ ambient reflected, field',avi,date(23,08,2014),time(14,21,35)).
-image('14R4299:0024510',2384,e3,'middle',bet,'ex situ ambient reflected, field',avi,date(23,08,2014),time(14,21,13)).
-image('14R4186:0026904',2383,e2,'middle',bet,'ex situ ambient reflected, field',avi,date(23,08,2014),time(14,16,33)).
-image('14R3722:0026805',2382,e3,'stem',bet,'ex situ ambient reflected, field',avi,date(23,08,2014),time(14,13,25)).
-image('14R4046:0025807',2381,'t-7','tip',bet,'ex situ ambient reflected, field',avi,date(23,08,2014),time(13,16,02)).
-image('14R2507:0022406',2380,'t-3','stem',bet,'ex situ ambient reflected, field',avi,date(23,08,2014),time(13,14,40)).
-image('14R4305:0025103',2379,e2,'tip',bet,'ex situ ambient reflected, field',avi,date(23,08,2014),time(13,13,28)).
-image('14R4303:0024907',2378,e1,'middle',bet,'ex situ ambient reflected, field',avi,date(23,08,2014),time(13,11,59)).
-image('14R4307:0025301',2377,e2,'tip',bet,'ex situ ambient reflected, field',avi,date(23,08,2014),time(13,10,36)).
-image('14R4182:0026210',2376,e2,'stem',bet,'ex situ ambient reflected, field',avi,date(23,08,2014),time(13,09,08)).
-image('14R4289:0022510',2375,'t-4','stem',bet,'ex situ ambient reflected, field',avi,date(23,08,2014),time(13,07,14)).
-image('14R4182:0026201',2374,'t-2','stem',bet,'ex situ ambient reflected, field',avi,date(23,08,2014),time(13,05,45)).
-image('14R4289:0022506',2373,'t-4','stem',bet,'ex situ ambient reflected, field',avi,date(23,08,2014),time(13,04,25)).
-image('14R4306:0025207',2372,e2,'tip',bet,'ex situ ambient reflected, field',avi,date(23,08,2014),time(13,03,07)).
-image('14R4310:0026409',2371,e2,'middle',bet,'ex situ ambient reflected, field',avi,date(23,08,2014),time(13,01,54)).
-image('14R4294:0023515',2370,e2,'middle',bet,'ex situ ambient reflected, field',avi,date(23,08,2014),time(13,00,42)).
-image('14R4303:0024902',2369,e1,'middle',bet,'ex situ ambient reflected, field',avi,date(23,08,2014),time(12,59,09)).
-image('14R4308:0026003',2368,e2,'middle',bet,'ex situ ambient reflected, field',avi,date(23,08,2014),time(12,57,58)).
-image('14R4305:0025112',2367,e2,'tip',bet,'ex situ ambient reflected, field',avi,date(23,08,2014),time(12,56,27)).
-image('14R4048:0026106',2366,'t-1','middle',bet,'ex situ ambient reflected, field',avi,date(23,08,2014),time(12,54,50)).
-image('14R4303:0024904',2365,e1,'middle',bet,'ex situ ambient reflected, field',avi,date(23,08,2014),time(12,53,50)).
-image('14R4308:0026004',2364,'t-6','tip',bet,'ex situ ambient reflected, field',avi,date(23,08,2014),time(12,51,26)).
-image('14R4308:0026010',2363,e1,'tip',bet,'ex situ ambient reflected, field',avi,date(23,08,2014),time(12,50,11)).
-image('14R3722:0026809',2362,'t-4','stem',bet,'ex situ ambient reflected, field',avi,date(23,08,2014),time(12,49,08)).
-image('14R4294:0023508',2361,e2,'middle',bet,'ex situ ambient reflected, field',avi,date(23,08,2014),time(12,46,53)).
-image('14R4162:0022902',2360,e2,'tip',bet,'ex situ ambient reflected, field',avi,date(23,08,2014),time(12,45,45)).
-image('14R4304:0025006',2359,e1,'middle',bet,'ex situ ambient reflected, field',avi,date(23,08,2014),time(12,44,42)).
-image('14R4304:0025007',2358,e1,'tip',bet,'ex situ ambient reflected, field',avi,date(23,08,2014),time(12,43,16)).
-image('14R4306:0025205',2357,e2,'tip',bet,'ex situ ambient reflected, field',avi,date(23,08,2014),time(12,41,08)).
-image('14R2507:0022404',2356,'t-2','stem',bet,'ex situ ambient reflected, field',avi,date(23,08,2014),time(12,40,11)).
-image('14R4289:0022514',2355,'t-5','stem',bet,'ex situ ambient reflected, field',avi,date(23,08,2014),time(12,39,44)).
-image('14R4046:0025801',2354,e0,'middle',bet,'ex situ ambient reflected, field',avi,date(23,08,2014),time(12,37,23)).
-image('14R4280:0021113',2353,e1,'middle',bet,'ex situ ambient reflected, field',avi,date(23,08,2014),time(12,35,41)).
-image('14R4160:0022110',2352,'t-3','stem',bet,'ex situ ambient reflected, field',avi,date(23,08,2014),time(12,34,26)).
-image('14R4281:0021213',2351,'t-3','middle',bet,'ex situ ambient reflected, field',avi,date(23,08,2014),time(12,33,03)).
-image('14R4280:0021108',2350,e1,'tip',bet,'ex situ ambient reflected, field',avi,date(23,08,2014),time(12,31,43)).
-image('14R4281:0021207',2349,'t-3','middle',bet,'ex situ ambient reflected, field',avi,date(23,08,2014),time(12,30,23)).
-image('14R4290:0022608',2348,'t-3','middle',bet,'ex situ ambient reflected, field',avi,date(23,08,2014),time(12,29,23)).
-image('14R4309:0026303',2347,e3,'tip',bet,'ex situ ambient reflected, field',avi,date(23,08,2014),time(12,26,58)).
-image('14R4310:0026401',2346,e2,'tip',bet,'ex situ ambient reflected, field',avi,date(23,08,2014),time(12,25,45)).
-image('14R4280:0021111',2345,e1,'middle',bet,'ex situ ambient reflected, field',avi,date(23,08,2014),time(12,24,20)).
-image('14R4293:0023011',2344,'e-2','tip',bet,'ex situ ambient reflected, field',avi,date(23,08,2014),time(12,22,55)).
-image('14R4288:0022304',2343,e0,'middle',bet,'ex situ ambient reflected, field',avi,date(23,08,2014),time(12,21,38)).
-image('14R4284:0021509',2342,e0,'tip',bet,'ex situ ambient reflected, field',avi,date(23,08,2014),time(12,19,00)).
-image('14R3998:0022201',2341,'t-3','middle',bet,'ex situ ambient reflected, field',avi,date(23,08,2014),time(12,17,43)).
-image('14R4275:0020305',2340,e2,'middle',bet,'ex situ ambient reflected, field',avi,date(23,08,2014),time(12,16,15)).
-image('14R4284:0021512',2339,'e-1','middle',bet,'ex situ ambient reflected, field',avi,date(23,08,2014),time(12,15,03)).
-image('14R4282:0021303',2338,e4,'middle',bet,'ex situ ambient reflected, field',avi,date(23,08,2014),time(12,13,37)).
-image('14R4272:0019902',2337,'e-2','tip',bet,'ex situ ambient reflected, field',avi,date(23,08,2014),time(12,10,29)).
-image('14R3937:0020408',2336,e2,'middle',bet,'ex situ ambient reflected, field',avi,date(23,08,2014),time(12,10,27)).
-image('14R4256:0019402',2335,e4,'tip',bet,'ex situ ambient reflected, field',avi,date(23,08,2014),time(12,09,01)).
-image('14R4254:0019105',2334,e2,'tip',bet,'ex situ ambient reflected, field',avi,date(23,08,2014),time(12,07,48)).
-image('14R4276:0020506',2333,'e-1','middle',bet,'ex situ ambient reflected, field',avi,date(23,08,2014),time(12,06,25)).
-image('14R4144:0019801',2332,e2,'middle',bet,'ex situ ambient reflected, field',avi,date(23,08,2014),time(12,05,18)).
-image('14R4275:0020311',2331,e4,'tip',bet,'ex situ ambient reflected, field',avi,date(23,08,2014),time(12,03,14)).
-image('14R4283:0021409',2330,e4,'middle',bet,'ex situ ambient reflected, field',avi,date(23,08,2014),time(11,59,43)).
-image('14R3715:0021714',2329,'t-2','middle',bet,'ex situ ambient reflected, field',avi,date(23,08,2014),time(11,58,24)).
-image('14R4287:0022003',2328,'t-5','stem',bet,'ex situ ambient reflected, field',avi,date(23,08,2014),time(11,56,55)).
-image('14R4282:0021308',2327,e4,'stem',bet,'ex situ ambient reflected, field',avi,date(23,08,2014),time(11,55,46)).
-image('14R4144:0019805',2326,e2,'tip',bet,'ex situ ambient reflected, field',avi,date(23,08,2014),time(11,54,09)).
-image('14R4282:0021304',2325,e4,'stem',bet,'ex situ ambient reflected, field',avi,date(23,08,2014),time(11,52,42)).
-image('14R4271:0019507',2324,e1,'tip',bet,'ex situ ambient reflected, field',avi,date(23,08,2014),time(11,51,01)).
-image('14R4286:0021911',2323,e2,'tip',bet,'ex situ ambient reflected, field',avi,date(23,08,2014),time(11,49,37)).
-image('14R4159:0021806',2322,e2,'middle',bet,'ex situ ambient reflected, field',avi,date(23,08,2014),time(11,48,37)).
-image('14R4273:0020102',2321,e1,'stem',bet,'ex situ ambient reflected, field',avi,date(23,08,2014),time(11,46,23)).
-image('14R4276:0020505',2320,e1,'tip',bet,'ex situ ambient reflected, field',avi,date(23,08,2014),time(11,44,42)).
-image('14R4276:0020508',2319,'e-2','tip',bet,'ex situ ambient reflected, field',avi,date(23,08,2014),time(11,43,34)).
-image('14R4273:0020101',2318,e1,'middle',bet,'ex situ ambient reflected, field',avi,date(23,08,2014),time(11,41,56)).
-image('14R3715:0021713',2317,'t-3','tip',bet,'ex situ ambient reflected, field',avi,date(23,08,2014),time(11,40,40)).
-image('14R3715:0021706',2316,'t-3','tip',bet,'ex situ ambient reflected, field',avi,date(23,08,2014),time(11,39,17)).
-image('14R4278:0020909',2315,'t-3','stem',bet,'ex situ ambient reflected, field',avi,date(23,08,2014),time(11,37,53)).
-image('14R4273:0020103',2314,e1,'tip',bet,'ex situ ambient reflected, field',avi,date(23,08,2014),time(11,37,13)).
-image('14R4286:0021909',2313,e2,'middle',bet,'ex situ ambient reflected, field',avi,date(23,08,2014),time(11,35,02)).
-image('14R4160:0022114',2312,'t-3','middle',bet,'ex situ ambient reflected, field',avi,date(23,08,2014),time(11,33,34)).
-image('14R3998:0022204',2311,'t-3','middle',bet,'ex situ ambient reflected, field',avi,date(23,08,2014),time(11,32,16)).
-image('14R4283:0021405',2310,e4,'middle',bet,'ex situ ambient reflected, field',avi,date(23,08,2014),time(11,30,46)).
-image('14R4286:0021905',2309,e2,'middle',bet,'ex situ ambient reflected, field',avi,date(23,08,2014),time(11,29,24)).
-image('14R4254:0019108',2308,e2,'middle',bet,'ex situ ambient reflected, field',avi,date(23,08,2014),time(11,27,23)).
-image('14R3972:0020806',2307,'t-3','stem',bet,'ex situ ambient reflected, field',avi,date(23,08,2014),time(11,23,11)).
-image('14R3937:0020403',2306,e2,'tip',bet,'ex situ ambient reflected, field',avi,date(23,08,2014),time(11,21,41)).
-image('14R4255:0019307',2305,e3,'tip',bet,'ex situ ambient reflected, field',avi,date(23,08,2014),time(11,20,21)).
-image('14R4283:0021406',2304,'t-2','stem',bet,'ex situ ambient reflected, field',avi,date(23,08,2014),time(11,18,51)).
-image('14R4285:0021608',2303,e2,'stem',bet,'ex situ ambient reflected, field',avi,date(23,08,2014),time(11,17,18)).
-image('14R4285:0021603',2302,e2,'stem',bet,'ex situ ambient reflected, field',avi,date(23,08,2014),time(11,16,07)).
-image('14R4287:0022011',2301,'t-5','stem',bet,'ex situ ambient reflected, field',avi,date(23,08,2014),time(11,12,49)).
+image('14R4310:0026411',2415,e3,'middle',bet,'shed, new photo jig',avi,date(23,08,2014),time(15,03,22)).
+image('14R4166:0023707',2414,e2,'stem',bet,'shed, new photo jig',avi,date(23,08,2014),time(15,02,06)).
+image('14R4292:0022802',2413,'e-4','tip',bet,'shed, new photo jig',avi,date(23,08,2014),time(15,00,32)).
+image('14R4166:0023701',2412,e2,'tip',bet,'shed, new photo jig',avi,date(23,08,2014),time(14,59,14)).
+image('14R4292:0022812',2411,'e-4','middle',bet,'shed, new photo jig',avi,date(23,08,2014),time(14,58,04)).
+image('14R4291:0022711',2410,'e-3','middle',bet,'shed, new photo jig',avi,date(23,08,2014),time(14,56,52)).
+image('14R4299:0024504',2409,e2,'middle',bet,'shed, new photo jig',avi,date(23,08,2014),time(14,55,35)).
+image('14R4293:0023005',2408,'e-2','tip',bet,'shed, new photo jig',avi,date(23,08,2014),time(14,54,26)).
+image('14R4311:0026603',2407,e1,'middle',bet,'shed, new photo jig',avi,date(23,08,2014),time(14,52,25)).
+image('14R4299:0024502',2406,e2,'middle',bet,'shed, new photo jig',avi,date(23,08,2014),time(14,51,03)).
+image('14R4315:0027203',2405,'t-1','stem',bet,'shed, new photo jig',avi,date(23,08,2014),time(14,49,46)).
+image('14R4296:0024014',2404,'t-2','stem',bet,'shed, new photo jig',avi,date(23,08,2014),time(14,48,02)).
+image('14R4295:0023802',2403,'t-1','stem',bet,'shed, new photo jig',avi,date(23,08,2014),time(14,46,50)).
+image('14R4007:0023204',2402,'t-2','whole',bet,'shed, new photo jig',avi,date(23,08,2014),time(14,45,25)).
+image('14R4314:0027109',2401,e5,'middle',bet,'shed, new photo jig',avi,date(23,08,2014),time(14,42,43)).
+image('14R3722:0026802',2400,e5,'middle',bet,'shed, new photo jig',avi,date(23,08,2014),time(14,41,11)).
+image('14R4191:0027704',2399,e2,'middle',bet,'shed, new photo jig',avi,date(23,08,2014),time(14,40,10)).
+image('14R4311:0026605',2398,'t-3','stem',bet,'shed, new photo jig',avi,date(23,08,2014),time(14,39,01)).
+image('14R3279:0027501',2397,e4,'middle',bet,'shed, new photo jig',avi,date(23,08,2014),time(14,37,26)).
+image('14R4190:0027607',2396,'t-3','stem',bet,'shed, new photo jig',avi,date(23,08,2014),time(14,36,19)).
+image('14R4313:0027007',2395,e3,'middle',bet,'shed, new photo jig',avi,date(23,08,2014),time(14,35,07)).
+image('14R4186:0026902',2394,e2,'middle',bet,'shed, new photo jig',avi,date(23,08,2014),time(14,33,56)).
+image('14R4301:0024708',2393,'e-1','tip',bet,'shed, new photo jig',avi,date(23,08,2014),time(14,33,00)).
+image('14R4190:0027604',2392,'t-3','middle',bet,'shed, new photo jig',avi,date(23,08,2014),time(14,31,15)).
+image('14R4315:0027205',2391,t0,'whole',bet,'shed, new photo jig',avi,date(23,08,2014),time(14,29,54)).
+image('14R4191:0027713',2390,e3,'tip',bet,'shed, new photo jig',avi,date(23,08,2014),time(14,28,26)).
+image('14R4302:0024808',2389,e1,'middle',bet,'shed, new photo jig',avi,date(23,08,2014),time(14,26,45)).
+image('14R4186:0026908',2388,e2,'middle',bet,'shed, new photo jig',avi,date(23,08,2014),time(14,25,29)).
+image('14R4301:0024703',2387,'e-1','middle',bet,'shed, new photo jig',avi,date(23,08,2014),time(14,24,13)).
+image('14R4301:0024705',2386,e1,'middle',bet,'shed, new photo jig',avi,date(23,08,2014),time(14,23,09)).
+image('14R4314:0027105',2385,e5,'middle',bet,'shed, new photo jig',avi,date(23,08,2014),time(14,21,35)).
+image('14R4299:0024510',2384,e3,'middle',bet,'shed, new photo jig',avi,date(23,08,2014),time(14,21,13)).
+image('14R4186:0026904',2383,e2,'middle',bet,'shed, new photo jig',avi,date(23,08,2014),time(14,16,33)).
+image('14R3722:0026805',2382,e3,'stem',bet,'shed, new photo jig',avi,date(23,08,2014),time(14,13,25)).
+image('14R4046:0025807',2381,'t-7','tip',bet,'shed, new photo jig',avi,date(23,08,2014),time(13,16,02)).
+image('14R2507:0022406',2380,'t-3','stem',bet,'shed, new photo jig',avi,date(23,08,2014),time(13,14,40)).
+image('14R4305:0025103',2379,e2,'tip',bet,'shed, new photo jig',avi,date(23,08,2014),time(13,13,28)).
+image('14R4303:0024907',2378,e1,'middle',bet,'shed, new photo jig',avi,date(23,08,2014),time(13,11,59)).
+image('14R4307:0025301',2377,e2,'tip',bet,'shed, new photo jig',avi,date(23,08,2014),time(13,10,36)).
+image('14R4182:0026210',2376,e2,'stem',bet,'shed, new photo jig',avi,date(23,08,2014),time(13,09,08)).
+image('14R4289:0022510',2375,'t-4','stem',bet,'shed, new photo jig',avi,date(23,08,2014),time(13,07,14)).
+image('14R4182:0026201',2374,'t-2','stem',bet,'shed, new photo jig',avi,date(23,08,2014),time(13,05,45)).
+image('14R4289:0022506',2373,'t-4','stem',bet,'shed, new photo jig',avi,date(23,08,2014),time(13,04,25)).
+image('14R4306:0025207',2372,e2,'tip',bet,'shed, new photo jig',avi,date(23,08,2014),time(13,03,07)).
+image('14R4310:0026409',2371,e2,'middle',bet,'shed, new photo jig',avi,date(23,08,2014),time(13,01,54)).
+image('14R4294:0023515',2370,e2,'middle',bet,'shed, new photo jig',avi,date(23,08,2014),time(13,00,42)).
+image('14R4303:0024902',2369,e1,'middle',bet,'shed, new photo jig',avi,date(23,08,2014),time(12,59,09)).
+image('14R4308:0026003',2368,e2,'middle',bet,'shed, new photo jig',avi,date(23,08,2014),time(12,57,58)).
+image('14R4305:0025112',2367,e2,'tip',bet,'shed, new photo jig',avi,date(23,08,2014),time(12,56,27)).
+image('14R4048:0026106',2366,'t-1','middle',bet,'shed, new photo jig',avi,date(23,08,2014),time(12,54,50)).
+image('14R4303:0024904',2365,e1,'middle',bet,'shed, new photo jig',avi,date(23,08,2014),time(12,53,50)).
+image('14R4308:0026004',2364,'t-6','tip',bet,'shed, new photo jig',avi,date(23,08,2014),time(12,51,26)).
+image('14R4308:0026010',2363,e1,'tip',bet,'shed, new photo jig',avi,date(23,08,2014),time(12,50,11)).
+image('14R3722:0026809',2362,'t-4','stem',bet,'shed, new photo jig',avi,date(23,08,2014),time(12,49,08)).
+image('14R4294:0023508',2361,e2,'middle',bet,'shed, new photo jig',avi,date(23,08,2014),time(12,46,53)).
+image('14R4162:0022902',2360,e2,'tip',bet,'shed, new photo jig',avi,date(23,08,2014),time(12,45,45)).
+image('14R4304:0025006',2359,e1,'middle',bet,'shed, new photo jig',avi,date(23,08,2014),time(12,44,42)).
+image('14R4304:0025007',2358,e1,'tip',bet,'shed, new photo jig',avi,date(23,08,2014),time(12,43,16)).
+image('14R4306:0025205',2357,e2,'tip',bet,'shed, new photo jig',avi,date(23,08,2014),time(12,41,08)).
+image('14R2507:0022404',2356,'t-2','stem',bet,'shed, new photo jig',avi,date(23,08,2014),time(12,40,11)).
+image('14R4289:0022514',2355,'t-5','stem',bet,'shed, new photo jig',avi,date(23,08,2014),time(12,39,44)).
+image('14R4046:0025801',2354,e0,'middle',bet,'shed, new photo jig',avi,date(23,08,2014),time(12,37,23)).
+image('14R4280:0021113',2353,e1,'middle',bet,'shed, new photo jig',avi,date(23,08,2014),time(12,35,41)).
+image('14R4160:0022110',2352,'t-3','stem',bet,'shed, new photo jig',avi,date(23,08,2014),time(12,34,26)).
+image('14R4281:0021213',2351,'t-3','middle',bet,'shed, new photo jig',avi,date(23,08,2014),time(12,33,03)).
+image('14R4280:0021108',2350,e1,'tip',bet,'shed, new photo jig',avi,date(23,08,2014),time(12,31,43)).
+image('14R4281:0021207',2349,'t-3','middle',bet,'shed, new photo jig',avi,date(23,08,2014),time(12,30,23)).
+image('14R4290:0022608',2348,'t-3','middle',bet,'shed, new photo jig',avi,date(23,08,2014),time(12,29,23)).
+image('14R4309:0026303',2347,e3,'tip',bet,'shed, new photo jig',avi,date(23,08,2014),time(12,26,58)).
+image('14R4310:0026401',2346,e2,'tip',bet,'shed, new photo jig',avi,date(23,08,2014),time(12,25,45)).
+image('14R4280:0021111',2345,e1,'middle',bet,'shed, new photo jig',avi,date(23,08,2014),time(12,24,20)).
+image('14R4293:0023011',2344,'e-2','tip',bet,'shed, new photo jig',avi,date(23,08,2014),time(12,22,55)).
+image('14R4288:0022304',2343,e0,'middle',bet,'shed, new photo jig',avi,date(23,08,2014),time(12,21,38)).
+image('14R4284:0021509',2342,e0,'tip',bet,'shed, new photo jig',avi,date(23,08,2014),time(12,19,00)).
+image('14R3998:0022201',2341,'t-3','middle',bet,'shed, new photo jig',avi,date(23,08,2014),time(12,17,43)).
+image('14R4275:0020305',2340,e2,'middle',bet,'shed, new photo jig',avi,date(23,08,2014),time(12,16,15)).
+image('14R4284:0021512',2339,'e-1','middle',bet,'shed, new photo jig',avi,date(23,08,2014),time(12,15,03)).
+image('14R4282:0021303',2338,e4,'middle',bet,'shed, new photo jig',avi,date(23,08,2014),time(12,13,37)).
+image('14R4272:0019902',2337,'e-2','tip',bet,'shed, new photo jig',avi,date(23,08,2014),time(12,10,29)).
+image('14R3937:0020408',2336,e2,'middle',bet,'shed, new photo jig',avi,date(23,08,2014),time(12,10,27)).
+image('14R4256:0019402',2335,e4,'tip',bet,'shed, new photo jig',avi,date(23,08,2014),time(12,09,01)).
+image('14R4254:0019105',2334,e2,'tip',bet,'shed, new photo jig',avi,date(23,08,2014),time(12,07,48)).
+image('14R4276:0020506',2333,'e-1','middle',bet,'shed, new photo jig',avi,date(23,08,2014),time(12,06,25)).
+image('14R4144:0019801',2332,e2,'middle',bet,'shed, new photo jig',avi,date(23,08,2014),time(12,05,18)).
+image('14R4275:0020311',2331,e4,'tip',bet,'shed, new photo jig',avi,date(23,08,2014),time(12,03,14)).
+image('14R4283:0021409',2330,e4,'middle',bet,'shed, new photo jig',avi,date(23,08,2014),time(11,59,43)).
+image('14R3715:0021714',2329,'t-2','middle',bet,'shed, new photo jig',avi,date(23,08,2014),time(11,58,24)).
+image('14R4287:0022003',2328,'t-5','stem',bet,'shed, new photo jig',avi,date(23,08,2014),time(11,56,55)).
+image('14R4282:0021308',2327,e4,'stem',bet,'shed, new photo jig',avi,date(23,08,2014),time(11,55,46)).
+image('14R4144:0019805',2326,e2,'tip',bet,'shed, new photo jig',avi,date(23,08,2014),time(11,54,09)).
+image('14R4282:0021304',2325,e4,'stem',bet,'shed, new photo jig',avi,date(23,08,2014),time(11,52,42)).
+image('14R4271:0019507',2324,e1,'tip',bet,'shed, new photo jig',avi,date(23,08,2014),time(11,51,01)).
+image('14R4286:0021911',2323,e2,'tip',bet,'shed, new photo jig',avi,date(23,08,2014),time(11,49,37)).
+image('14R4159:0021806',2322,e2,'middle',bet,'shed, new photo jig',avi,date(23,08,2014),time(11,48,37)).
+image('14R4273:0020102',2321,e1,'stem',bet,'shed, new photo jig',avi,date(23,08,2014),time(11,46,23)).
+image('14R4276:0020505',2320,e1,'tip',bet,'shed, new photo jig',avi,date(23,08,2014),time(11,44,42)).
+image('14R4276:0020508',2319,'e-2','tip',bet,'shed, new photo jig',avi,date(23,08,2014),time(11,43,34)).
+image('14R4273:0020101',2318,e1,'middle',bet,'shed, new photo jig',avi,date(23,08,2014),time(11,41,56)).
+image('14R3715:0021713',2317,'t-3','tip',bet,'shed, new photo jig',avi,date(23,08,2014),time(11,40,40)).
+image('14R3715:0021706',2316,'t-3','tip',bet,'shed, new photo jig',avi,date(23,08,2014),time(11,39,17)).
+image('14R4278:0020909',2315,'t-3','stem',bet,'shed, new photo jig',avi,date(23,08,2014),time(11,37,53)).
+image('14R4273:0020103',2314,e1,'tip',bet,'shed, new photo jig',avi,date(23,08,2014),time(11,37,13)).
+image('14R4286:0021909',2313,e2,'middle',bet,'shed, new photo jig',avi,date(23,08,2014),time(11,35,02)).
+image('14R4160:0022114',2312,'t-3','middle',bet,'shed, new photo jig',avi,date(23,08,2014),time(11,33,34)).
+image('14R3998:0022204',2311,'t-3','middle',bet,'shed, new photo jig',avi,date(23,08,2014),time(11,32,16)).
+image('14R4283:0021405',2310,e4,'middle',bet,'shed, new photo jig',avi,date(23,08,2014),time(11,30,46)).
+image('14R4286:0021905',2309,e2,'middle',bet,'shed, new photo jig',avi,date(23,08,2014),time(11,29,24)).
+image('14R4254:0019108',2308,e2,'middle',bet,'shed, new photo jig',avi,date(23,08,2014),time(11,27,23)).
+image('14R3972:0020806',2307,'t-3','stem',bet,'shed, new photo jig',avi,date(23,08,2014),time(11,23,11)).
+image('14R3937:0020403',2306,e2,'tip',bet,'shed, new photo jig',avi,date(23,08,2014),time(11,21,41)).
+image('14R4255:0019307',2305,e3,'tip',bet,'shed, new photo jig',avi,date(23,08,2014),time(11,20,21)).
+image('14R4283:0021406',2304,'t-2','stem',bet,'shed, new photo jig',avi,date(23,08,2014),time(11,18,51)).
+image('14R4285:0021608',2303,e2,'stem',bet,'shed, new photo jig',avi,date(23,08,2014),time(11,17,18)).
+image('14R4285:0021603',2302,e2,'stem',bet,'shed, new photo jig',avi,date(23,08,2014),time(11,16,07)).
+image('14R4287:0022011',2301,'t-5','stem',bet,'shed, new photo jig',avi,date(23,08,2014),time(11,12,49)).
 
 
 
@@ -4727,31 +4748,31 @@ image('14R4287:0022011',2301,'t-5','stem',bet,'ex situ ambient reflected, field'
 % by data/data_conversion/convert_image_data.perl
 % called from data/data_conversion/convert_data.perl
 
-image('14R4268:0014905',2440,'t-2','stem',bet,'ex situ ambient reflected, field',avi,date(24,08,2014),time(12,20,53)).
-image('14R4166:0023709',2439,'t-5','stem',bet,'ex situ ambient reflected, field',avi,date(24,08,2014),time(12,19,06)).
-image('14R4137:0004202',2438,'t-2','whole',bet,'ex situ ambient reflected, field',avi,date(24,08,2014),time(12,17,30)).
-image('14R4309:0026310',2437,'t-3','tip',bet,'ex situ ambient reflected, field',avi,date(24,08,2014),time(12,16,10)).
-image('14R4254:0019106',2436,'t-2','stem',bet,'ex situ ambient reflected, field',avi,date(24,08,2014),time(12,14,54)).
-image('14R4254:0019102',2435,e3,'tip',bet,'ex situ ambient reflected, field',avi,date(24,08,2014),time(12,13,17)).
-image('14R4271:0019512',2434,e1,'tip',bet,'ex situ ambient reflected, field',avi,date(24,08,2014),time(12,11,45)).
-image('14R3937:0020415',2433,e3,'tip',bet,'ex situ ambient reflected, field',avi,date(24,08,2014),time(12,10,12)).
-image('14R3980:0012011',2432,'e-4','stem',bet,'ex situ ambient reflected, field',avi,date(24,08,2014),time(12,08,54)).
-image('14R3584:0009514',2431,'t-2','stem',bet,'ex situ ambient reflected, field',avi,date(24,08,2014),time(12,07,26)).
-image('14R4159:0021808',2430,e2,'middle',bet,'ex situ ambient reflected, field',avi,date(24,08,2014),time(12,05,59)).
-image('14R4229:0009701',2429,e3,'middle',bet,'ex situ ambient reflected, field',avi,date(24,08,2014),time(12,04,38)).
-image('14R4294:0023518',2428,e2,'middle',bet,'ex situ ambient reflected, field',avi,date(24,08,2014),time(12,03,20)).
-image('14R4271:0019503',2427,e1,'middle',bet,'ex situ ambient reflected, field',avi,date(24,08,2014),time(12,02,18)).
-image('14R4314:0027101',2426,e4,'middle',bet,'ex situ ambient reflected, field',avi,date(24,08,2014),time(12,01,08)).
-image('14R4126:0017703',2425,'t-1','middle',bet,'ex situ ambient reflected, field',avi,date(24,08,2014),time(11,59,55)).
-image('14R4144:0019803',2424,e2,'middle',bet,'ex situ ambient reflected, field',avi,date(24,08,2014),time(11,58,54)).
-image('14R4162:0022908',2423,e2,'middle',bet,'ex situ ambient reflected, field',avi,date(24,08,2014),time(11,56,22)).
-image('14R4092:0012205',2422,e2,'tip',bet,'ex situ ambient reflected, field',avi,date(24,08,2014),time(11,54,47)).
-image('14R4256:0019413',2421,e1,'tip',bet,'ex situ ambient reflected, field',avi,date(24,08,2014),time(11,53,32)).
-image('14R3937:0020406',2420,e3,'tip',bet,'ex situ ambient reflected, field',avi,date(24,08,2014),time(11,50,48)).
-image('14R4269:0015018',2419,e0,'tip',bet,'ex situ ambient reflected, field',avi,date(24,08,2014),time(11,49,37)).
-image('14R4191:0027703',2418,e2,'tip',bet,'ex situ ambient reflected, field',avi,date(24,08,2014),time(11,47,38)).
-image('14R4271:0019513',2417,e2,'middle',bet,'ex situ ambient reflected, field',avi,date(24,08,2014),time(11,45,41)).
-image('14R4275:0020306',2416,'t-3','middle',bet,'ex situ ambient reflected, field',avi,date(24,08,2014),time(11,43,53)).
+image('14R4268:0014905',2440,'t-2','stem',bet,'shed, new photo jig',avi,date(24,08,2014),time(12,20,53)).
+image('14R4166:0023709',2439,'t-5','stem',bet,'shed, new photo jig',avi,date(24,08,2014),time(12,19,06)).
+image('14R4137:0004202',2438,'t-2','whole',bet,'shed, new photo jig',avi,date(24,08,2014),time(12,17,30)).
+image('14R4309:0026310',2437,'t-3','tip',bet,'shed, new photo jig',avi,date(24,08,2014),time(12,16,10)).
+image('14R4254:0019106',2436,'t-2','stem',bet,'shed, new photo jig',avi,date(24,08,2014),time(12,14,54)).
+image('14R4254:0019102',2435,e3,'tip',bet,'shed, new photo jig',avi,date(24,08,2014),time(12,13,17)).
+image('14R4271:0019512',2434,e1,'tip',bet,'shed, new photo jig',avi,date(24,08,2014),time(12,11,45)).
+image('14R3937:0020415',2433,e3,'tip',bet,'shed, new photo jig',avi,date(24,08,2014),time(12,10,12)).
+image('14R3980:0012011',2432,'e-4','stem',bet,'shed, new photo jig',avi,date(24,08,2014),time(12,08,54)).
+image('14R3584:0009514',2431,'t-2','stem',bet,'shed, new photo jig',avi,date(24,08,2014),time(12,07,26)).
+image('14R4159:0021808',2430,e2,'middle',bet,'shed, new photo jig',avi,date(24,08,2014),time(12,05,59)).
+image('14R4229:0009701',2429,e3,'middle',bet,'shed, new photo jig',avi,date(24,08,2014),time(12,04,38)).
+image('14R4294:0023518',2428,e2,'middle',bet,'shed, new photo jig',avi,date(24,08,2014),time(12,03,20)).
+image('14R4271:0019503',2427,e1,'middle',bet,'shed, new photo jig',avi,date(24,08,2014),time(12,02,18)).
+image('14R4314:0027101',2426,e4,'middle',bet,'shed, new photo jig',avi,date(24,08,2014),time(12,01,08)).
+image('14R4126:0017703',2425,'t-1','middle',bet,'shed, new photo jig',avi,date(24,08,2014),time(11,59,55)).
+image('14R4144:0019803',2424,e2,'middle',bet,'shed, new photo jig',avi,date(24,08,2014),time(11,58,54)).
+image('14R4162:0022908',2423,e2,'middle',bet,'shed, new photo jig',avi,date(24,08,2014),time(11,56,22)).
+image('14R4092:0012205',2422,e2,'tip',bet,'shed, new photo jig',avi,date(24,08,2014),time(11,54,47)).
+image('14R4256:0019413',2421,e1,'tip',bet,'shed, new photo jig',avi,date(24,08,2014),time(11,53,32)).
+image('14R3937:0020406',2420,e3,'tip',bet,'shed, new photo jig',avi,date(24,08,2014),time(11,50,48)).
+image('14R4269:0015018',2419,e0,'tip',bet,'shed, new photo jig',avi,date(24,08,2014),time(11,49,37)).
+image('14R4191:0027703',2418,e2,'tip',bet,'shed, new photo jig',avi,date(24,08,2014),time(11,47,38)).
+image('14R4271:0019513',2417,e2,'middle',bet,'shed, new photo jig',avi,date(24,08,2014),time(11,45,41)).
+image('14R4275:0020306',2416,'t-3','middle',bet,'shed, new photo jig',avi,date(24,08,2014),time(11,43,53)).
 
 
 
@@ -4760,197 +4781,203 @@ image('14R4275:0020306',2416,'t-3','middle',bet,'ex situ ambient reflected, fiel
 % by data/data_conversion/convert_image_data.perl
 % called from data/data_conversion/convert_data.perl
 
-image('14R4112:0091513',2548,'e-1','middle',bet,'ex situ ambient reflected, field',avi,date(29,08,2014),time(22,59,31)).
-image('14R4112:0091511',2573,e2,'middle',bet,'ex situ ambient reflected, field',avi,date(29,08,2014),time(22,59,31)).
-image('14R4112:0091511',2550,'e-1','tip',bet,'ex situ ambient reflected, field',avi,date(29,08,2014),time(22,59,31)).
-image('14R4112:0091511',2542,'e-1','middle',bet,'ex situ ambient reflected, field',toni,date(29,08,2014),time(22,51,57)).
-image('14R4112:0091510',2541,'e-1','tip',bet,'ex situ ambient reflected, field',avi,date(29,08,2014),time(21,09,17)).
-image('14R4112:0091508',2568,'e-1','tip',bet,'ex situ ambient reflected, field',avi,date(29,08,2014),time(22,59,31)).
-image('14R4112:0091507',2566,'e-2','middle',bet,'ex situ ambient reflected, field',avi,date(29,08,2014),time(22,59,31)).
-image('14R4112:0091504',2540,'e-1','middle',bet,'ex situ ambient reflected, field',avi,date(29,08,2014),time(21,09,17)).
-image('14R4112:0091502',2571,'e-1','tip',bet,'ex situ ambient reflected, field',avi,date(29,08,2014),time(22,59,31)).
-image('14R4112:0091501',2534,e2,'tip',bet,'ex situ ambient reflected, field',avi,date(29,08,2014),time(21,09,17)).
-image('14R4112:0091501',2533,'e-1','middle',bet,'ex situ ambient reflected, field',avi,date(29,08,2014),time(21,09,17)).
-image('14R4327:0091416',2546,'e-1','middle',bet,'ex situ ambient reflected, field',avi,date(29,08,2014),time(22,57,08)).
-image('14R4327:0091414',2564,'t-4','middle',bet,'ex situ ambient reflected, field',avi,date(29,08,2014),time(22,59,31)).
-image('14R4327:0091412',2539,'e-1','tip',bet,'ex situ ambient reflected, field',avi,date(29,08,2014),time(21,09,17)).
-image('14R4327:0091411',2544,'e-1','tip',bet,'ex situ ambient reflected, field',avi,date(29,08,2014),time(21,09,17)).
-image('14R4327:0091410',2547,'e-1','middle',bet,'ex situ ambient reflected, field',avi,date(29,08,2014),time(22,57,08)).
-image('14R4327:0091408',2565,e2,'tip',bet,'ex situ ambient reflected, field',avi,date(29,08,2014),time(22,59,31)).
-image('14R4327:0091408',2543,'e-1','middle',bet,'ex situ ambient reflected, field',toni,date(29,08,2014),time(22,54,24)).
-image('14R4327:0091406',2569,'e-2','middle',bet,'ex situ ambient reflected, field',avi,date(29,08,2014),time(22,59,31)).
-image('14R4327:0091406',2549,e2,'tip',bet,'ex situ ambient reflected, field',avi,date(29,08,2014),time(22,59,31)).
-image('14R4327:0091405',2572,'t-3','tip',bet,'ex situ ambient reflected, field',avi,date(29,08,2014),time(22,59,31)).
-image('14R4327:0091404',2562,'t-3','whole',bet,'ex situ ambient reflected, field',avi,date(29,08,2014),time(22,59,31)).
-image('14R4326:0091314',2553,'e-1','tip',bet,'ex situ ambient reflected, field',avi,date(29,08,2014),time(22,59,31)).
-image('14R4326:0091313',2554,'e-1','tip',bet,'ex situ ambient reflected, field',avi,date(29,08,2014),time(22,59,31)).
-image('14R4326:0091311',2552,'e-1','middle',bet,'ex situ ambient reflected, field',avi,date(29,08,2014),time(22,59,31)).
-image('14R4326:0091309',2538,'e-1','tip',bet,'ex situ ambient reflected, field',avi,date(29,08,2014),time(21,09,17)).
-image('14R4326:0091307',2536,'e-1','tip',bet,'ex situ ambient reflected, field',avi,date(29,08,2014),time(21,09,17)).
-image('14R4326:0091304',2561,'t-2','whole',bet,'ex situ ambient reflected, field',avi,date(29,08,2014),time(22,59,31)).
-image('14R4326:0091303',2537,'e-1','tip',bet,'ex situ ambient reflected, field',avi,date(29,08,2014),time(21,09,17)).
-image('14R4326:0091301',2535,'e-1','tip',bet,'ex situ ambient reflected, field',avi,date(29,08,2014),time(21,09,17)).
-image('14R4325:0091212',2551,'e-1','middle',bet,'ex situ ambient reflected, field',avi,date(29,08,2014),time(22,59,31)).
-image('14R4325:0091209',2563,'t-3','stem',bet,'ex situ ambient reflected, field',avi,date(29,08,2014),time(22,59,31)).
-image('14R4325:0091207',2567,'e-1','tip',bet,'ex situ ambient reflected, field',avi,date(29,08,2014),time(22,59,31)).
-image('14R4325:0091206',2492,'e-1','tip',bet,'ex situ ambient reflected, field',avi,date(29,08,2014),time(21,09,17)).
-image('14R4325:0091205',2493,'e-1','tip',bet,'ex situ ambient reflected, field',avi,date(29,08,2014),time(21,09,17)).
-image('14R4325:0091204',2486,'t-3','middle',bet,'ex situ ambient reflected, field',avi,date(29,08,2014),time(21,09,17)).
-image('14R4325:0091203',2477,'e-1','middle',bet,'ex situ ambient reflected, field',avi,date(29,08,2014),time(21,09,17)).
-image('14R4325:0091202',2476,'t-3','middle',bet,'ex situ ambient reflected, field',avi,date(29,08,2014),time(21,09,17)).
-image('14R4109:0091113',2495,'e-1','middle',bet,'ex situ ambient reflected, field',avi,date(29,08,2014),time(21,09,17)).
-image('14R4109:0091110',2496,'e-1','tip',bet,'ex situ ambient reflected, field',avi,date(29,08,2014),time(21,09,17)).
-image('14R4109:0091107',2483,'e-1','middle',bet,'ex situ ambient reflected, field',avi,date(29,08,2014),time(21,09,17)).
-image('14R4109:0091106',2479,'e-1','middle',bet,'ex situ ambient reflected, field',avi,date(29,08,2014),time(21,09,17)).
-image('14R4109:0091102',2484,'e-2','middle',bet,'ex situ ambient reflected, field',avi,date(29,08,2014),time(21,09,17)).
-image('14R4109:0091101',2478,'e-1','tip',bet,'ex situ ambient reflected, field',avi,date(29,08,2014),time(21,09,17)).
-image('14R4111:0091016',2482,'e-1','middle',bet,'ex situ ambient reflected, field',avi,date(29,08,2014),time(21,09,17)).
-image('14R4111:0091015',2498,'e-2','middle',bet,'ex situ ambient reflected, field',avi,date(29,08,2014),time(21,09,17)).
-image('14R4111:0091013',2524,'e-1','middle',bet,'ex situ ambient reflected, field',avi,date(29,08,2014),time(21,09,17)).
-image('14R4111:0091012',2497,'e-1','tip',bet,'ex situ ambient reflected, field',avi,date(29,08,2014),time(21,09,17)).
-image('14R4111:0091011',2521,'e-1','tip',bet,'ex situ ambient reflected, field',avi,date(29,08,2014),time(21,09,17)).
-image('14R4111:0091010',2520,'e-1','tip',bet,'ex situ ambient reflected, field',avi,date(29,08,2014),time(21,09,17)).
-image('14R4111:0091008',2570,'e-1','middle',bet,'ex situ ambient reflected, field',avi,date(29,08,2014),time(22,59,31)).
-image('14R4111:0091007',2531,'e-1','tip',bet,'ex situ ambient reflected, field',avi,date(29,08,2014),time(21,09,17)).
-image('14R4111:0091006',2485,'e-1','tip',bet,'ex situ ambient reflected, field',avi,date(29,08,2014),time(21,09,17)).
-image('14R4111:0091004',2481,'e-1','middle',bet,'ex situ ambient reflected, field',avi,date(29,08,2014),time(21,09,17)).
-image('14R4111:0091002',2525,'e-1','tip',bet,'ex situ ambient reflected, field',avi,date(29,08,2014),time(21,09,17)).
-image('14R4111:0091001',2522,'e-1','tip',bet,'ex situ ambient reflected, field',avi,date(29,08,2014),time(21,09,17)).
-image('14R4324:0090916',2515,'e-1','tip',bet,'ex situ ambient reflected, field',avi,date(29,08,2014),time(21,09,17)).
-image('14R4324:0090914',2528,'e-1','tip',bet,'ex situ ambient reflected, field',avi,date(29,08,2014),time(21,09,17)).
-image('14R4324:0090909',2454,'t-3','whole',bet,'ex situ ambient reflected, field',avi,date(29,08,2014),time(20,55,13)).
-image('14R4324:0090907',2449,'t-3','tip',bet,'ex situ ambient reflected, field',avi,date(29,08,2014),time(20,55,13)).
-image('14R4324:0090905',2475,'t-4','whole',bet,'ex situ ambient reflected, field',avi,date(29,08,2014),time(21,09,17)).
-image('14R4324:0090902',2532,'e-1','middle',bet,'ex situ ambient reflected, field',avi,date(29,08,2014),time(21,09,17)).
-image('14R4324:0090901',2529,'e-1','tip',bet,'ex situ ambient reflected, field',avi,date(29,08,2014),time(21,09,17)).
-image('14R4323:0090816',2558,'e-1','middle',bet,'ex situ ambient reflected, field',avi,date(29,08,2014),time(22,59,31)).
-image('14R4323:0090811',2455,'t-2','whole',bet,'ex situ ambient reflected, field',avi,date(29,08,2014),time(20,55,13)).
-image('14R4323:0090808',2556,'e-1','tip',bet,'ex situ ambient reflected, field',avi,date(29,08,2014),time(22,59,31)).
-image('14R4323:0090807',2516,'e-1','tip',bet,'ex situ ambient reflected, field',avi,date(29,08,2014),time(21,09,17)).
-image('14R4323:0090806',2487,'t-2','stem',bet,'ex situ ambient reflected, field',avi,date(29,08,2014),time(21,09,17)).
-image('14R4323:0090803',2530,'e-1','middle',bet,'ex situ ambient reflected, field',avi,date(29,08,2014),time(21,09,17)).
-image('14R4323:0090802',2480,'e-1','tip',bet,'ex situ ambient reflected, field',avi,date(29,08,2014),time(21,09,17)).
-image('14R4110:0090715',2494,'e-1','tip',bet,'ex situ ambient reflected, field',avi,date(29,08,2014),time(21,09,17)).
-image('14R4110:0090714',2511,'e-1','middle',bet,'ex situ ambient reflected, field',avi,date(29,08,2014),time(21,09,17)).
-image('14R4110:0090704',2512,'e-1','middle',bet,'ex situ ambient reflected, field',avi,date(29,08,2014),time(21,09,17)).
-image('14R4110:0090703',2518,'e-1','tip',bet,'ex situ ambient reflected, field',avi,date(29,08,2014),time(21,09,17)).
-image('14R4110:0090701',2527,'e-1','tip',bet,'ex situ ambient reflected, field',avi,date(29,08,2014),time(21,09,17)).
-image('14R4107:0090616',2523,'e-1','tip',bet,'ex situ ambient reflected, field',avi,date(29,08,2014),time(21,09,17)).
-image('14R4107:0090614',2560,'e-2','tip',bet,'ex situ ambient reflected, field',avi,date(29,08,2014),time(22,59,31)).
-image('14R4107:0090613',2517,'e-1','tip',bet,'ex situ ambient reflected, field',avi,date(29,08,2014),time(21,09,17)).
-image('14R4107:0090609',2513,'e-1','tip',bet,'ex situ ambient reflected, field',avi,date(29,08,2014),time(21,09,17)).
-image('14R4107:0090607',2519,'e-1','tip',bet,'ex situ ambient reflected, field',avi,date(29,08,2014),time(21,09,17)).
-image('14R4107:0090606',2545,'e-1','tip',bet,'ex situ ambient reflected, field',avi,date(29,08,2014),time(22,57,08)).
-image('14R4107:0090604',2514,'e-2','tip',bet,'ex situ ambient reflected, field',avi,date(29,08,2014),time(21,09,17)).
-image('14R4107:0090602',2557,'e-1','tip',bet,'ex situ ambient reflected, field',avi,date(29,08,2014),time(22,59,31)).
-image('14R4107:0090601',2526,'e-1','tip',bet,'ex situ ambient reflected, field',avi,date(29,08,2014),time(21,09,17)).
-image('14R4322:0090516',2467,'e-2','tip',bet,'ex situ ambient reflected, field',avi,date(29,08,2014),time(21,09,17)).
-image('14R4322:0090515',2490,'e-1','tip',bet,'ex situ ambient reflected, field',avi,date(29,08,2014),time(21,09,17)).
-image('14R4322:0090513',2461,'t-3','stem',bet,'ex situ ambient reflected, field',avi,date(29,08,2014),time(21,09,17)).
-image('14R4322:0090507',2459,'e-1','stem',bet,'ex situ ambient reflected, field',avi,date(29,08,2014),time(21,09,17)).
-image('14R4322:0090505',2458,'t-5','stem',bet,'ex situ ambient reflected, field',avi,date(29,08,2014),time(20,55,13)).
-image('14R4322:0090504',2469,'t-6','middle',bet,'ex situ ambient reflected, field',avi,date(29,08,2014),time(21,09,17)).
-image('14R4322:0090503',2463,'e-1','tip',bet,'ex situ ambient reflected, field',avi,date(29,08,2014),time(21,09,17)).
-image('14R4322:0090501',2462,e0,'stem',bet,'ex situ ambient reflected, field',avi,date(29,08,2014),time(21,09,17)).
-image('14R4321:0090415',2442,'e-1','tip',bet,'ex situ ambient reflected, field',avi,date(29,08,2014),time(20,55,13)).
-image('14R4321:0090410',2453,'t-1','stem',bet,'ex situ ambient reflected, field',avi,date(29,08,2014),time(20,55,13)).
-image('14R4321:0090408',2473,'e-1','tip',bet,'ex situ ambient reflected, field',avi,date(29,08,2014),time(21,09,17)).
-image('14R4321:0090405',2464,'e-1','middle',bet,'ex situ ambient reflected, field',avi,date(29,08,2014),time(21,09,17)).
-image('14R4321:0090403',2510,'e-1','tip',bet,'ex situ ambient reflected, field',avi,date(29,08,2014),time(21,09,17)).
-image('14R4321:0090402',2509,'e-1','tip',bet,'ex situ ambient reflected, field',avi,date(29,08,2014),time(21,09,17)).
-image('14R4106:0090316',2488,'e-1','tip',bet,'ex situ ambient reflected, field',avi,date(29,08,2014),time(21,09,17)).
-image('14R4106:0090314',2448,'e-1','tip',bet,'ex situ ambient reflected, field',avi,date(29,08,2014),time(20,55,13)).
-image('14R4106:0090312',2450,'t-3','stem',bet,'ex situ ambient reflected, field',avi,date(29,08,2014),time(20,55,13)).
-image('14R4106:0090310',2466,'e-1','tip',bet,'ex situ ambient reflected, field',avi,date(29,08,2014),time(21,09,17)).
-image('14R4106:0090308',2457,'e-1','middle',bet,'ex situ ambient reflected, field',avi,date(29,08,2014),time(20,55,13)).
-image('14R4106:0090307',2504,'e-1','tip',bet,'ex situ ambient reflected, field',avi,date(29,08,2014),time(21,09,17)).
-image('14R4106:0090306',2505,'e-1','tip',bet,'ex situ ambient reflected, field',avi,date(29,08,2014),time(21,09,17)).
-image('14R4106:0090305',2503,'e-1','tip',bet,'ex situ ambient reflected, field',avi,date(29,08,2014),time(21,09,17)).
-image('14R4320:0090216',2502,'e-1','middle',bet,'ex situ ambient reflected, field',avi,date(29,08,2014),time(21,09,17)).
-image('14R4320:0090215',2468,'e-1','tip',bet,'ex situ ambient reflected, field',avi,date(29,08,2014),time(21,09,17)).
-image('14R4320:0090214',2474,e1,'middle',bet,'ex situ ambient reflected, field',avi,date(29,08,2014),time(21,09,17)).
-image('14R4320:0090212',2491,'e-1','stem',bet,'ex situ ambient reflected, field',avi,date(29,08,2014),time(21,09,17)).
-image('14R4320:0090211',2500,'e-1','tip',bet,'ex situ ambient reflected, field',avi,date(29,08,2014),time(21,09,17)).
-image('14R4320:0090209',2452,'t-3','whole',bet,'ex situ ambient reflected, field',avi,date(29,08,2014),time(20,55,13)).
-image('14R4320:0090208',2456,'t-3','middle',bet,'ex situ ambient reflected, field',avi,date(29,08,2014),time(20,55,13)).
-image('14R4320:0090207',2501,'e-1','tip',bet,'ex situ ambient reflected, field',avi,date(29,08,2014),time(21,09,17)).
-image('14R4320:0090205',2470,'t-3','stem',bet,'ex situ ambient reflected, field',avi,date(29,08,2014),time(21,09,17)).
-image('14R4320:0090204',2451,'t-3','whole',bet,'ex situ ambient reflected, field',avi,date(29,08,2014),time(20,55,13)).
-image('14R4105:0090112',2472,'e-1','tip',bet,'ex situ ambient reflected, field',avi,date(29,08,2014),time(21,09,17)).
-image('14R4105:0090110',2507,'e-1','tip',bet,'ex situ ambient reflected, field',avi,date(29,08,2014),time(21,09,17)).
-image('14R4105:0090108',2489,'e-1','tip',bet,'ex situ ambient reflected, field',avi,date(29,08,2014),time(21,09,17)).
-image('14R4105:0090106',2506,'e-1','tip',bet,'ex situ ambient reflected, field',avi,date(29,08,2014),time(21,09,17)).
-image('14R4105:0090105',2508,'e-1','middle',bet,'ex situ ambient reflected, field',avi,date(29,08,2014),time(21,09,17)).
-image('14R4105:0090103',2499,'e-1','tip',bet,'ex situ ambient reflected, field',avi,date(29,08,2014),time(21,09,17)).
-image('14R4105:0090102',2471,'e-1','middle',bet,'ex situ ambient reflected, field',avi,date(29,08,2014),time(21,09,17)).
-image('14R4276:0020511',2460,'e-1','middle',bet,'ex situ ambient reflected, field',avi,date(29,08,2014),time(21,09,17)).
-image('14R4276:0020506',2465,'e-1','tip',bet,'ex situ ambient reflected, field',avi,date(29,08,2014),time(21,09,17)).
-image('14R4107:0090612',2559,'e-1','tip',aleph,'ex situ ambient reflected, field',toni,date(29,08,2014),time(22,57,08)).
+image('14R4112:0091513',2548,'e-1','middle',bet,'shed, new photo jig',avi,date(29,08,2014),time(22,59,31)).
+image('14R4112:0091511',2573,e2,'middle',bet,'shed, new photo jig',avi,date(29,08,2014),time(22,59,31)).
+image('14R4112:0091511',2550,'e-1','tip',bet,'shed, new photo jig',avi,date(29,08,2014),time(22,59,31)).
+image('14R4112:0091511',2542,'e-1','middle',bet,'shed, new photo jig',toni,date(29,08,2014),time(22,51,57)).
+image('14R4112:0091510',2541,'e-1','tip',bet,'shed, new photo jig',avi,date(29,08,2014),time(21,09,17)).
+image('14R4112:0091508',2568,'e-1','tip',bet,'shed, new photo jig',avi,date(29,08,2014),time(22,59,31)).
+image('14R4112:0091507',2566,'e-2','middle',bet,'shed, new photo jig',avi,date(29,08,2014),time(22,59,31)).
+image('14R4112:0091504',2540,'e-1','middle',bet,'shed, new photo jig',avi,date(29,08,2014),time(21,09,17)).
+image('14R4112:0091502',2571,'e-1','tip',bet,'shed, new photo jig',avi,date(29,08,2014),time(22,59,31)).
+image('14R4112:0091501',2534,e2,'tip',bet,'shed, new photo jig',avi,date(29,08,2014),time(21,09,17)).
+image('14R4112:0091501',2533,'e-1','middle',bet,'shed, new photo jig',avi,date(29,08,2014),time(21,09,17)).
+image('14R4327:0091416',2546,'e-1','middle',bet,'shed, new photo jig',avi,date(29,08,2014),time(22,57,08)).
+image('14R4327:0091414',2564,'t-4','middle',bet,'shed, new photo jig',avi,date(29,08,2014),time(22,59,31)).
+image('14R4327:0091412',2539,'e-1','tip',bet,'shed, new photo jig',avi,date(29,08,2014),time(21,09,17)).
+image('14R4327:0091411',2544,'e-1','tip',bet,'shed, new photo jig',avi,date(29,08,2014),time(21,09,17)).
+image('14R4327:0091410',2547,'e-1','middle',bet,'shed, new photo jig',avi,date(29,08,2014),time(22,57,08)).
+image('14R4327:0091408',2565,e2,'tip',bet,'shed, new photo jig',avi,date(29,08,2014),time(22,59,31)).
+image('14R4327:0091408',2543,'e-1','middle',bet,'shed, new photo jig',toni,date(29,08,2014),time(22,54,24)).
+image('14R4327:0091406',2569,'e-2','middle',bet,'shed, new photo jig',avi,date(29,08,2014),time(22,59,31)).
+image('14R4327:0091406',2549,e2,'tip',bet,'shed, new photo jig',avi,date(29,08,2014),time(22,59,31)).
+image('14R4327:0091405',2572,'t-3','tip',bet,'shed, new photo jig',avi,date(29,08,2014),time(22,59,31)).
+image('14R4327:0091404',2562,'t-3','whole',bet,'shed, new photo jig',avi,date(29,08,2014),time(22,59,31)).
+image('14R4326:0091314',2553,'e-1','tip',bet,'shed, new photo jig',avi,date(29,08,2014),time(22,59,31)).
+image('14R4326:0091313',2554,'e-1','tip',bet,'shed, new photo jig',avi,date(29,08,2014),time(22,59,31)).
+image('14R4326:0091311',2552,'e-1','middle',bet,'shed, new photo jig',avi,date(29,08,2014),time(22,59,31)).
+image('14R4326:0091309',2538,'e-1','tip',bet,'shed, new photo jig',avi,date(29,08,2014),time(21,09,17)).
+image('14R4326:0091307',2536,'e-1','tip',bet,'shed, new photo jig',avi,date(29,08,2014),time(21,09,17)).
+image('14R4326:0091304',2561,'t-2','whole',bet,'shed, new photo jig',avi,date(29,08,2014),time(22,59,31)).
+image('14R4326:0091303',2537,'e-1','tip',bet,'shed, new photo jig',avi,date(29,08,2014),time(21,09,17)).
+image('14R4326:0091301',2535,'e-1','tip',bet,'shed, new photo jig',avi,date(29,08,2014),time(21,09,17)).
+image('14R4325:0091212',2551,'e-1','middle',bet,'shed, new photo jig',avi,date(29,08,2014),time(22,59,31)).
+image('14R4325:0091209',2563,'t-3','stem',bet,'shed, new photo jig',avi,date(29,08,2014),time(22,59,31)).
+image('14R4325:0091207',2567,'e-1','tip',bet,'shed, new photo jig',avi,date(29,08,2014),time(22,59,31)).
+image('14R4325:0091206',2492,'e-1','tip',bet,'shed, new photo jig',avi,date(29,08,2014),time(21,09,17)).
+image('14R4325:0091205',2493,'e-1','tip',bet,'shed, new photo jig',avi,date(29,08,2014),time(21,09,17)).
+image('14R4325:0091204',2486,'t-3','middle',bet,'shed, new photo jig',avi,date(29,08,2014),time(21,09,17)).
+image('14R4325:0091203',2477,'e-1','middle',bet,'shed, new photo jig',avi,date(29,08,2014),time(21,09,17)).
+image('14R4325:0091202',2476,'t-3','middle',bet,'shed, new photo jig',avi,date(29,08,2014),time(21,09,17)).
+image('14R4109:0091113',2495,'e-1','middle',bet,'shed, new photo jig',avi,date(29,08,2014),time(21,09,17)).
+image('14R4109:0091110',2496,'e-1','tip',bet,'shed, new photo jig',avi,date(29,08,2014),time(21,09,17)).
+image('14R4109:0091107',2483,'e-1','middle',bet,'shed, new photo jig',avi,date(29,08,2014),time(21,09,17)).
+image('14R4109:0091106',2479,'e-1','middle',bet,'shed, new photo jig',avi,date(29,08,2014),time(21,09,17)).
+image('14R4109:0091102',2484,'e-2','middle',bet,'shed, new photo jig',avi,date(29,08,2014),time(21,09,17)).
+image('14R4109:0091101',2478,'e-1','tip',bet,'shed, new photo jig',avi,date(29,08,2014),time(21,09,17)).
+image('14R4111:0091016',2482,'e-1','middle',bet,'shed, new photo jig',avi,date(29,08,2014),time(21,09,17)).
+image('14R4111:0091015',2498,'e-2','middle',bet,'shed, new photo jig',avi,date(29,08,2014),time(21,09,17)).
+image('14R4111:0091013',2524,'e-1','middle',bet,'shed, new photo jig',avi,date(29,08,2014),time(21,09,17)).
+image('14R4111:0091012',2497,'e-1','tip',bet,'shed, new photo jig',avi,date(29,08,2014),time(21,09,17)).
+image('14R4111:0091011',2521,'e-1','tip',bet,'shed, new photo jig',avi,date(29,08,2014),time(21,09,17)).
+image('14R4111:0091010',2520,'e-1','tip',bet,'shed, new photo jig',avi,date(29,08,2014),time(21,09,17)).
+image('14R4111:0091008',2570,'e-1','middle',bet,'shed, new photo jig',avi,date(29,08,2014),time(22,59,31)).
+image('14R4111:0091007',2531,'e-1','tip',bet,'shed, new photo jig',avi,date(29,08,2014),time(21,09,17)).
+image('14R4111:0091006',2485,'e-1','tip',bet,'shed, new photo jig',avi,date(29,08,2014),time(21,09,17)).
+image('14R4111:0091004',2481,'e-1','middle',bet,'shed, new photo jig',avi,date(29,08,2014),time(21,09,17)).
+image('14R4111:0091002',2525,'e-1','tip',bet,'shed, new photo jig',avi,date(29,08,2014),time(21,09,17)).
+image('14R4111:0091001',2522,'e-1','tip',bet,'shed, new photo jig',avi,date(29,08,2014),time(21,09,17)).
+image('14R4324:0090916',2515,'e-1','tip',bet,'shed, new photo jig',avi,date(29,08,2014),time(21,09,17)).
+image('14R4324:0090914',2528,'e-1','tip',bet,'shed, new photo jig',avi,date(29,08,2014),time(21,09,17)).
+image('14R4324:0090909',2454,'t-3','whole',bet,'shed, new photo jig',avi,date(29,08,2014),time(20,55,13)).
+image('14R4324:0090907',2449,'t-3','tip',bet,'shed, new photo jig',avi,date(29,08,2014),time(20,55,13)).
+image('14R4324:0090905',2475,'t-4','whole',bet,'shed, new photo jig',avi,date(29,08,2014),time(21,09,17)).
+image('14R4324:0090902',2532,'e-1','middle',bet,'shed, new photo jig',avi,date(29,08,2014),time(21,09,17)).
+image('14R4324:0090901',2529,'e-1','tip',bet,'shed, new photo jig',avi,date(29,08,2014),time(21,09,17)).
+image('14R4323:0090816',2558,'e-1','middle',bet,'shed, new photo jig',avi,date(29,08,2014),time(22,59,31)).
+image('14R4323:0090811',2455,'t-2','whole',bet,'shed, new photo jig',avi,date(29,08,2014),time(20,55,13)).
+image('14R4323:0090808',2556,'e-1','tip',bet,'shed, new photo jig',avi,date(29,08,2014),time(22,59,31)).
+image('14R4323:0090807',2516,'e-1','tip',bet,'shed, new photo jig',avi,date(29,08,2014),time(21,09,17)).
+image('14R4323:0090806',2487,'t-2','stem',bet,'shed, new photo jig',avi,date(29,08,2014),time(21,09,17)).
+image('14R4323:0090803',2530,'e-1','middle',bet,'shed, new photo jig',avi,date(29,08,2014),time(21,09,17)).
+image('14R4323:0090802',2480,'e-1','tip',bet,'shed, new photo jig',avi,date(29,08,2014),time(21,09,17)).
+image('14R4110:0090715',2494,'e-1','tip',bet,'shed, new photo jig',avi,date(29,08,2014),time(21,09,17)).
+image('14R4110:0090714',2511,'e-1','middle',bet,'shed, new photo jig',avi,date(29,08,2014),time(21,09,17)).
+image('14R4110:0090704',2512,'e-1','middle',bet,'shed, new photo jig',avi,date(29,08,2014),time(21,09,17)).
+image('14R4110:0090703',2518,'e-1','tip',bet,'shed, new photo jig',avi,date(29,08,2014),time(21,09,17)).
+image('14R4110:0090701',2527,'e-1','tip',bet,'shed, new photo jig',avi,date(29,08,2014),time(21,09,17)).
+image('14R4107:0090616',2523,'e-1','tip',bet,'shed, new photo jig',avi,date(29,08,2014),time(21,09,17)).
+image('14R4107:0090614',2560,'e-2','tip',bet,'shed, new photo jig',avi,date(29,08,2014),time(22,59,31)).
+image('14R4107:0090613',2517,'e-1','tip',bet,'shed, new photo jig',avi,date(29,08,2014),time(21,09,17)).
+image('14R4107:0090609',2513,'e-1','tip',bet,'shed, new photo jig',avi,date(29,08,2014),time(21,09,17)).
+image('14R4107:0090607',2519,'e-1','tip',bet,'shed, new photo jig',avi,date(29,08,2014),time(21,09,17)).
+image('14R4107:0090606',2545,'e-1','tip',bet,'shed, new photo jig',avi,date(29,08,2014),time(22,57,08)).
+image('14R4107:0090604',2514,'e-2','tip',bet,'shed, new photo jig',avi,date(29,08,2014),time(21,09,17)).
+image('14R4107:0090602',2557,'e-1','tip',bet,'shed, new photo jig',avi,date(29,08,2014),time(22,59,31)).
+image('14R4107:0090601',2526,'e-1','tip',bet,'shed, new photo jig',avi,date(29,08,2014),time(21,09,17)).
+image('14R4322:0090516',2467,'e-2','tip',bet,'shed, new photo jig',avi,date(29,08,2014),time(21,09,17)).
+image('14R4322:0090515',2490,'e-1','tip',bet,'shed, new photo jig',avi,date(29,08,2014),time(21,09,17)).
+image('14R4322:0090513',2461,'t-3','stem',bet,'shed, new photo jig',avi,date(29,08,2014),time(21,09,17)).
+image('14R4322:0090507',2459,'e-1','stem',bet,'shed, new photo jig',avi,date(29,08,2014),time(21,09,17)).
+image('14R4322:0090505',2458,'t-5','stem',bet,'shed, new photo jig',avi,date(29,08,2014),time(20,55,13)).
+image('14R4322:0090504',2469,'t-6','middle',bet,'shed, new photo jig',avi,date(29,08,2014),time(21,09,17)).
+image('14R4322:0090503',2463,'e-1','tip',bet,'shed, new photo jig',avi,date(29,08,2014),time(21,09,17)).
+image('14R4322:0090501',2462,e0,'stem',bet,'shed, new photo jig',avi,date(29,08,2014),time(21,09,17)).
+image('14R4321:0090415',2442,'e-1','tip',bet,'shed, new photo jig',avi,date(29,08,2014),time(20,55,13)).
+image('14R4321:0090410',2453,'t-1','stem',bet,'shed, new photo jig',avi,date(29,08,2014),time(20,55,13)).
+image('14R4321:0090408',2473,'e-1','tip',bet,'shed, new photo jig',avi,date(29,08,2014),time(21,09,17)).
+image('14R4321:0090405',2464,'e-1','middle',bet,'shed, new photo jig',avi,date(29,08,2014),time(21,09,17)).
+image('14R4321:0090403',2510,'e-1','tip',bet,'shed, new photo jig',avi,date(29,08,2014),time(21,09,17)).
+image('14R4321:0090402',2509,'e-1','tip',bet,'shed, new photo jig',avi,date(29,08,2014),time(21,09,17)).
+image('14R4106:0090316',2488,'e-1','tip',bet,'shed, new photo jig',avi,date(29,08,2014),time(21,09,17)).
+image('14R4106:0090314',2448,'e-1','tip',bet,'shed, new photo jig',avi,date(29,08,2014),time(20,55,13)).
+image('14R4106:0090312',2450,'t-3','stem',bet,'shed, new photo jig',avi,date(29,08,2014),time(20,55,13)).
+image('14R4106:0090310',2466,'e-1','tip',bet,'shed, new photo jig',avi,date(29,08,2014),time(21,09,17)).
+image('14R4106:0090308',2457,'e-1','middle',bet,'shed, new photo jig',avi,date(29,08,2014),time(20,55,13)).
+image('14R4106:0090307',2504,'e-1','tip',bet,'shed, new photo jig',avi,date(29,08,2014),time(21,09,17)).
+image('14R4106:0090306',2505,'e-1','tip',bet,'shed, new photo jig',avi,date(29,08,2014),time(21,09,17)).
+image('14R4106:0090305',2503,'e-1','tip',bet,'shed, new photo jig',avi,date(29,08,2014),time(21,09,17)).
+image('14R4320:0090216',2502,'e-1','middle',bet,'shed, new photo jig',avi,date(29,08,2014),time(21,09,17)).
+image('14R4320:0090215',2468,'e-1','tip',bet,'shed, new photo jig',avi,date(29,08,2014),time(21,09,17)).
+image('14R4320:0090214',2474,e1,'middle',bet,'shed, new photo jig',avi,date(29,08,2014),time(21,09,17)).
+image('14R4320:0090212',2491,'e-1','stem',bet,'shed, new photo jig',avi,date(29,08,2014),time(21,09,17)).
+image('14R4320:0090211',2500,'e-1','tip',bet,'shed, new photo jig',avi,date(29,08,2014),time(21,09,17)).
+image('14R4320:0090209',2452,'t-3','whole',bet,'shed, new photo jig',avi,date(29,08,2014),time(20,55,13)).
+image('14R4320:0090208',2456,'t-3','middle',bet,'shed, new photo jig',avi,date(29,08,2014),time(20,55,13)).
+image('14R4320:0090207',2501,'e-1','tip',bet,'shed, new photo jig',avi,date(29,08,2014),time(21,09,17)).
+image('14R4320:0090205',2470,'t-3','stem',bet,'shed, new photo jig',avi,date(29,08,2014),time(21,09,17)).
+image('14R4320:0090204',2451,'t-3','whole',bet,'shed, new photo jig',avi,date(29,08,2014),time(20,55,13)).
+image('14R4105:0090112',2472,'e-1','tip',bet,'shed, new photo jig',avi,date(29,08,2014),time(21,09,17)).
+image('14R4105:0090110',2507,'e-1','tip',bet,'shed, new photo jig',avi,date(29,08,2014),time(21,09,17)).
+image('14R4105:0090108',2489,'e-1','tip',bet,'shed, new photo jig',avi,date(29,08,2014),time(21,09,17)).
+image('14R4105:0090106',2506,'e-1','tip',bet,'shed, new photo jig',avi,date(29,08,2014),time(21,09,17)).
+image('14R4105:0090105',2508,'e-1','middle',bet,'shed, new photo jig',avi,date(29,08,2014),time(21,09,17)).
+image('14R4105:0090103',2499,'e-1','tip',bet,'shed, new photo jig',avi,date(29,08,2014),time(21,09,17)).
+image('14R4105:0090102',2471,'e-1','middle',bet,'shed, new photo jig',avi,date(29,08,2014),time(21,09,17)).
+image('14R4276:0020511',2460,'e-1','middle',bet,'shed, new photo jig',avi,date(29,08,2014),time(21,09,17)).
+image('14R4276:0020506',2465,'e-1','tip',bet,'shed, new photo jig',avi,date(29,08,2014),time(21,09,17)).
+image('14R4107:0090612',2559,'e-1','tip',aleph,'shed, new photo jig',toni,date(29,08,2014),time(22,57,08)).
 
 
 
 % 15r
+
+% corrected locale from 'ex situ ambient reflected, field'
+% to 'shed, new photo jig'
+% after checking the images directly.
+%
+% Kazic, 18.2.2022
 
 
 % data added from ../../data/palm/raw_data_from_palms/15r/zeta/11.8/image.csv on Fri Sep 25 17:58:48 CDT 2015
 % by data/data_conversion/convert_image_data.perl
 % called from data/data_conversion/convert_data.perl
 
-image('15R4312:0018403',2682,b0,'middle',bet,'ex situ ambient reflected, field',avi,date(11,08,2015),time(13,26,59)).
-image('15R4397:0013604',2681,b0,'middle',bet,'ex situ ambient reflected, field',avi,date(11,08,2015),time(13,25,54)).
-image('15R4312:0018407',2680,b0,'tip',bet,'ex situ ambient reflected, field',avi,date(11,08,2015),time(13,24,47)).
-image('15R4396:0013506',2679,b0,'middle',bet,'ex situ ambient reflected, field',avi,date(11,08,2015),time(13,23,35)).
-image('15R4396:0013508',2678,b0,'middle',bet,'ex situ ambient reflected, field',avi,date(11,08,2015),time(13,22,11)).
-image('15R4412:0017414',2677,'t-2','middle',bet,'ex situ ambient reflected, field',avi,date(11,08,2015),time(12,29,50)).
-image('15R4412:0017414',2676,'t-1','middle',bet,'ex situ ambient reflected, field',avi,date(11,08,2015),time(12,28,35)).
-image('15R4412:0018105',2675,b0,'middle',bet,'ex situ ambient reflected, field',avi,date(11,08,2015),time(12,26,59)).
-image('15R4414:0018310',2674,b0,'middle',bet,'ex situ ambient reflected, field',avi,date(11,08,2015),time(12,25,41)).
-image('15R4007:0013703',2673,b0,'middle',bet,'ex situ ambient reflected, field',avi,date(11,08,2015),time(12,24,42)).
-image('15R4413:0018203',2672,b0,'middle',bet,'ex situ ambient reflected, field',avi,date(11,08,2015),time(12,23,33)).
-image('15R4368:0020512',2671,'t-3','middle',bet,'ex situ ambient reflected, field',avi,date(11,08,2015),time(12,22,02)).
-image('15R4247:0009302',2670,b0,'middle',bet,'ex situ ambient reflected, field',avi,date(11,08,2015),time(12,20,31)).
-image('15R4397:0013608',2669,b0,'tip',bet,'ex situ ambient reflected, field',avi,date(11,08,2015),time(12,17,16)).
-image('15R4397:0013602',2668,b0,'tip',bet,'ex situ ambient reflected, field',avi,date(11,08,2015),time(12,15,33)).
-image('15R4396:0013505',2667,b0,'middle',bet,'ex situ ambient reflected, field',avi,date(11,08,2015),time(12,14,22)).
-image('15R4183:0017111',2666,'t-6','middle',bet,'ex situ ambient reflected, field',avi,date(11,08,2015),time(12,12,30)).
-image('15R4183:0017111',2665,'t-4','tip',bet,'ex situ ambient reflected, field',avi,date(11,08,2015),time(12,09,04)).
-image('15R4353:0011002',2664,'t-1','middle',bet,'ex situ ambient reflected, field',avi,date(11,08,2015),time(12,07,21)).
-image('15R4414:0018308',2663,b0,'middle',bet,'ex situ ambient reflected, field',avi,date(11,08,2015),time(12,05,55)).
-image('15R4414:0018304',2662,b0,'middle',bet,'ex situ ambient reflected, field',avi,date(11,08,2015),time(12,04,33)).
-image('15R4384:0009403',2661,b0,'middle',bet,'ex situ ambient reflected, field',avi,date(11,08,2015),time(12,03,08)).
-image('15R3321:0020208',2660,'t-3','middle',bet,'ex situ ambient reflected, field',avi,date(11,08,2015),time(12,01,41)).
-image('15R4367:0020401',2659,'t-3','tip',bet,'ex situ ambient reflected, field',avi,date(11,08,2015),time(12,00,12)).
-image('15R4011:0013804',2658,b0,'middle',bet,'ex situ ambient reflected, field',avi,date(11,08,2015),time(11,58,22)).
-image('15R4384:0009404',2657,b0,'tip',bet,'ex situ ambient reflected, field',avi,date(11,08,2015),time(11,57,17)).
-image('15R4368:0020513',2656,'t-2','middle',bet,'ex situ ambient reflected, field',avi,date(11,08,2015),time(11,55,34)).
-image('15R4011:0013801',2655,b0,'middle',bet,'ex situ ambient reflected, field',avi,date(11,08,2015),time(11,53,20)).
-image('15R3999:0013105',2654,b0,'tip',bet,'ex situ ambient reflected, field',avi,date(11,08,2015),time(11,51,02)).
-image('15R4361:0013407',2653,b0,'tip',bet,'ex situ ambient reflected, field',avi,date(11,08,2015),time(11,49,47)).
-image('15R4395:0013304',2652,b0,'middle',bet,'ex situ ambient reflected, field',avi,date(11,08,2015),time(11,48,19)).
-image('15R3999:0013103',2651,b0,'tip',bet,'ex situ ambient reflected, field',avi,date(11,08,2015),time(11,46,58)).
-image('15R4361:0013403',2650,'e-2','middle',bet,'ex situ ambient reflected, field',avi,date(11,08,2015),time(11,45,25)).
-image('15R4384:0009402',2649,b0,'middle',bet,'ex situ ambient reflected, field',avi,date(11,08,2015),time(11,43,32)).
-image('15R4011:0013805',2648,b0,'middle',bet,'ex situ ambient reflected, field',avi,date(11,08,2015),time(11,39,53)).
-image('15R4412:0018107',2647,'t-3','middle',bet,'ex situ ambient reflected, field',avi,date(11,08,2015),time(11,37,35)).
-image('15R3321:0020202',2646,'t-3','middle',bet,'ex situ ambient reflected, field',avi,date(11,08,2015),time(11,36,30)).
-image('15R4007:0013702',2645,b0,'middle',bet,'ex situ ambient reflected, field',avi,date(11,08,2015),time(11,35,02)).
-image('15R4412:0018104',2644,'t-3','middle',bet,'ex situ ambient reflected, field',avi,date(11,08,2015),time(11,33,44)).
-image('15R4363:0017406',2643,'t-2','middle',bet,'ex situ ambient reflected, field',avi,date(11,08,2015),time(11,29,56)).
-image('15R4363:0017406',2642,'t-1','middle',bet,'ex situ ambient reflected, field',avi,date(11,08,2015),time(11,27,53)).
-image('15R4183:0017109',2641,'t-5','tip',bet,'ex situ ambient reflected, field',avi,date(11,08,2015),time(11,26,18)).
-image('15R4183:0017109',2640,'t-3','middle',bet,'ex situ ambient reflected, field',avi,date(11,08,2015),time(11,23,01)).
-image('15R4398:0013904',2639,b0,'middle',bet,'ex situ ambient reflected, field',avi,date(11,08,2015),time(11,21,47)).
-image('15R4373:0007409',2638,'t-2','middle',bet,'ex situ ambient reflected, field',avi,date(11,08,2015),time(11,20,03)).
-image('15R4352:0010901',2637,'e-1','middle',bet,'ex situ ambient reflected, field',avi,date(11,08,2015),time(11,17,55)).
-image('15R4183:0017105',2636,'t-3','middle',bet,'ex situ ambient reflected, field',avi,date(11,08,2015),time(11,16,10)).
-image('15R4352:0010908',2635,e1,'middle',bet,'ex situ ambient reflected, field',avi,date(11,08,2015),time(11,14,48)).
-image('15R4363:0017408',2634,'t-3','middle',bet,'ex situ ambient reflected, field',avi,date(11,08,2015),time(11,13,04)).
-image('15R4361:0013408',2633,b0,'tip',bet,'ex situ ambient reflected, field',avi,date(11,08,2015),time(11,10,55)).
-image('15R3999:0013108',2632,b0,'middle',bet,'ex situ ambient reflected, field',avi,date(11,08,2015),time(11,08,26)).
-image('15R4398:0013906',2631,b0,'middle',bet,'ex situ ambient reflected, field',avi,date(11,08,2015),time(11,04,38)).
-image('15R4398:0013907',2630,b0,'middle',bet,'ex situ ambient reflected, field',avi,date(11,08,2015),time(11,00,42)).
-image('15R4395:0013301',2629,b0,'tip',bet,'ex situ ambient reflected, field',avi,date(11,08,2015),time(10,54,38)).
-image('15R4352:0010903',2628,e1,'stem',bet,'ex situ ambient reflected, field',avi,date(11,08,2015),time(10,47,52)).
+image('15R4312:0018403',2682,b0,'middle',bet,'shed, new photo jig',avi,date(11,08,2015),time(13,26,59)).
+image('15R4397:0013604',2681,b0,'middle',bet,'shed, new photo jig',avi,date(11,08,2015),time(13,25,54)).
+image('15R4312:0018407',2680,b0,'tip',bet,'shed, new photo jig',avi,date(11,08,2015),time(13,24,47)).
+image('15R4396:0013506',2679,b0,'middle',bet,'shed, new photo jig',avi,date(11,08,2015),time(13,23,35)).
+image('15R4396:0013508',2678,b0,'middle',bet,'shed, new photo jig',avi,date(11,08,2015),time(13,22,11)).
+image('15R4412:0017414',2677,'t-2','middle',bet,'shed, new photo jig',avi,date(11,08,2015),time(12,29,50)).
+image('15R4412:0017414',2676,'t-1','middle',bet,'shed, new photo jig',avi,date(11,08,2015),time(12,28,35)).
+image('15R4412:0018105',2675,b0,'middle',bet,'shed, new photo jig',avi,date(11,08,2015),time(12,26,59)).
+image('15R4414:0018310',2674,b0,'middle',bet,'shed, new photo jig',avi,date(11,08,2015),time(12,25,41)).
+image('15R4007:0013703',2673,b0,'middle',bet,'shed, new photo jig',avi,date(11,08,2015),time(12,24,42)).
+image('15R4413:0018203',2672,b0,'middle',bet,'shed, new photo jig',avi,date(11,08,2015),time(12,23,33)).
+image('15R4368:0020512',2671,'t-3','middle',bet,'shed, new photo jig',avi,date(11,08,2015),time(12,22,02)).
+image('15R4247:0009302',2670,b0,'middle',bet,'shed, new photo jig',avi,date(11,08,2015),time(12,20,31)).
+image('15R4397:0013608',2669,b0,'tip',bet,'shed, new photo jig',avi,date(11,08,2015),time(12,17,16)).
+image('15R4397:0013602',2668,b0,'tip',bet,'shed, new photo jig',avi,date(11,08,2015),time(12,15,33)).
+image('15R4396:0013505',2667,b0,'middle',bet,'shed, new photo jig',avi,date(11,08,2015),time(12,14,22)).
+image('15R4183:0017111',2666,'t-6','middle',bet,'shed, new photo jig',avi,date(11,08,2015),time(12,12,30)).
+image('15R4183:0017111',2665,'t-4','tip',bet,'shed, new photo jig',avi,date(11,08,2015),time(12,09,04)).
+image('15R4353:0011002',2664,'t-1','middle',bet,'shed, new photo jig',avi,date(11,08,2015),time(12,07,21)).
+image('15R4414:0018308',2663,b0,'middle',bet,'shed, new photo jig',avi,date(11,08,2015),time(12,05,55)).
+image('15R4414:0018304',2662,b0,'middle',bet,'shed, new photo jig',avi,date(11,08,2015),time(12,04,33)).
+image('15R4384:0009403',2661,b0,'middle',bet,'shed, new photo jig',avi,date(11,08,2015),time(12,03,08)).
+image('15R3321:0020208',2660,'t-3','middle',bet,'shed, new photo jig',avi,date(11,08,2015),time(12,01,41)).
+image('15R4367:0020401',2659,'t-3','tip',bet,'shed, new photo jig',avi,date(11,08,2015),time(12,00,12)).
+image('15R4011:0013804',2658,b0,'middle',bet,'shed, new photo jig',avi,date(11,08,2015),time(11,58,22)).
+image('15R4384:0009404',2657,b0,'tip',bet,'shed, new photo jig',avi,date(11,08,2015),time(11,57,17)).
+image('15R4368:0020513',2656,'t-2','middle',bet,'shed, new photo jig',avi,date(11,08,2015),time(11,55,34)).
+image('15R4011:0013801',2655,b0,'middle',bet,'shed, new photo jig',avi,date(11,08,2015),time(11,53,20)).
+image('15R3999:0013105',2654,b0,'tip',bet,'shed, new photo jig',avi,date(11,08,2015),time(11,51,02)).
+image('15R4361:0013407',2653,b0,'tip',bet,'shed, new photo jig',avi,date(11,08,2015),time(11,49,47)).
+image('15R4395:0013304',2652,b0,'middle',bet,'shed, new photo jig',avi,date(11,08,2015),time(11,48,19)).
+image('15R3999:0013103',2651,b0,'tip',bet,'shed, new photo jig',avi,date(11,08,2015),time(11,46,58)).
+image('15R4361:0013403',2650,'e-2','middle',bet,'shed, new photo jig',avi,date(11,08,2015),time(11,45,25)).
+image('15R4384:0009402',2649,b0,'middle',bet,'shed, new photo jig',avi,date(11,08,2015),time(11,43,32)).
+image('15R4011:0013805',2648,b0,'middle',bet,'shed, new photo jig',avi,date(11,08,2015),time(11,39,53)).
+image('15R4412:0018107',2647,'t-3','middle',bet,'shed, new photo jig',avi,date(11,08,2015),time(11,37,35)).
+image('15R3321:0020202',2646,'t-3','middle',bet,'shed, new photo jig',avi,date(11,08,2015),time(11,36,30)).
+image('15R4007:0013702',2645,b0,'middle',bet,'shed, new photo jig',avi,date(11,08,2015),time(11,35,02)).
+image('15R4412:0018104',2644,'t-3','middle',bet,'shed, new photo jig',avi,date(11,08,2015),time(11,33,44)).
+image('15R4363:0017406',2643,'t-2','middle',bet,'shed, new photo jig',avi,date(11,08,2015),time(11,29,56)).
+image('15R4363:0017406',2642,'t-1','middle',bet,'shed, new photo jig',avi,date(11,08,2015),time(11,27,53)).
+image('15R4183:0017109',2641,'t-5','tip',bet,'shed, new photo jig',avi,date(11,08,2015),time(11,26,18)).
+image('15R4183:0017109',2640,'t-3','middle',bet,'shed, new photo jig',avi,date(11,08,2015),time(11,23,01)).
+image('15R4398:0013904',2639,b0,'middle',bet,'shed, new photo jig',avi,date(11,08,2015),time(11,21,47)).
+image('15R4373:0007409',2638,'t-2','middle',bet,'shed, new photo jig',avi,date(11,08,2015),time(11,20,03)).
+image('15R4352:0010901',2637,'e-1','middle',bet,'shed, new photo jig',avi,date(11,08,2015),time(11,17,55)).
+image('15R4183:0017105',2636,'t-3','middle',bet,'shed, new photo jig',avi,date(11,08,2015),time(11,16,10)).
+image('15R4352:0010908',2635,e1,'middle',bet,'shed, new photo jig',avi,date(11,08,2015),time(11,14,48)).
+image('15R4363:0017408',2634,'t-3','middle',bet,'shed, new photo jig',avi,date(11,08,2015),time(11,13,04)).
+image('15R4361:0013408',2633,b0,'tip',bet,'shed, new photo jig',avi,date(11,08,2015),time(11,10,55)).
+image('15R3999:0013108',2632,b0,'middle',bet,'shed, new photo jig',avi,date(11,08,2015),time(11,08,26)).
+image('15R4398:0013906',2631,b0,'middle',bet,'shed, new photo jig',avi,date(11,08,2015),time(11,04,38)).
+image('15R4398:0013907',2630,b0,'middle',bet,'shed, new photo jig',avi,date(11,08,2015),time(11,00,42)).
+image('15R4395:0013301',2629,b0,'tip',bet,'shed, new photo jig',avi,date(11,08,2015),time(10,54,38)).
+image('15R4352:0010903',2628,e1,'stem',bet,'shed, new photo jig',avi,date(11,08,2015),time(10,47,52)).
 
 
 
@@ -4995,58 +5022,58 @@ image('15R0667:0021107',2683,b0,'middle',bet,'in situ ambient reflected, field',
 % by data/data_conversion/convert_image_data.perl
 % called from data/data_conversion/convert_data.perl
 
-image('15R1129:0015403',2790,b1,'middle',bet,'ex situ ambient reflected, field',avi,date(15,08,2015),time(16,11,05)).
-image('15R1129:0015403',2789,b0,'middle',bet,'ex situ ambient reflected, field',avi,date(15,08,2015),time(16,09,45)).
-image('15R4399:0014505',2788,b0,'middle',bet,'ex situ ambient reflected, field',avi,date(15,08,2015),time(16,08,05)).
-image('15R4300:0014604',2787,b0,'whole',bet,'ex situ ambient reflected, field',avi,date(15,08,2015),time(16,07,09)).
-image('15R0686:0015307',2786,b0,'middle',bet,'ex situ ambient reflected, field',avi,date(15,08,2015),time(16,05,53)).
-image('15R1129:0015408',2785,b0,'tip',bet,'ex situ ambient reflected, field',avi,date(15,08,2015),time(16,04,27)).
-image('15R4351:0010008',2784,b0,'middle',bet,'ex situ ambient reflected, field',avi,date(15,08,2015),time(16,03,22)).
-image('15R4177:0016107',2783,b0,'stem',bet,'ex situ ambient reflected, field',avi,date(15,08,2015),time(16,02,26)).
-image('15R4177:0016101',2782,b0,'middle',bet,'ex situ ambient reflected, field',avi,date(15,08,2015),time(16,00,47)).
-image('15R4100:0014408',2781,b0,'stem',bet,'ex situ ambient reflected, field',avi,date(15,08,2015),time(15,59,49)).
-image('15R4393:0012908',2780,b0,'middle',bet,'ex situ ambient reflected, field',avi,date(15,08,2015),time(15,58,54)).
-image('15R4351:0010005',2779,b0,'middle',bet,'ex situ ambient reflected, field',avi,date(15,08,2015),time(15,56,58)).
-image('15R4300:0014602',2778,b0,'middle',bet,'ex situ ambient reflected, field',avi,date(15,08,2015),time(15,56,06)).
-image('15R4177:0016111',2777,b0,'tip',bet,'ex situ ambient reflected, field',avi,date(15,08,2015),time(15,54,09)).
-image('15R2930:0015905',2776,b0,'stem',bet,'ex situ ambient reflected, field',avi,date(15,08,2015),time(15,52,48)).
-image('15R4044:0016003',2775,b0,'stem',bet,'ex situ ambient reflected, field',avi,date(15,08,2015),time(15,51,44)).
-image('15R4177:0016112',2774,b0,'middle',bet,'ex situ ambient reflected, field',avi,date(15,08,2015),time(15,50,48)).
-image('15R2931:0016704',2773,b0,'middle',bet,'ex situ ambient reflected, field',avi,date(15,08,2015),time(15,49,41)).
-image('15R2930:0015904',2772,b0,'middle',bet,'ex situ ambient reflected, field',avi,date(15,08,2015),time(15,48,37)).
-image('15R4044:0016008',2771,e0,'middle',bet,'ex situ ambient reflected, field',avi,date(15,08,2015),time(15,47,39)).
-image('15R2930:0015903',2770,b0,'middle',bet,'ex situ ambient reflected, field',avi,date(15,08,2015),time(15,46,26)).
-image('15R4406:0016801',2769,b0,'tip',bet,'ex situ ambient reflected, field',avi,date(15,08,2015),time(15,45,14)).
-image('15R4044:0016004',2768,b0,'middle',bet,'ex situ ambient reflected, field',avi,date(15,08,2015),time(15,44,15)).
-image('15R1129:0015401',2767,b0,'middle',bet,'ex situ ambient reflected, field',avi,date(15,08,2015),time(15,42,30)).
-image('15R4405:0016211',2766,b0,'middle',bet,'ex situ ambient reflected, field',avi,date(15,08,2015),time(15,41,09)).
-image('15R4405:0016213',2765,b0,'stem',bet,'ex situ ambient reflected, field',avi,date(15,08,2015),time(15,39,44)).
-image('15R3654:0016401',2764,b0,'stem',bet,'ex situ ambient reflected, field',avi,date(15,08,2015),time(15,38,07)).
-image('15R3654:0016406',2763,b0,'middle',bet,'ex situ ambient reflected, field',avi,date(15,08,2015),time(15,36,46)).
-image('15R4405:0016202',2762,b0,'middle',bet,'ex situ ambient reflected, field',avi,date(15,08,2015),time(15,35,34)).
-image('15R4231:0009207',2761,b0,'middle',bet,'ex situ ambient reflected, field',avi,date(15,08,2015),time(14,33,20)).
-image('15R1715:0015205',2760,b0,'middle',bet,'ex situ ambient reflected, field',avi,date(15,08,2015),time(14,32,00)).
-image('15R4213:0005620',2759,b0,'middle',bet,'ex situ ambient reflected, field',avi,date(15,08,2015),time(14,30,35)).
-image('15R4404:0015601',2758,b0,'middle',bet,'ex situ ambient reflected, field',avi,date(15,08,2015),time(14,29,32)).
-image('15R4402:0015102',2757,'t-2','middle',bet,'ex situ ambient reflected, field',avi,date(15,08,2015),time(14,28,22)).
-image('15R4401:0014902',2756,e1,'middle',bet,'ex situ ambient reflected, field',avi,date(15,08,2015),time(14,27,25)).
-image('15R4401:0014904',2755,'t-3','middle',bet,'ex situ ambient reflected, field',avi,date(15,08,2015),time(14,26,24)).
-image('15R4392:0012803',2754,e2,'middle',bet,'ex situ ambient reflected, field',avi,date(15,08,2015),time(14,25,06)).
-image('15R0685:0009108',2753,b0,'middle',bet,'ex situ ambient reflected, field',avi,date(15,08,2015),time(14,23,49)).
-image('15R4213:0005618',2752,b0,'middle',bet,'ex situ ambient reflected, field',avi,date(15,08,2015),time(14,22,40)).
-image('15R4391:0012704',2751,b0,'tip',bet,'ex situ ambient reflected, field',avi,date(15,08,2015),time(14,21,12)).
-image('15R3297:0015703',2750,b0,'middle',bet,'ex situ ambient reflected, field',avi,date(15,08,2015),time(14,20,07)).
-image('15R4415:0018707',2749,b0,'tip',bet,'ex situ ambient reflected, field',avi,date(15,08,2015),time(14,18,22)).
-image('15R4391:0012707',2748,'t-2','middle',bet,'ex situ ambient reflected, field',avi,date(15,08,2015),time(14,17,16)).
-image('15R0685:0009107',2747,b0,'middle',bet,'ex situ ambient reflected, field',avi,date(15,08,2015),time(14,16,05)).
-image('15R4402:0015101',2746,b0,'middle',bet,'ex situ ambient reflected, field',avi,date(15,08,2015),time(14,15,04)).
-image('15R0685:0009103',2745,b0,'tip',bet,'ex situ ambient reflected, field',avi,date(15,08,2015),time(14,13,15)).
-image('15R1715:0015202',2744,b0,'tip',bet,'ex situ ambient reflected, field',avi,date(15,08,2015),time(14,11,46)).
-image('15R4391:0012711',2743,b0,'tip',bet,'ex situ ambient reflected, field',avi,date(15,08,2015),time(14,10,23)).
-image('15R0686:0015302',2742,b0,'tip',bet,'ex situ ambient reflected, field',avi,date(15,08,2015),time(14,07,28)).
-image('15R4415:0018712',2741,e0,'middle',bet,'ex situ ambient reflected, field',avi,date(15,08,2015),time(14,06,16)).
-image('15R4046:0016604',2740,b0,'tip',bet,'ex situ ambient reflected, field',avi,date(15,08,2015),time(14,05,13)).
-image('15R4415:0018708',2739,b0,'middle',bet,'ex situ ambient reflected, field',avi,date(15,08,2015),time(14,03,11)).
+image('15R1129:0015403',2790,b1,'middle',bet,'shed, new photo jig',avi,date(15,08,2015),time(16,11,05)).
+image('15R1129:0015403',2789,b0,'middle',bet,'shed, new photo jig',avi,date(15,08,2015),time(16,09,45)).
+image('15R4399:0014505',2788,b0,'middle',bet,'shed, new photo jig',avi,date(15,08,2015),time(16,08,05)).
+image('15R4300:0014604',2787,b0,'whole',bet,'shed, new photo jig',avi,date(15,08,2015),time(16,07,09)).
+image('15R0686:0015307',2786,b0,'middle',bet,'shed, new photo jig',avi,date(15,08,2015),time(16,05,53)).
+image('15R1129:0015408',2785,b0,'tip',bet,'shed, new photo jig',avi,date(15,08,2015),time(16,04,27)).
+image('15R4351:0010008',2784,b0,'middle',bet,'shed, new photo jig',avi,date(15,08,2015),time(16,03,22)).
+image('15R4177:0016107',2783,b0,'stem',bet,'shed, new photo jig',avi,date(15,08,2015),time(16,02,26)).
+image('15R4177:0016101',2782,b0,'middle',bet,'shed, new photo jig',avi,date(15,08,2015),time(16,00,47)).
+image('15R4100:0014408',2781,b0,'stem',bet,'shed, new photo jig',avi,date(15,08,2015),time(15,59,49)).
+image('15R4393:0012908',2780,b0,'middle',bet,'shed, new photo jig',avi,date(15,08,2015),time(15,58,54)).
+image('15R4351:0010005',2779,b0,'middle',bet,'shed, new photo jig',avi,date(15,08,2015),time(15,56,58)).
+image('15R4300:0014602',2778,b0,'middle',bet,'shed, new photo jig',avi,date(15,08,2015),time(15,56,06)).
+image('15R4177:0016111',2777,b0,'tip',bet,'shed, new photo jig',avi,date(15,08,2015),time(15,54,09)).
+image('15R2930:0015905',2776,b0,'stem',bet,'shed, new photo jig',avi,date(15,08,2015),time(15,52,48)).
+image('15R4044:0016003',2775,b0,'stem',bet,'shed, new photo jig',avi,date(15,08,2015),time(15,51,44)).
+image('15R4177:0016112',2774,b0,'middle',bet,'shed, new photo jig',avi,date(15,08,2015),time(15,50,48)).
+image('15R2931:0016704',2773,b0,'middle',bet,'shed, new photo jig',avi,date(15,08,2015),time(15,49,41)).
+image('15R2930:0015904',2772,b0,'middle',bet,'shed, new photo jig',avi,date(15,08,2015),time(15,48,37)).
+image('15R4044:0016008',2771,e0,'middle',bet,'shed, new photo jig',avi,date(15,08,2015),time(15,47,39)).
+image('15R2930:0015903',2770,b0,'middle',bet,'shed, new photo jig',avi,date(15,08,2015),time(15,46,26)).
+image('15R4406:0016801',2769,b0,'tip',bet,'shed, new photo jig',avi,date(15,08,2015),time(15,45,14)).
+image('15R4044:0016004',2768,b0,'middle',bet,'shed, new photo jig',avi,date(15,08,2015),time(15,44,15)).
+image('15R1129:0015401',2767,b0,'middle',bet,'shed, new photo jig',avi,date(15,08,2015),time(15,42,30)).
+image('15R4405:0016211',2766,b0,'middle',bet,'shed, new photo jig',avi,date(15,08,2015),time(15,41,09)).
+image('15R4405:0016213',2765,b0,'stem',bet,'shed, new photo jig',avi,date(15,08,2015),time(15,39,44)).
+image('15R3654:0016401',2764,b0,'stem',bet,'shed, new photo jig',avi,date(15,08,2015),time(15,38,07)).
+image('15R3654:0016406',2763,b0,'middle',bet,'shed, new photo jig',avi,date(15,08,2015),time(15,36,46)).
+image('15R4405:0016202',2762,b0,'middle',bet,'shed, new photo jig',avi,date(15,08,2015),time(15,35,34)).
+image('15R4231:0009207',2761,b0,'middle',bet,'shed, new photo jig',avi,date(15,08,2015),time(14,33,20)).
+image('15R1715:0015205',2760,b0,'middle',bet,'shed, new photo jig',avi,date(15,08,2015),time(14,32,00)).
+image('15R4213:0005620',2759,b0,'middle',bet,'shed, new photo jig',avi,date(15,08,2015),time(14,30,35)).
+image('15R4404:0015601',2758,b0,'middle',bet,'shed, new photo jig',avi,date(15,08,2015),time(14,29,32)).
+image('15R4402:0015102',2757,'t-2','middle',bet,'shed, new photo jig',avi,date(15,08,2015),time(14,28,22)).
+image('15R4401:0014902',2756,e1,'middle',bet,'shed, new photo jig',avi,date(15,08,2015),time(14,27,25)).
+image('15R4401:0014904',2755,'t-3','middle',bet,'shed, new photo jig',avi,date(15,08,2015),time(14,26,24)).
+image('15R4392:0012803',2754,e2,'middle',bet,'shed, new photo jig',avi,date(15,08,2015),time(14,25,06)).
+image('15R0685:0009108',2753,b0,'middle',bet,'shed, new photo jig',avi,date(15,08,2015),time(14,23,49)).
+image('15R4213:0005618',2752,b0,'middle',bet,'shed, new photo jig',avi,date(15,08,2015),time(14,22,40)).
+image('15R4391:0012704',2751,b0,'tip',bet,'shed, new photo jig',avi,date(15,08,2015),time(14,21,12)).
+image('15R3297:0015703',2750,b0,'middle',bet,'shed, new photo jig',avi,date(15,08,2015),time(14,20,07)).
+image('15R4415:0018707',2749,b0,'tip',bet,'shed, new photo jig',avi,date(15,08,2015),time(14,18,22)).
+image('15R4391:0012707',2748,'t-2','middle',bet,'shed, new photo jig',avi,date(15,08,2015),time(14,17,16)).
+image('15R0685:0009107',2747,b0,'middle',bet,'shed, new photo jig',avi,date(15,08,2015),time(14,16,05)).
+image('15R4402:0015101',2746,b0,'middle',bet,'shed, new photo jig',avi,date(15,08,2015),time(14,15,04)).
+image('15R0685:0009103',2745,b0,'tip',bet,'shed, new photo jig',avi,date(15,08,2015),time(14,13,15)).
+image('15R1715:0015202',2744,b0,'tip',bet,'shed, new photo jig',avi,date(15,08,2015),time(14,11,46)).
+image('15R4391:0012711',2743,b0,'tip',bet,'shed, new photo jig',avi,date(15,08,2015),time(14,10,23)).
+image('15R0686:0015302',2742,b0,'tip',bet,'shed, new photo jig',avi,date(15,08,2015),time(14,07,28)).
+image('15R4415:0018712',2741,e0,'middle',bet,'shed, new photo jig',avi,date(15,08,2015),time(14,06,16)).
+image('15R4046:0016604',2740,b0,'tip',bet,'shed, new photo jig',avi,date(15,08,2015),time(14,05,13)).
+image('15R4415:0018708',2739,b0,'middle',bet,'shed, new photo jig',avi,date(15,08,2015),time(14,03,11)).
 image('15R0681:0022506',2738,b0,'middle',bet,'in situ ambient reflected, field',avi,date(15,08,2015),time(11,39,46)).
 image('15R0681:0022503',2737,b0,'middle',bet,'in situ ambient reflected, field',avi,date(15,08,2015),time(11,35,22)).
 image('15R0680:0022411',2736,b0,'middle',bet,'in situ ambient reflected, field',avi,date(15,08,2015),time(11,30,14)).
@@ -5083,56 +5110,56 @@ image('15R0667:0021107',2711,b0,'middle',bet,'in situ ambient reflected, field',
 % by data/data_conversion/convert_image_data.perl
 % called from data/data_conversion/convert_data.perl
 
-image('15R4289:0013205',2627,b0,'middle',bet,'ex situ ambient reflected, field',avi,date(08,08,2015),time(13,40,34)).
-image('15R4289:0013205',2626,b1,'tip',bet,'ex situ ambient reflected, field',avi,date(08,08,2015),time(13,38,44)).
-image('15R4360:0012612',2625,b0,'tip',bet,'ex situ ambient reflected, field',avi,date(08,08,2015),time(13,36,35)).
-image('15R4290:0014103',2624,b0,'tip',bet,'ex situ ambient reflected, field',avi,date(08,08,2015),time(13,34,55)).
-image('15R4289:0013207',2623,b0,'middle',bet,'ex situ ambient reflected, field',avi,date(08,08,2015),time(13,32,59)).
-image('15R4360:0012605',2622,b0,'middle',bet,'ex situ ambient reflected, field',avi,date(08,08,2015),time(13,31,43)).
-image('15R4359:0012510',2621,b0,'middle',bet,'ex situ ambient reflected, field',avi,date(08,08,2015),time(13,29,43)).
-image('15R4359:0012510',2620,b1,'middle',bet,'ex situ ambient reflected, field',avi,date(08,08,2015),time(13,28,20)).
-image('15R4277:0011510',2619,b0,'tip',bet,'ex situ ambient reflected, field',avi,date(08,08,2015),time(13,24,49)).
-image('15R4216:0005711',2618,b0,'middle',bet,'ex situ ambient reflected, field',avi,date(08,08,2015),time(13,23,10)).
-image('15R4360:0012608',2617,b0,'middle',bet,'ex situ ambient reflected, field',avi,date(08,08,2015),time(13,22,08)).
-image('15R4290:0014102',2616,b0,'middle',bet,'ex situ ambient reflected, field',avi,date(08,08,2015),time(13,20,38)).
-image('15R4359:0012512',2615,b0,'middle',bet,'ex situ ambient reflected, field',avi,date(08,08,2015),time(13,18,10)).
-image('15R4365:0019903',2614,b0,'tip',bet,'ex situ ambient reflected, field',avi,date(08,08,2015),time(13,15,48)).
-image('15R4217:0005816',2613,b0,'middle',bet,'ex situ ambient reflected, field',avi,date(08,08,2015),time(13,13,38)).
-image('15R4217:0005804',2612,b0,'middle',bet,'ex situ ambient reflected, field',avi,date(08,08,2015),time(13,12,51)).
-image('15R4211:0005503',2611,b0,'middle',bet,'ex situ ambient reflected, field',avi,date(08,08,2015),time(13,11,15)).
-image('15R4170:0014305',2610,b0,'middle',bet,'ex situ ambient reflected, field',avi,date(08,08,2015),time(12,22,02)).
-image('15R4170:0014311',2609,b0,'tip',bet,'ex situ ambient reflected, field',avi,date(08,08,2015),time(13,07,14)).
-image('15R4170:0014305',2608,b0,'tip',bet,'ex situ ambient reflected, field',avi,date(08,08,2015),time(13,04,39)).
-image('15R4211:0005517',2607,b0,'middle',bet,'ex situ ambient reflected, field',avi,date(08,08,2015),time(13,03,01)).
-image('15R4213:0005604',2606,b0,'stem',bet,'ex situ ambient reflected, field',avi,date(08,08,2015),time(13,01,15)).
-image('15R4213:0005602',2605,b0,'middle',bet,'ex situ ambient reflected, field',avi,date(08,08,2015),time(12,59,26)).
-image('15R3878:0005215',2604,b0,'middle',bet,'ex situ ambient reflected, field',avi,date(08,08,2015),time(12,58,19)).
-image('15R4218:0005907',2603,b0,'middle',bet,'ex situ ambient reflected, field',avi,date(08,08,2015),time(12,57,23)).
-image('15R4334:0005405',2602,b0,'middle',bet,'ex situ ambient reflected, field',avi,date(08,08,2015),time(12,54,51)).
-image('15R4365:0019911',2601,b0,'middle',bet,'ex situ ambient reflected, field',avi,date(08,08,2015),time(12,53,17)).
-image('15R4295:0014205',2600,b0,'middle',bet,'ex situ ambient reflected, field',avi,date(08,08,2015),time(12,51,06)).
-image('15R4216:0005719',2599,b0,'middle',bet,'ex situ ambient reflected, field',avi,date(08,08,2015),time(12,49,47)).
-image('15R4365:0019907',2598,b0,'middle',bet,'ex situ ambient reflected, field',avi,date(08,08,2015),time(12,47,21)).
-image('15R4218:0005911',2597,b0,'middle',bet,'ex situ ambient reflected, field',avi,date(08,08,2015),time(12,46,27)).
-image('15R4217:0005818',2596,b0,'middle',bet,'ex situ ambient reflected, field',avi,date(08,08,2015),time(12,42,08)).
-image('15R4218:0005908',2595,b0,'middle',bet,'ex situ ambient reflected, field',avi,date(08,08,2015),time(12,40,12)).
-image('15R4277:0011507',2594,b0,'middle',bet,'ex situ ambient reflected, field',avi,date(08,08,2015),time(12,37,15)).
-image('15R4216:0005713',2593,b0,'tip',bet,'ex situ ambient reflected, field',avi,date(08,08,2015),time(12,33,41)).
-image('15R4354:0011306',2592,b0,'middle',bet,'ex situ ambient reflected, field',avi,date(08,08,2015),time(12,31,34)).
-image('15R4295:0014208',2591,b0,'middle',bet,'ex situ ambient reflected, field',avi,date(08,08,2015),time(12,29,08)).
-image('15R4333:0005303',2590,b0,'tip',bet,'ex situ ambient reflected, field',avi,date(08,08,2015),time(12,27,23)).
-image('15R4355:0011403',2589,b0,'middle',bet,'ex situ ambient reflected, field',avi,date(08,08,2015),time(12,26,17)).
-image('15R3877:0005014',2588,b0,'middle',bet,'ex situ ambient reflected, field',avi,date(08,08,2015),time(12,25,25)).
-image('15R3877:0005004',2587,b0,'middle',bet,'ex situ ambient reflected, field',avi,date(08,08,2015),time(12,20,29)).
-image('15R4207:0004818',2586,b0,'middle',bet,'ex situ ambient reflected, field',avi,date(08,08,2015),time(12,18,09)).
-image('15R4328:0004409',2585,b0,'middle',bet,'ex situ ambient reflected, field',avi,date(08,08,2015),time(12,16,04)).
-image('15R4331:0004903',2584,b0,'tip',bet,'ex situ ambient reflected, field',avi,date(08,08,2015),time(12,14,34)).
-image('15R4329:0004507',2583,b0,'middle',bet,'ex situ ambient reflected, field',avi,date(08,08,2015),time(12,12,21)).
-image('15R4329:0004522',2582,b0,'middle',bet,'ex situ ambient reflected, field',avi,date(08,08,2015),time(12,10,36)).
-image('15R4328:0004401',2581,b0,'tip',bet,'ex situ ambient reflected, field',avi,date(08,08,2015),time(12,09,03)).
-image('15R4330:0004720',2580,b0,'middle',bet,'ex situ ambient reflected, field',avi,date(08,08,2015),time(12,06,33)).
-image('15R4330:0004712',2579,b0,'tip',bet,'ex situ ambient reflected, field',avi,date(08,08,2015),time(12,04,53)).
-image('15R4329:0004515',2578,b0,'middle',bet,'ex situ ambient reflected, field',avi,date(08,08,2015),time(11,56,53)).
+image('15R4289:0013205',2627,b0,'middle',bet,'shed, new photo jig',avi,date(08,08,2015),time(13,40,34)).
+image('15R4289:0013205',2626,b1,'tip',bet,'shed, new photo jig',avi,date(08,08,2015),time(13,38,44)).
+image('15R4360:0012612',2625,b0,'tip',bet,'shed, new photo jig',avi,date(08,08,2015),time(13,36,35)).
+image('15R4290:0014103',2624,b0,'tip',bet,'shed, new photo jig',avi,date(08,08,2015),time(13,34,55)).
+image('15R4289:0013207',2623,b0,'middle',bet,'shed, new photo jig',avi,date(08,08,2015),time(13,32,59)).
+image('15R4360:0012605',2622,b0,'middle',bet,'shed, new photo jig',avi,date(08,08,2015),time(13,31,43)).
+image('15R4359:0012510',2621,b0,'middle',bet,'shed, new photo jig',avi,date(08,08,2015),time(13,29,43)).
+image('15R4359:0012510',2620,b1,'middle',bet,'shed, new photo jig',avi,date(08,08,2015),time(13,28,20)).
+image('15R4277:0011510',2619,b0,'tip',bet,'shed, new photo jig',avi,date(08,08,2015),time(13,24,49)).
+image('15R4216:0005711',2618,b0,'middle',bet,'shed, new photo jig',avi,date(08,08,2015),time(13,23,10)).
+image('15R4360:0012608',2617,b0,'middle',bet,'shed, new photo jig',avi,date(08,08,2015),time(13,22,08)).
+image('15R4290:0014102',2616,b0,'middle',bet,'shed, new photo jig',avi,date(08,08,2015),time(13,20,38)).
+image('15R4359:0012512',2615,b0,'middle',bet,'shed, new photo jig',avi,date(08,08,2015),time(13,18,10)).
+image('15R4365:0019903',2614,b0,'tip',bet,'shed, new photo jig',avi,date(08,08,2015),time(13,15,48)).
+image('15R4217:0005816',2613,b0,'middle',bet,'shed, new photo jig',avi,date(08,08,2015),time(13,13,38)).
+image('15R4217:0005804',2612,b0,'middle',bet,'shed, new photo jig',avi,date(08,08,2015),time(13,12,51)).
+image('15R4211:0005503',2611,b0,'middle',bet,'shed, new photo jig',avi,date(08,08,2015),time(13,11,15)).
+image('15R4170:0014305',2610,b0,'middle',bet,'shed, new photo jig',avi,date(08,08,2015),time(12,22,02)).
+image('15R4170:0014311',2609,b0,'tip',bet,'shed, new photo jig',avi,date(08,08,2015),time(13,07,14)).
+image('15R4170:0014305',2608,b0,'tip',bet,'shed, new photo jig',avi,date(08,08,2015),time(13,04,39)).
+image('15R4211:0005517',2607,b0,'middle',bet,'shed, new photo jig',avi,date(08,08,2015),time(13,03,01)).
+image('15R4213:0005604',2606,b0,'stem',bet,'shed, new photo jig',avi,date(08,08,2015),time(13,01,15)).
+image('15R4213:0005602',2605,b0,'middle',bet,'shed, new photo jig',avi,date(08,08,2015),time(12,59,26)).
+image('15R3878:0005215',2604,b0,'middle',bet,'shed, new photo jig',avi,date(08,08,2015),time(12,58,19)).
+image('15R4218:0005907',2603,b0,'middle',bet,'shed, new photo jig',avi,date(08,08,2015),time(12,57,23)).
+image('15R4334:0005405',2602,b0,'middle',bet,'shed, new photo jig',avi,date(08,08,2015),time(12,54,51)).
+image('15R4365:0019911',2601,b0,'middle',bet,'shed, new photo jig',avi,date(08,08,2015),time(12,53,17)).
+image('15R4295:0014205',2600,b0,'middle',bet,'shed, new photo jig',avi,date(08,08,2015),time(12,51,06)).
+image('15R4216:0005719',2599,b0,'middle',bet,'shed, new photo jig',avi,date(08,08,2015),time(12,49,47)).
+image('15R4365:0019907',2598,b0,'middle',bet,'shed, new photo jig',avi,date(08,08,2015),time(12,47,21)).
+image('15R4218:0005911',2597,b0,'middle',bet,'shed, new photo jig',avi,date(08,08,2015),time(12,46,27)).
+image('15R4217:0005818',2596,b0,'middle',bet,'shed, new photo jig',avi,date(08,08,2015),time(12,42,08)).
+image('15R4218:0005908',2595,b0,'middle',bet,'shed, new photo jig',avi,date(08,08,2015),time(12,40,12)).
+image('15R4277:0011507',2594,b0,'middle',bet,'shed, new photo jig',avi,date(08,08,2015),time(12,37,15)).
+image('15R4216:0005713',2593,b0,'tip',bet,'shed, new photo jig',avi,date(08,08,2015),time(12,33,41)).
+image('15R4354:0011306',2592,b0,'middle',bet,'shed, new photo jig',avi,date(08,08,2015),time(12,31,34)).
+image('15R4295:0014208',2591,b0,'middle',bet,'shed, new photo jig',avi,date(08,08,2015),time(12,29,08)).
+image('15R4333:0005303',2590,b0,'tip',bet,'shed, new photo jig',avi,date(08,08,2015),time(12,27,23)).
+image('15R4355:0011403',2589,b0,'middle',bet,'shed, new photo jig',avi,date(08,08,2015),time(12,26,17)).
+image('15R3877:0005014',2588,b0,'middle',bet,'shed, new photo jig',avi,date(08,08,2015),time(12,25,25)).
+image('15R3877:0005004',2587,b0,'middle',bet,'shed, new photo jig',avi,date(08,08,2015),time(12,20,29)).
+image('15R4207:0004818',2586,b0,'middle',bet,'shed, new photo jig',avi,date(08,08,2015),time(12,18,09)).
+image('15R4328:0004409',2585,b0,'middle',bet,'shed, new photo jig',avi,date(08,08,2015),time(12,16,04)).
+image('15R4331:0004903',2584,b0,'tip',bet,'shed, new photo jig',avi,date(08,08,2015),time(12,14,34)).
+image('15R4329:0004507',2583,b0,'middle',bet,'shed, new photo jig',avi,date(08,08,2015),time(12,12,21)).
+image('15R4329:0004522',2582,b0,'middle',bet,'shed, new photo jig',avi,date(08,08,2015),time(12,10,36)).
+image('15R4328:0004401',2581,b0,'tip',bet,'shed, new photo jig',avi,date(08,08,2015),time(12,09,03)).
+image('15R4330:0004720',2580,b0,'middle',bet,'shed, new photo jig',avi,date(08,08,2015),time(12,06,33)).
+image('15R4330:0004712',2579,b0,'tip',bet,'shed, new photo jig',avi,date(08,08,2015),time(12,04,53)).
+image('15R4329:0004515',2578,b0,'middle',bet,'shed, new photo jig',avi,date(08,08,2015),time(11,56,53)).
 
 
 
@@ -5141,58 +5168,58 @@ image('15R4329:0004515',2578,b0,'middle',bet,'ex situ ambient reflected, field',
 % by data/data_conversion/convert_image_data.perl
 % called from data/data_conversion/convert_data.perl
 
-image('15R1129:0015403',2790,b1,'middle',bet,'ex situ ambient reflected, field',avi,date(15,08,2015),time(16,11,05)).
-image('15R1129:0015403',2789,b0,'middle',bet,'ex situ ambient reflected, field',avi,date(15,08,2015),time(16,09,45)).
-image('15R4399:0014505',2788,b0,'middle',bet,'ex situ ambient reflected, field',avi,date(15,08,2015),time(16,08,05)).
-image('15R4300:0014604',2787,b0,'whole',bet,'ex situ ambient reflected, field',avi,date(15,08,2015),time(16,07,09)).
-image('15R0686:0015307',2786,b0,'middle',bet,'ex situ ambient reflected, field',avi,date(15,08,2015),time(16,05,53)).
-image('15R1129:0015408',2785,b0,'tip',bet,'ex situ ambient reflected, field',avi,date(15,08,2015),time(16,04,27)).
-image('15R4351:0010008',2784,b0,'middle',bet,'ex situ ambient reflected, field',avi,date(15,08,2015),time(16,03,22)).
-image('15R4177:0016107',2783,b0,'stem',bet,'ex situ ambient reflected, field',avi,date(15,08,2015),time(16,02,26)).
-image('15R4177:0016101',2782,b0,'middle',bet,'ex situ ambient reflected, field',avi,date(15,08,2015),time(16,00,47)).
-image('15R4100:0014408',2781,b0,'stem',bet,'ex situ ambient reflected, field',avi,date(15,08,2015),time(15,59,49)).
-image('15R4393:0012908',2780,b0,'middle',bet,'ex situ ambient reflected, field',avi,date(15,08,2015),time(15,58,54)).
-image('15R4351:0010005',2779,b0,'middle',bet,'ex situ ambient reflected, field',avi,date(15,08,2015),time(15,56,58)).
-image('15R4300:0014602',2778,b0,'middle',bet,'ex situ ambient reflected, field',avi,date(15,08,2015),time(15,56,06)).
-image('15R4177:0016111',2777,b0,'tip',bet,'ex situ ambient reflected, field',avi,date(15,08,2015),time(15,54,09)).
-image('15R2930:0015905',2776,b0,'stem',bet,'ex situ ambient reflected, field',avi,date(15,08,2015),time(15,52,48)).
-image('15R4044:0016003',2775,b0,'stem',bet,'ex situ ambient reflected, field',avi,date(15,08,2015),time(15,51,44)).
-image('15R4177:0016112',2774,b0,'middle',bet,'ex situ ambient reflected, field',avi,date(15,08,2015),time(15,50,48)).
-image('15R2931:0016704',2773,b0,'middle',bet,'ex situ ambient reflected, field',avi,date(15,08,2015),time(15,49,41)).
-image('15R2930:0015904',2772,b0,'middle',bet,'ex situ ambient reflected, field',avi,date(15,08,2015),time(15,48,37)).
-image('15R4044:0016008',2771,e0,'middle',bet,'ex situ ambient reflected, field',avi,date(15,08,2015),time(15,47,39)).
-image('15R2930:0015903',2770,b0,'middle',bet,'ex situ ambient reflected, field',avi,date(15,08,2015),time(15,46,26)).
-image('15R4406:0016801',2769,b0,'tip',bet,'ex situ ambient reflected, field',avi,date(15,08,2015),time(15,45,14)).
-image('15R4044:0016004',2768,b0,'middle',bet,'ex situ ambient reflected, field',avi,date(15,08,2015),time(15,44,15)).
-image('15R1129:0015401',2767,b0,'middle',bet,'ex situ ambient reflected, field',avi,date(15,08,2015),time(15,42,30)).
-image('15R4405:0016211',2766,b0,'middle',bet,'ex situ ambient reflected, field',avi,date(15,08,2015),time(15,41,09)).
-image('15R4405:0016213',2765,b0,'stem',bet,'ex situ ambient reflected, field',avi,date(15,08,2015),time(15,39,44)).
-image('15R3654:0016401',2764,b0,'stem',bet,'ex situ ambient reflected, field',avi,date(15,08,2015),time(15,38,07)).
-image('15R3654:0016406',2763,b0,'middle',bet,'ex situ ambient reflected, field',avi,date(15,08,2015),time(15,36,46)).
-image('15R4405:0016202',2762,b0,'middle',bet,'ex situ ambient reflected, field',avi,date(15,08,2015),time(15,35,34)).
-image('15R4231:0009207',2761,b0,'middle',bet,'ex situ ambient reflected, field',avi,date(15,08,2015),time(14,33,20)).
-image('15R1715:0015205',2760,b0,'middle',bet,'ex situ ambient reflected, field',avi,date(15,08,2015),time(14,32,00)).
-image('15R4213:0005620',2759,b0,'middle',bet,'ex situ ambient reflected, field',avi,date(15,08,2015),time(14,30,35)).
-image('15R4404:0015601',2758,b0,'middle',bet,'ex situ ambient reflected, field',avi,date(15,08,2015),time(14,29,32)).
-image('15R4402:0015102',2757,'t-2','middle',bet,'ex situ ambient reflected, field',avi,date(15,08,2015),time(14,28,22)).
-image('15R4401:0014902',2756,e1,'middle',bet,'ex situ ambient reflected, field',avi,date(15,08,2015),time(14,27,25)).
-image('15R4401:0014904',2755,'t-3','middle',bet,'ex situ ambient reflected, field',avi,date(15,08,2015),time(14,26,24)).
-image('15R4392:0012803',2754,e2,'middle',bet,'ex situ ambient reflected, field',avi,date(15,08,2015),time(14,25,06)).
-image('15R0685:0009108',2753,b0,'middle',bet,'ex situ ambient reflected, field',avi,date(15,08,2015),time(14,23,49)).
-image('15R4213:0005618',2752,b0,'middle',bet,'ex situ ambient reflected, field',avi,date(15,08,2015),time(14,22,40)).
-image('15R4391:0012704',2751,b0,'tip',bet,'ex situ ambient reflected, field',avi,date(15,08,2015),time(14,21,12)).
-image('15R3297:0015703',2750,b0,'middle',bet,'ex situ ambient reflected, field',avi,date(15,08,2015),time(14,20,07)).
-image('15R4415:0018707',2749,b0,'tip',bet,'ex situ ambient reflected, field',avi,date(15,08,2015),time(14,18,22)).
-image('15R4391:0012707',2748,'t-2','middle',bet,'ex situ ambient reflected, field',avi,date(15,08,2015),time(14,17,16)).
-image('15R0685:0009107',2747,b0,'middle',bet,'ex situ ambient reflected, field',avi,date(15,08,2015),time(14,16,05)).
-image('15R4402:0015101',2746,b0,'middle',bet,'ex situ ambient reflected, field',avi,date(15,08,2015),time(14,15,04)).
-image('15R0685:0009103',2745,b0,'tip',bet,'ex situ ambient reflected, field',avi,date(15,08,2015),time(14,13,15)).
-image('15R1715:0015202',2744,b0,'tip',bet,'ex situ ambient reflected, field',avi,date(15,08,2015),time(14,11,46)).
-image('15R4391:0012711',2743,b0,'tip',bet,'ex situ ambient reflected, field',avi,date(15,08,2015),time(14,10,23)).
-image('15R0686:0015302',2742,b0,'tip',bet,'ex situ ambient reflected, field',avi,date(15,08,2015),time(14,07,28)).
-image('15R4415:0018712',2741,e0,'middle',bet,'ex situ ambient reflected, field',avi,date(15,08,2015),time(14,06,16)).
-image('15R4046:0016604',2740,b0,'tip',bet,'ex situ ambient reflected, field',avi,date(15,08,2015),time(14,05,13)).
-image('15R4415:0018708',2739,b0,'middle',bet,'ex situ ambient reflected, field',avi,date(15,08,2015),time(14,03,11)).
+image('15R1129:0015403',2790,b1,'middle',bet,'shed, new photo jig',avi,date(15,08,2015),time(16,11,05)).
+image('15R1129:0015403',2789,b0,'middle',bet,'shed, new photo jig',avi,date(15,08,2015),time(16,09,45)).
+image('15R4399:0014505',2788,b0,'middle',bet,'shed, new photo jig',avi,date(15,08,2015),time(16,08,05)).
+image('15R4300:0014604',2787,b0,'whole',bet,'shed, new photo jig',avi,date(15,08,2015),time(16,07,09)).
+image('15R0686:0015307',2786,b0,'middle',bet,'shed, new photo jig',avi,date(15,08,2015),time(16,05,53)).
+image('15R1129:0015408',2785,b0,'tip',bet,'shed, new photo jig',avi,date(15,08,2015),time(16,04,27)).
+image('15R4351:0010008',2784,b0,'middle',bet,'shed, new photo jig',avi,date(15,08,2015),time(16,03,22)).
+image('15R4177:0016107',2783,b0,'stem',bet,'shed, new photo jig',avi,date(15,08,2015),time(16,02,26)).
+image('15R4177:0016101',2782,b0,'middle',bet,'shed, new photo jig',avi,date(15,08,2015),time(16,00,47)).
+image('15R4100:0014408',2781,b0,'stem',bet,'shed, new photo jig',avi,date(15,08,2015),time(15,59,49)).
+image('15R4393:0012908',2780,b0,'middle',bet,'shed, new photo jig',avi,date(15,08,2015),time(15,58,54)).
+image('15R4351:0010005',2779,b0,'middle',bet,'shed, new photo jig',avi,date(15,08,2015),time(15,56,58)).
+image('15R4300:0014602',2778,b0,'middle',bet,'shed, new photo jig',avi,date(15,08,2015),time(15,56,06)).
+image('15R4177:0016111',2777,b0,'tip',bet,'shed, new photo jig',avi,date(15,08,2015),time(15,54,09)).
+image('15R2930:0015905',2776,b0,'stem',bet,'shed, new photo jig',avi,date(15,08,2015),time(15,52,48)).
+image('15R4044:0016003',2775,b0,'stem',bet,'shed, new photo jig',avi,date(15,08,2015),time(15,51,44)).
+image('15R4177:0016112',2774,b0,'middle',bet,'shed, new photo jig',avi,date(15,08,2015),time(15,50,48)).
+image('15R2931:0016704',2773,b0,'middle',bet,'shed, new photo jig',avi,date(15,08,2015),time(15,49,41)).
+image('15R2930:0015904',2772,b0,'middle',bet,'shed, new photo jig',avi,date(15,08,2015),time(15,48,37)).
+image('15R4044:0016008',2771,e0,'middle',bet,'shed, new photo jig',avi,date(15,08,2015),time(15,47,39)).
+image('15R2930:0015903',2770,b0,'middle',bet,'shed, new photo jig',avi,date(15,08,2015),time(15,46,26)).
+image('15R4406:0016801',2769,b0,'tip',bet,'shed, new photo jig',avi,date(15,08,2015),time(15,45,14)).
+image('15R4044:0016004',2768,b0,'middle',bet,'shed, new photo jig',avi,date(15,08,2015),time(15,44,15)).
+image('15R1129:0015401',2767,b0,'middle',bet,'shed, new photo jig',avi,date(15,08,2015),time(15,42,30)).
+image('15R4405:0016211',2766,b0,'middle',bet,'shed, new photo jig',avi,date(15,08,2015),time(15,41,09)).
+image('15R4405:0016213',2765,b0,'stem',bet,'shed, new photo jig',avi,date(15,08,2015),time(15,39,44)).
+image('15R3654:0016401',2764,b0,'stem',bet,'shed, new photo jig',avi,date(15,08,2015),time(15,38,07)).
+image('15R3654:0016406',2763,b0,'middle',bet,'shed, new photo jig',avi,date(15,08,2015),time(15,36,46)).
+image('15R4405:0016202',2762,b0,'middle',bet,'shed, new photo jig',avi,date(15,08,2015),time(15,35,34)).
+image('15R4231:0009207',2761,b0,'middle',bet,'shed, new photo jig',avi,date(15,08,2015),time(14,33,20)).
+image('15R1715:0015205',2760,b0,'middle',bet,'shed, new photo jig',avi,date(15,08,2015),time(14,32,00)).
+image('15R4213:0005620',2759,b0,'middle',bet,'shed, new photo jig',avi,date(15,08,2015),time(14,30,35)).
+image('15R4404:0015601',2758,b0,'middle',bet,'shed, new photo jig',avi,date(15,08,2015),time(14,29,32)).
+image('15R4402:0015102',2757,'t-2','middle',bet,'shed, new photo jig',avi,date(15,08,2015),time(14,28,22)).
+image('15R4401:0014902',2756,e1,'middle',bet,'shed, new photo jig',avi,date(15,08,2015),time(14,27,25)).
+image('15R4401:0014904',2755,'t-3','middle',bet,'shed, new photo jig',avi,date(15,08,2015),time(14,26,24)).
+image('15R4392:0012803',2754,e2,'middle',bet,'shed, new photo jig',avi,date(15,08,2015),time(14,25,06)).
+image('15R0685:0009108',2753,b0,'middle',bet,'shed, new photo jig',avi,date(15,08,2015),time(14,23,49)).
+image('15R4213:0005618',2752,b0,'middle',bet,'shed, new photo jig',avi,date(15,08,2015),time(14,22,40)).
+image('15R4391:0012704',2751,b0,'tip',bet,'shed, new photo jig',avi,date(15,08,2015),time(14,21,12)).
+image('15R3297:0015703',2750,b0,'middle',bet,'shed, new photo jig',avi,date(15,08,2015),time(14,20,07)).
+image('15R4415:0018707',2749,b0,'tip',bet,'shed, new photo jig',avi,date(15,08,2015),time(14,18,22)).
+image('15R4391:0012707',2748,'t-2','middle',bet,'shed, new photo jig',avi,date(15,08,2015),time(14,17,16)).
+image('15R0685:0009107',2747,b0,'middle',bet,'shed, new photo jig',avi,date(15,08,2015),time(14,16,05)).
+image('15R4402:0015101',2746,b0,'middle',bet,'shed, new photo jig',avi,date(15,08,2015),time(14,15,04)).
+image('15R0685:0009103',2745,b0,'tip',bet,'shed, new photo jig',avi,date(15,08,2015),time(14,13,15)).
+image('15R1715:0015202',2744,b0,'tip',bet,'shed, new photo jig',avi,date(15,08,2015),time(14,11,46)).
+image('15R4391:0012711',2743,b0,'tip',bet,'shed, new photo jig',avi,date(15,08,2015),time(14,10,23)).
+image('15R0686:0015302',2742,b0,'tip',bet,'shed, new photo jig',avi,date(15,08,2015),time(14,07,28)).
+image('15R4415:0018712',2741,e0,'middle',bet,'shed, new photo jig',avi,date(15,08,2015),time(14,06,16)).
+image('15R4046:0016604',2740,b0,'tip',bet,'shed, new photo jig',avi,date(15,08,2015),time(14,05,13)).
+image('15R4415:0018708',2739,b0,'middle',bet,'shed, new photo jig',avi,date(15,08,2015),time(14,03,11)).
 image('15R0681:0022506',2738,b0,'middle',bet,'in situ ambient reflected, field',avi,date(15,08,2015),time(11,39,46)).
 image('15R0681:0022503',2737,b0,'middle',bet,'in situ ambient reflected, field',avi,date(15,08,2015),time(11,35,22)).
 image('15R0680:0022411',2736,b0,'middle',bet,'in situ ambient reflected, field',avi,date(15,08,2015),time(11,30,14)).
@@ -5346,59 +5373,64 @@ image('15R0667:0021107',2854,b0,'middle',bet,'in situ ambient reflected, field',
 
 % 16r
 
+% corrected locale from 'ex situ ambient reflected, field'
+% to 'shed, new photo jig'
+% after checking the images directly.
+%
+% Kazic, 18.2.2022
 
     
 % data added from ../../data/palm/raw_data_from_palms/16r/zeta/27.7/image.csv on Sun Apr 22 17:20:34 CDT 2018
 % by data/data_conversion/convert_image_data.perl
 % called from data/data_conversion/convert_data.perl
 
-image('16R3607:0010412',0143,'e-1','stem',gimmel,'ex situ ambient reflected, field',avi,date(27,07,2016),time(16,18,20)).
-image('16R3607:0010409',0149,e2,'middle',gimmel,'ex situ ambient reflected, field',avi,date(27,07,2016),time(16,18,20)).
-image('16R3607:0010408',0159,e0,'middle',gimmel,'ex situ ambient reflected, field',avi,date(27,07,2016),time(16,18,20)).
-image('16R3607:0010407',0145,e0,'middle',gimmel,'ex situ ambient reflected, field',avi,date(27,07,2016),time(16,18,20)).
-image('16R3607:0010403',0160,e1,'middle',gimmel,'ex situ ambient reflected, field',avi,date(27,07,2016),time(16,18,20)).
-image('16R3607:0010402',0144,e3,'middle',gimmel,'ex situ ambient reflected, field',avi,date(27,07,2016),time(16,18,20)).
-image('16R3974:0010314',0167,e0,'middle',gimmel,'ex situ ambient reflected, field',avi,date(27,07,2016),time(16,18,20)).
-image('16R3974:0010307',0162,'e-1','middle',gimmel,'ex situ ambient reflected, field',avi,date(27,07,2016),time(16,18,20)).
-image('16R3974:0010303',0158,e0,'middle',gimmel,'ex situ ambient reflected, field',avi,date(27,07,2016),time(16,18,20)).
-image('16R4516:0012008',0188,e1,'tip',gimmel,'ex situ ambient reflected, field',avi,date(27,07,2016),time(20,01,34)).
-image('16R4516:0012007',0176,e1,'middle',gimmel,'ex situ ambient reflected, field',avi,date(27,07,2016),time(20,01,34)).
-image('16R4515:0011911',0182,'e-1','middle',gimmel,'ex situ ambient reflected, field',avi,date(27,07,2016),time(20,01,34)).
-image('16R4515:0011909',0174,'e-1','middle',gimmel,'ex situ ambient reflected, field',avi,date(27,07,2016),time(19,15,29)).
-image('16R4515:0011903',0173,'e-1','middle',gimmel,'ex situ ambient reflected, field',avi,date(27,07,2016),time(19,15,29)).
-image('16R4514:0011809',0179,'t-3','middle',gimmel,'ex situ ambient reflected, field',avi,date(27,07,2016),time(20,01,34)).
-image('16R4514:0011806',0181,e2,'middle',gimmel,'ex situ ambient reflected, field',avi,date(27,07,2016),time(20,01,34)).
-image('16R4011:0011710',0187,'t-7','middle',gimmel,'ex situ ambient reflected, field',avi,date(27,07,2016),time(20,01,34)).
-image('16R4011:0011707',0180,'t-7','middle',gimmel,'ex situ ambient reflected, field',avi,date(27,07,2016),time(20,01,34)).
-image('16R4011:0011703',0185,'t-8','middle',gimmel,'ex situ ambient reflected, field',avi,date(27,07,2016),time(20,01,34)).
-image('16R4007:0011608',0186,'t-6','middle',gimmel,'ex situ ambient reflected, field',avi,date(27,07,2016),time(20,01,34)).
-image('16R4007:0011605',0171,e3,'middle',gimmel,'ex situ ambient reflected, field',avi,date(27,07,2016),time(19,15,29)).
-image('16R4513:0011503',0184,'t-2','middle',gimmel,'ex situ ambient reflected, field',avi,date(27,07,2016),time(20,01,34)).
-image('16R4513:0011501',0183,e2,'middle',gimmel,'ex situ ambient reflected, field',avi,date(27,07,2016),time(20,01,34)).
-image('16R4511:0011305',0178,'e-1','middle',gimmel,'ex situ ambient reflected, field',avi,date(27,07,2016),time(20,01,34)).
-image('16R4511:0011304',0175,e0,'middle',gimmel,'ex situ ambient reflected, field',avi,date(27,07,2016),time(19,15,29)).
-image('16R4510:0011204',0172,'e-2','middle',gimmel,'ex situ ambient reflected, field',avi,date(27,07,2016),time(19,15,29)).
-image('16R4510:0011201',0177,'e-2','middle',gimmel,'ex situ ambient reflected, field',avi,date(27,07,2016),time(20,01,34)).
-image('16R4509:0011103',0152,'t-1','middle',gimmel,'ex situ ambient reflected, field',avi,date(27,07,2016),time(16,18,20)).
-image('16R4509:0011102',0153,'t-1','middle',gimmel,'ex situ ambient reflected, field',avi,date(27,07,2016),time(16,18,20)).
-image('16R4508:0011011',0150,'t-2','middle',gimmel,'ex situ ambient reflected, field',avi,date(27,07,2016),time(16,18,20)).
-image('16R4507:0010908',0147,'t-3','middle',gimmel,'ex situ ambient reflected, field',avi,date(27,07,2016),time(16,18,20)).
-image('16R4507:0010905',0146,'t-2','whole',gimmel,'ex situ ambient reflected, field',avi,date(27,07,2016),time(16,18,20)).
-image('16R4507:0010901',0156,'t-1','middle',gimmel,'ex situ ambient reflected, field',avi,date(27,07,2016),time(16,18,20)).
-image('16R4392:0010807',0165,e2,'middle',gimmel,'ex situ ambient reflected, field',avi,date(27,07,2016),time(16,18,20)).
-image('16R4392:0010801',0142,e2,'middle',gimmel,'ex situ ambient reflected, field',avi,date(27,07,2016),time(16,18,20)).
-image('16R4391:0010711',0151,e1,'middle',gimmel,'ex situ ambient reflected, field',avi,date(27,07,2016),time(16,18,20)).
-image('16R4391:0010710',0157,e1,'middle',gimmel,'ex situ ambient reflected, field',avi,date(27,07,2016),time(16,18,20)).
-image('16R4391:0010703',0161,'e-1','middle',gimmel,'ex situ ambient reflected, field',avi,date(27,07,2016),time(16,18,20)).
-image('16R4390:0010611',0148,'e-1','middle',gimmel,'ex situ ambient reflected, field',avi,date(27,07,2016),time(16,18,20)).
-image('16R4390:0010609',0154,e0,'tip',gimmel,'ex situ ambient reflected, field',avi,date(27,07,2016),time(16,18,20)).
-image('16R4390:0010605',0168,'e-2','middle',gimmel,'ex situ ambient reflected, field',avi,date(27,07,2016),time(16,18,20)).
-image('16R4279:0010503',0155,e1,'middle',gimmel,'ex situ ambient reflected, field',avi,date(27,07,2016),time(16,18,20)).
-image('16R4503:0010212',0170,e0,'middle',gimmel,'ex situ ambient reflected, field',avi,date(27,07,2016),time(16,18,20)).
-image('16R4503:0010212',0169,e1,'middle',gimmel,'ex situ ambient reflected, field',avi,date(27,07,2016),time(16,18,20)).
-image('16R4503:0010210',0163,e1,'middle',gimmel,'ex situ ambient reflected, field',avi,date(27,07,2016),time(16,18,20)).
-image('16R4503:0010205',0164,e0,'middle',gimmel,'ex situ ambient reflected, field',avi,date(27,07,2016),time(16,18,20)).
-image('16R4503:0010203',0166,e1,'middle',gimmel,'ex situ ambient reflected, field',avi,date(27,07,2016),time(16,18,20)).
+image('16R3607:0010412',0143,'e-1','stem',gimmel,'shed, new photo jig',avi,date(27,07,2016),time(16,18,20)).
+image('16R3607:0010409',0149,e2,'middle',gimmel,'shed, new photo jig',avi,date(27,07,2016),time(16,18,20)).
+image('16R3607:0010408',0159,e0,'middle',gimmel,'shed, new photo jig',avi,date(27,07,2016),time(16,18,20)).
+image('16R3607:0010407',0145,e0,'middle',gimmel,'shed, new photo jig',avi,date(27,07,2016),time(16,18,20)).
+image('16R3607:0010403',0160,e1,'middle',gimmel,'shed, new photo jig',avi,date(27,07,2016),time(16,18,20)).
+image('16R3607:0010402',0144,e3,'middle',gimmel,'shed, new photo jig',avi,date(27,07,2016),time(16,18,20)).
+image('16R3974:0010314',0167,e0,'middle',gimmel,'shed, new photo jig',avi,date(27,07,2016),time(16,18,20)).
+image('16R3974:0010307',0162,'e-1','middle',gimmel,'shed, new photo jig',avi,date(27,07,2016),time(16,18,20)).
+image('16R3974:0010303',0158,e0,'middle',gimmel,'shed, new photo jig',avi,date(27,07,2016),time(16,18,20)).
+image('16R4516:0012008',0188,e1,'tip',gimmel,'shed, new photo jig',avi,date(27,07,2016),time(20,01,34)).
+image('16R4516:0012007',0176,e1,'middle',gimmel,'shed, new photo jig',avi,date(27,07,2016),time(20,01,34)).
+image('16R4515:0011911',0182,'e-1','middle',gimmel,'shed, new photo jig',avi,date(27,07,2016),time(20,01,34)).
+image('16R4515:0011909',0174,'e-1','middle',gimmel,'shed, new photo jig',avi,date(27,07,2016),time(19,15,29)).
+image('16R4515:0011903',0173,'e-1','middle',gimmel,'shed, new photo jig',avi,date(27,07,2016),time(19,15,29)).
+image('16R4514:0011809',0179,'t-3','middle',gimmel,'shed, new photo jig',avi,date(27,07,2016),time(20,01,34)).
+image('16R4514:0011806',0181,e2,'middle',gimmel,'shed, new photo jig',avi,date(27,07,2016),time(20,01,34)).
+image('16R4011:0011710',0187,'t-7','middle',gimmel,'shed, new photo jig',avi,date(27,07,2016),time(20,01,34)).
+image('16R4011:0011707',0180,'t-7','middle',gimmel,'shed, new photo jig',avi,date(27,07,2016),time(20,01,34)).
+image('16R4011:0011703',0185,'t-8','middle',gimmel,'shed, new photo jig',avi,date(27,07,2016),time(20,01,34)).
+image('16R4007:0011608',0186,'t-6','middle',gimmel,'shed, new photo jig',avi,date(27,07,2016),time(20,01,34)).
+image('16R4007:0011605',0171,e3,'middle',gimmel,'shed, new photo jig',avi,date(27,07,2016),time(19,15,29)).
+image('16R4513:0011503',0184,'t-2','middle',gimmel,'shed, new photo jig',avi,date(27,07,2016),time(20,01,34)).
+image('16R4513:0011501',0183,e2,'middle',gimmel,'shed, new photo jig',avi,date(27,07,2016),time(20,01,34)).
+image('16R4511:0011305',0178,'e-1','middle',gimmel,'shed, new photo jig',avi,date(27,07,2016),time(20,01,34)).
+image('16R4511:0011304',0175,e0,'middle',gimmel,'shed, new photo jig',avi,date(27,07,2016),time(19,15,29)).
+image('16R4510:0011204',0172,'e-2','middle',gimmel,'shed, new photo jig',avi,date(27,07,2016),time(19,15,29)).
+image('16R4510:0011201',0177,'e-2','middle',gimmel,'shed, new photo jig',avi,date(27,07,2016),time(20,01,34)).
+image('16R4509:0011103',0152,'t-1','middle',gimmel,'shed, new photo jig',avi,date(27,07,2016),time(16,18,20)).
+image('16R4509:0011102',0153,'t-1','middle',gimmel,'shed, new photo jig',avi,date(27,07,2016),time(16,18,20)).
+image('16R4508:0011011',0150,'t-2','middle',gimmel,'shed, new photo jig',avi,date(27,07,2016),time(16,18,20)).
+image('16R4507:0010908',0147,'t-3','middle',gimmel,'shed, new photo jig',avi,date(27,07,2016),time(16,18,20)).
+image('16R4507:0010905',0146,'t-2','whole',gimmel,'shed, new photo jig',avi,date(27,07,2016),time(16,18,20)).
+image('16R4507:0010901',0156,'t-1','middle',gimmel,'shed, new photo jig',avi,date(27,07,2016),time(16,18,20)).
+image('16R4392:0010807',0165,e2,'middle',gimmel,'shed, new photo jig',avi,date(27,07,2016),time(16,18,20)).
+image('16R4392:0010801',0142,e2,'middle',gimmel,'shed, new photo jig',avi,date(27,07,2016),time(16,18,20)).
+image('16R4391:0010711',0151,e1,'middle',gimmel,'shed, new photo jig',avi,date(27,07,2016),time(16,18,20)).
+image('16R4391:0010710',0157,e1,'middle',gimmel,'shed, new photo jig',avi,date(27,07,2016),time(16,18,20)).
+image('16R4391:0010703',0161,'e-1','middle',gimmel,'shed, new photo jig',avi,date(27,07,2016),time(16,18,20)).
+image('16R4390:0010611',0148,'e-1','middle',gimmel,'shed, new photo jig',avi,date(27,07,2016),time(16,18,20)).
+image('16R4390:0010609',0154,e0,'tip',gimmel,'shed, new photo jig',avi,date(27,07,2016),time(16,18,20)).
+image('16R4390:0010605',0168,'e-2','middle',gimmel,'shed, new photo jig',avi,date(27,07,2016),time(16,18,20)).
+image('16R4279:0010503',0155,e1,'middle',gimmel,'shed, new photo jig',avi,date(27,07,2016),time(16,18,20)).
+image('16R4503:0010212',0170,e0,'middle',gimmel,'shed, new photo jig',avi,date(27,07,2016),time(16,18,20)).
+image('16R4503:0010212',0169,e1,'middle',gimmel,'shed, new photo jig',avi,date(27,07,2016),time(16,18,20)).
+image('16R4503:0010210',0163,e1,'middle',gimmel,'shed, new photo jig',avi,date(27,07,2016),time(16,18,20)).
+image('16R4503:0010205',0164,e0,'middle',gimmel,'shed, new photo jig',avi,date(27,07,2016),time(16,18,20)).
+image('16R4503:0010203',0166,e1,'middle',gimmel,'shed, new photo jig',avi,date(27,07,2016),time(16,18,20)).
 
 
 
@@ -5417,80 +5449,80 @@ image('16R4503:0010203',0166,e1,'middle',gimmel,'ex situ ambient reflected, fiel
 
 
     
-image('16R4537:0014611',0232,e4,'middle',gimmel,'ex situ ambient reflected, field',avi,date(28,07,2016),time(13,29,21)).
-image('16R4537:0014608',0226,e4,'middle',gimmel,'ex situ ambient reflected, field',avi,date(28,07,2016),time(11,52,44)).
-image('16R4537:0014607',0225,'t-3','stem',gimmel,'ex situ ambient reflected, field',avi,date(28,07,2016),time(11,52,44)).
-image('16R4534:0014307',0196,e3,'middle',gimmel,'ex situ ambient reflected, field',avi,date(28,07,2016),time(11,07,59)).
-image('16R4532:0014106',0191,'e-1','tip',gimmel,'ex situ ambient reflected, field',avi,date(28,07,2016),time(11,07,59)).
-image('16R4532:0014103',0198,'e-1','middle',gimmel,'ex situ ambient reflected, field',avi,date(28,07,2016),time(11,07,59)).
-image('16R4532:0014102',0195,'e-2','middle',gimmel,'ex situ ambient reflected, field',avi,date(28,07,2016),time(11,07,59)).
-image('16R4531:0014005',0192,'e-1','tip',gimmel,'ex situ ambient reflected, field',avi,date(28,07,2016),time(11,07,59)).
-image('16R4531:0014001',0194,'e-1','tip',gimmel,'ex situ ambient reflected, field',avi,date(28,07,2016),time(11,07,59)).
-image('16R4528:0013706',0197,e2,'middle',gimmel,'ex situ ambient reflected, field',avi,date(28,07,2016),time(11,07,59)).
-image('16R4528:0013704',0216,'t-4','middle',gimmel,'ex situ ambient reflected, field',avi,date(28,07,2016),time(11,52,44)).
-image('16R4526:0013508',0206,e1,'middle',gimmel,'ex situ ambient reflected, field',avi,date(28,07,2016),time(11,52,44)).
-image('16R4526:0013504',0193,'t-5','middle',gimmel,'ex situ ambient reflected, field',avi,date(28,07,2016),time(11,07,59)).
-image('16R4526:0013502',0219,e0,'middle',gimmel,'ex situ ambient reflected, field',avi,date(28,07,2016),time(11,52,44)).
-image('16R4523:0013207',0214,e1,'middle',gimmel,'ex situ ambient reflected, field',avi,date(28,07,2016),time(11,52,44)).
-image('16R4520:0012911',0221,'e-1','middle',gimmel,'ex situ ambient reflected, field',avi,date(28,07,2016),time(11,52,44)).
-image('16R4520:0012909',0205,e0,'middle',gimmel,'ex situ ambient reflected, field',avi,date(28,07,2016),time(11,52,44)).
-image('16R4520:0012908',0218,e1,'tip',gimmel,'ex situ ambient reflected, field',avi,date(28,07,2016),time(11,52,44)).
-image('16R4519:0012806',0229,'t-8','middle',gimmel,'ex situ ambient reflected, field',avi,date(28,07,2016),time(13,29,21)).
-image('16R4519:0012802',0190,'t-7','middle',gimmel,'ex situ ambient reflected, field',avi,date(28,07,2016),time(11,07,59)).
-image('16R4519:0012801',0199,'t-6','tip',gimmel,'ex situ ambient reflected, field',avi,date(28,07,2016),time(11,07,59)).
-image('16R4518:0012703',0231,'e-2','tip',gimmel,'ex situ ambient reflected, field',avi,date(28,07,2016),time(13,29,21)).
-image('16R4300:0012606',0233,e1,'middle',gimmel,'ex situ ambient reflected, field',avi,date(28,07,2016),time(13,29,21)).
-image('16R4300:0012604',0223,e0,'middle',gimmel,'ex situ ambient reflected, field',avi,date(28,07,2016),time(11,52,44)).
-image('16R4300:0012602',0215,e0,'middle',gimmel,'ex situ ambient reflected, field',avi,date(28,07,2016),time(11,52,44)).
-image('16R4300:0012601',0230,e1,'middle',gimmel,'ex situ ambient reflected, field',avi,date(28,07,2016),time(13,29,21)).
-image('16R4399:0012509',0222,'t-4','middle',gimmel,'ex situ ambient reflected, field',avi,date(28,07,2016),time(11,52,44)).
-image('16R4399:0012502',0234,e1,'middle',gimmel,'ex situ ambient reflected, field',avi,date(28,07,2016),time(13,29,21)).
-image('16R4298:0012406',0236,'t-2','tip',gimmel,'ex situ ambient reflected, field',avi,date(28,07,2016),time(13,29,21)).
-image('16R4298:0012403',0203,'t-2','middle',gimmel,'ex situ ambient reflected, field',avi,date(28,07,2016),time(11,07,59)).
-image('16R4298:0012401',0238,'t-2','middle',gimmel,'ex situ ambient reflected, field',avi,date(28,07,2016),time(13,29,21)).
-image('16R4298:0012401',0237,t0,'whole',gimmel,'ex situ ambient reflected, field',avi,date(28,07,2016),time(13,29,21)).
-image('16R4297:0012305',0220,'t-1','middle',gimmel,'ex situ ambient reflected, field',avi,date(28,07,2016),time(11,52,44)).
-image('16R4297:0012303',0227,e3,'middle',gimmel,'ex situ ambient reflected, field',avi,date(28,07,2016),time(13,29,21)).
-image('16R4297:0012301',0228,'t-2','middle',gimmel,'ex situ ambient reflected, field',avi,date(28,07,2016),time(13,29,21)).
-image('16R4027:0012205',0235,'t-4','middle',gimmel,'ex situ ambient reflected, field',avi,date(28,07,2016),time(13,29,21)).
-image('16R4027:0012204',0217,'t-2','middle',gimmel,'ex situ ambient reflected, field',avi,date(28,07,2016),time(11,52,44)).
-image('16R4027:0012203',0204,'t-2','middle',gimmel,'ex situ ambient reflected, field',avi,date(28,07,2016),time(11,52,44)).
-image('16R0698:0015808',0250,'e-1','stem',gimmel,'ex situ ambient reflected, field',avi,date(28,07,2016),time(15,17,03)).
-image('16R0698:0015804',0239,'e-2','middle',gimmel,'ex situ ambient reflected, field',avi,date(28,07,2016),time(15,17,03)).
-image('16R0698:0015803',0249,'e-4','middle',gimmel,'ex situ ambient reflected, field',avi,date(28,07,2016),time(15,17,03)).
-image('16R0698:0015802',0259,'e-4','middle',gimmel,'ex situ ambient reflected, field',avi,date(28,07,2016),time(16,16,13)).
-image('16R0698:0015801',0262,'e-4','stem',gimmel,'ex situ ambient reflected, field',avi,date(28,07,2016),time(16,16,13)).
-image('16R0698:0015801',0261,'e-1','middle',gimmel,'ex situ ambient reflected, field',avi,date(28,07,2016),time(16,16,13)).
-image('16R0697:0015711',0251,e2,'stem',gimmel,'ex situ ambient reflected, field',avi,date(28,07,2016),time(15,17,03)).
-image('16R0697:0015710',0245,e2,'middle',gimmel,'ex situ ambient reflected, field',avi,date(28,07,2016),time(15,17,03)).
-image('16R0697:0015708',0254,e2,'middle',gimmel,'ex situ ambient reflected, field',avi,date(28,07,2016),time(16,16,13)).
-image('16R0696:0015604',0243,'e-2','tip',gimmel,'ex situ ambient reflected, field',avi,date(28,07,2016),time(15,17,03)).
-image('16R0696:0015603',0242,'e-2','tip',gimmel,'ex situ ambient reflected, field',avi,date(28,07,2016),time(15,17,03)).
-image('16R0696:0015601',0246,'e-1','tip',gimmel,'ex situ ambient reflected, field',avi,date(28,07,2016),time(15,17,03)).
-image('16R0695:0015510',0252,'t-6','middle',gimmel,'ex situ ambient reflected, field',avi,date(28,07,2016),time(16,16,13)).
-image('16R0695:0015507',0244,'t-6','middle',gimmel,'ex situ ambient reflected, field',avi,date(28,07,2016),time(15,17,03)).
-image('16R0695:0015505',0247,'t-5','middle',gimmel,'ex situ ambient reflected, field',avi,date(28,07,2016),time(15,17,03)).
-image('16R0693:0015309',0241,e0,'tip',gimmel,'ex situ ambient reflected, field',avi,date(28,07,2016),time(15,17,03)).
-image('16R0693:0015304',0240,'e-1','tip',gimmel,'ex situ ambient reflected, field',avi,date(28,07,2016),time(15,17,03)).
-image('16R0693:0015303',0253,'e-1','middle',gimmel,'ex situ ambient reflected, field',avi,date(28,07,2016),time(16,16,13)).
-image('16R0691:0015110',0202,e1,'middle',gimmel,'ex situ ambient reflected, field',avi,date(28,07,2016),time(11,07,59)).
-image('16R0691:0015109',0209,e1,'tip',gimmel,'ex situ ambient reflected, field',avi,date(28,07,2016),time(11,52,44)).
-image('16R0691:0015106',0208,e1,'tip',gimmel,'ex situ ambient reflected, field',avi,date(28,07,2016),time(11,52,44)).
-image('16R0689:0014913',0211,'e-2','tip',gimmel,'ex situ ambient reflected, field',avi,date(28,07,2016),time(11,52,44)).
-image('16R0689:0014911',0210,'e-2','middle',gimmel,'ex situ ambient reflected, field',avi,date(28,07,2016),time(11,52,44)).
-image('16R0689:0014908',0213,'e-2','middle',gimmel,'ex situ ambient reflected, field',avi,date(28,07,2016),time(11,52,44)).
-image('16R0689:0014908',0212,'e-2','middle',gimmel,'ex situ ambient reflected, field',avi,date(28,07,2016),time(11,52,44)).
-image('16R0688:0014806',0207,e1,'middle',gimmel,'ex situ ambient reflected, field',avi,date(28,07,2016),time(11,52,44)).
-image('16R0688:0014804',0201,e1,'tip',gimmel,'ex situ ambient reflected, field',avi,date(28,07,2016),time(11,07,59)).
-image('16R0688:0014802',0200,e2,'middle',gimmel,'ex situ ambient reflected, field',avi,date(28,07,2016),time(11,07,59)).
-image('16R0687:0014708',0224,'e-1','middle',gimmel,'ex situ ambient reflected, field',avi,date(28,07,2016),time(11,52,44)).
-image('16R0687:0014701',0189,e1,'tip',gimmel,'ex situ ambient reflected, field',avi,date(28,07,2016),time(11,07,59)).
-image('16R0702:0016203',0255,'e-1','tip',gimmel,'ex situ ambient reflected, field',avi,date(28,07,2016),time(16,16,13)).
-image('16R0702:0016201',0258,'e-1','middle',gimmel,'ex situ ambient reflected, field',avi,date(28,07,2016),time(16,16,13)).
-image('16R0701:0016101',0260,e1,'tip',gimmel,'ex situ ambient reflected, field',avi,date(28,07,2016),time(16,16,13)).
-image('16R0700:0016006',0257,'t-6','tip',gimmel,'ex situ ambient reflected, field',avi,date(28,07,2016),time(16,16,13)).
-image('16R0700:0016004',0248,'t-3','tip',gimmel,'ex situ ambient reflected, field',avi,date(28,07,2016),time(15,17,03)).
-image('16R0700:0016002',0256,'t-6','tip',gimmel,'ex situ ambient reflected, field',avi,date(28,07,2016),time(16,16,13)).
+image('16R4537:0014611',0232,e4,'middle',gimmel,'shed, new photo jig',avi,date(28,07,2016),time(13,29,21)).
+image('16R4537:0014608',0226,e4,'middle',gimmel,'shed, new photo jig',avi,date(28,07,2016),time(11,52,44)).
+image('16R4537:0014607',0225,'t-3','stem',gimmel,'shed, new photo jig',avi,date(28,07,2016),time(11,52,44)).
+image('16R4534:0014307',0196,e3,'middle',gimmel,'shed, new photo jig',avi,date(28,07,2016),time(11,07,59)).
+image('16R4532:0014106',0191,'e-1','tip',gimmel,'shed, new photo jig',avi,date(28,07,2016),time(11,07,59)).
+image('16R4532:0014103',0198,'e-1','middle',gimmel,'shed, new photo jig',avi,date(28,07,2016),time(11,07,59)).
+image('16R4532:0014102',0195,'e-2','middle',gimmel,'shed, new photo jig',avi,date(28,07,2016),time(11,07,59)).
+image('16R4531:0014005',0192,'e-1','tip',gimmel,'shed, new photo jig',avi,date(28,07,2016),time(11,07,59)).
+image('16R4531:0014001',0194,'e-1','tip',gimmel,'shed, new photo jig',avi,date(28,07,2016),time(11,07,59)).
+image('16R4528:0013706',0197,e2,'middle',gimmel,'shed, new photo jig',avi,date(28,07,2016),time(11,07,59)).
+image('16R4528:0013704',0216,'t-4','middle',gimmel,'shed, new photo jig',avi,date(28,07,2016),time(11,52,44)).
+image('16R4526:0013508',0206,e1,'middle',gimmel,'shed, new photo jig',avi,date(28,07,2016),time(11,52,44)).
+image('16R4526:0013504',0193,'t-5','middle',gimmel,'shed, new photo jig',avi,date(28,07,2016),time(11,07,59)).
+image('16R4526:0013502',0219,e0,'middle',gimmel,'shed, new photo jig',avi,date(28,07,2016),time(11,52,44)).
+image('16R4523:0013207',0214,e1,'middle',gimmel,'shed, new photo jig',avi,date(28,07,2016),time(11,52,44)).
+image('16R4520:0012911',0221,'e-1','middle',gimmel,'shed, new photo jig',avi,date(28,07,2016),time(11,52,44)).
+image('16R4520:0012909',0205,e0,'middle',gimmel,'shed, new photo jig',avi,date(28,07,2016),time(11,52,44)).
+image('16R4520:0012908',0218,e1,'tip',gimmel,'shed, new photo jig',avi,date(28,07,2016),time(11,52,44)).
+image('16R4519:0012806',0229,'t-8','middle',gimmel,'shed, new photo jig',avi,date(28,07,2016),time(13,29,21)).
+image('16R4519:0012802',0190,'t-7','middle',gimmel,'shed, new photo jig',avi,date(28,07,2016),time(11,07,59)).
+image('16R4519:0012801',0199,'t-6','tip',gimmel,'shed, new photo jig',avi,date(28,07,2016),time(11,07,59)).
+image('16R4518:0012703',0231,'e-2','tip',gimmel,'shed, new photo jig',avi,date(28,07,2016),time(13,29,21)).
+image('16R4300:0012606',0233,e1,'middle',gimmel,'shed, new photo jig',avi,date(28,07,2016),time(13,29,21)).
+image('16R4300:0012604',0223,e0,'middle',gimmel,'shed, new photo jig',avi,date(28,07,2016),time(11,52,44)).
+image('16R4300:0012602',0215,e0,'middle',gimmel,'shed, new photo jig',avi,date(28,07,2016),time(11,52,44)).
+image('16R4300:0012601',0230,e1,'middle',gimmel,'shed, new photo jig',avi,date(28,07,2016),time(13,29,21)).
+image('16R4399:0012509',0222,'t-4','middle',gimmel,'shed, new photo jig',avi,date(28,07,2016),time(11,52,44)).
+image('16R4399:0012502',0234,e1,'middle',gimmel,'shed, new photo jig',avi,date(28,07,2016),time(13,29,21)).
+image('16R4298:0012406',0236,'t-2','tip',gimmel,'shed, new photo jig',avi,date(28,07,2016),time(13,29,21)).
+image('16R4298:0012403',0203,'t-2','middle',gimmel,'shed, new photo jig',avi,date(28,07,2016),time(11,07,59)).
+image('16R4298:0012401',0238,'t-2','middle',gimmel,'shed, new photo jig',avi,date(28,07,2016),time(13,29,21)).
+image('16R4298:0012401',0237,t0,'whole',gimmel,'shed, new photo jig',avi,date(28,07,2016),time(13,29,21)).
+image('16R4297:0012305',0220,'t-1','middle',gimmel,'shed, new photo jig',avi,date(28,07,2016),time(11,52,44)).
+image('16R4297:0012303',0227,e3,'middle',gimmel,'shed, new photo jig',avi,date(28,07,2016),time(13,29,21)).
+image('16R4297:0012301',0228,'t-2','middle',gimmel,'shed, new photo jig',avi,date(28,07,2016),time(13,29,21)).
+image('16R4027:0012205',0235,'t-4','middle',gimmel,'shed, new photo jig',avi,date(28,07,2016),time(13,29,21)).
+image('16R4027:0012204',0217,'t-2','middle',gimmel,'shed, new photo jig',avi,date(28,07,2016),time(11,52,44)).
+image('16R4027:0012203',0204,'t-2','middle',gimmel,'shed, new photo jig',avi,date(28,07,2016),time(11,52,44)).
+image('16R0698:0015808',0250,'e-1','stem',gimmel,'shed, new photo jig',avi,date(28,07,2016),time(15,17,03)).
+image('16R0698:0015804',0239,'e-2','middle',gimmel,'shed, new photo jig',avi,date(28,07,2016),time(15,17,03)).
+image('16R0698:0015803',0249,'e-4','middle',gimmel,'shed, new photo jig',avi,date(28,07,2016),time(15,17,03)).
+image('16R0698:0015802',0259,'e-4','middle',gimmel,'shed, new photo jig',avi,date(28,07,2016),time(16,16,13)).
+image('16R0698:0015801',0262,'e-4','stem',gimmel,'shed, new photo jig',avi,date(28,07,2016),time(16,16,13)).
+image('16R0698:0015801',0261,'e-1','middle',gimmel,'shed, new photo jig',avi,date(28,07,2016),time(16,16,13)).
+image('16R0697:0015711',0251,e2,'stem',gimmel,'shed, new photo jig',avi,date(28,07,2016),time(15,17,03)).
+image('16R0697:0015710',0245,e2,'middle',gimmel,'shed, new photo jig',avi,date(28,07,2016),time(15,17,03)).
+image('16R0697:0015708',0254,e2,'middle',gimmel,'shed, new photo jig',avi,date(28,07,2016),time(16,16,13)).
+image('16R0696:0015604',0243,'e-2','tip',gimmel,'shed, new photo jig',avi,date(28,07,2016),time(15,17,03)).
+image('16R0696:0015603',0242,'e-2','tip',gimmel,'shed, new photo jig',avi,date(28,07,2016),time(15,17,03)).
+image('16R0696:0015601',0246,'e-1','tip',gimmel,'shed, new photo jig',avi,date(28,07,2016),time(15,17,03)).
+image('16R0695:0015510',0252,'t-6','middle',gimmel,'shed, new photo jig',avi,date(28,07,2016),time(16,16,13)).
+image('16R0695:0015507',0244,'t-6','middle',gimmel,'shed, new photo jig',avi,date(28,07,2016),time(15,17,03)).
+image('16R0695:0015505',0247,'t-5','middle',gimmel,'shed, new photo jig',avi,date(28,07,2016),time(15,17,03)).
+image('16R0693:0015309',0241,e0,'tip',gimmel,'shed, new photo jig',avi,date(28,07,2016),time(15,17,03)).
+image('16R0693:0015304',0240,'e-1','tip',gimmel,'shed, new photo jig',avi,date(28,07,2016),time(15,17,03)).
+image('16R0693:0015303',0253,'e-1','middle',gimmel,'shed, new photo jig',avi,date(28,07,2016),time(16,16,13)).
+image('16R0691:0015110',0202,e1,'middle',gimmel,'shed, new photo jig',avi,date(28,07,2016),time(11,07,59)).
+image('16R0691:0015109',0209,e1,'tip',gimmel,'shed, new photo jig',avi,date(28,07,2016),time(11,52,44)).
+image('16R0691:0015106',0208,e1,'tip',gimmel,'shed, new photo jig',avi,date(28,07,2016),time(11,52,44)).
+image('16R0689:0014913',0211,'e-2','tip',gimmel,'shed, new photo jig',avi,date(28,07,2016),time(11,52,44)).
+image('16R0689:0014911',0210,'e-2','middle',gimmel,'shed, new photo jig',avi,date(28,07,2016),time(11,52,44)).
+image('16R0689:0014908',0213,'e-2','middle',gimmel,'shed, new photo jig',avi,date(28,07,2016),time(11,52,44)).
+image('16R0689:0014908',0212,'e-2','middle',gimmel,'shed, new photo jig',avi,date(28,07,2016),time(11,52,44)).
+image('16R0688:0014806',0207,e1,'middle',gimmel,'shed, new photo jig',avi,date(28,07,2016),time(11,52,44)).
+image('16R0688:0014804',0201,e1,'tip',gimmel,'shed, new photo jig',avi,date(28,07,2016),time(11,07,59)).
+image('16R0688:0014802',0200,e2,'middle',gimmel,'shed, new photo jig',avi,date(28,07,2016),time(11,07,59)).
+image('16R0687:0014708',0224,'e-1','middle',gimmel,'shed, new photo jig',avi,date(28,07,2016),time(11,52,44)).
+image('16R0687:0014701',0189,e1,'tip',gimmel,'shed, new photo jig',avi,date(28,07,2016),time(11,07,59)).
+image('16R0702:0016203',0255,'e-1','tip',gimmel,'shed, new photo jig',avi,date(28,07,2016),time(16,16,13)).
+image('16R0702:0016201',0258,'e-1','middle',gimmel,'shed, new photo jig',avi,date(28,07,2016),time(16,16,13)).
+image('16R0701:0016101',0260,e1,'tip',gimmel,'shed, new photo jig',avi,date(28,07,2016),time(16,16,13)).
+image('16R0700:0016006',0257,'t-6','tip',gimmel,'shed, new photo jig',avi,date(28,07,2016),time(16,16,13)).
+image('16R0700:0016004',0248,'t-3','tip',gimmel,'shed, new photo jig',avi,date(28,07,2016),time(15,17,03)).
+image('16R0700:0016002',0256,'t-6','tip',gimmel,'shed, new photo jig',avi,date(28,07,2016),time(16,16,13)).
 
 
 
@@ -5510,42 +5542,42 @@ image('16R0700:0016002',0256,'t-6','tip',gimmel,'ex situ ambient reflected, fiel
 
 
     
-image('16R4228:0006811',0287,e0,'middle',gimmel,'ex situ ambient reflected, field',avi,date(30,07,2016),time(15,30,44)).
-image('16R4279:0010511',0283,e2,'middle',gimmel,'ex situ ambient reflected, field',avi,date(30,07,2016),time(15,30,44)).
-image('16R4468:0004410',0281,e2,'middle',gimmel,'ex situ ambient reflected, field',avi,date(30,07,2016),time(15,30,44)).
-image('16R4468:0004411',0278,e2,'tip',gimmel,'ex situ ambient reflected, field',avi,date(30,07,2016),time(15,30,44)).
-image('16R4473:0004903',0264,e3,'middle',gimmel,'ex situ ambient reflected, field',avi,date(30,07,2016),time(14,27,35)).
-image('16R4477:0005305',0268,e3,'middle',gimmel,'ex situ ambient reflected, field',avi,date(30,07,2016),time(14,27,35)).
-image('16R4477:0005309',0265,e3,'stem',gimmel,'ex situ ambient reflected, field',avi,date(30,07,2016),time(14,27,35)).
-image('16R4477:0005311',0266,e4,'middle',gimmel,'ex situ ambient reflected, field',avi,date(30,07,2016),time(14,27,35)).
-image('16R4478:0005404',0269,'t-11','tip',gimmel,'ex situ ambient reflected, field',avi,date(30,07,2016),time(14,27,35)).
+image('16R4228:0006811',0287,e0,'middle',gimmel,'shed, new photo jig',avi,date(30,07,2016),time(15,30,44)).
+image('16R4279:0010511',0283,e2,'middle',gimmel,'shed, new photo jig',avi,date(30,07,2016),time(15,30,44)).
+image('16R4468:0004410',0281,e2,'middle',gimmel,'shed, new photo jig',avi,date(30,07,2016),time(15,30,44)).
+image('16R4468:0004411',0278,e2,'tip',gimmel,'shed, new photo jig',avi,date(30,07,2016),time(15,30,44)).
+image('16R4473:0004903',0264,e3,'middle',gimmel,'shed, new photo jig',avi,date(30,07,2016),time(14,27,35)).
+image('16R4477:0005305',0268,e3,'middle',gimmel,'shed, new photo jig',avi,date(30,07,2016),time(14,27,35)).
+image('16R4477:0005309',0265,e3,'stem',gimmel,'shed, new photo jig',avi,date(30,07,2016),time(14,27,35)).
+image('16R4477:0005311',0266,e4,'middle',gimmel,'shed, new photo jig',avi,date(30,07,2016),time(14,27,35)).
+image('16R4478:0005404',0269,'t-11','tip',gimmel,'shed, new photo jig',avi,date(30,07,2016),time(14,27,35)).
 
 % migrated per results of genetic_utilities:find_descendants_of_lines_wo_genotypes/2
 %
 % Kazic, 31.5.2018
 %
-% image('16R4483:0005906',0279,'e-4','middle',gimmel,'ex situ ambient reflected, field',avi,date(30,07,2016),time(15,30,44)).
+% image('16R4483:0005906',0279,'e-4','middle',gimmel,'shed, new photo jig',avi,date(30,07,2016),time(15,30,44)).
 
-image('16R4648:0005906',0279,'e-4','middle',gimmel,'ex situ ambient reflected, field',avi,date(30,07,2016),time(15,30,44)).
+image('16R4648:0005906',0279,'e-4','middle',gimmel,'shed, new photo jig',avi,date(30,07,2016),time(15,30,44)).
 
 
-image('16R4491:0008006',0275,e0,'middle',gimmel,'ex situ ambient reflected, field',avi,date(30,07,2016),time(15,30,44)).
-image('16R4496:0009201',0277,'e-2','middle',gimmel,'ex situ ambient reflected, field',avi,date(30,07,2016),time(15,30,44)).
-image('16R4498:0009503',0267,'e-2','middle',gimmel,'ex situ ambient reflected, field',avi,date(30,07,2016),time(14,27,35)).
-image('16R4498:0009505',0282,'e-1','middle',gimmel,'ex situ ambient reflected, field',avi,date(30,07,2016),time(15,30,44)).
-image('16R4498:0009508',0273,'e-1','middle',gimmel,'ex situ ambient reflected, field',avi,date(30,07,2016),time(15,30,44)).
-image('16R4499:0009605',0274,e0,'middle',gimmel,'ex situ ambient reflected, field',avi,date(30,07,2016),time(15,30,44)).
-image('16R4499:0009607',0276,e0,'middle',gimmel,'ex situ ambient reflected, field',avi,date(30,07,2016),time(15,30,44)).
-image('16R4499:0009614',0288,'e-1','middle',gimmel,'ex situ ambient reflected, field',avi,date(30,07,2016),time(15,30,44)).
-image('16R4515:0011901',0271,'e-1','middle',gimmel,'ex situ ambient reflected, field',avi,date(30,07,2016),time(14,27,35)).
-image('16R4515:0011904',0285,'e-1','middle',gimmel,'ex situ ambient reflected, field',avi,date(30,07,2016),time(15,30,44)).
-image('16R4535:0014401',0286,'t-1','whole',gimmel,'ex situ ambient reflected, field',avi,date(30,07,2016),time(15,30,44)).
-image('16R4535:0014404',0270,'t-1','whole',gimmel,'ex situ ambient reflected, field',avi,date(30,07,2016),time(14,27,35)).
-image('16R4535:0014412',0263,'t-1','middle',gimmel,'ex situ ambient reflected, field',avi,date(30,07,2016),time(14,27,35)).
-image('16R0694:0015404',0272,'e-2','middle',gimmel,'ex situ ambient reflected, field',avi,date(30,07,2016),time(14,27,35)).
-image('16R0694:0015406',0284,'e-2','tip',gimmel,'ex situ ambient reflected, field',avi,date(30,07,2016),time(15,30,44)).
-image('16R0698:0015801',0280,'e-1','stem',gimmel,'ex situ ambient reflected, field',avi,date(30,07,2016),time(15,30,44)).
-image('16R0698:0015811',0280,'e-1','stem',gimmel,'ex situ ambient reflected, field',avi,date(30,07,2016),time(15,30,44)).
+image('16R4491:0008006',0275,e0,'middle',gimmel,'shed, new photo jig',avi,date(30,07,2016),time(15,30,44)).
+image('16R4496:0009201',0277,'e-2','middle',gimmel,'shed, new photo jig',avi,date(30,07,2016),time(15,30,44)).
+image('16R4498:0009503',0267,'e-2','middle',gimmel,'shed, new photo jig',avi,date(30,07,2016),time(14,27,35)).
+image('16R4498:0009505',0282,'e-1','middle',gimmel,'shed, new photo jig',avi,date(30,07,2016),time(15,30,44)).
+image('16R4498:0009508',0273,'e-1','middle',gimmel,'shed, new photo jig',avi,date(30,07,2016),time(15,30,44)).
+image('16R4499:0009605',0274,e0,'middle',gimmel,'shed, new photo jig',avi,date(30,07,2016),time(15,30,44)).
+image('16R4499:0009607',0276,e0,'middle',gimmel,'shed, new photo jig',avi,date(30,07,2016),time(15,30,44)).
+image('16R4499:0009614',0288,'e-1','middle',gimmel,'shed, new photo jig',avi,date(30,07,2016),time(15,30,44)).
+image('16R4515:0011901',0271,'e-1','middle',gimmel,'shed, new photo jig',avi,date(30,07,2016),time(14,27,35)).
+image('16R4515:0011904',0285,'e-1','middle',gimmel,'shed, new photo jig',avi,date(30,07,2016),time(15,30,44)).
+image('16R4535:0014401',0286,'t-1','whole',gimmel,'shed, new photo jig',avi,date(30,07,2016),time(15,30,44)).
+image('16R4535:0014404',0270,'t-1','whole',gimmel,'shed, new photo jig',avi,date(30,07,2016),time(14,27,35)).
+image('16R4535:0014412',0263,'t-1','middle',gimmel,'shed, new photo jig',avi,date(30,07,2016),time(14,27,35)).
+image('16R0694:0015404',0272,'e-2','middle',gimmel,'shed, new photo jig',avi,date(30,07,2016),time(14,27,35)).
+image('16R0694:0015406',0284,'e-2','tip',gimmel,'shed, new photo jig',avi,date(30,07,2016),time(15,30,44)).
+image('16R0698:0015801',0280,'e-1','stem',gimmel,'shed, new photo jig',avi,date(30,07,2016),time(15,30,44)).
+image('16R0698:0015811',0280,'e-1','stem',gimmel,'shed, new photo jig',avi,date(30,07,2016),time(15,30,44)).
 
 
 
@@ -5562,55 +5594,55 @@ image('16R0698:0015811',0280,'e-1','stem',gimmel,'ex situ ambient reflected, fie
 % Kazic, 24.4.2018
 
     
-image('16R3192:0010101',0123,e0,'middle',gimmel,'ex situ ambient reflected, field',avi,date(26,07,2016),time(16,57,25)).
-image('16R3192:0010101',0127,e0,'middle',gimmel,'ex situ ambient reflected, field',avi,date(26,07,2016),time(16,57,25)).
-image('16R3192:0010108',0136,e0,'middle',gimmel,'ex situ ambient reflected, field',avi,date(26,07,2016),time(18,11,05)).
-image('16R3590:0007804',0121,e2,'middle',gimmel,'ex situ ambient reflected, field',avi,date(26,07,2016),time(16,57,25)).
-image('16R4086:0007610',0128,'e-1','middle',gimmel,'ex situ ambient reflected, field',avi,date(26,07,2016),time(16,57,25)).
-image('16R4092:0008811',0135,e3,'middle',gimmel,'ex situ ambient reflected, field',avi,date(26,07,2016),time(18,11,05)).
-image('16R4227:0006601',0122,e2,'middle',gimmel,'ex situ ambient reflected, field',avi,date(26,07,2016),time(16,57,25)).
-image('16R4227:0006606',0139,e2,'middle',gimmel,'ex situ ambient reflected, field',avi,date(26,07,2016),time(18,11,05)).
-image('16R4227:0006608',0138,e2,'middle',gimmel,'ex situ ambient reflected, field',avi,date(26,07,2016),time(18,11,05)).
-image('16R4227:0006610',0133,e2,'middle',gimmel,'ex situ ambient reflected, field',avi,date(26,07,2016),time(18,11,05)).
-image('16R4227:0006703',0140,e2,'middle',gimmel,'ex situ ambient reflected, field',avi,date(26,07,2016),time(18,11,05)).
-image('16R4227:0006706',0119,e2,'middle',gimmel,'ex situ ambient reflected, field',avi,date(26,07,2016),time(16,57,25)).
-image('16R4227:0006707',0137,e2,'middle',gimmel,'ex situ ambient reflected, field',avi,date(26,07,2016),time(18,11,05)).
-image('16R4227:0006712',0141,e2,'middle',gimmel,'ex situ ambient reflected, field',avi,date(26,07,2016),time(18,11,05)).
-image('16R4356:0010005',0134,'t-3','middle',gimmel,'ex situ ambient reflected, field',avi,date(26,07,2016),time(18,11,05)).
-image('16R4356:0010008',0120,'t-2','middle',gimmel,'ex situ ambient reflected, field',avi,date(26,07,2016),time(16,57,25)).
-image('16R4356:0010008',0130,'t-3','middle',gimmel,'ex situ ambient reflected, field',avi,date(26,07,2016),time(16,57,25)).
-image('16R4393:0009904',0125,e0,'middle',gimmel,'ex situ ambient reflected, field',avi,date(26,07,2016),time(16,57,25)).
-image('16R4393:0009907',0124,'e-1','middle',gimmel,'ex situ ambient reflected, field',avi,date(26,07,2016),time(16,57,25)).
-image('16R4393:0009909',0126,'e-2','middle',gimmel,'ex situ ambient reflected, field',avi,date(26,07,2016),time(16,57,25)).
-image('16R4445:0009807',0132,'e-3','middle',gimmel,'ex situ ambient reflected, field',avi,date(26,07,2016),time(17,42,28)).
-image('16R4445:0009808',0117,'e-4','middle',gimmel,'ex situ ambient reflected, field',avi,date(26,07,2016),time(16,57,25)).
-image('16R4445:0009808',0131,'e-5','middle',gimmel,'ex situ ambient reflected, field',avi,date(26,07,2016),time(17,42,28)).
-image('16R4467:0004307',0113,'e-1','middle',gimmel,'ex situ ambient reflected, field',avi,date(26,07,2016),time(14,32,49)).
-image('16R4467:0004309',0099,'e-1','middle',gimmel,'ex situ ambient reflected, field',avi,date(26,07,2016),time(13,30,56)).
-image('16R4467:0004315',0109,'e-1','middle',gimmel,'ex situ ambient reflected, field',avi,date(26,07,2016),time(14,32,49)).
-image('16R4468:0004410',0101,'t-3','middle',gimmel,'ex situ ambient reflected, field',avi,date(26,07,2016),time(13,30,56)).
-image('16R4468:0004411',0104,'t-3','middle',gimmel,'ex situ ambient reflected, field',avi,date(26,07,2016),time(13,30,56)).
-image('16R4470:0004603',0097,e3,'middle',gimmel,'ex situ ambient reflected, field',avi,date(26,07,2016),time(13,30,56)).
-image('16R4470:0004603',0107,e3,'middle',gimmel,'ex situ ambient reflected, field',avi,date(26,07,2016),time(14,32,49)).
-image('16R4470:0004604',0098,e3,'middle',gimmel,'ex situ ambient reflected, field',avi,date(26,07,2016),time(13,30,56)).
-image('16R4471:0004707',0092,'t-3','middle',gimmel,'ex situ ambient reflected, field',avi,date(26,07,2016),time(13,27,37)).
-image('16R4472:0004806',0102,e2,'middle',gimmel,'ex situ ambient reflected, field',avi,date(26,07,2016),time(13,30,56)).
-image('16R4472:0004811',0106,e1,'middle',gimmel,'ex situ ambient reflected, field',avi,date(26,07,2016),time(13,30,56)).
-image('16R4473:0004904',0112,e3,'middle',gimmel,'ex situ ambient reflected, field',avi,date(26,07,2016),time(14,32,49)).
-image('16R4473:0004912',0111,e2,'middle',gimmel,'ex situ ambient reflected, field',avi,date(26,07,2016),time(14,32,49)).
-image('16R4474:0005001',0094,'t-1','middle',gimmel,'ex situ ambient reflected, field',avi,date(26,07,2016),time(13,30,56)).
-image('16R4474:0005009',0095,'t-1','middle',gimmel,'ex situ ambient reflected, field',avi,date(26,07,2016),time(13,30,56)).
-image('16R4476:0005202',0090,e2,'middle',gimmel,'ex situ ambient reflected, field',avi,date(26,07,2016),time(13,17,00)).
-image('16R4476:0005210',0114,'t-3','middle',gimmel,'ex situ ambient reflected, field',avi,date(26,07,2016),time(14,32,49)).
-image('16R4476:0005211',0110,'t-2','middle',gimmel,'ex situ ambient reflected, field',avi,date(26,07,2016),time(14,32,49)).
-image('16R4477:0005303',0100,'t-2','middle',gimmel,'ex situ ambient reflected, field',avi,date(26,07,2016),time(13,30,56)).
-image('16R4477:0005311',0108,e3,'middle',gimmel,'ex situ ambient reflected, field',avi,date(26,07,2016),time(14,32,49)).
-image('16R4477:0005312',0096,e3,'middle',gimmel,'ex situ ambient reflected, field',avi,date(26,07,2016),time(13,30,56)).
-image('16R4478:0005401',0091,'e-3','middle',gimmel,'ex situ ambient reflected, field',avi,date(26,07,2016),time(13,23,45)).
-image('16R4479:0005503',0115,'e-4','middle',gimmel,'ex situ ambient reflected, field',avi,date(26,07,2016),time(14,32,49)).
-image('16R4479:0005504',0093,'e-5','middle',gimmel,'ex situ ambient reflected, field',avi,date(26,07,2016),time(13,30,56)).
-image('16R4479:0005506',0116,'t-13','middle',gimmel,'ex situ ambient reflected, field',avi,date(26,07,2016),time(14,32,49)).
-image('16R4481:0005709',0105,'e-3','middle',gimmel,'ex situ ambient reflected, field',avi,date(26,07,2016),time(13,30,56)).
+image('16R3192:0010101',0123,e0,'middle',gimmel,'shed, new photo jig',avi,date(26,07,2016),time(16,57,25)).
+image('16R3192:0010101',0127,e0,'middle',gimmel,'shed, new photo jig',avi,date(26,07,2016),time(16,57,25)).
+image('16R3192:0010108',0136,e0,'middle',gimmel,'shed, new photo jig',avi,date(26,07,2016),time(18,11,05)).
+image('16R3590:0007804',0121,e2,'middle',gimmel,'shed, new photo jig',avi,date(26,07,2016),time(16,57,25)).
+image('16R4086:0007610',0128,'e-1','middle',gimmel,'shed, new photo jig',avi,date(26,07,2016),time(16,57,25)).
+image('16R4092:0008811',0135,e3,'middle',gimmel,'shed, new photo jig',avi,date(26,07,2016),time(18,11,05)).
+image('16R4227:0006601',0122,e2,'middle',gimmel,'shed, new photo jig',avi,date(26,07,2016),time(16,57,25)).
+image('16R4227:0006606',0139,e2,'middle',gimmel,'shed, new photo jig',avi,date(26,07,2016),time(18,11,05)).
+image('16R4227:0006608',0138,e2,'middle',gimmel,'shed, new photo jig',avi,date(26,07,2016),time(18,11,05)).
+image('16R4227:0006610',0133,e2,'middle',gimmel,'shed, new photo jig',avi,date(26,07,2016),time(18,11,05)).
+image('16R4227:0006703',0140,e2,'middle',gimmel,'shed, new photo jig',avi,date(26,07,2016),time(18,11,05)).
+image('16R4227:0006706',0119,e2,'middle',gimmel,'shed, new photo jig',avi,date(26,07,2016),time(16,57,25)).
+image('16R4227:0006707',0137,e2,'middle',gimmel,'shed, new photo jig',avi,date(26,07,2016),time(18,11,05)).
+image('16R4227:0006712',0141,e2,'middle',gimmel,'shed, new photo jig',avi,date(26,07,2016),time(18,11,05)).
+image('16R4356:0010005',0134,'t-3','middle',gimmel,'shed, new photo jig',avi,date(26,07,2016),time(18,11,05)).
+image('16R4356:0010008',0120,'t-2','middle',gimmel,'shed, new photo jig',avi,date(26,07,2016),time(16,57,25)).
+image('16R4356:0010008',0130,'t-3','middle',gimmel,'shed, new photo jig',avi,date(26,07,2016),time(16,57,25)).
+image('16R4393:0009904',0125,e0,'middle',gimmel,'shed, new photo jig',avi,date(26,07,2016),time(16,57,25)).
+image('16R4393:0009907',0124,'e-1','middle',gimmel,'shed, new photo jig',avi,date(26,07,2016),time(16,57,25)).
+image('16R4393:0009909',0126,'e-2','middle',gimmel,'shed, new photo jig',avi,date(26,07,2016),time(16,57,25)).
+image('16R4445:0009807',0132,'e-3','middle',gimmel,'shed, new photo jig',avi,date(26,07,2016),time(17,42,28)).
+image('16R4445:0009808',0117,'e-4','middle',gimmel,'shed, new photo jig',avi,date(26,07,2016),time(16,57,25)).
+image('16R4445:0009808',0131,'e-5','middle',gimmel,'shed, new photo jig',avi,date(26,07,2016),time(17,42,28)).
+image('16R4467:0004307',0113,'e-1','middle',gimmel,'shed, new photo jig',avi,date(26,07,2016),time(14,32,49)).
+image('16R4467:0004309',0099,'e-1','middle',gimmel,'shed, new photo jig',avi,date(26,07,2016),time(13,30,56)).
+image('16R4467:0004315',0109,'e-1','middle',gimmel,'shed, new photo jig',avi,date(26,07,2016),time(14,32,49)).
+image('16R4468:0004410',0101,'t-3','middle',gimmel,'shed, new photo jig',avi,date(26,07,2016),time(13,30,56)).
+image('16R4468:0004411',0104,'t-3','middle',gimmel,'shed, new photo jig',avi,date(26,07,2016),time(13,30,56)).
+image('16R4470:0004603',0097,e3,'middle',gimmel,'shed, new photo jig',avi,date(26,07,2016),time(13,30,56)).
+image('16R4470:0004603',0107,e3,'middle',gimmel,'shed, new photo jig',avi,date(26,07,2016),time(14,32,49)).
+image('16R4470:0004604',0098,e3,'middle',gimmel,'shed, new photo jig',avi,date(26,07,2016),time(13,30,56)).
+image('16R4471:0004707',0092,'t-3','middle',gimmel,'shed, new photo jig',avi,date(26,07,2016),time(13,27,37)).
+image('16R4472:0004806',0102,e2,'middle',gimmel,'shed, new photo jig',avi,date(26,07,2016),time(13,30,56)).
+image('16R4472:0004811',0106,e1,'middle',gimmel,'shed, new photo jig',avi,date(26,07,2016),time(13,30,56)).
+image('16R4473:0004904',0112,e3,'middle',gimmel,'shed, new photo jig',avi,date(26,07,2016),time(14,32,49)).
+image('16R4473:0004912',0111,e2,'middle',gimmel,'shed, new photo jig',avi,date(26,07,2016),time(14,32,49)).
+image('16R4474:0005001',0094,'t-1','middle',gimmel,'shed, new photo jig',avi,date(26,07,2016),time(13,30,56)).
+image('16R4474:0005009',0095,'t-1','middle',gimmel,'shed, new photo jig',avi,date(26,07,2016),time(13,30,56)).
+image('16R4476:0005202',0090,e2,'middle',gimmel,'shed, new photo jig',avi,date(26,07,2016),time(13,17,00)).
+image('16R4476:0005210',0114,'t-3','middle',gimmel,'shed, new photo jig',avi,date(26,07,2016),time(14,32,49)).
+image('16R4476:0005211',0110,'t-2','middle',gimmel,'shed, new photo jig',avi,date(26,07,2016),time(14,32,49)).
+image('16R4477:0005303',0100,'t-2','middle',gimmel,'shed, new photo jig',avi,date(26,07,2016),time(13,30,56)).
+image('16R4477:0005311',0108,e3,'middle',gimmel,'shed, new photo jig',avi,date(26,07,2016),time(14,32,49)).
+image('16R4477:0005312',0096,e3,'middle',gimmel,'shed, new photo jig',avi,date(26,07,2016),time(13,30,56)).
+image('16R4478:0005401',0091,'e-3','middle',gimmel,'shed, new photo jig',avi,date(26,07,2016),time(13,23,45)).
+image('16R4479:0005503',0115,'e-4','middle',gimmel,'shed, new photo jig',avi,date(26,07,2016),time(14,32,49)).
+image('16R4479:0005504',0093,'e-5','middle',gimmel,'shed, new photo jig',avi,date(26,07,2016),time(13,30,56)).
+image('16R4479:0005506',0116,'t-13','middle',gimmel,'shed, new photo jig',avi,date(26,07,2016),time(14,32,49)).
+image('16R4481:0005709',0105,'e-3','middle',gimmel,'shed, new photo jig',avi,date(26,07,2016),time(13,30,56)).
 
 
 
@@ -5618,13 +5650,13 @@ image('16R4481:0005709',0105,'e-3','middle',gimmel,'ex situ ambient reflected, f
 %
 % Kazic, 31.5.2018
 %
-% image('16R4483:0005910',0103,'e-3','middle',gimmel,'ex situ ambient reflected, field',avi,date(26,07,2016),time(13,30,56)).
+% image('16R4483:0005910',0103,'e-3','middle',gimmel,'shed, new photo jig',avi,date(26,07,2016),time(13,30,56)).
 
-image('16R4648:0005910',0103,'e-3','middle',gimmel,'ex situ ambient reflected, field',avi,date(26,07,2016),time(13,30,56)).
+image('16R4648:0005910',0103,'e-3','middle',gimmel,'shed, new photo jig',avi,date(26,07,2016),time(13,30,56)).
 
 
-image('16R4491:0008008',0129,e0,'middle',gimmel,'ex situ ambient reflected, field',avi,date(26,07,2016),time(16,57,25)).
-image('16R4498:0009514',0118,'e-2','middle',gimmel,'ex situ ambient reflected, field',avi,date(26,07,2016),time(16,57,25)).
+image('16R4491:0008008',0129,e0,'middle',gimmel,'shed, new photo jig',avi,date(26,07,2016),time(16,57,25)).
+image('16R4498:0009514',0118,'e-2','middle',gimmel,'shed, new photo jig',avi,date(26,07,2016),time(16,57,25)).
 
 
 
@@ -5655,6 +5687,11 @@ image('16R4498:0009514',0118,'e-2','middle',gimmel,'ex situ ambient reflected, f
 % Kazic, 20.5.2018
 
 	
+% corrected locale from 'ex situ ambient reflected, field'
+% to 'shed, new photo jig'
+% after checking the images directly.
+%
+% Kazic, 18.2.2022
 
 
 
@@ -5662,20 +5699,20 @@ image('16R4498:0009514',0118,'e-2','middle',gimmel,'ex situ ambient reflected, f
 % by data/data_conversion/convert_image_data.perl
 % called from data/data_conversion/convert_data.perl
 
-image('17R4491:0007618',0302,e3,'middle',gimmel,'ex situ ambient reflected, field',avi,date(01,08,2017),time(14,43,00)).
-image('17R4491:0007617',0301,e3,'tip',gimmel,'ex situ ambient reflected, field',avi,date(01,08,2017),time(14,43,00)).
-image('17R4491:0007610',0300,'e-4','middle',gimmel,'ex situ ambient reflected, field',avi,date(01,08,2017),time(14,43,00)).
-image('17R4491:0007611',0299,e3,'middle',gimmel,'ex situ ambient reflected, field',avi,date(01,08,2017),time(14,43,00)).
-image('17R4559:0007209',0298,'e-2','middle',gimmel,'ex situ ambient reflected, field',avi,date(01,08,2017),time(14,43,00)).
-image('17R3590:0007412',0297,'t-1','middle',gimmel,'ex situ ambient reflected, field',avi,date(01,08,2017),time(14,43,00)).
-image('17R4559:0007207',0296,'e-2','tip',gimmel,'ex situ ambient reflected, field',avi,date(01,08,2017),time(14,43,00)).
-image('17R4559:0007203',0295,'e-2','middle',gimmel,'ex situ ambient reflected, field',avi,date(01,08,2017),time(14,43,00)).
-image('17R3590:0007403',0294,'t-3','middle',gimmel,'ex situ ambient reflected, field',avi,date(01,08,2017),time(14,43,00)).
-image('17R3590:0007422',0293,e3,'middle',gimmel,'ex situ ambient reflected, field',avi,date(01,08,2017),time(14,43,00)).
-image('17R3590:0007422',0292,e5,'middle',gimmel,'ex situ ambient reflected, field',avi,date(01,08,2017),time(14,43,00)).
-image('17R4561:0006004',0291,'t-2','stem',gimmel,'ex situ ambient reflected, field',avi,date(01,08,2017),time(14,43,00)).
-image('17R4561:0006006',0290,'t-2','stem',gimmel,'ex situ ambient reflected, field',avi,date(01,08,2017),time(14,43,00)).
-image('17R4561:0006003',0289,'t-2','middle',gimmel,'ex situ ambient reflected, field',josh,date(01,08,2017),time(14,43,00)).
+image('17R4491:0007618',0302,e3,'middle',gimmel,'shed, new photo jig',avi,date(01,08,2017),time(14,43,00)).
+image('17R4491:0007617',0301,e3,'tip',gimmel,'shed, new photo jig',avi,date(01,08,2017),time(14,43,00)).
+image('17R4491:0007610',0300,'e-4','middle',gimmel,'shed, new photo jig',avi,date(01,08,2017),time(14,43,00)).
+image('17R4491:0007611',0299,e3,'middle',gimmel,'shed, new photo jig',avi,date(01,08,2017),time(14,43,00)).
+image('17R4559:0007209',0298,'e-2','middle',gimmel,'shed, new photo jig',avi,date(01,08,2017),time(14,43,00)).
+image('17R3590:0007412',0297,'t-1','middle',gimmel,'shed, new photo jig',avi,date(01,08,2017),time(14,43,00)).
+image('17R4559:0007207',0296,'e-2','tip',gimmel,'shed, new photo jig',avi,date(01,08,2017),time(14,43,00)).
+image('17R4559:0007203',0295,'e-2','middle',gimmel,'shed, new photo jig',avi,date(01,08,2017),time(14,43,00)).
+image('17R3590:0007403',0294,'t-3','middle',gimmel,'shed, new photo jig',avi,date(01,08,2017),time(14,43,00)).
+image('17R3590:0007422',0293,e3,'middle',gimmel,'shed, new photo jig',avi,date(01,08,2017),time(14,43,00)).
+image('17R3590:0007422',0292,e5,'middle',gimmel,'shed, new photo jig',avi,date(01,08,2017),time(14,43,00)).
+image('17R4561:0006004',0291,'t-2','stem',gimmel,'shed, new photo jig',avi,date(01,08,2017),time(14,43,00)).
+image('17R4561:0006006',0290,'t-2','stem',gimmel,'shed, new photo jig',avi,date(01,08,2017),time(14,43,00)).
+image('17R4561:0006003',0289,'t-2','middle',gimmel,'shed, new photo jig',josh,date(01,08,2017),time(14,43,00)).
 
 
 
@@ -5684,161 +5721,169 @@ image('17R4561:0006003',0289,'t-2','middle',gimmel,'ex situ ambient reflected, f
 % by data/data_conversion/convert_image_data.perl
 % called from data/data_conversion/convert_data.perl
 
-image('17R4543:0017901',0457,e2,'middle',bet,'ex situ ambient reflected, field',avi,date(02,08,2017),time(19,34,00)).
-image('17R4543:0017901',0456,e1,'middle',bet,'ex situ ambient reflected, field',avi,date(02,08,2017),time(19,34,00)).
-image('17R4522:0019425',0455,'t-6','middle',bet,'ex situ ambient reflected, field',avi,date(02,08,2017),time(19,34,00)).
-image('17R4522:0019425',0454,'t-4','tip',bet,'ex situ ambient reflected, field',avi,date(02,08,2017),time(19,34,00)).
-image('17R4543:0017914',0453,e4,'middle',bet,'ex situ ambient reflected, field',avi,date(02,08,2017),time(19,34,00)).
-image('17R4543:0017914',0452,e1,'middle',bet,'ex situ ambient reflected, field',avi,date(02,08,2017),time(19,34,00)).
-image('17R4565:0019102',0451,'t-3','middle',bet,'ex situ ambient reflected, field',avi,date(02,08,2017),time(19,34,00)).
-image('17R4525:0018501',0450,'t-4','middle',bet,'ex situ ambient reflected, field',avi,date(02,08,2017),time(19,34,00)).
-image('17R4522:0019419',0449,'t-3','middle',bet,'ex situ ambient reflected, field',avi,date(02,08,2017),time(19,34,00)).
-image('17R4567:0019523',0448,'t-4','tip',bet,'ex situ ambient reflected, field',avi,date(02,08,2017),time(19,34,00)).
-image('17R4568:0018611',0447,e1,'middle',bet,'ex situ ambient reflected, field',avi,date(02,08,2017),time(19,34,00)).
-image('17R4524:0019603',0446,'t-3','tip',bet,'ex situ ambient reflected, field',avi,date(02,08,2017),time(19,34,00)).
-image('17R4566:0019213',0445,'t-5','tip',bet,'ex situ ambient reflected, field',avi,date(02,08,2017),time(19,34,00)).
-image('17R4566:0019209',0444,'t-3','tip',bet,'ex situ ambient reflected, field',avi,date(02,08,2017),time(19,34,00)).
-image('17R4547:0018304',0443,'t-1','middle',bet,'ex situ ambient reflected, field',avi,date(02,08,2017),time(19,34,00)).
-image('17R4569:0018709',0442,'t-6','middle',bet,'ex situ ambient reflected, field',avi,date(02,08,2017),time(19,34,00)).
-image('17R4566:0019203',0441,'t-4','middle',bet,'ex situ ambient reflected, field',avi,date(02,08,2017),time(19,34,00)).
-image('17R4569:0018712',0440,e3,'middle',bet,'ex situ ambient reflected, field',avi,date(02,08,2017),time(19,34,00)).
-image('17R4567:0019510',0439,'t-4','middle',bet,'ex situ ambient reflected, field',avi,date(02,08,2017),time(19,34,00)).
-image('17R0686:0019302',0438,'t-4','middle',bet,'ex situ ambient reflected, field',avi,date(02,08,2017),time(19,34,00)).
-image('17R4569:0018706',0437,e2,'middle',bet,'ex situ ambient reflected, field',avi,date(02,08,2017),time(19,34,00)).
-image('17R4567:0019517',0436,'t-6','middle',bet,'ex situ ambient reflected, field',avi,date(02,08,2017),time(19,34,00)).
-image('17R4565:0019114',0435,'t-6','middle',bet,'ex situ ambient reflected, field',avi,date(02,08,2017),time(19,34,00)).
-image('17R4566:0019216',0434,'t-5','middle',bet,'ex situ ambient reflected, field',avi,date(02,08,2017),time(19,34,00)).
-image('17R4566:0019215',0433,'t-4','middle',bet,'ex situ ambient reflected, field',avi,date(02,08,2017),time(19,34,00)).
-image('17R4566:0019212',0432,e2,'middle',bet,'ex situ ambient reflected, field',avi,date(02,08,2017),time(19,34,00)).
-image('17R4570:0019003',0431,e1,'tip',bet,'ex situ ambient reflected, field',avi,date(02,08,2017),time(19,34,00)).
-image('17R4524:0019609',0430,e1,'tip',bet,'ex situ ambient reflected, field',avi,date(02,08,2017),time(19,34,00)).
-image('17R0686:0019306',0429,'t-3','middle',bet,'ex situ ambient reflected, field',avi,date(02,08,2017),time(19,34,00)).
-image('17R4567:0019524',0428,'t-3','tip',bet,'ex situ ambient reflected, field',avi,date(02,08,2017),time(19,34,00)).
-image('17R4522:0019406',0427,'t-5','middle',bet,'ex situ ambient reflected, field',avi,date(02,08,2017),time(19,34,00)).
-image('17R4566:0019208',0426,'t-3','tip',bet,'ex situ ambient reflected, field',avi,date(02,08,2017),time(19,34,00)).
-image('17R4546:0018205',0425,e1,'tip',bet,'ex situ ambient reflected, field',avi,date(02,08,2017),time(19,34,00)).
-image('17R4546:0018201',0424,e1,'tip',bet,'ex situ ambient reflected, field',avi,date(02,08,2017),time(16,32,00)).
-image('17R4518:0018416',0423,e1,'middle',bet,'ex situ ambient reflected, field',avi,date(02,08,2017),time(16,32,00)).
-image('17R4568:0018603',0422,'t-3','middle',bet,'ex situ ambient reflected, field',avi,date(02,08,2017),time(16,32,00)).
-image('17R4518:0018408',0421,'e-3','tip',bet,'ex situ ambient reflected, field',avi,date(02,08,2017),time(16,32,00)).
-image('17R4011:0018006',0420,e0,'middle',bet,'ex situ ambient reflected, field',avi,date(02,08,2017),time(16,32,00)).
-image('17R4569:0018711',0419,e2,'tip',bet,'ex situ ambient reflected, field',avi,date(02,08,2017),time(16,32,00)).
-image('17R4546:0018203',0418,e1,'middle',bet,'ex situ ambient reflected, field',avi,date(02,08,2017),time(16,32,00)).
-image('17R4543:0017909',0417,e2,'middle',bet,'ex situ ambient reflected, field',avi,date(02,08,2017),time(16,32,00)).
-image('17R4543:0017909',0416,e1,'middle',bet,'ex situ ambient reflected, field',avi,date(02,08,2017),time(16,32,00)).
-image('17R4545:0018105',0415,e2,'middle',bet,'ex situ ambient reflected, field',avi,date(02,08,2017),time(16,32,00)).
-image('17R4011:0018010',0414,'t-1','stem',bet,'ex situ ambient reflected, field',avi,date(02,08,2017),time(16,32,00)).
-image('17R4011:0018002',0413,'t-2','middle',bet,'ex situ ambient reflected, field',avi,date(02,08,2017),time(16,32,00)).
-image('17R4522:0019426',0412,'t-5','middle',bet,'ex situ ambient reflected, field',avi,date(02,08,2017),time(16,32,00)).
-image('17R4545:0018107',0411,e2,'middle',bet,'ex situ ambient reflected, field',avi,date(02,08,2017),time(16,32,00)).
-image('17R4547:0018305',0410,'t-1','middle',bet,'ex situ ambient reflected, field',avi,date(02,08,2017),time(16,32,00)).
-image('17R4544:0017802',0409,e2,'middle',bet,'ex situ ambient reflected, field',avi,date(02,08,2017),time(16,32,00)).
-image('17R4544:0017802',0408,e1,'middle',bet,'ex situ ambient reflected, field',avi,date(02,08,2017),time(16,32,00)).
-image('17R4544:0017812',0407,e2,'middle',bet,'ex situ ambient reflected, field',avi,date(02,08,2017),time(16,32,00)).
-image('17R4544:0017812',0406,e1,'middle',bet,'ex situ ambient reflected, field',avi,date(02,08,2017),time(16,32,00)).
-image('17R4578:0017401',0405,'e-1','tip',bet,'ex situ ambient reflected, field',avi,date(02,08,2017),time(16,32,00)).
-image('17R4578:0017406',0404,'e-1','tip',bet,'ex situ ambient reflected, field',avi,date(02,08,2017),time(16,32,00)).
-image('17R4558:0016606',0403,'e-2','tip',bet,'ex situ ambient reflected, field',avi,date(02,08,2017),time(16,32,00)).
-image('17R4562:0016805',0402,e2,'middle',bet,'ex situ ambient reflected, field',avi,date(02,08,2017),time(16,32,00)).
-image('17R4564:0016703',0401,e3,'middle',bet,'ex situ ambient reflected, field',avi,date(02,08,2017),time(16,32,00)).
-image('17R4539:0017501',0400,'t-1','middle',bet,'ex situ ambient reflected, field',avi,date(02,08,2017),time(16,32,00)).
-image('17R4540:0017604',0399,'t-2','middle',bet,'ex situ ambient reflected, field',avi,date(02,08,2017),time(16,32,00)).
-image('17R4509:0017712',0398,'t-2','middle',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(16,32,00)).
-image('17R4562:0016808',0397,e2,'middle',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(16,32,00)).
-image('17R4564:0016708',0396,e3,'middle',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(16,32,00)).
-image('17R4557:0016506',0395,e1,'tip',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(16,32,00)).
-image('17R4558:0016602',0394,'e-4','middle',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(16,32,00)).
-image('17R4564:0016707',0393,e3,'middle',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(16,32,00)).
-image('17R4509:0017701',0392,'t-2','middle',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(09,51,00)).
-image('17R4625:0015804',0391,'t-1','middle',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(09,51,00)).
-image('17R4497:0016405',0390,'e-4','middle',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(09,51,00)).
-image('17R4625:0015808',0389,e3,'middle',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(09,51,00)).
-image('17R4644:0013708',0388,e5,'middle',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(09,51,00)).
-image('17R4477:0016203',0387,e3,'middle',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(09,51,00)).
-image('17R4474:0016104',0386,'t-1','middle',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(09,51,00)).
-image('17R4557:0016502',0385,'e-2','tip',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(09,51,00)).
-image('17R4642:0013510',0384,e3,'middle',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(09,51,00)).
-image('17R4497:0016409',0383,'e-2','middle',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(09,51,00)).
-image('17R4474:0016101',0382,'t-1','middle',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(09,51,00)).
-image('17R4643:0013608',0381,e4,'middle',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(09,51,00)).
-image('17R4636:0014605',0380,t0,'whole',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(09,51,00)).
-image('17R4474:0016106',0379,'t-1','middle',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(09,51,00)).
-image('17R4625:0015809',0378,'t-1','whole',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(09,51,00)).
-image('17R4641:0013404',0377,e3,'middle',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(09,51,00)).
-image('17R4642:0013502',0376,e3,'middle',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(09,51,00)).
-image('17R4643:0013609',0375,e5,'middle',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(09,51,00)).
-image('17R4640:0016311',0374,'e-2','middle',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(09,51,00)).
-image('17R4477:0016204',0373,e2,'middle',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(09,51,00)).
-image('17R4642:0013505',0372,e3,'middle',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(09,51,00)).
-image('17R4640:0016302',0371,'e-4','middle',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(09,51,00)).
-image('17R4477:0016208',0370,e2,'middle',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(09,51,00)).
-image('17R4640:0016311',0369,'e-1','tip',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(09,51,00)).
-image('17R4497:0016411',0368,'e-2','tip',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(09,51,00)).
-image('17R4640:0016306',0367,'e-5','middle',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(09,51,00)).
-image('17R4626:0015704',0366,e2,'tip',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(09,51,00)).
-image('17R4641:0013411',0365,e3,'middle',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(09,51,00)).
-image('17R4626:0015706',0364,e2,'middle',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(09,51,00)).
-image('17R4477:0016203',0363,e4,'middle',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(09,51,00)).
-image('17R4625:0015804',0362,'t-2','middle',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(09,51,00)).
-image('17R4638:0014702',0361,t0,'middle',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(09,51,00)).
-image('17R4636:0014607',0360,'t-1','middle',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(09,51,00)).
-image('17R4643:0013611',0359,e4,'middle',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(09,51,00)).
-image('17R3270:0011221',0358,'t-2','middle',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(09,51,00)).
-image('17R4419:0011134',0357,'t-2','middle',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(09,51,00)).
-image('17R4553:0012404',0356,'t-2','whole',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(09,51,00)).
-image('17R3486:0011902',0355,'t-2','whole',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(09,51,00)).
-image('17R2254:0011812',0354,'t-3','middle',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(09,51,00)).
-image('17R4419:0011112',0353,'t-2','middle',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(09,51,00)).
-image('17R4550:0012024',0352,'t-2','stem',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(09,51,00)).
-image('17R4419:0011113',0351,'t-2','middle',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(09,51,00)).
-image('17R4419:0011132',0350,'t-2','middle',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(09,51,00)).
-image('17R4550:0012019',0349,'t-1','whole',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(09,51,00)).
-image('17R4551:0012130',0348,'t-2','whole',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(09,51,00)).
-image('17R4419:0011128',0347,'t-2','middle',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(09,51,00)).
-image('17R4054:0012308',0346,'t-3','middle',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(09,51,00)).
-image('17R4227:0006204',0345,e3,'middle',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(09,51,00)).
-image('17R4492:0007803',0344,e3,'tip',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(09,51,00)).
-image('17R4492:0007816',0343,e3,'middle',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(09,51,00)).
-image('17R4552:0012208',0342,'t-2','tip',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(09,51,00)).
-image('17R3270:0011211',0341,'t-2','middle',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(09,51,00)).
-image('17R4552:0012206',0340,'t-2','whole',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(09,51,00)).
-image('17R3486:0011907',0339,'t-2','tip',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(09,51,00)).
-image('17R4552:0012209',0338,'t-2','middle',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(09,51,00)).
-image('17R3946:0006801',0337,e3,'middle',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(09,51,00)).
-image('17R4548:0011505',0336,e2,'middle',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(09,51,00)).
-image('17R4492:0007811',0335,e2,'middle',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(09,51,00)).
-image('17R4548:0011508',0334,e1,'middle',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(09,51,00)).
-image('17R3946:0006804',0333,e3,'middle',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(09,51,00)).
-image('17R4228:0006413',0332,e1,'middle',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(09,51,00)).
-image('17R4228:0006404',0331,e1,'tip',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(09,51,00)).
-image('17R4228:0006415',0330,e1,'tip',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(09,51,00)).
-image('17R4092:0008802',0329,e3,'tip',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(09,51,00)).
-image('17R3946:0006807',0328,e3,'middle',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(09,51,00)).
-image('17R3946:0006810',0327,e3,'middle',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(09,51,00)).
-image('17R4538:0010807',0326,'t-2','stem',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(09,51,00)).
-image('17R4577:0009303',0325,e3,'tip',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(09,51,00)).
-image('17R4535:0010610',0324,e2,'middle',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(09,51,00)).
-image('17R4085:0007106',0323,e3,'stem',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(09,51,00)).
-image('17R4538:0010801',0322,'t-3','middle',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(09,51,00)).
-image('17R4452:0009005',0321,'t-1','middle',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(09,51,00)).
-image('17R4452:0009006',0320,'t-1','middle',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(09,51,00)).
-image('17R4577:0009210',0319,e3,'tip',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(09,51,00)).
-image('17R4535:0010609',0318,e2,'middle',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(09,51,00)).
-image('17R2252:0011020',0317,'t-2','middle',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(09,51,00)).
-image('17R2252:0011014',0316,'t-2','middle',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(09,51,00)).
-image('17R3946:0006904',0315,'t-2','tip',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(09,51,00)).
-image('17R3946:0006911',0314,e3,'stem',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(09,51,00)).
-image('17R4577:0009308',0313,e3,'tip',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(09,51,00)).
-image('17R4227:0006310',0312,e4,'middle',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(09,51,00)).
-image('17R4452:0009007',0311,'t-1','middle',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(09,51,00)).
-image('17R3946:0006913',0310,'t-2','middle',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(09,51,00)).
-image('17R4227:0006317',0309,e4,'middle',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(09,51,00)).
-image('17R2252:0011002',0308,'t-2','middle',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(09,51,00)).
-image('17R4534:0010403',0307,e3,'middle',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(09,51,00)).
-image('17R4453:0008402',0306,'t-1','middle',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(09,51,00)).
-image('17R4441:0006706',0305,'t-2','middle',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(09,51,00)).
-image('17R4494:0008601',0304,'t-2','middle',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(09,51,00)).
-image('17R2252:0011012',0303,'t-2','middle',gimmel,'ex situ ambient reflected, field',avi,date(02,08,2017),time(10,16,00)).
+% these images are really in gimmel, not bet
+%
+% Kazic, 24.2.2022
+
+image('17R4540:0017604',0399,'t-2','middle',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(16,32,00)).
+image('17R4539:0017501',0400,'t-1','middle',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(16,32,00)).
+image('17R4564:0016703',0401,e3,'middle',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(16,32,00)).
+image('17R4562:0016805',0402,e2,'middle',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(16,32,00)).
+image('17R4558:0016606',0403,'e-2','tip',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(16,32,00)).
+image('17R4578:0017406',0404,'e-1','tip',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(16,32,00)).
+image('17R4578:0017401',0405,'e-1','tip',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(16,32,00)).
+image('17R4544:0017812',0406,e1,'middle',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(16,32,00)).
+image('17R4544:0017812',0407,e2,'middle',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(16,32,00)).
+image('17R4544:0017802',0408,e1,'middle',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(16,32,00)).
+image('17R4544:0017802',0409,e2,'middle',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(16,32,00)).
+image('17R4547:0018305',0410,'t-1','middle',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(16,32,00)).
+image('17R4545:0018107',0411,e2,'middle',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(16,32,00)).
+image('17R4522:0019426',0412,'t-5','middle',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(16,32,00)).
+image('17R4011:0018002',0413,'t-2','middle',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(16,32,00)).
+image('17R4011:0018010',0414,'t-1','stem',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(16,32,00)).
+image('17R4545:0018105',0415,e2,'middle',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(16,32,00)).
+image('17R4543:0017909',0416,e1,'middle',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(16,32,00)).
+image('17R4543:0017909',0417,e2,'middle',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(16,32,00)).
+image('17R4546:0018203',0418,e1,'middle',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(16,32,00)).
+image('17R4569:0018711',0419,e2,'tip',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(16,32,00)).
+image('17R4011:0018006',0420,e0,'middle',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(16,32,00)).
+image('17R4518:0018408',0421,'e-3','tip',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(16,32,00)).
+image('17R4568:0018603',0422,'t-3','middle',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(16,32,00)).
+image('17R4518:0018416',0423,e1,'middle',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(16,32,00)).
+image('17R4546:0018201',0424,e1,'tip',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(16,32,00)).
+image('17R4546:0018205',0425,e1,'tip',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(19,34,00)).
+image('17R4566:0019208',0426,'t-3','tip',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(19,34,00)).
+image('17R4522:0019406',0427,'t-5','middle',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(19,34,00)).
+image('17R4567:0019524',0428,'t-3','tip',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(19,34,00)).
+image('17R0686:0019306',0429,'t-3','middle',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(19,34,00)).
+image('17R4524:0019609',0430,e1,'tip',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(19,34,00)).
+image('17R4570:0019003',0431,e1,'tip',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(19,34,00)).
+image('17R4566:0019212',0432,e2,'middle',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(19,34,00)).
+image('17R4566:0019215',0433,'t-4','middle',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(19,34,00)).
+image('17R4566:0019216',0434,'t-5','middle',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(19,34,00)).
+image('17R4565:0019114',0435,'t-6','middle',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(19,34,00)).
+image('17R4567:0019517',0436,'t-6','middle',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(19,34,00)).
+image('17R4569:0018706',0437,e2,'middle',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(19,34,00)).
+image('17R0686:0019302',0438,'t-4','middle',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(19,34,00)).
+image('17R4567:0019510',0439,'t-4','middle',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(19,34,00)).
+image('17R4569:0018712',0440,e3,'middle',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(19,34,00)).
+image('17R4566:0019203',0441,'t-4','middle',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(19,34,00)).
+image('17R4569:0018709',0442,'t-6','middle',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(19,34,00)).
+image('17R4547:0018304',0443,'t-1','middle',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(19,34,00)).
+image('17R4566:0019209',0444,'t-3','tip',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(19,34,00)).
+image('17R4566:0019213',0445,'t-5','tip',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(19,34,00)).
+image('17R4524:0019603',0446,'t-3','tip',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(19,34,00)).
+image('17R4568:0018611',0447,e1,'middle',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(19,34,00)).
+image('17R4567:0019523',0448,'t-4','tip',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(19,34,00)).
+image('17R4522:0019419',0449,'t-3','middle',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(19,34,00)).
+image('17R4525:0018501',0450,'t-4','middle',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(19,34,00)).
+image('17R4565:0019102',0451,'t-3','middle',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(19,34,00)).
+image('17R4543:0017914',0452,e1,'middle',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(19,34,00)).
+image('17R4543:0017914',0453,e4,'middle',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(19,34,00)).
+image('17R4522:0019425',0454,'t-4','tip',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(19,34,00)).
+image('17R4522:0019425',0455,'t-6','middle',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(19,34,00)).
+image('17R4543:0017901',0456,e1,'middle',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(19,34,00)).
+image('17R4543:0017901',0457,e2,'middle',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(19,34,00)).
+
+
+% end corrections
+
+image('17R2252:0011012',0303,'t-2','middle',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(10,16,00)).
+image('17R4494:0008601',0304,'t-2','middle',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(09,51,00)).
+image('17R4441:0006706',0305,'t-2','middle',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(09,51,00)).
+image('17R4453:0008402',0306,'t-1','middle',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(09,51,00)).
+image('17R4534:0010403',0307,e3,'middle',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(09,51,00)).
+image('17R2252:0011002',0308,'t-2','middle',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(09,51,00)).
+image('17R4227:0006317',0309,e4,'middle',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(09,51,00)).
+image('17R3946:0006913',0310,'t-2','middle',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(09,51,00)).
+image('17R4452:0009007',0311,'t-1','middle',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(09,51,00)).
+image('17R4227:0006310',0312,e4,'middle',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(09,51,00)).
+image('17R4577:0009308',0313,e3,'tip',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(09,51,00)).
+image('17R3946:0006911',0314,e3,'stem',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(09,51,00)).
+image('17R3946:0006904',0315,'t-2','tip',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(09,51,00)).
+image('17R2252:0011014',0316,'t-2','middle',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(09,51,00)).
+image('17R2252:0011020',0317,'t-2','middle',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(09,51,00)).
+image('17R4535:0010609',0318,e2,'middle',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(09,51,00)).
+image('17R4577:0009210',0319,e3,'tip',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(09,51,00)).
+image('17R4452:0009006',0320,'t-1','middle',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(09,51,00)).
+image('17R4452:0009005',0321,'t-1','middle',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(09,51,00)).
+image('17R4538:0010801',0322,'t-3','middle',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(09,51,00)).
+image('17R4085:0007106',0323,e3,'stem',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(09,51,00)).
+image('17R4535:0010610',0324,e2,'middle',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(09,51,00)).
+image('17R4577:0009303',0325,e3,'tip',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(09,51,00)).
+image('17R4538:0010807',0326,'t-2','stem',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(09,51,00)).
+image('17R3946:0006810',0327,e3,'middle',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(09,51,00)).
+image('17R3946:0006807',0328,e3,'middle',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(09,51,00)).
+image('17R4092:0008802',0329,e3,'tip',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(09,51,00)).
+image('17R4228:0006415',0330,e1,'tip',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(09,51,00)).
+image('17R4228:0006404',0331,e1,'tip',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(09,51,00)).
+image('17R4228:0006413',0332,e1,'middle',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(09,51,00)).
+image('17R3946:0006804',0333,e3,'middle',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(09,51,00)).
+image('17R4548:0011508',0334,e1,'middle',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(09,51,00)).
+image('17R4492:0007811',0335,e2,'middle',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(09,51,00)).
+image('17R4548:0011505',0336,e2,'middle',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(09,51,00)).
+image('17R3946:0006801',0337,e3,'middle',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(09,51,00)).
+image('17R4552:0012209',0338,'t-2','middle',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(09,51,00)).
+image('17R3486:0011907',0339,'t-2','tip',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(09,51,00)).
+image('17R4552:0012206',0340,'t-2','whole',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(09,51,00)).
+image('17R3270:0011211',0341,'t-2','middle',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(09,51,00)).
+image('17R4552:0012208',0342,'t-2','tip',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(09,51,00)).
+image('17R4492:0007816',0343,e3,'middle',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(09,51,00)).
+image('17R4492:0007803',0344,e3,'tip',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(09,51,00)).
+image('17R4227:0006204',0345,e3,'middle',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(09,51,00)).
+image('17R4054:0012308',0346,'t-3','middle',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(09,51,00)).
+image('17R4419:0011128',0347,'t-2','middle',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(09,51,00)).
+image('17R4551:0012130',0348,'t-2','whole',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(09,51,00)).
+image('17R4550:0012019',0349,'t-1','whole',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(09,51,00)).
+image('17R4419:0011132',0350,'t-2','middle',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(09,51,00)).
+image('17R4419:0011113',0351,'t-2','middle',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(09,51,00)).
+image('17R4550:0012024',0352,'t-2','stem',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(09,51,00)).
+image('17R4419:0011112',0353,'t-2','middle',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(09,51,00)).
+image('17R2254:0011812',0354,'t-3','middle',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(09,51,00)).
+image('17R3486:0011902',0355,'t-2','whole',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(09,51,00)).
+image('17R4553:0012404',0356,'t-2','whole',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(09,51,00)).
+image('17R4419:0011134',0357,'t-2','middle',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(09,51,00)).
+image('17R3270:0011221',0358,'t-2','middle',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(09,51,00)).
+image('17R4643:0013611',0359,e4,'middle',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(09,51,00)).
+image('17R4636:0014607',0360,'t-1','middle',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(09,51,00)).
+image('17R4638:0014702',0361,t0,'middle',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(09,51,00)).
+image('17R4625:0015804',0362,'t-2','middle',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(09,51,00)).
+image('17R4477:0016203',0363,e4,'middle',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(09,51,00)).
+image('17R4626:0015706',0364,e2,'middle',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(09,51,00)).
+image('17R4641:0013411',0365,e3,'middle',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(09,51,00)).
+image('17R0704:0015704',0366,e2,'tip',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(09,51,00)).
+image('17R4640:0016306',0367,'e-5','middle',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(09,51,00)).
+image('17R4497:0016411',0368,'e-2','tip',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(09,51,00)).
+image('17R4640:0016311',0369,'e-1','tip',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(09,51,00)).
+image('17R4477:0016208',0370,e2,'middle',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(09,51,00)).
+image('17R4640:0016302',0371,'e-4','middle',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(09,51,00)).
+image('17R4642:0013505',0372,e3,'middle',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(09,51,00)).
+image('17R4477:0016204',0373,e2,'middle',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(09,51,00)).
+image('17R4640:0016311',0374,'e-2','middle',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(09,51,00)).
+image('17R4643:0013609',0375,e5,'middle',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(09,51,00)).
+image('17R4642:0013502',0376,e3,'middle',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(09,51,00)).
+image('17R4641:0013404',0377,e3,'middle',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(09,51,00)).
+image('17R4625:0015809',0378,'t-1','whole',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(09,51,00)).
+image('17R4474:0016106',0379,'t-1','middle',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(09,51,00)).
+image('17R4636:0014605',0380,t0,'whole',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(09,51,00)).
+image('17R4643:0013608',0381,e4,'middle',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(09,51,00)).
+image('17R4474:0016101',0382,'t-1','middle',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(09,51,00)).
+image('17R4497:0016409',0383,'e-2','middle',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(09,51,00)).
+image('17R4642:0013510',0384,e3,'middle',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(09,51,00)).
+image('17R4557:0016502',0385,'e-2','tip',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(09,51,00)).
+image('17R4474:0016104',0386,'t-1','middle',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(09,51,00)).
+image('17R4477:0016203',0387,e3,'middle',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(09,51,00)).
+image('17R4644:0013708',0388,e5,'middle',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(09,51,00)).
+image('17R4625:0015808',0389,e3,'middle',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(09,51,00)).
+image('17R4497:0016405',0390,'e-4','middle',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(09,51,00)).
+image('17R4625:0015804',0391,'t-1','middle',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(09,51,00)).
+image('17R4509:0017701',0392,'t-2','middle',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(09,51,00)).
+image('17R4564:0016707',0393,e3,'middle',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(16,32,00)).
+image('17R4558:0016602',0394,'e-4','middle',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(16,32,00)).
+image('17R4557:0016506',0395,e1,'tip',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(16,32,00)).
+image('17R4564:0016708',0396,e3,'middle',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(16,32,00)).
+image('17R4562:0016808',0397,e2,'middle',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(16,32,00)).
+image('17R4509:0017712',0398,'t-2','middle',gimmel,'shed, new photo jig',avi,date(02,08,2017),time(16,32,00)).
 
 
 
@@ -5846,6 +5891,11 @@ image('17R2252:0011012',0303,'t-2','middle',gimmel,'ex situ ambient reflected, f
 % 18r
 
     
+% corrected locale from 'ex situ ambient reflected, field'
+% to 'shed, new photo jig'
+% after checking the images directly.
+%
+% Kazic, 18.2.2022
 
 
 
@@ -5854,26 +5904,26 @@ image('17R2252:0011012',0303,'t-2','middle',gimmel,'ex situ ambient reflected, f
 % by data/data_conversion/convert_image_data.perl
 % called from data/data_conversion/convert_data.perl
 
-image('18R4215:0018121',0937,'t-3','middle',gimmel,'ex situ ambient reflected, field',josh,date(06,08,2018),time(13,23,36)).
-image('18R4736:0019108',0938,'t-1','whole',gimmel,'ex situ ambient reflected, field',josh,date(06,08,2018),time(13,26,33)).
-image('18R4735:0018909',0939,'t-2','middle',gimmel,'ex situ ambient reflected, field',josh,date(06,08,2018),time(13,29,11)).
-image('18R4737:0019719',0940,'t-3','middle',gimmel,'ex situ ambient reflected, field',josh,date(06,08,2018),time(13,32,32)).
-image('18R4684:0017713',0941,'t-5','middle',gimmel,'ex situ ambient reflected, field',josh,date(06,08,2018),time(13,33,28)).
-image('18R4684:0017908',0942,'t-1','whole',gimmel,'ex situ ambient reflected, field',josh,date(06,08,2018),time(13,34,37)).
-image('18R4736:0019119',0943,'t-3','whole',gimmel,'ex situ ambient reflected, field',josh,date(06,08,2018),time(13,37,19)).
-image('18R4215:0018101',0944,'t-1','middle',gimmel,'ex situ ambient reflected, field',josh,date(06,08,2018),time(13,39,10)).
-image('18R4215:0018103',0945,'t-1','middle',gimmel,'ex situ ambient reflected, field',josh,date(06,08,2018),time(13,40,30)).
-image('18R4734:0018311',0946,'t-3','middle',gimmel,'ex situ ambient reflected, field',josh,date(06,08,2018),time(13,44,38)).
-image('18R4683:0017513',0947,'t-2','middle',gimmel,'ex situ ambient reflected, field',josh,date(06,08,2018),time(13,45,56)).
-image('18R4736:0019123',0948,'t-2','middle',gimmel,'ex situ ambient reflected, field',josh,date(06,08,2018),time(13,49,22)).
-image('18R4735:0018917',0949,'t-2','middle',gimmel,'ex situ ambient reflected, field',josh,date(06,08,2018),time(13,51,24)).
-image('18R4735:0018912',0950,'t-2','whole',gimmel,'ex situ ambient reflected, field',josh,date(06,08,2018),time(13,51,46)).
-image('18R4328:0018518',0951,'t-1','middle',gimmel,'ex situ ambient reflected, field',josh,date(06,08,2018),time(13,54,16)).
-image('18R4328:0018519',0952,'t-1','middle',gimmel,'ex situ ambient reflected, field',josh,date(06,08,2018),time(13,56,02)).
-image('18R4683:0017519',0953,'t-1','whole',gimmel,'ex situ ambient reflected, field',josh,date(06,08,2018),time(14,00,07)).
-image('18R4736:0019109',0954,'t-3','middle',gimmel,'ex situ ambient reflected, field',josh,date(06,08,2018),time(14,01,01)).
-image('18R4737:0019707',0955,'t-2','whole',gimmel,'ex situ ambient reflected, field',josh,date(06,08,2018),time(14,03,29)).
-image('18R4737:0019714',0956,'t-3','middle',gimmel,'ex situ ambient reflected, field',josh,date(06,08,2018),time(14,04,31)).
+image('18R4215:0018121',0937,'t-3','middle',gimmel,'shed, new photo jig',josh,date(06,08,2018),time(13,23,36)).
+image('18R4736:0019108',0938,'t-1','whole',gimmel,'shed, new photo jig',josh,date(06,08,2018),time(13,26,33)).
+image('18R4735:0018909',0939,'t-2','middle',gimmel,'shed, new photo jig',josh,date(06,08,2018),time(13,29,11)).
+image('18R4737:0019719',0940,'t-3','middle',gimmel,'shed, new photo jig',josh,date(06,08,2018),time(13,32,32)).
+image('18R4684:0017713',0941,'t-5','middle',gimmel,'shed, new photo jig',josh,date(06,08,2018),time(13,33,28)).
+image('18R4684:0017908',0942,'t-1','whole',gimmel,'shed, new photo jig',josh,date(06,08,2018),time(13,34,37)).
+image('18R4736:0019119',0943,'t-3','whole',gimmel,'shed, new photo jig',josh,date(06,08,2018),time(13,37,19)).
+image('18R4215:0018101',0944,'t-1','middle',gimmel,'shed, new photo jig',josh,date(06,08,2018),time(13,39,10)).
+image('18R4215:0018103',0945,'t-1','middle',gimmel,'shed, new photo jig',josh,date(06,08,2018),time(13,40,30)).
+image('18R4734:0018311',0946,'t-3','middle',gimmel,'shed, new photo jig',josh,date(06,08,2018),time(13,44,38)).
+image('18R4683:0017513',0947,'t-2','middle',gimmel,'shed, new photo jig',josh,date(06,08,2018),time(13,45,56)).
+image('18R4736:0019123',0948,'t-2','middle',gimmel,'shed, new photo jig',josh,date(06,08,2018),time(13,49,22)).
+image('18R4735:0018917',0949,'t-2','middle',gimmel,'shed, new photo jig',josh,date(06,08,2018),time(13,51,24)).
+image('18R4735:0018912',0950,'t-2','whole',gimmel,'shed, new photo jig',josh,date(06,08,2018),time(13,51,46)).
+image('18R4328:0018518',0951,'t-1','middle',gimmel,'shed, new photo jig',josh,date(06,08,2018),time(13,54,16)).
+image('18R4328:0018519',0952,'t-1','middle',gimmel,'shed, new photo jig',josh,date(06,08,2018),time(13,56,02)).
+image('18R4683:0017519',0953,'t-1','whole',gimmel,'shed, new photo jig',josh,date(06,08,2018),time(14,00,07)).
+image('18R4736:0019109',0954,'t-3','middle',gimmel,'shed, new photo jig',josh,date(06,08,2018),time(14,01,01)).
+image('18R4737:0019707',0955,'t-2','whole',gimmel,'shed, new photo jig',josh,date(06,08,2018),time(14,03,29)).
+image('18R4737:0019714',0956,'t-3','middle',gimmel,'shed, new photo jig',josh,date(06,08,2018),time(14,04,31)).
 
 
 
@@ -5882,55 +5932,55 @@ image('18R4737:0019714',0956,'t-3','middle',gimmel,'ex situ ambient reflected, f
 % by data/data_conversion/convert_image_data.perl
 % called from data/data_conversion/convert_data.perl
 
-image('18R4260:0008908',1024,'t-1','middle',gimmel,'ex situ ambient reflected, field',toni,date(16,08,2018),time(11,30,32)).
-image('18R4106:0009018',1025,e3,'middle',gimmel,'ex situ ambient reflected, field',toni,date(16,08,2018),time(11,36,36)).
-image('18R4455:0010002',1027,e3,'stem',gimmel,'ex situ ambient reflected, field',toni,date(16,08,2018),time(11,42,17)).
-image('18R4654:0009713',1028,e1,'middle',gimmel,'ex situ ambient reflected, field',toni,date(16,08,2018),time(11,45,33)).
-image('18R4651:0009209',1029,'t-3','stem',gimmel,'ex situ ambient reflected, field',toni,date(16,08,2018),time(11,48,47)).
-image('18R4649:0008612',1030,e1,'middle',gimmel,'ex situ ambient reflected, field',toni,date(16,08,2018),time(11,51,53)).
-image('18R4492:0008816',1031,e1,'middle',gimmel,'ex situ ambient reflected, field',toni,date(16,08,2018),time(11,54,58)).
-image('18R4440:0008113',1032,'e-2','middle',gimmel,'ex situ ambient reflected, field',toni,date(16,08,2018),time(11,58,33)).
-image('18R4655:0009812',1033,'t-1','middle',gimmel,'ex situ ambient reflected, field',toni,date(16,08,2018),time(12,01,21)).
-image('18R4440:0008104',1034,'e-2','middle',gimmel,'ex situ ambient reflected, field',toni,date(16,08,2018),time(12,05,06)).
-image('18R4654:0009710',1035,e1,'middle',gimmel,'ex situ ambient reflected, field',toni,date(16,08,2018),time(12,07,45)).
-image('18R4651:0009204',1036,'t-3','middle',gimmel,'ex situ ambient reflected, field',toni,date(16,08,2018),time(12,11,22)).
-image('18R4492:0008812',1037,e5,'middle',gimmel,'ex situ ambient reflected, field',toni,date(16,08,2018),time(12,16,50)).
-image('18R4441:0008717',1038,e1,'middle',gimmel,'ex situ ambient reflected, field',toni,date(16,08,2018),time(12,17,48)).
-image('18R4658:0010214',1039,e1,'middle',gimmel,'ex situ ambient reflected, field',toni,date(16,08,2018),time(12,21,12)).
-image('18R4258:0008410',1040,e1,'middle',gimmel,'ex situ ambient reflected, field',toni,date(16,08,2018),time(12,23,58)).
-image('18R4106:0009017',1041,e3,'middle',gimmel,'ex situ ambient reflected, field',toni,date(16,08,2018),time(12,26,23)).
-image('18R4226:0008308',1042,'e-2','middle',gimmel,'ex situ ambient reflected, field',toni,date(16,08,2018),time(12,29,36)).
-image('18R4657:0010109',1043,e4,'middle',gimmel,'ex situ ambient reflected, field',toni,date(16,08,2018),time(12,34,44)).
-image('18R4574:0009604',1044,'e-1','middle',gimmel,'ex situ ambient reflected, field',toni,date(16,08,2018),time(12,37,37)).
-image('18R4260:0008917',1045,'t-1','middle',gimmel,'ex situ ambient reflected, field',toni,date(16,08,2018),time(12,40,55)).
-image('18R4656:0009907',1046,'t-1','middle',gimmel,'ex situ ambient reflected, field',toni,date(16,08,2018),time(12,43,34)).
-image('18R4651:0009203',1047,'t-2','middle',gimmel,'ex situ ambient reflected, field',toni,date(16,08,2018),time(12,45,51)).
-image('18R4650:0009107',1048,'t-1','middle',gimmel,'ex situ ambient reflected, field',toni,date(16,08,2018),time(12,48,34)).
-image('18R4650:0009109',1049,'t-1','middle',gimmel,'ex situ ambient reflected, field',toni,date(16,08,2018),time(12,51,32)).
-image('18R4652:0009310',1050,'t-1','middle',gimmel,'ex situ ambient reflected, field',toni,date(16,08,2018),time(12,54,32)).
-image('18R4662:0011011',1051,e1,'middle',gimmel,'ex situ ambient reflected, field',toni,date(16,08,2018),time(15,13,47)).
-image('18R4665:0011620',1052,e3,'middle',gimmel,'ex situ ambient reflected, field',toni,date(16,08,2018),time(15,15,59)).
-image('18R4541:0011103',1053,'e-2','middle',gimmel,'ex situ ambient reflected, field',toni,date(16,08,2018),time(15,21,33)).
-image('18R4666:0011705',1054,e3,'middle',gimmel,'ex situ ambient reflected, field',toni,date(16,08,2018),time(15,24,50)).
-image('18R4666:0011707',1055,e3,'middle',gimmel,'ex situ ambient reflected, field',toni,date(16,08,2018),time(15,28,17)).
-image('18R4443:0010910',1056,e0,'middle',gimmel,'ex situ ambient reflected, field',toni,date(16,08,2018),time(15,31,07)).
-image('18R4662:0011008',1057,e1,'middle',gimmel,'ex situ ambient reflected, field',toni,date(16,08,2018),time(15,33,53)).
-image('18R4659:0010406',1059,e4,'middle',gimmel,'ex situ ambient reflected, field',toni,date(16,08,2018),time(15,37,56)).
-image('18R4659:0010407',1061,e4,'middle',gimmel,'ex situ ambient reflected, field',toni,date(16,08,2018),time(15,41,40)).
-image('18R4263:0010719',1062,'t-1','middle',gimmel,'ex situ ambient reflected, field',toni,date(16,08,2018),time(15,44,58)).
-image('18R4263:0010709',1064,'t-1','middle',gimmel,'ex situ ambient reflected, field',toni,date(16,08,2018),time(15,48,06)).
-image('18R4664:0011309',1065,'t-1','middle',gimmel,'ex situ ambient reflected, field',toni,date(16,08,2018),time(15,50,00)).
-image('18R3995:0010304',1066,e4,'middle',gimmel,'ex situ ambient reflected, field',toni,date(16,08,2018),time(15,59,41)).
-image('18R4663:0011205',1067,'t-3','middle',gimmel,'ex situ ambient reflected, field',toni,date(16,08,2018),time(16,04,10)).
-image('18R4265:0011509',1069,'t-2','middle',gimmel,'ex situ ambient reflected, field',toni,date(16,08,2018),time(16,06,41)).
-image('18R4661:0010813',1070,t0,'middle',gimmel,'ex situ ambient reflected, field',toni,date(16,08,2018),time(16,09,33)).
-image('18R4660:0010606',1071,t0,'middle',gimmel,'ex situ ambient reflected, field',toni,date(16,08,2018),time(16,12,03)).
-image('18R4444:0010506',1078,t0,'middle',gimmel,'ex situ ambient reflected, field',toni,date(16,08,2018),time(16,21,27)).
-image('18R4096:0011401',1079,'t-1','middle',gimmel,'ex situ ambient reflected, field',toni,date(16,08,2018),time(16,24,07)).
-image('18R4555:0011912',1080,'t-1','middle',gimmel,'ex situ ambient reflected, field',toni,date(16,08,2018),time(16,26,59)).
-image('18R4661:0010804',1081,t0,'middle',gimmel,'ex situ ambient reflected, field',toni,date(16,08,2018),time(16,30,26)).
-image('18R4660:0010605',1089,'t-1','middle',gimmel,'ex situ ambient reflected, field',toni,date(16,08,2018),time(16,34,45)).
-image('18R4555:0011902',1090,t0,'middle',gimmel,'ex situ ambient reflected, field',toni,date(16,08,2018),time(16,37,26)).
+image('18R4260:0008908',1024,'t-1','middle',gimmel,'shed, new photo jig',toni,date(16,08,2018),time(11,30,32)).
+image('18R4106:0009018',1025,e3,'middle',gimmel,'shed, new photo jig',toni,date(16,08,2018),time(11,36,36)).
+image('18R4455:0010002',1027,e3,'stem',gimmel,'shed, new photo jig',toni,date(16,08,2018),time(11,42,17)).
+image('18R4654:0009713',1028,e1,'middle',gimmel,'shed, new photo jig',toni,date(16,08,2018),time(11,45,33)).
+image('18R4651:0009209',1029,'t-3','stem',gimmel,'shed, new photo jig',toni,date(16,08,2018),time(11,48,47)).
+image('18R4649:0008612',1030,e1,'middle',gimmel,'shed, new photo jig',toni,date(16,08,2018),time(11,51,53)).
+image('18R4492:0008816',1031,e1,'middle',gimmel,'shed, new photo jig',toni,date(16,08,2018),time(11,54,58)).
+image('18R4440:0008113',1032,'e-2','middle',gimmel,'shed, new photo jig',toni,date(16,08,2018),time(11,58,33)).
+image('18R4655:0009812',1033,'t-1','middle',gimmel,'shed, new photo jig',toni,date(16,08,2018),time(12,01,21)).
+image('18R4440:0008104',1034,'e-2','middle',gimmel,'shed, new photo jig',toni,date(16,08,2018),time(12,05,06)).
+image('18R4654:0009710',1035,e1,'middle',gimmel,'shed, new photo jig',toni,date(16,08,2018),time(12,07,45)).
+image('18R4651:0009204',1036,'t-3','middle',gimmel,'shed, new photo jig',toni,date(16,08,2018),time(12,11,22)).
+image('18R4492:0008812',1037,e5,'middle',gimmel,'shed, new photo jig',toni,date(16,08,2018),time(12,16,50)).
+image('18R4441:0008717',1038,e1,'middle',gimmel,'shed, new photo jig',toni,date(16,08,2018),time(12,17,48)).
+image('18R4658:0010214',1039,e1,'middle',gimmel,'shed, new photo jig',toni,date(16,08,2018),time(12,21,12)).
+image('18R4258:0008410',1040,e1,'middle',gimmel,'shed, new photo jig',toni,date(16,08,2018),time(12,23,58)).
+image('18R4106:0009017',1041,e3,'middle',gimmel,'shed, new photo jig',toni,date(16,08,2018),time(12,26,23)).
+image('18R4226:0008308',1042,'e-2','middle',gimmel,'shed, new photo jig',toni,date(16,08,2018),time(12,29,36)).
+image('18R4657:0010109',1043,e4,'middle',gimmel,'shed, new photo jig',toni,date(16,08,2018),time(12,34,44)).
+image('18R4574:0009604',1044,'e-1','middle',gimmel,'shed, new photo jig',toni,date(16,08,2018),time(12,37,37)).
+image('18R4260:0008917',1045,'t-1','middle',gimmel,'shed, new photo jig',toni,date(16,08,2018),time(12,40,55)).
+image('18R4656:0009907',1046,'t-1','middle',gimmel,'shed, new photo jig',toni,date(16,08,2018),time(12,43,34)).
+image('18R4651:0009203',1047,'t-2','middle',gimmel,'shed, new photo jig',toni,date(16,08,2018),time(12,45,51)).
+image('18R4650:0009107',1048,'t-1','middle',gimmel,'shed, new photo jig',toni,date(16,08,2018),time(12,48,34)).
+image('18R4650:0009109',1049,'t-1','middle',gimmel,'shed, new photo jig',toni,date(16,08,2018),time(12,51,32)).
+image('18R4652:0009310',1050,'t-1','middle',gimmel,'shed, new photo jig',toni,date(16,08,2018),time(12,54,32)).
+image('18R4662:0011011',1051,e1,'middle',gimmel,'shed, new photo jig',toni,date(16,08,2018),time(15,13,47)).
+image('18R4665:0011620',1052,e3,'middle',gimmel,'shed, new photo jig',toni,date(16,08,2018),time(15,15,59)).
+image('18R4541:0011103',1053,'e-2','middle',gimmel,'shed, new photo jig',toni,date(16,08,2018),time(15,21,33)).
+image('18R4666:0011705',1054,e3,'middle',gimmel,'shed, new photo jig',toni,date(16,08,2018),time(15,24,50)).
+image('18R4666:0011707',1055,e3,'middle',gimmel,'shed, new photo jig',toni,date(16,08,2018),time(15,28,17)).
+image('18R4443:0010910',1056,e0,'middle',gimmel,'shed, new photo jig',toni,date(16,08,2018),time(15,31,07)).
+image('18R4662:0011008',1057,e1,'middle',gimmel,'shed, new photo jig',toni,date(16,08,2018),time(15,33,53)).
+image('18R4659:0010406',1059,e4,'middle',gimmel,'shed, new photo jig',toni,date(16,08,2018),time(15,37,56)).
+image('18R4659:0010407',1061,e4,'middle',gimmel,'shed, new photo jig',toni,date(16,08,2018),time(15,41,40)).
+image('18R4263:0010719',1062,'t-1','middle',gimmel,'shed, new photo jig',toni,date(16,08,2018),time(15,44,58)).
+image('18R4263:0010709',1064,'t-1','middle',gimmel,'shed, new photo jig',toni,date(16,08,2018),time(15,48,06)).
+image('18R4664:0011309',1065,'t-1','middle',gimmel,'shed, new photo jig',toni,date(16,08,2018),time(15,50,00)).
+image('18R3995:0010304',1066,e4,'middle',gimmel,'shed, new photo jig',toni,date(16,08,2018),time(15,59,41)).
+image('18R4663:0011205',1067,'t-3','middle',gimmel,'shed, new photo jig',toni,date(16,08,2018),time(16,04,10)).
+image('18R4265:0011509',1069,'t-2','middle',gimmel,'shed, new photo jig',toni,date(16,08,2018),time(16,06,41)).
+image('18R4661:0010813',1070,t0,'middle',gimmel,'shed, new photo jig',toni,date(16,08,2018),time(16,09,33)).
+image('18R4660:0010606',1071,t0,'middle',gimmel,'shed, new photo jig',toni,date(16,08,2018),time(16,12,03)).
+image('18R4444:0010506',1078,t0,'middle',gimmel,'shed, new photo jig',toni,date(16,08,2018),time(16,21,27)).
+image('18R4096:0011401',1079,'t-1','middle',gimmel,'shed, new photo jig',toni,date(16,08,2018),time(16,24,07)).
+image('18R4555:0011912',1080,'t-1','middle',gimmel,'shed, new photo jig',toni,date(16,08,2018),time(16,26,59)).
+image('18R4661:0010804',1081,t0,'middle',gimmel,'shed, new photo jig',toni,date(16,08,2018),time(16,30,26)).
+image('18R4660:0010605',1089,'t-1','middle',gimmel,'shed, new photo jig',toni,date(16,08,2018),time(16,34,45)).
+image('18R4555:0011902',1090,t0,'middle',gimmel,'shed, new photo jig',toni,date(16,08,2018),time(16,37,26)).
 
 
 
@@ -5939,40 +5989,40 @@ image('18R4555:0011902',1090,t0,'middle',gimmel,'ex situ ambient reflected, fiel
 % by data/data_conversion/convert_image_data.perl
 % called from data/data_conversion/convert_data.perl
 
-image('18R4672:0013811',1091,e3,'middle',gimmel,'ex situ ambient reflected, field',toni,date(17,08,2018),time(11,52,33)).
-image('18R4671:0013703',1112,e3,'middle',gimmel,'ex situ ambient reflected, field',toni,date(17,08,2018),time(12,00,07)).
-image('18R4670:0013512',1114,e1,'middle',gimmel,'ex situ ambient reflected, field',toni,date(17,08,2018),time(12,03,38)).
-image('18R4436:0013910',1116,e1,'middle',gimmel,'ex situ ambient reflected, field',toni,date(17,08,2018),time(12,06,27)).
-image('18R4038:0013006',1118,e3,'middle',gimmel,'ex situ ambient reflected, field',toni,date(17,08,2018),time(12,10,50)).
-image('18R4668:0013109',1121,e2,'middle',gimmel,'ex situ ambient reflected, field',toni,date(17,08,2018),time(12,20,56)).
-image('18R4438:0012401',1123,'e-1','middle',gimmel,'ex situ ambient reflected, field',toni,date(17,08,2018),time(12,25,13)).
-image('18R3647:0012508',1127,e3,'middle',gimmel,'ex situ ambient reflected, field',toni,date(17,08,2018),time(12,31,00)).
-image('18R4100:0012107',1128,'e-2','middle',gimmel,'ex situ ambient reflected, field',toni,date(17,08,2018),time(12,37,07)).
-image('18R4267:0012909',1129,e2,'middle',gimmel,'ex situ ambient reflected, field',toni,date(17,08,2018),time(12,40,10)).
-image('18R4442:0012804',1130,e2,'middle',gimmel,'ex situ ambient reflected, field',toni,date(17,08,2018),time(12,43,41)).
-image('18R4449:0012218',1131,e2,'middle',gimmel,'ex situ ambient reflected, field',toni,date(17,08,2018),time(12,46,17)).
-image('18R4673:0014111',1132,e3,'whole',gimmel,'ex situ ambient reflected, field',toni,date(17,08,2018),time(12,49,37)).
-image('18R4100:0012118',1133,'e-2','middle',gimmel,'ex situ ambient reflected, field',toni,date(17,08,2018),time(12,53,38)).
-image('18R4449:0012218',1134,e3,'middle',gimmel,'ex situ ambient reflected, field',toni,date(17,08,2018),time(12,56,36)).
-image('18R4538:0013612',1135,'t-1','whole',gimmel,'ex situ ambient reflected, field',toni,date(17,08,2018),time(13,00,03)).
-image('18R4456:0014004',1136,'t-2','stem',gimmel,'ex situ ambient reflected, field',toni,date(17,08,2018),time(13,03,14)).
-image('18R4667:0012709',1138,e2,'middle',gimmel,'ex situ ambient reflected, field',toni,date(17,08,2018),time(13,06,56)).
-image('18R4672:0013809',1139,e3,'middle',gimmel,'ex situ ambient reflected, field',toni,date(17,08,2018),time(13,09,50)).
-image('18R4439:0013310',1140,'e-1','middle',gimmel,'ex situ ambient reflected, field',toni,date(17,08,2018),time(13,13,07)).
-image('18R4680:0016708',1142,'t-2','whole',gimmel,'ex situ ambient reflected, field',toni,date(17,08,2018),time(15,23,25)).
-image('18R4679:0016514',1144,e1,'stem',gimmel,'ex situ ambient reflected, field',toni,date(17,08,2018),time(15,26,50)).
-image('18R4678:0015902',1145,'t-3','whole',gimmel,'ex situ ambient reflected, field',toni,date(17,08,2018),time(15,31,21)).
-image('18R4675:0015317',1148,'t-3','whole',gimmel,'ex situ ambient reflected, field',toni,date(17,08,2018),time(15,34,30)).
-image('18R4678:0015901',1149,'t-3','whole',gimmel,'ex situ ambient reflected, field',toni,date(17,08,2018),time(15,37,41)).
-image('18R4679:0016505',1152,e1,'stem',gimmel,'ex situ ambient reflected, field',toni,date(17,08,2018),time(15,41,16)).
-image('18R4679:0016511',1154,e1,'middle',gimmel,'ex situ ambient reflected, field',toni,date(17,08,2018),time(15,45,21)).
-image('18R4679:0016504',1155,e1,'middle',gimmel,'ex situ ambient reflected, field',toni,date(17,08,2018),time(15,49,12)).
-image('18R4674:0015121',1157,e1,'middle',gimmel,'ex situ ambient reflected, field',toni,date(17,08,2018),time(15,52,30)).
-image('18R4679:0016502',1159,e1,'middle',gimmel,'ex situ ambient reflected, field',toni,date(17,08,2018),time(15,55,51)).
-image('18R4675:0015308',1162,'t-3','whole',gimmel,'ex situ ambient reflected, field',toni,date(17,08,2018),time(15,59,48)).
-image('18R4678:0015903',1163,'t-3','whole',gimmel,'ex situ ambient reflected, field',toni,date(17,08,2018),time(16,03,35)).
-image('18R4678:0015903',1165,'e-4','whole',gimmel,'ex situ ambient reflected, field',toni,date(17,08,2018),time(16,06,45)).
-image('18R4676:0015508',1167,'t-3','whole',gimmel,'ex situ ambient reflected, field',toni,date(17,08,2018),time(16,11,26)).
+image('18R4672:0013811',1091,e3,'middle',gimmel,'shed, new photo jig',toni,date(17,08,2018),time(11,52,33)).
+image('18R4671:0013703',1112,e3,'middle',gimmel,'shed, new photo jig',toni,date(17,08,2018),time(12,00,07)).
+image('18R4670:0013512',1114,e1,'middle',gimmel,'shed, new photo jig',toni,date(17,08,2018),time(12,03,38)).
+image('18R4436:0013910',1116,e1,'middle',gimmel,'shed, new photo jig',toni,date(17,08,2018),time(12,06,27)).
+image('18R4038:0013006',1118,e3,'middle',gimmel,'shed, new photo jig',toni,date(17,08,2018),time(12,10,50)).
+image('18R4668:0013109',1121,e2,'middle',gimmel,'shed, new photo jig',toni,date(17,08,2018),time(12,20,56)).
+image('18R4438:0012401',1123,'e-1','middle',gimmel,'shed, new photo jig',toni,date(17,08,2018),time(12,25,13)).
+image('18R3647:0012508',1127,e3,'middle',gimmel,'shed, new photo jig',toni,date(17,08,2018),time(12,31,00)).
+image('18R4100:0012107',1128,'e-2','middle',gimmel,'shed, new photo jig',toni,date(17,08,2018),time(12,37,07)).
+image('18R4267:0012909',1129,e2,'middle',gimmel,'shed, new photo jig',toni,date(17,08,2018),time(12,40,10)).
+image('18R4442:0012804',1130,e2,'middle',gimmel,'shed, new photo jig',toni,date(17,08,2018),time(12,43,41)).
+image('18R4449:0012218',1131,e2,'middle',gimmel,'shed, new photo jig',toni,date(17,08,2018),time(12,46,17)).
+image('18R4673:0014111',1132,e3,'whole',gimmel,'shed, new photo jig',toni,date(17,08,2018),time(12,49,37)).
+image('18R4100:0012118',1133,'e-2','middle',gimmel,'shed, new photo jig',toni,date(17,08,2018),time(12,53,38)).
+image('18R4449:0012218',1134,e3,'middle',gimmel,'shed, new photo jig',toni,date(17,08,2018),time(12,56,36)).
+image('18R4538:0013612',1135,'t-1','whole',gimmel,'shed, new photo jig',toni,date(17,08,2018),time(13,00,03)).
+image('18R4456:0014004',1136,'t-2','stem',gimmel,'shed, new photo jig',toni,date(17,08,2018),time(13,03,14)).
+image('18R4667:0012709',1138,e2,'middle',gimmel,'shed, new photo jig',toni,date(17,08,2018),time(13,06,56)).
+image('18R4672:0013809',1139,e3,'middle',gimmel,'shed, new photo jig',toni,date(17,08,2018),time(13,09,50)).
+image('18R4439:0013310',1140,'e-1','middle',gimmel,'shed, new photo jig',toni,date(17,08,2018),time(13,13,07)).
+image('18R4680:0016708',1142,'t-2','whole',gimmel,'shed, new photo jig',toni,date(17,08,2018),time(15,23,25)).
+image('18R4679:0016514',1144,e1,'stem',gimmel,'shed, new photo jig',toni,date(17,08,2018),time(15,26,50)).
+image('18R4678:0015902',1145,'t-3','whole',gimmel,'shed, new photo jig',toni,date(17,08,2018),time(15,31,21)).
+image('18R4675:0015317',1148,'t-3','whole',gimmel,'shed, new photo jig',toni,date(17,08,2018),time(15,34,30)).
+image('18R4678:0015901',1149,'t-3','whole',gimmel,'shed, new photo jig',toni,date(17,08,2018),time(15,37,41)).
+image('18R4679:0016505',1152,e1,'stem',gimmel,'shed, new photo jig',toni,date(17,08,2018),time(15,41,16)).
+image('18R4679:0016511',1154,e1,'middle',gimmel,'shed, new photo jig',toni,date(17,08,2018),time(15,45,21)).
+image('18R4679:0016504',1155,e1,'middle',gimmel,'shed, new photo jig',toni,date(17,08,2018),time(15,49,12)).
+image('18R4674:0015121',1157,e1,'middle',gimmel,'shed, new photo jig',toni,date(17,08,2018),time(15,52,30)).
+image('18R4679:0016502',1159,e1,'middle',gimmel,'shed, new photo jig',toni,date(17,08,2018),time(15,55,51)).
+image('18R4675:0015308',1162,'t-3','whole',gimmel,'shed, new photo jig',toni,date(17,08,2018),time(15,59,48)).
+image('18R4678:0015903',1163,'t-3','whole',gimmel,'shed, new photo jig',toni,date(17,08,2018),time(16,03,35)).
+image('18R4678:0015903',1165,'e-4','whole',gimmel,'shed, new photo jig',toni,date(17,08,2018),time(16,06,45)).
+image('18R4676:0015508',1167,'t-3','whole',gimmel,'shed, new photo jig',toni,date(17,08,2018),time(16,11,26)).
 
 
 
@@ -5981,114 +6031,2002 @@ image('18R4676:0015508',1167,'t-3','whole',gimmel,'ex situ ambient reflected, fi
 % by data/data_conversion/convert_image_data.perl
 % called from data/data_conversion/convert_data.perl
 
-image('18R4698:0022208',1168,'t-1','stem',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(09,54,56)).
-image('18R4697:0022104',1169,t0,'stem',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(09,57,55)).
-image('18R4695:0021913',1170,e4,'stem',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(10,01,19)).
-image('18R4697:0022109',1171,'t-1','stem',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(10,03,49)).
-image('18R4695:0021904',1172,e3,'middle',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(10,06,53)).
-image('18R4692:0021503',1173,e5,'middle',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(10,10,38)).
-image('18R4690:0021307',1174,e5,'middle',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(10,13,39)).
-image('18R4691:0021404',1175,e5,'middle',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(10,16,36)).
-image('18R4685:0020704',1176,e2,'middle',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(10,20,12)).
-image('18R4692:0021502',1177,e5,'middle',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(10,23,51)).
-image('18R4691:0021406',1178,e5,'middle',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(10,27,03)).
-image('18R4693:0021604',1179,e2,'middle',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(10,30,36)).
-image('18R4694:0021701',1180,e4,'middle',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(10,33,49)).
-image('18R4692:0021505',1181,e5,'middle',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(10,36,42)).
-image('18R4694:0021705',1182,e4,'middle',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(10,39,34)).
-image('18R4694:0021703',1183,e3,'middle',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(10,42,54)).
-image('18R4691:0021404',1184,e4,'middle',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(10,46,05)).
-image('18R4692:0021501',1185,'t-1','stem',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(10,48,52)).
-image('18R4695:0021912',1186,e4,'middle',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(10,52,10)).
-image('18R4690:0021305',1187,e5,'middle',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(10,54,54)).
-image('18R4690:0021310',1188,e5,'middle',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(10,57,40)).
-image('18R3998:0025409',1189,'t-2','stem',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(13,54,03)).
-image('18R4709:0023801',1190,e1,'tip',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(13,57,42)).
-image('18R4710:0023907',1191,'t-3','whole',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(14,02,13)).
-image('18R4706:0023206',1192,e1,'middle',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(14,05,52)).
-image('18R4709:0023802',1193,e1,'tip',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(14,10,27)).
-image('18R4709:0023810',1194,e1,'tip',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(14,13,37)).
-image('18R4705:0023108',1195,e0,'middle',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(14,18,54)).
-image('18R4739:0026008',1197,e5,'tip',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(14,22,22)).
-image('18R2468:0024401',1198,e4,'middle',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(14,25,54)).
-image('18R2437:0024301',1199,e5,'tip',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(14,29,24)).
-image('18R4738:0024503',1200,e2,'middle',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(14,32,24)).
-image('18R2437:0024304',1201,'t-1','middle',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(14,35,37)).
-image('18R2433:0024102',1202,e1,'middle',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(14,38,05)).
-image('18R2325:0023407',1203,e1,'middle',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(14,40,43)).
-image('18R2442:0024204',1204,e3,'middle',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(14,44,08)).
-image('18R2325:0023411',1205,e1,'middle',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(14,46,43)).
-image('18R2490:0025008',1206,e1,'tip',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(14,50,26)).
-image('18R3255:0024003',1207,'t-1','whole',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(14,53,10)).
-image('18R2030:0025208',1209,e3,'stem',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(14,56,21)).
-image('18R4716:0026210',1210,e5,'whole',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(14,59,23)).
-image('18R3998:0025405',1211,'t-2','whole',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(15,01,31)).
-image('18R3998:0025407',1212,'t-2','whole',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(15,03,40)).
-image('18R2468:0024406',1213,e1,'middle',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(15,07,02)).
-image('18R4408:0026810',1214,t0,'whole',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(15,09,20)).
-image('18R4716:0026206',1215,e4,'middle',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(15,11,33)).
-image('18R4706:0023203',1216,e1,'middle',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(15,14,55)).
-image('18R4714:0025801',1217,e4,'middle',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(15,17,19)).
-image('18R4505:0025312',1218,e2,'middle',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(15,19,54)).
-image('18R2442:0024209',1219,e4,'middle',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(15,22,05)).
-image('18R4505:0025311',1220,e2,'middle',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(15,24,28)).
-image('18R2442:0024201',1221,e4,'middle',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(15,26,34)).
-image('18R2473:0024605',1222,e5,'middle',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(15,28,39)).
-image('18R2473:0024601',1223,e5,'middle',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(15,30,59)).
-image('18R4706:0023205',1224,e1,'middle',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(15,33,17)).
-image('18R1563:0024807',1225,e2,'middle',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(15,37,01)).
-image('18R4740:0026108',1226,e2,'middle',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(15,39,45)).
-image('18R2491:0025108',1227,e3,'middle',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(15,42,28)).
-image('18R1563:0024812',1228,e2,'middle',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(15,45,10)).
-image('18R2473:0024612',1229,e5,'middle',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(15,48,14)).
-image('18R4720:0026903',1230,'e-5','middle',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(15,50,24)).
-image('18R4739:0026005',1231,e5,'middle',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(15,53,34)).
-image('18R2478:0024705',1233,'e-4','middle',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(15,57,10)).
-image('18R4708:0023710',1234,e1,'middle',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(15,59,07)).
-image('18R2325:0023404',1235,e1,'middle',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(16,01,25)).
-image('18R2433:0024103',1236,e1,'middle',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(16,04,15)).
-image('18R2490:0025003',1237,e1,'middle',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(16,06,52)).
-image('18R1612:0024903',1238,e4,'middle',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(16,11,38)).
-image('18R4731:0030011',1239,'t-2','stem',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(18,51,11)).
-image('18R4698:0029009',1240,'t-1','whole',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(18,55,59)).
-image('18R4698:0029007',1241,'t-1','stem',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(18,58,17)).
-image('18R4697:0028908',1242,'t-1','stem',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(19,00,29)).
-image('18R4474:0029403',1243,e4,'stem',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(19,03,46)).
-image('18R4474:0029408',1244,e4,'stem',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(19,06,23)).
-image('18R4733:0030205',1245,e5,'stem',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(19,09,13)).
-image('18R4697:0028901',1246,'t-1','middle',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(19,12,39)).
-image('18R4727:0029611',1247,e3,'stem',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(19,15,21)).
-image('18R4726:0029503',1248,e2,'middle',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(19,17,23)).
-image('18R4732:0030106',1249,e2,'middle',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(19,20,01)).
-image('18R4730:0029907',1250,e4,'stem',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(19,22,23)).
-image('18R4625:0029213',1251,e2,'middle',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(19,24,49)).
-image('18R4626:0029111',1252,e4,'middle',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(19,27,14)).
-image('18R4733:0030202',1254,e5,'stem',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(19,30,32)).
-image('18R4469:0029309',1255,'e-2','middle',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(19,33,02)).
-image('18R4722:0027105',1256,'e-3','middle',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(19,35,12)).
-image('18R4724:0027306',1257,e0,'middle',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(19,37,54)).
+image('18R4698:0022208',1168,'t-1','stem',gimmel,'shed, new photo jig',toni,date(18,08,2018),time(09,54,56)).
+image('18R4697:0022104',1169,t0,'stem',gimmel,'shed, new photo jig',toni,date(18,08,2018),time(09,57,55)).
+image('18R4695:0021913',1170,e4,'stem',gimmel,'shed, new photo jig',toni,date(18,08,2018),time(10,01,19)).
+image('18R4697:0022109',1171,'t-1','stem',gimmel,'shed, new photo jig',toni,date(18,08,2018),time(10,03,49)).
+image('18R4695:0021904',1172,e3,'middle',gimmel,'shed, new photo jig',toni,date(18,08,2018),time(10,06,53)).
+image('18R4692:0021503',1173,e5,'middle',gimmel,'shed, new photo jig',toni,date(18,08,2018),time(10,10,38)).
+image('18R4690:0021307',1174,e5,'middle',gimmel,'shed, new photo jig',toni,date(18,08,2018),time(10,13,39)).
+image('18R4691:0021404',1175,e5,'middle',gimmel,'shed, new photo jig',toni,date(18,08,2018),time(10,16,36)).
+
+% family migrated from 4685; tag in image will not reflect this change
+%
+% Kazic, 29.7.2019
+
+image('18R0704:0020704',1176,e2,'middle',gimmel,'shed, new photo jig',toni,date(18,08,2018),time(10,20,12)).
+image('18R4692:0021502',1177,e5,'middle',gimmel,'shed, new photo jig',toni,date(18,08,2018),time(10,23,51)).
+image('18R4691:0021406',1178,e5,'middle',gimmel,'shed, new photo jig',toni,date(18,08,2018),time(10,27,03)).
+image('18R4693:0021604',1179,e2,'middle',gimmel,'shed, new photo jig',toni,date(18,08,2018),time(10,30,36)).
+image('18R4694:0021701',1180,e4,'middle',gimmel,'shed, new photo jig',toni,date(18,08,2018),time(10,33,49)).
+image('18R4692:0021505',1181,e5,'middle',gimmel,'shed, new photo jig',toni,date(18,08,2018),time(10,36,42)).
+image('18R4694:0021705',1182,e4,'middle',gimmel,'shed, new photo jig',toni,date(18,08,2018),time(10,39,34)).
+image('18R4694:0021703',1183,e3,'middle',gimmel,'shed, new photo jig',toni,date(18,08,2018),time(10,42,54)).
+image('18R4691:0021404',1184,e4,'middle',gimmel,'shed, new photo jig',toni,date(18,08,2018),time(10,46,05)).
+image('18R4692:0021501',1185,'t-1','stem',gimmel,'shed, new photo jig',toni,date(18,08,2018),time(10,48,52)).
+image('18R4695:0021912',1186,e4,'middle',gimmel,'shed, new photo jig',toni,date(18,08,2018),time(10,52,10)).
+image('18R4690:0021305',1187,e5,'middle',gimmel,'shed, new photo jig',toni,date(18,08,2018),time(10,54,54)).
+image('18R4690:0021310',1188,e5,'middle',gimmel,'shed, new photo jig',toni,date(18,08,2018),time(10,57,40)).
+image('18R3998:0025409',1189,'t-2','stem',gimmel,'shed, new photo jig',toni,date(18,08,2018),time(13,54,03)).
+image('18R4709:0023801',1190,e1,'tip',gimmel,'shed, new photo jig',toni,date(18,08,2018),time(13,57,42)).
+image('18R4710:0023907',1191,'t-3','whole',gimmel,'shed, new photo jig',toni,date(18,08,2018),time(14,02,13)).
+image('18R4706:0023206',1192,e1,'middle',gimmel,'shed, new photo jig',toni,date(18,08,2018),time(14,05,52)).
+image('18R4709:0023802',1193,e1,'tip',gimmel,'shed, new photo jig',toni,date(18,08,2018),time(14,10,27)).
+image('18R4709:0023810',1194,e1,'tip',gimmel,'shed, new photo jig',toni,date(18,08,2018),time(14,13,37)).
+image('18R4705:0023108',1195,e0,'middle',gimmel,'shed, new photo jig',toni,date(18,08,2018),time(14,18,54)).
+image('18R4739:0026008',1197,e5,'tip',gimmel,'shed, new photo jig',toni,date(18,08,2018),time(14,22,22)).
+image('18R2468:0024401',1198,e4,'middle',gimmel,'shed, new photo jig',toni,date(18,08,2018),time(14,25,54)).
+image('18R2437:0024301',1199,e5,'tip',gimmel,'shed, new photo jig',toni,date(18,08,2018),time(14,29,24)).
+image('18R4738:0024503',1200,e2,'middle',gimmel,'shed, new photo jig',toni,date(18,08,2018),time(14,32,24)).
+image('18R2437:0024304',1201,'t-1','middle',gimmel,'shed, new photo jig',toni,date(18,08,2018),time(14,35,37)).
+image('18R2433:0024102',1202,e1,'middle',gimmel,'shed, new photo jig',toni,date(18,08,2018),time(14,38,05)).
+image('18R2325:0023407',1203,e1,'middle',gimmel,'shed, new photo jig',toni,date(18,08,2018),time(14,40,43)).
+image('18R2442:0024204',1204,e3,'middle',gimmel,'shed, new photo jig',toni,date(18,08,2018),time(14,44,08)).
+image('18R2325:0023411',1205,e1,'middle',gimmel,'shed, new photo jig',toni,date(18,08,2018),time(14,46,43)).
+image('18R2490:0025008',1206,e1,'tip',gimmel,'shed, new photo jig',toni,date(18,08,2018),time(14,50,26)).
+image('18R3255:0024003',1207,'t-1','whole',gimmel,'shed, new photo jig',toni,date(18,08,2018),time(14,53,10)).
+image('18R2030:0025208',1209,e3,'stem',gimmel,'shed, new photo jig',toni,date(18,08,2018),time(14,56,21)).
+image('18R4716:0026210',1210,e5,'whole',gimmel,'shed, new photo jig',toni,date(18,08,2018),time(14,59,23)).
+image('18R3998:0025405',1211,'t-2','whole',gimmel,'shed, new photo jig',toni,date(18,08,2018),time(15,01,31)).
+image('18R3998:0025407',1212,'t-2','whole',gimmel,'shed, new photo jig',toni,date(18,08,2018),time(15,03,40)).
+image('18R2468:0024406',1213,e1,'middle',gimmel,'shed, new photo jig',toni,date(18,08,2018),time(15,07,02)).
+image('18R4408:0026810',1214,t0,'whole',gimmel,'shed, new photo jig',toni,date(18,08,2018),time(15,09,20)).
+image('18R4716:0026206',1215,e4,'middle',gimmel,'shed, new photo jig',toni,date(18,08,2018),time(15,11,33)).
+image('18R4706:0023203',1216,e1,'middle',gimmel,'shed, new photo jig',toni,date(18,08,2018),time(15,14,55)).
+image('18R4714:0025801',1217,e4,'middle',gimmel,'shed, new photo jig',toni,date(18,08,2018),time(15,17,19)).
+image('18R4505:0025312',1218,e2,'middle',gimmel,'shed, new photo jig',toni,date(18,08,2018),time(15,19,54)).
+image('18R2442:0024209',1219,e4,'middle',gimmel,'shed, new photo jig',toni,date(18,08,2018),time(15,22,05)).
+image('18R4505:0025311',1220,e2,'middle',gimmel,'shed, new photo jig',toni,date(18,08,2018),time(15,24,28)).
+image('18R2442:0024201',1221,e4,'middle',gimmel,'shed, new photo jig',toni,date(18,08,2018),time(15,26,34)).
+image('18R2473:0024605',1222,e5,'middle',gimmel,'shed, new photo jig',toni,date(18,08,2018),time(15,28,39)).
+image('18R2473:0024601',1223,e5,'middle',gimmel,'shed, new photo jig',toni,date(18,08,2018),time(15,30,59)).
+image('18R4706:0023205',1224,e1,'middle',gimmel,'shed, new photo jig',toni,date(18,08,2018),time(15,33,17)).
+image('18R1563:0024807',1225,e2,'middle',gimmel,'shed, new photo jig',toni,date(18,08,2018),time(15,37,01)).
+image('18R4740:0026108',1226,e2,'middle',gimmel,'shed, new photo jig',toni,date(18,08,2018),time(15,39,45)).
+image('18R2491:0025108',1227,e3,'middle',gimmel,'shed, new photo jig',toni,date(18,08,2018),time(15,42,28)).
+image('18R1563:0024812',1228,e2,'middle',gimmel,'shed, new photo jig',toni,date(18,08,2018),time(15,45,10)).
+image('18R2473:0024612',1229,e5,'middle',gimmel,'shed, new photo jig',toni,date(18,08,2018),time(15,48,14)).
+image('18R4720:0026903',1230,'e-5','middle',gimmel,'shed, new photo jig',toni,date(18,08,2018),time(15,50,24)).
+image('18R4739:0026005',1231,e5,'middle',gimmel,'shed, new photo jig',toni,date(18,08,2018),time(15,53,34)).
+image('18R2478:0024705',1233,'e-4','middle',gimmel,'shed, new photo jig',toni,date(18,08,2018),time(15,57,10)).
+image('18R4708:0023710',1234,e1,'middle',gimmel,'shed, new photo jig',toni,date(18,08,2018),time(15,59,07)).
+image('18R2325:0023404',1235,e1,'middle',gimmel,'shed, new photo jig',toni,date(18,08,2018),time(16,01,25)).
+image('18R2433:0024103',1236,e1,'middle',gimmel,'shed, new photo jig',toni,date(18,08,2018),time(16,04,15)).
+image('18R2490:0025003',1237,e1,'middle',gimmel,'shed, new photo jig',toni,date(18,08,2018),time(16,06,52)).
+image('18R1612:0024903',1238,e4,'middle',gimmel,'shed, new photo jig',toni,date(18,08,2018),time(16,11,38)).
+image('18R4731:0030011',1239,'t-2','stem',gimmel,'shed, new photo jig',toni,date(18,08,2018),time(18,51,11)).
+image('18R4698:0029009',1240,'t-1','whole',gimmel,'shed, new photo jig',toni,date(18,08,2018),time(18,55,59)).
+image('18R4698:0029007',1241,'t-1','stem',gimmel,'shed, new photo jig',toni,date(18,08,2018),time(18,58,17)).
+image('18R4697:0028908',1242,'t-1','stem',gimmel,'shed, new photo jig',toni,date(18,08,2018),time(19,00,29)).
+image('18R4474:0029403',1243,e4,'stem',gimmel,'shed, new photo jig',toni,date(18,08,2018),time(19,03,46)).
+image('18R4474:0029408',1244,e4,'stem',gimmel,'shed, new photo jig',toni,date(18,08,2018),time(19,06,23)).
+image('18R4733:0030205',1245,e5,'stem',gimmel,'shed, new photo jig',toni,date(18,08,2018),time(19,09,13)).
+image('18R4697:0028901',1246,'t-1','middle',gimmel,'shed, new photo jig',toni,date(18,08,2018),time(19,12,39)).
+image('18R4727:0029611',1247,e3,'stem',gimmel,'shed, new photo jig',toni,date(18,08,2018),time(19,15,21)).
+image('18R4726:0029503',1248,e2,'middle',gimmel,'shed, new photo jig',toni,date(18,08,2018),time(19,17,23)).
+image('18R4732:0030106',1249,e2,'middle',gimmel,'shed, new photo jig',toni,date(18,08,2018),time(19,20,01)).
+image('18R4730:0029907',1250,e4,'stem',gimmel,'shed, new photo jig',toni,date(18,08,2018),time(19,22,23)).
+image('18R4625:0029213',1251,e2,'middle',gimmel,'shed, new photo jig',toni,date(18,08,2018),time(19,24,49)).
+image('18R4626:0029111',1252,e4,'middle',gimmel,'shed, new photo jig',toni,date(18,08,2018),time(19,27,14)).
+image('18R4733:0030202',1254,e5,'stem',gimmel,'shed, new photo jig',toni,date(18,08,2018),time(19,30,32)).
+image('18R4469:0029309',1255,'e-2','middle',gimmel,'shed, new photo jig',toni,date(18,08,2018),time(19,33,02)).
+image('18R4722:0027105',1256,'e-3','middle',gimmel,'shed, new photo jig',toni,date(18,08,2018),time(19,35,12)).
+image('18R4724:0027306',1257,e0,'middle',gimmel,'shed, new photo jig',toni,date(18,08,2018),time(19,37,54)).
 %
 % leaf in this next not written on tag, so checked on plant
 %
 % Kazic, 22.8.2018
 %
-image('18R4725:0027408',1258,'e-1','middle',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(19,40,42)).
-image('18R4745:0027901',1259,e0,'middle',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(19,42,49)).
-image('18R4745:0027907',1260,e0,'middle',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(19,45,00)).
-image('18R4751:0028504',1261,e0,'tip',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(19,48,19)).
-image('18R4625:0029202',1262,e2,'middle',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(19,50,29)).
-image('18R0703:0028604',1263,e2,'middle',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(19,52,26)).
-image('18R4722:0027102',1264,'e-3','stem',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(19,54,54)).
-image('18R4745:0027903',1265,e0,'middle',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(19,56,51)).
-image('18R4727:0029614',1266,e5,'tip',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(19,59,53)).
-image('18R4730:0029901',1267,e4,'middle',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(20,02,23)).
-image('18R4728:0029703',1268,e5,'whole',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(20,05,34)).
-image('18R4727:0029609',1270,e3,'stem',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(20,08,00)).
-image('18R4724:0027305',1271,e0,'tip',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(20,10,31)).
-image('18R4695:0028704',1272,e4,'middle',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(20,13,42)).
-image('18R4626:0029101',1273,e4,'middle',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(20,16,16)).
-image('18R4728:0029704',1274,e5,'middle',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(20,18,05)).
-image('18R0703:0028611',1275,e2,'stem',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(20,19,57)).
-image('18R4626:0029107',1276,e3,'stem',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(20,21,57)).
-image('18R4751:0028502',1278,e0,'tip',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(20,24,17)).
-image('18R4626:0029105',1279,'e-1','middle',gimmel,'ex situ ambient reflected, field',toni,date(18,08,2018),time(20,26,43)).
+image('18R4725:0027408',1258,'e-1','middle',gimmel,'shed, new photo jig',toni,date(18,08,2018),time(19,40,42)).
+image('18R4745:0027901',1259,e0,'middle',gimmel,'shed, new photo jig',toni,date(18,08,2018),time(19,42,49)).
+image('18R4745:0027907',1260,e0,'middle',gimmel,'shed, new photo jig',toni,date(18,08,2018),time(19,45,00)).
+image('18R4751:0028504',1261,e0,'tip',gimmel,'shed, new photo jig',toni,date(18,08,2018),time(19,48,19)).
+image('18R4625:0029202',1262,e2,'middle',gimmel,'shed, new photo jig',toni,date(18,08,2018),time(19,50,29)).
+image('18R0703:0028604',1263,e2,'middle',gimmel,'shed, new photo jig',toni,date(18,08,2018),time(19,52,26)).
+image('18R4722:0027102',1264,'e-3','stem',gimmel,'shed, new photo jig',toni,date(18,08,2018),time(19,54,54)).
+image('18R4745:0027903',1265,e0,'middle',gimmel,'shed, new photo jig',toni,date(18,08,2018),time(19,56,51)).
+image('18R4727:0029614',1266,e5,'tip',gimmel,'shed, new photo jig',toni,date(18,08,2018),time(19,59,53)).
+image('18R4730:0029901',1267,e4,'middle',gimmel,'shed, new photo jig',toni,date(18,08,2018),time(20,02,23)).
+image('18R4728:0029703',1268,e5,'whole',gimmel,'shed, new photo jig',toni,date(18,08,2018),time(20,05,34)).
+image('18R4727:0029609',1270,e3,'stem',gimmel,'shed, new photo jig',toni,date(18,08,2018),time(20,08,00)).
+image('18R4724:0027305',1271,e0,'tip',gimmel,'shed, new photo jig',toni,date(18,08,2018),time(20,10,31)).
+image('18R4695:0028704',1272,e4,'middle',gimmel,'shed, new photo jig',toni,date(18,08,2018),time(20,13,42)).
+image('18R4626:0029101',1273,e4,'middle',gimmel,'shed, new photo jig',toni,date(18,08,2018),time(20,16,16)).
+image('18R4728:0029704',1274,e5,'middle',gimmel,'shed, new photo jig',toni,date(18,08,2018),time(20,18,05)).
+image('18R0703:0028611',1275,e2,'stem',gimmel,'shed, new photo jig',toni,date(18,08,2018),time(20,19,57)).
+image('18R4626:0029107',1276,e3,'stem',gimmel,'shed, new photo jig',toni,date(18,08,2018),time(20,21,57)).
+image('18R4751:0028502',1278,e0,'tip',gimmel,'shed, new photo jig',toni,date(18,08,2018),time(20,24,17)).
+image('18R4626:0029105',1279,'e-1','middle',gimmel,'shed, new photo jig',toni,date(18,08,2018),time(20,26,43)).
+
+
+
+
+% 19r
+
+
+% corrected locale from 'ex situ ambient reflected, field'
+% to 'shed, new photo jig'
+% after checking the images directly.
+%
+% Kazic, 18.2.2022
+
+
+% data added from ../../../palm/raw_data_from_palms/19r/eta/14.8/image.csv on Wed Aug 14 22:15:05 CDT 2019
+% by data/data_conversion/convert_image_data.perl
+% called from data/data_conversion/convert_data.perl
+
+image('19R4091:0004908',0007,e1,'stem',aleph,'shed, new photo jig',dewi,date(14,08,2019),time(15,17,10)).
+image('19R4761:0004008',0008,e3,'middle',aleph,'shed, new photo jig',dewi,date(14,08,2019),time(15,25,02)).
+image('19R4448:0003804',0010,'e-1','tip',aleph,'shed, new photo jig',dewi,date(14,08,2019),time(15,28,25)).
+image('19R3946:0004101',0011,e1,'stem',aleph,'shed, new photo jig',dewi,date(14,08,2019),time(15,32,34)).
+image('19R4086:0004210',0012,e1,'stem',aleph,'shed, new photo jig',dewi,date(14,08,2019),time(15,35,37)).
+image('19R4089:0004703',0013,e3,'stem',aleph,'shed, new photo jig',dewi,date(14,08,2019),time(15,39,37)).
+image('19R4651:0004609',0014,'t-1','stem',aleph,'shed, new photo jig',dewi,date(14,08,2019),time(15,43,10)).
+image('19R4492:0004403',0015,e1,'middle',aleph,'shed, new photo jig',dewi,date(14,08,2019),time(15,49,31)).
+image('19R4763:0005307',0016,e3,'middle',aleph,'shed, new photo jig',dewi,date(14,08,2019),time(15,53,01)).
+image('19R4656:0005401',0017,'t-3','middle',aleph,'shed, new photo jig',dewi,date(14,08,2019),time(15,54,59)).
+image('19R4657:0005503',0019,e3,'middle',aleph,'shed, new photo jig',dewi,date(14,08,2019),time(15,58,31)).
+image('19R4658:0005609',0020,'e-1','middle',aleph,'shed, new photo jig',dewi,date(14,08,2019),time(16,01,48)).
+image('19R4452:0005703',0021,'e-1','stem',aleph,'shed, new photo jig',dewi,date(14,08,2019),time(16,04,26)).
+image('19R3616:0005801',0022,'e-1','middle',aleph,'shed, new photo jig',dewi,date(14,08,2019),time(16,06,39)).
+image('19R4661:0006611',0023,e2,'stem',aleph,'shed, new photo jig',dewi,date(14,08,2019),time(17,56,39)).
+image('19R4094:0006101',0024,e1,'middle',aleph,'shed, new photo jig',dewi,date(14,08,2019),time(17,59,33)).
+image('19R4764:0006201',0025,e2,'middle',aleph,'shed, new photo jig',dewi,date(14,08,2019),time(18,02,39)).
+image('19R3995:0006302',0027,e2,'middle',aleph,'shed, new photo jig',dewi,date(14,08,2019),time(18,05,29)).
+image('19R4659:0006403',0028,e2,'middle',aleph,'shed, new photo jig',dewi,date(14,08,2019),time(18,09,01)).
+image('19R4661:0006612',0029,'t-1','middle',aleph,'shed, new photo jig',dewi,date(14,08,2019),time(18,11,46)).
+image('19R4443:0006707',0030,'e-1','tip',aleph,'shed, new photo jig',dewi,date(14,08,2019),time(18,14,11)).
+image('19R4002:0006812',0031,e2,'stem',aleph,'shed, new photo jig',dewi,date(14,08,2019),time(18,17,13)).
+image('19R4663:0007008',0032,t0,'middle',aleph,'shed, new photo jig',dewi,date(14,08,2019),time(18,26,03)).
+image('19R4664:0007109',0033,'t-2','stem',aleph,'shed, new photo jig',dewi,date(14,08,2019),time(18,27,48)).
+image('19R4264:0007201',0034,e3,'middle',aleph,'shed, new photo jig',dewi,date(14,08,2019),time(18,30,14)).
+image('19R4012:0007308',0035,'t-3','middle',aleph,'shed, new photo jig',dewi,date(14,08,2019),time(18,32,00)).
+image('19R4013:0007401',0036,e4,'middle',aleph,'shed, new photo jig',dewi,date(14,08,2019),time(18,34,34)).
+image('19R4766:0007606',0037,'t-2','middle',aleph,'shed, new photo jig',dewi,date(14,08,2019),time(18,35,38)).
+image('19R4265:0007906',0038,'t-1','whole',aleph,'shed, new photo jig',dewi,date(14,08,2019),time(18,39,50)).
+image('19R4458:0008310',0039,'t-1','middle',aleph,'shed, new photo jig',dewi,date(14,08,2019),time(18,41,53)).
+image('19R4112:0008410',0040,e3,'middle',aleph,'shed, new photo jig',dewi,date(14,08,2019),time(18,45,27)).
+image('19R4668:0009913',0042,e0,'middle',aleph,'shed, new photo jig',dewi,date(14,08,2019),time(18,47,59)).
+image('19R4556:0008803',0043,'e-1','middle',aleph,'shed, new photo jig',dewi,date(14,08,2019),time(18,52,04)).
+image('19R4438:0009002',0044,'e-4','middle',aleph,'shed, new photo jig',dewi,date(14,08,2019),time(18,53,20)).
+image('19R4665:0008009',0045,e2,'middle',aleph,'shed, new photo jig',dewi,date(14,08,2019),time(18,56,15)).
+image('19R4458:0008202',0046,e4,'middle',aleph,'shed, new photo jig',dewi,date(14,08,2019),time(18,57,58)).
+image('19R4555:0008601',0047,'t-2','middle',aleph,'shed, new photo jig',dewi,date(14,08,2019),time(19,01,03)).
+image('19R4449:0008705',0048,e2,'middle',aleph,'shed, new photo jig',dewi,date(14,08,2019),time(19,02,13)).
+image('19R4438:0008907',0049,'e-2','tip',aleph,'shed, new photo jig',dewi,date(14,08,2019),time(19,05,11)).
+image('19R4442:0009305',0050,'e-1','middle',aleph,'shed, new photo jig',dewi,date(14,08,2019),time(19,08,09)).
+image('19R4442:0009510',0051,e2,'middle',aleph,'shed, new photo jig',dewi,date(14,08,2019),time(19,11,17)).
+image('19R4442:0009603',0052,e3,'tip',aleph,'shed, new photo jig',dewi,date(14,08,2019),time(19,12,54)).
+image('19R4267:0009815',0053,'e-1','middle',aleph,'shed, new photo jig',dewi,date(14,08,2019),time(19,15,38)).
+image('19R4668:0010011',0054,'e-1','tip',aleph,'shed, new photo jig',dewi,date(14,08,2019),time(19,17,11)).
+image('19R4439:0010209',0055,e1,'middle',aleph,'shed, new photo jig',dewi,date(14,08,2019),time(19,19,16)).
+image('19R4534:0010317',0056,e3,'middle',aleph,'shed, new photo jig',dewi,date(14,08,2019),time(19,20,58)).
+image('19R4535:0010407',0057,e2,'middle',aleph,'shed, new photo jig',dewi,date(14,08,2019),time(19,23,17)).
+image('19R4268:0010505',0058,e2,'stem',aleph,'shed, new photo jig',dewi,date(14,08,2019),time(19,24,24)).
+
+
+
+
+% data added from ../../../palm/raw_data_from_palms/19r/eta/15.8/image.csv on Sat Aug 17 07:29:48 CDT 2019
+% by data/data_conversion/convert_image_data.perl
+% called from data/data_conversion/convert_data.perl
+
+image('19R4268:0010604',0063,e2,'middle',aleph,'shed, new photo jig',dewi,date(15,08,2019),time(09,40,03)).
+image('19R4670:0010714',0064,e3,'middle',aleph,'shed, new photo jig',dewi,date(15,08,2019),time(09,42,19)).
+image('19R4538:0010810',0065,e2,'middle',aleph,'shed, new photo jig',dewi,date(15,08,2019),time(09,44,42)).
+image('19R4671:0010911',0066,'e-1','middle',aleph,'shed, new photo jig',dewi,date(15,08,2019),time(09,47,04)).
+image('19R4672:0011006',0067,e3,'middle',aleph,'shed, new photo jig',dewi,date(15,08,2019),time(09,49,27)).
+image('19R4436:0011205',0068,e2,'middle',aleph,'shed, new photo jig',dewi,date(15,08,2019),time(09,50,17)).
+image('19R3701:0011406',0069,e3,'middle',aleph,'shed, new photo jig',dewi,date(15,08,2019),time(09,53,37)).
+%
+% this next is the tiller's t-3 leaf; those from the main culm were dead
+%
+% Kazic, 15.8.2019
+%
+image('19R4456:0011301',0070,'t-3','middle',aleph,'shed, new photo jig',dewi,date(15,08,2019),time(09,56,12)).
+image('19R4673:0011508',0071,e4,'middle',aleph,'shed, new photo jig',dewi,date(15,08,2019),time(09,58,25)).
+image('19R4768:0011611',0072,e3,'middle',aleph,'shed, new photo jig',dewi,date(15,08,2019),time(09,59,55)).
+image('19R4769:0011802',0073,e5,'middle',aleph,'shed, new photo jig',dewi,date(15,08,2019),time(10,01,15)).
+image('19R4769:0011814',0074,e3,'middle',aleph,'shed, new photo jig',dewi,date(15,08,2019),time(10,02,29)).
+image('19R4769:0011803',0075,e1,'middle',aleph,'shed, new photo jig',dewi,date(15,08,2019),time(10,04,18)).
+image('19R4770:0011904',0076,e2,'middle',aleph,'shed, new photo jig',dewi,date(15,08,2019),time(10,05,36)).
+image('19R4770:0011905',0077,e3,'middle',aleph,'shed, new photo jig',dewi,date(15,08,2019),time(11,20,29)).
+image('19R4770:0011910',0078,e2,'tip',aleph,'shed, new photo jig',dewi,date(15,08,2019),time(11,22,27)).
+image('19R4770:0011911',0079,e2,'middle',aleph,'shed, new photo jig',dewi,date(15,08,2019),time(11,23,54)).
+image('19R4773:0012204',0080,'t-2','middle',aleph,'shed, new photo jig',dewi,date(15,08,2019),time(11,24,58)).
+image('19R4223:0008507',0081,t0,'whole',aleph,'shed, new photo jig',dewi,date(15,08,2019),time(11,26,44)).
+image('19R4674:0012401',0082,e1,'middle',aleph,'shed, new photo jig',dewi,date(15,08,2019),time(11,27,57)).
+image('19R4774:0012602',0083,'t-4','middle',aleph,'shed, new photo jig',dewi,date(15,08,2019),time(11,29,56)).
+image('19R4774:0012612',0084,'t-5','middle',aleph,'shed, new photo jig',dewi,date(15,08,2019),time(11,31,06)).
+image('19R4775:0013007',0085,'t-3','whole',aleph,'shed, new photo jig',dewi,date(15,08,2019),time(11,32,26)).
+image('19R4674:0012408',0086,e1,'middle',aleph,'shed, new photo jig',dewi,date(15,08,2019),time(11,34,33)).
+image('19R4674:0012412',0088,e1,'middle',aleph,'shed, new photo jig',dewi,date(15,08,2019),time(11,36,35)).
+image('19R4674:0012415',0089,e1,'tip',aleph,'shed, new photo jig',dewi,date(15,08,2019),time(11,38,17)).
+image('19R4674:0012419',0090,e1,'middle',aleph,'shed, new photo jig',dewi,date(15,08,2019),time(11,39,19)).
+image('19R4674:0012416',0091,e1,'middle',aleph,'shed, new photo jig',dewi,date(15,08,2019),time(11,40,44)).
+
+
+
+
+% data added from ../../../palm/raw_data_from_palms/19r/eta/17.8/image.csv on Sun Aug 18 21:26:30 CDT 2019
+% by data/data_conversion/convert_image_data.perl
+% called from data/data_conversion/convert_data.perl
+
+image('19R4783:0018109',0097,'t-2','whole',aleph,'shed, new photo jig',toni,date(17,08,2019),time(15,15,13)).
+image('19R4258:0003704',0099,e2,'stem',aleph,'shed, new photo jig',toni,date(17,08,2019),time(15,22,13)).
+image('19R4782:0017701',0103,e1,'middle',aleph,'shed, new photo jig',toni,date(17,08,2019),time(15,29,03)).
+image('19R4772:0018706',0104,e0,'middle',aleph,'shed, new photo jig',toni,date(17,08,2019),time(15,33,34)).
+image('19R4771:0018607',0106,e1,'tip',aleph,'shed, new photo jig',toni,date(17,08,2019),time(15,39,20)).
+image('19R4781:0016604',0107,'t-3','whole',aleph,'shed, new photo jig',toni,date(17,08,2019),time(15,44,51)).
+image('19R4771:0018611',0108,e1,'tip',aleph,'shed, new photo jig',toni,date(17,08,2019),time(15,55,55)).
+image('19R4781:0016617',0109,'t-3','tip',aleph,'shed, new photo jig',toni,date(17,08,2019),time(16,02,22)).
+image('19R4776:0014108',0110,e2,'middle',aleph,'shed, new photo jig',toni,date(17,08,2019),time(16,09,00)).
+image('19R4783:0018106',0111,'t-2','whole',aleph,'shed, new photo jig',toni,date(17,08,2019),time(16,14,14)).
+image('19R4776:0014113',0112,e2,'middle',aleph,'shed, new photo jig',toni,date(17,08,2019),time(16,18,01)).
+image('19R4454:0009208',0113,'e-2','tip',aleph,'shed, new photo jig',toni,date(17,08,2019),time(16,21,48)).
+image('19R4718:0016003',0114,e2,'tip',aleph,'shed, new photo jig',toni,date(17,08,2019),time(16,25,56)).
+image('19R4776:0014111',0115,e2,'middle',aleph,'shed, new photo jig',toni,date(17,08,2019),time(16,29,54)).
+image('19R4667:0009706',0116,'e-2','tip',aleph,'shed, new photo jig',toni,date(17,08,2019),time(16,34,55)).
+image('19R4782:0017707',0118,e1,'middle',aleph,'shed, new photo jig',toni,date(17,08,2019),time(16,39,13)).
+image('19R4718:0016008',0119,e2,'tip',aleph,'shed, new photo jig',toni,date(17,08,2019),time(16,43,38)).
+image('19R4718:0016013',0120,e2,'tip',aleph,'shed, new photo jig',toni,date(17,08,2019),time(16,47,29)).
+image('19R4719:0016406',0121,e0,'tip',aleph,'shed, new photo jig',toni,date(17,08,2019),time(16,51,41)).
+image('19R4771:0018610',0122,e1,'tip',aleph,'shed, new photo jig',toni,date(17,08,2019),time(16,55,39)).
+image('19R4783:0018101',0123,'t-2','tip',aleph,'shed, new photo jig',toni,date(17,08,2019),time(17,00,39)).
+image('19R4781:0016603',0124,'t-3','stem',aleph,'shed, new photo jig',toni,date(17,08,2019),time(17,04,02)).
+image('19R4442:0009305',0125,e1,'middle',aleph,'shed, new photo jig',toni,date(17,08,2019),time(17,07,56)).
+image('19R4782:0017708',0126,e2,'middle',aleph,'shed, new photo jig',toni,date(17,08,2019),time(17,12,18)).
+image('19R4776:0014104',0127,e3,'middle',aleph,'shed, new photo jig',toni,date(17,08,2019),time(17,16,29)).
+image('19R4772:0018702',0128,e0,'stem',aleph,'shed, new photo jig',toni,date(17,08,2019),time(17,20,58)).
+image('19R4772:0018712',0129,e0,'tip',aleph,'shed, new photo jig',toni,date(17,08,2019),time(17,25,35)).
+image('19R4719:0016408',0131,e0,'middle',aleph,'shed, new photo jig',toni,date(17,08,2019),time(17,32,51)).
+
+
+
+
+
+
+% 20r
+
+
+% corrected locale from 'ex situ ambient reflected, field'
+% to 'shed, new photo jig'
+% after checking the images directly.
+%
+% Kazic, 18.2.2022
+
+
+
+% data added from ../../../palm/raw_data_from_palms/20r/eta/26.7/image.csv on Wed Jul 29 15:54:36 CDT 2020
+% by data/data_conversion/convert_image_data.perl
+% called from data/data_conversion/convert_data.perl
+
+image('20R4817:0026101',0001,'t-3','middle',aleph,'shed, new photo jig',toni,date(26,07,2020),time(21,46,03)).
+image('20R4817:0026103',0002,'t-5','middle',aleph,'shed, new photo jig',toni,date(26,07,2020),time(21,49,15)).
+image('20R4817:0026114',0003,'t-3','stem',aleph,'shed, new photo jig',toni,date(26,07,2020),time(21,51,06)).
+
+
+
+
+% data added from ../../../palm/raw_data_from_palms/20r/zeta/8.8/image.csv on Sat Aug  8 23:44:28 CDT 2020
+% by data/data_conversion/convert_image_data.perl
+% called from data/data_conversion/convert_data.perl
+
+image('20R4265:0008806',0014,'t-2','middle',aleph,'shed, new photo jig',dewi,date(08,08,2020),time(18,23,41)).
+image('20R4792:0006204',0015,'t-1','middle',aleph,'shed, new photo jig',dewi,date(08,08,2020),time(18,26,43)).
+image('20R4792:0006312',0016,'t-1','middle',aleph,'shed, new photo jig',dewi,date(08,08,2020),time(18,29,06)).
+image('20R4225:0006501',0017,'e-3','middle',aleph,'shed, new photo jig',dewi,date(08,08,2020),time(18,31,44)).
+image('20R4649:0007104',0018,e2,'middle',aleph,'shed, new photo jig',dewi,date(08,08,2020),time(18,34,14)).
+image('20R4227:0007205',0019,'e-2','tip',aleph,'shed, new photo jig',dewi,date(08,08,2020),time(18,35,46)).
+image('20R4658:0007702',0020,e3,'middle',aleph,'shed, new photo jig',dewi,date(08,08,2020),time(18,40,03)).
+image('20R4658:0007704',0021,e3,'tip',aleph,'shed, new photo jig',dewi,date(08,08,2020),time(18,41,20)).
+image('20R4764:0007902',0022,'e-4','tip',aleph,'shed, new photo jig',dewi,date(08,08,2020),time(18,42,57)).
+image('20R4764:0008005',0023,'t-4','tip',aleph,'shed, new photo jig',dewi,date(08,08,2020),time(18,47,22)).
+image('20R4541:0008601',0024,'e-2','tip',aleph,'shed, new photo jig',dewi,date(08,08,2020),time(18,49,59)).
+image('20R4660:0008105',0025,'t-1','middle',aleph,'shed, new photo jig',dewi,date(08,08,2020),time(18,52,36)).
+image('20R4660:0008202',0026,'t-1','middle',aleph,'shed, new photo jig',dewi,date(08,08,2020),time(18,54,05)).
+image('20R4443:0008301',0027,'e-3','middle',aleph,'shed, new photo jig',dewi,date(08,08,2020),time(18,56,54)).
+image('20R4665:0008903',0028,t0,'tip',aleph,'shed, new photo jig',dewi,date(08,08,2020),time(18,58,48)).
+image('20R4112:0009011',0029,t0,'whole',aleph,'shed, new photo jig',dewi,date(08,08,2020),time(19,00,48)).
+image('20R4665:0008914',0030,'t-2','middle',aleph,'shed, new photo jig',dewi,date(08,08,2020),time(19,03,14)).
+image('20R4556:0009210',0031,'t-2','middle',aleph,'shed, new photo jig',dewi,date(08,08,2020),time(19,05,17)).
+image('20R4112:0009102',0032,'t-1','middle',aleph,'shed, new photo jig',dewi,date(08,08,2020),time(19,07,09)).
+image('20R4438:0009402',0033,'e-2','middle',aleph,'shed, new photo jig',dewi,date(08,08,2020),time(19,08,45)).
+image('20R4438:0009507',0034,'t-3','middle',aleph,'shed, new photo jig',dewi,date(08,08,2020),time(19,11,08)).
+image('20R4454:0009704',0035,e1,'middle',aleph,'shed, new photo jig',dewi,date(08,08,2020),time(19,13,41)).
+image('20R4667:0009901',0036,'t-2','middle',aleph,'shed, new photo jig',dewi,date(08,08,2020),time(19,15,32)).
+image('20R4668:0010104',0037,e1,'middle',aleph,'shed, new photo jig',dewi,date(08,08,2020),time(19,17,55)).
+image('20R4793:0010201',0038,'t-1','tip',aleph,'shed, new photo jig',dewi,date(08,08,2020),time(19,19,27)).
+image('20R4669:0010401',0039,'t-1','middle',aleph,'shed, new photo jig',dewi,date(08,08,2020),time(19,21,15)).
+image('20R4794:0010710',0040,'t-1','middle',aleph,'shed, new photo jig',dewi,date(08,08,2020),time(19,24,03)).
+image('20R4669:0010507',0041,'e-2','middle',aleph,'shed, new photo jig',dewi,date(08,08,2020),time(19,26,04)).
+image('20R4794:0010613',0042,'t-1','middle',aleph,'shed, new photo jig',dewi,date(08,08,2020),time(19,27,48)).
+image('20R4670:0010803',0043,'t-2','middle',aleph,'shed, new photo jig',dewi,date(08,08,2020),time(19,30,49)).
+image('20R4670:0010810',0044,t0,'whole',aleph,'shed, new photo jig',dewi,date(08,08,2020),time(19,32,42)).
+image('20R4670:0010804',0045,'t-2','tip',aleph,'shed, new photo jig',dewi,date(08,08,2020),time(19,35,00)).
+image('20R4670:0010807',0046,'t-1','whole',aleph,'shed, new photo jig',dewi,date(08,08,2020),time(19,36,25)).
+
+
+
+
+% data added from ../../../palm/raw_data_from_palms/20r/zeta/9.8/image.csv on Mon Aug 10 08:01:38 CDT 2020
+% by data/data_conversion/convert_image_data.perl
+% called from data/data_conversion/convert_data.perl
+
+image('20R4806:0014404',0047,e0,'tip',aleph,'shed, new photo jig',dewi,date(09,08,2020),time(15,23,15)).
+image('20R4806:0014405',0048,'e-1','middle',aleph,'shed, new photo jig',dewi,date(09,08,2020),time(15,24,50)).
+image('20R4806:0014602',0049,'e-2','tip',aleph,'shed, new photo jig',dewi,date(09,08,2020),time(15,26,52)).
+image('20R4807:0015202',0050,'t-2','middle',aleph,'shed, new photo jig',dewi,date(09,08,2020),time(15,30,17)).
+image('20R4807:0015202',0051,e0,'middle',aleph,'shed, new photo jig',dewi,date(09,08,2020),time(15,32,36)).
+image('20R4809:0017102',0052,'t-3','middle',aleph,'shed, new photo jig',dewi,date(09,08,2020),time(15,33,59)).
+image('20R4807:0015206',0053,'t-2','middle',aleph,'shed, new photo jig',dewi,date(09,08,2020),time(15,35,17)).
+image('20R4043:0016007',0054,'t-3','whole',aleph,'shed, new photo jig',dewi,date(09,08,2020),time(15,37,38)).
+image('20R4813:0019103',0055,'t-3','middle',aleph,'shed, new photo jig',dewi,date(09,08,2020),time(15,39,09)).
+image('20R4809:0017301',0056,'t-2','tip',aleph,'shed, new photo jig',dewi,date(09,08,2020),time(15,40,31)).
+image('20R4809:0017110',0057,'t-1','stem',aleph,'shed, new photo jig',dewi,date(09,08,2020),time(15,41,37)).
+image('20R4043:0016001',0058,'t-3','middle',aleph,'shed, new photo jig',dewi,date(09,08,2020),time(15,45,19)).
+image('20R4810:0017701',0059,'t-3','middle',aleph,'shed, new photo jig',dewi,date(09,08,2020),time(15,47,08)).
+image('20R4813:0018901',0060,'t-3','stem',aleph,'shed, new photo jig',dewi,date(09,08,2020),time(15,49,32)).
+image('20R4683:0019716',0061,'t-3','stem',aleph,'shed, new photo jig',dewi,date(09,08,2020),time(15,50,54)).
+image('20R3883:0025505',0062,'t-3','stem',aleph,'shed, new photo jig',dewi,date(09,08,2020),time(15,53,05)).
+image('20R4809:0017306',0063,'t-3','middle',aleph,'shed, new photo jig',dewi,date(09,08,2020),time(15,54,59)).
+image('20R4809:0017310',0064,e0,'middle',aleph,'shed, new photo jig',dewi,date(09,08,2020),time(15,56,10)).
+%
+% tag on image says 20R4810:0017507, but this was really plant 20R4810:0017508 ---
+% it was just accidentally mistagged post hoc, after pollinations.
+%
+% Record corrected here and in tissue_collectn.
+%
+% Kazic, 10.8.2020
+%
+image('20R4810:0017508',0065,e0,'middle',aleph,'shed, new photo jig',dewi,date(09,08,2020),time(15,57,27)).
+image('20R4812:0018301',0066,'t-2','middle',aleph,'shed, new photo jig',dewi,date(09,08,2020),time(15,58,49)).
+image('20R4812:0018508',0067,e0,'middle',aleph,'shed, new photo jig',dewi,date(09,08,2020),time(16,00,06)).
+image('20R4812:0018512',0068,'t-3','middle',aleph,'shed, new photo jig',dewi,date(09,08,2020),time(16,01,25)).
+image('20R4812:0018513',0069,e1,'middle',aleph,'shed, new photo jig',dewi,date(09,08,2020),time(16,02,21)).
+image('20R4764:0008003',0070,e3,'middle',aleph,'shed, new photo jig',dewi,date(09,08,2020),time(18,37,46)).
+image('20R4795:0011012',0071,'t-2','middle',aleph,'shed, new photo jig',dewi,date(09,08,2020),time(18,40,06)).
+image('20R4796:0011207',0072,'t-1','middle',aleph,'shed, new photo jig',dewi,date(09,08,2020),time(18,41,17)).
+image('20R4795:0011102',0073,t0,'middle',aleph,'shed, new photo jig',dewi,date(09,08,2020),time(18,42,17)).
+image('20R4796:0011211',0074,'t-1','middle',aleph,'shed, new photo jig',dewi,date(09,08,2020),time(18,43,44)).
+image('20R4796:0011316',0075,'t-1','middle',aleph,'shed, new photo jig',dewi,date(09,08,2020),time(18,44,43)).
+image('20R4538:0011405',0076,'t-3','middle',aleph,'shed, new photo jig',dewi,date(09,08,2020),time(18,45,59)).
+image('20R4671:0011502',0077,'t-1','middle',aleph,'shed, new photo jig',dewi,date(09,08,2020),time(18,47,06)).
+image('20R4671:0011504',0078,'t-1','middle',aleph,'shed, new photo jig',dewi,date(09,08,2020),time(18,48,06)).
+image('20R4672:0011602',0079,'t-2','middle',aleph,'shed, new photo jig',dewi,date(09,08,2020),time(18,49,18)).
+image('20R4436:0011806',0080,'t-2','middle',aleph,'shed, new photo jig',dewi,date(09,08,2020),time(18,50,19)).
+image('20R4436:0011807',0081,'t-1','middle',aleph,'shed, new photo jig',dewi,date(09,08,2020),time(18,51,16)).
+image('20R4269:0012001',0082,'t-2','middle',aleph,'shed, new photo jig',dewi,date(09,08,2020),time(18,52,18)).
+image('20R4269:0012007',0083,'t-1','middle',aleph,'shed, new photo jig',dewi,date(09,08,2020),time(18,53,22)).
+image('20R4269:0012012',0084,'t-1','middle',aleph,'shed, new photo jig',dewi,date(09,08,2020),time(18,54,51)).
+image('20R4456:0012105',0085,t0,'middle',aleph,'shed, new photo jig',dewi,date(09,08,2020),time(18,55,56)).
+image('20R4270:0012309',0086,'t-2','middle',aleph,'shed, new photo jig',dewi,date(09,08,2020),time(18,57,08)).
+image('20R4433:0012505',0087,'t-1','middle',aleph,'shed, new photo jig',dewi,date(09,08,2020),time(18,58,46)).
+image('20R4433:0012508',0088,'t-1','middle',aleph,'shed, new photo jig',dewi,date(09,08,2020),time(19,00,58)).
+image('20R4673:0012602',0089,'t-2','middle',aleph,'shed, new photo jig',dewi,date(09,08,2020),time(19,02,04)).
+image('20R4797:0012805',0090,e1,'middle',aleph,'shed, new photo jig',dewi,date(09,08,2020),time(19,03,17)).
+image('20R4797:0012904',0091,e1,'tip',aleph,'shed, new photo jig',dewi,date(09,08,2020),time(19,04,12)).
+image('20R4683:0019901',0092,'t-2','stem',aleph,'shed, new photo jig',dewi,date(09,08,2020),time(19,06,02)).
+image('20R4215:0020515',0093,'t-4','stem',aleph,'shed, new photo jig',dewi,date(09,08,2020),time(19,08,00)).
+image('20R4215:0020915',0094,'t-2','middle',aleph,'shed, new photo jig',dewi,date(09,08,2020),time(19,09,19)).
+image('20R4734:0021310',0095,'t-3','middle',aleph,'shed, new photo jig',dewi,date(09,08,2020),time(19,10,48)).
+image('20R4734:0021316',0096,'t-2','middle',aleph,'shed, new photo jig',dewi,date(09,08,2020),time(19,12,17)).
+image('20R4846:0021505',0097,'t-2','stem',aleph,'shed, new photo jig',dewi,date(09,08,2020),time(19,13,39)).
+image('20R4846:0021704',0098,'t-3','stem',aleph,'shed, new photo jig',dewi,date(09,08,2020),time(19,15,34)).
+image('20R4328:0021915',0099,'t-3','middle',aleph,'shed, new photo jig',dewi,date(09,08,2020),time(19,16,32)).
+image('20R4328:0021902',0100,'t-3','stem',aleph,'shed, new photo jig',dewi,date(09,08,2020),time(19,17,49)).
+image('20R4328:0022115',0101,'t-2','middle',aleph,'shed, new photo jig',dewi,date(09,08,2020),time(19,19,07)).
+image('20R4329:0022316',0102,'t-1','stem',aleph,'shed, new photo jig',dewi,date(09,08,2020),time(19,20,20)).
+image('20R4329:0022806',0103,'t-3','middle',aleph,'shed, new photo jig',dewi,date(09,08,2020),time(19,21,37)).
+image('20R4735:0023010',0104,'t-3','middle',aleph,'shed, new photo jig',dewi,date(09,08,2020),time(19,23,53)).
+image('20R4736:0023403',0105,'t-1','middle',aleph,'shed, new photo jig',dewi,date(09,08,2020),time(19,25,02)).
+image('20R4736:0023607',0106,t0,'whole',aleph,'shed, new photo jig',dewi,date(09,08,2020),time(19,25,52)).
+image('20R4859:0024008',0107,'t-2','whole',aleph,'shed, new photo jig',dewi,date(09,08,2020),time(19,27,00)).
+image('20R4737:0024209',0108,'t-2','middle',aleph,'shed, new photo jig',dewi,date(09,08,2020),time(19,27,52)).
+image('20R4638:0024909',0109,'t-2','stem',aleph,'shed, new photo jig',dewi,date(09,08,2020),time(19,28,47)).
+image('20R4737:0024208',0110,'t-3','stem',aleph,'shed, new photo jig',dewi,date(09,08,2020),time(19,30,15)).
+image('20R4638:0024701',0111,'t-1','whole',aleph,'shed, new photo jig',dewi,date(09,08,2020),time(19,31,22)).
+image('20R4737:0024408',0112,'t-3','middle',aleph,'shed, new photo jig',dewi,date(09,08,2020),time(19,32,28)).
+image('20R4815:0025906',0113,'t-1','middle',aleph,'shed, new photo jig',dewi,date(09,08,2020),time(19,33,19)).
+image('20R4815:0025907',0114,'t-1','middle',aleph,'shed, new photo jig',dewi,date(09,08,2020),time(19,34,29)).
+image('20R4815:0025903',0115,'t-1','middle',aleph,'shed, new photo jig',dewi,date(09,08,2020),time(19,35,36)).
+image('20R4816:0026005',0116,'t-2','middle',aleph,'shed, new photo jig',dewi,date(09,08,2020),time(19,37,17)).
+image('20R4816:0026007',0117,'t-1','middle',aleph,'shed, new photo jig',dewi,date(09,08,2020),time(19,38,17)).
+image('20R4816:0026001',0118,'t-1','middle',aleph,'shed, new photo jig',dewi,date(09,08,2020),time(19,39,38)).
+image('20R4817:0026101',0119,'t-2','middle',aleph,'shed, new photo jig',dewi,date(09,08,2020),time(19,41,12)).
+image('20R4711:0026203',0120,'t-1','whole',aleph,'shed, new photo jig',dewi,date(09,08,2020),time(19,43,28)).
+image('20R4711:0026205',0121,'t-3','whole',aleph,'shed, new photo jig',dewi,date(09,08,2020),time(19,44,26)).
+image('20R4711:0026207',0122,'t-1','stem',aleph,'shed, new photo jig',dewi,date(09,08,2020),time(19,46,04)).
+image('20R4711:0026213',0123,'t-1','stem',aleph,'shed, new photo jig',dewi,date(09,08,2020),time(19,47,09)).
+image('20R4797:0012909',0124,'t-2','middle',aleph,'shed, new photo jig',dewi,date(09,08,2020),time(19,48,33)).
+
+
+
+
+% data added from ../../../palm/raw_data_from_palms/20r/zeta/10.8/image.csv on Tue Aug 11 06:45:17 CDT 2020
+% by data/data_conversion/convert_image_data.perl
+% called from data/data_conversion/convert_data.perl
+
+image('20R4818:0026302',0126,'t-3','middle',aleph,'shed, new photo jig',dewi,date(10,08,2020),time(12,30,35)).
+image('20R4818:0026307',0127,'t-1','middle',aleph,'shed, new photo jig',dewi,date(10,08,2020),time(12,31,31)).
+image('20R4818:0026312',0128,'t-2','middle',aleph,'shed, new photo jig',dewi,date(10,08,2020),time(12,32,40)).
+image('20R4713:0026412',0129,t0,'middle',aleph,'shed, new photo jig',dewi,date(10,08,2020),time(12,33,36)).
+image('20R4362:0026612',0130,'e-1','middle',aleph,'shed, new photo jig',dewi,date(10,08,2020),time(12,34,33)).
+image('20R4819:0026701',0131,'t-1','middle',aleph,'shed, new photo jig',dewi,date(10,08,2020),time(12,35,51)).
+image('20R4819:0026714',0132,'t-1','middle',aleph,'shed, new photo jig',dewi,date(10,08,2020),time(12,37,06)).
+image('20R4820:0026804',0133,e0,'middle',aleph,'shed, new photo jig',dewi,date(10,08,2020),time(12,38,14)).
+image('20R4820:0026905',0134,'t-3','middle',aleph,'shed, new photo jig',dewi,date(10,08,2020),time(12,39,14)).
+image('20R4820:0026906',0135,'t-7','middle',aleph,'shed, new photo jig',dewi,date(10,08,2020),time(12,40,38)).
+image('20R4821:0027004',0136,'t-1','middle',aleph,'shed, new photo jig',dewi,date(10,08,2020),time(12,41,35)).
+image('20R4821:0027101',0137,'t-3','middle',aleph,'shed, new photo jig',dewi,date(10,08,2020),time(12,43,20)).
+image('20R4821:0027103',0138,'t-2','middle',aleph,'shed, new photo jig',dewi,date(10,08,2020),time(12,44,11)).
+image('20R4822:0027201',0139,'e-4','middle',aleph,'shed, new photo jig',dewi,date(10,08,2020),time(12,45,19)).
+image('20R4823:0027403',0140,'t-2','middle',aleph,'shed, new photo jig',dewi,date(10,08,2020),time(12,46,08)).
+image('20R4824:0027502',0141,t0,'whole',aleph,'shed, new photo jig',dewi,date(10,08,2020),time(12,47,01)).
+image('20R4824:0027602',0142,t0,'whole',aleph,'shed, new photo jig',dewi,date(10,08,2020),time(12,48,03)).
+image('20R4825:0027703',0143,'e-5','middle',aleph,'shed, new photo jig',dewi,date(10,08,2020),time(12,56,34)).
+image('20R4825:0027704',0144,'e-3','middle',aleph,'shed, new photo jig',dewi,date(10,08,2020),time(12,59,47)).
+image('20R3696:0027903',0145,'t-1','middle',aleph,'shed, new photo jig',dewi,date(10,08,2020),time(13,01,05)).
+image('20R3695:0027801',0146,'e-2','middle',aleph,'shed, new photo jig',dewi,date(10,08,2020),time(13,02,33)).
+image('20R3696:0027916',0147,'t-3','middle',aleph,'shed, new photo jig',dewi,date(10,08,2020),time(13,04,51)).
+image('20R3696:0027907',0148,'t-2','middle',aleph,'shed, new photo jig',dewi,date(10,08,2020),time(13,07,58)).
+image('20R4826:0028014',0149,e1,'middle',aleph,'shed, new photo jig',dewi,date(10,08,2020),time(13,10,19)).
+image('20R4827:0028107',0150,'e-6','middle',aleph,'shed, new photo jig',dewi,date(10,08,2020),time(13,11,54)).
+image('20R4827:0028111',0151,'e-6','middle',aleph,'shed, new photo jig',dewi,date(10,08,2020),time(13,13,33)).
+image('20R3700:0028208',0152,'e-1','middle',aleph,'shed, new photo jig',dewi,date(10,08,2020),time(13,16,16)).
+image('20R3700:0028206',0153,'e-1','middle',aleph,'shed, new photo jig',dewi,date(10,08,2020),time(13,17,35)).
+image('20R4828:0028403',0154,'t-2','tip',aleph,'shed, new photo jig',dewi,date(10,08,2020),time(13,18,49)).
+image('20R4828:0028407',0155,'t-2','whole',aleph,'shed, new photo jig',dewi,date(10,08,2020),time(13,20,05)).
+image('20R4685:0005314',0156,e3,'middle',aleph,'shed, new photo jig',dewi,date(10,08,2020),time(15,24,05)).
+image('20R4685:0005316',0157,e2,'middle',aleph,'shed, new photo jig',dewi,date(10,08,2020),time(15,25,02)).
+image('20R4685:0005318',0158,'e-2','middle',aleph,'shed, new photo jig',dewi,date(10,08,2020),time(15,26,03)).
+image('20R4829:0028502',0159,'t-2','whole',aleph,'shed, new photo jig',dewi,date(10,08,2020),time(15,27,31)).
+image('20R4190:0028603',0160,'t-6','middle',aleph,'shed, new photo jig',dewi,date(10,08,2020),time(15,28,50)).
+image('20R4192:0028702',0161,'t-2','whole',aleph,'shed, new photo jig',dewi,date(10,08,2020),time(15,29,55)).
+image('20R3675:0028801',0162,'t-2','middle',aleph,'shed, new photo jig',dewi,date(10,08,2020),time(15,31,20)).
+image('20R3675:0028809',0163,'t-3','middle',aleph,'shed, new photo jig',dewi,date(10,08,2020),time(15,32,16)).
+image('20R3676:0028901',0164,'t-1','tip',aleph,'shed, new photo jig',dewi,date(10,08,2020),time(15,34,12)).
+image('20R3676:0028908',0165,e2,'middle',aleph,'shed, new photo jig',dewi,date(10,08,2020),time(15,35,21)).
+image('20R4769:0029101',0166,'t-1','middle',aleph,'shed, new photo jig',dewi,date(10,08,2020),time(15,36,19)).
+image('20R4769:0029105',0167,t0,'stem',aleph,'shed, new photo jig',dewi,date(10,08,2020),time(15,37,13)).
+image('20R4769:0029109',0168,t0,'middle',aleph,'shed, new photo jig',dewi,date(10,08,2020),time(15,38,37)).
+image('20R4770:0029202',0169,'t-1','stem',aleph,'shed, new photo jig',dewi,date(10,08,2020),time(15,39,51)).
+image('20R4770:0029204',0170,t0,'middle',aleph,'shed, new photo jig',dewi,date(10,08,2020),time(15,41,26)).
+image('20R4831:0029307',0171,t0,'tip',aleph,'shed, new photo jig',dewi,date(10,08,2020),time(15,42,19)).
+image('20R4831:0029305',0172,'t-1','middle',aleph,'shed, new photo jig',dewi,date(10,08,2020),time(15,43,31)).
+image('20R4773:0029402',0173,t0,'whole',aleph,'shed, new photo jig',dewi,date(10,08,2020),time(15,44,21)).
+image('20R4833:0029503',0174,t0,'whole',aleph,'shed, new photo jig',dewi,date(10,08,2020),time(15,45,16)).
+image('20R4754:0029608',0175,'e-2','middle',aleph,'shed, new photo jig',dewi,date(10,08,2020),time(15,46,12)).
+image('20R4835:0029804',0176,e1,'middle',aleph,'shed, new photo jig',dewi,date(10,08,2020),time(15,47,41)).
+image('20R4836:0029914',0177,'e-2','middle',aleph,'shed, new photo jig',dewi,date(10,08,2020),time(15,49,21)).
+image('20R4837:0030003',0178,e1,'tip',aleph,'shed, new photo jig',dewi,date(10,08,2020),time(15,50,33)).
+image('20R4838:0030107',0179,'e-1','middle',aleph,'shed, new photo jig',dewi,date(10,08,2020),time(15,51,56)).
+image('20R4838:0030102',0180,'t-2','middle',aleph,'shed, new photo jig',dewi,date(10,08,2020),time(15,53,08)).
+image('20R4839:0030205',0181,'t-1','middle',aleph,'shed, new photo jig',dewi,date(10,08,2020),time(15,55,07)).
+image('20R4840:0030301',0182,'e-5','middle',aleph,'shed, new photo jig',dewi,date(10,08,2020),time(15,56,51)).
+image('20R4726:0030502',0183,'t-1','middle',aleph,'shed, new photo jig',dewi,date(10,08,2020),time(15,59,01)).
+image('20R4726:0030505',0184,'t-2','middle',aleph,'shed, new photo jig',dewi,date(10,08,2020),time(15,59,59)).
+image('20R4841:0030603',0185,'t-2','middle',aleph,'shed, new photo jig',dewi,date(10,08,2020),time(16,01,12)).
+image('20R4729:0030703',0186,e3,'middle',aleph,'shed, new photo jig',dewi,date(10,08,2020),time(16,02,06)).
+image('20R4732:0031206',0187,'t-1','middle',aleph,'shed, new photo jig',dewi,date(10,08,2020),time(16,08,42)).
+image('20R4847:0031307',0188,'t-4','middle',aleph,'shed, new photo jig',dewi,date(10,08,2020),time(16,10,00)).
+image('20R4849:0031609',0189,'e-1','middle',aleph,'shed, new photo jig',dewi,date(10,08,2020),time(16,11,06)).
+image('20R4849:0031610',0190,e1,'middle',aleph,'shed, new photo jig',dewi,date(10,08,2020),time(16,12,05)).
+image('20R4850:0031709',0191,'t-4','middle',aleph,'shed, new photo jig',dewi,date(10,08,2020),time(16,13,25)).
+image('20R4850:0031710',0192,'t-4','middle',aleph,'shed, new photo jig',dewi,date(10,08,2020),time(16,14,50)).
+image('20R4857:0032501',0193,'t-5','middle',aleph,'shed, new photo jig',dewi,date(10,08,2020),time(16,16,17)).
+%
+% the following leaves were collected on 26.7.2020 and kept in icy tap water (with chunks of ice) in the bottom of
+% the refrigerator at home until imaging and tissue collection on 10.8.2020.  The leaves were more fragile
+% and the supernatent greenish, so there had been some leakage of chlorophyll.  It's possible they would keep
+% significantly better in buffer.  Time will tell how badly the DNA was degraded in very suboptimal storage.
+%
+% images 
+% 
+% image('20R4817:0026101',0001,'t-3','middle',aleph,'shed, new photo jig',toni,date(26,07,2020),time(21,46,03)).
+% image('20R4817:0026103',0002,'t-5','middle',aleph,'shed, new photo jig',toni,date(26,07,2020),time(21,49,15)).
+% image('20R4817:0026114',0003,'t-3','stem',aleph,'shed, new photo jig',toni,date(26,07,2020),time(21,51,06)).
+%
+% should be compared to images
+%
+% image('20R4817:0026101',0202,'t-5','middle',aleph,'shed, new photo jig',dewi,date(10,08,2020),time(17,18,07)).
+% image('20R4817:0026103',0201,'t-5','middle',aleph,'shed, new photo jig',dewi,date(10,08,2020),time(17,15,24)).
+% image('20R4817:0026114',0200,'t-3','middle',aleph,'shed, new photo jig',dewi,date(10,08,2020),time(17,13,46)).
+%
+% to see how well the lesions are preserved after two weeks in tap water!
+%
+% Kazic, 11.8.2020
+%
+image('20R4711:0026203',0194,t0,'whole',aleph,'shed, new photo jig',dewi,date(10,08,2020),time(16,55,03)).
+image('20R4711:0026207',0195,t0,'whole',aleph,'shed, new photo jig',dewi,date(10,08,2020),time(16,57,28)).
+image('20R4818:0026312',0196,t0,'whole',aleph,'shed, new photo jig',dewi,date(10,08,2020),time(17,00,22)).
+image('20R4818:0026302',0197,'t-1','middle',aleph,'shed, new photo jig',dewi,date(10,08,2020),time(17,08,47)).
+image('20R4818:0026307',0198,t0,'middle',aleph,'shed, new photo jig',dewi,date(10,08,2020),time(17,10,25)).
+image('20R4711:0026205',0199,'t-2','middle',aleph,'shed, new photo jig',dewi,date(10,08,2020),time(17,12,23)).
+image('20R4817:0026114',0200,'t-3','middle',aleph,'shed, new photo jig',dewi,date(10,08,2020),time(17,13,46)).
+image('20R4817:0026103',0201,'t-5','middle',aleph,'shed, new photo jig',dewi,date(10,08,2020),time(17,15,24)).
+image('20R4817:0026101',0202,'t-5','middle',aleph,'shed, new photo jig',dewi,date(10,08,2020),time(17,18,07)).
+
+
+
+
+% data added from ../../../palm/raw_data_from_palms/20r/zeta/11.8/image.csv on Thu Aug 13 05:36:53 CDT 2020
+% by data/data_conversion/convert_image_data.perl
+% called from data/data_conversion/convert_data.perl
+
+image('20R4792:0006203',0204,e2,'middle',aleph,'shed, new photo jig',dewi,date(11,08,2020),time(17,28,30)).
+image('20R4671:0011501',0205,e4,'middle',aleph,'shed, new photo jig',dewi,date(11,08,2020),time(17,30,00)).
+image('20R4807:0015002',0206,e3,'middle',aleph,'shed, new photo jig',dewi,date(11,08,2020),time(17,31,08)).
+image('20R4812:0018317',0207,e4,'middle',aleph,'shed, new photo jig',dewi,date(11,08,2020),time(17,32,22)).
+image('20R4735:0023211',0208,'t-1','stem',aleph,'shed, new photo jig',dewi,date(11,08,2020),time(17,33,55)).
+image('20R4814:0025806',0209,e2,'middle',aleph,'shed, new photo jig',dewi,date(11,08,2020),time(17,34,59)).
+image('20R4362:0026603',0210,'e-1','tip',aleph,'shed, new photo jig',dewi,date(11,08,2020),time(17,36,26)).
+image('20R4362:0026604',0211,e0,'middle',aleph,'shed, new photo jig',dewi,date(11,08,2020),time(17,38,09)).
+image('20R4819:0026704',0212,e6,'middle',aleph,'shed, new photo jig',dewi,date(11,08,2020),time(17,40,21)).
+image('20R4819:0026710',0213,e6,'middle',aleph,'shed, new photo jig',dewi,date(11,08,2020),time(17,42,12)).
+image('20R4822:0027212',0214,e2,'tip',aleph,'shed, new photo jig',dewi,date(11,08,2020),time(17,44,42)).
+image('20R4822:0027205',0215,e2,'middle',aleph,'shed, new photo jig',dewi,date(11,08,2020),time(17,46,03)).
+image('20R4822:0027209',0216,e2,'middle',aleph,'shed, new photo jig',dewi,date(11,08,2020),time(17,48,37)).
+image('20R4826:0028001',0217,e5,'stem',aleph,'shed, new photo jig',dewi,date(11,08,2020),time(17,50,10)).
+image('20R4826:0028005',0218,e5,'middle',aleph,'shed, new photo jig',dewi,date(11,08,2020),time(17,51,46)).
+image('20R3700:0028212',0219,'e-5','middle',aleph,'shed, new photo jig',dewi,date(11,08,2020),time(17,52,56)).
+image('20R4835:0029801',0220,e1,'middle',aleph,'shed, new photo jig',dewi,date(11,08,2020),time(19,00,08)).
+image('20R4841:0030605',0221,'t-1','middle',aleph,'shed, new photo jig',dewi,date(11,08,2020),time(19,01,51)).
+image('20R4731:0030807',0222,'t-2','middle',aleph,'shed, new photo jig',dewi,date(11,08,2020),time(19,04,12)).
+image('20R4850:0031715',0223,e1,'middle',aleph,'shed, new photo jig',dewi,date(11,08,2020),time(19,06,10)).
+image('20R4851:0031801',0224,'e-2','middle',aleph,'shed, new photo jig',dewi,date(11,08,2020),time(19,08,06)).
+image('20R4854:0032115',0225,'t-5','middle',aleph,'shed, new photo jig',dewi,date(11,08,2020),time(19,09,24)).
+image('20R4854:0032114',0226,'t-4','middle',aleph,'shed, new photo jig',dewi,date(11,08,2020),time(19,11,10)).
+image('20R4855:0032213',0227,'t-4','middle',aleph,'shed, new photo jig',dewi,date(11,08,2020),time(19,13,36)).
+image('20R4855:0032215',0228,'t-1','middle',aleph,'shed, new photo jig',dewi,date(11,08,2020),time(19,14,19)).
+image('20R4856:0032308',0229,'e-4','middle',aleph,'shed, new photo jig',dewi,date(11,08,2020),time(19,16,49)).
+image('20R4857:0032504',0230,e4,'middle',aleph,'shed, new photo jig',dewi,date(11,08,2020),time(19,18,13)).
+image('20R4858:0033005',0231,e0,'middle',aleph,'shed, new photo jig',dewi,date(11,08,2020),time(19,19,48)).
+image('20R4858:0033006',0232,'e-1','middle',aleph,'shed, new photo jig',dewi,date(11,08,2020),time(19,21,14)).
+image('20R4858:0033205',0233,e1,'middle',aleph,'shed, new photo jig',dewi,date(11,08,2020),time(19,22,30)).
+image('20R4858:0033206',0234,e1,'middle',aleph,'shed, new photo jig',dewi,date(11,08,2020),time(19,23,53)).
+
+
+
+
+
+% 21r
+
+
+% corrected locale from 'ex situ ambient reflected, field'
+% to 'shed, new photo jig'
+% after checking the images directly.
+%
+% Kazic, 18.2.2022
+
+% we really did image only one day --- a Sunday.  Dewi confirms.
+%
+% Kazic, 25.7.2022
+
+
+
+% data added from ../../../palm/raw_data_from_palms/21r/zeta/22.8/image.csv on Tue Jan 25 12:30:49 CST 2022
+% by data/data_conversion/convert_image_data.perl
+% called from data/data_conversion/convert_data.perl
+
+image('21R4860:0002801',0053,'t-1','middle',aleph,'shack, new photo jig',dewi,date(22,08,2021),time(18,27,58)).
+image('21R4860:0002804',0055,t0,'middle',aleph,'shack, new photo jig',dewi,date(22,08,2021),time(18,30,58)).
+image('21R4860:0002812',0043,t0,'middle',aleph,'shack, new photo jig',dewi,date(22,08,2021),time(18,11,41)).
+image('21R4861:0004014',0003,t0,'whole',aleph,'shack, new photo jig',dewi,date(22,08,2021),time(16,54,24)).
+image('21R4862:0004305',0051,unk,'whole',aleph,'shack, new photo jig',dewi,date(22,08,2021),time(18,24,07)).
+image('21R4862:0004407',0066,'t-3','middle',aleph,'shack, new photo jig',dewi,date(22,08,2021),time(18,53,09)).
+image('21R3701:0004506',0081,t0,'middle',aleph,'shack, new photo jig',chimdi,date(22,08,2021),time(19,32,27)).
+image('21R4797:0004704',0067,'t-1','middle',aleph,'shack, new photo jig',dewi,date(22,08,2021),time(18,54,11)).
+image('21R4448:0004904',0062,'t-3','middle',aleph,'shack, new photo jig',dewi,date(22,08,2021),time(18,42,57)).
+image('21R4448:0005007',0060,e0,'middle',aleph,'shack, new photo jig',dewi,date(22,08,2021),time(18,40,18)).
+image('21R4762:0005309',0021,'t-1','middle',aleph,'shack, new photo jig',dewi,date(22,08,2021),time(17,37,31)).
+image('21R4762:0005313',0054,e0,'middle',aleph,'shack, new photo jig',dewi,date(22,08,2021),time(18,29,21)).
+image('21R4454:0005503',0046,e0,'middle',aleph,'shack, new photo jig',dewi,date(22,08,2021),time(18,15,25)).
+image('21R4672:0005806',0065,t0,'whole',aleph,'shack, new photo jig',dewi,date(22,08,2021),time(18,51,50)).
+image('21R4863:0006104',0068,t0,'middle',aleph,'shack, new photo jig',dewi,date(22,08,2021),time(18,55,17)).
+image('21R4459:0006203',0080,'t-1','middle',aleph,'shack, new photo jig',chimdi,date(22,08,2021),time(19,30,51)).
+image('21R4673:0006407',0069,e1,'middle',aleph,'shack, new photo jig',dewi,date(22,08,2021),time(19,00,05)).
+image('21R4864:0007109',0063,t0,'middle',aleph,'shack, new photo jig',dewi,date(22,08,2021),time(18,44,18)).
+image('21R4329:0007706',0056,'t-3','middle',aleph,'shack, new photo jig',dewi,date(22,08,2021),time(18,34,29)).
+image('21R4329:0007710',0048,'t-3','stem',aleph,'shack, new photo jig',dewi,date(22,08,2021),time(18,17,51)).
+image('21R4329:0007714',0040,'t-2','stem',aleph,'shack, new photo jig',dewi,date(22,08,2021),time(18,07,58)).
+image('21R4329:0007907',0023,'t-3','middle',aleph,'shack, new photo jig',dewi,date(22,08,2021),time(17,40,58)).
+image('21R4707:0010301',0064,'e-1','middle',aleph,'shack, new photo jig',dewi,date(22,08,2021),time(18,46,51)).
+image('21R4707:0010305',0031,e2,'tip',aleph,'shack, new photo jig',dewi,date(22,08,2021),time(17,53,46)).
+image('21R4707:0010308',0050,'t-1','middle',aleph,'shack, new photo jig',dewi,date(22,08,2021),time(18,21,08)).
+image('21R3567:0010406',0006,'e-3','tip',aleph,'shack, new photo jig',dewi,date(22,08,2021),time(17,02,37)).
+image('21R4708:0010601',0049,'e-1','middle',aleph,'shack, new photo jig',dewi,date(22,08,2021),time(18,19,29)).
+image('21R4708:0010604',0047,'e-1','tip',aleph,'shack, new photo jig',dewi,date(22,08,2021),time(18,16,25)).
+image('21R4273:0010807',0025,e0,'middle',aleph,'shack, new photo jig',dewi,date(22,08,2021),time(17,44,12)).
+image('21R4273:0010808',0013,e1,'middle',aleph,'shack, new photo jig',dewi,date(22,08,2021),time(17,19,22)).
+image('21R2427:0010902',0015,'t-3','stem',aleph,'shack, new photo jig',dewi,date(22,08,2021),time(17,26,44)).
+image('21R4866:0011701',0061,t0,'tip',aleph,'shack, new photo jig',dewi,date(22,08,2021),time(18,41,53)).
+image('21R4867:0011804',0011,'t-1','middle',aleph,'shack, new photo jig',dewi,date(22,08,2021),time(17,15,57)).
+image('21R4867:0011808',0052,t0,'tip',aleph,'shack, new photo jig',dewi,date(22,08,2021),time(18,26,12)).
+image('21R4867:0011809',0018,'t-1','middle',aleph,'shack, new photo jig',dewi,date(22,08,2021),time(17,33,15)).
+image('21R4867:0011813',0026,'t-2','middle',aleph,'shack, new photo jig',dewi,date(22,08,2021),time(17,46,23)).
+image('21R4867:0011814',0039,'t-1','middle',aleph,'shack, new photo jig',dewi,date(22,08,2021),time(18,05,01)).
+image('21R4868:0011905',0034,'t-2','middle',aleph,'shack, new photo jig',dewi,date(22,08,2021),time(17,57,45)).
+image('21R4869:0012104',0058,e1,'middle',aleph,'shack, new photo jig',dewi,date(22,08,2021),time(18,36,39)).
+image('21R4869:0012107',0016,'e-1','middle',aleph,'shack, new photo jig',dewi,date(22,08,2021),time(17,28,29)).
+image('21R4092:0012203',0057,t0,'middle',aleph,'shack, new photo jig',dewi,date(22,08,2021),time(18,35,35)).
+image('21R4092:0012204',0059,t0,'middle',aleph,'shack, new photo jig',dewi,date(22,08,2021),time(18,37,46)).
+image('21R4870:0012303',0037,t0,'stem',aleph,'shack, new photo jig',dewi,date(22,08,2021),time(18,02,11)).
+image('21R4873:0012603',0004,'t-1','whole',aleph,'shack, new photo jig',dewi,date(22,08,2021),time(16,57,50)).
+image('21R4873:0012609',0036,'t-1','middle',aleph,'shack, new photo jig',dewi,date(22,08,2021),time(18,00,59)).
+image('21R4874:0012703',0008,'t-1','middle',aleph,'shack, new photo jig',dewi,date(22,08,2021),time(17,08,33)).
+image('21R4875:0012804',0041,'t-2','middle',aleph,'shack, new photo jig',dewi,date(22,08,2021),time(18,09,18)).
+image('21R4875:0012806',0042,'t-2','middle',aleph,'shack, new photo jig',dewi,date(22,08,2021),time(18,10,23)).
+image('21R4877:0013206',0032,'t-3','whole',aleph,'shack, new photo jig',dewi,date(22,08,2021),time(17,55,06)).
+image('21R4809:0013504',0035,'t-1','whole',aleph,'shack, new photo jig',dewi,date(22,08,2021),time(17,59,47)).
+image('21R4811:0013802',0045,'e-5','tip',aleph,'shack, new photo jig',dewi,date(22,08,2021),time(18,14,26)).
+image('21R4812:0013901',0033,'t-1','tip',aleph,'shack, new photo jig',dewi,date(22,08,2021),time(17,56,29)).
+image('21R4813:0014003',0044,e3,'middle',aleph,'shack, new photo jig',dewi,date(22,08,2021),time(18,12,48)).
+image('21R4813:0014004',0038,e1,'middle',aleph,'shack, new photo jig',dewi,date(22,08,2021),time(18,03,24)).
+image('21R4840:0014207',0012,'e-1','middle',aleph,'shack, new photo jig',dewi,date(22,08,2021),time(17,17,32)).
+image('21R4840:0014208',0024,e0,'middle',aleph,'shack, new photo jig',dewi,date(22,08,2021),time(17,42,37)).
+image('21R4879:0014303',0019,'t-1','middle',aleph,'shack, new photo jig',dewi,date(22,08,2021),time(17,34,37)).
+image('21R4879:0014304',0027,'t-2','stem',aleph,'shack, new photo jig',dewi,date(22,08,2021),time(17,47,56)).
+image('21R4842:0014405',0029,t0,'middle',aleph,'shack, new photo jig',dewi,date(22,08,2021),time(17,50,45)).
+image('21R4880:0014501',0030,'e-5','middle',aleph,'shack, new photo jig',dewi,date(22,08,2021),time(17,51,32)).
+image('21R4881:0014701',0028,'t-1','middle',aleph,'shack, new photo jig',dewi,date(22,08,2021),time(17,49,22)).
+image('21R4825:0014802',0014,e0,'middle',aleph,'shack, new photo jig',dewi,date(22,08,2021),time(17,20,51)).
+image('21R3696:0014904',0007,e2,'middle',aleph,'shack, new photo jig',dewi,date(22,08,2021),time(17,07,17)).
+image('21R3696:0014906',0009,e2,'middle',aleph,'shack, new photo jig',dewi,date(22,08,2021),time(17,11,35)).
+image('21R4882:0015104',0020,'e-2','middle',aleph,'shack, new photo jig',dewi,date(22,08,2021),time(17,36,03)).
+image('21R4829:0015504',0010,t0,'whole',aleph,'shack, new photo jig',dewi,date(22,08,2021),time(17,13,50)).
+image('21R4854:0015702',0022,'t-1','middle',aleph,'shack, new photo jig',dewi,date(22,08,2021),time(17,39,09)).
+image('21R4885:0015804',0005,t0,'middle',aleph,'shack, new photo jig',dewi,date(22,08,2021),time(17,00,43)).
+image('21R4885:0015901',0017,'t-3','middle',aleph,'shack, new photo jig',dewi,date(22,08,2021),time(17,30,36)).
+image('21R4870:0023205',0002,'t-1','whole',aleph,'shack, new photo jig',dewi,date(22,08,2021),time(16,45,26)).
+image('21R4870:0023207',0001,'t-1','whole',aleph,'shack, new photo jig',dewi,date(22,08,2021),time(16,40,31)).
+
+
+% 22r
+
+
+
+
+
+
+% data added from ../../../palm/raw_data_from_palms/22r/zeta/18.7/image.csv on Mon Jul 25 08:44:18 CDT 2022
+% by data/data_conversion/convert_image_data.perl
+% called from data/data_conversion/convert_data.perl
+
+
+% filenames corrected to match barcodes on images
+%
+% Kazic, 25.7.2022
+
+
+
+image('22R4920:0010420',0003,b0,'middle',aleph,'shack, photo jig',chimdi,date(18,07,2022),time(14,27,42)).
+image('22R4635:0009713',0004,b0,'middle',aleph,'shack, photo jig',chimdi,date(18,07,2022),time(14,40,03)).
+image('22R4920:0010411',0005,b0,'middle',aleph,'shack, photo jig',chimdi,date(18,07,2022),time(14,44,23)).
+image('22R4921:0010512',0006,b0,'middle',aleph,'shack, photo jig',chimdi,date(18,07,2022),time(14,50,16)).
+image('22R4638:0011212',0007,b0,'middle',aleph,'shack, photo jig',chimdi,date(18,07,2022),time(14,56,36)).
+image('22R4921:0010602',0008,b0,'middle',aleph,'shack, photo jig',chimdi,date(18,07,2022),time(15,00,16)).
+image('22R4915:0009812',0009,b0,'whole',aleph,'shack, photo jig',chimdi,date(18,07,2022),time(15,03,54)).
+image('22R3883:0006109',0010,b0,'whole',aleph,'shack, photo jig',chimdi,date(18,07,2022),time(15,08,08)).
+image('22R4919:0010213',0011,b0,'middle',aleph,'shack, photo jig',chimdi,date(18,07,2022),time(15,13,23)).
+image('22R4920:0010415',0012,b0,'middle',aleph,'shack, photo jig',chimdi,date(18,07,2022),time(15,16,58)).
+image('22R4919:0010329',0013,b0,'middle',aleph,'shack, photo jig',chimdi,date(18,07,2022),time(15,24,41)).
+image('22R4919:0010305',0014,b0,'middle',aleph,'shack, photo jig',chimdi,date(18,07,2022),time(15,26,06)).
+image('22R4638:0011223',0015,b0,'middle',aleph,'shack, photo jig',chimdi,date(18,07,2022),time(15,27,37)).
+image('22R4919:0010318',0016,b0,'middle',aleph,'shack, photo jig',chimdi,date(18,07,2022),time(15,30,31)).
+image('22R4920:0010416',0017,b0,'middle',aleph,'shack, photo jig',chimdi,date(18,07,2022),time(15,35,02)).
+image('22R4919:0010316',0018,b0,'middle',aleph,'shack, photo jig',chimdi,date(18,07,2022),time(15,41,08)).
+image('22R4638:0011214',0019,b0,'middle',aleph,'shack, photo jig',chimdi,date(18,07,2022),time(15,42,25)).
+image('22R4828:0009601',0020,b0,'middle',aleph,'shack, photo jig',chimdi,date(18,07,2022),time(16,05,14)).
+image('22R4638:0011104',0021,b0,'middle',aleph,'shack, photo jig',chimdi,date(18,07,2022),time(16,08,03)).
+image('22R4828:0009602',0022,b0,'middle',aleph,'shack, photo jig',chimdi,date(18,07,2022),time(16,09,23)).
+image('22R4828:0009606',0023,b0,'middle',aleph,'shack, photo jig',chimdi,date(18,07,2022),time(16,11,08)).
+image('22R4828:0009603',0024,b0,'middle',aleph,'shack, photo jig',chimdi,date(18,07,2022),time(16,12,09)).
+image('22R4919:0010303',0025,b0,'middle',aleph,'shack, photo jig',chimdi,date(18,07,2022),time(16,16,27)).
+image('22R4915:0009807',0026,b0,'middle',aleph,'shack, photo jig',chimdi,date(18,07,2022),time(16,17,26)).
+image('22R4916:0009917',0027,b0,'middle',aleph,'shack, photo jig',chimdi,date(18,07,2022),time(16,20,08)).
+image('22R4921:0010623',0028,b0,'middle',aleph,'shack, photo jig',chimdi,date(18,07,2022),time(16,21,31)).
+image('22R4828:0009623',0029,b0,'middle',aleph,'shack, photo jig',chimdi,date(18,07,2022),time(16,22,50)).
+image('22R4916:0009916',0030,b0,'middle',aleph,'shack, photo jig',chimdi,date(18,07,2022),time(16,39,09)).
+image('22R4921:0010621',0031,b0,'middle',aleph,'shack, photo jig',chimdi,date(18,07,2022),time(16,40,18)).
+image('22R4638:0011105',0032,b0,'middle',aleph,'shack, photo jig',chimdi,date(18,07,2022),time(16,41,55)).
+image('22R4915:0009805',0033,b0,'middle',aleph,'shack, photo jig',chimdi,date(18,07,2022),time(16,43,09)).
+image('22R4921:0010511',0034,b0,'middle',aleph,'shack, photo jig',chimdi,date(18,07,2022),time(16,44,04)).
+image('22R4917:0010002',0035,b0,'middle',aleph,'shack, photo jig',chimdi,date(18,07,2022),time(16,54,46)).
+%
+% image 36 is blurry, will need sharpening
+%
+image('22R4828:0009613',0036,b0,'middle',aleph,'shack, photo jig',chimdi,date(18,07,2022),time(16,57,01)).
+image('22R4828:0009615',0037,b0,'middle',aleph,'shack, photo jig',chimdi,date(18,07,2022),time(16,58,41)).
+image('22R4921:0010620',0038,b0,'middle',aleph,'shack, photo jig',chimdi,date(18,07,2022),time(16,59,46)).
+image('22R4921:0010624',0039,b0,'middle',aleph,'shack, photo jig',chimdi,date(18,07,2022),time(17,00,38)).
+image('22R4916:0009918',0040,b0,'middle',aleph,'shack, photo jig',chimdi,date(18,07,2022),time(17,03,13)).
+image('22R4921:0010524',0041,b0,'middle',aleph,'shack, photo jig',chimdi,date(18,07,2022),time(17,04,22)).
+image('22R4921:0010505',0042,b0,'middle',aleph,'shack, photo jig',chimdi,date(18,07,2022),time(17,05,29)).
+image('22R4635:0009708',0043,b0,'middle',aleph,'shack, photo jig',chimdi,date(18,07,2022),time(17,06,26)).
+image('22R4638:0011227',0044,b0,'middle',aleph,'shack, photo jig',chimdi,date(18,07,2022),time(17,07,19)).
+image('22R4916:0009913',0045,b0,'middle',aleph,'shack, photo jig',chimdi,date(18,07,2022),time(17,33,44)).
+image('22R4919:0010304',0046,b0,'middle',aleph,'shack, photo jig',chimdi,date(18,07,2022),time(17,35,50)).
+image('22R3883:0006107',0047,b0,'middle',aleph,'shack, photo jig',chimdi,date(18,07,2022),time(17,37,25)).
+image('22R4828:0009614',0048,b0,'middle',aleph,'shack, photo jig',chimdi,date(18,07,2022),time(17,38,40)).
+image('22R3883:0006104',0049,b0,'middle',aleph,'shack, photo jig',chimdi,date(18,07,2022),time(17,39,34)).
+image('22R4917:0010006',0050,b0,'middle',aleph,'shack, photo jig',chimdi,date(18,07,2022),time(17,42,03)).
+image('22R4917:0010816',0051,b0,'middle',aleph,'shack, photo jig',chimdi,date(18,07,2022),time(17,42,59)).
+image('22R4915:0009819',0052,b0,'middle',aleph,'shack, photo jig',chimdi,date(18,07,2022),time(17,43,52)).
+image('22R4638:0011207',0053,b0,'middle',aleph,'shack, photo jig',chimdi,date(18,07,2022),time(17,44,59)).
+image('22R4828:0009611',0054,b0,'middle',aleph,'shack, photo jig',chimdi,date(18,07,2022),time(17,46,18)).
+image('22R4915:0009809',0055,b0,'whole',aleph,'shack, photo jig',chimdi,date(18,07,2022),time(17,48,46)).
+image('22R4916:0009905',0056,b0,'middle',aleph,'shack, photo jig',chimdi,date(18,07,2022),time(17,50,20)).
+image('22R4919:0010223',0057,b0,'middle',aleph,'shack, photo jig',chimdi,date(18,07,2022),time(17,51,18)).
+image('22R4919:0010222',0058,b0,'middle',aleph,'shack, photo jig',chimdi,date(18,07,2022),time(17,52,12)).
+image('22R4920:0010425',0059,b0,'middle',aleph,'shack, photo jig',chimdi,date(18,07,2022),time(17,53,10)).
+image('22R4919:0010209',0060,b0,'middle',aleph,'shack, photo jig',chimdi,date(18,07,2022),time(17,55,41)).
+image('22R4635:0009708',0061,b0,'middle',aleph,'shack, photo jig',chimdi,date(18,07,2022),time(17,56,39)).
+image('22R4921:0010510',0062,b0,'middle',aleph,'shack, photo jig',chimdi,date(18,07,2022),time(17,58,28)).
+image('22R4919:0010211',0063,b0,'middle',aleph,'shack, photo jig',chimdi,date(18,07,2022),time(17,59,27)).
+image('22R4919:0010225',0064,b0,'middle',aleph,'shack, photo jig',chimdi,date(18,07,2022),time(18,00,42)).
+image('22R4635:0009716',0065,b0,'middle',aleph,'shack, photo jig',chimdi,date(18,07,2022),time(18,10,43)).
+image('22R4635:0009720',0066,b0,'middle',aleph,'shack, photo jig',chimdi,date(18,07,2022),time(18,11,36)).
+image('22R4638:0011211',0067,b0,'middle',aleph,'shack, photo jig',chimdi,date(18,07,2022),time(18,12,38)).
+image('22R4917:0010017',0068,b0,'middle',aleph,'shack, photo jig',chimdi,date(18,07,2022),time(18,13,36)).
+image('22R4921:0010520',0069,b0,'middle',aleph,'shack, photo jig',chimdi,date(18,07,2022),time(18,14,48)).
+image('22R4638:0011215',0070,b0,'middle',aleph,'shack, photo jig',chimdi,date(18,07,2022),time(18,17,37)).
+image('22R4919:0010312',0071,b0,'middle',aleph,'shack, photo jig',chimdi,date(18,07,2022),time(18,18,54)).
+image('22R4828:0009607',0072,b0,'middle',aleph,'shack, photo jig',chimdi,date(18,07,2022),time(18,20,00)).
+image('22R4917:0010025',0073,b0,'middle',aleph,'shack, photo jig',chimdi,date(18,07,2022),time(18,21,29)).
+image('22R4638:0011205',0074,b0,'middle',aleph,'shack, photo jig',chimdi,date(18,07,2022),time(18,22,53)).
+%
+% image 75 is blurry, will need sharpening
+%
+image('22R4917:0010021',0075,b0,'middle',aleph,'shack, photo jig',chimdi,date(18,07,2022),time(18,35,10)).
+image('22R4915:0009801',0076,b0,'middle',aleph,'shack, photo jig',chimdi,date(18,07,2022),time(18,36,47)).
+image('22R4915:0009802',0077,b0,'middle',aleph,'shack, photo jig',chimdi,date(18,07,2022),time(18,38,09)).
+image('22R4919:0010207',0078,b0,'middle',aleph,'shack, photo jig',chimdi,date(18,07,2022),time(18,39,20)).
+image('22R4921:0010609',0079,b0,'middle',aleph,'shack, photo jig',chimdi,date(18,07,2022),time(18,40,57)).
+image('22R4635:0009703',0080,b0,'middle',aleph,'shack, photo jig',chimdi,date(18,07,2022),time(18,42,28)).
+
+
+
+
+% data added from ../../../palm/raw_data_from_palms/22r/zeta/19.7/image.csv on Mon Jul 25 08:44:39 CDT 2022
+% by data/data_conversion/convert_image_data.perl
+% called from data/data_conversion/convert_data.perl
+
+
+
+
+% huh? what's the difference? second has a hand-written tag, but these are
+% not different sections of the same leaf per images
+%
+% Kazic, 21.7.2022
+%
+image('22R2267:0027117',0037,b0,'middle',aleph,'shack, photo jig',chimdi,date(19,07,2022),time(15,53,07)).
+image('22R2267:0027117',0083,b0,'middle',aleph,'shack, photo jig',chimdi,date(19,07,2022),time(18,47,27)).
+%
+image('22R2267:0027002',0031,b0,'tip',aleph,'shack, photo jig',chimdi,date(19,07,2022),time(15,39,57)).
+image('22R2267:0027002',0032,b0,'middle',aleph,'shack, photo jig',chimdi,date(19,07,2022),time(15,40,55)).
+image('22R2267:0027013',0082,b0,'middle',aleph,'shack, photo jig',chimdi,date(19,07,2022),time(18,45,44)).
+image('22R2267:0027014',0081,b0,'middle',aleph,'shack, photo jig',chimdi,date(19,07,2022),time(18,44,45)).
+image('22R2267:0027015',0064,b0,'middle',aleph,'shack, photo jig',chimdi,date(19,07,2022),time(18,09,43)).
+image('22R2267:0027103',0069,b0,'middle',aleph,'shack, photo jig',chimdi,date(19,07,2022),time(18,14,12)).
+image('22R2267:0027105',0059,b0,'middle',aleph,'shack, photo jig',chimdi,date(19,07,2022),time(18,02,03)).
+image('22R2267:0027106',0008,b0,'middle',aleph,'shack, photo jig',chimdi,date(19,07,2022),time(14,47,47)).
+image('22R2267:0027107',0041,b0,'middle',aleph,'shack, photo jig',chimdi,date(19,07,2022),time(15,57,04)).
+image('22R2267:0027115',0090,b0,'middle',aleph,'shack, photo jig',chimdi,date(19,07,2022),time(18,59,20)).
+image('22R4682:0027704',0087,b0,'middle',aleph,'shack, photo jig',chimdi,date(19,07,2022),time(18,55,46)).
+image('22R4682:0027706',0074,b0,'middle',aleph,'shack, photo jig',chimdi,date(19,07,2022),time(18,32,48)).
+image('22R4682:0027709',0034,b0,'middle',aleph,'shack, photo jig',chimdi,date(19,07,2022),time(15,50,30)).
+image('22R4682:0027711',0061,b0,'middle',aleph,'shack, photo jig',chimdi,date(19,07,2022),time(18,07,25)).
+image('22R4682:0027714',0072,b0,'middle',aleph,'shack, photo jig',chimdi,date(19,07,2022),time(18,28,06)).
+image('22R4682:0027716',0028,b0,'middle',aleph,'shack, photo jig',chimdi,date(19,07,2022),time(15,28,53)).
+image('22R4682:0027720',0045,b0,'middle',aleph,'shack, photo jig',chimdi,date(19,07,2022),time(16,02,33)).
+image('22R4924:0027801',0023,b0,'middle',aleph,'shack, photo jig',chimdi,date(19,07,2022),time(15,23,59)).
+image('22R4924:0027804',0068,b0,'middle',aleph,'shack, photo jig',chimdi,date(19,07,2022),time(18,12,50)).
+image('22R4924:0027806',0057,b0,'middle',aleph,'shack, photo jig',chimdi,date(19,07,2022),time(00,00,00)).
+image('22R4924:0027809',0056,b0,'middle',aleph,'shack, photo jig',chimdi,date(19,07,2022),time(16,51,01)).
+image('22R4924:0027817',0076,b0,'middle',aleph,'shack, photo jig',chimdi,date(19,07,2022),time(18,36,14)).
+image('22R4924:0027819',0067,b0,'middle',aleph,'shack, photo jig',chimdi,date(19,07,2022),time(18,12,04)).
+image('22R4924:0027820',0040,b0,'middle',aleph,'shack, photo jig',chimdi,date(19,07,2022),time(15,56,00)).
+image('22R4924:0027824',0073,b0,'middle',aleph,'shack, photo jig',chimdi,date(19,07,2022),time(18,31,25)).
+image('22R4924:0027910',0044,b0,'middle',aleph,'shack, photo jig',chimdi,date(19,07,2022),time(16,01,21)).
+image('22R4924:0027916',0046,b0,'middle',aleph,'shack, photo jig',chimdi,date(19,07,2022),time(16,38,40)).
+image('22R4924:0027917',0050,b0,'middle',aleph,'shack, photo jig',chimdi,date(19,07,2022),time(16,44,46)).
+image('22R4925:0028008',0024,b0,'middle',aleph,'shack, photo jig',chimdi,date(19,07,2022),time(15,25,07)).
+image('22R4925:0028010',0013,b0,'middle',aleph,'shack, photo jig',chimdi,date(19,07,2022),time(15,03,49)).
+image('22R4925:0028011',0070,b0,'middle',aleph,'shack, photo jig',chimdi,date(19,07,2022),time(18,15,11)).
+image('22R4925:0028103',0035,b0,'middle',aleph,'shack, photo jig',chimdi,date(19,07,2022),time(15,51,21)).
+image('22R4925:0028104',0055,b0,'middle',aleph,'shack, photo jig',chimdi,date(19,07,2022),time(16,49,43)).
+image('22R4925:0028106',0060,b0,'middle',aleph,'shack, photo jig',chimdi,date(19,07,2022),time(18,05,02)).
+image('22R4925:0028108',0049,b0,'middle',aleph,'shack, photo jig',chimdi,date(19,07,2022),time(16,43,02)).
+image('22R4925:0028116',0048,b0,'middle',aleph,'shack, photo jig',chimdi,date(19,07,2022),time(16,41,40)).
+image('22R4684:0028202',0018,b0,'middle',aleph,'shack, photo jig',chimdi,date(19,07,2022),time(15,11,43)).
+image('22R4684:0028204',0003,b0,'middle',aleph,'shack, photo jig',chimdi,date(19,07,2022),time(14,33,51)).
+image('22R4684:0028207',0053,b0,'middle',aleph,'shack, photo jig',chimdi,date(19,07,2022),time(16,47,32)).
+image('22R4684:0028208',0043,b0,'middle',aleph,'shack, photo jig',chimdi,date(19,07,2022),time(15,59,45)).
+image('22R4684:0028214',0051,b0,'middle',aleph,'shack, photo jig',chimdi,date(19,07,2022),time(16,45,16)).
+image('22R4684:0028220',0005,b0,'middle',aleph,'shack, photo jig',chimdi,date(19,07,2022),time(14,36,16)).
+image('22R4684:0028306',0080,b0,'middle',aleph,'shack, photo jig',chimdi,date(19,07,2022),time(18,42,13)).
+image('22R4684:0028308',0038,b0,'middle',aleph,'shack, photo jig',chimdi,date(19,07,2022),time(15,54,12)).
+image('22R4684:0028310',0036,b0,'middle',aleph,'shack, photo jig',chimdi,date(19,07,2022),time(15,52,10)).
+image('22R4684:0028311',0062,b0,'middle',aleph,'shack, photo jig',chimdi,date(19,07,2022),time(18,08,11)).
+image('22R4684:0028316',0091,b0,'middle',aleph,'shack, photo jig',chimdi,date(19,07,2022),time(19,00,30)).
+image('22R4684:0028317',0077,b0,'middle',aleph,'shack, photo jig',chimdi,date(19,07,2022),time(18,37,19)).
+image('22R4926:0028408',0071,b0,'middle',aleph,'shack, photo jig',chimdi,date(19,07,2022),time(18,27,05)).
+image('22R4926:0028409',0079,b0,'middle',aleph,'shack, photo jig',chimdi,date(19,07,2022),time(18,41,12)).
+image('22R4926:0028410',0063,b0,'middle',aleph,'shack, photo jig',chimdi,date(19,07,2022),time(18,09,02)).
+image('22R4926:0028504',0088,b0,'middle',aleph,'shack, photo jig',chimdi,date(19,07,2022),time(18,56,47)).
+image('22R4926:0028505',0075,b0,'middle',aleph,'shack, photo jig',chimdi,date(19,07,2022),time(18,34,12)).
+image('22R4926:0028515',0054,b0,'middle',aleph,'shack, photo jig',chimdi,date(19,07,2022),time(16,48,44)).
+image('22R4926:0028519',0039,b0,'middle',aleph,'shack, photo jig',chimdi,date(19,07,2022),time(15,55,49)).
+image('22R4926:0028520',0047,b0,'middle',aleph,'shack, photo jig',chimdi,date(19,07,2022),time(16,40,42)).
+image('22R4926:0028525',0042,b0,'middle',aleph,'shack, photo jig',chimdi,date(19,07,2022),time(15,58,33)).
+image('22R4926:0028526',0058,b0,'middle',aleph,'shack, photo jig',chimdi,date(19,07,2022),time(16,53,51)).
+image('22R4215:0028603',0017,b0,'middle',aleph,'shack, photo jig',chimdi,date(19,07,2022),time(15,09,58)).
+image('22R4215:0028611',0004,b0,'middle',aleph,'shack, photo jig',chimdi,date(19,07,2022),time(14,35,04)).
+image('22R4215:0028614',0022,b0,'middle',aleph,'shack, photo jig',chimdi,date(19,07,2022),time(15,22,38)).
+image('22R4215:0028619',0006,b0,'middle',aleph,'shack, photo jig',chimdi,date(19,07,2022),time(14,37,37)).
+image('22R4215:0028625',0052,b0,'middle',aleph,'shack, photo jig',chimdi,date(19,07,2022),time(16,46,12)).
+image('22R4215:0028628',0012,b0,'middle',aleph,'shack, photo jig',chimdi,date(19,07,2022),time(14,58,14)).
+image('22R4734:0028702',0010,b0,'middle',aleph,'shack, photo jig',chimdi,date(19,07,2022),time(14,49,36)).
+image('22R4734:0028713',0002,b0,'middle',aleph,'shack, photo jig',chimdi,date(19,07,2022),time(14,30,36)).
+image('22R4734:0028715',0019,b0,'middle',aleph,'shack, photo jig',chimdi,date(19,07,2022),time(15,13,05)).
+image('22R4734:0028717',0011,b0,'middle',aleph,'shack, photo jig',chimdi,date(19,07,2022),time(14,50,54)).
+image('22R4734:0028719',0009,b0,'middle',aleph,'shack, photo jig',chimdi,date(19,07,2022),time(14,48,59)).
+image('22R4734:0028721',0015,b0,'middle',aleph,'shack, photo jig',chimdi,date(19,07,2022),time(15,07,11)).
+image('22R4734:0028728',0007,b0,'middle',aleph,'shack, photo jig',chimdi,date(19,07,2022),time(14,46,30)).
+image('22R4846:0028807',0025,b0,'middle',aleph,'shack, photo jig',chimdi,date(19,07,2022),time(15,26,02)).
+image('22R4846:0028808',0020,b0,'middle',aleph,'shack, photo jig',chimdi,date(19,07,2022),time(15,14,22)).
+image('22R4846:0028809',0026,b0,'middle',aleph,'shack, photo jig',chimdi,date(19,07,2022),time(15,27,02)).
+image('22R4846:0028816',0027,b0,'middle',aleph,'shack, photo jig',chimdi,date(19,07,2022),time(15,28,03)).
+image('22R4846:0028817',0021,b0,'middle',aleph,'shack, photo jig',chimdi,date(19,07,2022),time(15,21,43)).
+image('22R4846:0028819',0085,b0,'middle',aleph,'shack, photo jig',chimdi,date(19,07,2022),time(18,54,17)).
+image('22R4846:0028907',0016,b0,'middle',aleph,'shack, photo jig',chimdi,date(19,07,2022),time(15,07,57)).
+image('22R4846:0028910',0086,b0,'middle',aleph,'shack, photo jig',chimdi,date(19,07,2022),time(18,54,56)).
+image('22R4846:0028914',0078,b0,'middle',aleph,'shack, photo jig',chimdi,date(19,07,2022),time(18,38,20)).
+image('22R4218:0029003',0030,b0,'middle',aleph,'shack, photo jig',chimdi,date(19,07,2022),time(15,39,25)).
+image('22R4218:0029005',0066,b0,'middle',aleph,'shack, photo jig',chimdi,date(19,07,2022),time(18,11,21)).
+image('22R4218:0029006',0065,b0,'middle',aleph,'shack, photo jig',chimdi,date(19,07,2022),time(18,10,19)).
+image('22R4218:0029012',0089,b0,'middle',aleph,'shack, photo jig',chimdi,date(19,07,2022),time(18,57,45)).
+image('22R4218:0029014',0014,b0,'middle',aleph,'shack, photo jig',chimdi,date(19,07,2022),time(15,05,14)).
+image('22R4218:0029016',0033,b0,'middle',aleph,'shack, photo jig',chimdi,date(19,07,2022),time(15,41,26)).
+image('22R4218:0029017',0084,b0,'middle',aleph,'shack, photo jig',chimdi,date(19,07,2022),time(18,53,41)).
+image('22R4218:0029018',0029,b0,'middle',aleph,'shack, photo jig',chimdi,date(19,07,2022),time(15,38,11)).
+
+
+
+
+% data added from ../../../palm/raw_data_from_palms/22r/zeta/20.7/image.csv on Mon Jul 25 08:45:02 CDT 2022
+% by data/data_conversion/convert_image_data.perl
+% called from data/data_conversion/convert_data.perl
+
+% huh? was this leaf imaged twice after rescuing it from sampling? the
+% temporally first one has printed bar code, second hand-written;
+% phenotypes clearly different.  Maybe the second one is 20013, which
+% should have been sampled but for which we didn't have a tag
+%
+% Kazic, 20.7.2022
+%
+image('22R4944:0020103',0220,b0,'middle',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(21,19,35)).
+image('22R4944:0020103',0222,b0,'middle',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(21,24,53)).
+%
+image('22R4828:0009601',0110,b1,'middle',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(16,40,56)).
+image('22R4828:0009602',0111,b1,'middle',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(16,42,19)).
+image('22R4828:0009603',0129,b1,'middle',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(17,07,03)).
+image('22R4828:0009606',0132,b1,'middle',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(17,13,41)).
+image('22R4828:0009607',0135,b0,'middle',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(17,27,08)).
+image('22R4828:0009611',0131,b1,'middle',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(17,12,07)).
+image('22R4828:0009613',0113,b1,'middle',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(16,44,11)).
+image('22R4828:0009614',0120,b1,'middle',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(16,57,16)).
+image('22R4828:0009615',0130,b1,'middle',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(17,09,05)).
+image('22R4828:0009623',0128,b1,'middle',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(17,06,14)).
+image('22R4828:0009625',0134,b1,'middle',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(17,26,06)).
+image('22R4635:0009703',0112,b1,'middle',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(16,43,26)).
+image('22R4635:0009708',0114,b1,'middle',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(16,45,22)).
+image('22R4635:0009713',0116,b1,'middle',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(16,48,54)).
+image('22R4635:0009716',0115,b1,'middle',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(16,46,58)).
+image('22R4635:0009720',0121,b1,'middle',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(16,59,36)).
+image('22R4635:0009722',0125,b1,'middle',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(17,03,25)).
+image('22R4915:0009801',0127,b1,'middle',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(17,05,45)).
+image('22R4915:0009802',0123,b1,'middle',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(17,01,17)).
+image('22R4915:0009805',0126,b1,'middle',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(17,04,04)).
+image('22R4915:0009807',0122,b1,'middle',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(17,00,20)).
+image('22R4915:0009809',0124,b1,'middle',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(17,02,25)).
+image('22R4915:0009812',0117,b1,'middle',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(16,54,12)).
+image('22R4915:0009812',0118,b1,'middle',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(16,54,14)).
+image('22R4915:0009812',0119,b1,'middle',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(16,54,15)).
+image('22R4915:0009819',0133,b1,'middle',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(17,24,39)).
+image('22R4935:0014601',0140,b0,'tip',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(17,31,28)).
+image('22R4935:0014602',0200,b0,'middle',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(19,10,31)).
+image('22R4935:0014705',0229,b0,'middle',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(21,39,35)).
+image('22R4935:0014707',0217,b0,'middle',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(21,17,19)).
+image('22R4268:0014802',0235,b0,'middle',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(21,45,14)).
+image('22R4268:0014806',0233,b0,'middle',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(21,43,40)).
+image('22R4268:0014810',0230,b0,'middle',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(21,40,42)).
+image('22R4268:0014903',0164,b0,'middle',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(18,18,00)).
+image('22R4268:0014905',0102,b0,'middle',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(15,58,02)).
+image('22R4268:0014906',0098,b0,'middle',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(15,53,04)).
+image('22R4268:0014907',0095,b0,'middle',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(15,48,38)).
+image('22R4268:0014908',0101,b0,'middle',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(15,56,28)).
+image('22R4268:0014909',0232,b0,'middle',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(21,42,20)).
+image('22R4943:0019903',0205,b0,'middle',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(21,04,54)).
+image('22R4943:0019904',0202,b0,'middle',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(21,02,31)).
+image('22R4943:0019905',0236,b0,'middle',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(21,48,14)).
+image('22R4943:0019906',0213,b0,'middle',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(21,13,33)).
+image('22R4943:0019907',0237,b0,'middle',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(21,49,30)).
+image('22R4943:0019908',0207,b0,'middle',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(21,06,26)).
+image('22R4943:0019909',0206,b0,'middle',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(21,05,33)).
+image('22R4943:0019910',0178,b0,'middle',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(18,40,26)).
+image('22R4943:0019912',0184,b0,'middle',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(18,46,56)).
+image('22R4943:0019914',0161,b0,'middle',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(18,16,04)).
+image('22R4943:0019915',0183,b0,'middle',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(18,45,56)).
+image('22R4943:0019916',0238,b0,'middle',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(21,50,14)).
+image('22R4943:0019918',0139,b0,'tip',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(17,30,54)).
+image('22R4943:0020001',0219,b0,'middle',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(21,18,52)).
+image('22R4943:0020004',0169,b0,'middle',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(18,26,35)).
+image('22R4943:0020007',0218,b0,'middle',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(21,17,56)).
+image('22R4943:0020008',0224,b0,'middle',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(21,28,59)).
+image('22R4943:0020012',0221,b0,'middle',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(21,20,30)).
+image('22R4944:0020105',0239,b0,'middle',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(21,51,19)).
+image('22R4944:0020108',0215,b0,'middle',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(21,15,33)).
+image('22R4944:0020109',0216,b0,'middle',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(21,16,27)).
+image('22R4944:0020111',0228,b0,'middle',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(21,33,20)).
+image('22R4944:0020202',0223,b0,'middle',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(21,25,14)).
+image('22R4944:0020203',0181,b0,'middle',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(18,43,57)).
+image('22R4944:0020205',0190,b0,'middle',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(18,59,03)).
+image('22R4944:0020206',0186,b0,'middle',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(18,50,39)).
+image('22R4944:0020210',0180,b0,'middle',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(18,42,48)).
+image('22R4945:0020301',0196,b0,'middle',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(19,05,22)).
+image('22R4945:0020303',0194,b0,'middle',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(19,03,15)).
+image('22R4945:0020307',0240,b0,'middle',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(21,52,33)).
+image('22R4945:0020308',0214,b0,'middle',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(21,14,48)).
+image('22R4871:0020402',0209,b0,'middle',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(21,08,05)).
+image('22R4871:0020403',0204,b0,'middle',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(21,04,06)).
+image('22R4871:0020404',0203,b0,'middle',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(21,03,12)).
+image('22R4871:0020407',0211,b0,'middle',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(21,10,12)).
+image('22R4957:0021601',0173,b0,'tip',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(18,32,18)).
+image('22R4957:0021602',0142,b0,'middle',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(17,36,49)).
+image('22R4957:0021604',0163,b0,'middle',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(18,17,38)).
+image('22R4958:0021701',0208,b0,'middle',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(21,07,30)).
+image('22R4958:0021703',0227,b0,'middle',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(21,32,22)).
+image('22R4958:0021704',0226,b0,'middle',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(21,30,44)).
+image('22R4958:0021705',0231,b0,'middle',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(21,41,40)).
+image('22R4958:0021708',0225,b0,'middle',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(21,29,48)).
+image('22R4959:0021901',0197,b0,'middle',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(19,06,25)).
+image('22R4959:0021904',0212,b0,'middle',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(21,11,43)).
+image('22R4959:0021905',0195,b0,'middle',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(19,04,09)).
+image('22R4959:0021906',0210,b0,'middle',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(21,09,14)).
+image('22R4959:0021907',0234,b0,'middle',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(21,44,31)).
+image('22R4960:0022007',0136,b0,'middle',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(17,28,01)).
+image('22R4960:0022008',0155,b0,'middle',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(18,10,59)).
+image('22R4984:0022102',0109,b0,'tip',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(16,12,45)).
+image('22R4984:0022105',0104,b0,'middle',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(16,03,48)).
+image('22R4984:0022109',0201,b0,'middle',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(19,11,37)).
+image('22R4984:0022113',0146,b0,'middle',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(17,39,50)).
+image('22R4829:0022701',0167,b0,'middle',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(18,24,57)).
+image('22R4829:0022703',0138,b0,'middle',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(17,29,42)).
+image('22R4829:0022704',0166,b0,'middle',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(18,23,56)).
+image('22R4829:0022711',0177,b0,'middle',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(18,39,54)).
+image('22R4829:0022712',0176,b0,'middle',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(18,39,10)).
+image('22R4829:0022714',0145,b0,'middle',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(17,38,54)).
+image('22R4829:0022715',0168,b0,'middle',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(18,26,10)).
+image('22R3064:0022807',0149,b0,'middle',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(17,42,41)).
+image('22R3064:0022809',0151,b0,'middle',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(17,44,16)).
+image('22R3064:0022812',0144,b0,'middle',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(17,38,20)).
+image('22R3064:0022813',0182,b0,'middle',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(18,44,35)).
+image('22R3064:0022815',0099,b0,'middle',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(15,54,27)).
+image('22R3064:0022816',0170,b0,'middle',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(18,27,36)).
+image('22R3064:0022817',0147,b0,'middle',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(17,41,12)).
+image('22R4861:0022901',0158,b0,'middle',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(18,13,55)).
+image('22R4861:0022907',0175,b0,'middle',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(18,38,25)).
+image('22R4861:0022912',0165,b0,'middle',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(18,23,18)).
+image('22R4861:0022913',0157,b0,'middle',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(18,12,33)).
+image('22R4861:0022916',0198,b0,'middle',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(19,07,56)).
+image('22R4861:0022917',0171,b0,'middle',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(18,28,03)).
+image('22R4965:0023001',0179,b0,'middle',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(18,41,12)).
+image('22R4965:0023003',0160,b0,'middle',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(18,15,04)).
+image('22R4965:0023004',0172,b0,'middle',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(18,29,18)).
+image('22R4965:0023007',0162,b0,'middle',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(18,16,36)).
+image('22R4965:0023009',0156,b0,'middle',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(18,11,53)).
+image('22R4965:0023011',0174,b0,'tip',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(18,34,04)).
+image('22R4965:0023012',0159,b0,'middle',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(18,14,31)).
+image('22R4884:0023401',0199,b0,'middle',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(19,09,19)).
+image('22R4884:0023404',0189,b0,'middle',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(18,53,54)).
+image('22R4884:0023405',0192,b0,'middle',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(19,00,33)).
+image('22R4884:0023406',0193,b0,'middle',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(19,02,16)).
+image('22R4884:0023407',0185,b0,'middle',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(18,49,16)).
+image('22R4884:0023501',0152,b0,'middle',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(18,06,54)).
+image('22R4884:0023502',0153,b0,'middle',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(18,09,16)).
+image('22R4884:0023505',0188,b0,'middle',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(18,53,23)).
+image('22R4884:0023506',0154,b0,'middle',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(18,09,52)).
+image('22R4884:0023509',0106,b0,'middle',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(16,08,07)).
+image('22R4967:0023601',0137,b0,'middle',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(17,29,00)).
+image('22R4967:0023602',0148,b0,'middle',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(17,41,58)).
+image('22R4967:0023604',0141,b0,'middle',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(17,36,09)).
+image('22R4967:0023610',0143,b0,'middle',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(17,37,35)).
+image('22R4967:0023615',0108,b0,'middle',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(16,10,17)).
+image('22R4192:0023701',0096,b0,'middle',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(15,50,19)).
+image('22R4192:0023703',0093,b0,'middle',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(15,44,37)).
+image('22R4192:0023707',0105,b0,'middle',aleph,'shack, photo jig',dewi,date(20,07,2022),time(16,06,44)).
+image('22R4192:0023709',0103,b0,'middle',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(15,58,34)).
+image('22R4192:0023715',0107,b0,'middle',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(16,09,37)).
+image('22R4192:0023717',0150,b0,'tip',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(17,43,09)).
+image('22R4192:0023802',0094,b0,'middle',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(15,45,25)).
+image('22R4192:0023804',0191,b1,'middle',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(18,59,53)).
+image('22R4192:0023805',0187,b1,'middle',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(18,52,06)).
+image('22R4192:0023807',0097,b0,'middle',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(15,51,22)).
+image('22R4192:0023809',0100,b0,'middle',aleph,'shack, photo jig',chimdi,date(20,07,2022),time(15,55,35)).
+
+
+
+
+% data added from ../../../palm/raw_data_from_palms/22r/zeta/23.7/image.csv on Mon Jul 25 08:45:31 CDT 2022
+% by data/data_conversion/convert_image_data.perl
+% called from data/data_conversion/convert_data.perl
+
+image('22R4312:0006304',0242,b0,'middle',aleph,'shack, photo jig',chimdi,date(23,07,2022),time(14,06,51)).
+image('22R4312:0006313',0243,b0,'middle',aleph,'shack, photo jig',chimdi,date(23,07,2022),time(14,08,01)).
+image('22R4312:0006311',0244,b0,'middle',aleph,'shack, photo jig',chimdi,date(23,07,2022),time(14,09,51)).
+image('22R4858:0006202',0245,b0,'middle',aleph,'shack, photo jig',chimdi,date(23,07,2022),time(14,11,45)).
+image('22R4907:0004017',0246,b0,'middle',aleph,'shack, photo jig',chimdi,date(23,07,2022),time(14,12,34)).
+image('22R4565:0004820',0247,b0,'middle',aleph,'shack, photo jig',chimdi,date(23,07,2022),time(14,14,34)).
+image('22R4813:0005702',0248,b0,'middle',aleph,'shack, photo jig',chimdi,date(23,07,2022),time(14,16,00)).
+image('22R4813:0005804',0249,b0,'middle',aleph,'shack, photo jig',chimdi,date(23,07,2022),time(14,16,32)).
+image('22R4805:0003801',0250,b0,'middle',aleph,'shack, photo jig',chimdi,date(23,07,2022),time(14,17,46)).
+image('22R4565:0004720',0251,b0,'middle',aleph,'shack, photo jig',chimdi,date(23,07,2022),time(14,19,47)).
+image('22R4805:0003909',0252,b0,'middle',aleph,'shack, photo jig',chimdi,date(23,07,2022),time(14,20,43)).
+image('22R4907:0004008',0253,b0,'middle',aleph,'shack, photo jig',chimdi,date(23,07,2022),time(14,21,59)).
+image('22R4906:0003409',0254,b0,'middle',aleph,'shack, photo jig',chimdi,date(23,07,2022),time(14,23,05)).
+image('22R4907:0004009',0255,b0,'middle',aleph,'shack, photo jig',chimdi,date(23,07,2022),time(14,24,32)).
+image('22R4813:0005718',0256,b0,'middle',aleph,'shack, photo jig',chimdi,date(23,07,2022),time(14,25,17)).
+image('22R4565:0004811',0257,b0,'middle',aleph,'shack, photo jig',chimdi,date(23,07,2022),time(14,26,28)).
+image('22R4858:0006201',0258,b0,'middle',aleph,'shack, photo jig',chimdi,date(23,07,2022),time(14,27,48)).
+image('22R4858:0006212',0259,b0,'middle',aleph,'shack, photo jig',chimdi,date(23,07,2022),time(14,29,09)).
+image('22R4565:0004713',0260,b0,'middle',aleph,'shack, photo jig',chimdi,date(23,07,2022),time(14,30,28)).
+image('22R4565:0004722',0261,b0,'middle',aleph,'shack, photo jig',chimdi,date(23,07,2022),time(14,32,09)).
+image('22R4565:0004801',0262,b0,'middle',aleph,'shack, photo jig',chimdi,date(23,07,2022),time(14,32,57)).
+
+
+
+
+% data added from ../../../palm/raw_data_from_palms/22r/zeta/24.7/image.csv on Mon Jul 25 09:00:58 CDT 2022
+% by data/data_conversion/convert_image_data.perl
+% called from data/data_conversion/convert_data.perl
+
+image('22R4668:0014013',0264,b0,'middle',aleph,'shack, photo jig',chimdi,date(24,07,2022),time(13,44,47)).
+image('22R4946:0020513',0265,b0,'middle',aleph,'shack, photo jig',chimdi,date(24,07,2022),time(13,45,42)).
+image('22R4668:0014003',0266,b0,'middle',aleph,'shack, photo jig',chimdi,date(24,07,2022),time(13,47,16)).
+image('22R4668:0014006',0267,b0,'middle',aleph,'shack, photo jig',chimdi,date(24,07,2022),time(13,48,19)).
+image('22R4941:0019609',0268,b0,'middle',aleph,'shack, photo jig',chimdi,date(24,07,2022),time(13,52,59)).
+image('22R4264:0011701',0269,b0,'middle',aleph,'shack, photo jig',chimdi,date(24,07,2022),time(13,54,00)).
+image('22R4264:0011703',0270,b0,'middle',aleph,'shack, photo jig',chimdi,date(24,07,2022),time(13,56,33)).
+image('22R4667:0013812',0271,b0,'middle',aleph,'shack, photo jig',chimdi,date(24,07,2022),time(14,03,49)).
+image('22R4941:0019608',0272,b0,'middle',aleph,'shack, photo jig',chimdi,date(24,07,2022),time(14,04,35)).
+image('22R4946:0020511',0273,b0,'middle',aleph,'shack, photo jig',chimdi,date(24,07,2022),time(14,05,35)).
+image('22R4264:0011801',0274,b0,'middle',aleph,'shack, photo jig',chimdi,date(24,07,2022),time(14,07,07)).
+image('22R4942:0019703',0275,b0,'middle',aleph,'shack, photo jig',chimdi,date(24,07,2022),time(14,09,08)).
+image('22R4766:0012116',0276,b0,'middle',aleph,'shack, photo jig',chimdi,date(24,07,2022),time(14,09,54)).
+image('22R4942:0019701',0277,b0,'middle',aleph,'shack, photo jig',chimdi,date(24,07,2022),time(14,10,52)).
+image('22R4941:0019603',0278,b0,'middle',aleph,'shack, photo jig',chimdi,date(24,07,2022),time(14,14,20)).
+image('22R4668:0014112',0279,b0,'middle',aleph,'shack, photo jig',chimdi,date(24,07,2022),time(14,15,21)).
+image('22R4668:0014116',0280,b0,'middle',aleph,'shack, photo jig',chimdi,date(24,07,2022),time(14,16,36)).
+image('22R4668:0014113',0281,b0,'middle',aleph,'shack, photo jig',chimdi,date(24,07,2022),time(14,17,54)).
+image('22R4668:0014111',0282,b0,'middle',aleph,'shack, photo jig',chimdi,date(24,07,2022),time(14,20,56)).
+image('22R4668:0014103',0283,b0,'middle',aleph,'shack, photo jig',chimdi,date(24,07,2022),time(14,21,43)).
+image('22R4667:0013916',0284,b0,'middle',aleph,'shack, photo jig',chimdi,date(24,07,2022),time(14,22,53)).
+image('22R4667:0013807',0285,b0,'middle',aleph,'shack, photo jig',chimdi,date(24,07,2022),time(14,24,36)).
+image('22R4667:0013913',0286,b0,'middle',aleph,'shack, photo jig',chimdi,date(24,07,2022),time(14,25,59)).
+image('22R4667:0013905',0287,b0,'middle',aleph,'shack, photo jig',chimdi,date(24,07,2022),time(14,26,43)).
+image('22R4667:0013915',0288,b0,'middle',aleph,'shack, photo jig',chimdi,date(24,07,2022),time(14,27,34)).
+image('22R4667:0013904',0289,b0,'middle',aleph,'shack, photo jig',chimdi,date(24,07,2022),time(14,28,35)).
+image('22R4667:0013809',0290,b0,'middle',aleph,'shack, photo jig',chimdi,date(24,07,2022),time(14,30,30)).
+image('22R4766:0012109',0291,b0,'middle',aleph,'shack, photo jig',chimdi,date(24,07,2022),time(14,31,27)).
+image('22R4766:0012107',0292,b0,'middle',aleph,'shack, photo jig',chimdi,date(24,07,2022),time(14,32,43)).
+image('22R4454:0013703',0293,b0,'middle',aleph,'shack, photo jig',chimdi,date(24,07,2022),time(14,33,40)).
+image('22R4454:0013604',0294,b0,'middle',aleph,'shack, photo jig',chimdi,date(24,07,2022),time(14,37,46)).
+image('22R4667:0013804',0295,b0,'middle',aleph,'shack, photo jig',chimdi,date(24,07,2022),time(14,38,43)).
+image('22R4556:0013511',0296,b0,'middle',aleph,'shack, photo jig',chimdi,date(24,07,2022),time(14,39,21)).
+image('22R4556:0013512',0297,b0,'middle',aleph,'shack, photo jig',chimdi,date(24,07,2022),time(14,40,53)).
+image('22R4454:0013701',0298,b0,'middle',aleph,'shack, photo jig',chimdi,date(24,07,2022),time(14,41,30)).
+image('22R4556:0013507',0299,b0,'middle',aleph,'shack, photo jig',chimdi,date(24,07,2022),time(14,42,54)).
+image('22R4766:0012203',0300,b0,'middle',aleph,'shack, photo jig',chimdi,date(24,07,2022),time(14,44,31)).
+image('22R4449:0013313',0301,b0,'middle',aleph,'shack, photo jig',chimdi,date(24,07,2022),time(14,46,18)).
+image('22R4932:0012807',0302,b0,'middle',aleph,'shack, photo jig',chimdi,date(24,07,2022),time(14,48,00)).
+image('22R4449:0013203',0303,b0,'middle',aleph,'shack, photo jig',chimdi,date(24,07,2022),time(14,58,37)).
+image('22R4932:0012805',0304,b0,'middle',aleph,'shack, photo jig',chimdi,date(24,07,2022),time(15,00,46)).
+image('22R4449:0013207',0305,b0,'middle',aleph,'shack, photo jig',chimdi,date(24,07,2022),time(15,05,11)).
+image('22R4449:0013210',0306,b0,'middle',aleph,'shack, photo jig',chimdi,date(24,07,2022),time(15,05,52)).
+image('22R4449:0013219',0307,b0,'middle',aleph,'shack, photo jig',chimdi,date(24,07,2022),time(15,06,57)).
+image('22R4449:0013217',0308,b0,'middle',aleph,'shack, photo jig',chimdi,date(24,07,2022),time(15,07,39)).
+image('22R4766:0012208',0309,b0,'middle',aleph,'shack, photo jig',chimdi,date(24,07,2022),time(15,08,45)).
+image('22R4933:0012903',0310,b0,'middle',aleph,'shack, photo jig',chimdi,date(24,07,2022),time(15,12,14)).
+image('22R4556:0013409',0311,b0,'middle',aleph,'shack, photo jig',chimdi,date(24,07,2022),time(15,13,31)).
+image('22R4449:0013312',0312,b0,'middle',aleph,'shack, photo jig',chimdi,date(24,07,2022),time(15,15,22)).
+image('22R4264:0011804',0313,b0,'middle',aleph,'shack, photo jig',chimdi,date(24,07,2022),time(15,16,17)).
+image('22R4264:0011802',0314,b0,'middle',aleph,'shack, photo jig',chimdi,date(24,07,2022),time(15,17,32)).
+image('22R4556:0013506',0315,b0,'middle',aleph,'shack, photo jig',chimdi,date(24,07,2022),time(15,18,13)).
+image('22R4556:0013411',0316,b0,'middle',aleph,'shack, photo jig',chimdi,date(24,07,2022),time(15,19,00)).
+image('22R4933:0013001',0317,b0,'middle',aleph,'shack, photo jig',chimdi,date(24,07,2022),time(15,19,32)).
+image('22R4259:0008205',0318,b0,'middle',aleph,'shack, photo jig',chimdi,date(24,07,2022),time(15,29,09)).
+image('22R4449:0013317',0319,b0,'middle',aleph,'shack, photo jig',chimdi,date(24,07,2022),time(15,30,06)).
+image('22R4932:0012801',0320,b0,'middle',aleph,'shack, photo jig',chimdi,date(24,07,2022),time(15,31,28)).
+image('22R4766:0012217',0321,b0,'middle',aleph,'shack, photo jig',chimdi,date(24,07,2022),time(15,34,03)).
+image('22R4766:0012215',0322,b0,'middle',aleph,'shack, photo jig',chimdi,date(24,07,2022),time(15,35,31)).
+image('22R4933:0013005',0323,b0,'middle',aleph,'shack, photo jig',chimdi,date(24,07,2022),time(15,36,55)).
+image('22R4663:0009209',0324,b0,'middle',aleph,'shack, photo jig',chimdi,date(24,07,2022),time(15,38,05)).
+image('22R4932:0012802',0325,b0,'middle',aleph,'shack, photo jig',chimdi,date(24,07,2022),time(15,39,03)).
+image('22R4766:0012113',0326,b0,'middle',aleph,'shack, photo jig',chimdi,date(24,07,2022),time(15,43,45)).
+image('22R4929:0012009',0327,b0,'middle',aleph,'shack, photo jig',chimdi,date(24,07,2022),time(15,44,02)).
+image('22R4663:0009213',0328,b0,'middle',aleph,'shack, photo jig',chimdi,date(24,07,2022),time(15,44,35)).
+image('22R4453:0008905',0329,b0,'middle',aleph,'shack, photo jig',chimdi,date(24,07,2022),time(15,45,18)).
+image('22R4259:0008211',0330,b0,'middle',aleph,'shack, photo jig',chimdi,date(24,07,2022),time(15,45,56)).
+image('22R4663:0009218',0331,b0,'middle',aleph,'shack, photo jig',chimdi,date(24,07,2022),time(15,47,40)).
+image('22R4663:0009301',0332,b0,'middle',aleph,'shack, photo jig',chimdi,date(24,07,2022),time(15,50,58)).
+image('22R4453:0008802',0333,b0,'middle',aleph,'shack, photo jig',chimdi,date(24,07,2022),time(15,53,38)).
+image('22R4909:0004609',0334,b0,'middle',aleph,'shack, photo jig',chimdi,date(24,07,2022),time(16,05,40)).
+image('22R4909:0004615',0335,b0,'middle',aleph,'shack, photo jig',chimdi,date(24,07,2022),time(16,06,09)).
+image('22R4932:0012704',0336,b0,'middle',aleph,'shack, photo jig',chimdi,date(24,07,2022),time(16,07,03)).
+image('22R4932:0012705',0337,b0,'middle',aleph,'shack, photo jig',chimdi,date(24,07,2022),time(16,07,26)).
+image('22R4929:0012002',0338,b0,'middle',aleph,'shack, photo jig',chimdi,date(24,07,2022),time(16,07,58)).
+image('22R4929:0011907',0339,b0,'middle',aleph,'shack, photo jig',chimdi,date(24,07,2022),time(16,08,38)).
+image('22R4929:0012006',0340,b0,'middle',aleph,'shack, photo jig',chimdi,date(24,07,2022),time(16,09,44)).
+image('22R4931:0012610',0341,b0,'middle',aleph,'shack, photo jig',chimdi,date(24,07,2022),time(16,10,38)).
+image('22R4663:0009314',0342,b0,'middle',aleph,'shack, photo jig',chimdi,date(24,07,2022),time(16,12,29)).
+image('22R4932:0012706',0343,b0,'middle',aleph,'shack, photo jig',chimdi,date(24,07,2022),time(16,13,08)).
+image('22R4663:0009311',0344,b0,'middle',aleph,'shack, photo jig',chimdi,date(24,07,2022),time(16,13,49)).
+image('22R4663:0009206',0345,b0,'middle',aleph,'shack, photo jig',chimdi,date(24,07,2022),time(16,14,18)).
+image('22R4453:0008811',0346,b0,'middle',aleph,'shack, photo jig',chimdi,date(24,07,2022),time(16,15,07)).
+image('22R4453:0008801',0347,b0,'middle',aleph,'shack, photo jig',chimdi,date(24,07,2022),time(16,15,40)).
+image('22R4449:0013315',0348,b0,'middle',aleph,'shack, photo jig',chimdi,date(24,07,2022),time(16,16,12)).
+image('22R4663:0009305',0349,b0,'middle',aleph,'shack, photo jig',chimdi,date(24,07,2022),time(16,16,41)).
+image('22R4259:0008212',0350,b0,'middle',aleph,'shack, photo jig',chimdi,date(24,07,2022),time(16,17,30)).
+image('22R4931:0012614',0351,b0,'middle',aleph,'shack, photo jig',chimdi,date(24,07,2022),time(16,19,05)).
+image('22R4264:0011705',0352,b0,'middle',aleph,'shack, photo jig',chimdi,date(24,07,2022),time(16,20,06)).
+image('22R4931:0012613',0353,b0,'middle',aleph,'shack, photo jig',chimdi,date(24,07,2022),time(16,20,34)).
+image('22R4909:0004602',0354,b0,'middle',aleph,'shack, photo jig',chimdi,date(24,07,2022),time(16,21,05)).
+image('22R4932:0012701',0355,b0,'middle',aleph,'shack, photo jig',chimdi,date(24,07,2022),time(16,22,03)).
+image('22R4766:0012210',0356,b0,'middle',aleph,'shack, photo jig',chimdi,date(24,07,2022),time(16,22,34)).
+image('22R4929:0011901',0357,b0,'middle',aleph,'shack, photo jig',chimdi,date(24,07,2022),time(16,23,15)).
+image('22R4929:0011910',0358,b0,'middle',aleph,'shack, photo jig',chimdi,date(24,07,2022),time(16,24,00)).
+
+
+
+
+% data added from ../../../palm/raw_data_from_palms/22r/zeta/5.8/image.csv on Sat Aug  6 18:57:19 CDT 2022
+% by data/data_conversion/convert_image_data.perl
+% called from data/data_conversion/convert_data.perl
+
+image('22R4897:0003008',0420,'e-4','middle',aleph,'shack, photo jig',chimdi,date(05,08,2022),time(20,39,00)).
+image('22R4898:0003106',0416,'e-4','middle',aleph,'shack, photo jig',chimdi,date(05,08,2022),time(20,33,09)).
+image('22R4898:0003107',0367,'e-3','middle',aleph,'shack, photo jig',chimdi,date(05,08,2022),time(18,09,09)).
+image('22R4898:0003109',0371,e0,'middle',aleph,'shack, photo jig',chimdi,date(05,08,2022),time(18,31,32)).
+image('22R4899:0003208',0400,'e-1','middle',aleph,'shack, photo jig',chimdi,date(05,08,2022),time(19,50,55)).
+image('22R4899:0003209',0410,'e-3','middle',aleph,'shack, photo jig',chimdi,date(05,08,2022),time(20,23,45)).
+image('22R4899:0003212',0415,'e-1','middle',aleph,'shack, photo jig',chimdi,date(05,08,2022),time(20,31,41)).
+image('22R4900:0003309',0412,'e-1','middle',aleph,'shack, photo jig',chimdi,date(05,08,2022),time(20,26,48)).
+image('22R4906:0003511',0408,'e-1','middle',aleph,'shack, photo jig',chimdi,date(05,08,2022),time(20,18,33)).
+image('22R4906:0003514',0398,'e-1','middle',aleph,'shack, photo jig',chimdi,date(05,08,2022),time(19,48,36)).
+image('22R4907:0004101',0368,e0,'middle',aleph,'shack, photo jig',chimdi,date(05,08,2022),time(18,11,18)).
+image('22R4907:0004111',0369,'e-2','middle',aleph,'shack, photo jig',chimdi,date(05,08,2022),time(18,11,57)).
+image('22R4907:0004115',0399,'e-1','middle',aleph,'shack, photo jig',chimdi,date(05,08,2022),time(19,49,10)).
+image('22R4908:0004201',0372,e0,'middle',aleph,'shack, photo jig',chimdi,date(05,08,2022),time(18,32,25)).
+image('22R4908:0004208',0374,'e-1','middle',aleph,'shack, photo jig',chimdi,date(05,08,2022),time(18,34,17)).
+image('22R4908:0004210',0392,'e-1','middle',aleph,'shack, photo jig',chimdi,date(05,08,2022),time(19,26,30)).
+image('22R4908:0004301',0405,e0,'middle',aleph,'shack, photo jig',chimdi,date(05,08,2022),time(19,56,14)).
+image('22R4908:0004308',0390,'e-1','middle',aleph,'shack, photo jig',chimdi,date(05,08,2022),time(19,23,51)).
+image('22R4908:0004310',0403,'e-2','middle',aleph,'shack, photo jig',chimdi,date(05,08,2022),time(19,53,43)).
+image('22R4902:0006001',0407,'e-1','middle',aleph,'shack, photo jig',chimdi,date(05,08,2022),time(19,59,07)).
+image('22R4902:0006011',0401,'e-4','middle',aleph,'shack, photo jig',chimdi,date(05,08,2022),time(19,51,31)).
+image('22R4902:0006014',0406,'e-5','middle',aleph,'shack, photo jig',chimdi,date(05,08,2022),time(19,57,58)).
+image('22R4858:0006206',0375,'t-2','middle',aleph,'shack, photo jig',chimdi,date(05,08,2022),time(18,38,11)).
+image('22R4903:0006402',0395,'e-3','middle',aleph,'shack, photo jig',chimdi,date(05,08,2022),time(19,29,41)).
+image('22R4903:0006403',0397,'e-2','middle',aleph,'shack, photo jig',chimdi,date(05,08,2022),time(19,31,48)).
+image('22R4903:0006409',0391,e0,'middle',aleph,'shack, photo jig',chimdi,date(05,08,2022),time(19,25,24)).
+image('22R4904:0006501',0373,'e-1','middle',aleph,'shack, photo jig',chimdi,date(05,08,2022),time(18,33,30)).
+image('22R4904:0006506',0387,e2,'middle',aleph,'shack, photo jig',chimdi,date(05,08,2022),time(19,07,23)).
+image('22R4904:0006509',0388,e2,'middle',aleph,'shack, photo jig',chimdi,date(05,08,2022),time(19,08,01)).
+image('22R4904:0006511',0385,e0,'middle',aleph,'shack, photo jig',chimdi,date(05,08,2022),time(19,04,41)).
+image('22R4905:0006604',0409,'e-2','middle',aleph,'shack, photo jig',chimdi,date(05,08,2022),time(20,21,40)).
+image('22R4905:0006606',0414,e0,'middle',aleph,'shack, photo jig',chimdi,date(05,08,2022),time(20,30,41)).
+image('22R4905:0006609',0404,e2,'middle',aleph,'shack, photo jig',chimdi,date(05,08,2022),time(19,55,01)).
+image('22R4074:0006711',0402,e1,'middle',aleph,'shack, photo jig',chimdi,date(05,08,2022),time(19,52,45)).
+image('22R4074:0006811',0411,e0,'middle',aleph,'shack, photo jig',chimdi,date(05,08,2022),time(20,25,16)).
+image('22R4927:0006917',0413,'e-2','middle',aleph,'shack, photo jig',chimdi,date(05,08,2022),time(20,27,54)).
+image('22R4927:0007011',0419,'e-2','middle',aleph,'shack, photo jig',chimdi,date(05,08,2022),time(20,37,18)).
+image('22R4927:0007017',0417,'e-1','middle',aleph,'shack, photo jig',chimdi,date(05,08,2022),time(20,34,34)).
+image('22R4457:0007302',0394,'e-1','middle',aleph,'shack, photo jig',chimdi,date(05,08,2022),time(19,28,13)).
+image('22R4457:0007404',0384,'t-1','middle',aleph,'shack, photo jig',chimdi,date(05,08,2022),time(19,03,58)).
+image('22R4225:0007602',0383,'e-1','middle',aleph,'shack, photo jig',chimdi,date(05,08,2022),time(19,01,39)).
+image('22R4225:0007603',0386,'e-2','middle',aleph,'shack, photo jig',chimdi,date(05,08,2022),time(19,06,30)).
+image('22R4928:0007702',0396,e5,'middle',aleph,'shack, photo jig',chimdi,date(05,08,2022),time(19,31,02)).
+image('22R4928:0007809',0393,e4,'middle',aleph,'shack, photo jig',chimdi,date(05,08,2022),time(19,27,42)).
+image('22R4928:0007814',0418,'t-4','middle',aleph,'shack, photo jig',chimdi,date(05,08,2022),time(20,36,27)).
+image('22R4259:0008206',0389,'e-1','middle',aleph,'shack, photo jig',chimdi,date(05,08,2022),time(19,23,14)).
+image('22R4541:0009001',0366,'t-4','middle',aleph,'shack, photo jig',chimdi,date(05,08,2022),time(18,06,42)).
+image('22R4663:0009216',0377,'t-1','middle',aleph,'shack, photo jig',chimdi,date(05,08,2022),time(18,41,39)).
+image('22R4929:0012001',0382,'t-3','middle',aleph,'shack, photo jig',chimdi,date(05,08,2022),time(18,59,26)).
+image('22R4938:0012307',0381,'t-1','middle',aleph,'shack, photo jig',chimdi,date(05,08,2022),time(18,57,44)).
+image('22R4930:0012310',0379,'e-1','middle',aleph,'shack, photo jig',chimdi,date(05,08,2022),time(18,55,04)).
+image('22R4930:0012313',0380,'t-3','middle',aleph,'shack, photo jig',chimdi,date(05,08,2022),time(18,56,18)).
+image('22R4449:0013212',0363,'e-1','middle',aleph,'shack, photo jig',chimdi,date(05,08,2022),time(18,04,18)).
+image('22R4667:0013902',0361,'e-3','middle',aleph,'shack, photo jig',chimdi,date(05,08,2022),time(00,00,00)).
+image('22R4793:0014217',0360,'e-2','middle',aleph,'shack, photo jig',chimdi,date(05,08,2022),time(18,00,06)).
+image('22R4797:0015016',0362,'t-2','middle',aleph,'shack, photo jig',chimdi,date(05,08,2022),time(18,02,08)).
+image('22R3952:0018104',0365,e1,'middle',aleph,'shack, photo jig',chimdi,date(05,08,2022),time(18,06,19)).
+image('22R3952:0018112',0378,'t-4','middle',aleph,'shack, photo jig',chimdi,date(05,08,2022),time(18,42,43)).
+image('22R4939:0018208',0370,e1,'middle',aleph,'shack, photo jig',chimdi,date(05,08,2022),time(18,29,55)).
+image('22R4939:0018207',0376,'t-5','middle',aleph,'shack, photo jig',chimdi,date(05,08,2022),time(18,39,07)).
+image('22R4866:0019402',0364,'t-2','middle',aleph,'shack, photo jig',chimdi,date(05,08,2022),time(18,05,11)).
+
+
+
+
+% data added from ../../../palm/raw_data_from_palms/22r/zeta/7.8/image.csv on Mon Aug  8 06:57:18 CDT 2022
+% by data/data_conversion/convert_image_data.perl
+% called from data/data_conversion/convert_data.perl
+
+image('22R4974:0025301',0422,'e-1','middle',aleph,'shack, photo jig',chimdi,date(07,08,2022),time(14,45,38)).
+image('22R4969:0024507',0423,e1,'middle',aleph,'shack, photo jig',chimdi,date(07,08,2022),time(14,46,32)).
+image('22R4969:0024605',0424,'e-1','middle',aleph,'shack, photo jig',chimdi,date(07,08,2022),time(14,47,27)).
+image('22R3720:0026609',0425,'t-3','middle',aleph,'shack, photo jig',chimdi,date(07,08,2022),time(14,49,00)).
+image('22R4981:0026313',0426,'e-1','middle',aleph,'shack, photo jig',chimdi,date(07,08,2022),time(14,50,14)).
+image('22R4974:0025309',0427,'e-2','middle',aleph,'shack, photo jig',chimdi,date(07,08,2022),time(14,53,25)).
+image('22R4969:0024602',0428,'e-1','middle',aleph,'shack, photo jig',chimdi,date(07,08,2022),time(14,53,28)).
+image('22R3673:0024408',0429,'t-1','middle',aleph,'shack, photo jig',chimdi,date(07,08,2022),time(14,54,14)).
+image('22R4976:0025509',0430,'t-3','middle',aleph,'shack, photo jig',chimdi,date(07,08,2022),time(14,55,50)).
+image('22R4976:0025516',0431,'t-3','middle',aleph,'shack, photo jig',chimdi,date(07,08,2022),time(14,56,52)).
+image('22R4969:0024611',0432,'t-4','middle',aleph,'shack, photo jig',chimdi,date(07,08,2022),time(14,59,38)).
+image('22R4971:0024912',0433,'t-2','middle',aleph,'shack, photo jig',chimdi,date(07,08,2022),time(15,05,41)).
+image('22R4851:0025911',0434,'t-2','middle',aleph,'shack, photo jig',chimdi,date(07,08,2022),time(15,08,32)).
+image('22R4851:0025907',0435,e2,'middle',aleph,'shack, photo jig',chimdi,date(07,08,2022),time(15,09,51)).
+image('22R4978:0025810',0436,'e-1','middle',aleph,'shack, photo jig',chimdi,date(07,08,2022),time(15,11,02)).
+image('22R3779:0025716',0437,e3,'middle',aleph,'shack, photo jig',chimdi,date(07,08,2022),time(15,12,19)).
+image('22R4979:0026108',0438,'e-1','middle',aleph,'shack, photo jig',chimdi,date(07,08,2022),time(15,14,25)).
+image('22R4976:0025515',0439,'t-3','middle',aleph,'shack, photo jig',chimdi,date(07,08,2022),time(15,15,16)).
+image('22R4973:0025202',0440,'t-3','middle',aleph,'shack, photo jig',chimdi,date(07,08,2022),time(15,19,43)).
+image('22R4973:0025211',0441,'t-2','middle',aleph,'shack, photo jig',chimdi,date(07,08,2022),time(15,20,49)).
+image('22R4973:0025206',0442,'t-1','middle',aleph,'shack, photo jig',chimdi,date(07,08,2022),time(15,22,01)).
+image('22R4851:0026014',0443,'t-4','middle',aleph,'shack, photo jig',chimdi,date(07,08,2022),time(15,23,05)).
+image('22R4851:0026017',0444,'t-1','middle',aleph,'shack, photo jig',chimdi,date(07,08,2022),time(15,23,59)).
+image('22R4979:0026102',0445,e3,'middle',aleph,'shack, photo jig',chimdi,date(07,08,2022),time(15,24,48)).
+image('22R4978:0025811',0446,'t-3','middle',aleph,'shack, photo jig',chimdi,date(07,08,2022),time(15,25,34)).
+image('22R4974:0025302',0447,e3,'middle',aleph,'shack, photo jig',chimdi,date(07,08,2022),time(15,26,30)).
+image('22R4977:0025610',0448,'t-2','middle',aleph,'shack, photo jig',chimdi,date(07,08,2022),time(15,27,09)).
+image('22R3671:0023903',0449,'e-2','middle',aleph,'shack, photo jig',chimdi,date(07,08,2022),time(15,34,14)).
+image('22R4968:0024008',0450,'e-2','middle',aleph,'shack, photo jig',chimdi,date(07,08,2022),time(15,35,26)).
+image('22R4883:0023304',0451,'t-2','middle',aleph,'shack, photo jig',chimdi,date(07,08,2022),time(15,35,59)).
+image('22R4968:0024107',0452,e3,'middle',aleph,'shack, photo jig',chimdi,date(07,08,2022),time(15,36,52)).
+image('22R4968:0024102',0453,'e-2','middle',aleph,'shack, photo jig',chimdi,date(07,08,2022),time(15,38,26)).
+image('22R3671:0023904',0454,'e-2','middle',aleph,'shack, photo jig',chimdi,date(07,08,2022),time(15,39,38)).
+image('22R4953:0021203',0455,'t-4','middle',aleph,'shack, photo jig',chimdi,date(07,08,2022),time(15,43,20)).
+image('22R4952:0021105',0456,'t-5','middle',aleph,'shack, photo jig',chimdi,date(07,08,2022),time(15,45,40)).
+image('22R4952:0021105',0457,'t-5','tip',aleph,'shack, photo jig',chimdi,date(07,08,2022),time(15,45,47)).
+image('22R4950:0020905',0458,'t-2','middle',aleph,'shack, photo jig',chimdi,date(07,08,2022),time(15,46,47)).
+image('22R4952:0021103',0459,e1,'middle',aleph,'shack, photo jig',chimdi,date(07,08,2022),time(15,47,53)).
+image('22R4950:0020910',0460,e1,'middle',aleph,'shack, photo jig',chimdi,date(07,08,2022),time(15,49,11)).
+image('22R4953:0021204',0461,e2,'middle',aleph,'shack, photo jig',chimdi,date(07,08,2022),time(15,50,54)).
+image('22R4981:0026307',0462,e2,'stem',aleph,'shack, photo jig',chimdi,date(07,08,2022),time(15,58,27)).
+image('22R4981:0026306',0463,'t-2','middle',aleph,'shack, photo jig',chimdi,date(07,08,2022),time(16,01,24)).
+image('22R4954:0021303',0464,e1,'middle',aleph,'shack, photo jig',chimdi,date(07,08,2022),time(16,02,54)).
+image('22R4883:0023206',0465,'t-1','middle',aleph,'shack, photo jig',chimdi,date(07,08,2022),time(16,03,57)).
+image('22R4953:0021208',0466,e2,'middle',aleph,'shack, photo jig',chimdi,date(07,08,2022),time(16,05,10)).
+image('22R4883:0023203',0467,'t-2','middle',aleph,'shack, photo jig',chimdi,date(07,08,2022),time(16,11,48)).
+image('22R4861:0022903',0468,'t-3','middle',aleph,'shack, photo jig',chimdi,date(07,08,2022),time(16,13,54)).
+image('22R3720:0026604',0469,'t-5','middle',aleph,'shack, photo jig',chimdi,date(07,08,2022),time(16,14,57)).
+image('22R4968:0024110',0470,e2,'middle',aleph,'shack, photo jig',chimdi,date(07,08,2022),time(16,16,13)).
+image('22R4964:0022609',0471,'t-1','middle',aleph,'shack, photo jig',chimdi,date(07,08,2022),time(16,17,00)).
+image('22R4851:0025904',0472,e2,'middle',aleph,'shack, photo jig',chimdi,date(07,08,2022),time(16,18,19)).
+image('22R4964:0022608',0473,'t-2','middle',aleph,'shack, photo jig',chimdi,date(07,08,2022),time(16,19,35)).
+image('22R4950:0020914',0474,e1,'middle',aleph,'shack, photo jig',chimdi,date(07,08,2022),time(16,24,30)).
+image('22R3779:0025703',0475,'e-1','middle',aleph,'shack, photo jig',chimdi,date(07,08,2022),time(16,25,44)).
+image('22R4949:0020804',0476,'t-2','middle',aleph,'shack, photo jig',chimdi,date(07,08,2022),time(16,27,04)).
+image('22R4949:0020804',0477,'t-2','tip',aleph,'shack, photo jig',chimdi,date(07,08,2022),time(16,27,06)).
+image('22R3779:0025708',0478,'e-4','middle',aleph,'shack, photo jig',chimdi,date(07,08,2022),time(16,27,53)).
+image('22R4259:0008110',0479,'t-2','middle',aleph,'shack, photo jig',chimdi,date(07,08,2022),time(16,30,17)).
+image('22R4951:0021003',0480,'t-3','middle',aleph,'shack, photo jig',chimdi,date(07,08,2022),time(16,31,07)).
+image('22R4951:0021010',0481,'t-2','middle',aleph,'shack, photo jig',chimdi,date(07,08,2022),time(16,32,33)).
+image('22R4871:0020406',0482,'t-2','middle',aleph,'shack, photo jig',chimdi,date(07,08,2022),time(16,33,35)).
+image('22R4947:0020607',0483,'t-2','middle',aleph,'shack, photo jig',chimdi,date(07,08,2022),time(16,34,33)).
+image('22R3129:0026712',0484,'t-7','middle',aleph,'shack, photo jig',chimdi,date(07,08,2022),time(16,37,22)).
+image('22R3713:0026409',0485,e1,'middle',aleph,'shack, photo jig',chimdi,date(07,08,2022),time(16,39,44)).
+image('22R3713:0026410',0486,e4,'middle',aleph,'shack, photo jig',chimdi,date(07,08,2022),time(16,40,21)).
+image('22R3720:0026607',0487,'t-2','middle',aleph,'shack, photo jig',chimdi,date(07,08,2022),time(16,41,47)).
+image('22R4980:0026201',0488,'t-3','middle',aleph,'shack, photo jig',chimdi,date(07,08,2022),time(16,43,22)).
+image('22R3720:0026610',0489,'t-4','middle',aleph,'shack, photo jig',chimdi,date(07,08,2022),time(16,44,17)).
+image('22R4954:0021314',0490,'t-3','middle',aleph,'shack, photo jig',chimdi,date(07,08,2022),time(16,45,24)).
+image('22R4952:0021104',0491,'t-4','middle',aleph,'shack, photo jig',chimdi,date(07,08,2022),time(16,46,33)).
+image('22R4941:0019503',0492,'e-1','middle',aleph,'shack, photo jig',chimdi,date(07,08,2022),time(16,48,35)).
+image('22R4947:0020609',0493,'t-2','middle',aleph,'shack, photo jig',chimdi,date(07,08,2022),time(16,49,48)).
+image('22R4946:0020503',0494,'t-3','middle',aleph,'shack, photo jig',chimdi,date(07,08,2022),time(16,51,14)).
+image('22R4941:0019504',0495,e2,'middle',aleph,'shack, photo jig',chimdi,date(07,08,2022),time(16,52,08)).
+image('22R4939:0018213',0496,e1,'middle',aleph,'shack, photo jig',chimdi,date(07,08,2022),time(16,53,14)).
+image('22R4941:0019501',0497,e1,'middle',aleph,'shack, photo jig',chimdi,date(07,08,2022),time(16,54,19)).
+image('22R4930:0012307',0498,'t-4','middle',aleph,'shack, photo jig',chimdi,date(07,08,2022),time(16,55,35)).
+image('22R4866:0019306',0499,'t-5','middle',aleph,'shack, photo jig',chimdi,date(07,08,2022),time(16,56,44)).
+image('22R4866:0019404',0500,'t-2','middle',aleph,'shack, photo jig',chimdi,date(07,08,2022),time(16,57,23)).
+
+
+
+
+% manual entry from ../../images/22r/fon/21.8/*MOV
+
+% image('',,'','',,'',toni,date(21,08,2022),time(16,00,00)).
+
+
+
+% 23r
+
+
+% data added from ../../../palm/raw_data_from_palms/23r/zeta/7.8/image.csv on Mon Aug  7 20:47:08 CDT 2023
+% by data/data_conversion/convert_image_data.perl
+% called from data/data_conversion/convert_data.perl
+
+image('23R4661:0018219',0002,'t-1','whole',aleph,'shack, photo jig',chimdi,date(07,08,2023),time(11,04,25)).
+image('23R4929:0018801',0003,'e-2','whole',aleph,'shack, photo jig',chimdi,date(07,08,2023),time(11,05,44)).
+image('23R5007:0018609',0004,t0,'middle',aleph,'shack, photo jig',chimdi,date(07,08,2023),time(11,06,55)).
+image('23R5005:0017506',0005,e0,'whole',aleph,'shack, photo jig',chimdi,date(07,08,2023),time(11,08,29)).
+image('23R5006:0018304',0006,t0,'whole',aleph,'shack, photo jig',chimdi,date(07,08,2023),time(00,00,00)).
+image('23R5005:0017602',0007,e0,'middle',aleph,'shack, photo jig',chimdi,date(07,08,2023),time(11,11,51)).
+image('23R5005:0017611',0008,'t-2','middle',aleph,'shack, photo jig',chimdi,date(07,08,2023),time(11,12,48)).
+image('23R5005:0017501',0009,e0,'middle',aleph,'shack, photo jig',chimdi,date(07,08,2023),time(11,14,00)).
+image('23R5006:0018407',0010,t0,'middle',aleph,'shack, photo jig',chimdi,date(07,08,2023),time(11,16,01)).
+image('23R4997:0015721',0011,'t-1','whole',aleph,'shack, photo jig',chimdi,date(07,08,2023),time(11,25,51)).
+image('23R5005:0017502',0012,'e-1','whole',aleph,'shack, photo jig',chimdi,date(07,08,2023),time(11,26,52)).
+image('23R4829:0015909',0013,'t-2','whole',aleph,'shack, photo jig',chimdi,date(07,08,2023),time(11,28,13)).
+image('23R4829:0015906',0014,'t-4','middle',aleph,'shack, photo jig',chimdi,date(07,08,2023),time(11,29,39)).
+image('23R4766:0018918',0015,e0,'whole',aleph,'shack, photo jig',chimdi,date(07,08,2023),time(11,30,36)).
+image('23R4766:0018923',0016,'t-1','middle',aleph,'shack, photo jig',chimdi,date(07,08,2023),time(11,31,38)).
+image('23R4661:0018201',0017,'t-2','middle',aleph,'shack, photo jig',chimdi,date(07,08,2023),time(11,33,18)).
+image('23R4661:0018121',0018,'t-2','middle',aleph,'shack, photo jig',chimdi,date(07,08,2023),time(11,34,28)).
+image('23R4661:0018222',0019,'t-1','middle',aleph,'shack, photo jig',chimdi,date(07,08,2023),time(11,35,17)).
+image('23R4996:0015633',0020,'t-1','middle',aleph,'shack, photo jig',chimdi,date(07,08,2023),time(11,38,15)).
+image('23R4998:0015826',0021,'t-1','whole',aleph,'shack, photo jig',chimdi,date(07,08,2023),time(11,39,45)).
+image('23R5000:0016304',0022,'t-1','whole',aleph,'shack, photo jig',chimdi,date(07,08,2023),time(11,40,58)).
+image('23R4661:0018101',0023,'t-1','whole',aleph,'shack, photo jig',chimdi,date(07,08,2023),time(11,41,33)).
+image('23R4661:0018207',0024,t0,'whole',aleph,'shack, photo jig',chimdi,date(07,08,2023),time(11,42,38)).
+image('23R4661:0018122',0025,'t-5','middle',aleph,'shack, photo jig',chimdi,date(07,08,2023),time(11,43,52)).
+image('23R5001:0016414',0026,'t-2','middle',aleph,'shack, photo jig',chimdi,date(07,08,2023),time(11,51,11)).
+image('23R5003:0016605',0027,'t-1','middle',aleph,'shack, photo jig',chimdi,date(07,08,2023),time(11,52,25)).
+image('23R5002:0016504',0028,'e-3','middle',aleph,'shack, photo jig',chimdi,date(07,08,2023),time(11,53,01)).
+image('23R5002:0016501',0029,e3,'middle',aleph,'shack, photo jig',chimdi,date(07,08,2023),time(11,53,59)).
+image('23R5003:0016602',0030,'e-3','middle',aleph,'shack, photo jig',chimdi,date(07,08,2023),time(11,55,12)).
+image('23R4448:0017220',0031,'t-1','middle',aleph,'shack, photo jig',chimdi,date(07,08,2023),time(11,56,11)).
+image('23R4448:0017218',0032,t0,'middle',aleph,'shack, photo jig',chimdi,date(07,08,2023),time(11,57,40)).
+image('23R5002:0016503',0033,'e-2','middle',aleph,'shack, photo jig',chimdi,date(07,08,2023),time(11,59,18)).
+image('23R4897:0014313',0034,'t-2','middle',aleph,'shack, photo jig',chimdi,date(07,08,2023),time(12,01,31)).
+image('23R5001:0016409',0035,'t-2','middle',aleph,'shack, photo jig',chimdi,date(07,08,2023),time(12,02,32)).
+image('23R5001:0016410',0036,e2,'middle',aleph,'shack, photo jig',chimdi,date(07,08,2023),time(12,03,53)).
+image('23R5003:0016612',0037,'t-1','middle',aleph,'shack, photo jig',chimdi,date(07,08,2023),time(12,04,47)).
+image('23R5002:0016502',0038,'t-1','middle',aleph,'shack, photo jig',chimdi,date(07,08,2023),time(12,06,07)).
+image('23R4829:0015921',0039,t0,'middle',aleph,'shack, photo jig',chimdi,date(07,08,2023),time(12,07,33)).
+image('23R4829:0015925',0040,t0,'whole',aleph,'shack, photo jig',chimdi,date(07,08,2023),time(12,09,32)).
+image('23R4897:0014311',0041,t0,'middle',aleph,'shack, photo jig',chimdi,date(07,08,2023),time(12,10,28)).
+image('23R4829:0015915',0042,'t-1','whole',aleph,'shack, photo jig',chimdi,date(07,08,2023),time(12,11,14)).
+image('23R5000:0016322',0043,'t-2','whole',aleph,'shack, photo jig',chimdi,date(07,08,2023),time(12,12,15)).
+image('23R4998:0015810',0044,t0,'whole',aleph,'shack, photo jig',chimdi,date(07,08,2023),time(12,13,24)).
+image('23R4999:0016219',0045,'t-2','whole',aleph,'shack, photo jig',chimdi,date(07,08,2023),time(12,14,20)).
+image('23R4999:0016226',0046,t0,'whole',aleph,'shack, photo jig',chimdi,date(07,08,2023),time(12,15,36)).
+image('23R4829:0015933',0047,'t-1','whole',aleph,'shack, photo jig',chimdi,date(07,08,2023),time(12,16,37)).
+
+
+% lunch
+
+image('23R5012:0021415',0048,'t-2','whole',aleph,'shack, photo jig',chimdi,date(07,08,2023),time(15,26,35)).
+
+
+% image 0049 is white balance after lunch --- the one above was shot after lunch but
+% before white balancing
+% "white balance",49,,,08/07/2023 15:28:54,chimdi,aleph,"shack, photo jig",unk,
+
+
+% this is a retake of 23R5012:0021415 after white balance
+
+image('23R5012:0021415',0050,'t-2','whole',aleph,'shack, photo jig',chimdi,date(07,08,2023),time(15,27,35)).
+
+
+image('23R5018:0022813',0051,'t-1','whole',aleph,'shack, photo jig',chimdi,date(07,08,2023),time(15,28,51)).
+image('23R5018:0022801',0052,t0,'whole',aleph,'shack, photo jig',chimdi,date(07,08,2023),time(15,29,56)).
+image('23R4932:0019313',0053,'t-2','whole',aleph,'shack, photo jig',chimdi,date(07,08,2023),time(15,30,58)).
+image('23R4984:0021209',0054,'e-3','middle',aleph,'shack, photo jig',chimdi,date(07,08,2023),time(15,32,17)).
+image('23R4932:0019408',0055,'t-2','whole',aleph,'shack, photo jig',chimdi,date(07,08,2023),time(15,33,45)).
+image('23R5012:0021412',0056,t0,'whole',aleph,'shack, photo jig',chimdi,date(07,08,2023),time(15,34,23)).
+image('23R4936:0022312',0057,'t-2','middle',aleph,'shack, photo jig',chimdi,date(07,08,2023),time(15,35,31)).
+image('23R4797:0022013',0058,'e-1','tip',aleph,'shack, photo jig',chimdi,date(07,08,2023),time(15,37,02)).
+
+% this is a tiller leaf, e1 is relative to that --- main plant had crummy leaves
+%
+image('23R4797:0022028',0059,e1,'middle',aleph,'shack, photo jig',chimdi,date(07,08,2023),time(15,38,01)).
+image('23R5016:0022608',0060,'t-2','middle',aleph,'shack, photo jig',chimdi,date(07,08,2023),time(15,41,26)).
+image('23R5014:0021705',0061,'t-2','middle',aleph,'shack, photo jig',chimdi,date(07,08,2023),time(15,42,25)).
+image('23R5012:0021309',0062,'t-1','middle',aleph,'shack, photo jig',chimdi,date(07,08,2023),time(15,44,06)).
+image('23R4932:0019305',0063,t0,'middle',aleph,'shack, photo jig',chimdi,date(07,08,2023),time(15,46,09)).
+image('23R5013:0021611',0064,t0,'middle',aleph,'shack, photo jig',chimdi,date(07,08,2023),time(15,47,31)).
+image('23R5013:0021509',0065,e0,'middle',aleph,'shack, photo jig',chimdi,date(07,08,2023),time(15,50,59)).
+image('23R4984:0021124',0066,'t-3','middle',aleph,'shack, photo jig',chimdi,date(07,08,2023),time(15,53,00)).
+image('23R4984:0021202',0067,'e-3','middle',aleph,'shack, photo jig',chimdi,date(07,08,2023),time(15,54,06)).
+image('23R4984:0021122',0068,'t-4','middle',aleph,'shack, photo jig',chimdi,date(07,08,2023),time(15,54,49)).
+image('23R5010:0020001',0069,'t-1','middle',aleph,'shack, photo jig',chimdi,date(07,08,2023),time(15,56,24)).
+image('23R5016:0022607',0070,e2,'middle',aleph,'shack, photo jig',chimdi,date(07,08,2023),time(15,58,22)).
+image('23R5014:0021811',0071,'t-2','middle',aleph,'shack, photo jig',chimdi,date(07,08,2023),time(15,59,21)).
+image('23R5013:0021603',0072,'t-2','middle',aleph,'shack, photo jig',chimdi,date(07,08,2023),time(16,01,21)).
+image('23R5012:0021311',0073,'t-2','middle',aleph,'shack, photo jig',chimdi,date(07,08,2023),time(16,04,29)).
+image('23R5010:0020001',0074,'t-1','middle',aleph,'shack, photo jig',chimdi,date(07,08,2023),time(16,05,06)).
+image('23R5014:0021711',0075,'t-2','middle',aleph,'shack, photo jig',chimdi,date(07,08,2023),time(16,06,34)).
+image('23R4932:0019304',0076,t0,'middle',aleph,'shack, photo jig',chimdi,date(07,08,2023),time(16,19,50)).
+image('23R4932:0019301',0077,t0,'middle',aleph,'shack, photo jig',chimdi,date(07,08,2023),time(16,20,31)).
+image('23R5013:0021507',0078,t0,'middle',aleph,'shack, photo jig',chimdi,date(07,08,2023),time(16,21,41)).
+image('23R4984:0021224',0079,'t-3','middle',aleph,'shack, photo jig',chimdi,date(07,08,2023),time(16,23,31)).
+image('23R5013:0021612',0080,t0,'middle',aleph,'shack, photo jig',chimdi,date(07,08,2023),time(16,25,02)).
+image('23R4984:0021113',0081,'t-2','middle',aleph,'shack, photo jig',chimdi,date(07,08,2023),time(16,26,00)).
+image('23R5011:0020512',0082,'t-3','middle',aleph,'shack, photo jig',chimdi,date(07,08,2023),time(16,27,49)).
+image('23R5011:0020512',0083,'t-3','middle',aleph,'shack, photo jig',chimdi,date(07,08,2023),time(16,28,42)).
+image('23R5010:0020012',0084,'t-1','tip',aleph,'shack, photo jig',chimdi,date(07,08,2023),time(16,29,58)).
+image('23R4091:0022411',0085,'t-2','middle',aleph,'shack, photo jig',chimdi,date(07,08,2023),time(16,31,18)).
+image('23R5018:0022811',0086,'t-1','middle',aleph,'shack, photo jig',chimdi,date(07,08,2023),time(16,32,09)).
+image('23R4936:0022309',0087,'t-1','tip',aleph,'shack, photo jig',chimdi,date(07,08,2023),time(16,33,28)).
+image('23R4932:0019414',0088,'t-1','middle',aleph,'shack, photo jig',chimdi,date(07,08,2023),time(16,40,00)).
+image('23R5010:0020005',0089,'t-2','tip',aleph,'shack, photo jig',chimdi,date(07,08,2023),time(16,40,53)).
+image('23R4268:0021010',0090,'t-2','tip',aleph,'shack, photo jig',chimdi,date(07,08,2023),time(16,42,10)).
+image('23R5010:0020005',0091,'t-1','tip',aleph,'shack, photo jig',chimdi,date(07,08,2023),time(16,44,20)).
+image('23R4268:0020913',0092,t0,'middle',aleph,'shack, photo jig',chimdi,date(07,08,2023),time(16,47,19)).
+image('23R4268:0020925',0093,'t-1','middle',aleph,'shack, photo jig',chimdi,date(07,08,2023),time(16,48,22)).
+image('23R4268:0020905',0094,'t-3','middle',aleph,'shack, photo jig',chimdi,date(07,08,2023),time(16,50,30)).
+image('23R4935:0020823',0095,t0,'middle',aleph,'shack, photo jig',chimdi,date(07,08,2023),time(16,52,01)).
+image('23R5016:0022602',0096,'e-3','whole',aleph,'shack, photo jig',chimdi,date(07,08,2023),time(16,52,43)).
+image('23R4268:0021023',0097,'t-1','middle',aleph,'shack, photo jig',chimdi,date(07,08,2023),time(16,54,08)).
+image('23R4935:0020718',0098,'t-3','middle',aleph,'shack, photo jig',chimdi,date(07,08,2023),time(16,55,14)).
+image('23R4935:0020813',0099,'t-1','middle',aleph,'shack, photo jig',chimdi,date(07,08,2023),time(16,56,11)).
+image('23R4935:0020723',0100,e0,'middle',aleph,'shack, photo jig',chimdi,date(07,08,2023),time(16,57,04)).
+image('23R4935:0020709',0101,t0,'middle',aleph,'shack, photo jig',chimdi,date(07,08,2023),time(16,57,43)).
+image('23R5010:0020104',0102,'e-3','middle',aleph,'shack, photo jig',chimdi,date(07,08,2023),time(16,59,40)).
+image('23R5017:0022706',0103,'t-1','middle',aleph,'shack, photo jig',chimdi,date(07,08,2023),time(17,00,31)).
+image('23R5017:0022712',0104,'t-3','middle',aleph,'shack, photo jig',chimdi,date(07,08,2023),time(17,01,22)).
+image('23R5017:0022715',0105,'t-1','middle',aleph,'shack, photo jig',chimdi,date(07,08,2023),time(17,02,39)).
+image('23R4668:0020210',0106,'t-1','middle',aleph,'shack, photo jig',chimdi,date(07,08,2023),time(17,03,21)).
+image('23R4668:0020204',0107,'t-2','middle',aleph,'shack, photo jig',chimdi,date(07,08,2023),time(17,03,59)).
+image('23R4091:0022405',0108,'t-2','middle',aleph,'shack, photo jig',chimdi,date(07,08,2023),time(17,05,15)).
+
+
+
+
+% data added from ../../../palm/raw_data_from_palms/23r/zeta/8.8/image.csv on Tue Aug  8 22:03:53 CDT 2023
+% by data/data_conversion/convert_image_data.perl
+% called from data/data_conversion/convert_data.perl
+
+image('23R3721:0034406',0116,'t-1','middle',aleph,'shack, photo jig',dewi,date(08,08,2023),time(14,10,06)).
+image('23R5034:0034214',0117,e3,'middle',aleph,'shack, photo jig',dewi,date(08,08,2023),time(14,13,28)).
+image('23R3721:0034411',0118,'t-1','tip',aleph,'shack, photo jig',dewi,date(08,08,2023),time(14,15,50)).
+image('23R3721:0034406',0119,'t-2','middle',aleph,'shack, photo jig',dewi,date(08,08,2023),time(14,17,28)).
+image('23R5047:0033903',0120,'t-2','middle',aleph,'shack, photo jig',dewi,date(08,08,2023),time(14,19,00)).
+image('23R4984:0033815',0121,e1,'middle',aleph,'shack, photo jig',dewi,date(08,08,2023),time(14,19,41)).
+
+
+% adjusting shutter speed as image too bright
+
+image('23R5029:0033506',0122,unk,'middle',aleph,'shack, photo jig',dewi,date(08,08,2023),time(14,27,36)).
+image('23R5029:0033506',0123,unk,'middle',aleph,'shack, photo jig',dewi,date(08,08,2023),time(14,27,38)).
+image('23R5034:0034214',0124,e3,'middle',aleph,'shack, photo jig',dewi,date(08,08,2023),time(14,28,29)).
+image('23R5029:0033509',0125,'t-2','middle',aleph,'shack, photo jig',dewi,date(08,08,2023),time(14,30,38)).
+image('23R5044:0033008',0126,'t-1','middle',aleph,'shack, photo jig',dewi,date(08,08,2023),time(14,31,09)).
+image('23R4984:0033813',0127,e2,'middle',aleph,'shack, photo jig',dewi,date(08,08,2023),time(14,32,10)).
+image('23R5046:0033404',0128,t0,'whole',aleph,'shack, photo jig',dewi,date(08,08,2023),time(14,33,59)).
+image('23R5030:0033601',0129,t0,'middle',aleph,'shack, photo jig',dewi,date(08,08,2023),time(14,34,54)).
+image('23R3721:0034414',0130,'t-1','middle',aleph,'shack, photo jig',dewi,date(08,08,2023),time(14,36,08)).
+image('23R4984:0033814',0131,'t-2','middle',aleph,'shack, photo jig',dewi,date(08,08,2023),time(14,36,34)).
+image('23R4984:0033804',0132,'t-3','middle',aleph,'shack, photo jig',dewi,date(08,08,2023),time(14,37,28)).
+image('23R4984:0033815',0133,e1,'middle',aleph,'shack, photo jig',dewi,date(08,08,2023),time(14,38,53)).
+image('23R5034:0034213',0134,'t-2','middle',aleph,'shack, photo jig',dewi,date(08,08,2023),time(14,40,06)).
+
+% duplicate image of same leaf and section
+%
+image('23R5034:0034213',0135,'t-2','middle',aleph,'shack, photo jig',dewi,date(08,08,2023),time(14,40,07)).
+image('23R5029:0033502',0136,'t-1','middle',aleph,'shack, photo jig',dewi,date(08,08,2023),time(14,42,20)).
+image('23R5029:0033506',0137,'t-1','middle',aleph,'shack, photo jig',dewi,date(08,08,2023),time(14,43,39)).
+image('23R5047:0033905',0138,'e-3','middle',aleph,'shack, photo jig',dewi,date(08,08,2023),time(14,45,15)).
+image('23R5034:0034212',0139,'t-2','middle',aleph,'shack, photo jig',dewi,date(08,08,2023),time(14,46,00)).
+image('23R3721:0034103',0140,'t-5','tip',aleph,'shack, photo jig',dewi,date(08,08,2023),time(14,48,11)).
+
+
+% 2nd leaves???
+%
+image('23R3721:0034103',0141,e2,'tip',aleph,'shack, photo jig',dewi,date(08,08,2023),time(14,50,13)).
+image('23R4981:0031802',0142,'e-2','middle',aleph,'shack, photo jig',dewi,date(08,08,2023),time(14,52,22)).
+image('23R5046:0033401',0143,'t-2','middle',aleph,'shack, photo jig',dewi,date(08,08,2023),time(14,53,23)).
+image('23R5046:0033410',0144,'t-4','middle',aleph,'shack, photo jig',dewi,date(08,08,2023),time(14,54,38)).
+image('23R3721:0034415',0145,'t-1','middle',aleph,'shack, photo jig',dewi,date(08,08,2023),time(14,55,03)).
+image('23R5047:0033906',0146,'e-1','middle',aleph,'shack, photo jig',dewi,date(08,08,2023),time(14,57,04)).
+image('23R4981:0031808',0147,'t-3','middle',aleph,'shack, photo jig',dewi,date(08,08,2023),time(14,58,34)).
+image('23R0134:0034011',0148,'t-1','middle',aleph,'shack, photo jig',dewi,date(08,08,2023),time(14,59,07)).
+image('23R5034:0034202',0149,'t-2','middle',aleph,'shack, photo jig',dewi,date(08,08,2023),time(15,00,40)).
+image('23R4970:0032809',0150,'t-2','middle',aleph,'shack, photo jig',dewi,date(08,08,2023),time(15,18,57)).
+image('23R5044:0033010',0151,'t-2','middle',aleph,'shack, photo jig',dewi,date(08,08,2023),time(15,21,28)).
+
+% this image too dark
+%
+image('23R5044:0033014',0152,e1,'middle',aleph,'shack, photo jig',dewi,date(08,08,2023),time(15,23,35)).
+
+
+% tiller leaf; position is relative to ear on tiller, not main stem
+%
+image('23R5044:0033014',0153,e1,'middle',aleph,'shack, photo jig',dewi,date(08,08,2023),time(15,23,37)).
+image('23R4970:0032811',0154,'t-1','middle',aleph,'shack, photo jig',dewi,date(08,08,2023),time(15,25,00)).
+image('23R5044:0033002',0155,'t-2','middle',aleph,'shack, photo jig',dewi,date(08,08,2023),time(15,26,15)).
+image('23R4984:0033824',0156,e2,'middle',aleph,'shack, photo jig',dewi,date(08,08,2023),time(15,27,21)).
+image('23R4981:0031803',0157,'e-2','tip',aleph,'shack, photo jig',dewi,date(08,08,2023),time(15,28,51)).
+image('23R5041:0032604',0158,'e-4','middle',aleph,'shack, photo jig',dewi,date(08,08,2023),time(15,29,59)).
+image('23R4752:0030208',0159,'t-2','middle',aleph,'shack, photo jig',dewi,date(08,08,2023),time(15,32,37)).
+image('23R5044:0033021',0160,e0,'middle',aleph,'shack, photo jig',dewi,date(08,08,2023),time(15,33,04)).
+image('23R0134:0034020',0161,unk,'middle',aleph,'shack, photo jig',dewi,date(08,08,2023),time(15,35,37)).
+image('23R4906:0023413',0162,e2,'middle',aleph,'shack, photo jig',dewi,date(08,08,2023),time(15,39,00)).
+image('23R5044:0033007',0163,'e-2','middle',aleph,'shack, photo jig',dewi,date(08,08,2023),time(15,41,32)).
+
+
+% or is this 23R5038:0031420? plant numbered 20, tag numbered 19
+%
+% data in demeter are all for 20, so going with that
+%
+% Kazic, 8.8.2023
+%
+% image('23R5038:0031419',0164,unk,'middle',aleph,'shack, photo jig',dewi,date(08,08,2023),time(15,42,29)).
+
+image('23R5038:0031420',0164,unk,'middle',aleph,'shack, photo jig',dewi,date(08,08,2023),time(15,42,29)).
+image('23R4998:0032509',0165,'t-2','middle',aleph,'shack, photo jig',dewi,date(08,08,2023),time(15,43,37)).
+image('23R4981:0031710',0166,e2,'tip',aleph,'shack, photo jig',dewi,date(08,08,2023),time(15,44,53)).
+image('23R5044:0033004',0167,'t-2','middle',aleph,'shack, photo jig',dewi,date(08,08,2023),time(15,46,20)).
+image('23R5042:0032712',0168,'t-1','middle',aleph,'shack, photo jig',dewi,date(08,08,2023),time(15,48,04)).
+image('23R4970:0032816',0169,'t-1','middle',aleph,'shack, photo jig',dewi,date(08,08,2023),time(15,48,49)).
+image('23R5042:0032710',0170,'t-4','middle',aleph,'shack, photo jig',dewi,date(08,08,2023),time(15,49,41)).
+image('23R5042:0032710',0171,e0,'middle',aleph,'shack, photo jig',dewi,date(08,08,2023),time(15,52,45)).
+image('23R4910:0024310',0172,'t-2','tip',aleph,'shack, photo jig',dewi,date(08,08,2023),time(15,53,40)).
+image('23R5040:0031605',0173,'t-1','middle',aleph,'shack, photo jig',dewi,date(08,08,2023),time(15,54,35)).
+image('23R4981:0031707',0174,'t-1','middle',aleph,'shack, photo jig',dewi,date(08,08,2023),time(15,56,17)).
+image('23R5041:0032601',0175,t0,'middle',aleph,'shack, photo jig',dewi,date(08,08,2023),time(15,56,51)).
+image('23R3777:0031033',0176,'t-2','middle',aleph,'shack, photo jig',dewi,date(08,08,2023),time(15,58,44)).
+image('23R5039:0031519',0177,'t-2','middle',aleph,'shack, photo jig',dewi,date(08,08,2023),time(16,04,41)).
+image('23R5042:0032706',0178,'t-1','middle',aleph,'shack, photo jig',dewi,date(08,08,2023),time(16,06,31)).
+image('23R5034:0030312',0179,t0,'tip',aleph,'shack, photo jig',dewi,date(08,08,2023),time(16,07,17)).
+image('23R5034:0030316',0180,t0,'middle',aleph,'shack, photo jig',dewi,date(08,08,2023),time(16,12,16)).
+image('23R4981:0031703',0181,'t-1','middle',aleph,'shack, photo jig',dewi,date(08,08,2023),time(16,13,34)).
+image('23R3777:0031019',0182,'t-1','middle',aleph,'shack, photo jig',dewi,date(08,08,2023),time(16,15,34)).
+image('23R5036:0030510',0183,'t-2','middle',aleph,'shack, photo jig',dewi,date(08,08,2023),time(16,17,41)).
+image('23R5035:0030402',0184,'t-1','middle',aleph,'shack, photo jig',dewi,date(08,08,2023),time(16,19,15)).
+image('23R5039:0031504',0185,'t-2','middle',aleph,'shack, photo jig',dewi,date(08,08,2023),time(16,21,40)).
+image('23R5039:0031501',0186,'e-2','middle',aleph,'shack, photo jig',dewi,date(08,08,2023),time(16,23,39)).
+image('23R5030:0026805',0187,t0,'tip',aleph,'shack, photo jig',dewi,date(08,08,2023),time(16,24,25)).
+image('23R5039:0031515',0188,e3,'middle',aleph,'shack, photo jig',dewi,date(08,08,2023),time(16,26,52)).
+image('23R4981:0031714',0189,'e-1','middle',aleph,'shack, photo jig',dewi,date(08,08,2023),time(16,29,00)).
+
+% next two are duplicates of 23R4981:0031714, image 0189
+
+image('23R4981:0031714',0190,e1,'middle',aleph,'shack, photo jig',dewi,date(08,08,2023),time(16,30,01)).
+image('23R4981:0031714',0191,e1,'middle',aleph,'shack, photo jig',dewi,date(08,08,2023),time(16,30,03)).
+image('23R4884:0031901',0192,'e-3','middle',aleph,'shack, photo jig',dewi,date(08,08,2023),time(16,30,44)).
+image('23R5040:0031610',0193,e1,'middle',aleph,'shack, photo jig',dewi,date(08,08,2023),time(16,32,18)).
+image('23R5040:0031611',0194,'t-3','middle',aleph,'shack, photo jig',dewi,date(08,08,2023),time(16,34,37)).
+image('23R4906:0023411',0195,'e-2','middle',aleph,'shack, photo jig',dewi,date(08,08,2023),time(16,37,24)).
+
+
+% duplicate image
+%
+image('23R4906:0023411',0196,'e-2','middle',aleph,'shack, photo jig',dewi,date(08,08,2023),time(16,37,26)).
+image('23R5030:0026802',0197,t0,'middle',aleph,'shack, photo jig',dewi,date(08,08,2023),time(16,42,09)).
+image('23R5029:0026711',0198,'t-2','middle',aleph,'shack, photo jig',dewi,date(08,08,2023),time(16,44,58)).
+
+% duplicate image
+%
+image('23R5029:0026711',0199,'t-2','middle',aleph,'shack, photo jig',dewi,date(08,08,2023),time(16,45,00)).
+image('23R5035:0030413',0200,t0,'middle',aleph,'shack, photo jig',dewi,date(08,08,2023),time(16,46,55)).
+
+% duplicate image
+%
+image('23R5035:0030413',0201,t0,'whole',aleph,'shack, photo jig',dewi,date(08,08,2023),time(16,46,57)).
+image('23R4920:0029811',0202,'t-1','whole',aleph,'shack, photo jig',dewi,date(08,08,2023),time(16,52,35)).
+image('23R5029:0026708',0203,t0,'middle',aleph,'shack, photo jig',dewi,date(08,08,2023),time(16,54,07)).
+image('23R5035:0030403',0204,'t-1','middle',aleph,'shack, photo jig',dewi,date(08,08,2023),time(16,54,49)).
+image('23R5026:0026203',0205,'t-1','middle',aleph,'shack, photo jig',dewi,date(08,08,2023),time(16,55,39)).
+image('23R4960:0026402',0206,e2,'middle',aleph,'shack, photo jig',dewi,date(08,08,2023),time(16,56,40)).
+image('23R5036:0030507',0207,e1,'middle',aleph,'shack, photo jig',dewi,date(08,08,2023),time(16,57,59)).
+image('23R5029:0026701',0208,'t-1','middle',aleph,'shack, photo jig',dewi,date(08,08,2023),time(16,59,22)).
+image('23R5036:0030519',0209,t0,'middle',aleph,'shack, photo jig',dewi,date(08,08,2023),time(16,59,51)).
+image('23R5027:0026508',0210,t0,'middle',aleph,'shack, photo jig',dewi,date(08,08,2023),time(17,01,00)).
+image('23R5030:0026803',0211,'t-1','middle',aleph,'shack, photo jig',dewi,date(08,08,2023),time(17,02,56)).
+image('23R4960:0026408',0212,e2,'middle',aleph,'shack, photo jig',dewi,date(08,08,2023),time(17,04,05)).
+image('23R4960:0026409',0213,e1,'middle',aleph,'shack, photo jig',dewi,date(08,08,2023),time(17,04,23)).
+image('23R4231:0026302',0214,'t-3','middle',aleph,'shack, photo jig',dewi,date(08,08,2023),time(17,05,47)).
+image('23R5038:0031405',0215,'t-2','middle',aleph,'shack, photo jig',dewi,date(08,08,2023),time(17,11,17)).
+image('23R5035:0030703',0216,'t-2','middle',aleph,'shack, photo jig',dewi,date(08,08,2023),time(17,11,56)).
+image('23R4231:0026309',0217,'t-1','middle',aleph,'shack, photo jig',dewi,date(08,08,2023),time(17,12,54)).
+image('23R5026:0026202',0218,e2,'middle',aleph,'shack, photo jig',dewi,date(08,08,2023),time(17,13,42)).
+image('23R4947:0025906',0219,t0,'middle',aleph,'shack, photo jig',dewi,date(08,08,2023),time(17,15,00)).
+image('23R3690:0031220',0220,t0,'tip',aleph,'shack, photo jig',dewi,date(08,08,2023),time(17,15,17)).
+image('23R3690:0031216',0221,'t-1','middle',aleph,'shack, photo jig',dewi,date(08,08,2023),time(17,16,40)).
+image('23R4947:0025917',0222,'t-2','middle',aleph,'shack, photo jig',dewi,date(08,08,2023),time(17,17,03)).
+image('23R4947:0025902',0223,'t-1','middle',aleph,'shack, photo jig',dewi,date(08,08,2023),time(17,17,44)).
+
+
+% duplicate image
+%
+image('23R4947:0025902',0224,'t-1','middle',aleph,'shack, photo jig',dewi,date(08,08,2023),time(17,18,12)).
+image('23R5038:0031416',0225,'e-2','middle',aleph,'shack, photo jig',dewi,date(08,08,2023),time(17,19,26)).
+image('23R4230:0026103',0226,e2,'middle',aleph,'shack, photo jig',dewi,date(08,08,2023),time(17,20,10)).
+image('23R4230:0026123',0227,'t-2','middle',aleph,'shack, photo jig',dewi,date(08,08,2023),time(17,20,29)).
+image('23R4975:0031114',0228,'t-2','middle',aleph,'shack, photo jig',dewi,date(08,08,2023),time(17,21,35)).
+image('23R5038:0031407',0229,'t-2','middle',aleph,'shack, photo jig',dewi,date(08,08,2023),time(17,25,18)).
+image('23R4836:0025718',0230,e1,'middle',aleph,'shack, photo jig',dewi,date(08,08,2023),time(17,26,12)).
+image('23R5025:0025807',0231,'t-2','middle',aleph,'shack, photo jig',dewi,date(08,08,2023),time(17,27,21)).
+image('23R5025:0025802',0232,'t-1','middle',aleph,'shack, photo jig',dewi,date(08,08,2023),time(17,28,03)).
+image('23R4230:0026101',0233,e3,'middle',aleph,'shack, photo jig',dewi,date(08,08,2023),time(17,30,18)).
+image('23R5025:0025801',0234,'t-3','middle',aleph,'shack, photo jig',dewi,date(08,08,2023),time(17,30,45)).
+image('23R4565:0024001',0235,e0,'middle',aleph,'shack, photo jig',dewi,date(08,08,2023),time(18,05,30)).
+image('23R4947:0025910',0236,e2,'middle',aleph,'shack, photo jig',dewi,date(08,08,2023),time(18,07,43)).
+image('23R4947:0025910',0237,e2,'middle',aleph,'shack, photo jig',dewi,date(08,08,2023),time(18,07,45)).
+image('23R5022:0023908',0238,'t-1','whole',aleph,'shack, photo jig',dewi,date(08,08,2023),time(18,08,51)).
+image('23R4960:0026406',0239,'t-1','middle',aleph,'shack, photo jig',dewi,date(08,08,2023),time(18,09,55)).
+image('23R4565:0024002',0240,'t-3','middle',aleph,'shack, photo jig',dewi,date(08,08,2023),time(18,10,46)).
+image('23R4912:0024630',0241,'e-3','middle',aleph,'shack, photo jig',dewi,date(08,08,2023),time(18,12,03)).
+image('23R4565:0024012',0242,'t-2','middle',aleph,'shack, photo jig',dewi,date(08,08,2023),time(18,13,12)).
+image('23R5022:0023903',0243,'t-3','middle',aleph,'shack, photo jig',dewi,date(08,08,2023),time(18,15,03)).
+image('23R4565:0024119',0244,'t-3','middle',aleph,'shack, photo jig',dewi,date(08,08,2023),time(00,00,00)).
+image('23R4836:0025711',0245,t0,'middle',aleph,'shack, photo jig',dewi,date(08,08,2023),time(18,16,46)).
+image('23R4565:0024114',0246,'t-2','whole',aleph,'shack, photo jig',dewi,date(08,08,2023),time(18,17,25)).
+image('23R5024:0025609',0247,e2,'middle',aleph,'shack, photo jig',dewi,date(08,08,2023),time(18,19,22)).
+image('23R5022:0023807',0248,'t-1','middle',aleph,'shack, photo jig',dewi,date(08,08,2023),time(18,21,22)).
+image('23R4944:0022909',0249,t0,'middle',aleph,'shack, photo jig',dewi,date(08,08,2023),time(18,22,13)).
+image('23R5024:0025608',0250,'t-2','middle',aleph,'shack, photo jig',dewi,date(08,08,2023),time(18,23,03)).
+image('23R4944:0022917',0251,'t-2','middle',aleph,'shack, photo jig',dewi,date(08,08,2023),time(18,24,04)).
+image('23R5027:0026502',0252,'e-1','middle',aleph,'shack, photo jig',dewi,date(08,08,2023),time(18,25,19)).
+image('23R4975:0031102',0253,'t-3','middle',aleph,'shack, photo jig',dewi,date(08,08,2023),time(18,26,00)).
+image('23R3777:0031002',0254,e0,'middle',aleph,'shack, photo jig',dewi,date(08,08,2023),time(18,26,31)).
+image('23R4813:0025505',0255,'t-3','tip',aleph,'shack, photo jig',dewi,date(08,08,2023),time(18,27,09)).
+image('23R5016:0022602',0256,e0,'middle',aleph,'shack, photo jig',dewi,date(08,08,2023),time(18,27,46)).
+image('23R4944:0023016',0257,'t-1','stem',aleph,'shack, photo jig',dewi,date(08,08,2023),time(18,28,37)).
+
+% duplicate image
+%
+image('23R4944:0023016',0258,'t-1','stem',aleph,'shack, photo jig',dewi,date(08,08,2023),time(18,29,11)).
+image('23R4944:0022915',0259,'t-2','middle',aleph,'shack, photo jig',dewi,date(08,08,2023),time(18,30,07)).
+image('23R4944:0022904',0260,'t-1','middle',aleph,'shack, photo jig',dewi,date(08,08,2023),time(18,30,18)).
+image('23R5024:0025610',0261,e2,'middle',aleph,'shack, photo jig',dewi,date(08,08,2023),time(18,30,57)).
+image('23R5023:0025006',0262,'e-1','middle',aleph,'shack, photo jig',dewi,date(08,08,2023),time(18,31,37)).
+
+
+% duplicate image
+%
+image('23R5023:0025006',0263,'e-1','middle',aleph,'shack, photo jig',dewi,date(08,08,2023),time(18,32,10)).
+image('23R5023:0025004',0264,e2,'middle',aleph,'shack, photo jig',dewi,date(08,08,2023),time(18,32,54)).
+image('23R4944:0022906',0265,'t-1','middle',aleph,'shack, photo jig',dewi,date(08,08,2023),time(18,33,28)).
+
+
+
+
+% data added from ../../../palm/raw_data_from_palms/24r/theta/1.8/image.csv on Fri Aug  2 20:55:24 CDT 2024
+% by data/data_conversion/convert_image_data.perl
+% called from data/data_conversion/convert_data.perl
+
+image('24R5129:0021204',0002,'e-1','tip',aleph,'shack, photo jig',dewi,date(01,08,2024),time(13,25,00)).
+image('24R3713:0020914',0003,e2,'middle',aleph,'shack, photo jig',dewi,date(01,08,2024),time(13,26,02)).
+image('24R5129:0021202',0004,e1,'middle',aleph,'shack, photo jig',dewi,date(01,08,2024),time(13,27,14)).
+image('24R3713:0020922',0005,e1,'middle',aleph,'shack, photo jig',dewi,date(01,08,2024),time(13,29,17)).
+image('24R3721:0021006',0006,'t-1','middle',aleph,'shack, photo jig',dewi,date(01,08,2024),time(13,30,22)).
+image('24R3721:0021018',0007,'t-1','middle',aleph,'shack, photo jig',dewi,date(01,08,2024),time(13,51,27)).
+image('24R4971:0023031',0008,'t-1','stem',aleph,'shack, photo jig',dewi,date(01,08,2024),time(13,53,13)).
+image('24R4971:0023031',0009,'t-1','tip',aleph,'shack, photo jig',dewi,date(01,08,2024),time(13,53,16)).
+image('24R5045:0021104',0010,e3,'stem',aleph,'shack, photo jig',dewi,date(01,08,2024),time(13,54,11)).
+image('24R5045:0021104',0011,e3,'tip',aleph,'shack, photo jig',dewi,date(01,08,2024),time(13,54,44)).
+image('24R4967:0020102',0012,'t-2','stem',aleph,'shack, photo jig',dewi,date(01,08,2024),time(14,04,33)).
+image('24R4967:0020102',0013,'t-2','tip',aleph,'shack, photo jig',dewi,date(01,08,2024),time(14,04,36)).
+image('24R4967:0020102',0014,'e-5','stem',aleph,'shack, photo jig',dewi,date(01,08,2024),time(14,07,08)).
+image('24R4967:0020102',0015,'e-5','tip',aleph,'shack, photo jig',dewi,date(01,08,2024),time(14,07,44)).
+image('24R3713:0020914',0016,'e-2','stem',aleph,'shack, photo jig',dewi,date(01,08,2024),time(14,09,12)).
+image('24R3713:0020914',0017,'e-2','tip',aleph,'shack, photo jig',dewi,date(01,08,2024),time(14,16,22)).
+image('24R4971:0023027',0018,'e-1','stem',aleph,'shack, photo jig',dewi,date(01,08,2024),time(14,17,05)).
+image('24R4971:0023027',0019,'e-1','tip',aleph,'shack, photo jig',dewi,date(01,08,2024),time(14,17,47)).
+image('24R5128:0020812',0020,t0,'whole',aleph,'shack, photo jig',dewi,date(01,08,2024),time(14,19,08)).
+image('24R4971:0023036',0021,e1,'middle',aleph,'shack, photo jig',dewi,date(01,08,2024),time(14,21,10)).
+image('24R4971:0023036',0022,e1,'stem',aleph,'shack, photo jig',dewi,date(01,08,2024),time(14,21,17)).
+image('24R5128:0020823',0023,t0,'whole',aleph,'shack, photo jig',dewi,date(01,08,2024),time(14,23,12)).
+image('24R4884:0020710',0024,'t-4','whole',aleph,'shack, photo jig',dewi,date(01,08,2024),time(14,24,38)).
+image('24R5127:0020601',0025,'t-2','whole',aleph,'shack, photo jig',dewi,date(01,08,2024),time(14,26,25)).
+image('24R5127:0020602',0026,'t-1','stem',aleph,'shack, photo jig',dewi,date(01,08,2024),time(14,31,01)).
+image('24R5127:0020602',0027,'t-1','tip',aleph,'shack, photo jig',dewi,date(01,08,2024),time(14,32,05)).
+image('24R5127:0020614',0028,'t-2','stem',aleph,'shack, photo jig',dewi,date(01,08,2024),time(14,34,07)).
+image('24R5127:0020614',0029,'t-2','tip',aleph,'shack, photo jig',dewi,date(01,08,2024),time(14,35,14)).
+image('24R5126:0020511',0030,'t-2','stem',aleph,'shack, photo jig',dewi,date(01,08,2024),time(14,36,20)).
+image('24R5126:0020511',0031,'t-2','tip',aleph,'shack, photo jig',dewi,date(01,08,2024),time(14,37,12)).
+image('24R5126:0020503',0032,'t-2','stem',aleph,'shack, photo jig',dewi,date(01,08,2024),time(14,39,29)).
+image('24R5126:0020503',0033,'t-2','tip',aleph,'shack, photo jig',dewi,date(01,08,2024),time(14,39,38)).
+image('24R5125:0020411',0034,'t-1','stem',aleph,'shack, photo jig',dewi,date(01,08,2024),time(14,43,14)).
+image('24R5125:0020411',0035,'t-1','tip',aleph,'shack, photo jig',dewi,date(01,08,2024),time(14,43,37)).
+image('24R5124:0020318',0036,'t-4','stem',aleph,'shack, photo jig',dewi,date(01,08,2024),time(14,47,37)).
+image('24R5124:0020318',0037,'t-4','tip',aleph,'shack, photo jig',dewi,date(01,08,2024),time(14,48,01)).
+image('24R5125:0020407',0038,'t-1','stem',aleph,'shack, photo jig',dewi,date(01,08,2024),time(14,48,37)).
+image('24R5125:0020407',0039,'t-1','tip',aleph,'shack, photo jig',dewi,date(01,08,2024),time(14,49,51)).
+image('24R5125:0020404',0040,'t-2','stem',aleph,'shack, photo jig',dewi,date(01,08,2024),time(14,50,44)).
+image('24R5125:0020404',0041,'t-2','tip',aleph,'shack, photo jig',chimdi,date(01,08,2024),time(14,50,55)).
+image('24R5124:0020305',0042,e2,'stem',aleph,'shack, photo jig',chimdi,date(01,08,2024),time(14,51,58)).
+image('24R5124:0020305',0043,e2,'tip',aleph,'shack, photo jig',chimdi,date(01,08,2024),time(14,52,10)).
+image('24R4884:0020002',0044,'t-2','whole',aleph,'shack, photo jig',chimdi,date(01,08,2024),time(15,01,27)).
+image('24R5122:0019919',0045,'t-1','whole',aleph,'shack, photo jig',chimdi,date(01,08,2024),time(15,02,49)).
+image('24R5122:0019913',0046,'t-1','stem',aleph,'shack, photo jig',chimdi,date(01,08,2024),time(15,04,26)).
+image('24R5122:0019913',0047,'t-1','tip',aleph,'shack, photo jig',chimdi,date(01,08,2024),time(15,04,40)).
+image('24R5120:0019705',0048,'t-1','whole',aleph,'shack, photo jig',chimdi,date(01,08,2024),time(15,05,34)).
+image('24R5123:0020204',0049,'t-2','whole',aleph,'shack, photo jig',chimdi,date(01,08,2024),time(15,07,17)).
+image('24R5122:0019904',0050,'t-2','whole',aleph,'shack, photo jig',chimdi,date(01,08,2024),time(15,08,34)).
+image('24R5130:0021329',0051,'t-1','stem',aleph,'shack, photo jig',chimdi,date(01,08,2024),time(15,10,10)).
+image('24R5130:0021329',0052,'t-1','tip',aleph,'shack, photo jig',chimdi,date(01,08,2024),time(15,10,31)).
+image('24R5114:0019107',0053,'t-2','stem',aleph,'shack, photo jig',chimdi,date(01,08,2024),time(15,12,19)).
+image('24R5114:0019107',0054,'t-2','tip',aleph,'shack, photo jig',chimdi,date(01,08,2024),time(15,12,22)).
+image('24R5117:0019404',0055,'t-2','whole',aleph,'shack, photo jig',chimdi,date(01,08,2024),time(15,13,22)).
+image('24R5119:0019612',0056,'t-4','stem',aleph,'shack, photo jig',chimdi,date(01,08,2024),time(15,14,34)).
+image('24R5119:0019612',0057,'t-4','tip',aleph,'shack, photo jig',chimdi,date(01,08,2024),time(15,14,38)).
+image('24R5130:0021320',0058,t0,'whole',aleph,'shack, photo jig',chimdi,date(01,08,2024),time(15,20,59)).
+image('24R5130:0021314',0059,'t-1','whole',aleph,'shack, photo jig',dewi,date(01,08,2024),time(15,24,06)).
+image('24R5130:0021319',0060,t0,'whole',aleph,'shack, photo jig',dewi,date(01,08,2024),time(15,25,28)).
+image('24R5117:0019404',0061,'t-1','whole',aleph,'shack, photo jig',dewi,date(01,08,2024),time(15,26,43)).
+image('24R5123:0020209',0062,t0,'whole',aleph,'shack, photo jig',dewi,date(01,08,2024),time(15,28,04)).
+image('24R5114:0019112',0063,e1,'stem',aleph,'shack, photo jig',dewi,date(01,08,2024),time(15,29,38)).
+image('24R5114:0019112',0064,e1,'tip',aleph,'shack, photo jig',dewi,date(01,08,2024),time(15,29,43)).
+image('24R5117:0019415',0065,t0,'whole',aleph,'shack, photo jig',dewi,date(01,08,2024),time(15,39,17)).
+image('24R5112:0018903',0066,e0,'stem',aleph,'shack, photo jig',dewi,date(01,08,2024),time(15,41,36)).
+image('24R5112:0018903',0067,e0,'tip',aleph,'shack, photo jig',dewi,date(01,08,2024),time(15,41,53)).
+image('24R5112:0018902',0068,e2,'stem',aleph,'shack, photo jig',dewi,date(01,08,2024),time(15,43,11)).
+image('24R5112:0018902',0069,e2,'tip',aleph,'shack, photo jig',dewi,date(01,08,2024),time(15,43,18)).
+image('24R5113:0019003',0070,'t-1','middle',aleph,'shack, photo jig',dewi,date(01,08,2024),time(15,44,46)).
+image('24R5111:0018705',0071,'e-1','stem',aleph,'shack, photo jig',dewi,date(01,08,2024),time(15,47,26)).
+image('24R5111:0018705',0072,'e-1','tip',aleph,'shack, photo jig',dewi,date(01,08,2024),time(15,47,43)).
+image('24R5114:0019113',0073,e1,'stem',aleph,'shack, photo jig',dewi,date(01,08,2024),time(15,49,26)).
+image('24R5114:0019113',0074,e1,'tip',aleph,'shack, photo jig',dewi,date(01,08,2024),time(15,49,33)).
+image('24R5112:0018908',0075,e2,'whole',aleph,'shack, photo jig',dewi,date(01,08,2024),time(15,52,53)).
+image('24R5115:0019204',0076,'e-5','stem',aleph,'shack, photo jig',dewi,date(01,08,2024),time(15,53,31)).
+image('24R5115:0019204',0077,'e-5','tip',aleph,'shack, photo jig',dewi,date(01,08,2024),time(15,53,46)).
+image('24R5005:0002108',0078,e0,'stem',aleph,'shack, photo jig',dewi,date(01,08,2024),time(15,56,39)).
+image('24R5005:0002108',0079,e0,'tip',aleph,'shack, photo jig',dewi,date(01,08,2024),time(15,57,09)).
+image('24R5113:0019011',0080,'t-1','whole',aleph,'shack, photo jig',dewi,date(01,08,2024),time(16,01,45)).
+image('24R4848:0018320',0081,'t-2','whole',aleph,'shack, photo jig',dewi,date(01,08,2024),time(16,04,00)).
+image('24R5109:0018504',0082,e0,'stem',aleph,'shack, photo jig',dewi,date(01,08,2024),time(16,05,06)).
+image('24R5109:0018504',0083,e0,'tip',aleph,'shack, photo jig',dewi,date(01,08,2024),time(16,05,18)).
+image('24R5102:0017604',0084,'t-1','whole',aleph,'shack, photo jig',dewi,date(01,08,2024),time(16,06,35)).
+image('24R5108:0018403',0085,e1,'middle',aleph,'shack, photo jig',dewi,date(01,08,2024),time(16,07,54)).
+image('24R5112:0018904',0086,e1,'stem',aleph,'shack, photo jig',dewi,date(01,08,2024),time(16,08,35)).
+image('24R5112:0018904',0087,e1,'tip',aleph,'shack, photo jig',dewi,date(01,08,2024),time(16,08,40)).
+image('24R4848:0018308',0088,'t-2','stem',aleph,'shack, photo jig',dewi,date(01,08,2024),time(16,09,50)).
+image('24R4848:0018308',0089,'t-2','tip',aleph,'shack, photo jig',dewi,date(01,08,2024),time(16,11,24)).
+image('24R4848:0018310',0090,e1,'stem',aleph,'shack, photo jig',dewi,date(01,08,2024),time(16,12,16)).
+image('24R4848:0018310',0091,e1,'tip',aleph,'shack, photo jig',dewi,date(01,08,2024),time(16,12,48)).
+image('24R5117:0019401',0092,'t-1','whole',aleph,'shack, photo jig',dewi,date(01,08,2024),time(16,14,24)).
+image('24R5109:0018516',0093,e1,'stem',aleph,'shack, photo jig',dewi,date(01,08,2024),time(16,16,16)).
+image('24R5109:0018516',0094,e1,'tip',aleph,'shack, photo jig',dewi,date(01,08,2024),time(16,16,23)).
+image('24R5107:0018212',0095,'t-3','stem',aleph,'shack, photo jig',dewi,date(01,08,2024),time(16,18,14)).
+image('24R5107:0018212',0096,'t-3','tip',aleph,'shack, photo jig',dewi,date(01,08,2024),time(16,19,30)).
+image('24R4848:0018322',0097,'t-1','whole',aleph,'shack, photo jig',dewi,date(01,08,2024),time(16,21,16)).
+image('24R5031:0017509',0098,t0,'whole',aleph,'shack, photo jig',dewi,date(01,08,2024),time(16,21,56)).
+image('24R5107:0018213',0099,'t-2','stem',aleph,'shack, photo jig',dewi,date(01,08,2024),time(16,23,04)).
+image('24R5107:0018213',0100,'t-2','tip',aleph,'shack, photo jig',dewi,date(01,08,2024),time(16,23,22)).
+image('24R5107:0018204',0101,'e-3','stem',aleph,'shack, photo jig',dewi,date(01,08,2024),time(16,27,00)).
+image('24R5107:0018204',0102,'e-3','tip',aleph,'shack, photo jig',dewi,date(01,08,2024),time(16,27,24)).
+image('24R5110:0018601',0103,e0,'stem',aleph,'shack, photo jig',dewi,date(01,08,2024),time(16,28,52)).
+image('24R5110:0018601',0104,e0,'tip',aleph,'shack, photo jig',dewi,date(01,08,2024),time(16,28,58)).
+image('24R5109:0018510',0105,e2,'stem',aleph,'shack, photo jig',dewi,date(01,08,2024),time(16,30,23)).
+image('24R5109:0018510',0106,e2,'tip',aleph,'shack, photo jig',dewi,date(01,08,2024),time(16,30,48)).
+image('24R5106:0018005',0107,'t-2','stem',aleph,'shack, photo jig',dewi,date(01,08,2024),time(16,32,00)).
+image('24R5106:0018005',0108,'t-2','tip',aleph,'shack, photo jig',dewi,date(01,08,2024),time(16,32,09)).
+image('24R5028:0016706',0109,e1,'stem',aleph,'shack, photo jig',dewi,date(01,08,2024),time(16,33,35)).
+image('24R5028:0016706',0110,e1,'tip',aleph,'shack, photo jig',dewi,date(01,08,2024),time(16,33,51)).
+image('24R5028:0016713',0111,e2,'middle',aleph,'shack, photo jig',dewi,date(01,08,2024),time(17,42,47)).
+image('24R5100:0017306',0112,'t-1','middle',aleph,'shack, photo jig',dewi,date(01,08,2024),time(17,44,23)).
+image('24R5098:0017018',0113,e2,'stem',aleph,'shack, photo jig',dewi,date(01,08,2024),time(17,45,58)).
+image('24R5098:0017018',0114,e2,'tip',aleph,'shack, photo jig',dewi,date(01,08,2024),time(17,46,02)).
+image('24R5106:0018018',0115,'e-2','stem',aleph,'shack, photo jig',dewi,date(01,08,2024),time(17,47,35)).
+image('24R5106:0018018',0116,'e-2','tip',aleph,'shack, photo jig',dewi,date(01,08,2024),time(17,48,13)).
+image('24R5096:0016806',0117,t0,'whole',aleph,'shack, photo jig',dewi,date(01,08,2024),time(17,49,45)).
+image('24R5098:0017020',0118,e2,'middle',aleph,'shack, photo jig',dewi,date(01,08,2024),time(17,51,18)).
+image('24R5098:0017020',0119,e2,'tip',aleph,'shack, photo jig',dewi,date(01,08,2024),time(17,51,36)).
+image('24R5100:0017326',0120,'t-1','stem',aleph,'shack, photo jig',dewi,date(01,08,2024),time(17,53,02)).
+image('24R5100:0017326',0121,'t-1','tip',aleph,'shack, photo jig',dewi,date(01,08,2024),time(17,53,10)).
+image('24R5097:0016918',0122,t0,'whole',aleph,'shack, photo jig',dewi,date(01,08,2024),time(17,54,48)).
+image('24R5098:0017001',0123,e2,'middle',aleph,'shack, photo jig',dewi,date(01,08,2024),time(17,56,03)).
+image('24R5098:0017001',0124,e2,'tip',aleph,'shack, photo jig',dewi,date(01,08,2024),time(17,56,11)).
+image('24R5100:0017304',0125,'t-1','whole',aleph,'shack, photo jig',dewi,date(01,08,2024),time(17,58,18)).
+image('24R5029:0017212',0126,'t-1','stem',aleph,'shack, photo jig',dewi,date(01,08,2024),time(17,59,44)).
+image('24R5109:0018505',0127,e0,'stem',aleph,'shack, photo jig',dewi,date(01,08,2024),time(18,01,09)).
+image('24R5109:0018505',0128,e0,'tip',aleph,'shack, photo jig',dewi,date(01,08,2024),time(18,01,46)).
+image('24R5099:0017113',0129,t0,'whole',aleph,'shack, photo jig',dewi,date(01,08,2024),time(18,03,36)).
+image('24R5029:0017205',0130,'t-2','stem',aleph,'shack, photo jig',dewi,date(01,08,2024),time(18,04,37)).
+image('24R5029:0017205',0131,'t-2','tip',aleph,'shack, photo jig',dewi,date(01,08,2024),time(18,04,42)).
+image('24R5105:0017903',0132,'t-1','stem',aleph,'shack, photo jig',dewi,date(01,08,2024),time(18,06,25)).
+image('24R5105:0017903',0133,'t-1','tip',aleph,'shack, photo jig',dewi,date(01,08,2024),time(18,06,40)).
+image('24R5096:0016811',0134,t0,'whole',aleph,'shack, photo jig',dewi,date(01,08,2024),time(18,08,11)).
+image('24R5097:0016916',0135,'t-1','whole',aleph,'shack, photo jig',dewi,date(01,08,2024),time(18,08,45)).
+image('24R5101:0017420',0136,t0,'whole',aleph,'shack, photo jig',dewi,date(01,08,2024),time(18,09,32)).
+image('24R5029:0017204',0137,'t-1','middle',aleph,'shack, photo jig',dewi,date(01,08,2024),time(18,11,37)).
+image('24R5096:0016810',0138,t0,'middle',aleph,'shack, photo jig',dewi,date(01,08,2024),time(18,12,22)).
+image('24R1368:0016438',0139,e2,'stem',aleph,'shack, photo jig',dewi,date(01,08,2024),time(18,13,49)).
+image('24R1368:0016438',0140,e2,'tip',aleph,'shack, photo jig',dewi,date(01,08,2024),time(18,13,53)).
+image('24R5028:0016713',0141,e0,'stem',aleph,'shack, photo jig',dewi,date(01,08,2024),time(18,15,30)).
+image('24R5111:0018705',0142,e2,'middle',aleph,'shack, photo jig',dewi,date(01,08,2024),time(18,16,19)).
+image('24R3154:0016518',0143,e2,'middle',aleph,'shack, photo jig',dewi,date(01,08,2024),time(18,17,34)).
+image('24R3154:0016518',0144,e2,'tip',aleph,'shack, photo jig',dewi,date(01,08,2024),time(18,17,57)).
+image('24R5105:0017909',0145,e0,'middle',aleph,'shack, photo jig',dewi,date(01,08,2024),time(18,19,54)).
+image('24R5105:0017909',0146,e0,'tip',aleph,'shack, photo jig',dewi,date(01,08,2024),time(18,20,38)).
+image('24R5021:0015226',0147,'t-2','whole',aleph,'shack, photo jig',dewi,date(01,08,2024),time(18,35,55)).
+image('24R4766:0003710',0148,'t-1','middle',aleph,'shack, photo jig',dewi,date(01,08,2024),time(18,36,34)).
+image('24R4404:0014813',0149,'t-1','middle',aleph,'shack, photo jig',dewi,date(01,08,2024),time(18,38,15)).
+image('24R4404:0014904',0150,'t-4','whole',aleph,'shack, photo jig',dewi,date(01,08,2024),time(18,39,14)).
+image('24R4944:0014006',0151,t0,'middle',aleph,'shack, photo jig',dewi,date(01,08,2024),time(18,40,08)).
+image('24R5089:0015322',0152,'t-4','whole',aleph,'shack, photo jig',dewi,date(01,08,2024),time(18,40,58)).
+image('24R5085:0014210',0153,'t-1','middle',aleph,'shack, photo jig',dewi,date(01,08,2024),time(18,42,10)).
+image('24R4871:0014504',0154,'t-1','middle',aleph,'shack, photo jig',dewi,date(01,08,2024),time(18,42,56)).
+image('24R5086:0014307',0155,'t-3','middle',aleph,'shack, photo jig',dewi,date(01,08,2024),time(18,43,27)).
+image('24R5086:0014307',0156,'t-3','tip',aleph,'shack, photo jig',dewi,date(01,08,2024),time(18,44,09)).
+image('24R5021:0015101',0157,'t-3','whole',aleph,'shack, photo jig',dewi,date(01,08,2024),time(18,45,21)).
+image('24R4944:0014001',0158,'t-1','middle',aleph,'shack, photo jig',dewi,date(01,08,2024),time(18,46,21)).
+image('24R5006:0003115',0159,t0,'middle',aleph,'shack, photo jig',dewi,date(01,08,2024),time(18,46,53)).
+image('24R4818:0014401',0160,'t-1','middle',aleph,'shack, photo jig',dewi,date(01,08,2024),time(18,47,51)).
+image('24R4944:0014002',0161,'t-1','middle',aleph,'shack, photo jig',dewi,date(01,08,2024),time(18,49,05)).
+image('24R4935:0005002',0162,t0,'middle',aleph,'shack, photo jig',dewi,date(01,08,2024),time(18,50,19)).
+image('24R5072:0004610',0163,'t-1','middle',aleph,'shack, photo jig',dewi,date(01,08,2024),time(18,50,39)).
+image('24R5072:0004610',0164,'t-1','tip',aleph,'shack, photo jig',dewi,date(01,08,2024),time(18,50,59)).
+image('24R5089:0015314',0165,'t-4','stem',aleph,'shack, photo jig',dewi,date(01,08,2024),time(18,52,17)).
+image('24R5089:0015314',0166,'t-4','tip',aleph,'shack, photo jig',dewi,date(01,08,2024),time(18,52,33)).
+image('24R4871:0014501',0167,t0,'stem',aleph,'shack, photo jig',dewi,date(01,08,2024),time(18,53,29)).
+image('24R4871:0014501',0168,t0,'tip',aleph,'shack, photo jig',dewi,date(01,08,2024),time(18,53,44)).
+image('24R4870:0014108',0169,'t-3','stem',aleph,'shack, photo jig',dewi,date(01,08,2024),time(18,54,16)).
+image('24R5084:0013914',0170,'e-2','middle',aleph,'shack, photo jig',dewi,date(01,08,2024),time(18,55,38)).
+image('24R5083:0013511',0172,e3,'middle',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(10,29,32)).
+image('24R5083:0013511',0173,e3,'tip',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(10,29,36)).
+image('24R5083:0013511',0174,e3,'middle',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(10,31,08)).
+image('24R4931:0004003',0175,'e-2','middle',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(00,00,00)).
+image('24R4931:0004003',0176,'e-2','tip',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(10,33,00)).
+image('24R4910:0015514',0177,e1,'middle',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(10,34,23)).
+image('24R4910:0015514',0178,e1,'tip',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(10,35,16)).
+image('24R5088:0014706',0179,e2,'middle',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(10,36,52)).
+image('24R5088:0014706',0180,e2,'tip',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(10,37,09)).
+image('24R4931:0004014',0181,'e-4','middle',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(10,38,51)).
+image('24R4931:0004014',0182,'e-4','tip',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(10,39,20)).
+image('24R5074:0005503',0183,'t-1','middle',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(10,41,02)).
+image('24R5074:0005503',0184,'t-1','tip',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(10,41,13)).
+image('24R5075:0005703',0185,t0,'middle',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(10,42,18)).
+image('24R5075:0005703',0186,t0,'tip',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(10,42,22)).
+image('24R5083:0013506',0187,'t-4','whole',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(10,44,17)).
+image('24R5073:0004805',0188,e2,'middle',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(10,47,40)).
+image('24R5073:0004805',0189,e2,'tip',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(10,47,43)).
+image('24R5016:0013813',0190,'t-1','middle',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(10,49,58)).
+image('24R5016:0013813',0191,'t-1','tip',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(10,50,03)).
+image('24R2414:0013723',0192,e1,'middle',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(10,51,23)).
+image('24R2414:0013723',0193,e1,'tip',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(10,51,27)).
+image('24R5010:0004417',0194,t0,'middle',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(10,52,37)).
+image('24R5010:0004417',0195,t0,'tip',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(10,52,44)).
+image('24R5073:0004904',0196,'t-3','middle',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(10,54,23)).
+image('24R5073:0004904',0197,'t-3','tip',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(10,54,25)).
+image('24R5081:0013306',0198,'t-2','middle',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(10,55,39)).
+image('24R5081:0013306',0199,'t-2','tip',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(10,55,42)).
+image('24R5082:0013404',0200,'t-3','middle',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(10,57,09)).
+image('24R5082:0013404',0201,'t-3','tip',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(10,57,16)).
+image('24R5016:0013816',0202,'t-2','middle',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(10,58,08)).
+image('24R5016:0013816',0203,'t-2','tip',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(10,58,11)).
+image('24R5016:0013818',0204,'t-1','middle',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(10,59,30)).
+image('24R5016:0013818',0205,'t-1','tip',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(10,59,33)).
+image('24R5080:0013205',0206,e0,'middle',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(11,00,54)).
+image('24R5080:0013205',0207,e0,'tip',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(11,00,57)).
+image('24R5080:0013205',0208,e1,'middle',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(11,02,57)).
+image('24R5080:0013205',0209,e1,'tip',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(11,03,00)).
+image('24R5081:0013307',0210,'t-2','middle',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(11,05,01)).
+image('24R5081:0013307',0211,'t-2','tip',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(11,05,08)).
+image('24R5082:0013404',0212,'t-2','middle',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(11,07,44)).
+image('24R5082:0013404',0213,'t-2','tip',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(11,07,48)).
+image('24R2414:0013721',0214,'e-1','middle',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(11,10,55)).
+image('24R2414:0013721',0215,'e-1','tip',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(11,10,58)).
+image('24R5013:0005309',0216,e2,'middle',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(11,12,45)).
+image('24R5013:0005309',0217,e2,'tip',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(11,12,47)).
+image('24R5074:0005509',0218,'t-2','middle',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(11,14,51)).
+image('24R5074:0005509',0219,'t-2','tip',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(11,14,54)).
+image('24R5081:0013307',0220,e2,'middle',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(11,16,46)).
+image('24R5081:0013307',0221,e2,'tip',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(11,16,50)).
+image('24R5084:0013910',0222,e3,'middle',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(11,19,37)).
+image('24R5084:0013910',0223,e3,'tip',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(11,19,47)).
+image('24R5005:0002226',0224,'e-1','middle',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(11,19,50)).
+image('24R5005:0002226',0225,'e-1','tip',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(11,19,52)).
+image('24R4094:0003006',0226,e1,'middle',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(11,21,37)).
+image('24R4094:0003006',0227,e1,'tip',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(11,21,39)).
+image('24R5088:0014729',0228,e0,'middle',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(11,23,05)).
+image('24R5088:0014729',0229,e0,'tip',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(11,23,07)).
+image('24R5013:0005205',0230,'t-3','middle',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(11,24,40)).
+image('24R5013:0005205',0231,'t-3','tip',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(11,24,43)).
+image('24R5087:0014604',0232,e2,'middle',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(11,30,39)).
+image('24R5087:0014604',0233,e2,'tip',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(11,30,41)).
+image('24R4126:0016609',0234,'t-1','middle',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(11,32,06)).
+image('24R4126:0016609',0235,'t-1','tip',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(11,32,09)).
+image('24R5094:0016012',0236,e1,'middle',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(11,33,24)).
+image('24R5094:0016012',0237,e1,'tip',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(11,33,27)).
+image('24R5079:0013110',0238,e1,'middle',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(11,34,43)).
+image('24R5079:0013110',0239,e1,'tip',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(11,34,45)).
+image('24R5013:0005305',0240,'t-2','middle',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(11,36,29)).
+image('24R5013:0005305',0241,'t-2','tip',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(11,36,32)).
+image('24R5088:0014729',0242,e1,'middle',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(11,37,23)).
+image('24R5088:0014729',0243,e1,'tip',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(11,37,26)).
+image('24R5076:0005805',0244,t0,'middle',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(11,39,40)).
+image('24R5076:0005805',0245,t0,'tip',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(11,39,38)).
+image('24R4797:0006702',0246,'t-1','middle',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(11,40,56)).
+image('24R4797:0006702',0247,'t-1','tip',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(11,40,59)).
+image('24R5088:0014720',0248,e2,'middle',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(11,42,42)).
+image('24R5088:0014720',0249,e2,'tip',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(11,42,45)).
+image('24R5077:0006008',0250,t0,'middle',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(11,44,25)).
+image('24R5077:0006008',0251,t0,'tip',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(11,44,28)).
+image('24R5068:0002012',0252,'e-2','middle',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(11,47,11)).
+image('24R5068:0002012',0253,'e-2','tip',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(11,47,08)).
+image('24R5068:0002005',0254,'t-1','middle',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(11,51,17)).
+image('24R5068:0002005',0255,'t-1','tip',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(11,51,19)).
+image('24R5077:0006009',0256,t0,'middle',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(11,53,03)).
+image('24R5077:0006009',0257,t0,'tip',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(11,53,10)).
+image('24R5077:0006015',0258,t0,'middle',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(11,54,17)).
+image('24R5077:0006015',0259,t0,'tip',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(11,54,20)).
+image('24R4910:0015602',0260,'t-1','middle',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(11,55,01)).
+image('24R4910:0015602',0261,'t-1','tip',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(11,54,58)).
+image('24R4910:0015604',0262,'t-1','middle',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(11,56,25)).
+image('24R4910:0015604',0263,'t-1','tip',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(11,56,22)).
+image('24R4429:0002401',0264,t0,'whole',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(11,56,32)).
+image('24R1368:0016409',0265,'t-2','middle',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(11,58,43)).
+image('24R1368:0016409',0266,'t-2','tip',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(12,03,40)).
+image('24R4404:0014808',0267,'t-6','middle',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(12,07,33)).
+image('24R4404:0014808',0268,'t-6','tip',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(12,07,35)).
+image('24R5094:0016002',0269,'t-2','whole',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(12,09,19)).
+image('24R5004:0001710',0270,'t-1','middle',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(12,10,47)).
+image('24R5004:0001710',0271,'t-1','tip',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(12,10,50)).
+image('24R5083:0013502',0272,'t-5','middle',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(12,12,45)).
+image('24R5083:0013502',0273,'t-5','tip',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(12,12,39)).
+image('24R5004:0001809',0274,'t-1','middle',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(12,14,16)).
+image('24R5004:0001809',0275,'t-1','tip',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(12,14,18)).
+image('24R4935:0005008',0276,t0,'whole',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(12,15,00)).
+image('24R5014:0006508',0277,'t-2','whole',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(12,16,23)).
+image('24R4935:0005014',0278,'t-1','middle',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(12,17,13)).
+image('24R4935:0005014',0279,'t-1','tip',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(12,17,10)).
+image('24R4766:0003717',0280,'t-3','middle',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(12,18,27)).
+image('24R4766:0003717',0281,'t-3','tip',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(12,18,30)).
+image('24R5006:0003116',0282,'t-1','middle',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(12,24,04)).
+image('24R5006:0003116',0283,'t-1','tip',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(12,25,01)).
+image('24R5004:0001807',0284,'t-1','whole',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(12,25,03)).
+image('24R5084:0013916',0285,'e-4','middle',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(12,25,05)).
+image('24R5084:0013916',0286,'e-4','tip',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(12,25,07)).
+image('24R4766:0003812',0287,t0,'whole',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(12,27,01)).
+image('24R5084:0013916',0288,'e-2','middle',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(12,31,23)).
+image('24R5084:0013916',0289,'e-2','tip',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(12,31,27)).
+image('24R5078:0006204',0290,e0,'middle',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(12,32,41)).
+image('24R5078:0006204',0291,e0,'tip',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(12,32,44)).
+image('24R4435:0003409',0292,t0,'middle',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(12,34,22)).
+image('24R4435:0003409',0293,t0,'tip',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(12,34,24)).
+image('24R4435:0003406',0294,t0,'whole',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(12,36,13)).
+image('24R5070:0002817',0295,'t-1','whole',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(12,36,15)).
+image('24R5080:0013209',0296,e1,'middle',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(12,36,59)).
+image('24R5080:0013209',0297,e1,'tip',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(12,37,01)).
+image('24R4797:0006703',0298,'t-2','middle',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(12,38,30)).
+image('24R4797:0006703',0299,'t-2','tip',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(12,38,33)).
+image('24R4094:0003008',0300,'t-1','middle',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(12,39,36)).
+image('24R4094:0003008',0301,'t-1','tip',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(12,40,44)).
+image('24R5014:0006413',0302,'t-3','middle',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(12,41,36)).
+image('24R5014:0006413',0303,'t-3','tip',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(12,41,39)).
+image('24R5006:0003211',0304,t0,'whole',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(12,43,12)).
+image('24R5068:0001910',0305,'t-1','middle',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(12,44,44)).
+image('24R5068:0001910',0306,'t-1','tip',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(12,44,47)).
+image('24R5078:0006306',0307,e2,'stem',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(12,46,16)).
+image('24R5078:0006306',0308,e2,'middle',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(12,46,18)).
+image('24R5078:0006306',0309,e2,'tip',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(12,46,21)).
+image('24R4126:0016635',0310,t0,'whole',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(12,47,34)).
+image('24R5070:0002706',0311,'t-2','middle',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(12,48,10)).
+image('24R5070:0002706',0312,'t-2','tip',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(12,48,39)).
+image('24R5101:0017414',0313,'t-1','whole',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(12,49,33)).
+image('24R5090:0015401',0314,'t-4','middle',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(12,51,00)).
+image('24R5090:0015401',0315,'t-4','tip',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(12,51,02)).
+image('24R5076:0005811',0316,t0,'whole',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(12,52,09)).
+image('24R5006:0003201',0317,t0,'middle',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(12,53,23)).
+image('24R5006:0003201',0318,t0,'tip',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(12,53,26)).
+image('24R5073:0004904',0319,'t-1','middle',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(12,54,36)).
+image('24R5073:0004904',0320,'t-1','tip',aleph,'shack, photo jig',chimdi,date(02,08,2024),time(12,54,39)).

@@ -46,6 +46,7 @@ our @EXPORT = qw($palm_re
              $month_re
              $day_re
              $year_re
+             $abbrv_date_re
              $prolog_date_innards_re
              $time_re
              $hour_re
@@ -98,6 +99,8 @@ our @EXPORT = qw($palm_re
              $ft_re
              $prow_re
              $pplant_re
+             $spaced_plant_re		 
+             $ipish_glob_re
              $ear_re
             );
 
@@ -132,10 +135,10 @@ $bug_re = qr/\s*|0|1|2/;
 $note_re = qr/[\w\_\s\;\.]*/;
 # $instructns_re = qr/[\w\s\d\;\_\.\!\-\:\,\?]+/;
 $instructns_re = qr/.+/;
-$tf_re = qr/[tT]rue|[fF]alse/;
+$tf_re = qr/[tTrRuUeE]+|[fFaAlLsSeE]+/;
 $num_tf_re = qr/1|0/;
 $num_tfxtra_re = qr/1|0|4/;
-$observer_re = qr/toni|dewi|jang|chris|harperees|josh|mason|avi|linh|derek|wade|amy|hawaiian_research|bill|dylan|matt|clay/;
+$observer_re = qr/toni|dewi|chimdi|evie|alondra|jang|chris|harperees|josh|mason|avi|linh|derek|wade|amy|hawaiian_research|bill|dylan|matt|clay/;
 $blank_re = qr/\s*/;
 
 
@@ -187,6 +190,7 @@ $month_re = qr/\d{1,2}/;
 # $day_re = qr/\d{2}/;
 $day_re = qr/\d{1,2}/;
 $year_re = qr/\d{2,4}/;
+$abbrv_date_re = qr/\d{1,2}\.\d{1,2}/;
 $prolog_date_innards_re = qr/\d{1,2},\d{1,2},\d{4}/;
 
 
@@ -212,10 +216,16 @@ $prolog_time_innards_re = qr/\d{1,2},\d{1,2},\d{1,2}/;
 # crops, families, genotypes, K numbers
 
 $crop_re = qr/\d{2}\w/;
-$planting_re = qr/\d{1}/;
+# $planting_re = qr/\d{1}/;
+#
+# to accommodate negative labe plantings
+#
+# Kazic, 16.4.2024
+$planting_re = qr/\-\d{1}/;
+
 $family_re = qr/\d{1,4}/;
 $inbred_re = qr/[234567]\d\d/;
-$knum_re = qr/K\d{4,5}/;
+$knum_re = qr/(K\d{4,5}|\s{0})/;
 # 
 # original_family_re changed from {1,4}, but this still isn't good;
 # the test is really just if it's numerically below 200.
@@ -238,8 +248,12 @@ $knum_re = qr/K\d{4,5}/;
 $original_family_re = qr/\d?\d?\d?\d/;
 $mutant_family_re = qr/\d{4}/;
 #
-$nonmutant_particle_re = qr/[SWMBLEP]/;
-$nonfun_particle_re = qr/[LEPX]/;
+# added letters for addie's lines
+#
+# Kazic, 4.8.2023
+#
+$nonmutant_particle_re = qr/[SWMBLEPFGHXYZ]/;
+$nonfun_particle_re = qr/[LEP]/;
 #
 # this next is not robust:  it is too greedy
 #
@@ -247,10 +261,17 @@ $in_btwn_re = qr/[\,\"\w\*\-\+\.\/\s\{\}\|\;\(\)\?\^]+/;
 # $num_gtype_re = qr/\d{2}\w\d{3,4}\:\w?\w{7}/;
 # $num_gtype_re = qr/\d{2}\w\d{3,4}\:\w?[\w\.]+/;
 # $num_gtype_re = qr/\d{2}\w\d{3,4}\:\w?[\w\.]*/;
-$num_gtype_re = qr/\d{2}[RNG]\d{3,4}\:[SWMBEPLI]?[\w\.]*/;
-$barcode_elts_re = qr/\d{2}[RNG]\d{3,4}\:[SWMBEPLI]?/;
+#
+# added letters for addie's lines
+#
+# Kazic, 11.7.2023
+#
+# $num_gtype_re = qr/\d{2}[RNG]\d{3,4}\:[SWMBEPLIFGHXYZ]?[\w\.]*/;
+$num_gtype_re = qr/\d{2}[RNG]\d{3,4}\:[SWMB]?\d+/;
+# $num_gtype_re = qr/\w+:\w+/;
+$barcode_elts_re = qr/\d{2}[RNG]\d{3,4}\:[SWMBEPLIFGHXYZ]?/;
 $old_num_gtype_re = qr/\d{2}[\w\.]{8}/;
-$inbred_prefix_re = qr/[SWMB]/;
+$inbred_prefix_re = qr/[SWMBFGHXYZ]/;
 $wierd_gtype_re = qr/[\w\-\:\?\*\+\.\/\s\'\;]*/;
 $gtype_re = qr/[\w\*\-\+\.\/\s\{\}\|\;\(\)\?\^]*/;
 $full_gtype_re = qr/\"?${gtype_re}\"?,\"?${gtype_re}\"?,\"?${gtype_re}\"?,\"?${gtype_re}\"?/;
@@ -310,7 +331,7 @@ $cl_re = qr/\d{0,3}/;
 $word_cl_re = qr/(whole|three_quarter|half|quarter|eighth|sixteenth|inf)/;
 $fuzzy_cl_re = qr/[a-z\_]*/;
 $state_or_cl_re = qr/[\w\d]+/;
-$ft_re = qr/\d{1,2}/;
+$ft_re = qr/\d{1,3}/;
 
 
 
@@ -318,6 +339,8 @@ $ft_re = qr/\d{1,2}/;
 
 $prow_re = qr/\d{5}/;
 $pplant_re = qr/\d{2}/;
+$spaced_plant_re = qr/\d+[\d\s]*/;
+$ipish_glob_re = qr/\d{0,2}[\d\.]*/;
 $ear_re = qr/[12]/;
 
 

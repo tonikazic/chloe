@@ -4,8 +4,8 @@
 
 # this is ../c/maize/crops/scripts/count_lines.perl
 #
-# a script to compute the lines in the different categories and output the results to
-# computable tables in an org file
+# a script to compute the lines in the different categories for
+# pollinations and output the results to computable tables in an org file
 #
 # the org file generated should be substituted back into packing_plan.org, under strategy; 
 # the tables prettified; others' rows inserted; and the new values calculated.
@@ -23,6 +23,11 @@
 #
 # Kazic, 5.6.2018
 
+
+
+# hmmm, this may need revision, getting a lot of uninstantiated variables
+#
+# Kazic, 25.5.2020
 
 
 use strict;

@@ -219,9 +219,15 @@ sub generate_pdf {
                         my $pdf = $pdf_branch . ".pdf";
 
                         if ( $flag eq 'test' ) { print "pdf file: $pdf\n"; }
-			
+
+
+# added truncation of long lines in the enscript command so that org links
+# to images will not overwhelm the eye
+#			
+# Kazic, 16.2.2022			
+
                         if ( ! -e $pdf ) {
-                                my $cmd = "enscript -r '" . $_ . "' -o f.ps; ps2pdf f.ps '" . $pdf . "'; rm f.ps";
+                                my $cmd = "enscript -r -c '" . $_ . "' -o f.ps; ps2pdf f.ps '" . $pdf . "'; rm f.ps";
                                 if ( $flag eq 'test' ) { print "cmd is $cmd\n"; }
                                 if ( $flag eq 'go' ) { print "$pdf: ";  system($cmd); }
 			        }

@@ -76,6 +76,14 @@
 
 
 
+# We're consistently disappointed with the longevity of the polyester, so
+# back to paper and laminating it!
+#
+# so call is ./make_vertical_row_stake_labels.perl i r 24r 'lampap'
+#
+# Kazic, 15.5.2024
+
+
 use strict;
 use warnings;
 
@@ -131,7 +139,10 @@ my $num_materials = scalar @materials;
 my $local_dir = getcwd;
 my ($dir,$input_dir,$barcodes,$tags_dir) = &adjust_paths($crop,$local_dir);
 
-my $input_stem = $num_cutting . "_stakes";
+# my $input_stem = $num_cutting . "_stakes_needed";
+#
+# for 24r
+my $input_stem = $num_cutting . "_stakes_needed_merged";
 my $input_file = $input_dir . $input_stem;
 
 my $output_file = $tags_dir . $input_stem;
@@ -210,7 +221,7 @@ my ($i,$barcode_out,$row_num,$material);
 #
 # Kazic, 15.5.2020
 
-if ( $num_materials == 1 ) { $material = @materials[0]; }
+if ( $num_materials == 1 ) { $material = $materials[0]; }
 else {}
 
 
@@ -228,6 +239,7 @@ if ( $num_rows =~ /^r$/ ) {
 #                &print_vertical_row_stake_label(\*TAG,$barcode_out,$row_num,$i,$#labels);
 		
                 &print_vertical_row_stake_label(\*TAG,$barcode_out,$row_num,$num_cutting,$material,$i,$#labels);
+
 		
 
                 }
