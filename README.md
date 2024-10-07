@@ -1,6 +1,4 @@
 
-# Table of Contents
-
 
 
 *Chloe* and *Demeter* are the code components of our crop management system for our maize research.  
