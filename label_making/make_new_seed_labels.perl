@@ -73,7 +73,8 @@ my ($dir,$input_dir,$barcodes,$tags_dir) = &adjust_paths($crop,$local_dir);
 
 
 
-my $input_stem = "22r_tags_needed";
+
+my $input_stem = "24r_tags_needed";
 my $tags_stem = $input_stem;
 
 # print "is: $input_stem\nts: $tags_stem\n";

@@ -1888,11 +1888,13 @@ sub print_plant_tags {
 # Kazic, 13.7.2020
 
 
+
 # no more need for perforation guides since we now buy pre-perforated paper
 # from MU printing services
 #
 # Kazic, 5.6.2023	 
 	 
+
 	 
         if ( $rem == 0 ) {
 
@@ -1901,7 +1903,11 @@ sub print_plant_tags {
                 &begin_big_picture($filehandle);
 
 		&print_centered_page_num($filehandle);
+<<<<<<< HEAD
 #                &print_perforation_guides_plant_tags($filehandle);		
+=======
+                &print_perforation_guides_plant_tags($filehandle);		
+>>>>>>> 2f415dfbd1a250fed7b4362bfffb9520d04a0c98
 #                &print_plant_tag_guide_boxes($filehandle);
                 }
 

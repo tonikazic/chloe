@@ -260,9 +260,14 @@ elsif ( $operation eq "sequence" ) {
 #	
 # Kazic, 31.5.2021
 
+
 # negative planting may break this, test
 #
 # Kazic, 16.4.2024	
+#
+# nope, seems ok
+#
+# Kazic, 1.8.2024	
 
         my $i = 1;
 
@@ -270,10 +275,16 @@ elsif ( $operation eq "sequence" ) {
 
                 if ( $_ =~ /^packing_plan/ ) {
 #                        my ($front,$middle,$end) = $_ =~ /^(packing_plan\()(,.+)(,\d{1,3},\d{1,3}\).)$/;
+<<<<<<< HEAD
                         my ($front,$middle,$end) = $_ =~ /^(packing_plan\()(,.+)(,\d{1,3},\d{1,3}\))/;
 #                        print $_;
 #                        print "$i :$front: :$middle: :$end:\n";
                         print $out $front . $i . $middle . ",'" . $current_crop_string . "'" . $end . ".\n";
+=======
+                        my ($front,$middle,$end) = $_ =~ /^(packing_plan\()(,.+)(,\d{1,3},\d{1,3}\)\.)$/;
+#                        print "$i :$front: :$middle: :$end:\n";
+                        print $out $front . $i . $middle . ",'" . $current_crop_string . "'" . $end . "\n";
+>>>>>>> 2f415dfbd1a250fed7b4362bfffb9520d04a0c98
                         $i++;
                         }
 
